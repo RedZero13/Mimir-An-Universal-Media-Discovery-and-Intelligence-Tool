@@ -1231,7 +1231,46 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
   }
   const words = (text) => new Set(((text || "").toLowerCase().match(/[a-z0-9]+/g) || []).map(stem));
 
-  function createCatalogue(data, taxonomyData, enrichment = {}, shelfSpec = { shelves: [], mood_rings: [] }) {
+  // ------------------------------------------------------------------ where to watch / listen / read / play (mirrors providers.py)
+  function itemOf(w) {
+    const platforms = w.attributes.platforms;
+    return { medium: w.medium, title: w.title, creator: w.creators.length ? w.creators[0] : "", year: w.year,
+      platforms: Array.isArray(platforms) ? [...platforms] : [], ids: { ...w.ids } };
+  }
+
+  function whereFor(item, region, spec) {
+    const media = spec.media[item.medium];
+    if (!media) return null;
+    region = has(spec.regions, region) ? region : spec.default_region;
+    const fields = spec.regions[region];
+    const platforms = item.platforms || [];
+    const ids = item.ids || {};
+    const out = [];
+    for (const p of media.providers) {
+      if (has(p, "regions") && !p.regions.includes(region)) continue;
+      if (has(p, "platforms") && platforms.length && !p.platforms.some((x) => platforms.includes(x))) continue;
+      const exact = has(p, "exact") && ids[p.exact.id] ? p.exact : null;
+      let url;
+      if (exact) url = exact.url.replace("{id}", pyQuote(String(ids[exact.id])));
+      else {
+        let q = p.q;
+        for (const key of ["title", "creator", "year"]) {
+          const value = item[key];
+          q = q.split(`{${key}}`).join(value === null || value === undefined ? "" : String(value));
+        }
+        q = q.replace(/\s+/g, " ").trim();
+        url = p.url;
+        for (const [key, value] of Object.entries(fields)) url = url.split(`{${key}}`).join(value);
+        const encoded = pyQuote(q);
+        url = url.split("{q}").join(p.enc === "query" ? encoded.replace(/%20/g, "+") : encoded);
+      }
+      out.push({ id: p.id, name: p.name, verb: has(p, "verb") ? p.verb : media.verb, url, exact: !!exact });
+    }
+    const dflt = out.some((p) => p.id === media.default) ? media.default : out.length ? out[0].id : null;
+    return { medium: item.medium, verb: media.verb, region, default: dflt, providers: out };
+  }
+
+  function createCatalogue(data, taxonomyData, enrichment = {}, shelfSpec = { shelves: [], mood_rings: [] }, providerSpec = null) {
     const tax = parseTaxonomy(taxonomyData);
     const d = { genre_confidence: 0.9, term_confidence: 0.7, advisory_confidence: 0.75, ...(data.defaults || {}) };
     const works = new Map();
@@ -1329,6 +1368,9 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       group: (slug) => views.groupPage(list, slug),
       moodRings: () => views.moodRings(list, shelfSpec),
       remixRack: () => views.remixRack(list),
+      where: (slug, region) => { const w = list.find((x) => x.slug === slug); return w && providerSpec ? whereFor(itemOf(w), region, providerSpec) : null; },
+      whereFor: (item, region) => (providerSpec ? whereFor(item, region, providerSpec) : null),
+      regions: () => (providerSpec ? Object.entries(providerSpec.regions).map(([code, r]) => ({ code, name: r.name })) : []),
     };
   }
 

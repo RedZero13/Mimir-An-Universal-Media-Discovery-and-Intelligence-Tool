@@ -9,7 +9,8 @@ const catalogue = JSON.parse(fs.readFileSync(path.join(api, "seed", "catalogue.j
 const taxonomy = JSON.parse(fs.readFileSync(path.join(api, "taxonomy", "taxonomy.json"), "utf8"));
 const input = JSON.parse(fs.readFileSync(0, "utf8"));
 const shelves = JSON.parse(fs.readFileSync(path.join(api, "catalogue", "shelves.json"), "utf8"));
-const cat = MDE.createCatalogue(catalogue, taxonomy, input.enrichment || {}, shelves);
+const providers = JSON.parse(fs.readFileSync(path.join(api, "catalogue", "providers.json"), "utf8"));
+const cat = MDE.createCatalogue(catalogue, taxonomy, input.enrichment || {}, shelves, providers);
 const view = ([kind, arg]) => {
   if (kind === "browse") return cat.browse(arg);
   if (kind === "tag") return cat.tag(arg);
@@ -22,6 +23,7 @@ const view = ([kind, arg]) => {
   if (kind === "group") return cat.group(arg);
   if (kind === "mood_rings") return cat.moodRings();
   if (kind === "remix_rack") return cat.remixRack();
+  if (kind === "where") return cat.where(arg[0], arg[1]);
   throw new Error(`unknown view ${kind}`);
 };
 process.stdout.write(JSON.stringify({

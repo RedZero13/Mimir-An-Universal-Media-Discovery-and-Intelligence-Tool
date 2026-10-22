@@ -122,6 +122,8 @@ def test_api_catalogue_views_match_the_in_memory_catalogue(client):
         assert client.get(path).json() == json.loads(json.dumps(view)), path
     group = mem.groups()[0]["slug"]
     assert client.get(f"/api/groups/{group}").json() == json.loads(json.dumps(mem.group(group)))
+    assert client.get("/api/works/arrival-2016/where", params={"region": "IN"}).json() == mem.where("arrival-2016", "IN")
+    assert client.get("/api/works/nope/where").status_code == 404
     assert client.get("/api/shelves/nope").status_code == 404
     assert client.get("/api/groups/nope").status_code == 404
 

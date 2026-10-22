@@ -97,7 +97,8 @@ def _views(cat):
     return ([["browse", b] for b in BROWSE_CASES] + [["tag", k] for k in tag_keys] + [["tags", None]]
             + [["person", s] for s in people] + [["people", None]]
             + [["shelves", None]] + [["shelf", s] for s in shelves] + [["groups", None]] + [["group", g] for g in groups]
-            + [["mood_rings", None], ["remix_rack", None]])
+            + [["mood_rings", None], ["remix_rack", None]]
+            + [["where", [w.slug, region]] for w in cat.works for region in ("US", "IN", "GB", "XX", None)])
 
 
 def _run(cat, kind, arg):
@@ -105,7 +106,8 @@ def _run(cat, kind, arg):
     return {"browse": lambda a: cat.browse(BrowseFilters(**a)), "tag": cat.tag, "tags": lambda _: cat.tags(),
             "person": cat.person, "people": lambda _: cat.people(), "shelves": lambda _: cat.shelves(),
             "shelf": cat.shelf, "groups": lambda _: cat.groups(), "group": cat.group,
-            "mood_rings": lambda _: cat.mood_rings(), "remix_rack": lambda _: cat.remix_rack()}[kind](arg)
+            "mood_rings": lambda _: cat.mood_rings(), "remix_rack": lambda _: cat.remix_rack(),
+            "where": lambda a: cat.where(*a)}[kind](arg)
 
 
 # Each side runs twice: with no enrichment, and with the labelled test fixture (images, scores, series, tracks …).

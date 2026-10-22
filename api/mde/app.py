@@ -12,7 +12,7 @@ from pydantic import BaseModel, Field
 
 from mde import db
 from mde import taxonomy as taxonomy_mod
-from mde.catalogue import browse, repository
+from mde.catalogue import browse, providers, repository
 from mde.discovery.engine import discover
 
 app = FastAPI(title="Media Discovery Engine", version="0.2.0")
@@ -81,6 +81,16 @@ def work_endpoint(slug: str) -> dict:
         if work is None:
             raise HTTPException(404, "work not found")
         return {**browse.work_page(work, works, taxonomy_mod.load()), **repository.work_sources(conn, slug)}
+
+
+@app.get("/api/works/{slug}/where")
+def where_endpoint(slug: str, region: str | None = Query(default=None, max_length=4)) -> dict:
+    """Links to watch, listen, read or play on each service (search links; availability varies by region)."""
+    with db.connect() as conn:
+        work = next((w for w in repository.load_profiles(conn) if w.slug == slug), None)
+    if work is None:
+        raise HTTPException(404, "work not found")
+    return providers.where_to(providers.item_of(work), region)
 
 
 @app.get("/api/tags")

@@ -150,6 +150,7 @@ details > summary:hover { color: var(--bone); }
 .crumbs a { color: var(--muted); text-decoration: none; }
 .crumbs a:hover { color: var(--gold-bright); }
 .block { margin-top: 40px; }
+[id] { scroll-margin-top: 72px; }
 .block > h2 { font-size: 1.7rem; margin-bottom: 14px; }
 .filters { margin-top: 24px; padding-block: 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 16px; }
 .filters input[type="search"], .filters select {
@@ -487,6 +488,15 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .hero-links a { color: var(--ink); text-decoration-color: var(--line-strong); }
 .hero-links a:hover { color: var(--gold-bright); }
 .work-id .mine-btn { min-height: 46px; border-radius: 99px; padding: 0 22px; }
+.where { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: flex-end; margin-bottom: 16px; }
+.where-main { min-height: 50px; padding: 0 30px; }
+.where-main::after, .pref-link::after { content: " ↗"; }
+.pref-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.pref-pick { display: grid; gap: 4px; font-size: .78rem; color: var(--muted); }
+.pref-pick select { font: 400 .9rem var(--f-body); color: var(--bone); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 7px 10px; }
+.pref-link { font-size: .84rem; color: var(--gold-bright); text-decoration: none; }
+.pref-link:hover { color: var(--bone); text-decoration: underline; }
+.dt-where { background: transparent !important; padding: 2px 0 0 !important; }
 .linkouts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .linkouts a { display: inline-block; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 99px; color: var(--ink); text-decoration: none; font-size: .88rem; }
 .linkouts a::after { content: " ↗"; color: var(--gold); }
@@ -560,6 +570,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 <script id="catalogue-data" type="application/json">/*__CATALOGUE__*/</script>
 <script id="shelves-data" type="application/json">/*__SHELVES__*/</script>
 <script id="enrichment-data" type="application/json">/*__ENRICHMENT__*/</script>
+<script id="providers-data" type="application/json">/*__PROVIDERS__*/</script>
 <script>/*__ENGINE__*/</script>
 <script>
 (() => {
@@ -569,6 +580,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     JSON.parse(document.getElementById("taxonomy-data").textContent),
     JSON.parse(document.getElementById("enrichment-data").textContent),
     JSON.parse(document.getElementById("shelves-data").textContent),
+    JSON.parse(document.getElementById("providers-data").textContent),
   );
   const app = document.getElementById("app");
   const EXAMPLES = [
@@ -975,6 +987,48 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   }
 
   // ------------------------------------------------------------------ catalogue pieces
+  // ------------------------------------------------------------------ preferred apps and region (kept in this browser)
+  const REGION_GUESS = { IN: "IN", GB: "GB", UK: "GB", CA: "CA", AU: "AU", US: "US" };
+  function loadPrefs() {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem("mimir-prefs") || "{}") || {}; } catch { saved = {}; }
+    const lang = (navigator.language || "").split("-")[1] || "";
+    return { region: saved.region || REGION_GUESS[lang.toUpperCase()] || "US", apps: saved.apps || {} };
+  }
+  let prefs = loadPrefs();
+  function savePrefs() { try { localStorage.setItem("mimir-prefs", JSON.stringify(prefs)); } catch { /* storage unavailable: keep for this visit */ } }
+  const VERB_ING = { Watch: "watching", Listen: "listening", Read: "reading", Play: "playing" };
+
+  // The preferred service for a medium, falling back to the registry's default when the saved one isn't offered here.
+  function preferred(where) {
+    if (!where || !where.providers.length) return null;
+    return where.providers.find((p) => p.id === prefs.apps[where.medium]) || where.providers.find((p) => p.id === where.default) || where.providers[0];
+  }
+  const whereOfCard = (w) => cat.where(w.slug, prefs.region);
+  function prefLink(where, cls = "pref-link", label) {
+    const p = preferred(where);
+    return p ? `<a class="${cls}" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(label || `${p.verb} on ${p.name}`)}</a>` : "";
+  }
+  const trackWhere = (t) => cat.whereFor({ medium: "album", title: t.title, creator: t.artist, year: null }, prefs.region);
+  const appSelect = (where) => `<label class="pref-pick"><span>Your ${esc(VERB_ING[where.verb])} app</span>
+    <select data-pref-app="${esc(where.medium)}">${where.providers.map((p) => `<option value="${esc(p.id)}" ${preferred(where).id === p.id ? "selected" : ""}>${esc(p.name)}</option>`).join("")}</select></label>`;
+  const regionSelect = () => `<label class="pref-pick"><span>Region</span><select data-pref-region>${cat.regions().map((r) => `<option value="${r.code}" ${prefs.region === r.code ? "selected" : ""}>${esc(r.name)}</option>`).join("")}</select></label>`;
+
+  function whereBlock(where) {
+    if (!where || !where.providers.length) return "";
+    const pick = preferred(where);
+    return `
+      <section class="block" id="where">
+        <h2>Where to ${esc(where.verb.toLowerCase())}</h2>
+        <div class="where">
+          <a class="btn where-main" href="${esc(pick.url)}" target="_blank" rel="noopener noreferrer">${esc(pick.verb)} on ${esc(pick.name)}</a>
+          <div class="pref-row">${appSelect(where)}${regionSelect()}</div>
+        </div>
+        <ul class="linkouts where-all">${where.providers.filter((p) => p.id !== pick.id).map((p) => `<li>${ext(p.url, p.name)}</li>`).join("")}</ul>
+        <p class="muted small" style="margin-top:12px">${where.providers.some((p) => p.exact) ? "Exact store pages where the catalogue holds the ID; other" : "These"} links open a search on each service. Mimir can't confirm a title is on a service right now: catalogues change and vary by region.${where.medium === "film" ? " JustWatch shows what's streaming where you are." : ""}</p>
+      </section>`;
+  }
+
   // ------------------------------------------------------------------ my shelf (kept in this browser only)
   function loadMine() { try { return JSON.parse(localStorage.getItem("mimir-shelf") || "[]"); } catch { return []; } }
   let mine = loadMine();
@@ -1119,6 +1173,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
               ${w.creators.length ? `<div><dt>${esc(CREATOR_ROLE[w.medium] || "By")}:</dt><dd>${w.creators.slice(0, 2).map((c) => esc(c)).join(", ")}</dd></div>` : ""}
               ${qualities.length ? `<div><dt>Qualities:</dt><dd>${qualities.map((t) => `<a href="#${tagToken(t.key)}">${esc(t.label)}</a>`).join(", ")}</dd></div>` : ""}
               <div><dt>Continuity:</dt><dd>${esc(contText(w.continuity))}</dd></div>
+              <div class="dt-where">${prefLink(whereOfCard(w))}</div>
               ${w.guide_flags.length ? `<div><dt>Guide:</dt><dd>${w.guide_flags.map((f) => `${sevPill(f.severity)} ${esc(f.label)}`).join(" ")}</dd></div>` : ""}
             </dl>
           </div>
@@ -1335,9 +1390,10 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const factSource = (k) => ({ Released: "release_year", Time: "runtime_minutes" })[k];
     const credits = [...w.credits].sort((a, b) => roleRank(a.role) - roleRank(b.role));
     const links = reactionLinks(w);
+    const where = cat.where(w.slug, prefs.region);
     const reactions = links.filter((l) => l.kind.startsWith("reactions:"));
     const elsewhere = links.filter((l) => !l.kind.startsWith("reactions:"));
-    const jumps = [["overview", "Overview"], ...(c.members.length > 1 ? [["run", c.kind === "series" ? "Series" : "Family"]] : []),
+    const jumps = [["overview", "Overview"], ["where", `Where to ${where ? where.verb.toLowerCase() : "find"}`], ...(c.members.length > 1 ? [["run", c.kind === "series" ? "Series" : "Family"]] : []),
       ...(w.tracks.length ? [["tracks", "Tracks"]] : []), ["tags", "Tags"], ["guide", "Parents' guide"], ["reactions", "Reactions"],
       ["credits", "Credits"], ...(w.relationships.length ? [["connected", "Connected stories"]] : [])];
     app.innerHTML = `
@@ -1355,8 +1411,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
             ${w.scores.length ? `<ul class="scores">${w.scores.map((s) => `<li><span class="score-v">${esc(scoreText(s))}</span><span class="score-p">${esc(s.publisher)}<br><span class="muted">${esc(s.metric)}${s.votes ? ` · ${s.votes.toLocaleString("en")} votes` : ""}${s.as_of ? ` · ${esc(s.as_of)}` : ""}</span></span></li>`).join("")}</ul>` : ""}
             ${w.box_office.length ? `<p class="small muted">Box office: ${w.box_office.map((b) => `${esc(money(b))} ${esc(b.scope)}`).join(" · ")}</p>` : ""}
             <div class="actions">
-              ${album && w.spotify ? ext(w.spotify, "Listen on Spotify", "btn") : ""}
-              <button class="btn${album ? " ghost" : ""}" type="button" data-similar="${esc(w.title)}">Find similar</button>
+              ${prefLink(where, "btn")}
+              <button class="btn ghost" type="button" data-similar="${esc(w.title)}">Find similar</button>
               <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
               ${mineBtn(w.slug)}
             </div>
@@ -1374,6 +1430,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
           <header class="shelf-head"><div><h2>${c.kind === "series" ? `The ${esc(c.group.name)} series` : `The ${esc(c.group.name)} family`}</h2><p>${c.kind === "series" ? "In series order." : "In release order, found through sequel, spin-off and remake links."}</p></div><a class="see-all" href="#group-${esc(c.group.slug)}">Open</a></header>
           <ol class="run">${c.members.map((m, i) => `<li class="${m.slug === w.slug ? "here" : ""}"><a href="#work-${esc(m.slug)}">${(() => { const mw = cat.work(m.slug); return poster(coverOf({ ...m, creators: [], images: mw.images }, moodFromPage(mw))); })()}<span class="run-n">${m.position ? `No. ${esc(m.position)}` : i + 1}</span><span class="run-t">${esc(m.title)}</span><span class="pmeta">${esc([mediumLabel(m.medium), m.year].filter(Boolean).join(" · "))}${m.slug === w.slug ? " · this one" : ""}</span></a></li>`).join("")}</ol>
         </section>` : ""}
+        ${whereBlock(where)}
         ${w.tracks.length ? `<section class="block" id="tracks"><h2>Tracks</h2>${trackList(w.tracks, false)}</section>` : ""}
         <section class="block" id="tags">
           <h2>Tags</h2>
@@ -1445,7 +1502,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   function moodBand() {
     return `
       <section class="block band" aria-labelledby="mood-h">
-        <header class="shelf-head"><div><h2 id="mood-h">Mood rings</h2><p>Albums and tracks by feeling, with a Spotify link for each.</p></div><a class="see-all" href="#music">Open the music room</a></header>
+        <header class="shelf-head"><div><h2 id="mood-h">Mood rings</h2><p>Albums and tracks by feeling, with a link to your music app for each.</p></div><a class="see-all" href="#music">Open the music room</a></header>
         <ul class="rings">${cat.moodRings().map((r) => { const [a, b, c] = PALETTES[RING_MOOD[r.slug]] || PALETTES.default; return `
           <li><a class="ring-chip" href="#music-${esc(r.slug)}" style="--r0:${a};--r1:${b};--ra:${c}"><span class="ring-name">${esc(r.name)}</span><span class="ring-tag">${esc(r.tagline)}</span><span class="ring-n">${r.albums.length} album${r.albums.length === 1 ? "" : "s"}</span></a></li>`; }).join("")}</ul>
       </section>`;
@@ -1499,29 +1556,28 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const dur = (s) => (s ? `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}` : "");
     return `<ol class="tracks">${tracks.map((t) => `
       <li><span class="t-title">${esc(t.title)}${showAlbum ? ` <span class="muted">· ${esc(t.artist)}, <a href="#work-${esc(t.album)}">${esc(t.album_title)}</a></span>` : ""}</span>
-        <span class="t-dur mono">${dur(t.seconds)}</span>${ext(t.spotify, "Spotify", "spot")}
-        ${t.remixes.length ? `<ul class="remixes">${t.remixes.map((m) => `<li>Remixed as <em>${esc(m.title)}</em>${m.artist ? ` by ${esc(m.artist)}` : ""} ${ext(m.spotify, "Spotify", "spot")}</li>`).join("")}</ul>` : ""}</li>`).join("")}</ol>`;
+        <span class="t-dur mono">${dur(t.seconds)}</span>${prefLink(trackWhere(t), "spot", preferred(trackWhere(t)).name)}
+        ${t.remixes.length ? `<ul class="remixes">${t.remixes.map((m) => `<li>Remixed as <em>${esc(m.title)}</em>${m.artist ? ` by ${esc(m.artist)}` : ""} ${prefLink(cat.whereFor({ medium: "album", title: m.title || "", creator: m.artist || "", year: null }, prefs.region), "spot", "Listen")}</li>`).join("")}</ul>` : ""}</li>`).join("")}</ol>`;
   }
 
   function renderMusic(focus) {
     const rings = cat.moodRings();
     const remixes = cat.remixRack();
     const albums = allWorks().filter((w) => w.medium === "album");
-    const spot = (w) => cat.work(w.slug).spotify;
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">The music room</p><h1>Mood rings</h1>
-        <p>Pick a feeling. Each ring gathers the albums that carry it, with their tracks when a track list is on file. Spotify links open a search on Spotify; Mimir doesn't host or stream music.</p>
+        <p>Pick a feeling. Each ring gathers the albums that carry it, with their tracks when a track list is on file. Links open your chosen music app (${esc(preferred(cat.whereFor({ medium: "album", title: "", creator: "", year: null }, prefs.region)).name)}); change it on any album's page. Mimir doesn't host or stream music.</p>
         <p class="pchips">${rings.map((r) => `<button type="button" class="tchip" data-jump="music-${esc(r.slug)}">${esc(r.name)}</button>`).join("")}${remixes.length ? `<button type="button" class="tchip" data-jump="music-remixes">Remix rack</button>` : ""}<button type="button" class="tchip" data-jump="music-albums">Every album</button></p></header>
       ${rings.map((r) => { const [a, b, c] = PALETTES[RING_MOOD[r.slug]] || PALETTES.default; return `
         <section class="ring" id="music-${esc(r.slug)}" style="--r0:${a};--r1:${b};--ra:${c}">
           <header class="shelf-head"><div><h2>${esc(r.name)}</h2><p>${esc(r.tagline)}</p></div></header>
-          ${row(r.albums, (w) => ext(w.spotify, "Listen on Spotify", "spot"))}
+          ${row(r.albums, (w) => prefLink(whereOfCard(w), "spot"))}
           ${r.tracks.length ? `<h3 class="sub">Tracks in this mood</h3>${trackList(r.tracks.slice(0, 12), true)}<p class="muted small">Tracks take their album's mood until they're tagged one by one.</p>` : ""}
         </section>`; }).join("")}
       <section class="block" id="music-remixes"><header class="shelf-head"><div><h2>Remix rack</h2><p>Tracks from these albums and the remixes they spawned.</p></div></header>
         ${remixes.length ? trackList(remixes, true) : `<p class="muted">No remixes on file yet. They arrive with track data from MusicBrainz.</p>`}</section>
       <section class="block" id="music-albums"><header class="shelf-head"><div><h2>Spin cycle</h2><p>Every album in the catalogue, best known first.</p></div></header>
-        ${pgrid(albums, (w) => ext(spot(w), "Listen on Spotify", "spot"))}</section>`;
+        ${pgrid(albums, (w) => prefLink(whereOfCard(w), "spot"))}</section>`;
     if (focus) document.getElementById(`music-${focus}`)?.scrollIntoView({ block: "start" });
   }
 
@@ -1632,6 +1688,15 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   });
   app.addEventListener("change", (e) => {
     const t = e.target;
+    if (t.dataset.prefApp || t.dataset.prefRegion !== undefined) {
+      if (t.dataset.prefApp) prefs.apps[t.dataset.prefApp] = t.value;
+      else prefs.region = t.value;
+      savePrefs();
+      const y = window.scrollY;
+      route();
+      window.scrollTo(0, y);
+      return;
+    }
     if (t.dataset.sField) {
       const k = t.dataset.sField;
       const v = t.value;

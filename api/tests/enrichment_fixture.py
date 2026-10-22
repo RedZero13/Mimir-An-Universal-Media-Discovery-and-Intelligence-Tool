@@ -25,6 +25,10 @@ FIXTURE = {
                 "ids": {}, "scores": [], "box_office": [], "images": [], "links": [],
                 "series": [{"qid": "Q-test-s", "name": "Blade Runner", "position": "2"}],
             },
+            "hollow-knight-2017": {
+                "match": {"qid": "Q-test-3", "confidence": 1.0, "reason": "fixture"}, "facts": {},
+                "ids": {"steam": "test-app-1"}, "scores": [], "box_office": [], "images": [], "links": [], "series": [],
+            },
             "primer-2004": {"match": None, "reason": "no confident match", "candidates": [],
                             "links": [{"kind": "reactions:reddit", "label": "Reddit discussions", "url": "https://www.reddit.com/search/?q=p"}]},
         },

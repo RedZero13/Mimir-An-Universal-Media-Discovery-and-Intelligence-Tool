@@ -1,0 +1,69 @@
+{
+  "about": "Where to watch, listen, read or play. Each service gets a search link for the work (or an exact page when the catalogue holds its ID). Mimir does not know whether a title is currently on a service: links open that service's search, and availability varies by region and over time. Templates: {q} is the encoded query; {title}, {creator}, {year} build the query; region fields ({amazon}, {tld}, {cc}, {jw}, {ps}, {xbox}) come from 'regions'. 'enc' is 'path' (spaces as %20) or 'query' (spaces as +). Evaluated by catalogue/providers.py and demo/engine.cjs.",
+  "default_region": "US",
+  "regions": {
+    "US": {"name": "United States", "amazon": "amazon.com", "tld": "com", "cc": "us", "jw": "us", "ps": "en-us", "xbox": "en-US"},
+    "GB": {"name": "United Kingdom", "amazon": "amazon.co.uk", "tld": "co.uk", "cc": "gb", "jw": "uk", "ps": "en-gb", "xbox": "en-GB"},
+    "IN": {"name": "India", "amazon": "amazon.in", "tld": "in", "cc": "in", "jw": "in", "ps": "en-in", "xbox": "en-IN"},
+    "CA": {"name": "Canada", "amazon": "amazon.ca", "tld": "ca", "cc": "ca", "jw": "ca", "ps": "en-ca", "xbox": "en-CA"},
+    "AU": {"name": "Australia", "amazon": "amazon.com.au", "tld": "com.au", "cc": "au", "jw": "au", "ps": "en-au", "xbox": "en-AU"}
+  },
+  "media": {
+    "film": {
+      "verb": "Watch",
+      "default": "justwatch",
+      "providers": [
+        {"id": "justwatch", "name": "JustWatch (every service)", "url": "https://www.justwatch.com/{jw}/search?q={q}", "enc": "query", "q": "{title}"},
+        {"id": "netflix", "name": "Netflix", "url": "https://www.netflix.com/search?q={q}", "enc": "query", "q": "{title}"},
+        {"id": "prime-video", "name": "Prime Video", "url": "https://www.primevideo.com/search?phrase={q}", "enc": "query", "q": "{title}"},
+        {"id": "jiohotstar", "name": "JioHotstar", "url": "https://www.hotstar.com/in/explore?search_query={q}", "enc": "query", "q": "{title}", "regions": ["IN"]},
+        {"id": "disney-plus", "name": "Disney+", "url": "https://www.disneyplus.com/search?q={q}", "enc": "query", "q": "{title}", "regions": ["US", "GB", "CA", "AU"]},
+        {"id": "apple-tv", "name": "Apple TV", "url": "https://tv.apple.com/{cc}/search?term={q}", "enc": "query", "q": "{title}"},
+        {"id": "mubi", "name": "MUBI", "url": "https://mubi.com/en/search/films?query={q}", "enc": "query", "q": "{title}"},
+        {"id": "google-tv", "name": "Google TV / Play", "url": "https://play.google.com/store/search?q={q}&c=movies", "enc": "query", "q": "{title} {year}"},
+        {"id": "youtube", "name": "YouTube (rent or buy)", "url": "https://www.youtube.com/results?search_query={q}", "enc": "query", "q": "{title} {year} full movie"}
+      ]
+    },
+    "album": {
+      "verb": "Listen",
+      "default": "spotify",
+      "providers": [
+        {"id": "spotify", "name": "Spotify", "url": "https://open.spotify.com/search/{q}", "enc": "path", "q": "{creator} {title}"},
+        {"id": "apple-music", "name": "Apple Music", "url": "https://music.apple.com/{cc}/search?term={q}", "enc": "query", "q": "{creator} {title}"},
+        {"id": "amazon-music", "name": "Amazon Music", "url": "https://music.{amazon}/search/{q}", "enc": "path", "q": "{creator} {title}"},
+        {"id": "youtube-music", "name": "YouTube Music", "url": "https://music.youtube.com/search?q={q}", "enc": "query", "q": "{creator} {title}"},
+        {"id": "jiosaavn", "name": "JioSaavn", "url": "https://www.jiosaavn.com/search/{q}", "enc": "path", "q": "{creator} {title}", "regions": ["IN"]},
+        {"id": "deezer", "name": "Deezer", "url": "https://www.deezer.com/search/{q}", "enc": "path", "q": "{creator} {title}"},
+        {"id": "tidal", "name": "TIDAL", "url": "https://listen.tidal.com/search?q={q}", "enc": "query", "q": "{creator} {title}"},
+        {"id": "bandcamp", "name": "Bandcamp", "url": "https://bandcamp.com/search?q={q}", "enc": "query", "q": "{creator} {title}"}
+      ]
+    },
+    "book": {
+      "verb": "Read",
+      "default": "kindle",
+      "providers": [
+        {"id": "kindle", "name": "Amazon Kindle", "url": "https://www.{amazon}/s?k={q}&i=digital-text", "enc": "query", "q": "{title} {creator}"},
+        {"id": "audible", "name": "Audible", "url": "https://www.audible.{tld}/search?keywords={q}", "enc": "query", "q": "{title} {creator}", "verb": "Listen"},
+        {"id": "google-play-books", "name": "Google Play Books", "url": "https://play.google.com/store/search?q={q}&c=books", "enc": "query", "q": "{title} {creator}"},
+        {"id": "kobo", "name": "Kobo", "url": "https://www.kobo.com/search?query={q}", "enc": "query", "q": "{title} {creator}"},
+        {"id": "overdrive", "name": "Libby / OverDrive (library)", "url": "https://www.overdrive.com/search?q={q}", "enc": "query", "q": "{title} {creator}"},
+        {"id": "open-library", "name": "Open Library (borrow)", "url": "https://openlibrary.org/search?q={q}", "enc": "query", "q": "{title} {creator}"},
+        {"id": "bookshop", "name": "Bookshop.org", "url": "https://bookshop.org/search?keywords={q}", "enc": "query", "q": "{title} {creator}", "regions": ["US"]},
+        {"id": "bookshop-uk", "name": "Bookshop.org", "url": "https://uk.bookshop.org/search?keywords={q}", "enc": "query", "q": "{title} {creator}", "regions": ["GB"]}
+      ]
+    },
+    "game": {
+      "verb": "Play",
+      "default": "steam",
+      "providers": [
+        {"id": "steam", "name": "Steam", "url": "https://store.steampowered.com/search/?term={q}", "enc": "query", "q": "{title}", "platforms": ["PC"], "exact": {"id": "steam", "url": "https://store.steampowered.com/app/{id}/"}},
+        {"id": "playstation", "name": "PlayStation Store", "url": "https://store.playstation.com/{ps}/search/{q}", "enc": "path", "q": "{title}", "platforms": ["PlayStation"]},
+        {"id": "xbox", "name": "Xbox", "url": "https://www.xbox.com/{xbox}/search?q={q}", "enc": "query", "q": "{title}", "platforms": ["Xbox"]},
+        {"id": "nintendo", "name": "Nintendo eShop", "url": "https://www.nintendo.com/us/search/#q={q}", "enc": "query", "q": "{title}", "platforms": ["Switch"], "regions": ["US", "CA"]},
+        {"id": "gog", "name": "GOG", "url": "https://www.gog.com/en/games?query={q}", "enc": "query", "q": "{title}", "platforms": ["PC"]},
+        {"id": "epic", "name": "Epic Games Store", "url": "https://store.epicgames.com/en-US/browse?q={q}", "enc": "query", "q": "{title}", "platforms": ["PC"]},
+        {"id": "google-play-games", "name": "Google Play", "url": "https://play.google.com/store/search?q={q}&c=apps", "enc": "query", "q": "{title}", "platforms": ["Android"]}
+      ]
+    }
+  }
+}

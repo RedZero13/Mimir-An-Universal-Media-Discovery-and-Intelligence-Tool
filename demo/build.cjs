@@ -36,6 +36,7 @@ function page() {
   return fs.readFileSync(path.join(here, "page.html"), "utf8")
     .replace("/*__TAXONOMY__*/", () => json(path.join(api, "taxonomy", "taxonomy.json")))
     .replace("/*__CATALOGUE__*/", () => json(path.join(api, "seed", "catalogue.json")))
+    .replace("/*__PROVIDERS__*/", () => json(path.join(api, "catalogue", "providers.json")))
     .replace("/*__SHELVES__*/", () => json(path.join(api, "catalogue", "shelves.json")))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
     .replace("/*__ENGINE__*/", () => safe(fs.readFileSync(path.join(here, "engine.cjs"), "utf8")))

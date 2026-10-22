@@ -11,7 +11,7 @@ import json
 import re
 from pathlib import Path
 
-from mde.catalogue import browse
+from mde.catalogue import browse, providers
 from mde.catalogue.enrich import apply as apply_enrichment
 from mde.catalogue.enrich import load_enrichment
 from mde.catalogue.model import (
@@ -144,3 +144,7 @@ class MemoryCatalogue:
 
     def remix_rack(self) -> list[dict]:
         return browse.remix_rack(self.works)
+
+    def where(self, slug: str, region: str | None = None) -> dict | None:
+        w = self.get(slug)
+        return providers.where_to(providers.item_of(w), region) if w else None
