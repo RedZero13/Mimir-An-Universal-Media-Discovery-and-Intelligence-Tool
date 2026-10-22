@@ -5,7 +5,7 @@ import { AVOID_OPTIONS, languageLabel, mediumLabel } from "@/lib/format";
 import { asArray, asString, browseHref, type SearchParams } from "@/lib/params";
 import type { FacetValue } from "@/lib/types";
 
-export const metadata = { title: "Browse the catalogue · Media Discovery" };
+export const metadata = { title: "Browse the catalogue · Mimir" };
 
 const SORTS = [
   ["popular", "Best known"],

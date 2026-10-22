@@ -21,8 +21,14 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
     return (
       <>
         <section className="hero">
-          <h1>What do you feel like?</h1>
-          <p>Describe a mood, an idea, a favourite or a time limit, and get a few well-chosen picks with the reasons for each.</p>
+          <p className="eyebrow">The well beneath the tree</p>
+          <h1>
+            Drawn from the well of <em>every story.</em>
+          </h1>
+          <p>
+            Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, books, games and music that fit,
+            and tells you why each one does.
+          </p>
         </section>
         <SearchBox />
         <section className="examples">

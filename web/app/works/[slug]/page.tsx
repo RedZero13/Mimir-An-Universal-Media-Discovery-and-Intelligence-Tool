@@ -21,7 +21,7 @@ const roleRank = (r: string) => (ROLE_ORDER.includes(r) ? ROLE_ORDER.indexOf(r) 
 
 export async function generateMetadata({ params }: { params: Params }) {
   const work = await getWork((await params).slug).catch(() => null);
-  return { title: work ? `${work.title} (${work.year ?? "?"}) · Media Discovery` : "Not found" };
+  return { title: work ? `${work.title} (${work.year ?? "?"}) · Mimir` : "Not found" };
 }
 
 export default async function WorkPage({ params }: { params: Params }) {

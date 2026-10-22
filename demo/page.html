@@ -1,235 +1,283 @@
-<title>Media Discovery Pilot</title>
+<title>Mimir · A Terratales Venture</title>
+<meta name="description" content="Mimir is a catalogue and discovery engine for films, books, games and music. Describe how you want to feel and it finds what fits, with the reasons for every pick. A Terratales venture.">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<!--/head-->
 <style>
-/* Layout: one reading column; a request bar, the parser's reading as a strip of chips, then a ranked list read
-   like a programme guide. Work pages swap into the same column. */
+/* Layout: one column that breathes (Terratales Vol. II: hairline gold rules divide, not boxes). Reading views
+   hold a 720px measure; catalogue views widen to 1080px. Night ground, gold structure, parchment text. */
 :root {
-  --paper: #f5f6f8;
-  --sheet: #ffffff;
-  --ink: #16191f;
-  --ink-soft: #5b6270;
-  --rule: #dfe2e8;
-  --accent: #2346c7;
-  --accent-ink: #ffffff;
-  --want-bg: #e3f2e8; --want-fg: #1c6136;
-  --avoid-bg: #fbe7e4; --avoid-fg: #9a2b1f;
-  --limit-bg: #e6ebfb; --limit-fg: #24398a;
-  --interp-bg: #fdf1d6; --interp-fg: #7a5000;
-  --bar: #2346c7; --bar-track: #e6e9ef;
-  --sev-mild-bg: #fbf1c4; --sev-mild-fg: #675000; --sev-mod-bg: #fde0c3; --sev-mod-fg: #873d00;
-  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --radius: 8px;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #111318; --sheet: #191c23; --ink: #e9ebf0; --ink-soft: #a2a8b5; --rule: #2c313b;
-    --accent: #8fa6ff; --accent-ink: #0d1330;
-    --want-bg: #163222; --want-fg: #9fdfb4; --avoid-bg: #3a1b18; --avoid-fg: #f4aca2;
-    --limit-bg: #1b2448; --limit-fg: #b8c6ff; --interp-bg: #3a2c0f; --interp-fg: #f1d18a;
-    --bar: #8fa6ff; --bar-track: #2a2f3a;
-    --sev-mild-bg: #3a3412; --sev-mild-fg: #eadb8a; --sev-mod-bg: #45270f; --sev-mod-fg: #ffbf86;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #111318; --sheet: #191c23; --ink: #e9ebf0; --ink-soft: #a2a8b5; --rule: #2c313b;
-  --accent: #8fa6ff; --accent-ink: #0d1330;
-  --want-bg: #163222; --want-fg: #9fdfb4; --avoid-bg: #3a1b18; --avoid-fg: #f4aca2;
-  --limit-bg: #1b2448; --limit-fg: #b8c6ff; --interp-bg: #3a2c0f; --interp-fg: #f1d18a;
-  --bar: #8fa6ff; --bar-track: #2a2f3a;
-    --sev-mild-bg: #3a3412; --sev-mild-fg: #eadb8a; --sev-mod-bg: #45270f; --sev-mod-fg: #ffbf86;
+  /* Terratales Brand Guidelines Vol. II, §09 Colour: fixed values */
+  --void: #0B0B0C; --black: #131315; --surface: #1A1813; --surface-2: #23211C;
+  --gold: #C0902F; --gold-bright: #D8B24A; --gold-deep: #8A6A18; --cream: #D8C084;
+  --bone: #EDE3CC; --ink: #E7DECB; --muted: #9A8E72; --faint: #6E685C;
+  --line: rgba(216, 192, 132, .16); --line-strong: rgba(216, 192, 132, .32);
+  /* Product semantics (parents' guide severity), warm to stay inside the lamplight palette */
+  --sev-none: #8FA58A; --sev-mild: #D8C084; --sev-moderate: #E0A04A; --sev-severe: #E07A5F;
+  /* Type: §10, three voices */
+  --f-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --f-head: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --maxw: 1080px; --measure: 720px;
   color-scheme: dark;
 }
-
 * { box-sizing: border-box; }
+html { background: var(--black); }
 body {
-  background: var(--paper); color: var(--ink);
-  font: 17px/1.55 var(--font-body);
+  background: var(--black); color: var(--ink);
+  font: 300 16px/1.65 var(--f-body);
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-block: 0 48px;
+  padding-block: 0;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1000px; margin: 0 auto; }
-#app > .lede, #app > form.ask, #app > .examples, #app > .reading, #app > ol.results, #app > .empty, .work { max-width: 760px; }
-a, .link { color: var(--accent); }
-button { font: inherit; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; }
+a { color: var(--gold-bright); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--bone); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 1.5px solid var(--gold-bright); outline-offset: 3px; border-radius: 2px; }
+::selection { background: rgba(216, 178, 74, .3); color: var(--bone); }
+h1, h2, h3 { font-family: var(--f-head); font-weight: 500; color: var(--bone); line-height: 1.12; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap { max-width: var(--maxw); margin: 0 auto; }
+.measure { max-width: var(--measure); }
+.eyebrow { font: 600 12px/1.3 var(--f-display); letter-spacing: .34em; text-transform: uppercase; color: var(--gold); }
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+.mono { font-family: var(--f-mono); font-weight: 400; }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; padding-block: 20px 4px; }
-.brand { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; }
-.tag { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 7px; border-radius: 4px; background: var(--interp-bg); color: var(--interp-fg); }
-.lede { color: var(--ink-soft); margin: 4px 0 16px; max-width: 62ch; }
+/* ---------------------------------------------------------------- header & footer */
+.top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; padding-block: 22px 18px; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--gold-bright); }
+.brand svg { width: 38px; height: 38px; flex: none; }
+.brand-word { font: 600 1.25rem/1 var(--f-display); letter-spacing: .14em; }
+.brand-sub { display: block; font: 600 8.5px/1 var(--f-display); letter-spacing: .28em; color: var(--cream); margin-top: 6px; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-left: auto; }
+.nav a { font: 500 .9rem var(--f-body); color: var(--ink); text-decoration: none; padding: 6px 0; border-bottom: 1px solid transparent; }
+.nav a:hover { color: var(--bone); }
+.nav a[aria-current="page"] { color: var(--gold-bright); border-bottom-color: var(--gold); }
+.pilot { font: 500 11px var(--f-mono); letter-spacing: .04em; color: var(--muted); border: 1px solid var(--line); padding: 3px 8px; border-radius: 99px; }
 
-form.ask { display: flex; gap: 8px; align-items: stretch; }
+.foot { margin-top: 72px; border-top: 1px solid var(--line); padding-block: 28px 40px; display: grid; gap: 18px; }
+.endorse { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.endorse img { width: 32px; height: 32px; display: block; }
+.endorse span { font: 600 10px/1 var(--f-display); letter-spacing: .28em; color: var(--cream); }
+.foot-row { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; }
+.foot p { color: var(--faint); font-size: .82rem; max-width: 70ch; }
+.foot .legal { font: 500 10px var(--f-display); letter-spacing: .22em; color: var(--faint); }
+
+/* ---------------------------------------------------------------- hero & ask */
+.hero { position: relative; padding-block: 64px 28px; display: grid; gap: 18px; }
+.hero canvas { position: absolute; inset: 0 -16px auto auto; width: min(560px, 70%); height: 100%; pointer-events: none; }
+.hero > *:not(canvas) { position: relative; }
+.hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.4rem); font-weight: 500; max-width: 20ch; }
+.hero h1 em { font-style: italic; color: var(--gold-bright); }
+.hero .lead { font-size: 1.08rem; color: var(--muted); max-width: 54ch; }
+form.ask { display: flex; gap: 10px; align-items: flex-end; max-width: var(--measure); }
+form.ask .btn { height: 50px; flex: none; }
 form.ask textarea {
-  flex: 1; min-width: 0; resize: vertical; font: 1rem/1.45 var(--font-body); padding: 12px 14px;
-  border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); color: var(--ink);
+  flex: 1; min-width: 0; resize: vertical; font: 400 1rem/1.5 var(--f-body); color: var(--bone);
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 6px; padding: 14px 16px;
 }
+form.ask textarea::placeholder { color: var(--faint); }
+form.ask textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(192, 144, 47, .18); }
 .btn {
-  font-family: var(--font-display); font-weight: 700; border: 0; border-radius: var(--radius); cursor: pointer;
-  background: var(--accent); color: var(--accent-ink); padding: 0 22px; min-height: 44px;
+  font: 600 .78rem/1 var(--f-display); letter-spacing: .2em; text-transform: uppercase; cursor: pointer;
+  border: 0; border-radius: 99px; background: var(--gold-bright); color: var(--black); padding: 0 26px; min-height: 46px;
 }
-.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--rule); font-weight: 500; }
-.examples { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 20px; }
+.btn:hover { background: var(--cream); }
+.btn.ghost { background: transparent; color: var(--gold-bright); border: 1px solid var(--gold); }
+.btn.ghost:hover { background: rgba(216, 178, 74, .08); color: var(--bone); }
+.examples { display: flex; flex-wrap: wrap; gap: 8px; max-width: var(--maxw); }
 .examples button {
-  font: 0.85rem/1.3 var(--font-body); text-align: left; cursor: pointer; padding: 6px 10px; border-radius: 99px;
-  border: 1px solid var(--rule); background: transparent; color: var(--ink);
+  text-align: left; cursor: pointer; font: 400 .85rem/1.35 var(--f-body); color: var(--ink);
+  background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 7px 14px;
 }
-.examples button:hover { border-color: var(--accent); }
+.examples button:hover { border-color: var(--gold); color: var(--bone); }
 
-.reading { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 16px; }
-.eyebrow { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); margin: 0 0 10px; }
-.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
-.chip { font: 0.85rem/1.2 var(--font-body); padding: 4px 10px; border-radius: 99px; }
-.chip.want { background: var(--want-bg); color: var(--want-fg); }
-.chip.avoid { background: var(--avoid-bg); color: var(--avoid-fg); }
-.chip.limit { background: var(--limit-bg); color: var(--limit-fg); }
-.notes { margin: 10px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 0.92rem; }
-.stats { margin: 10px 0 0; font: 0.8rem/1.5 var(--font-mono); color: var(--ink-soft); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.steps .num { font: 600 13px var(--f-display); letter-spacing: .3em; color: var(--gold); }
+.steps h3 { font-size: 1.5rem; margin: 8px 0 6px; }
+.steps p { color: var(--muted); font-size: .95rem; }
 
-ol.results { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
-.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; display: grid; gap: 8px; }
-.card-head { display: grid; grid-template-columns: 2ch minmax(0, 1fr); gap: 10px; align-items: baseline; }
-.rank { font: 500 1rem var(--font-mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
-.card h3 { margin: 0; font-size: 1.2rem; }
-.title-link { color: var(--ink); text-decoration: none; }
-.title-link:hover { text-decoration: underline; }
-.title-btn { all: unset; cursor: pointer; }
-.title-btn:hover { text-decoration: underline; }
-.title-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.meta { font: 0.8rem/1.4 var(--font-mono); color: var(--ink-soft); margin: 2px 0 0; }
-.headline { font-family: var(--font-display); font-weight: 500; margin: 0; }
-.summary { margin: 0; }
-details > summary { cursor: pointer; color: var(--accent); font-size: 0.92rem; }
-.reasons { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 4px; font-size: 0.93rem; }
-.basis { display: inline-block; font: 500 0.66rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 5px; border-radius: 3px; margin-right: 6px; vertical-align: 1px; }
-.basis.catalogue { background: var(--limit-bg); color: var(--limit-fg); }
-.basis.interpretation { background: var(--interp-bg); color: var(--interp-fg); }
-.breakdown { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 14px; font: 0.8rem/1.5 var(--font-mono); margin: 8px 0 0; }
-.breakdown dt { color: var(--ink-soft); }
-.breakdown dd { margin: 0; font-variant-numeric: tabular-nums; }
-.caveats { margin: 0; padding-left: 18px; color: var(--avoid-fg); font-size: 0.92rem; }
-.feedback { display: flex; flex-wrap: wrap; gap: 6px; }
-.feedback button { font: 0.8rem/1 var(--font-body); padding: 7px 10px; border-radius: 99px; border: 1px solid var(--rule); background: transparent; color: var(--ink); cursor: pointer; }
-.feedback button:hover { border-color: var(--accent); }
-.feedback-done { font-size: 0.9rem; color: var(--want-fg); margin: 0; }
-.empty { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; margin-top: 16px; }
+/* ---------------------------------------------------------------- discovery results */
+.reading { margin-top: 28px; padding-block: 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); max-width: var(--measure); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 12px 0 0; }
+.chip { font: 400 .82rem/1.2 var(--f-body); padding: 5px 11px; border-radius: 99px; border: 1px solid var(--line-strong); color: var(--ink); }
+.chip.want { border-color: rgba(143, 165, 138, .55); color: #C9D6C3; }
+.chip.avoid { border-color: rgba(224, 122, 95, .55); color: #EDB7A6; }
+.chip.limit { border-color: var(--line-strong); color: var(--cream); }
+.notes { margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: .9rem; }
+.stats { margin-top: 10px; font: 400 .76rem/1.5 var(--f-mono); color: var(--faint); }
 
-.work h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin: 18px 0 2px; }
-.work .orig { color: var(--ink-soft); margin: 0; }
-.work section { margin-top: 26px; }
-.work h2 { font-size: 1.1rem; margin: 0 0 8px; }
-.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.dim { margin: 12px 0; }
-.dim h3 { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); margin: 0 0 6px; }
-.terms { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
-.terms li { display: grid; grid-template-columns: minmax(0, 1fr) 110px 118px; gap: 10px; align-items: center; font-size: 0.95rem; }
-.bar { height: 6px; border-radius: 3px; background: var(--bar-track); overflow: hidden; }
-.bar span { display: block; height: 100%; background: var(--bar); }
-.terms .basis { justify-self: start; margin: 0; }
-.plain { padding-left: 18px; margin: 0; display: grid; gap: 4px; }
-.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px 16px; margin: 0; }
-.facts dt { font: 0.75rem/1.3 var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
-.facts dd { margin: 0; }
-.muted { color: var(--ink-soft); }
-.small { font-size: 0.88rem; }
-footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: 0.88rem; }
+ol.results { list-style: none; padding: 0; margin: 8px 0 0; max-width: var(--measure); }
+.result { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 16px; padding-block: 26px; border-bottom: 1px solid var(--line); }
+.result .rank { font: 600 1.1rem/1.2 var(--f-display); color: var(--gold); padding-top: 6px; }
+.result h3 { font-size: 1.65rem; }
+.result h3 a { color: var(--bone); text-decoration: none; }
+.result h3 a:hover { color: var(--gold-bright); }
+.meta { font: 400 .78rem/1.5 var(--f-mono); color: var(--muted); margin-top: 4px; display: flex; align-items: flex-start; gap: 10px; }
+.meta > span { min-width: 0; }
+.meta .medal { margin-top: -1px; }
+.headline { font: italic 500 1.2rem/1.35 var(--f-head); color: var(--cream); margin-top: 10px; }
+.summary { margin-top: 8px; color: var(--ink); }
+details > summary { cursor: pointer; color: var(--gold-bright); font-size: .88rem; margin-top: 12px; list-style-position: outside; }
+details > summary:hover { color: var(--bone); }
+.reasons { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 6px; font-size: .92rem; }
+.basis { display: inline-block; font: 500 .62rem/1 var(--f-mono); text-transform: uppercase; letter-spacing: .08em; padding: 3px 6px; border-radius: 3px; margin-right: 8px; vertical-align: 1px; border: 1px solid; }
+.basis.catalogue { color: var(--bone); border-color: var(--line-strong); }
+.basis.interpretation { color: var(--gold-bright); border-color: rgba(216, 178, 74, .45); border-style: dashed; }
+.breakdown { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 16px; font: 400 .76rem/1.6 var(--f-mono); margin: 10px 0 0; }
+.breakdown dt { color: var(--faint); }
+.breakdown dd { margin: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+.caveats { margin: 12px 0 0; padding-left: 18px; color: #EDB7A6; font-size: .9rem; }
+.feedback { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.feedback button { cursor: pointer; font: 400 .78rem/1 var(--f-body); padding: 8px 12px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--muted); }
+.feedback button:hover { border-color: var(--gold); color: var(--bone); }
+.feedback-done { font-size: .88rem; color: var(--sev-none); margin-top: 14px; }
+.empty { margin-top: 24px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); max-width: var(--measure); }
 
+/* medium medallions: realm-icon language (§12): single-weight gold line in a thin circle */
+.medal { width: 22px; height: 22px; flex: none; }
+.medal * { fill: none; stroke: var(--gold-bright); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
 
-/* ---- catalogue ---- */
-.nav { display: flex; gap: 4px 14px; flex-wrap: wrap; }
-.nav a { color: var(--ink); text-decoration: none; font-family: var(--font-display); font-size: 0.95rem; }
-.nav a:hover, .nav a[aria-current="page"] { color: var(--accent); }
-.nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
-.page-title { font-size: clamp(1.6rem, 4vw, 2.1rem); margin: 14px 0 6px; }
-.crumbs { margin: 14px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
-.block { margin-top: 24px; }
-.block h2 { font-size: 1.1rem; margin: 0 0 8px; }
-.link { all: unset; cursor: pointer; color: var(--accent); }
-.link:hover { text-decoration: underline; }
-.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.filters { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 10px; }
-.filters input[type="search"], .filters select { font: 1rem var(--font-body); padding: 8px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); color: var(--ink); min-width: 0; }
-.filters fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
-.filters legend { margin-bottom: 6px; }
-.filters .row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
-.filters .row .eyebrow { margin: 0; }
-.check { font-size: 0.93rem; display: inline-flex; align-items: center; gap: 6px; }
-.active { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0 0; }
-.active .chip { border: 0; cursor: pointer; }
-.browse { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 22px; margin-top: 16px; }
-.facet h3 { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); margin: 14px 0 6px; }
-.facet ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 3px; font-size: 0.93rem; }
+/* ---------------------------------------------------------------- catalogue */
+.page-head { padding-block: 44px 8px; display: grid; gap: 10px; }
+.page-head h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+.page-head p { color: var(--muted); max-width: 62ch; }
+.crumbs { font: 400 .78rem var(--f-mono); color: var(--faint); }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--gold-bright); }
+.block { margin-top: 40px; }
+.block > h2 { font-size: 1.7rem; margin-bottom: 14px; }
+.filters { margin-top: 24px; padding-block: 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 16px; }
+.filters input[type="search"], .filters select {
+  font: 400 .95rem var(--f-body); color: var(--bone); background: var(--surface); border: 1px solid var(--line-strong);
+  border-radius: 6px; padding: 10px 12px; min-width: 0;
+}
+.filters input[type="search"] { width: 100%; max-width: 480px; }
+.filters fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.filters legend { margin-bottom: 8px; }
+.filters .row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.check { font-size: .92rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.check input { accent-color: var(--gold-bright); width: 16px; height: 16px; }
+.active { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 16px; }
+.active .chip { background: transparent; cursor: pointer; }
+.linkish { all: unset; cursor: pointer; color: var(--gold-bright); font-size: .88rem; }
+.linkish:hover { color: var(--bone); text-decoration: underline; }
+.linkish:focus-visible { outline: 1.5px solid var(--gold-bright); outline-offset: 3px; }
+.browse { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 36px; margin-top: 24px; }
+.facet + .facet { margin-top: 22px; }
+.facet h3 { font: 600 10.5px var(--f-display); letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.facet ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; font-size: .9rem; }
 .facet-btn { all: unset; cursor: pointer; color: var(--ink); }
-.facet-btn:hover { color: var(--accent); }
-.facet-btn.on { color: var(--accent); font-weight: 600; }
-.facet-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.count { font: 0.75rem var(--font-mono); color: var(--ink-soft); }
-.wgrid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
-.wcard { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
-.wcard-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
-.wcard h3 { margin: 0; font-size: 1.05rem; }
-.wcard h3 a { color: var(--ink); text-decoration: none; }
-.wcard h3 a:hover { text-decoration: underline; }
-.tag-row { display: flex; flex-wrap: wrap; gap: 5px; }
-.tag-chip { font-size: 0.8rem; padding: 2px 9px; border-radius: 99px; border: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
-.tag-chip:hover { border-color: var(--accent); color: var(--accent); }
-.rating { display: inline-block; font: 600 0.72rem/1.4 var(--font-mono); border: 1.5px solid currentColor; border-radius: 3px; padding: 0 5px; margin-left: 6px; white-space: nowrap; }
-.rating.big { font-size: 0.9rem; margin: 0 4px 0 0; }
-.flags { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.82rem; }
-.sev { display: inline-block; font: 600 0.68rem/1.5 var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; padding: 0 6px; border-radius: 3px; vertical-align: 1px; }
-.sev-none { background: var(--want-bg); color: var(--want-fg); }
-.sev-mild { background: var(--sev-mild-bg); color: var(--sev-mild-fg); }
-.sev-moderate { background: var(--sev-mod-bg); color: var(--sev-mod-fg); }
-.sev-severe { background: var(--avoid-bg); color: var(--avoid-fg); }
-.sev-unknown { background: var(--bar-track); color: var(--ink-soft); }
-.strength { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--ink-soft); }
-.strength .bar { width: 90px; }
-.people { columns: 2 240px; padding-left: 18px; }
-.people li { margin: 4px 0; break-inside: avoid; }
-.jump { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.93rem; }
-.notice { padding: 10px 12px; border-radius: 6px; background: var(--interp-bg); color: var(--interp-fg); font-size: 0.93rem; }
-.guide { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
-.ggroup { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 12px 14px; min-width: 0; }
-.ggroup h3 { font-size: 0.98rem; margin: 0 0 6px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-.ggroup ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 0.92rem; }
-.ggroup .basis { margin: 0 0 0 4px; }
-.gnote { margin: 2px 0 0; color: var(--ink-soft); }
-.spoiler summary { color: var(--avoid-fg); font-size: 0.88rem; }
-.terms a { color: var(--ink); }
-@media (max-width: 720px) {
+.facet-btn:hover { color: var(--bone); }
+.facet-btn.on { color: var(--gold-bright); }
+.facet-btn.on::before { content: "· "; }
+.facet-btn:focus-visible { outline: 1.5px solid var(--gold-bright); outline-offset: 3px; }
+.count { font: 400 .72rem var(--f-mono); color: var(--faint); }
+.wgrid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 28px; }
+.wcard { padding-block: 20px 22px; border-top: 1px solid var(--line); display: grid; gap: 8px; align-content: start; min-width: 0; }
+.wcard-head { display: flex; gap: 10px; align-items: flex-start; }
+.wcard h3 { font-size: 1.4rem; flex: 1; min-width: 0; }
+.wcard h3 a { color: var(--bone); text-decoration: none; }
+.wcard h3 a:hover { color: var(--gold-bright); }
+.wcard .summary { font-size: .9rem; color: var(--muted); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag-chip { font: 400 .78rem/1.2 var(--f-body); padding: 4px 10px; border-radius: 99px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.tag-chip:hover { border-color: var(--gold); color: var(--bone); }
+.rating { display: inline-block; font: 500 .68rem/1.5 var(--f-mono); color: var(--cream); border: 1px solid var(--line-strong); border-radius: 3px; padding: 0 6px; white-space: nowrap; }
+.rating.big { font-size: .85rem; padding: 2px 8px; }
+.flags { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .8rem; color: var(--muted); }
+.sev { display: inline-flex; align-items: center; gap: 6px; font: 500 .64rem/1.4 var(--f-mono); text-transform: uppercase; letter-spacing: .06em; }
+.sev::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.sev-none { color: var(--sev-none); } .sev-mild { color: var(--sev-mild); } .sev-moderate { color: var(--sev-moderate); }
+.sev-severe { color: var(--sev-severe); } .sev-unknown { color: var(--faint); }
+.sev-unknown::before { background: transparent; border: 1px dashed currentColor; }
+.strength { display: flex; align-items: center; gap: 10px; font: 400 .76rem var(--f-mono); color: var(--muted); }
+.bar { display: block; height: 3px; border-radius: 2px; background: var(--surface-2); overflow: hidden; }
+.bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); }
+.strength .bar { width: 96px; }
+.people { columns: 2 260px; column-gap: 40px; padding: 0; list-style: none; margin: 0; }
+.people li { padding-block: 10px; border-top: 1px solid var(--line); break-inside: avoid; }
+.people a { font: 500 1.15rem var(--f-head); color: var(--bone); text-decoration: none; }
+.people a:hover { color: var(--gold-bright); }
+
+/* ---------------------------------------------------------------- work page */
+.work-head { padding-block: 44px 0; display: grid; gap: 10px; }
+.work-head h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+.work-head .orig { font: italic 500 1.25rem var(--f-head); color: var(--muted); }
+.jump { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 22px; padding-block: 12px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.jump .linkish { font-size: .85rem; }
+.lead-summary { font: 500 1.35rem/1.45 var(--f-head); color: var(--bone); max-width: 52ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px 28px; margin: 22px 0 0; }
+.facts dt { font: 600 9.5px var(--f-display); letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+.facts dd { margin: 4px 0 0; color: var(--ink); }
+.facts dd a { color: var(--bone); text-decoration-color: var(--line-strong); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.dim + .dim { margin-top: 18px; }
+.dim h3 { font: 600 10.5px var(--f-display); letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.terms { list-style: none; padding: 0; margin: 0; }
+.terms li { display: grid; grid-template-columns: minmax(0, 1fr) 120px 118px; gap: 14px; align-items: center; padding-block: 7px; border-bottom: 1px solid var(--line); font-size: .95rem; }
+.terms a { color: var(--ink); text-decoration: none; }
+.terms a:hover { color: var(--gold-bright); }
+.terms .basis { justify-self: start; margin: 0; }
+.notice { margin-top: 12px; padding: 12px 14px; border-left: 2px solid var(--gold); background: var(--surface); color: var(--cream); font-size: .92rem; }
+.guide { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0 28px; margin-top: 14px; }
+.ggroup { padding-block: 16px; border-top: 1px solid var(--line); min-width: 0; }
+.ggroup h3 { font-size: 1.25rem; display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; margin-bottom: 8px; }
+.ggroup ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: .9rem; }
+.ggroup li strong { font-weight: 500; color: var(--bone); }
+.gnote { margin-top: 3px; color: var(--muted); }
+.spoiler summary { color: #EDB7A6; font-size: .82rem; margin-top: 4px; }
+.plain { padding-left: 18px; margin: 0; display: grid; gap: 8px; }
+.ratings { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+
+/* ---------------------------------------------------------------- about */
+.prose { max-width: var(--measure); display: grid; gap: 16px; }
+.prose h2 { font-size: 1.8rem; margin-top: 18px; }
+.prose p, .prose li { color: var(--ink); }
+.prose ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.pull { font: italic 500 1.6rem/1.35 var(--f-head); color: var(--cream); border-left: 1px solid var(--gold); padding-left: 18px; margin: 8px 0; }
+
+@media (max-width: 760px) {
   .browse { grid-template-columns: minmax(0, 1fr); }
   .facets { order: 2; }
+  .terms li { grid-template-columns: minmax(0, 1fr) 70px 108px; }
+  .nav { margin-left: 0; width: 100%; }
+  .hero canvas { width: 100%; opacity: .6; }
 }
 @media (max-width: 540px) {
   form.ask { flex-direction: column; }
-  .terms li { grid-template-columns: minmax(0, 1fr) 64px 108px; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .card { animation: rise 220ms ease-out both; }
-  @keyframes rise { from { transform: translateY(4px); } to { transform: none; } }
+  .result { grid-template-columns: 1fr; }
+  .result .rank { padding-top: 0; }
 }
 </style>
 
 <div class="wrap">
   <header class="top">
-    <span class="brand">Media Discovery</span>
+    <a class="brand" href="#" aria-label="Mimir, home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#D8B24A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="29.2"/><path d="M11 22 H53 M11 20.4 V23.6 M53 20.4 V23.6"/><path d="M32 22 V15"/><path d="M32 15 C29.4 14.1 28 11.8 28.2 9 C30.8 9.7 32.2 12.1 32 15 Z"/><path d="M32 22 V43"/><path d="M32 22 C31.2 28.6 27.6 32.4 26.4 37 C25.8 39.6 27.4 41.4 29.2 40.6"/><path d="M32 22 C32.8 28.6 36.4 32.4 37.6 37 C38.2 39.6 36.6 41.4 34.8 40.6"/><path d="M32 22 C28.6 25.6 21.6 27.4 19.6 33 C18.6 35.9 20.2 38.2 22.4 37.4"/><path d="M32 22 C35.4 25.6 42.4 27.4 44.4 33 C45.4 35.9 43.8 38.2 41.6 37.4"/><ellipse cx="32" cy="47.2" rx="16.5" ry="4.3"/><ellipse cx="32" cy="47.2" rx="8.5" ry="2.1"/></g></svg>
+      <span><span class="brand-word">MIMIR</span><span class="brand-sub">A TERRATALES VENTURE</span></span>
+    </a>
     <nav class="nav" aria-label="Main">
-      <a href="#" data-view="discover">Discover</a><a href="#browse" data-view="browse">Browse</a><a href="#tags" data-view="tags">Tags</a><a href="#people" data-view="people">People</a>
+      <a href="#" data-view="discover">Discover</a><a href="#browse" data-view="browse">Browse</a><a href="#tags" data-view="tags">Tags</a><a href="#people" data-view="people">People</a><a href="#about" data-view="about">About</a>
     </nav>
-    <span class="tag">Pilot · 56 works</span>
+    <span class="pilot" title="The pilot catalogue holds 56 works">Pilot · 56 works</span>
   </header>
   <main id="app"></main>
-  <footer class="note">
-    Runs entirely in your browser on the pilot catalogue: 22 films, 15 books, 11 games and 8 albums. Facts,
-    official ratings and credits are unverified; tags and parents' guide levels are AI-assisted interpretations
-    awaiting editorial review, labelled where they appear. Feedback you give here stays in this browser.
+  <footer class="foot">
+    <div class="foot-row">
+      <a class="endorse" href="https://terratalesmedia.world/" aria-label="A Terratales venture: visit Terratales">
+        <img src="/*__SEAL__*/" alt="Terratales seal" width="32" height="32"><span>A TERRATALES VENTURE</span>
+      </a>
+      <span class="legal">© 2026 Terratales Media Entertainment · All realms reserved</span>
+    </div>
+    <p>Mimir is in pilot. Its catalogue holds 56 works. Facts, credits and official ratings are unverified, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Each is labelled where it appears. Feedback you give stays in your browser. Write to hello@terratalesmedia.world.</p>
   </footer>
 </div>
 
@@ -254,41 +302,93 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
     "An album for focusing, calm and minimal",
   ];
   const MEDIUM = { film: "Film", series: "Series", book: "Book", game: "Game", album: "Album", track: "Track" };
-  const DIM_LABEL = { genre: "Genre", theme: "Themes", mood: "Mood & experience", pacing: "Pacing", complexity: "Complexity",
-    narrative: "Narrative", world: "World & setting", style: "Style & craft" };
-  const DIM_ORDER = ["genre", "theme", "mood", "pacing", "complexity", "narrative", "world", "style"];
+  const MEDAL = {
+    film: '<rect x="7" y="8.6" width="10" height="7.6" rx="1.2"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
+    book: '<path d="M12 8.4v8.4M12 8.4c-1.6-1-3.5-1-5 0v8c1.5-1 3.4-1 5 0M12 8.4c1.6-1 3.5-1 5 0v8c-1.5-1-3.4-1-5 0"/>',
+    game: '<path d="M9 10h6a2.6 2.6 0 0 1 2.6 2.6v1.2a1.6 1.6 0 0 1-2.9.9l-.7-1h-4l-.7 1a1.6 1.6 0 0 1-2.9-.9v-1.2A2.6 2.6 0 0 1 9 10z"/><path d="M9.4 11.6v2M8.4 12.6h2"/>',
+    album: '<circle cx="12" cy="12.4" r="4.6"/><circle cx="12" cy="12.4" r="1.2"/>',
+  };
+  const medal = (m) => `<svg class="medal" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12.4" r="10.6"/>${MEDAL[m] || ""}</svg>`;
   const BASIS = {
     catalogue: ["Catalogue", "Recorded catalogue data (pilot data, not yet verified against primary sources)"],
-    interpretation: ["Interpretation", "An AI-assisted interpretation that hasn't been reviewed by an editor yet"],
+    interpretation: ["Interpretation", "An AI-assisted reading that an editor hasn't reviewed yet"],
     reviewed_interpretation: ["Reviewed", "An interpretation reviewed by an editor"],
   };
   const FEEDBACK = [["relevant", "Good fit"], ["will_try", "I'll try this"], ["already_experienced", "Already know it"],
     ["wrong_mood", "Wrong mood"], ["too_long", "Too long"], ["not_what_i_meant", "Not what I meant"]];
+  const GROUP_AVOID = [
+    ["advisory:sexual-content", "Sex & nudity"], ["advisory:graphic-violence", "Graphic violence"],
+    ["advisory:body-horror", "Body horror"], ["advisory:atrocity", "Atrocity"],
+    ["advisory:strong-language", "Strong language"], ["advisory:substance-use", "Alcohol, drugs & smoking"],
+    ["advisory:jump-scares", "Frightening scenes"], ["advisory:suicide-self-harm", "Suicide & self-harm"],
+  ];
+  const LANG = { en: "English", ja: "Japanese", ru: "Russian", ko: "Korean", de: "German", pl: "Polish", it: "Italian",
+    fr: "French", be: "Belarusian" };
+  const ROLE_ORDER = ["director", "author", "developer", "artist", "writer", "cinematographer", "studio", "publisher"];
 
   let query = EXAMPLES[0];
+  let hasAsked = false;
 
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const mediumLabel = (m) => MEDIUM[m] || m;
+  const langLabel = (c) => LANG[c] || c;
   const termLabel = (key) => (key.split(":")[1] || key).replace(/-/g, " ");
+  const tagToken = (key) => `tag-${key.replace(":", ".")}`;
   const basisTag = (b) => `<span class="basis ${b === "catalogue" ? "catalogue" : "interpretation"}" title="${esc(BASIS[b][1])}">${BASIS[b][0]}</span>`;
+  const sevPill = (s) => `<span class="sev sev-${s === "Not assessed" ? "unknown" : s.toLowerCase()}">${esc(s)}</span>`;
+  const tagChip = (t, extra = "") => `<a class="tag-chip" href="#${tagToken(t.key)}">${esc(t.label)}${extra}</a>`;
   const intensity = (s) => (s >= 0.8 ? "strong" : s >= 0.55 ? "clear" : s >= 0.4 ? "partial" : s > 0 ? "slight" : "none");
+  const roleRank = (r) => (ROLE_ORDER.includes(r) ? ROLE_ORDER.indexOf(r) : ROLE_ORDER.length);
+  const toggle = (arr, v) => (arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
 
   function loadFeedback() {
-    try { return JSON.parse(localStorage.getItem("mde-feedback") || "{}"); } catch { return {}; }
+    try { return JSON.parse(localStorage.getItem("mimir-feedback") || "{}"); } catch { return {}; }
   }
   function saveFeedback(key, kind) {
     const all = loadFeedback();
     all[key] = kind;
-    try { localStorage.setItem("mde-feedback", JSON.stringify(all)); } catch { /* storage unavailable: keep in memory only */ }
+    try { localStorage.setItem("mimir-feedback", JSON.stringify(all)); } catch { /* storage unavailable: keep in memory only */ }
   }
 
+  // ------------------------------------------------------------------ the well (hero ripples)
+  let stopRipples = () => {};
+  function startRipples(canvas) {
+    stopRipples();
+    const ctx = canvas.getContext("2d");
+    const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let raf = 0;
+    const draw = (t) => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      if (canvas.width !== Math.round(w * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+      const cx = w * 0.62, cy = h * 0.58, maxR = Math.min(w * 0.62, 340);
+      const rings = 7, period = 9000;
+      for (let i = 0; i < rings; i++) {
+        const phase = ((t / period) + i / rings) % 1;
+        const r = 18 + phase * maxR;
+        const alpha = 0.34 * Math.sin(Math.PI * phase) * (1 - phase * 0.5);
+        ctx.beginPath();
+        ctx.ellipse(cx, cy, r, r * 0.26, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(216, 178, 74, ${alpha.toFixed(3)})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+      if (!still) raf = requestAnimationFrame(draw);
+    };
+    draw(2600);
+    if (!still) raf = requestAnimationFrame(draw);
+    stopRipples = () => cancelAnimationFrame(raf);
+  }
+
+  // ------------------------------------------------------------------ discover
   function askForm() {
     return `
-      <p class="lede">Describe what you feel like: a mood, an idea, a favourite, a time limit. You get a few picks, and the reasons for each.</p>
       <form class="ask" id="ask">
-        <label for="q" class="eyebrow" style="position:absolute;left:-9999px">Describe what you want to watch, read, play or listen to</label>
-        <textarea id="q" name="q" rows="2" maxlength="500" required>${esc(query)}</textarea>
-        <button class="btn" type="submit">Find</button>
+        <label for="q" class="sr-only">Describe what you want to watch, read, play or listen to</label>
+        <textarea id="q" name="q" rows="2" maxlength="500" required placeholder="A mood, an idea, a favourite, a time limit…">${esc(query)}</textarea>
+        <button class="btn" type="submit">Seek</button>
       </form>
       <div class="examples" aria-label="Example requests">
         ${EXAMPLES.map((e, i) => `<button type="button" data-example="${i}">${esc(e)}</button>`).join("")}
@@ -305,81 +405,79 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
     i.avoid.forEach((a) => chips.push(["avoid", `${a.hard ? "no" : "less"} ${termLabel(a.term)}`]));
     if (i.length) chips.push(["limit", `${i.length.hard ? "≤" : "ideally ≤"} ${i.length.max_minutes} min`]);
     if (i.novelty) chips.push(["want", i.novelty === "obscure" ? "lesser-known" : "well-known"]);
-    i.languages.forEach((l) => chips.push(["limit", `language: ${l}`]));
+    i.languages.forEach((l) => chips.push(["limit", `in ${langLabel(l)}`]));
     if (i.year_min || i.year_max) chips.push(["limit", `${i.year_min ?? "…"}–${i.year_max ?? "…"}`]);
-    const excluded = Object.entries(r.excluded).map(([why, n]) => `${n} (${why})`).join(", ");
+    const excluded = Object.entries(r.excluded).map(([why, n]) => `${n} ${why}`).join(" · ");
     return `
-      <section class="reading" aria-label="How your request was read">
-        <p class="eyebrow">How I read your request</p>
+      <section class="reading" aria-label="How Mimir read your request">
+        <p class="eyebrow">How Mimir read you</p>
         ${chips.length ? `<ul class="chips">${chips.map(([t, l]) => `<li class="chip ${t}">${esc(l)}</li>`).join("")}</ul>`
-          : `<p class="muted small" style="margin:0">I couldn't pick out any specific qualities, so these are broad matches.</p>`}
+          : `<p class="muted small" style="margin-top:10px">No specific qualities stood out, so these are broad matches.</p>`}
         ${i.notes.length ? `<ul class="notes">${i.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
         <p class="stats">Searched ${r.considered} works${excluded ? ` · set aside ${esc(excluded)}` : ""}${r.weak_matches_hidden ? ` · ${r.weak_matches_hidden} weak matches hidden` : ""}</p>
       </section>`;
   }
 
-  function card(res, rank) {
+  function resultItem(res, rank) {
     const key = `${query}::${res.slug}`;
     const given = loadFeedback()[key];
-    const meta = [mediumLabel(res.medium), res.year, res.length, res.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · ");
+    const meta = [res.year, res.length, res.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · ");
     return `
-      <li class="card">
-        <div class="card-head">
-          <span class="rank">${rank}</span>
-          <div>
-            <h3><a class="title-link" href="#work-${esc(res.slug)}">${esc(res.title)}</a></h3>
-            <p class="meta">${esc(meta)}</p>
-          </div>
-        </div>
-        <p class="headline">${esc(res.headline)}</p>
-        ${res.summary ? `<p class="summary">${esc(res.summary)}</p>` : ""}
-        <details>
-          <summary>Why this fits</summary>
-          <ul class="reasons">${res.reasons.map((x) => `<li title="${esc(x.definition || "")}">${basisTag(x.basis)}${esc(x.text)}</li>`).join("")}</ul>
+      <li class="result">
+        <span class="rank" aria-hidden="true">${["I", "II", "III", "IV", "V", "VI", "VII", "VIII"][rank - 1] || rank}</span>
+        <div>
+          <h3><a href="#work-${esc(res.slug)}">${esc(res.title)}</a></h3>
+          <p class="meta">${medal(res.medium)}<span>${esc(mediumLabel(res.medium))}${meta ? " · " + esc(meta) : ""}</span></p>
+          <p class="headline">${esc(res.headline)}</p>
+          ${res.summary ? `<p class="summary">${esc(res.summary)}</p>` : ""}
           <details>
-            <summary>Score breakdown</summary>
-            <dl class="breakdown">${Object.entries(res.score_breakdown).map(([k, v]) => `<div><dt>${esc(k.replace(/_/g, " "))}</dt><dd>${v.toFixed(3)}</dd></div>`).join("")}</dl>
+            <summary>Why this fits</summary>
+            <ul class="reasons">${res.reasons.map((x) => `<li title="${esc(x.definition || "")}">${basisTag(x.basis)}${esc(x.text)}</li>`).join("")}</ul>
+            <details>
+              <summary>Score breakdown</summary>
+              <dl class="breakdown">${Object.entries(res.score_breakdown).map(([k, v]) => `<div><dt>${esc(k.replace(/_/g, " "))}</dt><dd>${v.toFixed(3)}</dd></div>`).join("")}</dl>
+            </details>
           </details>
-        </details>
-        ${res.caveats.length ? `<ul class="caveats">${res.caveats.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
-        ${given ? `<p class="feedback-done">Thanks, noted: ${esc(FEEDBACK.find((f) => f[0] === given)?.[1] || given)}.</p>`
-          : `<div class="feedback" role="group" aria-label="Feedback on ${esc(res.title)}">${FEEDBACK.map(([k, l]) => `<button type="button" data-fb="${k}" data-slug="${esc(res.slug)}">${l}</button>`).join("")}</div>`}
+          ${res.caveats.length ? `<ul class="caveats">${res.caveats.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
+          ${given ? `<p class="feedback-done">Noted: ${esc(FEEDBACK.find((f) => f[0] === given)?.[1] || given)}.</p>`
+            : `<div class="feedback" role="group" aria-label="Feedback on ${esc(res.title)}">${FEEDBACK.map(([k, l]) => `<button type="button" data-fb="${k}" data-slug="${esc(res.slug)}">${l}</button>`).join("")}</div>`}
+        </div>
       </li>`;
   }
 
-  function renderDiscover(focus) {
+  function renderDiscover() {
     const r = cat.discover(query);
-    app.innerHTML = askForm() + readingStrip(r) + (r.results.length
-      ? `<ol class="results">${r.results.map((x, i) => card(x, i + 1)).join("")}</ol>`
-      : `<p class="empty">${esc(r.message)}</p>`);
-    if (focus) document.getElementById("q").focus();
+    app.innerHTML = `
+      <section class="hero">
+        <canvas id="well" aria-hidden="true"></canvas>
+        <p class="eyebrow">The well beneath the tree</p>
+        <h1>Drawn from the well of <em>every story.</em></h1>
+        <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, books, games and music that fit, and tells you why each one does.</p>
+        ${askForm()}
+      </section>
+      ${readingStrip(r)}
+      ${r.results.length ? `<ol class="results">${r.results.map((x, i) => resultItem(x, i + 1)).join("")}</ol>` : `<p class="empty">${esc(r.message)}</p>`}
+      ${hasAsked ? "" : `
+      <section class="steps" aria-label="How Mimir works">
+        <div><p class="num">I</p><h3>Ask in your own words</h3><p>Moods, themes, a favourite to start from, things to avoid, how long you have. Mimir shows you how it read the request.</p></div>
+        <div><p class="num">II</p><h3>See why each pick fits</h3><p>Every reason comes from the catalogue, and says whether it is a recorded fact or an editorial reading.</p></div>
+        <div><p class="num">III</p><h3>Follow a thread</h3><p>Open a work for its tags, parents' guide, credits and connected stories, then wander by tag or by person.</p></div>
+      </section>`}`;
+    startRipples(document.getElementById("well"));
   }
 
-  // ------------------------------------------------------------------ shared catalogue pieces
-  const GROUP_AVOID = [
-    ["advisory:sexual-content", "Sex & nudity"], ["advisory:graphic-violence", "Graphic violence"],
-    ["advisory:body-horror", "Body horror"], ["advisory:atrocity", "Atrocity"],
-    ["advisory:strong-language", "Strong language"], ["advisory:substance-use", "Alcohol, drugs & smoking"],
-    ["advisory:jump-scares", "Frightening scenes"], ["advisory:suicide-self-harm", "Suicide & self-harm"],
-  ];
-  const LANG = { en: "English", ja: "Japanese", ru: "Russian", ko: "Korean", de: "German", pl: "Polish", it: "Italian",
-    fr: "French", be: "Belarusian" };
-  const langLabel = (c) => LANG[c] || c;
-  const tagToken = (key) => `tag-${key.replace(":", ".")}`;
-  const sevPill = (s) => `<span class="sev sev-${s === "Not assessed" ? "unknown" : s.toLowerCase()}">${esc(s)}</span>`;
-  const tagChip = (t, extra = "") => `<a class="tag-chip" href="#${tagToken(t.key)}">${esc(t.label)}${extra}</a>`;
-
+  // ------------------------------------------------------------------ catalogue pieces
   function workCard(w, extra = "") {
-    const meta = [mediumLabel(w.medium), w.year, w.length, w.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · ");
+    const meta = [w.year, w.length, w.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · ");
     return `
       <li class="wcard">
         <div class="wcard-head">
           <h3><a href="#work-${esc(w.slug)}">${esc(w.title)}</a></h3>
           ${w.ratings.map((r) => `<span class="rating" title="${esc(r.system)} rating">${esc(r.rating)}</span>`).join("")}
         </div>
-        <p class="meta">${esc(meta)}</p>
+        <p class="meta">${medal(w.medium)}<span>${esc(mediumLabel(w.medium))}${meta ? " · " + esc(meta) : ""}</span></p>
         ${extra}
-        ${w.summary ? `<p class="summary small">${esc(w.summary)}</p>` : ""}
+        ${w.summary ? `<p class="summary">${esc(w.summary)}</p>` : ""}
         <div class="tag-row">${[...w.genres, ...w.tags].map((t) => tagChip(t)).join("")}</div>
         ${w.guide_flags.length ? `<p class="flags">${w.guide_flags.map((f) => `<span>${sevPill(f.severity)} ${esc(f.label)}</span>`).join("")}</p>` : ""}
       </li>`;
@@ -387,7 +485,6 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
 
   // ------------------------------------------------------------------ browse
   const browseState = { media: [], tags: [], avoid: [], decade: null, language: null, max_minutes: null, q: "", sort: "popular" };
-  const toggle = (arr, v) => (arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
 
   function renderBrowse() {
     const s = browseState;
@@ -395,11 +492,9 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
     const facet = (title, values, kind) => !values.length ? "" : `
       <div class="facet"><h3>${title}</h3><ul>${values.map((v) => {
         const value = String(v.value);
-        const on = kind === "tag" ? s.tags.includes(value) : kind === "media" ? s.media.includes(value)
-          : String(s[kind]) === value;
+        const on = kind === "tag" ? s.tags.includes(value) : kind === "media" ? s.media.includes(value) : String(s[kind]) === value;
         const label = kind === "media" ? mediumLabel(value) : kind === "language" ? langLabel(value) : v.label;
-        return `<li><button type="button" class="facet-btn${on ? " on" : ""}" data-facet="${kind}" data-value="${esc(value)}"
-          aria-pressed="${on}">${esc(label)}</button> <span class="count">${v.count}</span></li>`;
+        return `<li><button type="button" class="facet-btn${on ? " on" : ""}" data-facet="${kind}" data-value="${esc(value)}" aria-pressed="${on}">${esc(label)}</button> <span class="count">${v.count}</span></li>`;
       }).join("")}</ul></div>`;
     const active = [
       ...s.media.map((m) => ["media", m, mediumLabel(m)]),
@@ -408,20 +503,23 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
       ...(s.language ? [["language", s.language, langLabel(s.language)]] : []),
     ];
     app.innerHTML = `
-      <h1 class="page-title">Browse the catalogue</h1>
-      <form class="filters" id="filters">
-        <label class="eyebrow" for="bq">Title or name</label>
-        <input id="bq" type="search" value="${esc(s.q)}" placeholder="e.g. Tarkovsky, Solaris">
+      <header class="page-head">
+        <p class="eyebrow">The catalogue</p>
+        <h1>Browse every story</h1>
+        <p>Filter by medium, tag, decade, language, length and parents' guide. Every work has its own page.</p>
+      </header>
+      <form class="filters" id="filters" onsubmit="return false">
+        <div><label class="eyebrow" for="bq">Title or name</label><div style="margin-top:8px"><input id="bq" type="search" value="${esc(s.q)}" placeholder="e.g. Tarkovsky, Solaris"></div></div>
         <fieldset><legend class="eyebrow">Medium</legend>
           ${["film", "book", "game", "album"].map((m) => `<label class="check"><input type="checkbox" data-media="${m}" ${s.media.includes(m) ? "checked" : ""}> ${mediumLabel(m)}</label>`).join("")}
         </fieldset>
         <fieldset><legend class="eyebrow">Parents' guide: none or mild</legend>
           ${GROUP_AVOID.map(([k, l]) => `<label class="check"><input type="checkbox" data-avoid="${k}" ${s.avoid.includes(k) ? "checked" : ""}> ${l}</label>`).join("")}
-          <p class="muted small" style="margin:4px 0 0;flex-basis:100%">Works not yet assessed for a checked category are left out.</p>
+          <p class="muted small" style="flex-basis:100%">Works not yet assessed for a checked category are left out.</p>
         </fieldset>
         <div class="row">
-          <label class="eyebrow" for="bmax">Max length</label>
-          <select id="bmax">${[["", "Any"], ["90", "90 min"], ["120", "2 hours"], ["180", "3 hours"], ["600", "10 hours"]]
+          <label class="eyebrow" for="bmax">Length</label>
+          <select id="bmax">${[["", "Any"], ["90", "Up to 90 min"], ["120", "Up to 2 hours"], ["180", "Up to 3 hours"], ["600", "Up to 10 hours"]]
             .map(([v, l]) => `<option value="${v}" ${String(s.max_minutes ?? "") === v ? "selected" : ""}>${l}</option>`).join("")}</select>
           <label class="eyebrow" for="bsort">Sort</label>
           <select id="bsort">${[["popular", "Best known"], ["title", "Title A–Z"], ["newest", "Newest"], ["oldest", "Oldest"], ["shortest", "Shortest"]]
@@ -429,14 +527,14 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
         </div>
       </form>
       ${active.length ? `<p class="active">${active.map(([k, v, l]) => `<button type="button" class="chip limit" data-facet="${k}" data-value="${esc(v)}" aria-label="Remove ${esc(l)}">${esc(l)} ×</button>`).join("")}
-        <button type="button" class="link small" data-clear>Clear all</button></p>` : ""}
+        <button type="button" class="linkish" data-clear>Clear all</button></p>` : ""}
       <div class="browse">
         <aside class="facets" aria-label="Refine">
           ${facet("Medium", r.facets.medium, "media")}${facet("Genre", r.facets.genre, "tag")}${facet("Themes", r.facets.theme, "tag")}
-          ${facet("Mood", r.facets.mood, "tag")}${facet("Decade", r.facets.decade, "decade")}${facet("Original language", r.facets.language, "language")}
+          ${facet("Mood", r.facets.mood, "tag")}${facet("Decade", r.facets.decade, "decade")}${facet("Language", r.facets.language, "language")}
         </aside>
         <section aria-label="Results">
-          <p class="stats" style="margin:0 0 10px">${r.total === 1 ? "1 work" : `${r.total} works`}</p>
+          <p class="stats" style="margin:0 0 12px">${r.total === 1 ? "1 work" : `${r.total} works`}</p>
           ${r.total ? `<ol class="wgrid">${r.results.map((w) => workCard(w)).join("")}</ol>` : `<p class="empty">Nothing matches these filters. Try removing one.</p>`}
         </section>
       </div>`;
@@ -444,8 +542,9 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
 
   // ------------------------------------------------------------------ tags & people
   function renderTags() {
-    app.innerHTML = `<h1 class="page-title">Tags</h1>
-      <p class="lede">Every quality in the controlled taxonomy that at least one work carries. Open one to see its works, strongest first.</p>
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">The taxonomy</p><h1>Tags</h1>
+        <p>Every quality Mimir records, each with a definition. Open one to see its works, strongest first.</p></header>
       ${cat.tags().map((g) => `<section class="block"><h2>${esc(g.label)}</h2><div class="tag-row">${g.terms.map((t) => tagChip(t, ` <span class="count">${t.count}</span>`)).join("")}</div></section>`).join("")}`;
   }
 
@@ -453,56 +552,58 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
     const t = cat.tag(key);
     if (!t) { app.innerHTML = `<p class="empty">That tag isn't in the taxonomy. <a href="#tags">See all tags</a></p>`; return; }
     app.innerHTML = `
-      <p class="crumbs"><a href="#tags">Tags</a> / ${esc(t.dimension_label)}</p>
-      <h1 class="page-title">${esc(t.label)}</h1>
-      <p class="lede">${esc(t.definition)}</p>
-      <p><button type="button" class="btn ghost" data-browse-tag="${esc(t.key)}">Filter the catalogue by this tag</button></p>
+      <header class="page-head">
+        <p class="crumbs"><a href="#tags">Tags</a> / ${esc(t.dimension_label)}</p>
+        <h1>${esc(t.label)}</h1>
+        <p>${esc(t.definition)}</p>
+        <p><button type="button" class="btn ghost" data-browse-tag="${esc(t.key)}">Browse with this tag</button></p>
+      </header>
       ${t.related.length ? `<section class="block"><h2>Often found with</h2><div class="tag-row">${t.related.map((r) => tagChip(r, ` <span class="count">${r.count}</span>`)).join("")}</div></section>` : ""}
       <section class="block"><h2>${t.works.length === 1 ? "1 work" : `${t.works.length} works`}, strongest first</h2>
-        <ol class="wgrid">${t.works.map((w) => workCard(w, `<p class="strength"><span class="bar"><span style="width:${Math.round(w.strength * 100)}%"></span></span> ${intensity(w.strength)} (${Math.round(w.strength * 100)}%)</p>`)).join("")}</ol>
+        <ol class="wgrid">${t.works.map((w) => workCard(w, `<p class="strength"><span class="bar"><span style="width:${Math.round(w.strength * 100)}%"></span></span> ${intensity(w.strength)} · ${Math.round(w.strength * 100)}%</p>`)).join("")}</ol>
       </section>`;
   }
 
   function renderPeople() {
-    app.innerHTML = `<h1 class="page-title">People &amp; studios</h1>
-      <p class="lede">Directors, authors, developers, artists, cinematographers and studios credited in the catalogue.</p>
-      <ul class="people">${cat.people().map((p) => `<li><a href="#person-${esc(p.slug)}">${esc(p.name)}</a> <span class="muted small">${esc(p.roles.join(", "))} · ${p.count === 1 ? "1 work" : `${p.count} works`}</span></li>`).join("")}</ul>`;
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">The makers</p><h1>People &amp; studios</h1>
+        <p>Directors, authors, developers, artists, cinematographers and studios credited in the catalogue.</p></header>
+      <ul class="people block">${cat.people().map((p) => `<li><a href="#person-${esc(p.slug)}">${esc(p.name)}</a><br><span class="muted small">${esc(p.roles.join(", "))} · ${p.count === 1 ? "1 work" : `${p.count} works`}</span></li>`).join("")}</ul>`;
   }
 
   function renderPerson(slug) {
     const p = cat.person(slug);
     if (!p) { app.innerHTML = `<p class="empty">Nobody by that name is credited. <a href="#people">See everyone</a></p>`; return; }
     app.innerHTML = `
-      <p class="crumbs"><a href="#people">People &amp; studios</a></p>
-      <h1 class="page-title">${esc(p.name)}</h1>
-      <p class="meta">${p.kind === "organisation" ? "Studio / organisation" : "Person"} · ${esc(p.roles.join(", "))}</p>
+      <header class="page-head">
+        <p class="crumbs"><a href="#people">People &amp; studios</a></p>
+        <h1>${esc(p.name)}</h1>
+        <p class="meta">${p.kind === "organisation" ? "Studio / organisation" : "Person"} · ${esc(p.roles.join(", "))}</p>
+      </header>
       ${p.recurring_tags.length ? `<section class="block"><h2>Recurring qualities</h2><div class="tag-row">${p.recurring_tags.map((t) => tagChip(t, ` <span class="count">${t.count}</span>`)).join("")}</div></section>` : ""}
-      <section class="block"><h2>Works in the catalogue</h2>
+      <section class="block"><h2>In the catalogue</h2>
         <ol class="wgrid">${p.works.map((w) => workCard(w, `<p class="meta">Credited as ${esc(w.roles.join(", "))}</p>`)).join("")}</ol>
       </section>`;
   }
 
   // ------------------------------------------------------------------ work page
-  const ROLE_ORDER = ["director", "author", "developer", "artist", "writer", "cinematographer", "studio", "publisher"];
-  const roleRank = (r) => (ROLE_ORDER.includes(r) ? ROLE_ORDER.indexOf(r) : ROLE_ORDER.length);
-
   function parentsGuide(g) {
     return `
       <section class="block" id="guide">
         <h2>Parents' guide</h2>
-        ${g.ratings.length ? `<ul class="plain">${g.ratings.map((r) => `<li><span class="rating big">${esc(r.rating)}</span> <strong>${esc(r.system)}</strong>${r.reason ? `<span class="muted">: rated ${esc(r.rating)} for ${esc(r.reason.toLowerCase())}</span>` : ""}</li>`).join("")}</ul>`
+        ${g.ratings.length ? `<ul class="ratings">${g.ratings.map((r) => `<li><span class="rating big">${esc(r.rating)}</span> <span class="mono small">${esc(r.system)}</span>${r.reason ? `<span class="muted"> · rated ${esc(r.rating)} for ${esc(r.reason.toLowerCase())}</span>` : ""}</li>`).join("")}</ul>`
           : `<p class="muted small">No official rating recorded.</p>`}
         ${g.assessed ? "" : `<p class="notice">This work's content hasn't been assessed yet. No warning here does not mean it is suitable.</p>`}
         <div class="guide">${g.groups.map((grp) => `
           <div class="ggroup">
             <h3>${esc(grp.label)} ${sevPill(grp.severity)}${grp.partial ? ` <span class="muted small">partly assessed</span>` : ""}</h3>
             <ul>${grp.items.map((i) => `
-              <li title="${esc(i.definition)}"><strong>${esc(i.label)}</strong>: ${esc(i.severity)}${i.basis ? " " + basisTag(i.basis) : ""}
+              <li title="${esc(i.definition)}"><strong>${esc(i.label)}</strong> · ${esc(i.severity)}${i.basis ? " " + basisTag(i.basis) : ""}
                 ${i.note ? `<p class="gnote">${esc(i.note)}</p>` : ""}
-                ${i.spoiler_note ? `<details class="spoiler"><summary>Show spoiler detail</summary><p>${esc(i.spoiler_note)}</p></details>` : ""}
+                ${i.spoiler_note ? `<details class="spoiler"><summary>Show spoiler detail</summary><p class="gnote">${esc(i.spoiler_note)}</p></details>` : ""}
               </li>`).join("")}</ul>
           </div>`).join("")}</div>
-        <p class="muted small">Severity is None, Mild, Moderate or Severe. "Not assessed" means nobody has reviewed that category for this work yet. Pilot ratings and notes are unverified.</p>
+        <p class="muted small" style="margin-top:14px">Severity runs None, Mild, Moderate, Severe. "Not assessed" means nobody has reviewed that category for this work yet. Pilot ratings and notes are unverified.</p>
       </section>`;
   }
 
@@ -518,26 +619,28 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
     if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
     const credits = [...w.credits].sort((a, b) => roleRank(a.role) - roleRank(b.role));
     app.innerHTML = `
-      <article class="work">
-        <p class="crumbs"><a href="#browse">Catalogue</a> / ${esc(mediumLabel(w.medium))}</p>
-        <h1>${esc(w.title)}</h1>
-        ${w.original_title ? `<p class="orig">${esc(w.original_title)}</p>` : ""}
-        <p class="meta">${esc([mediumLabel(w.medium), w.year, w.length].filter(Boolean).join(" · "))}
-          ${w.parents_guide.ratings.map((r) => `<span class="rating" title="${esc(r.system)} rating">${esc(r.rating)}</span>`).join("")}</p>
+      <article>
+        <header class="work-head">
+          <p class="crumbs"><a href="#browse">Catalogue</a> / ${esc(mediumLabel(w.medium))}</p>
+          <h1>${esc(w.title)}</h1>
+          ${w.original_title ? `<p class="orig">${esc(w.original_title)}</p>` : ""}
+          <p class="meta">${medal(w.medium)}<span>${esc([mediumLabel(w.medium), w.year, w.length].filter(Boolean).join(" · "))}</span>
+            ${w.parents_guide.ratings.map((r) => `<span class="rating" title="${esc(r.system)} rating">${esc(r.rating)}</span>`).join("")}</p>
+        </header>
         <nav class="jump" aria-label="On this page">
-          <button type="button" class="link" data-jump="overview">Overview</button><button type="button" class="link" data-jump="tags">Tags</button><button type="button" class="link" data-jump="guide">Parents' guide</button><button type="button" class="link" data-jump="credits">Credits</button>${w.relationships.length ? `<button type="button" class="link" data-jump="connected">Connected works</button>` : ""}
+          <button type="button" class="linkish" data-jump="overview">Overview</button><button type="button" class="linkish" data-jump="tags">Tags</button><button type="button" class="linkish" data-jump="guide">Parents' guide</button><button type="button" class="linkish" data-jump="credits">Credits</button>${w.relationships.length ? `<button type="button" class="linkish" data-jump="connected">Connected stories</button>` : ""}
         </nav>
         <section class="block" id="overview">
-          ${w.summary ? `<p style="font-size:1.1rem;margin-top:0">${esc(w.summary)}</p>` : ""}
+          ${w.summary ? `<p class="lead-summary">${esc(w.summary)}</p>` : ""}
           <dl class="facts">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
           <div class="actions">
-            <button class="btn" type="button" data-similar="${esc(w.title)}">Find similar works</button>
+            <button class="btn" type="button" data-similar="${esc(w.title)}">Find similar</button>
             <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
           </div>
         </section>
         <section class="block" id="tags">
           <h2>Tags</h2>
-          <p class="muted small" style="margin:0 0 6px">Bars show how strongly each quality applies. Select a tag to see every work that has it.</p>
+          <p class="muted small" style="margin-bottom:12px">Bars show how strongly each quality applies. Open a tag to see every work that has it.</p>
           ${w.tags.map((d) => `<div class="dim"><h3>${esc(d.label)}</h3><ul class="terms">${d.terms.map((t) => `
             <li title="${esc(t.definition)}"><a href="#${tagToken(t.key)}">${esc(t.label)}</a>
               <span class="bar" role="img" aria-label="${intensity(t.strength)}, ${Math.round(t.strength * 100)}%"><span style="width:${Math.round(t.strength * 100)}%"></span></span>
@@ -546,21 +649,45 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
         ${parentsGuide(w.parents_guide)}
         <section class="block" id="credits">
           <h2>Credits</h2>
-          <dl class="facts">${credits.map((c) => `<div><dt>${esc(c.role[0].toUpperCase() + c.role.slice(1))}</dt><dd><a href="#person-${esc(c.slug)}">${esc(c.name)}</a></dd></div>`).join("")}</dl>
+          <dl class="facts">${credits.map((c) => `<div><dt>${esc(c.role)}</dt><dd><a href="#person-${esc(c.slug)}">${esc(c.name)}</a></dd></div>`).join("")}</dl>
         </section>
-        ${w.relationships.length ? `<section class="block" id="connected"><h2>Connected works</h2><ul class="plain">${w.relationships.map((r) => `
+        ${w.relationships.length ? `<section class="block" id="connected"><h2>Connected stories</h2><ul class="plain">${w.relationships.map((r) => `
           <li>${basisTag(r.factual ? "catalogue" : "interpretation")}${esc(r.label[0].toUpperCase() + r.label.slice(1))}
-            <a href="#work-${esc(r.slug)}">${esc(r.title)}</a> (${esc(mediumLabel(r.medium))}${r.year ? `, ${r.year}` : ""})${r.note ? `<span class="muted">: ${esc(r.note)}</span>` : ""}</li>`).join("")}</ul></section>` : ""}
-        <p class="muted small">Sources: facts from the editorial seed (unverified); tags, guide levels and notes from AI-assisted classification awaiting review.</p>
+            <a href="#work-${esc(r.slug)}">${esc(r.title)}</a> <span class="muted">(${esc(mediumLabel(r.medium))}${r.year ? `, ${r.year}` : ""})</span>${r.note ? `<span class="muted">: ${esc(r.note)}</span>` : ""}</li>`).join("")}</ul></section>` : ""}
+        <p class="muted small block">Sources: facts and credits from the editorial seed (unverified); tags, guide levels and notes from AI-assisted classification awaiting review.</p>
       </article>`;
   }
 
-  // ------------------------------------------------------------------ routing
+  // ------------------------------------------------------------------ about
+  function renderAbout() {
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">About Mimir</p><h1>The well beneath the tree</h1></header>
+      <div class="prose block">
+        <p class="pull">In the old story, Mímir kept a well among the roots of the world tree, and whoever drank from it understood.</p>
+        <p>Terratales grows from Yggdrasil: roots of story, a trunk that carries them, seven realms on its branches. Mimir is the well at those roots. It is a catalogue of films, books, games and music, and a guide that helps you draw out the one that fits tonight.</p>
+        <h2>What it does</h2>
+        <ul>
+          <li>Reads a request in your own words: moods, themes, a favourite to start from, things to avoid, how much time you have.</li>
+          <li>Finds works across mediums, so a game can lead you to a novel and a film to an album.</li>
+          <li>Explains every pick, and marks which reasons are recorded facts and which are editorial readings.</li>
+          <li>Gives each work a page with tags, a parents' guide, credits and connected stories.</li>
+        </ul>
+        <h2>How picks are made</h2>
+        <p>Every work is tagged against a controlled vocabulary of moods, themes, pacing, style and more, each with a definition. Mimir matches your request to those tags, respects your limits, favours lesser-known works when you ask, and spreads its picks so one creator doesn't fill the list. If nothing fits, it says so instead of guessing.</p>
+        <h2>The pilot</h2>
+        <p>This is an early version with 56 works. Its facts, credits and official ratings were gathered for the pilot and haven't been verified yet, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
+        <h2>A Terratales venture</h2>
+        <p>Mimir is built by Terratales Media Entertainment, a media, entertainment and story-technology house: stories rooted in the earth, branched out to every realm of the world. <a href="https://terratalesmedia.world/">Visit Terratales</a>.</p>
+      </div>`;
+  }
+
+  // ------------------------------------------------------------------ routing & events
   function setNav(view) {
     document.querySelectorAll(".nav a").forEach((a) => a.setAttribute("aria-current", a.dataset.view === view ? "page" : "false"));
   }
 
   function route() {
+    stopRipples();
     const h = location.hash.slice(1);
     if (h.startsWith("work-")) { setNav("browse"); renderWork(h.slice(5)); }
     else if (h.startsWith("tag-")) { setNav("tags"); renderTag(h.slice(4).replace(".", ":")); }
@@ -568,17 +695,23 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
     else if (h === "browse") { setNav("browse"); renderBrowse(); }
     else if (h === "tags") { setNav("tags"); renderTags(); }
     else if (h === "people") { setNav("people"); renderPeople(); }
-    else { setNav("discover"); renderDiscover(false); }
-    if (!h.startsWith("work-") || !document.activeElement || document.activeElement === document.body) window.scrollTo(0, 0);
+    else if (h === "about") { setNav("about"); renderAbout(); }
+    else { setNav("discover"); renderDiscover(); }
+    window.scrollTo(0, 0);
+  }
+
+  function seek(q) {
+    query = q;
+    hasAsked = true;
+    if (location.hash && location.hash !== "#") location.hash = "";
+    else renderDiscover();
   }
 
   app.addEventListener("submit", (e) => {
     e.preventDefault();
     if (e.target.id !== "ask") return;
     const q = document.getElementById("q").value.trim();
-    if (q.length < 2) return;
-    query = q;
-    renderDiscover(false);
+    if (q.length >= 2) seek(q);
   });
   app.addEventListener("keydown", (e) => {
     if (e.target.id === "q" && e.key === "Enter" && !e.shiftKey) {
@@ -607,10 +740,9 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
   app.addEventListener("click", (e) => {
     const t = e.target.closest("button");
     if (!t) return;
-    if (t.dataset.example !== undefined) { query = EXAMPLES[Number(t.dataset.example)]; renderDiscover(false); }
-    else if (t.dataset.work) location.hash = `work-${t.dataset.work}`;
-    else if (t.dataset.similar) { query = `something like "${t.dataset.similar}"`; location.hash = ""; renderDiscover(false); }
-    else if (t.dataset.similarOther) { query = `something like "${t.dataset.similarOther}" in a different medium`; location.hash = ""; renderDiscover(false); }
+    if (t.dataset.example !== undefined) seek(EXAMPLES[Number(t.dataset.example)]);
+    else if (t.dataset.similar) seek(`something like "${t.dataset.similar}"`);
+    else if (t.dataset.similarOther) seek(`something like "${t.dataset.similarOther}" in a different medium`);
     else if (t.dataset.jump) document.getElementById(t.dataset.jump)?.scrollIntoView({ block: "start" });
     else if (t.dataset.browseTag) {
       Object.assign(browseState, { media: [], tags: [t.dataset.browseTag], avoid: [], decade: null, language: null, max_minutes: null, q: "" });
@@ -632,7 +764,7 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
       saveFeedback(`${query}::${t.dataset.slug}`, t.dataset.fb);
       const group = t.closest(".feedback");
       const label = FEEDBACK.find((f) => f[0] === t.dataset.fb)[1];
-      group.outerHTML = `<p class="feedback-done">Thanks, noted: ${esc(label)}.</p>`;
+      group.outerHTML = `<p class="feedback-done">Noted: ${esc(label)}.</p>`;
     }
   });
   window.addEventListener("hashchange", route);

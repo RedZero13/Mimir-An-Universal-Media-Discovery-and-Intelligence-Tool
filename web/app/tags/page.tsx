@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getTags } from "@/lib/api";
 import { tagHref } from "@/lib/format";
 
-export const metadata = { title: "Tags · Media Discovery" };
+export const metadata = { title: "Tags · Mimir" };
 
 export default async function TagsPage() {
   const groups = await getTags();

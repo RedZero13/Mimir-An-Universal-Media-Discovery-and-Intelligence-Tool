@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getPeople } from "@/lib/api";
 
-export const metadata = { title: "People & studios · Media Discovery" };
+export const metadata = { title: "People & studios · Mimir" };
 
 export default async function PeoplePage() {
   const people = await getPeople();

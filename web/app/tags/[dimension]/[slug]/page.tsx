@@ -9,7 +9,7 @@ type Params = Promise<{ dimension: string; slug: string }>;
 export async function generateMetadata({ params }: { params: Params }) {
   const { dimension, slug } = await params;
   const tag = await getTag(`${dimension}:${slug}`).catch(() => null);
-  return { title: tag ? `${tag.label} · Media Discovery` : "Not found" };
+  return { title: tag ? `${tag.label} · Mimir` : "Not found" };
 }
 
 export default async function TagPage({ params }: { params: Params }) {

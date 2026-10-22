@@ -8,7 +8,7 @@ type Params = Promise<{ slug: string }>;
 
 export async function generateMetadata({ params }: { params: Params }) {
   const person = await getPerson((await params).slug).catch(() => null);
-  return { title: person ? `${person.name} · Media Discovery` : "Not found" };
+  return { title: person ? `${person.name} · Mimir` : "Not found" };
 }
 
 export default async function PersonPage({ params }: { params: Params }) {

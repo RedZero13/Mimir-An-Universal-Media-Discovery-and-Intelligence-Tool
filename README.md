@@ -1,16 +1,23 @@
-# Universal Media Discovery
+<img src="brand/lockup-horizontal.svg" alt="Mimir, a Terratales venture" height="56">
 
-Describe what you want to experience: a mood, an idea, a favourite work, a time limit. Get a few well-chosen films,
-books, games or albums back, each with the reasons it fits.
+# Mimir
 
-This is the first vertical slice. A user writes a request in plain language. The system interprets it into
-inspectable constraints and preferences, ranks a classified catalogue against them, and explains every result
-from recorded evidence. Facts are labelled separately from interpretations.
+**Drawn from the well of every story.** Mimir is a catalogue and discovery engine for films, books, games and
+music, built as *A Terratales Venture* for [terratalesmedia.world](https://terratalesmedia.world/).
+
+Describe what you want to experience: a mood, an idea, a favourite work, a time limit. Mimir returns a few
+well-chosen picks, each with the reasons it fits.
+
+Under the hood, a request in plain language is interpreted into inspectable constraints and preferences, a
+classified catalogue is ranked against them, and every result is explained from recorded evidence. Facts are
+labelled separately from interpretations.
 
 It is also a browsable catalogue, in the spirit of IMDb: filter by medium, tag, decade, language, length and
 parents'-guide category; open tag pages and people pages; and read full work pages with tags, credits,
 connected works and a parents' guide that tells "none" apart from "not assessed".
 
+- **Brand guide (name, mark, colour, type, voice):** [`docs/BRAND.md`](docs/BRAND.md)
+- **Putting it on terratalesmedia.world:** [`docs/DEPLOY.md`](docs/DEPLOY.md)
 - **Project assessment, architecture, data model, roadmap:** [`docs/ASSESSMENT.md`](docs/ASSESSMENT.md)
 - **Taxonomy and classification specification:** [`docs/TAXONOMY.md`](docs/TAXONOMY.md)
 - **Data sources and licensing register:** [`docs/SOURCES.md`](docs/SOURCES.md)
@@ -28,13 +35,17 @@ api/                    Python 3.11+, FastAPI, PostgreSQL (modular monolith)
   benchmark/            Discovery benchmark (queries.json) and runner
   tests/                Unit tests + integration tests against a throwaway database
 web/                    Next.js 15 + TypeScript (server components; no client-side API calls)
-demo/                   Single-file browser demo: a JavaScript port of the pure pipeline (engine.cjs),
+brand/                  Mimir mark, lockups, icons and social card (see docs/BRAND.md)
+demo/                   The public single-page site: a JavaScript port of the pure pipeline (engine.cjs),
                         kept identical to the Python by api/tests/test_demo_parity.py
 ```
 
-## Browser demo
+## Public site
 
-`node demo/build.cjs` writes `demo/dist/media-discovery.html`: one self-contained page that runs the discovery
+`node demo/build.cjs --site` writes `demo/dist/site/`, the deployable static site for
+`mimir.terratalesmedia.world`, with a full `<head>`, icons, social card and CNAME. `.github/workflows/pages.yml`
+publishes it on every push to `main` (setup in `docs/DEPLOY.md`). `node demo/build.cjs` alone writes a single
+self-contained page that runs the discovery
 pipeline (intent parsing, ranking, explanations) on the pilot catalogue with no server. Differences from the
 full stack: keyword search is a simple word match instead of PostgreSQL full-text search, and feedback stays in
 the viewer's browser. `pytest` runs the JavaScript and Python engines side by side on every benchmark query plus
