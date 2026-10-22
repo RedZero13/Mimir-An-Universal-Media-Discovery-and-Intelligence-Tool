@@ -62,9 +62,10 @@ def _check(name: str, arg, resp: dict, by_slug: dict) -> str | None:
         return f"parser missed avoidances {sorted(missing)}" if missing else None
     if name == "no_reference":
         return f"treated {intent['reference_phrase']!r} as a reference" if intent.get("reference_slug") else None
-    if name == "all_have_caveat_containing":
-        bad = [r["slug"] for r in results if not any(arg in c for c in r["caveats"])]
-        return f"missing caveat: {bad}" if bad else None
+    if name == "unassessed_have_caveat":
+        bad = [r["slug"] for r in results
+               if arg not in by_slug[r["slug"]]["assessed"] and not any("Not yet assessed" in c for c in r["caveats"])]
+        return f"missing 'not yet assessed' caveat: {bad}" if bad else None
     return f"unknown check {name!r}"
 
 
@@ -74,8 +75,13 @@ def run_benchmark(conn: psycopg.Connection, path: Path = QUERIES_PATH) -> dict:
 
     by_slug = {
         r["slug"]: {"language": r["original_language"],
-                    "minutes": r["runtime_minutes"] or (float(r["playtime_hours"]) * 60 if r["playtime_hours"] else None)}
-        for r in conn.execute("SELECT slug, original_language, runtime_minutes, playtime_hours FROM work").fetchall()
+                    "minutes": r["runtime_minutes"] or (float(r["playtime_hours"]) * 60 if r["playtime_hours"] else None),
+                    "assessed": set(r["assessed"])}
+        for r in conn.execute(
+            "SELECT w.slug, w.original_language, w.runtime_minutes, w.playtime_hours, "
+            "coalesce(array_agg(t.dimension || ':' || t.slug) FILTER (WHERE t.dimension = 'advisory'), '{}') AS assessed "
+            "FROM work w LEFT JOIN classification c ON c.work_id = w.id LEFT JOIN taxonomy_term t ON t.id = c.term_id "
+            "GROUP BY w.id").fetchall()
     }
     return evaluate(lambda q: discover(conn, q, limit=8, log=False).to_dict(), by_slug, path)
 
@@ -85,7 +91,8 @@ def run_benchmark_offline(path: Path = QUERIES_PATH) -> dict:
     from mde.catalogue.memory import MemoryCatalogue
 
     cat = MemoryCatalogue.from_seed()
-    by_slug = {w.slug: {"language": w.language, "minutes": w.length_minutes} for w in cat.works}
+    by_slug = {w.slug: {"language": w.language, "minutes": w.length_minutes,
+                        "assessed": {k for k in w.terms if k.startswith("advisory:")}} for w in cat.works}
     return evaluate(lambda q: cat.discover(q, limit=8).to_dict(), by_slug, path)
 
 

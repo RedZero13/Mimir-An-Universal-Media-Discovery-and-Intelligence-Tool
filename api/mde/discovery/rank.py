@@ -203,8 +203,8 @@ def _score(intent: Intent, w: WorkProfile, ref: WorkProfile | None, ref_vec: dic
         ev = w.terms.get(a.term)
         if ev is None:
             if a.hard:
-                if a.term.startswith("advisory:") and not w.advisories_assessed:
-                    s.caveats.append("Content advisories haven't been assessed for this work yet.")
+                if a.term.startswith("advisory:"):
+                    s.caveats.append(f"Not yet assessed for {a.term.split(':')[1].replace('-', ' ')}.")
                 penalty += weights.unknown_advisory_penalty
             continue
         if a.hard:

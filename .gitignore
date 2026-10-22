@@ -10,3 +10,5 @@ node_modules/
 next-env.d.ts
 *.tsbuildinfo
 demo/dist/
+_site/
+api/mde/data/cache/

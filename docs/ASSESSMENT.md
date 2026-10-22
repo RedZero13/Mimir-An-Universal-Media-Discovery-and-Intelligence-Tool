@@ -18,6 +18,7 @@ to respect, so the foundation below was established from the directive.
 | Importer | Validates first, all-or-nothing, idempotent; source-scoped replacement of credits and classifications | Integration tests (re-import changes nothing; invalid import writes nothing) |
 | Discovery | Rule-based intent parser, transparent ranker, template explanations, diversity re-rank, event logging | 36 tests; 20-query benchmark |
 | API | FastAPI: discover, work, taxonomy, feedback, health | Integration tests via TestClient |
+| Catalogue | Browse with filters and facets, tag pages, people pages, work pages with a parents' guide (taxonomy v0.2.0, migration `0002`) | Unit and integration tests; JS/Python parity tests |
 | Web | Next.js 15: discovery page (interpretation, results, reasons, caveats, score breakdown, feedback), work page | Typecheck, production build, and a headless Chromium run (desktop and 375 px; feedback round-trip; 404 for unknown work) |
 
 **Gaps (deliberate, for later phases):** no external data integrations, no editorial review tool, no

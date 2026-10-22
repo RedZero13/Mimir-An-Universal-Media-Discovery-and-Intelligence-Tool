@@ -22,6 +22,7 @@ class Term:
     definition: str
     applies_to: tuple[str, ...]
     synonyms: tuple[str, ...]
+    group: str | None = None   # parents' guide group, advisory terms only
 
     @property
     def key(self) -> str:
@@ -41,6 +42,7 @@ class Taxonomy:
     version: str
     dimensions: dict[str, Dimension]
     terms: dict[str, Term] = field(default_factory=dict)  # keyed by "dimension:slug"
+    guide_groups: list[tuple[str, str]] = field(default_factory=list)  # (slug, label), display order
 
     def get(self, key: str) -> Term:
         try:
@@ -54,7 +56,9 @@ class Taxonomy:
 
 def parse(data: dict) -> Taxonomy:
     dims = {d["slug"]: Dimension(d["slug"], d["label"], d["description"], d["kind"]) for d in data["dimensions"]}
-    tax = Taxonomy(version=data["version"], dimensions=dims)
+    tax = Taxonomy(version=data["version"], dimensions=dims,
+                   guide_groups=[(g["slug"], g["label"]) for g in data.get("guide_groups", [])])
+    group_slugs = {g for g, _ in tax.guide_groups}
     seen_synonyms: dict[str, str] = {}
     for raw in data["terms"]:
         if raw["dimension"] not in dims:
@@ -66,7 +70,10 @@ def parse(data: dict) -> Taxonomy:
             definition=raw["definition"],
             applies_to=tuple(raw.get("applies_to", ["*"])),
             synonyms=tuple(s.lower() for s in raw.get("synonyms", [])),
+            group=raw.get("group"),
         )
+        if term.dimension == "advisory" and term.group not in group_slugs:
+            raise ValueError(f"advisory term {term.key} needs a guide group from {sorted(group_slugs)}")
         if term.key in tax.terms:
             raise ValueError(f"duplicate term {term.key}")
         for s in term.synonyms:

@@ -14,7 +14,7 @@ export function SearchBox({ initial }: { initial?: string }) {
         minLength={2}
         maxLength={500}
       />
-      <button type="submit">Find</button>
+      <button type="submit">Seek</button>
     </form>
   );
 }

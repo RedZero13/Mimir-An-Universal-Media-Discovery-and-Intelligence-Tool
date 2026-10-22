@@ -1,137 +1,70 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BasisTag } from "@/components/BasisTag";
+import { ParentsGuide } from "@/components/ParentsGuide";
 import { getWork } from "@/lib/api";
-import { DIMENSION_LABELS, intensity, mediumLabel } from "@/lib/format";
-import type { Classification, Work } from "@/lib/types";
+import { intensity, languageLabel, mediumLabel, tagHref } from "@/lib/format";
+import type { Work } from "@/lib/types";
 
-const DIMENSION_ORDER = ["genre", "theme", "mood", "pacing", "complexity", "narrative", "world", "style"];
+type Params = Promise<{ slug: string }>;
 
-function lengthText(w: Work): string | null {
+function lengthText(w: Work): string {
   const approx = w.length_is_estimate ? "about " : "";
   if (w.runtime_minutes) return `${approx}${w.runtime_minutes} minutes`;
   if (w.playtime_hours) return `${approx}${w.playtime_hours} hours (main path)`;
-  return null;
+  return w.medium === "book" ? "Varies by edition" : "Not recorded";
 }
 
-function basisOf(c: Classification) {
-  if (!c.is_interpretation) return "catalogue" as const;
-  return c.review_status === "reviewed" ? ("reviewed_interpretation" as const) : ("interpretation" as const);
-}
+const ROLE_ORDER = ["director", "author", "developer", "artist", "writer", "cinematographer", "studio", "publisher"];
+const roleLabel = (r: string) => r[0].toUpperCase() + r.slice(1);
+const roleRank = (r: string) => (ROLE_ORDER.includes(r) ? ROLE_ORDER.indexOf(r) : ROLE_ORDER.length);
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Params }) {
   const work = await getWork((await params).slug).catch(() => null);
-  return { title: work ? `${work.title} · Media Discovery` : "Not found" };
+  return { title: work ? `${work.title} (${work.year ?? "?"}) · Mimir` : "Not found" };
 }
 
-export default async function WorkPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const work = await getWork(slug);
+export default async function WorkPage({ params }: { params: Params }) {
+  const work = await getWork((await params).slug);
   if (!work) notFound();
 
-  const visible = work.classifications.filter((c) => !c.is_spoiler && c.strength > 0);
-  const byDimension = DIMENSION_ORDER.map((d) => [d, visible.filter((c) => c.dimension === d)] as const).filter(
-    ([, cs]) => cs.length > 0,
-  );
-  const advisories = work.classifications.filter((c) => c.dimension === "advisory");
-  const length = lengthText(work);
-  const facts: [string, string][] = [
-    ["Medium", mediumLabel(work.medium)],
-    ["Released", work.release_year ? String(work.release_year) : "Unknown"],
-    ["Original language", work.original_language ?? "None / not recorded"],
+  const facts: [string, React.ReactNode][] = [
+    ["Medium", <Link key="m" href={`/browse?medium=${work.medium}`}>{mediumLabel(work.medium)}</Link>],
+    ["Released", work.year ? <Link key="y" href={`/browse?decade=${Math.floor(work.year / 10) * 10}`}>{work.year}</Link> : "Unknown"],
+    ["Length", lengthText(work)],
+    ["Original language", work.original_language ? languageLabel(work.original_language) : "None / not recorded"],
     ["Country", work.countries.length ? work.countries.join(", ") : "Not recorded"],
-    ["Length", length ?? "Not recorded"],
   ];
   const platforms = work.attributes["platforms"];
   if (Array.isArray(platforms)) facts.push(["Platforms", platforms.join(", ")]);
+  const credits = [...work.credits].sort((a, b) => roleRank(a.role) - roleRank(b.role));
 
   return (
     <article className="work">
       <p className="crumbs">
-        <Link href="/">← Discover</Link>
+        <Link href="/browse">Catalogue</Link> / <Link href={`/browse?medium=${work.medium}`}>{mediumLabel(work.medium)}</Link>
       </p>
       <h1>{work.title}</h1>
       {work.original_title && <p className="original-title">{work.original_title}</p>}
       <p className="meta">
-        {mediumLabel(work.medium)} · {work.release_year ?? "year unknown"}
-        {work.credits.length > 0 && <> · {work.credits.slice(0, 3).map((c) => c.name).join(", ")}</>}
-      </p>
-      {work.summary && <p className="lede">{work.summary}</p>}
-      {work.summary_spoiler && (
-        <details className="spoiler">
-          <summary>Show the full plot (spoilers)</summary>
-          <p>{work.summary_spoiler}</p>
-        </details>
-      )}
-      <p>
-        <Link className="button" href={`/?q=${encodeURIComponent(`something like "${work.title}"`)}`}>
-          Find similar works
-        </Link>{" "}
-        <Link
-          className="button secondary"
-          href={`/?q=${encodeURIComponent(`something like "${work.title}" in a different medium`)}`}
-        >
-          …in other media
-        </Link>
-      </p>
-
-      <section>
-        <h2>What kind of experience is it?</h2>
-        <p className="muted small">
-          Bars show how strongly each quality applies. Labels show whether it is catalogue data or an interpretation.
-        </p>
-        {byDimension.map(([dim, cs]) => (
-          <div key={dim} className="dimension">
-            <h3>{DIMENSION_LABELS[dim] ?? dim}</h3>
-            <ul className="terms">
-              {cs.map((c) => (
-                <li key={c.slug} title={c.definition}>
-                  <span className="term-label">{c.label}</span>
-                  <span className="bar" aria-label={`${intensity(c.strength)} (${Math.round(c.strength * 100)}%)`}>
-                    <span style={{ width: `${Math.round(c.strength * 100)}%` }} />
-                  </span>
-                  <BasisTag basis={basisOf(c)} />
-                </li>
-              ))}
-            </ul>
-          </div>
+        {[mediumLabel(work.medium), work.year, work.length].filter(Boolean).join(" · ")}
+        {work.parents_guide.ratings.map((r) => (
+          <a key={r.system} href="#parents-guide" className="rating" title={`${r.system} rating`}>
+            {r.rating}
+          </a>
         ))}
-      </section>
+      </p>
+      <nav className="section-nav" aria-label="On this page">
+        <a href="#overview">Overview</a>
+        <a href="#tags">Tags</a>
+        <a href="#parents-guide">Parents&apos; guide</a>
+        <a href="#credits">Credits</a>
+        {work.relationships.length > 0 && <a href="#connected">Connected works</a>}
+        <a href="#sources">Sources</a>
+      </nav>
 
-      <section>
-        <h2>Before you start</h2>
-        {!work.advisories_assessed || advisories.length === 0 ? (
-          <p>Content advisories haven&apos;t been assessed for this work yet.</p>
-        ) : (
-          <ul className="advisories">
-            {advisories.map((a) => (
-              <li key={a.slug}>
-                {a.label}: <strong>{intensity(a.strength)}</strong> <BasisTag basis={basisOf(a)} />
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-
-      {work.relationships.length > 0 && (
-        <section>
-          <h2>Connected works</h2>
-          <ul className="relations">
-            {work.relationships
-              .filter((r) => !r.is_spoiler)
-              .map((r) => (
-                <li key={`${r.type}-${r.slug}`}>
-                  <BasisTag basis={r.factual ? "catalogue" : "interpretation"} /> {r.label[0].toUpperCase() + r.label.slice(1)}{" "}
-                  <Link href={`/works/${r.slug}`}>{r.title}</Link> ({mediumLabel(r.medium)}
-                  {r.release_year ? `, ${r.release_year}` : ""}){r.note && <span className="muted">: {r.note}</span>}
-                </li>
-              ))}
-          </ul>
-        </section>
-      )}
-
-      <section>
-        <h2>Facts and sources</h2>
+      <section id="overview">
+        {work.summary && <p className="lede">{work.summary}</p>}
         <dl className="facts">
           {facts.map(([k, v]) => (
             <div key={k}>
@@ -139,13 +72,73 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
               <dd>{v}</dd>
             </div>
           ))}
-          {work.credits.map((c) => (
-            <div key={`${c.role}-${c.name}`}>
-              <dt>{c.role[0].toUpperCase() + c.role.slice(1)}</dt>
-              <dd>{c.name}</dd>
+        </dl>
+        <p className="actions">
+          <Link className="button" href={`/?q=${encodeURIComponent(`something like "${work.title}"`)}`}>
+            Find similar works
+          </Link>
+          <Link className="button secondary" href={`/?q=${encodeURIComponent(`something like "${work.title}" in a different medium`)}`}>
+            …in other media
+          </Link>
+        </p>
+      </section>
+
+      <section id="tags">
+        <h2>Tags</h2>
+        <p className="muted small">Bars show how strongly each quality applies. Select a tag to see every work that has it.</p>
+        {work.tags.map((group) => (
+          <div key={group.dimension} className="dimension">
+            <h3>{group.label}</h3>
+            <ul className="terms">
+              {group.terms.map((t) => (
+                <li key={t.key} title={t.definition}>
+                  <Link href={tagHref(t.key)} className="term-label">
+                    {t.label}
+                  </Link>
+                  <span className="bar" role="img" aria-label={`${intensity(t.strength)} (${Math.round(t.strength * 100)}%)`}>
+                    <span style={{ width: `${Math.round(t.strength * 100)}%` }} />
+                  </span>
+                  <BasisTag basis={t.basis} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      <ParentsGuide guide={work.parents_guide} />
+
+      <section id="credits">
+        <h2>Credits</h2>
+        <dl className="facts">
+          {credits.map((c) => (
+            <div key={`${c.role}-${c.slug}`}>
+              <dt>{roleLabel(c.role)}</dt>
+              <dd>
+                <Link href={`/people/${c.slug}`}>{c.name}</Link>
+              </dd>
             </div>
           ))}
         </dl>
+      </section>
+
+      {work.relationships.length > 0 && (
+        <section id="connected">
+          <h2>Connected works</h2>
+          <ul className="relations">
+            {work.relationships.map((r) => (
+              <li key={`${r.type}-${r.slug}`}>
+                <BasisTag basis={r.factual ? "catalogue" : "interpretation"} /> {r.label[0].toUpperCase() + r.label.slice(1)}{" "}
+                <Link href={`/works/${r.slug}`}>{r.title}</Link> ({mediumLabel(r.medium)}
+                {r.year ? `, ${r.year}` : ""}){r.note && <span className="muted">: {r.note}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section id="sources">
+        <h2>Sources</h2>
         <ul className="sources small">
           {work.sources.map((s) => (
             <li key={s.slug}>

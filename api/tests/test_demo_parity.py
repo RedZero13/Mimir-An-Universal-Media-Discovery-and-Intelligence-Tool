@@ -6,7 +6,9 @@ import subprocess
 from pathlib import Path
 
 import pytest
+from enrichment_fixture import FIXTURE
 
+from mde.catalogue.browse import load_shelves
 from mde.catalogue.memory import MemoryCatalogue
 
 ROOT = Path(__file__).parent.parent.parent
@@ -58,16 +60,71 @@ EXTRA_QUERIES = [
 ]
 
 
-@pytest.fixture(scope="module")
-def js_output():
+BROWSE_CASES = [
+    {},
+    {"media": ["film"]},
+    {"media": ["game", "book"], "sort": "title"},
+    {"tags": ["theme:grief-loss"]},
+    {"tags": ["theme:consciousness-ai", "genre:science-fiction"], "sort": "popular"},
+    {"decade": 1970},
+    {"language": "ja"},
+    {"country": "GB", "sort": "oldest"},
+    {"max_minutes": 100, "sort": "shortest"},
+    {"media": ["film"], "avoid": ["advisory:graphic-violence", "advisory:strong-language"], "sort": "newest"},
+    {"avoid": ["advisory:substance-use"]},
+    {"q": "tarkovsky"},
+    {"q": "  the  "},
+    {"q": "zzz-nothing"},
+    {"media": ["album"], "tags": ["mood:melancholic"], "sort": "shortest"},
+    {"exclude": ["genre:science-fiction", "mood:bleak"], "sort": "title"},
+    {"media": ["film"], "year_min": 1980, "year_max": 1999, "sort": "oldest"},
+    {"year_min": 2015, "exclude": ["theme:grief-loss"]},
+]
+
+
+SEED = json.loads((ROOT / "api/mde/seed/catalogue.json").read_text())
+
+
+def _catalogue(enrichment):
+    return MemoryCatalogue(SEED, enrichment=enrichment)
+
+
+def _views(cat):
+    tag_keys = [t["key"] for d in cat.tags() for t in d["terms"]] + ["theme:not-a-tag", "advisory:strong-language"]
+    people = [p["slug"] for p in cat.people()] + ["nobody"]
+    shelves = [s["slug"] for s in load_shelves()["shelves"]] + ["no-such-shelf"]
+    groups = [g["slug"] for g in cat.groups()] + ["no-such-group"]
+    return ([["browse", b] for b in BROWSE_CASES] + [["tag", k] for k in tag_keys] + [["tags", None]]
+            + [["person", s] for s in people] + [["people", None]]
+            + [["shelves", None]] + [["shelf", s] for s in shelves] + [["groups", None]] + [["group", g] for g in groups]
+            + [["mood_rings", None], ["remix_rack", None]]
+            + [["where", [w.slug, region]] for w in cat.works for region in ("US", "IN", "GB", "XX", None)])
+
+
+def _run(cat, kind, arg):
+    from mde.catalogue.browse import BrowseFilters
+    return {"browse": lambda a: cat.browse(BrowseFilters(**a)), "tag": cat.tag, "tags": lambda _: cat.tags(),
+            "person": cat.person, "people": lambda _: cat.people(), "shelves": lambda _: cat.shelves(),
+            "shelf": cat.shelf, "groups": lambda _: cat.groups(), "group": cat.group,
+            "mood_rings": lambda _: cat.mood_rings(), "remix_rack": lambda _: cat.remix_rack(),
+            "where": lambda a: cat.where(*a)}[kind](arg)
+
+
+# Each side runs twice: with no enrichment, and with the labelled test fixture (images, scores, series, tracks …).
+@pytest.fixture(scope="module", params=["seed-only", "enriched"])
+def js_output(request):
     node = shutil.which("node")
     if node is None:
         pytest.skip("node is not installed")
+    enrichment = {} if request.param == "seed-only" else FIXTURE
+    cat = _catalogue(enrichment)
     queries = [q["query"] for q in BENCHMARK["queries"]] + EXTRA_QUERIES
-    slugs = [w.slug for w in MemoryCatalogue.from_seed().works]
-    proc = subprocess.run([node, str(ROOT / "demo/parity.cjs")], input=json.dumps({"queries": queries, "slugs": slugs}),
+    slugs = [w.slug for w in cat.works]
+    views = _views(cat)
+    payload = {"queries": queries, "slugs": slugs, "views": views, "enrichment": enrichment}
+    proc = subprocess.run([node, str(ROOT / "demo/parity.cjs")], input=json.dumps(payload),
                           capture_output=True, text=True, check=True)
-    return queries, slugs, json.loads(proc.stdout)
+    return cat, queries, slugs, views, json.loads(proc.stdout)
 
 
 def _normalise(obj):
@@ -76,8 +133,7 @@ def _normalise(obj):
 
 
 def test_discovery_output_is_identical(js_output):
-    queries, _, out = js_output
-    cat = MemoryCatalogue.from_seed()
+    cat, queries, _, _, out = js_output
     mismatches = []
     for query, js in zip(queries, out["discover"], strict=True):
         py = _normalise(cat.discover(query).to_dict())
@@ -87,7 +143,12 @@ def test_discovery_output_is_identical(js_output):
 
 
 def test_work_pages_are_identical(js_output):
-    _, slugs, out = js_output
-    cat = MemoryCatalogue.from_seed()
+    cat, _, slugs, _, out = js_output
     for slug, js in zip(slugs, out["works"], strict=True):
         assert _normalise(cat.work(slug)) == js, slug
+
+
+def test_catalogue_views_are_identical(js_output):
+    cat, _, _, views, out = js_output
+    mismatches = [v for v, js in zip(views, out["views"], strict=True) if _normalise(_run(cat, *v)) != js]
+    assert not mismatches, mismatches

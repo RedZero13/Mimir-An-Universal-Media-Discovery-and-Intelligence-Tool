@@ -1,6 +1,14 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "notes": "Foundational taxonomy for the MVP. Terms are controlled: a classification may only reference a term defined here. Synonyms feed the rule-based intent parser; they are matched as whole phrases.",
+  "guide_groups": [
+    {"slug": "sex", "label": "Sex & nudity"},
+    {"slug": "violence", "label": "Violence & gore"},
+    {"slug": "language", "label": "Profanity"},
+    {"slug": "substances", "label": "Alcohol, drugs & smoking"},
+    {"slug": "frightening", "label": "Frightening & intense scenes"},
+    {"slug": "sensitive", "label": "Sensitive topics"}
+  ],
   "dimensions": [
     {
       "slug": "genre",
@@ -53,7 +61,7 @@
     {
       "slug": "advisory",
       "label": "Content advisory",
-      "description": "Content some people want to avoid. Strength encodes intensity: 0 = assessed and absent, 0.3 = mild/brief, 0.6 = notable, 0.9 = graphic/central. A missing row means NOT ASSESSED, never 'absent'.",
+      "description": "Content some people want to avoid; the basis of each work's parents' guide. Strength encodes intensity: 0 = assessed and absent, 0.3 = mild/brief, 0.6 = notable, 0.9 = graphic/central. A missing row means NOT ASSESSED, never 'absent'. Each term belongs to one guide group.",
       "kind": "intensity"
     }
   ],
@@ -152,10 +160,13 @@
     {"dimension": "style", "slug": "lyrical-prose", "label": "Lyrical prose", "definition": "Prose valued for its beauty and rhythm.", "applies_to": ["book"], "synonyms": ["beautiful prose", "lyrical", "beautifully written", "poetic"]},
     {"dimension": "style", "slug": "lo-fi-indie", "label": "Low-budget ingenuity", "definition": "Made on small means, with inventiveness substituting for budget.", "applies_to": ["film", "game"], "synonyms": ["low budget", "low-budget", "indie", "independent"]},
 
-    {"dimension": "advisory", "slug": "graphic-violence", "label": "Graphic violence", "definition": "On-screen or described violence depicted explicitly.", "applies_to": ["*"], "synonyms": ["graphic violence", "violence", "violent", "gore", "gory", "bloody", "brutal"]},
-    {"dimension": "advisory", "slug": "body-horror", "label": "Body horror", "definition": "Disturbing transformation or violation of the body.", "applies_to": ["*"], "synonyms": ["body horror"]},
-    {"dimension": "advisory", "slug": "sexual-content", "label": "Sexual content", "definition": "Depicted or explicitly described sexual activity or nudity.", "applies_to": ["*"], "synonyms": ["sex", "sexual content", "nudity", "sex scenes"]},
-    {"dimension": "advisory", "slug": "atrocity", "label": "Atrocity & mass death", "definition": "Depiction of massacre, genocide or mass death.", "applies_to": ["*"], "synonyms": ["atrocity", "atrocities", "massacre", "genocide"]},
-    {"dimension": "advisory", "slug": "jump-scares", "label": "Jump scares & horror intensity", "definition": "Sudden frights or sustained horror intensity.", "applies_to": ["*"], "synonyms": ["jump scares", "jumpscares", "too scary"]}
+    {"dimension": "advisory", "group": "violence", "slug": "graphic-violence", "label": "Graphic violence", "definition": "On-screen or described violence depicted explicitly.", "applies_to": ["*"], "synonyms": ["graphic violence", "violence", "violent", "gore", "gory", "bloody", "brutal"]},
+    {"dimension": "advisory", "group": "violence", "slug": "body-horror", "label": "Body horror", "definition": "Disturbing transformation or violation of the body.", "applies_to": ["*"], "synonyms": ["body horror"]},
+    {"dimension": "advisory", "group": "sex", "slug": "sexual-content", "label": "Sexual content", "definition": "Depicted or explicitly described sexual activity or nudity.", "applies_to": ["*"], "synonyms": ["sex", "sexual content", "nudity", "sex scenes"]},
+    {"dimension": "advisory", "group": "violence", "slug": "atrocity", "label": "Atrocity & mass death", "definition": "Depiction of massacre, genocide or mass death.", "applies_to": ["*"], "synonyms": ["atrocity", "atrocities", "massacre", "genocide"]},
+    {"dimension": "advisory", "group": "frightening", "slug": "jump-scares", "label": "Jump scares & horror intensity", "definition": "Sudden frights or sustained horror intensity.", "applies_to": ["*"], "synonyms": ["jump scares", "jumpscares", "too scary"]},
+    {"dimension": "advisory", "group": "language", "slug": "strong-language", "label": "Strong language", "definition": "Swearing and crude or offensive language.", "applies_to": ["*"], "synonyms": ["swearing", "profanity", "bad language", "strong language", "cursing", "foul language"]},
+    {"dimension": "advisory", "group": "substances", "slug": "substance-use", "label": "Alcohol, drugs & smoking", "definition": "Depicted or described use of alcohol, drugs or tobacco.", "applies_to": ["*"], "synonyms": ["drug use", "drugs", "drinking", "alcohol", "smoking"]},
+    {"dimension": "advisory", "group": "sensitive", "slug": "suicide-self-harm", "label": "Suicide & self-harm", "definition": "Depiction, discussion or implication of suicide, suicidal thoughts or self-harm.", "applies_to": ["*"], "synonyms": ["suicide", "self-harm", "self harm", "suicidal"]}
   ]
 }

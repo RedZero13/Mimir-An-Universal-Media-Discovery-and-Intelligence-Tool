@@ -1,0 +1,20 @@
+/** The Mimir mark: roots beneath the horizon, drawing from the well. Source: brand/mark.svg. */
+export function MimirMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
+      <g fill="none" stroke="#D8B24A" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="32" cy="32" r="29.2" />
+        <path d="M11 22 H53 M11 20.4 V23.6 M53 20.4 V23.6" />
+        <path d="M32 22 V15" />
+        <path d="M32 15 C29.4 14.1 28 11.8 28.2 9 C30.8 9.7 32.2 12.1 32 15 Z" />
+        <path d="M32 22 V43" />
+        <path d="M32 22 C31.2 28.6 27.6 32.4 26.4 37 C25.8 39.6 27.4 41.4 29.2 40.6" />
+        <path d="M32 22 C32.8 28.6 36.4 32.4 37.6 37 C38.2 39.6 36.6 41.4 34.8 40.6" />
+        <path d="M32 22 C28.6 25.6 21.6 27.4 19.6 33 C18.6 35.9 20.2 38.2 22.4 37.4" />
+        <path d="M32 22 C35.4 25.6 42.4 27.4 44.4 33 C45.4 35.9 43.8 38.2 41.6 37.4" />
+        <ellipse cx="32" cy="47.2" rx="16.5" ry="4.3" />
+        <ellipse cx="32" cy="47.2" rx="8.5" ry="2.1" />
+      </g>
+    </svg>
+  );
+}

@@ -157,9 +157,9 @@
       "id": "unknown-advisory-honesty",
       "category": "honesty",
       "query": "melancholic music with no violence",
-      "good_results": "Melancholic albums; since album advisories aren't assessed, each must carry a caveat rather than a claim of 'no violence'.",
+      "good_results": "Melancholic albums. Albums whose content hasn't been assessed must carry a caveat rather than an implied claim of 'no violence'.",
       "relevant": ["the-disintegration-loops-2002", "in-the-aeroplane-over-the-sea-1998", "lift-your-skinny-fists-2000", "ok-computer-1997"],
-      "checks": {"all_media": ["album"], "all_have_caveat_containing": "haven't been assessed", "min_results": 2}
+      "checks": {"all_media": ["album"], "unassessed_have_caveat": "advisory:graphic-violence", "min_results": 2}
     }
   ]
 }
