@@ -6,8 +6,10 @@ import json
 from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-import psycopg
+if TYPE_CHECKING:
+    import psycopg
 
 TAXONOMY_PATH = Path(__file__).parent / "taxonomy.json"
 

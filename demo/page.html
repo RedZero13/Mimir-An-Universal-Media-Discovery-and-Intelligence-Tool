@@ -1,0 +1,375 @@
+<title>Media Discovery Pilot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; a request bar, the parser's reading as a strip of chips, then a ranked list read
+   like a programme guide. Work pages swap into the same column. */
+:root {
+  --paper: #f5f6f8;
+  --sheet: #ffffff;
+  --ink: #16191f;
+  --ink-soft: #5b6270;
+  --rule: #dfe2e8;
+  --accent: #2346c7;
+  --accent-ink: #ffffff;
+  --want-bg: #e3f2e8; --want-fg: #1c6136;
+  --avoid-bg: #fbe7e4; --avoid-fg: #9a2b1f;
+  --limit-bg: #e6ebfb; --limit-fg: #24398a;
+  --interp-bg: #fdf1d6; --interp-fg: #7a5000;
+  --bar: #2346c7; --bar-track: #e6e9ef;
+  --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --radius: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111318; --sheet: #191c23; --ink: #e9ebf0; --ink-soft: #a2a8b5; --rule: #2c313b;
+    --accent: #8fa6ff; --accent-ink: #0d1330;
+    --want-bg: #163222; --want-fg: #9fdfb4; --avoid-bg: #3a1b18; --avoid-fg: #f4aca2;
+    --limit-bg: #1b2448; --limit-fg: #b8c6ff; --interp-bg: #3a2c0f; --interp-fg: #f1d18a;
+    --bar: #8fa6ff; --bar-track: #2a2f3a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111318; --sheet: #191c23; --ink: #e9ebf0; --ink-soft: #a2a8b5; --rule: #2c313b;
+  --accent: #8fa6ff; --accent-ink: #0d1330;
+  --want-bg: #163222; --want-fg: #9fdfb4; --avoid-bg: #3a1b18; --avoid-fg: #f4aca2;
+  --limit-bg: #1b2448; --limit-fg: #b8c6ff; --interp-bg: #3a2c0f; --interp-fg: #f1d18a;
+  --bar: #8fa6ff; --bar-track: #2a2f3a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font: 17px/1.55 var(--font-body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 48px;
+}
+.wrap { max-width: 760px; margin: 0 auto; }
+a, .link { color: var(--accent); }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.15; }
+
+header.top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; padding-block: 20px 4px; }
+.brand { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; }
+.tag { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 7px; border-radius: 4px; background: var(--interp-bg); color: var(--interp-fg); }
+.lede { color: var(--ink-soft); margin: 4px 0 16px; max-width: 62ch; }
+
+form.ask { display: flex; gap: 8px; align-items: stretch; }
+form.ask textarea {
+  flex: 1; min-width: 0; resize: vertical; font: 1rem/1.45 var(--font-body); padding: 12px 14px;
+  border: 1px solid var(--rule); border-radius: var(--radius); background: var(--sheet); color: var(--ink);
+}
+.btn {
+  font-family: var(--font-display); font-weight: 700; border: 0; border-radius: var(--radius); cursor: pointer;
+  background: var(--accent); color: var(--accent-ink); padding: 0 22px; min-height: 44px;
+}
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--rule); font-weight: 500; }
+.examples { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 20px; }
+.examples button {
+  font: 0.85rem/1.3 var(--font-body); text-align: left; cursor: pointer; padding: 6px 10px; border-radius: 99px;
+  border: 1px solid var(--rule); background: transparent; color: var(--ink);
+}
+.examples button:hover { border-color: var(--accent); }
+
+.reading { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 16px; }
+.eyebrow { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); margin: 0 0 10px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.chip { font: 0.85rem/1.2 var(--font-body); padding: 4px 10px; border-radius: 99px; }
+.chip.want { background: var(--want-bg); color: var(--want-fg); }
+.chip.avoid { background: var(--avoid-bg); color: var(--avoid-fg); }
+.chip.limit { background: var(--limit-bg); color: var(--limit-fg); }
+.notes { margin: 10px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 0.92rem; }
+.stats { margin: 10px 0 0; font: 0.8rem/1.5 var(--font-mono); color: var(--ink-soft); }
+
+ol.results { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; }
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; display: grid; gap: 8px; }
+.card-head { display: grid; grid-template-columns: 2ch minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.rank { font: 500 1rem var(--font-mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.card h3 { margin: 0; font-size: 1.2rem; }
+.title-btn { all: unset; cursor: pointer; }
+.title-btn:hover { text-decoration: underline; }
+.title-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.meta { font: 0.8rem/1.4 var(--font-mono); color: var(--ink-soft); margin: 2px 0 0; }
+.headline { font-family: var(--font-display); font-weight: 500; margin: 0; }
+.summary { margin: 0; }
+details > summary { cursor: pointer; color: var(--accent); font-size: 0.92rem; }
+.reasons { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 4px; font-size: 0.93rem; }
+.basis { display: inline-block; font: 500 0.66rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 5px; border-radius: 3px; margin-right: 6px; vertical-align: 1px; }
+.basis.catalogue { background: var(--limit-bg); color: var(--limit-fg); }
+.basis.interpretation { background: var(--interp-bg); color: var(--interp-fg); }
+.breakdown { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 4px 14px; font: 0.8rem/1.5 var(--font-mono); margin: 8px 0 0; }
+.breakdown dt { color: var(--ink-soft); }
+.breakdown dd { margin: 0; font-variant-numeric: tabular-nums; }
+.caveats { margin: 0; padding-left: 18px; color: var(--avoid-fg); font-size: 0.92rem; }
+.feedback { display: flex; flex-wrap: wrap; gap: 6px; }
+.feedback button { font: 0.8rem/1 var(--font-body); padding: 7px 10px; border-radius: 99px; border: 1px solid var(--rule); background: transparent; color: var(--ink); cursor: pointer; }
+.feedback button:hover { border-color: var(--accent); }
+.feedback-done { font-size: 0.9rem; color: var(--want-fg); margin: 0; }
+.empty { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 16px; margin-top: 16px; }
+
+.work h1 { font-size: clamp(1.8rem, 5vw, 2.4rem); margin: 18px 0 2px; }
+.work .orig { color: var(--ink-soft); margin: 0; }
+.work section { margin-top: 26px; }
+.work h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.dim { margin: 12px 0; }
+.dim h3 { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); margin: 0 0 6px; }
+.terms { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.terms li { display: grid; grid-template-columns: minmax(0, 1fr) 110px 118px; gap: 10px; align-items: center; font-size: 0.95rem; }
+.bar { height: 6px; border-radius: 3px; background: var(--bar-track); overflow: hidden; }
+.bar span { display: block; height: 100%; background: var(--bar); }
+.terms .basis { justify-self: start; margin: 0; }
+.plain { padding-left: 18px; margin: 0; display: grid; gap: 4px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px 16px; margin: 0; }
+.facts dt { font: 0.75rem/1.3 var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
+.facts dd { margin: 0; }
+.muted { color: var(--ink-soft); }
+.small { font-size: 0.88rem; }
+footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: 0.88rem; }
+
+@media (max-width: 540px) {
+  form.ask { flex-direction: column; }
+  .terms li { grid-template-columns: minmax(0, 1fr) 64px 108px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card { animation: rise 220ms ease-out both; }
+  @keyframes rise { from { transform: translateY(4px); } to { transform: none; } }
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="brand">Media Discovery</span>
+    <span class="tag">Pilot · 56 works</span>
+  </header>
+  <main id="app"></main>
+  <footer class="note">
+    Runs entirely in your browser on the pilot catalogue: 22 films, 15 books, 11 games and 8 albums. Facts are
+    unverified, and every quality is an AI-assisted interpretation awaiting editorial review; each is labelled
+    where it appears. Feedback you give here stays in this browser.
+  </footer>
+</div>
+
+<script id="taxonomy-data" type="application/json">/*__TAXONOMY__*/</script>
+<script id="catalogue-data" type="application/json">/*__CATALOGUE__*/</script>
+<script>/*__ENGINE__*/</script>
+<script>
+(() => {
+  "use strict";
+  const cat = MDE.createCatalogue(
+    JSON.parse(document.getElementById("catalogue-data").textContent),
+    JSON.parse(document.getElementById("taxonomy-data").textContent),
+  );
+  const app = document.getElementById("app");
+  const EXAMPLES = [
+    "An intelligent sci-fi film with a strong atmosphere and very little violence, ideally under two hours, not something obvious",
+    "Something comforting after a difficult day, no violence",
+    "A book like Outer Wilds",
+    "Something like Blade Runner but in a different medium",
+    "A game I can finish in one evening, wordless and beautiful",
+    "Stories about surveillance and complicity, any medium",
+    "An album for focusing, calm and minimal",
+  ];
+  const MEDIUM = { film: "Film", series: "Series", book: "Book", game: "Game", album: "Album", track: "Track" };
+  const DIM_LABEL = { genre: "Genre", theme: "Themes", mood: "Mood & experience", pacing: "Pacing", complexity: "Complexity",
+    narrative: "Narrative", world: "World & setting", style: "Style & craft" };
+  const DIM_ORDER = ["genre", "theme", "mood", "pacing", "complexity", "narrative", "world", "style"];
+  const BASIS = {
+    catalogue: ["Catalogue", "Recorded catalogue data (pilot data, not yet verified against primary sources)"],
+    interpretation: ["Interpretation", "An AI-assisted interpretation that hasn't been reviewed by an editor yet"],
+    reviewed_interpretation: ["Reviewed", "An interpretation reviewed by an editor"],
+  };
+  const FEEDBACK = [["relevant", "Good fit"], ["will_try", "I'll try this"], ["already_experienced", "Already know it"],
+    ["wrong_mood", "Wrong mood"], ["too_long", "Too long"], ["not_what_i_meant", "Not what I meant"]];
+
+  let query = EXAMPLES[0];
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const mediumLabel = (m) => MEDIUM[m] || m;
+  const termLabel = (key) => (key.split(":")[1] || key).replace(/-/g, " ");
+  const basisTag = (b) => `<span class="basis ${b === "catalogue" ? "catalogue" : "interpretation"}" title="${esc(BASIS[b][1])}">${BASIS[b][0]}</span>`;
+  const intensity = (s) => (s >= 0.8 ? "strong" : s >= 0.55 ? "clear" : s >= 0.4 ? "partial" : s > 0 ? "slight" : "none");
+
+  function loadFeedback() {
+    try { return JSON.parse(localStorage.getItem("mde-feedback") || "{}"); } catch { return {}; }
+  }
+  function saveFeedback(key, kind) {
+    const all = loadFeedback();
+    all[key] = kind;
+    try { localStorage.setItem("mde-feedback", JSON.stringify(all)); } catch { /* storage unavailable: keep in memory only */ }
+  }
+
+  function askForm() {
+    return `
+      <p class="lede">Describe what you feel like: a mood, an idea, a favourite, a time limit. You get a few picks, and the reasons for each.</p>
+      <form class="ask" id="ask">
+        <label for="q" class="eyebrow" style="position:absolute;left:-9999px">Describe what you want to watch, read, play or listen to</label>
+        <textarea id="q" name="q" rows="2" maxlength="500" required>${esc(query)}</textarea>
+        <button class="btn" type="submit">Find</button>
+      </form>
+      <div class="examples" aria-label="Example requests">
+        ${EXAMPLES.map((e, i) => `<button type="button" data-example="${i}">${esc(e)}</button>`).join("")}
+      </div>`;
+  }
+
+  function readingStrip(r) {
+    const i = r.interpretation;
+    const chips = [];
+    i.media.forEach((m) => chips.push(["limit", mediumLabel(m)]));
+    i.excluded_media.forEach((m) => chips.push(["avoid", `not ${mediumLabel(m).toLowerCase()}`]));
+    if (r.reference) chips.push(["want", `like ${r.reference.title}`]);
+    i.preferences.forEach((p) => chips.push(["want", termLabel(p.term)]));
+    i.avoid.forEach((a) => chips.push(["avoid", `${a.hard ? "no" : "less"} ${termLabel(a.term)}`]));
+    if (i.length) chips.push(["limit", `${i.length.hard ? "≤" : "ideally ≤"} ${i.length.max_minutes} min`]);
+    if (i.novelty) chips.push(["want", i.novelty === "obscure" ? "lesser-known" : "well-known"]);
+    i.languages.forEach((l) => chips.push(["limit", `language: ${l}`]));
+    if (i.year_min || i.year_max) chips.push(["limit", `${i.year_min ?? "…"}–${i.year_max ?? "…"}`]);
+    const excluded = Object.entries(r.excluded).map(([why, n]) => `${n} (${why})`).join(", ");
+    return `
+      <section class="reading" aria-label="How your request was read">
+        <p class="eyebrow">How I read your request</p>
+        ${chips.length ? `<ul class="chips">${chips.map(([t, l]) => `<li class="chip ${t}">${esc(l)}</li>`).join("")}</ul>`
+          : `<p class="muted small" style="margin:0">I couldn't pick out any specific qualities, so these are broad matches.</p>`}
+        ${i.notes.length ? `<ul class="notes">${i.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
+        <p class="stats">Searched ${r.considered} works${excluded ? ` · set aside ${esc(excluded)}` : ""}${r.weak_matches_hidden ? ` · ${r.weak_matches_hidden} weak matches hidden` : ""}</p>
+      </section>`;
+  }
+
+  function card(res, rank) {
+    const key = `${query}::${res.slug}`;
+    const given = loadFeedback()[key];
+    const meta = [mediumLabel(res.medium), res.year, res.length, res.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · ");
+    return `
+      <li class="card">
+        <div class="card-head">
+          <span class="rank">${rank}</span>
+          <div>
+            <h3><button class="title-btn" type="button" data-work="${esc(res.slug)}">${esc(res.title)}</button></h3>
+            <p class="meta">${esc(meta)}</p>
+          </div>
+        </div>
+        <p class="headline">${esc(res.headline)}</p>
+        ${res.summary ? `<p class="summary">${esc(res.summary)}</p>` : ""}
+        <details>
+          <summary>Why this fits</summary>
+          <ul class="reasons">${res.reasons.map((x) => `<li title="${esc(x.definition || "")}">${basisTag(x.basis)}${esc(x.text)}</li>`).join("")}</ul>
+          <details>
+            <summary>Score breakdown</summary>
+            <dl class="breakdown">${Object.entries(res.score_breakdown).map(([k, v]) => `<div><dt>${esc(k.replace(/_/g, " "))}</dt><dd>${v.toFixed(3)}</dd></div>`).join("")}</dl>
+          </details>
+        </details>
+        ${res.caveats.length ? `<ul class="caveats">${res.caveats.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>` : ""}
+        ${given ? `<p class="feedback-done">Thanks, noted: ${esc(FEEDBACK.find((f) => f[0] === given)?.[1] || given)}.</p>`
+          : `<div class="feedback" role="group" aria-label="Feedback on ${esc(res.title)}">${FEEDBACK.map(([k, l]) => `<button type="button" data-fb="${k}" data-slug="${esc(res.slug)}">${l}</button>`).join("")}</div>`}
+      </li>`;
+  }
+
+  function renderDiscover(focus) {
+    const r = cat.discover(query);
+    app.innerHTML = askForm() + readingStrip(r) + (r.results.length
+      ? `<ol class="results">${r.results.map((x, i) => card(x, i + 1)).join("")}</ol>`
+      : `<p class="empty">${esc(r.message)}</p>`);
+    if (focus) document.getElementById("q").focus();
+  }
+
+  function renderWork(slug) {
+    const w = cat.work(slug);
+    if (!w) { location.hash = ""; return; }
+    const visible = w.classifications.filter((c) => c.dimension !== "advisory" && c.strength > 0);
+    const advisories = w.classifications.filter((c) => c.dimension === "advisory");
+    const basisOf = (c) => (c.is_interpretation ? (c.review_status === "reviewed" ? "reviewed_interpretation" : "interpretation") : "catalogue");
+    const approx = w.length_is_estimate ? "about " : "";
+    const length = w.runtime_minutes ? `${approx}${w.runtime_minutes} minutes` : w.playtime_hours ? `${approx}${w.playtime_hours} hours (main path)` : "Not recorded";
+    const facts = [["Medium", mediumLabel(w.medium)], ["Released", w.release_year ?? "Unknown"],
+      ["Original language", w.original_language ?? "None / not recorded"], ["Country", w.countries.length ? w.countries.join(", ") : "Not recorded"],
+      ["Length", length]];
+    if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
+    w.credits.forEach((c) => facts.push([c.role[0].toUpperCase() + c.role.slice(1), c.name]));
+    app.innerHTML = `
+      <article class="work">
+        <p style="margin:12px 0 0"><button class="btn ghost" type="button" data-back>← Back to results</button></p>
+        <h1>${esc(w.title)}</h1>
+        ${w.original_title ? `<p class="orig">${esc(w.original_title)}</p>` : ""}
+        <p class="meta">${esc([mediumLabel(w.medium), w.release_year, w.credits.slice(0, 3).map((c) => c.name).join(", ")].filter(Boolean).join(" · "))}</p>
+        ${w.summary ? `<p style="font-size:1.1rem">${esc(w.summary)}</p>` : ""}
+        <div class="actions">
+          <button class="btn" type="button" data-similar="${esc(w.title)}">Find similar works</button>
+          <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
+        </div>
+        <section>
+          <h2>What kind of experience is it?</h2>
+          <p class="muted small" style="margin:0 0 6px">Bars show how strongly each quality applies.</p>
+          ${DIM_ORDER.map((d) => {
+            const cs = visible.filter((c) => c.dimension === d);
+            if (!cs.length) return "";
+            return `<div class="dim"><h3>${DIM_LABEL[d]}</h3><ul class="terms">${cs.map((c) => `
+              <li title="${esc(c.definition)}"><span>${esc(c.label)}</span>
+                <span class="bar" role="img" aria-label="${intensity(c.strength)}, ${Math.round(c.strength * 100)}%"><span style="width:${Math.round(c.strength * 100)}%"></span></span>
+                ${basisTag(basisOf(c))}</li>`).join("")}</ul></div>`;
+          }).join("")}
+        </section>
+        <section>
+          <h2>Before you start</h2>
+          ${w.advisories_assessed && advisories.length
+            ? `<ul class="plain">${advisories.map((a) => `<li>${esc(a.label)}: <strong>${intensity(a.strength)}</strong> ${basisTag(basisOf(a))}</li>`).join("")}</ul>`
+            : `<p style="margin:0">Content advisories haven't been assessed for this work yet.</p>`}
+        </section>
+        ${w.relationships.length ? `<section><h2>Connected works</h2><ul class="plain">${w.relationships.map((r) => `
+          <li>${basisTag(r.factual ? "catalogue" : "interpretation")}${esc(r.label[0].toUpperCase() + r.label.slice(1))}
+            <button class="title-btn link" type="button" data-work="${esc(r.slug)}">${esc(r.title)}</button>
+            (${esc(mediumLabel(r.medium))}${r.release_year ? `, ${r.release_year}` : ""})${r.note ? `<span class="muted">: ${esc(r.note)}</span>` : ""}</li>`).join("")}</ul></section>` : ""}
+        <section>
+          <h2>Facts and sources</h2>
+          <dl class="facts">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+          <p class="muted small">Facts: editorial seed, unverified. Qualities and advisories: AI-assisted classification, not yet reviewed.</p>
+        </section>
+      </article>`;
+    window.scrollTo(0, 0);
+  }
+
+  function route() {
+    const h = location.hash.slice(1);
+    if (h.startsWith("work-")) renderWork(h.slice(5));
+    else renderDiscover(false);
+  }
+
+  app.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const q = document.getElementById("q").value.trim();
+    if (q.length < 2) return;
+    query = q;
+    renderDiscover(false);
+  });
+  app.addEventListener("keydown", (e) => {
+    if (e.target.id === "q" && e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      app.querySelector("#ask").requestSubmit();
+    }
+  });
+  app.addEventListener("click", (e) => {
+    const t = e.target.closest("button");
+    if (!t) return;
+    if (t.dataset.example !== undefined) { query = EXAMPLES[Number(t.dataset.example)]; renderDiscover(false); }
+    else if (t.dataset.work) location.hash = `work-${t.dataset.work}`;
+    else if (t.dataset.back !== undefined) location.hash = "";
+    else if (t.dataset.similar) { query = `something like "${t.dataset.similar}"`; location.hash = ""; renderDiscover(false); }
+    else if (t.dataset.similarOther) { query = `something like "${t.dataset.similarOther}" in a different medium`; location.hash = ""; renderDiscover(false); }
+    else if (t.dataset.fb) {
+      saveFeedback(`${query}::${t.dataset.slug}`, t.dataset.fb);
+      const group = t.closest(".feedback");
+      const label = FEEDBACK.find((f) => f[0] === t.dataset.fb)[1];
+      group.outerHTML = `<p class="feedback-done">Thanks, noted: ${esc(label)}.</p>`;
+    }
+  });
+  window.addEventListener("hashchange", route);
+  route();
+})();
+</script>

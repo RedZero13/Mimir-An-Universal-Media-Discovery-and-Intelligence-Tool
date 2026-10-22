@@ -10,7 +10,7 @@ from __future__ import annotations
 from collections import Counter
 from dataclasses import dataclass, field
 
-from mde.catalogue.repository import Relation, WorkProfile
+from mde.catalogue.model import Relation, WorkProfile
 from mde.discovery.intent import Intent
 
 RANKER_VERSION = "transparent-v1"

@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-import psycopg
-
-from mde.discovery.engine import discover
+if TYPE_CHECKING:
+    import psycopg
 
 QUERIES_PATH = Path(__file__).parent / "queries.json"
 
@@ -68,15 +69,31 @@ def _check(name: str, arg, resp: dict, by_slug: dict) -> str | None:
 
 
 def run_benchmark(conn: psycopg.Connection, path: Path = QUERIES_PATH) -> dict:
-    spec = json.loads(path.read_text())
+    """Against PostgreSQL (full-text search, stored catalogue)."""
+    from mde.discovery.engine import discover
+
     by_slug = {
         r["slug"]: {"language": r["original_language"],
                     "minutes": r["runtime_minutes"] or (float(r["playtime_hours"]) * 60 if r["playtime_hours"] else None)}
         for r in conn.execute("SELECT slug, original_language, runtime_minutes, playtime_hours FROM work").fetchall()
     }
+    return evaluate(lambda q: discover(conn, q, limit=8, log=False).to_dict(), by_slug, path)
+
+
+def run_benchmark_offline(path: Path = QUERIES_PATH) -> dict:
+    """Against the in-memory catalogue the browser demo uses."""
+    from mde.catalogue.memory import MemoryCatalogue
+
+    cat = MemoryCatalogue.from_seed()
+    by_slug = {w.slug: {"language": w.language, "minutes": w.length_minutes} for w in cat.works}
+    return evaluate(lambda q: cat.discover(q, limit=8).to_dict(), by_slug, path)
+
+
+def evaluate(discover_fn: Callable[[str], dict], by_slug: dict, path: Path = QUERIES_PATH) -> dict:
+    spec = json.loads(path.read_text())
     rows = []
     for q in spec["queries"]:
-        resp = discover(conn, q["query"], limit=8, log=False).to_dict()
+        resp = discover_fn(q["query"])
         slugs = [r["slug"] for r in resp["results"]]
         failures = [f"{name}: {msg}" for name, arg in q["checks"].items() if (msg := _check(name, arg, resp, by_slug))]
         relevant = set(q["relevant"])

@@ -8,8 +8,6 @@ classifications from a source are replaced as a set, so removing a term from the
 from __future__ import annotations
 
 import json
-import re
-import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -17,6 +15,7 @@ import psycopg
 from psycopg.types.json import Jsonb
 
 from mde import taxonomy as taxonomy_mod
+from mde.catalogue.model import normalise_title, slugify
 from mde.taxonomy import Taxonomy
 
 SEED_PATH = Path(__file__).parent.parent / "seed" / "catalogue.json"
@@ -59,16 +58,6 @@ class ImportStats:
     credits: int = 0
     relationships: int = 0
     warnings: list[str] = field(default_factory=list)
-
-
-def slugify(text: str) -> str:
-    text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-
-
-def normalise_title(title: str) -> str:
-    t = slugify(title)
-    return re.sub(r"^(the|a|an)-", "", t)
 
 
 def validate(data: dict, tax: Taxonomy) -> list[str]:

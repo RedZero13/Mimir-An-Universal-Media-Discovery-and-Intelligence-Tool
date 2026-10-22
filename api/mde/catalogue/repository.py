@@ -3,69 +3,12 @@
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass, field
 
 import psycopg
 
-from mde.catalogue.load import normalise_title
+from mde.catalogue.model import PRIMARY_ROLES, Relation, TermEvidence, WorkProfile, normalise_title
 
-PRIMARY_ROLES = ("director", "author", "developer", "artist")
-
-
-@dataclass(frozen=True)
-class TermEvidence:
-    strength: float
-    confidence: float
-    origin: str
-    review_status: str
-    is_interpretation: bool
-
-
-@dataclass(frozen=True)
-class Relation:
-    other_slug: str
-    other_title: str
-    other_medium: str
-    type: str
-    label: str           # phrased from this work's point of view: "<this> <label> <other>"
-    note: str | None
-    confidence: float
-    origin: str
-    factual: bool
-
-
-@dataclass
-class WorkProfile:
-    id: str
-    slug: str
-    medium: str
-    title: str
-    original_title: str | None
-    year: int | None
-    language: str | None
-    countries: list[str]
-    summary: str | None
-    runtime_minutes: int | None
-    playtime_hours: float | None
-    length_is_estimate: bool
-    popularity_tier: int | None
-    advisories_assessed: bool
-    creators: list[str] = field(default_factory=list)
-    terms: dict[str, TermEvidence] = field(default_factory=dict)
-    relations: list[Relation] = field(default_factory=list)
-
-    def strength(self, key: str) -> float:
-        ev = self.terms.get(key)
-        return ev.strength if ev else 0.0
-
-    @property
-    def length_minutes(self) -> int | None:
-        """A comparable length across media, where one is meaningful."""
-        if self.runtime_minutes is not None:
-            return self.runtime_minutes
-        if self.playtime_hours is not None:
-            return round(self.playtime_hours * 60)
-        return None
+__all__ = ["Relation", "TermEvidence", "WorkProfile", "get_work", "keyword_scores", "load_profiles", "resolve_title"]
 
 
 def load_profiles(conn: psycopg.Connection) -> list[WorkProfile]:

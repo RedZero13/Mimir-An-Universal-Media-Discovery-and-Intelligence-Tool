@@ -24,7 +24,17 @@ api/                    Python 3.11+, FastAPI, PostgreSQL (modular monolith)
   benchmark/            Discovery benchmark (queries.json) and runner
   tests/                Unit tests + integration tests against a throwaway database
 web/                    Next.js 15 + TypeScript (server components; no client-side API calls)
+demo/                   Single-file browser demo: a JavaScript port of the pure pipeline (engine.cjs),
+                        kept identical to the Python by api/tests/test_demo_parity.py
 ```
+
+## Browser demo
+
+`node demo/build.cjs` writes `demo/dist/media-discovery.html`: one self-contained page that runs the discovery
+pipeline (intent parsing, ranking, explanations) on the pilot catalogue with no server. Differences from the
+full stack: keyword search is a simple word match instead of PostgreSQL full-text search, and feedback stays in
+the viewer's browser. `pytest` runs the JavaScript and Python engines side by side on every benchmark query plus
+about 40 edge cases, and fails if their output differs in any field.
 
 ## Running locally
 
@@ -69,7 +79,7 @@ No API keys are needed. The slice uses no external providers and no LLM.
 ## Checks
 
 ```bash
-cd api && ruff check . && pytest -q          # 36 tests; DB tests skip if PostgreSQL is unreachable
+cd api && ruff check . && pytest -q          # DB tests skip without PostgreSQL, parity tests without Node
 cd web && npm run typecheck && npm run build
 ```
 
