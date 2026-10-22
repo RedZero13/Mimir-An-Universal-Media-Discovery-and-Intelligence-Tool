@@ -8,9 +8,9 @@ Every interpretation the parser makes is recorded in `Intent.notes` so the UI ca
 from __future__ import annotations
 
 import re
-from functools import lru_cache
 from collections.abc import Callable
 from dataclasses import asdict, dataclass, field
+from functools import cache
 from typing import Protocol
 
 from mde.taxonomy import Taxonomy
@@ -169,7 +169,7 @@ CURRENT_YEAR = 2026
 CLAUSE_SPLIT_RE = re.compile(r"[,.;!?]|\s(?:but|though|although|however|while)\s")
 
 
-@lru_cache(maxsize=None)   # ~700 synonyms outgrow re's own cache; compile each once
+@cache   # ~700 synonyms outgrow re's own cache; compile each once
 def _phrase_re(phrase: str, plural: bool = False) -> re.Pattern:
     # Whole-phrase match; hyphens count as word characters so "world-class" never matches "class".
     suffix = r"(?:s|es)?" if plural and phrase[-1].isalpha() else ""
