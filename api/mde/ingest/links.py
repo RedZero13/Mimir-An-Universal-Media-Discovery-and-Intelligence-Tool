@@ -7,7 +7,7 @@ from urllib.parse import quote, quote_plus
 
 def links_for(work: dict, ids: dict, wikipedia: str | None = None) -> list[dict]:
     title, year, medium = work["title"], work.get("year"), work["medium"]
-    creator = next((c[1] for c in work.get("credits", []) if c[0] in ("director", "author", "developer", "artist")), "")
+    creator = next((c[1] for c in work.get("credits", []) if c[0] in ("director", "creator", "author", "developer", "artist")), "")
     q = f"{title} {year or ''}".strip()
     out: list[dict] = []
 

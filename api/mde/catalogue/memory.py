@@ -26,6 +26,7 @@ from mde.catalogue.model import (
     normalise_title,
     parse_advisory,
 )
+from mde.catalogue.seedfiles import read_seed
 from mde.discovery.pipeline import DiscoveryResponse, run_pipeline
 from mde.taxonomy import Taxonomy
 from mde.taxonomy import load as load_taxonomy
@@ -88,8 +89,8 @@ class MemoryCatalogue:
         self._index = {w.slug: (_words(f"{w.title} {w.original_title or ''}"), _words(w.summary)) for w in self.works}
 
     @classmethod
-    def from_seed(cls, path: Path = SEED_PATH) -> MemoryCatalogue:
-        return cls(json.loads(path.read_text()))
+    def from_seed(cls, path: Path | None = None) -> MemoryCatalogue:
+        return cls(read_seed() if path is None else json.loads(path.read_text()))
 
     def keyword_scores(self, keywords: list[str]) -> dict[str, float]:
         stems = {_stem(k.lower()) for k in keywords}
@@ -148,3 +149,6 @@ class MemoryCatalogue:
     def where(self, slug: str, region: str | None = None) -> dict | None:
         w = self.get(slug)
         return providers.where_to(providers.item_of(w), region) if w else None
+
+    def recommend(self, ratings: dict[str, str], limit: int = 12, medium: str | None = None) -> dict:
+        return browse.recommend(self.works, self.tax, ratings, limit, medium)

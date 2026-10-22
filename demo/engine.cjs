@@ -32,9 +32,16 @@ const MDE = (() => {
   const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&");
   const has = (obj, key) => Object.hasOwn(obj, key);
 
+  // Compiled once per phrase: the parser checks ~700 synonyms per query. Global regexes are only used with
+  // replace() and matchAll(), which don't carry lastIndex between calls.
+  const phraseCache = new Map();
   function phraseRe(phrase, plural = false, flags = "gu") {
-    const suffix = plural && /\p{L}$/u.test(phrase) ? "(?:s|es)?" : "";
-    return new RegExp(`(?<!${W}|-)` + escapeRe(phrase) + suffix + `(?!${W}|-)`, flags);
+    const key = `${flags}|${plural ? 1 : 0}|${phrase}`;
+    if (!phraseCache.has(key)) {
+      const suffix = plural && /\p{L}$/u.test(phrase) ? "(?:s|es)?" : "";
+      phraseCache.set(key, new RegExp(`(?<!${W}|-)` + escapeRe(phrase) + suffix + `(?!${W}|-)`, flags));
+    }
+    return phraseCache.get(key);
   }
   const contains = (text, phrase) => phraseRe(phrase, false, "u").test(text);
   const sub = (re, repl, text) => text.replace(re, repl);
@@ -89,12 +96,23 @@ const MDE = (() => {
     book: ["book", "books", "novel", "novels", "novella", "novellas", "something to read", "a read", "reading"],
     game: ["game", "games", "video game", "video games", "videogame", "something to play", "to play", "gaming"],
     album: ["album", "albums", "record", "records", "music", "something to listen to", "listen to", "listening"],
-    series: ["tv show", "tv series", "series", "show to watch"],
+    series: ["tv show", "tv shows", "tv series", "series", "show to watch", "miniseries", "mini-series", "limited series",
+      "web series", "k-drama", "k-dramas", "kdrama", "kdramas", "to binge", "binge-watch", "binge watch",
+      "something to binge"],
   };
   const WATCH_WORDS = ["to watch", "watch tonight", "something to watch", "watch"];
   const LANGUAGE_WORDS = {
     japanese: "ja", korean: "ko", french: "fr", german: "de", italian: "it", russian: "ru",
-    polish: "pl", spanish: "es", english: "en", "english-language": "en", belarusian: "be",
+    polish: "pl", spanish: "es", english: "en", "english-language": "en", belarusian: "be", finnish: "fi",
+    hindi: "hi", tamil: "ta", telugu: "te", malayalam: "ml", bengali: "bn", kannada: "kn",
+    marathi: "mr", punjabi: "pa", urdu: "ur", mandarin: "zh", chinese: "zh", cantonese: "yue",
+    portuguese: "pt", swedish: "sv", danish: "da", norwegian: "no", persian: "fa", farsi: "fa",
+    arabic: "ar", icelandic: "is", indonesian: "id", dutch: "nl", hebrew: "he",
+  };
+  const LANGUAGE_HINTS = {
+    "k-pop": "ko", kpop: "ko", "k-drama": "ko", kdrama: "ko", "k-dramas": "ko", kdramas: "ko",
+    "j-pop": "ja", anime: "ja", manga: "ja", bollywood: "hi", tollywood: "te", kollywood: "ta",
+    mollywood: "ml",
   };
   const NON_ENGLISH = ["foreign language", "foreign-language", "non-english", "not in english", "subtitled",
     "world cinema", "international"];
@@ -108,14 +126,16 @@ const MDE = (() => {
     "would be nice", "would be great", "would be good", "if it can be", "not essential", "doesn't have to be", "bonus"];
   const HARD_CUES = ["must", "strictly", "has to be", "need it", "absolutely", "at most", "no more than", "no longer than"];
   const VAGUE_LENGTHS = {
-    "one evening": { film: 150, game: 240, album: 90, book: 300 },
-    "an evening": { film: 150, game: 240, album: 90, book: 300 },
-    "one sitting": { film: 150, game: 240, album: 90, book: 240 },
-    "short evening": { film: 110, game: 180, album: 60, book: 180 },
-    "something short": { film: 100, game: 240, album: 45, book: 240 },
-    short: { film: 100, game: 240, album: 45, book: 240 },
-    quick: { film: 100, game: 180, album: 45, book: 180 },
-    "bite-sized": { film: 60, game: 120, album: 30, book: 120 },
+    "a weekend": { film: 300, game: 900, album: 180, book: 900, series: 900 },
+    "one weekend": { film: 300, game: 900, album: 180, book: 900, series: 900 },
+    "one evening": { film: 150, game: 240, album: 90, book: 300, series: 180 },
+    "an evening": { film: 150, game: 240, album: 90, book: 300, series: 180 },
+    "one sitting": { film: 150, game: 240, album: 90, book: 240, series: 150 },
+    "short evening": { film: 110, game: 180, album: 60, book: 180, series: 120 },
+    "something short": { film: 100, game: 240, album: 45, book: 240, series: 300 },
+    short: { film: 100, game: 240, album: 45, book: 240, series: 300 },
+    quick: { film: 100, game: 180, album: 45, book: 180, series: 240 },
+    "bite-sized": { film: 60, game: 120, album: 30, book: 120, series: 120 },
   };
   const OBSCURE_CUES = ["not something obvious", "not obvious", "nothing obvious", "underrated", "hidden gem",
     "hidden gems", "lesser-known", "lesser known", "overlooked", "obscure", "deep cut", "not mainstream",
@@ -143,7 +163,8 @@ give recommend recommendation please tonight evening today really very just abou
 whom whose there their them they then so not no can could should might may maybe ideally want'd i'm im i've
 ive also kind sort bit lot lots more most much one ones get got have has had do does did make makes made feel
 feeling mood vibe something's thing things stuff good great nice after before questions question story
-stories recommends recommend everyone people ambitious strong real deep lot`.split(/\s+/).filter(Boolean));
+stories recommends recommend everyone people ambitious strong real deep lot
+finish finished binge binged through will watching reading playing listening start show shows`.split(/\s+/).filter(Boolean));
   const DECADE_RE = /\b(?:the\s+)?(?:(19|20)(\d)0s|'?(\d)0s)\b/;
   const BEFORE_RE = /\b(?:before|pre|older than|prior to)\s+((?:19|20)\d\d)\b/;
   const AFTER_RE = /\b(?:after|since|post|newer than|from)\s+((?:19|20)\d\d)\b/;
@@ -288,6 +309,10 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
           text = sub(phraseRe(word), " ", text);
         }
       }
+      const original = " " + intent.query.toLowerCase().replace(/’/g, "'").replace(/\s+/g, " ").trim() + " ";
+      for (const [word, code] of Object.entries(LANGUAGE_HINTS)) {
+        if (contains(original, word) && !intent.languages.includes(code)) intent.languages.push(code);
+      }
       if (intent.languages.length) intent.notes.push(`Original language: ${intent.languages.join(", ")}.`);
       return text;
     }
@@ -348,6 +373,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
         const taken = new Array(clause.length).fill(false);
         const matches = [];
         for (const [syn, key, pattern] of synonyms) {
+          if (!clause.includes(syn)) continue;   // cheap pre-check: a match needs the literal phrase
           pattern.lastIndex = 0;
           for (const m of clause.matchAll(pattern)) {
             const s = m.index, e = m.index + m[0].length;
@@ -435,13 +461,14 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
   };
 
   const lengthMinutes = (w) =>
-    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : null;
+    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : seriesMinutes(w);
   const forMedium = (length, medium) => (has(length.per_medium, medium) ? length.per_medium[medium] : length.max_minutes);
 
   function lengthLabel(w) {
     const approx = w.length_is_estimate ? "about " : "";
     if (w.runtime_minutes !== null) return `${approx}${w.runtime_minutes} min`;
     if (w.playtime_hours !== null) return `${approx}${fmtG(w.playtime_hours)} hours to finish`;
+    if (seriesMinutes(w) !== null) return `${w.attributes.episodes} episodes of about ${fmtG(w.attributes.episode_minutes)} min`;
     return "length unknown";
   }
 
@@ -464,6 +491,8 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
     }
     return null;
   }
+
+  const SIMILARITY_WEIGHTS = { theme: 1.0, mood: 0.9, narrative: 0.8, world: 0.8, style: 0.7, pacing: 0.6, genre: 0.5, complexity: 0.4 };
 
   function score(intent, w, ref, refVec, kwScores) {
     const s = { work: w, score: 0, relevance: 0, breakdown: {}, matched: [], unmatched: [], relation: null,
@@ -490,12 +519,13 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
 
     if (ref) {
       const vec = [...refVec].filter(([k]) => w.medium === ref.medium || !k.startsWith("genre:"));
-      const denom = vec.reduce((a, [, v]) => a + v, 0) || 1.0;
+      const simWeight = (k) => { const d = k.split(":")[0]; return has(SIMILARITY_WEIGHTS, d) ? SIMILARITY_WEIGHTS[d] : 1.0; };
+      const denom = vec.reduce((a, [k, v]) => a + v * simWeight(k), 0) || 1.0;
       let shared = 0.0;
       for (const [k, rv] of vec) {
         const ev = w.terms.get(k);
         if (ev && ev.strength >= WEIGHTS.match_threshold) {
-          shared += Math.min(rv, ev.strength);
+          shared += Math.min(rv, ev.strength) * simWeight(k);
           if (!s.matched.some((m) => m.term === k)) {
             s.matched.push({ term: k, weight: rv, strength: ev.strength, confidence: ev.confidence,
               is_interpretation: ev.is_interpretation, review_status: ev.review_status, source: "reference" });
@@ -621,7 +651,8 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       c.relevance < WEIGHTS.min_relevance ||
       (intent.preferences.length && !ref && (c.breakdown.request_match || 0) < 0.05))));
     const kept = candidates.filter((c) => !weak.has(c));
-    kept.sort((a, b) => b.score - a.score || (a.work.title < b.work.title ? -1 : a.work.title > b.work.title ? 1 : 0));
+    kept.sort((a, b) => b.score - a.score || (a.work.popularity_tier || 5) - (b.work.popularity_tier || 5)
+      || (a.work.title < b.work.title ? -1 : a.work.title > b.work.title ? 1 : 0));
     return { results: diversify(kept, intent, limit), considered: works.length, excluded, weak_dropped: weak.size, reference: ref };
   }
 
@@ -635,7 +666,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
     const approx = w.length_is_estimate ? "~" : "";
     if (w.runtime_minutes) return `${approx}${w.runtime_minutes} min`;
     if (w.playtime_hours) return `${approx}${fmtG(w.playtime_hours)} h`;
-    return null;
+    return seriesLengthText(w);
   }
 
   function headline(s, tax) {
@@ -702,8 +733,20 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
     track_of: ["is a track on", "includes the track", true],
     remix_of: ["is a remix of", "was remixed as", true],
     spin_off_of: ["is a spin-off of", "spun off", true],
+    soundtrack_of: ["is the soundtrack of", "has the soundtrack", true],
   };
-  const PRIMARY_ROLES = ["director", "author", "developer", "artist"];
+  const PRIMARY_ROLES = ["director", "creator", "author", "developer", "artist"];
+  const isInt = (v) => typeof v === "number" && Number.isInteger(v);
+  function seriesMinutes(w) {
+    if (w.medium !== "series") return null;
+    const eps = w.attributes.episodes, mins = w.attributes.episode_minutes;
+    return isInt(eps) && typeof mins === "number" ? pyRound(eps * mins) : null;
+  }
+  function seriesLengthText(w) {
+    if (w.medium !== "series" || !isInt(w.attributes.episodes)) return null;
+    const seasons = w.attributes.seasons, eps = w.attributes.episodes;
+    return isInt(seasons) ? `${seasons} season${seasons === 1 ? "" : "s"}, ${eps} ep` : `${eps} ep`;
+  }
   const ORGANISATION_ROLES = ["developer", "publisher", "studio", "label", "distributor"];
 
   function parseAdvisory(value) {
@@ -817,7 +860,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
   const strengthOf = (w, key) => (w.terms.has(key) ? w.terms.get(key).strength : 0.0);
   const decadeOf = (year) => Math.floor(year / 10) * 10;
   const lengthMinutesOf = (w) =>
-    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : null;
+    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : seriesMinutes(w);
 
   function tagsOf(w, dimensions) {
     const found = [...w.terms].filter(([k, ev]) => dimensions.includes(k.split(":")[0]) && ev.strength >= TAG_THRESHOLD)
@@ -1050,6 +1093,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       let minutes, basis, estimate;
       if (w.runtime_minutes) [minutes, basis, estimate] = [w.runtime_minutes, "runtime", w.length_is_estimate];
       else if (w.playtime_hours) [minutes, basis, estimate] = [lengthMinutesOf(w), "playtime", w.length_is_estimate];
+      else if (w.medium === "series" && lengthMinutesOf(w)) [minutes, basis, estimate] = [lengthMinutesOf(w), "episodes", true];
       else if (w.medium === "book" && w.page_count) [minutes, basis, estimate] = [pyRound(w.page_count * READING_MINUTES_PER_PAGE), "pages", true];
       else if (w.medium === "book" && w.attributes.form === "novella") [minutes, basis, estimate] = [NOVELLA_MINUTES, "form", true];
       else return null;
@@ -1101,7 +1145,12 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       return out;
     }
 
-    const context = (works) => new Map(works.map((w) => [w.slug, continuity(w, works)]));
+    // The catalogue doesn't change while the page is open, so each list's continuity is worked out once.
+    const contextCache = new WeakMap();
+    const context = (works) => {
+      if (!contextCache.has(works)) contextCache.set(works, new Map(works.map((w) => [w.slug, continuity(w, works)])));
+      return contextCache.get(works);
+    };
 
     function richCard(w, ctx) {
       const img = w.images.length ? w.images[0] : null;
@@ -1115,6 +1164,8 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
 
     function shelfMatch(w, rule, ctx) {
       if (rule.media && rule.media.length && !rule.media.includes(w.medium)) return false;
+      if (rule.languages && rule.languages.length && !rule.languages.includes(w.language)) return false;
+      if (rule.not_languages && rule.not_languages.length && rule.not_languages.includes(w.language)) return false;
       const floor = has(rule, "min_strength") ? rule.min_strength : 0.5;
       if (rule.all_tags && rule.all_tags.length && rule.all_tags.some((t) => strengthOf(w, t) < floor)) return false;
       if (rule.any_tags && rule.any_tags.length && rule.any_tags.every((t) => strengthOf(w, t) < floor)) return false;
@@ -1219,8 +1270,75 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
 
     const remixRack = (works) => works.filter((w) => w.medium === "album").flatMap(trackItems).filter((t) => t.remixes.length);
 
+    // ---------------------------------------------------------------- taste profile and "for you" (mirrors browse.recommend)
+    const TASTE_WEIGHTS = { loved: 2.0, liked: 1.0, disliked: -1.5 };
+    const simWeightOf = (k) => { const d = k.split(":")[0]; return has(SIMILARITY_WEIGHTS, d) ? SIMILARITY_WEIGHTS[d] : 1.0; };
+    const byKey = (m) => [...m.keys()].sort();
+
+    function tasteVector(w) {
+      const out = new Map();
+      for (const [k, ev] of w.terms) {
+        if (!k.startsWith("advisory:") && ev.strength >= TAG_THRESHOLD) out.set(k, ev.strength * simWeightOf(k));
+      }
+      return out;
+    }
+
+    function cosine(a, b) {
+      let dot = 0, na = 0, nb = 0;
+      for (const k of byKey(a)) if (b.has(k)) dot += a.get(k) * b.get(k);
+      for (const k of byKey(a)) na += a.get(k) * a.get(k);
+      for (const k of byKey(b)) nb += b.get(k) * b.get(k);
+      na = Math.sqrt(na); nb = Math.sqrt(nb);
+      return na && nb ? dot / (na * nb) : 0.0;
+    }
+
+    function tasteProfile(works, ratings) {
+      const bySlug = new Map(works.map((w) => [w.slug, w]));
+      const profile = new Map();
+      for (const slug of Object.keys(ratings).sort()) {
+        const weight = has(TASTE_WEIGHTS, ratings[slug]) ? TASTE_WEIGHTS[ratings[slug]] : null;
+        const w = bySlug.get(slug);
+        if (weight === null || !w) continue;
+        const vec = tasteVector(w);
+        for (const k of byKey(vec)) profile.set(k, (profile.has(k) ? profile.get(k) : 0.0) + weight * vec.get(k));
+      }
+      return profile;
+    }
+
+    function recommend(works, ratings, limit = 12, medium = null) {
+      const profile = tasteProfile(works, ratings);
+      const bySlug = new Map(works.map((w) => [w.slug, w]));
+      const liked = Object.keys(ratings).filter((s) => (has(TASTE_WEIGHTS, ratings[s]) ? TASTE_WEIGHTS[ratings[s]] : 0) > 0).sort();
+      const likedVecs = liked.filter((s) => bySlug.has(s)).map((s) => [s, tasteVector(bySlug.get(s))]);
+      const topTerms = [...profile.keys()].filter((k) => profile.get(k) > 0)
+        .sort((a, b) => cmp([-pyRound(profile.get(a), 6), a], [-pyRound(profile.get(b), 6), b]));
+      const out = { profile: topTerms.slice(0, 8).map((k) => ({ key: k, label: tax.get(k).label, weight: pyRound(profile.get(k), 3) })),
+        rated: Object.keys(ratings).filter((s) => bySlug.has(s)).length, results: [] };
+      if (!likedVecs.length) return out;
+      const ctx = context(works);
+      const scored = [];
+      for (const w of works) {
+        if (has(ratings, w.slug) || (medium && w.medium !== medium)) continue;
+        const vec = tasteVector(w);
+        const score = pyRound(cosine(profile, vec), 6);
+        if (score <= 0) continue;
+        let because = null, best = -Infinity;
+        for (const [s, lv] of likedVecs) {
+          const c = pyRound(cosine(lv, vec), 6);
+          if (c > best) { best = c; because = s; }
+        }
+        const shared = [...vec.keys()].filter((k) => (profile.has(k) ? profile.get(k) : 0) > 0)
+          .sort((a, b) => cmp([-pyRound(profile.get(a) * vec.get(a), 6), a], [-pyRound(profile.get(b) * vec.get(b), 6), b])).slice(0, 3);
+        scored.push([score, w, because, shared]);
+      }
+      scored.sort((a, b) => cmp([-a[0], a[1].popularity_tier || 5, normaliseTitle(a[1].title)], [-b[0], b[1].popularity_tier || 5, normaliseTitle(b[1].title)]));
+      out.results = scored.slice(0, limit).map(([score, w, b, shared]) => ({ ...richCard(w, ctx), score: pyRound(score, 4),
+        because: { slug: b, title: bySlug.get(b).title }, shared: shared.map((k) => ({ key: k, label: tax.get(k).label })) }));
+      return out;
+    }
+
     return { browse, tagIndex, tagPage, peopleIndex, personPage, workPage, shelves, shelf, groupsIndex, groupPage,
-      moodRings, remixRack, timeInvestment, continuity, context, richCard };
+      moodRings, remixRack, recommend, timeInvestment, continuity, context, richCard };
   }
 
   function stem(word) {
@@ -1348,8 +1466,8 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
         weak_matches_hidden: ranked.weak_dropped, considered: ranked.considered,
         reference: ref ? { slug: ref.slug, title: ref.title, medium: ref.medium } : null,
         parser: parser.name, ranker: RANKER_VERSION,
-        message: results.length ? null : "Nothing in the catalogue matches this well enough to recommend. The pilot " +
-          "catalogue is small; try describing the experience you want rather than a specific subject.",
+        message: results.length ? null : "Nothing in the catalogue matches this well enough to recommend. The beta " +
+          "catalogue is still growing; try describing the experience you want rather than a specific subject.",
       };
     }
 
@@ -1368,6 +1486,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       group: (slug) => views.groupPage(list, slug),
       moodRings: () => views.moodRings(list, shelfSpec),
       remixRack: () => views.remixRack(list),
+      recommend: (ratings, limit = 12, medium = null) => views.recommend(list, ratings, limit, medium),
       where: (slug, region) => { const w = list.find((x) => x.slug === slug); return w && providerSpec ? whereFor(itemOf(w), region, providerSpec) : null; },
       whereFor: (item, region) => (providerSpec ? whereFor(item, region, providerSpec) : null),
       regions: () => (providerSpec ? Object.entries(providerSpec.regions).map(([code, r]) => ({ code, name: r.name })) : []),

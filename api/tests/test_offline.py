@@ -7,10 +7,15 @@ from pathlib import Path
 from benchmark.run import run_benchmark_offline
 from mde.catalogue.memory import MemoryCatalogue
 from mde.catalogue.model import RELATIONSHIP_TYPES
+from mde.catalogue.seedfiles import SEED_DIR
+
+# Behaviour tests run on the fixed pilot file so they don't move as the beta catalogue grows.
+PILOT = SEED_DIR / "catalogue.json"
 
 PURE_MODULES = ["mde/catalogue/model.py", "mde/catalogue/memory.py", "mde/discovery/intent.py",
                 "mde/discovery/rank.py", "mde/discovery/explain.py", "mde/discovery/pipeline.py",
-                "mde/taxonomy/__init__.py"]
+                "mde/taxonomy/__init__.py", "mde/catalogue/seedfiles.py", "mde/catalogue/providers.py", "mde/catalogue/browse.py",
+                "mde/catalogue/enrich.py"]
 
 
 def test_benchmark_passes_offline():
@@ -31,40 +36,40 @@ def test_pure_modules_never_import_the_database_driver_at_runtime():
 
 
 def test_relationship_types_match_migration():
-    sql = (Path(__file__).parent.parent / "mde/migrations/0001_foundation.sql").read_text()
+    sql = "".join(p.read_text() for p in sorted((Path(__file__).parent.parent / "mde/migrations").glob("*.sql")))
     rows = re.findall(r"\('(\w+)', '([^']+)', '([^']+)', (true|false), (true|false)\)", sql)
     assert {r[0]: (r[1], r[2], r[4] == "true") for r in rows} == RELATIONSHIP_TYPES
 
 
 def test_work_page_data():
-    work = MemoryCatalogue.from_seed().work("arrival-2016")
+    work = MemoryCatalogue.from_seed(PILOT).work("arrival-2016")
     assert work["relationships"][0]["slug"] == "story-of-your-life-1998"
     assert work["relationships"][0]["factual"]
     assert {d["dimension"] for d in work["tags"]} >= {"genre", "theme", "mood"}
-    assert MemoryCatalogue.from_seed().work("nope") is None
+    assert MemoryCatalogue.from_seed(PILOT).work("nope") is None
 
 
 def test_parents_guide_distinguishes_none_from_not_assessed():
-    guide = MemoryCatalogue.from_seed().work("arrival-2016")["parents_guide"]
+    guide = MemoryCatalogue.from_seed(PILOT).work("arrival-2016")["parents_guide"]
     groups = {g["slug"]: g for g in guide["groups"]}
     assert guide["ratings"] == [{"system": "MPA", "rating": "PG-13", "reason": "Brief strong language"}]
     assert groups["violence"]["severity"] == "Mild"
     assert groups["language"]["severity"] == "Mild"
     assert groups["substances"]["severity"] == "Not assessed"     # never claimed to be "none"
     assert groups["sex"]["severity"] == "None"
-    unassessed = MemoryCatalogue.from_seed().work("ok-computer-1997")["parents_guide"]
+    unassessed = MemoryCatalogue.from_seed(PILOT).work("ok-computer-1997")["parents_guide"]
     assert not unassessed["assessed"] and all(g["severity"] == "Not assessed" for g in unassessed["groups"])
 
 
 def test_spoiler_notes_are_kept_separate():
-    guide = MemoryCatalogue.from_seed().work("solaris-1972")["parents_guide"]
+    guide = MemoryCatalogue.from_seed(PILOT).work("solaris-1972")["parents_guide"]
     item = next(i for g in guide["groups"] for i in g["items"] if i["key"] == "advisory:suicide-self-harm")
     assert item["note"] and item["spoiler_note"] and item["spoiler_note"] not in item["note"]
 
 
 def test_browse_filters_and_facets():
     from mde.catalogue.browse import BrowseFilters
-    cat = MemoryCatalogue.from_seed()
+    cat = MemoryCatalogue.from_seed(PILOT)
     everything = cat.browse(BrowseFilters())
     assert everything["total"] == len(cat.works)
     assert {f["value"]: f["count"] for f in everything["facets"]["medium"]} == {"film": 22, "book": 15, "game": 11, "album": 8}
@@ -80,7 +85,7 @@ def test_browse_filters_and_facets():
 
 
 def test_tag_and_person_pages():
-    cat = MemoryCatalogue.from_seed()
+    cat = MemoryCatalogue.from_seed(PILOT)
     tag = cat.tag("theme:grief-loss")
     strengths = [w["strength"] for w in tag["works"]]
     assert strengths == sorted(strengths, reverse=True) and min(strengths) >= 0.4

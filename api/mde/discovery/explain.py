@@ -7,6 +7,7 @@ carries its basis so the UI can distinguish recorded facts from interpretations.
 
 from __future__ import annotations
 
+from mde.catalogue.model import series_length_text
 from mde.discovery.rank import ScoredWork
 from mde.taxonomy import Taxonomy
 
@@ -90,7 +91,7 @@ def _length_text(w) -> str | None:
         return f"{approx}{w.runtime_minutes} min"
     if w.playtime_hours:
         return f"{approx}{w.playtime_hours:g} h"
-    return None
+    return series_length_text(w)
 
 
 def _headline(s: ScoredWork, taxonomy: Taxonomy) -> str:

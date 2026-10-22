@@ -40,7 +40,7 @@ class DiscoveryResponse:
             "parser": self.parser,
             "ranker": self.ranker,
             "message": None if self.results else (
-                "Nothing in the catalogue matches this well enough to recommend. The pilot catalogue is small; "
+                "Nothing in the catalogue matches this well enough to recommend. The beta catalogue is still growing; "
                 "try describing the experience you want rather than a specific subject."),
         }
 

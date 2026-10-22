@@ -16,7 +16,8 @@ from psycopg.types.json import Jsonb
 
 from mde import taxonomy as taxonomy_mod
 from mde.catalogue import enrich
-from mde.catalogue.model import ORGANISATION_ROLES, WorkProfile, normalise_title, parse_advisory, slugify
+from mde.catalogue.model import ORGANISATION_ROLES, RELATIONSHIP_TYPES, WorkProfile, normalise_title, parse_advisory, slugify
+from mde.catalogue.seedfiles import read_seed
 from mde.taxonomy import Taxonomy
 
 SEED_PATH = Path(__file__).parent.parent / "seed" / "catalogue.json"
@@ -122,6 +123,8 @@ def validate(data: dict, tax: Taxonomy) -> list[str]:
             continue
         if r[0] not in slugs or r[2] not in slugs:
             errors.append(f"relationships[{i}]: unknown work in {r[0]!r} -> {r[2]!r}")
+        if r[1] not in RELATIONSHIP_TYPES:
+            errors.append(f"relationships[{i}]: unknown relationship type {r[1]!r}")
     return errors
 
 
@@ -352,6 +355,8 @@ def _import_enrichment(conn: psycopg.Connection, profiles: dict[str, WorkProfile
     for source, data in enrichment.items():
         if source not in src_ids:
             continue
+        # A source's file is a complete snapshot: records it no longer contains (e.g. a corrected match) must go.
+        conn.execute("DELETE FROM source_record WHERE source_id = %s", (src_ids[source],))
         for slug, rec in data.get("works", {}).items():
             if slug in work_ids and rec.get("match"):
                 ext = rec["match"].get("qid") or rec["match"].get("key") or rec["match"].get("mbid") or str(rec["match"].get("tmdb"))
@@ -393,6 +398,7 @@ def _import_enrichment(conn: psycopg.Connection, profiles: dict[str, WorkProfile
                          (groups[g.slug], wid, float(g.position) if g.position and g.position.replace(".", "", 1).isdigit() else None))
 
 
-def load_seed(conn: psycopg.Connection, path: Path = SEED_PATH, enrichment: dict | None = None) -> ImportStats:
-    return import_catalogue(conn, json.loads(path.read_text()),
+def load_seed(conn: psycopg.Connection, path: Path | None = None, enrichment: dict | None = None) -> ImportStats:
+    """Imports the whole seed (all seed/*.json), or one file when a path is given."""
+    return import_catalogue(conn, read_seed() if path is None else json.loads(path.read_text()),
                             enrichment=enrich.load_enrichment() if enrichment is None else enrichment)

@@ -21,9 +21,18 @@ RELATIONSHIP_TYPES: dict[str, tuple[str, str, bool]] = {  # slug: (label, invers
     "thematic_kin": ("explores similar questions to", "explores similar questions to", False),
     "similar_experience": ("offers a similar experience to", "offers a similar experience to", False),
     "contrasting_take": ("offers a contrasting take on the themes of", "offers a contrasting take on the themes of", False),
+    "track_of": ("is a track on", "includes the track", True),
+    "remix_of": ("is a remix of", "was remixed as", True),
+    "spin_off_of": ("is a spin-off of", "spun off", True),
+    "soundtrack_of": ("is the soundtrack of", "has the soundtrack", True),
 }
 
-PRIMARY_ROLES = ("director", "author", "developer", "artist")
+# How much each dimension counts when comparing works ("something like X", taste profiles): mostly what a work is
+# about and how it feels; genre and accessibility matter less.
+SIMILARITY_WEIGHTS = {"theme": 1.0, "mood": 0.9, "narrative": 0.8, "world": 0.8, "style": 0.7, "pacing": 0.6,
+                      "genre": 0.5, "complexity": 0.4}
+
+PRIMARY_ROLES = ("director", "creator", "author", "developer", "artist")
 ORGANISATION_ROLES = {"developer", "publisher", "studio", "label", "distributor"}
 
 
@@ -165,4 +174,24 @@ class WorkProfile:
             return self.runtime_minutes
         if self.playtime_hours is not None:
             return round(self.playtime_hours * 60)
+        return series_minutes(self)
+
+
+def series_minutes(w: WorkProfile) -> int | None:
+    """Total watching time for a TV series: episodes x typical episode length."""
+    if w.medium != "series":
         return None
+    eps, mins = w.attributes.get("episodes"), w.attributes.get("episode_minutes")
+    if isinstance(eps, int) and isinstance(mins, int | float) and not isinstance(mins, bool):
+        return round(eps * mins)
+    return None
+
+
+def series_length_text(w: WorkProfile) -> str | None:
+    if w.medium != "series" or not isinstance(w.attributes.get("episodes"), int):
+        return None
+    seasons, eps = w.attributes.get("seasons"), w.attributes["episodes"]
+    if isinstance(seasons, int):
+        return f"{seasons} season{'' if seasons == 1 else 's'}, {eps} ep"
+    return f"{eps} ep"
+

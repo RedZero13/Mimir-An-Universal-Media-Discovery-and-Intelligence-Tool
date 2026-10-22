@@ -124,6 +124,9 @@ def test_api_catalogue_views_match_the_in_memory_catalogue(client):
     assert client.get(f"/api/groups/{group}").json() == json.loads(json.dumps(mem.group(group)))
     assert client.get("/api/works/arrival-2016/where", params={"region": "IN"}).json() == mem.where("arrival-2016", "IN")
     assert client.get("/api/works/nope/where").status_code == 404
+    ratings = {"arrival-2016": "loved", "friends-1994": "disliked"}
+    assert client.post("/api/recommend", json={"ratings": ratings, "limit": 5}).json() == json.loads(json.dumps(mem.recommend(ratings, 5)))
+    assert client.post("/api/recommend", json={"ratings": {"x": "adored"}}).status_code == 422
     assert client.get("/api/shelves/nope").status_code == 404
     assert client.get("/api/groups/nope").status_code == 404
 
@@ -139,11 +142,12 @@ def test_enrichment_round_trips_through_postgres(conn):
 
     from enrichment_fixture import FIXTURE
 
-    from mde.catalogue.load import SEED_PATH, import_catalogue
+    from mde.catalogue.load import import_catalogue
     from mde.catalogue.memory import MemoryCatalogue
     from mde.catalogue.repository import load_profiles
+    from mde.catalogue.seedfiles import read_seed
 
-    data = json.loads(SEED_PATH.read_text())
+    data = read_seed()
     import_catalogue(conn, data, enrichment=FIXTURE)
     stats = import_catalogue(conn, data, enrichment=FIXTURE)
     assert stats.works_updated == 0                     # idempotent with enrichment too

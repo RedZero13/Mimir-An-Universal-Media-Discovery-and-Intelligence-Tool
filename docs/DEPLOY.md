@@ -11,7 +11,8 @@ Hosting is GitHub Pages from this repository. It's free, uses HTTPS and has no s
 
 1. **Merge the work into `main`.** Pages deploys from the default branch.
 2. **Turn on Pages:** in the repository, go to **Settings → Pages → Build and deployment → Source** and choose
-   **GitHub Actions**. The next push to `main` (or **Actions → Deploy Mimir site → Run workflow**) publishes it.
+   **GitHub Actions**. (Pages on a private repository needs a paid GitHub plan; otherwise make the repository
+   public.) The next push to `main` (or **Actions → Deploy Mimir site → Run workflow**) publishes it.
 3. **Add the DNS record** where terratalesmedia.world's DNS is managed. If the domain uses WordPress.com's name
    servers, that's **Upgrades → Domains → terratalesmedia.world → DNS records → Add a record**:
 
@@ -45,6 +46,6 @@ Suggested placements, in keeping with how Akashic Records is presented:
 
 ## What is deployed
 
-The static site runs the discovery engine in the browser on the pilot catalogue (56 works). Feedback stays in
-each visitor's browser. The full stack (PostgreSQL, the API and the Next.js app in `web/`) needs a server host;
-see the README. When it's live, point the same subdomain at it instead.
+The static site runs the discovery engine in the browser on the beta catalogue (503 works) with the open-data
+enrichment committed in `api/mde/data/enrichment/`. Ratings and feedback stay in each visitor's browser.
+The full stack (PostgreSQL, the API and the Next.js app in `web/`) needs a server host; see the README. When it's live, point the same subdomain at it instead.

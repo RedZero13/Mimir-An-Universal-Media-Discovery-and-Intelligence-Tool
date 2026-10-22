@@ -15,7 +15,7 @@ USER_AGENT = "MimirCatalogue/0.1 (+https://mimir.terratalesmedia.world; hello@te
 CACHE_DIR = Path(os.environ.get("MDE_CACHE_DIR", Path(__file__).parent.parent / "data" / "cache"))
 
 # Minimum seconds between requests to one host. MusicBrainz asks for at most one request per second.
-MIN_INTERVAL = {"musicbrainz.org": 1.1, "coverartarchive.org": 0.5, "openlibrary.org": 0.6, "www.wikidata.org": 0.2,
+MIN_INTERVAL = {"musicbrainz.org": 1.1, "coverartarchive.org": 0.5, "openlibrary.org": 0.6, "www.wikidata.org": 1.0,
                 "query.wikidata.org": 1.0, "api.themoviedb.org": 0.1}
 
 
@@ -66,7 +66,7 @@ class Client:
         if wait > 0:
             time.sleep(wait)
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json", **headers})
-        for attempt in range(4):
+        for attempt in range(6):
             try:
                 with urllib.request.urlopen(req, timeout=30) as resp:
                     self._last[host] = time.monotonic()
@@ -75,8 +75,9 @@ class Client:
                 self._last[host] = time.monotonic()
                 if e.code == 404:
                     return {}
-                if e.code in (429, 500, 502, 503, 504) and attempt < 3:
-                    time.sleep(float(e.headers.get("Retry-After") or 2 ** (attempt + 1)))
+                if e.code in (429, 500, 502, 503, 504) and attempt < 5:
+                    retry_after = e.headers.get("Retry-After")
+                    time.sleep(min(120.0, float(retry_after) if retry_after and retry_after.isdigit() else 2 ** (attempt + 2)))
                     continue
                 raise FetchError(f"{url}: HTTP {e.code}") from e
             except (urllib.error.URLError, TimeoutError, ConnectionError) as e:

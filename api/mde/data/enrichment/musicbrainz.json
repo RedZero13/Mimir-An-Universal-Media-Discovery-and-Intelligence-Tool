@@ -1,0 +1,1222 @@
+{
+ "source": "musicbrainz",
+ "licence": "MusicBrainz core data CC0; cover art via the Cover Art Archive, rights remain with the owners",
+ "generated_at": "2026-10-22T18:27:06Z",
+ "unmatched": [
+  "lift-your-skinny-fists-2000"
+ ],
+ "works": {
+  "ok-computer-1997": {
+   "match": {
+    "mbid": "b1392450-e666-3926-a536-22c65f834433",
+    "release": "52e7fc61-fcf3-4b46-ac72-38e9644bf982",
+    "reason": "exact title, artist and year"
+   },
+   "url": "https://musicbrainz.org/release-group/b1392450-e666-3926-a536-22c65f834433",
+   "facts": {
+    "runtime_minutes": 64
+   },
+   "tracks": [
+    {
+     "disc": 1,
+     "position": 1,
+     "title": "Airbag",
+     "seconds": 284,
+     "recording": "4a7fea2e-545b-4c63-bc9a-9943cc3a29d7",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 2,
+     "title": "Paranoid Android",
+     "seconds": 383,
+     "recording": "9f9cf187-d6f9-437f-9d98-d59cdbd52757",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 3,
+     "title": "Subterranean Homesick Alien",
+     "seconds": 268,
+     "recording": "bd82738d-163c-4b1a-bfaf-7acffe30e68a",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 4,
+     "title": "Exit Music (for a Film)",
+     "seconds": 265,
+     "recording": "23c3c36b-9449-4484-9040-6ef2125999aa",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 5,
+     "title": "Let Down",
+     "seconds": 299,
+     "recording": "47b02a82-c3bf-4647-b894-dd1c8f608e7f",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 6,
+     "title": "Karma Police",
+     "seconds": 262,
+     "recording": "9e2ad5bc-c6f9-40d2-a36f-3122ee2072a3",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 7,
+     "title": "Fitter Happier",
+     "seconds": 117,
+     "recording": "5838f978-0822-4e28-874f-e1511324ec3a",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 8,
+     "title": "Electioneering",
+     "seconds": 231,
+     "recording": "ba0a796c-bd1f-4d4b-85a8-918f217a204a",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 9,
+     "title": "Climbing Up the Walls",
+     "seconds": 285,
+     "recording": "c7225576-001e-423c-adc1-58f0985dcb27",
+     "remixes": [
+      {
+       "title": "Climbing Up the Walls (Fila Brazillia mix)",
+       "artist": "Radiohead",
+       "recording": "d6692dae-2fc7-4277-883e-29d3fd742d48",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Climbing Up the Walls (Zero 7 mix)",
+       "artist": "Radiohead",
+       "recording": "54e3665c-63c0-494a-ac43-8664469e1b2e",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 10,
+     "title": "No Surprises",
+     "seconds": 229,
+     "recording": "980a426e-623e-4ea5-98c7-008d037a0508",
+     "remixes": [
+      {
+       "title": "No Surprises (7una \"unreleased jersey club\" remix)",
+       "artist": "Radiohead",
+       "recording": "377d2119-b3cf-4a3c-a202-ac58ec92e7db",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 11,
+     "title": "Lucky",
+     "seconds": 260,
+     "recording": "79047824-f821-4b1a-9893-e0cea1c947dd",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 12,
+     "title": "The Tourist",
+     "seconds": 325,
+     "recording": "610c0012-6eb4-42a0-b759-3a2532ce0f15",
+     "remixes": []
+    },
+    {
+     "disc": 2,
+     "position": 1,
+     "title": "Karma Police",
+     "seconds": 260,
+     "recording": "9e2ad5bc-c6f9-40d2-a36f-3122ee2072a3",
+     "remixes": []
+    },
+    {
+     "disc": 2,
+     "position": 2,
+     "title": "A Reminder",
+     "seconds": 232,
+     "recording": "72f541ac-0d82-44e1-9f12-e50a7d23cfcf",
+     "remixes": []
+    },
+    {
+     "disc": 2,
+     "position": 3,
+     "title": "Melatonin",
+     "seconds": 128,
+     "recording": "08dcb5f9-a716-4a36-ac5e-b3740cf85cbb",
+     "remixes": []
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/b1392450-e666-3926-a536-22c65f834433/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ],
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 53,
+     "source": 64
+    }
+   ]
+  },
+  "music-for-airports-1978": {
+   "match": {
+    "mbid": "5fdd6ba8-83c1-3a87-b378-d5f61dec5ddd",
+    "release": "01cb012e-cb6c-4308-9e3f-114a42396c2b",
+    "reason": "exact title, artist and year"
+   },
+   "url": "https://musicbrainz.org/release-group/5fdd6ba8-83c1-3a87-b378-d5f61dec5ddd",
+   "facts": {
+    "runtime_minutes": 42
+   },
+   "tracks": [
+    {
+     "disc": 1,
+     "position": 1,
+     "title": "1/1",
+     "seconds": 990,
+     "recording": "b3735d1c-86b3-4f51-bc78-c624b549080b",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 2,
+     "title": "2/1",
+     "seconds": 500,
+     "recording": "5f949e7c-cf3d-40b7-8cab-49e6212406d4",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 3,
+     "title": "1/2",
+     "seconds": 690,
+     "recording": "f47637a2-489e-4675-af52-bf6b3b0a5e1c",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 4,
+     "title": "2/2",
+     "seconds": 360,
+     "recording": "1bbb487c-a552-473b-b226-c3be70105d8b",
+     "remixes": []
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/5fdd6ba8-83c1-3a87-b378-d5f61dec5ddd/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ],
+   "conflicts": []
+  },
+  "kind-of-blue-1959": {
+   "match": {
+    "mbid": "8e8a594f-2175-38c7-a871-abb68ec363e7",
+    "release": "53f2acf9-6f05-4bf7-b566-58da62c430df",
+    "reason": "exact title, artist and year"
+   },
+   "url": "https://musicbrainz.org/release-group/8e8a594f-2175-38c7-a871-abb68ec363e7",
+   "facts": {
+    "runtime_minutes": 45
+   },
+   "tracks": [
+    {
+     "disc": 1,
+     "position": 1,
+     "title": "So What",
+     "seconds": 545,
+     "recording": "60f750f4-d222-46b7-ad5c-905334c9a48a",
+     "remixes": [
+      {
+       "title": "So What",
+       "artist": "Miles Davis",
+       "recording": "272dbf93-1501-4650-bbde-627ff0588a73",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 2,
+     "title": "Freddie Freeloader",
+     "seconds": 576,
+     "recording": "852bf62a-29f9-4026-abc5-86d6e973196f",
+     "remixes": [
+      {
+       "title": "Freddie Freeloader",
+       "artist": "Miles Davis",
+       "recording": "6ea17013-fa68-4446-a2c7-7b864e366803",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 3,
+     "title": "Blue in Green",
+     "seconds": 329,
+     "recording": "67a9794c-153a-4a24-82ec-9eace7e208f2",
+     "remixes": [
+      {
+       "title": "Blue in Green",
+       "artist": "Miles Davis",
+       "recording": "8121ce09-135d-477d-aafb-0404f1f15b78",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 4,
+     "title": "All Blues",
+     "seconds": 694,
+     "recording": "b7ebe185-21e9-4400-a17a-3d0cee232925",
+     "remixes": [
+      {
+       "title": "All Blues",
+       "artist": "Miles Davis",
+       "recording": "7d7c7c47-2bb3-4a85-b5bc-9f54d365ca13",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "All Blues (5.0 mix)",
+       "artist": "Miles Davis",
+       "recording": "b8c7ac50-d3dc-4942-bd2c-3760990ef43f",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 5,
+     "title": "Flamenco Sketches",
+     "seconds": 565,
+     "recording": "250b3f1d-7620-42a9-87b3-5d1a166e0f2f",
+     "remixes": [
+      {
+       "title": "Flamenco Sketches (5.0 mix)",
+       "artist": "Miles Davis",
+       "recording": "c1e861b7-af01-48eb-91dd-6b0b3988c382",
+       "direction": "remixed_as"
+      }
+     ]
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/8e8a594f-2175-38c7-a871-abb68ec363e7/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ],
+   "conflicts": []
+  },
+  "hounds-of-love-1985": {
+   "match": {
+    "mbid": "017f2a37-a78f-3578-9611-fa40408e5d90",
+    "release": "12113d83-5c94-4b5e-bf88-0df918fa354f",
+    "reason": "exact title, artist and year"
+   },
+   "url": "https://musicbrainz.org/release-group/017f2a37-a78f-3578-9611-fa40408e5d90",
+   "facts": {
+    "runtime_minutes": 53
+   },
+   "tracks": [
+    {
+     "disc": 1,
+     "position": 1,
+     "title": "Running Up That Hill",
+     "seconds": 300,
+     "recording": "6029d549-5858-4936-9156-b90770d2ae92",
+     "remixes": [
+      {
+       "title": "Running up That Hill (A Deal With God) (2012 remix)",
+       "artist": "Kate Bush",
+       "recording": "7a0aecf5-0538-42d6-a468-78e0d3a9dead",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (club Bizarre edit)",
+       "artist": "Kate Bush & Club Bizarre",
+       "recording": "00a066ec-1f0b-46b8-87bd-ecd0632287e6",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Daisy O'Dell version)",
+       "artist": "Kate Bush & Daisy O’Dell",
+       "recording": "bcb55954-b5f7-4b19-b11b-a8ac9f45db21",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Juelz remix)",
+       "artist": "Kate Bush",
+       "recording": "2c3711fb-478b-4405-8ddb-0b576a435be6",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Justin Fry remix)",
+       "artist": "Kate Bush & Justin Fry",
+       "recording": "3e5e0f7a-6662-4dd2-a6b4-31bc50baffbb",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Kaldera remix)",
+       "artist": "Kate Bush & Kaldera",
+       "recording": "83372c4e-c0f8-43b5-a60a-a04574143348",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Louis La Roche remix)",
+       "artist": "Kate Bush & Louis La Roche",
+       "recording": "d33295c9-408e-4657-926a-468073acb592",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Matt Heo remix)",
+       "artist": "Kate Bush & HEO",
+       "recording": "02607286-2727-4452-ad67-eea1134ea5ef",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Noraj Cue remix)",
+       "artist": "Kate Bush & Noraj Cue",
+       "recording": "1c0ca10a-5311-413a-ba79-48c4ea6054e9",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Orkidea Pure Progressive mix)",
+       "artist": "Kate Bush & Orkidea",
+       "recording": "ff07c232-6012-4239-885c-336f2d5adfbb",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (Roy Van Doorn edit)",
+       "artist": "Kate Bush & Sander van Doorn",
+       "recording": "39459502-cfb4-47fc-8017-f5231b8b4ab5",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (TOTEM Remix)",
+       "artist": "Kate Bush & Kyle Dixon & Michael Stein",
+       "recording": "cff9d305-8778-4b3a-8205-f5e8069471e0",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Running Up That Hill (XY Me remix)",
+       "artist": "Kate Bush & XY-Me",
+       "recording": "12e52bb2-6c29-403d-b2e3-82669c20ea53",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 2,
+     "title": "Hounds of Love",
+     "seconds": 183,
+     "recording": "984deb15-92f3-4917-9929-c0e930dc8a54",
+     "remixes": [
+      {
+       "title": "Hounds of Love (alternative)",
+       "artist": "Kate Bush",
+       "recording": "aeec9fb9-d959-4f0f-891c-262a21f16a35",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 3,
+     "title": "The Big Sky",
+     "seconds": 281,
+     "recording": "0c289adc-82b6-41c0-8e37-31ac97b7eff5",
+     "remixes": [
+      {
+       "title": "The Big Sky (Meteorogical mix)",
+       "artist": "Kate Bush",
+       "recording": "6e39d824-03c4-4a19-8cfc-5c74602e5f91",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 4,
+     "title": "Mother Stands for Comfort",
+     "seconds": 188,
+     "recording": "c67191d6-96b2-46ff-8c45-803c3a527b81",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 5,
+     "title": "Cloudbursting",
+     "seconds": 310,
+     "recording": "3ff1eb97-03db-47e8-80fe-6b9620fa59ed",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 6,
+     "title": "Running Up That Hill (extended version)",
+     "seconds": 345,
+     "recording": "e87d0feb-abac-482d-b0b0-e5c65f2489ad",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 7,
+     "title": "And Dream of Sheep",
+     "seconds": 166,
+     "recording": "b5c91153-8ca6-48a7-b01d-cbb7741d07ef",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 8,
+     "title": "Under Ice",
+     "seconds": 142,
+     "recording": "97506f13-bfff-4a4e-b9b6-63aaa429c4be",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 9,
+     "title": "Waking the Witch",
+     "seconds": 259,
+     "recording": "ee479ac0-38b1-4281-8a15-30835a74d42f",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 10,
+     "title": "Watching You Without Me",
+     "seconds": 247,
+     "recording": "df5afc3a-adbe-47a3-8e34-242ba653d5ab",
+     "remixes": [
+      {
+       "title": "I'm Not Here (Fred Palakon Edit)",
+       "artist": "Fred Palakon",
+       "recording": "091172bd-315c-40d1-a9ae-e82b2dfd442a",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 11,
+     "title": "Jig of Life",
+     "seconds": 244,
+     "recording": "d5aa698f-a44f-41d1-b055-85a6379a8e81",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 12,
+     "title": "Hello Earth",
+     "seconds": 373,
+     "recording": "c1280ccf-7f5d-432a-b01c-58474a9c80a3",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 13,
+     "title": "The Morning Fog",
+     "seconds": 155,
+     "recording": "a824c1d4-9508-439d-a404-5a1560a867d3",
+     "remixes": []
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/017f2a37-a78f-3578-9611-fa40408e5d90/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ],
+   "conflicts": []
+  },
+  "in-the-aeroplane-over-the-sea-1998": {
+   "match": {
+    "mbid": "8f310800-045b-3e12-8268-50b3d33a2267",
+    "release": "023fcf90-dca7-4a4e-a4e2-ed0eaba78f9e",
+    "reason": "exact title, artist and year"
+   },
+   "url": "https://musicbrainz.org/release-group/8f310800-045b-3e12-8268-50b3d33a2267",
+   "facts": {
+    "runtime_minutes": 40
+   },
+   "tracks": [
+    {
+     "disc": 1,
+     "position": 1,
+     "title": "The King of Carrot Flowers, Pt. One",
+     "seconds": 120,
+     "recording": "10a8b7ec-53f8-4973-a965-12ccffeb7388",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 2,
+     "title": "The King of Carrot Flowers, Pts. Two & Three",
+     "seconds": 186,
+     "recording": "a0c6f46e-939b-4528-bae5-69e6c0a07efc",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 3,
+     "title": "In the Aeroplane Over the Sea",
+     "seconds": 202,
+     "recording": "92e8f3c9-ec04-42d6-8f2b-c3d7fc4f65c2",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 4,
+     "title": "Two‐Headed Boy",
+     "seconds": 266,
+     "recording": "a14325a0-0e65-412a-9338-f6da554304f9",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 5,
+     "title": "The Fool",
+     "seconds": 113,
+     "recording": "c5aced94-878a-44e2-905a-8b8fe6d79fc2",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 6,
+     "title": "Holland, 1945",
+     "seconds": 193,
+     "recording": "3f8438d6-d0ee-460f-a885-88bf9276a516",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 7,
+     "title": "Communist Daughter",
+     "seconds": 117,
+     "recording": "e22ec9ef-4eb1-40eb-9ec7-50a9cb6580f4",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 8,
+     "title": "Oh Comely",
+     "seconds": 498,
+     "recording": "6554b3a2-4920-49f0-8572-692174b47663",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 9,
+     "title": "Ghost",
+     "seconds": 249,
+     "recording": "6273ae8f-3d2c-44c6-8c0d-53013ba79b4e",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 10,
+     "title": "[untitled]",
+     "seconds": 136,
+     "recording": "41630a89-5cc6-4e88-bbfa-057f52ca9d48",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 11,
+     "title": "Two‐Headed Boy, Pt. Two",
+     "seconds": 314,
+     "recording": "10050515-9838-425c-b25b-48dcfe20b7b5",
+     "remixes": []
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/8f310800-045b-3e12-8268-50b3d33a2267/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ],
+   "conflicts": []
+  },
+  "discovery-2001": {
+   "match": {
+    "mbid": "48117b90-a16e-34ca-a514-19c702df1158",
+    "release": "30e45d86-707d-4042-9df5-93724557aadb",
+    "reason": "exact title, artist and year"
+   },
+   "url": "https://musicbrainz.org/release-group/48117b90-a16e-34ca-a514-19c702df1158",
+   "facts": {
+    "runtime_minutes": 61
+   },
+   "tracks": [
+    {
+     "disc": 1,
+     "position": 1,
+     "title": "One More Time",
+     "seconds": 321,
+     "recording": "60fa767a-d85d-4991-82bc-4294e0b11ae7",
+     "remixes": [
+      {
+       "title": "1 more dime (fvlcrvm rwrk)",
+       "artist": "dftpnk",
+       "recording": "21ad70d5-f123-4546-9cf9-0a672500d185",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "one more karkat",
+       "artist": "jade",
+       "recording": "f4ea1af6-52b9-43ee-b31f-88f614cc1b7d",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "One More Time (Daft Punk) / Swoon (Chemical Brothers)",
+       "artist": "Daft Punk & The Chemical Brothers",
+       "recording": "63f639f6-b0a4-4b13-aadd-c65eb3a5ab52",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "One More Time (TeeVex remix)",
+       "artist": "TeeVex & Daft Punk",
+       "recording": "9d387165-a649-44ae-a388-af256f13b410",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "One More Time (Uwe Heinrich Adler remix)",
+       "artist": "Daft Punk",
+       "recording": "63845dcd-526a-424d-bd1f-347b4b9bfa16",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "One Whore Time",
+       "artist": "Moustiluigi Random",
+       "recording": "a23583f6-7e90-43ca-80df-a616df69cde1",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 2,
+     "title": "Aerodynamic",
+     "seconds": 208,
+     "recording": "7c0e11a3-1c7a-4e6d-a14d-6e86d86dbaad",
+     "remixes": [
+      {
+       "title": "Aerodicknamic",
+       "artist": "Moustiluigi Random",
+       "recording": "93e07700-ad94-4660-adae-bfc58a1c9866",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Aerodynamic (Daft Punk remix)",
+       "artist": "Daft Punk",
+       "recording": "08e81a60-6788-4682-be49-52b8e2a55e1b",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Aerodynamic (Johnatron edit) (Mr. Jl Stay Fly Re‐edit)",
+       "artist": "Johnatron",
+       "recording": "945f4b40-7ce6-4cee-9d08-4c5e320c9878",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Aerodynamic (Laurent Mathieu remix)",
+       "artist": "Daft Punk",
+       "recording": "1ed219eb-97df-4347-9026-9c6ddd106810",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "aerodynamic (onlytom 2019 remix)",
+       "artist": "daft punk",
+       "recording": "d40a4823-aa3e-49e3-9f51-37bf17add8a8",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Aerodynamic (Slum Village remix)",
+       "artist": "Daft Punk",
+       "recording": "77eb9a09-f507-4455-b40b-589386cae338",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "aerodynamic (tdoyle remix)",
+       "artist": "Daft Punk",
+       "recording": "9a1a0553-ffdd-4291-ae99-873d7fc09c75",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Motherboard / Aerodynamic (Vitalectro remix, FL studio cover) - Alive 2019",
+       "artist": "Daft Punk",
+       "recording": "15af6281-0e1e-4210-b5ed-e35b1a728f02",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 3,
+     "title": "Digital Love",
+     "seconds": 298,
+     "recording": "15f16efc-8762-4151-95ab-c12d06268640",
+     "remixes": [
+      {
+       "title": "Digital Love (Algeronics remix)",
+       "artist": "Daft Punk",
+       "recording": "92e97fca-4f20-481d-85c9-5de738d2f1d5",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Digital Love (Boris Dlugosch remix)",
+       "artist": "Daft Punk",
+       "recording": "8bca2404-e209-4915-baf8-b4d2633eafb8",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Digital Love Bootleg",
+       "artist": "odaxelagnia",
+       "recording": "8a342cc4-9588-473d-864b-5015589e9a3e",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Digitanal Love",
+       "artist": "Moustiluigi Random",
+       "recording": "9377e20c-0c45-4da8-b089-902ba8fdb3b9",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 4,
+     "title": "Harder, Better, Faster, Stronger",
+     "seconds": 224,
+     "recording": "f1a6a40f-78f5-4918-968d-f64363bae94c",
+     "remixes": [
+      {
+       "title": "Harder Better Faster Illamerica (Kid Crookes bootleg)",
+       "artist": "Daft Punk",
+       "recording": "816c4e12-1cf3-44a6-9782-e5fadbf99d90",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Harder Better Faster Stronger (deadmau5 edit)",
+       "artist": "Daft Punk",
+       "recording": "87f51ded-b296-4368-9c46-cd94276117a8",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Harder Better Faster Stronger (OTIK dubstep remix)",
+       "artist": "Daft Punk",
+       "recording": "f5a9e98b-8c66-42cc-8c17-ec55f30864dd",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Harder, Better, Faster, Stronger",
+       "artist": "Far Out",
+       "recording": "316da191-9f31-49cf-ad9c-fa0ea4ac7630",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Harder, Better, Faster, Stronger (Complexive Remix)",
+       "artist": "Daft Punk",
+       "recording": "3fbabc6e-b535-4dc7-91d2-f29252d1a44b",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Harder, Better, Faster, Stronger (Jess and Crabbe Regulator mix)",
+       "artist": "Daft Punk",
+       "recording": "de7a70b2-f7da-4057-91b2-5c28e1420e63",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Harder, Better, Faster, Stronger (The Neptunes remix)",
+       "artist": "Daft Punk",
+       "recording": "5a9cea41-904d-4388-8e34-043eaec454eb",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Harder, Better, Mother, Fucker",
+       "artist": "Moustiluigi Random",
+       "recording": "98813a99-51c4-4ffb-8f9c-6dfdacc023e7",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Work Is Never Over",
+       "artist": "Diplo",
+       "recording": "5f94a078-ea6c-4abd-b864-d6e54203ec3d",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 5,
+     "title": "Crescendolls",
+     "seconds": 212,
+     "recording": "d63ad586-1124-4df1-9a2b-c014d7b7cb02",
+     "remixes": [
+      {
+       "title": "Crescenballs",
+       "artist": "Moustiluigi Random",
+       "recording": "21107a18-429b-439a-9f9c-edc0a940683c",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Crescendolls (Laidback Luke remix)",
+       "artist": "Daft Punk",
+       "recording": "5d182e4b-9d5e-437c-9fd3-7d2d246fd574",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Crescendolls (Night Drugs rework)",
+       "artist": "Daft Punk",
+       "recording": "99fac8eb-1164-43fc-bcb2-d1c952d9765c",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 6,
+     "title": "Nightvision",
+     "seconds": 104,
+     "recording": "712edd8d-b413-4e4e-aca4-9b91fce2e65c",
+     "remixes": [
+      {
+       "title": "Nightvifion",
+       "artist": "Moustiluigi Random",
+       "recording": "46529ab8-601e-49a4-9b55-2fa44ff9a06d",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Nightvision",
+       "artist": "The Twelves",
+       "recording": "19fa71bb-30f4-4c77-bdd6-bedf3a7422f6",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Nightvision (The Twelves remix)",
+       "artist": "Daft Punk",
+       "recording": "7f31a194-539b-4cfa-a081-56431770e4ef",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 7,
+     "title": "Superheroes",
+     "seconds": 238,
+     "recording": "8a98614f-0533-44ef-890a-639cab407a2d",
+     "remixes": [
+      {
+       "title": "Superheroes (We Plants Are Happy Plants remix)",
+       "artist": "Daft Punk",
+       "recording": "9aa35925-310d-4e21-bad9-95d1adabfd20",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Superhoes",
+       "artist": "Moustiluigi Random",
+       "recording": "bf722748-7ae6-4b77-8dbb-7f8b42b6ec46",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 8,
+     "title": "High Life",
+     "seconds": 202,
+     "recording": "07b720fc-0d6f-4342-a6df-876d1749de0b",
+     "remixes": [
+      {
+       "title": "Drip Life",
+       "artist": "Moustiluigi Random",
+       "recording": "f8368770-98c0-44c1-9f7e-b0684fe6328a",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "High Life (WBBL remix)",
+       "artist": "Daft Punk",
+       "recording": "93d94ca1-ab1e-4ef5-a30f-8d388dc2eb26",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 9,
+     "title": "Something About Us",
+     "seconds": 231,
+     "recording": "defbfcb2-7a5c-4456-be28-b7e5ccf92cc2",
+     "remixes": [
+      {
+       "title": "Something about Sus",
+       "artist": "Moustiluigi Random",
+       "recording": "66137db0-5c43-420e-8747-daaa5c958350",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Something About Us (Angry Mix)",
+       "artist": "Cryptrik",
+       "recording": "ff74698c-d628-438a-92d1-33b898e48d43",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Something About Us (Cherokee remix)",
+       "artist": "Daft Punk",
+       "recording": "6f8acb20-50ce-4181-8fb1-e9d30b56555d",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Something About Us (Psymbionic remix)",
+       "artist": "Daft Punk",
+       "recording": "33c4f695-25e7-4483-bdb0-d833309f8079",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 10,
+     "title": "Voyager",
+     "seconds": 228,
+     "recording": "e1fe1d12-dac2-4325-ae1b-25e0ef06b998",
+     "remixes": [
+      {
+       "title": "Voyager (Broke One remix)",
+       "artist": "Daft Punk",
+       "recording": "80ec6698-b381-4ac6-9520-4a9ce20c557b",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Voyager (Dominique Torti’s Wild Style edit)",
+       "artist": "Daft Punk",
+       "recording": "15dae73a-e743-49dd-b2a5-77ed31c8b551",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Voyager (ナイトNaito Remix)",
+       "artist": "ナイトNaito",
+       "recording": "c62d2a73-23e1-4236-8e3b-d02ff9ccb440",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Voyeur",
+       "artist": "Moustiluigi Random",
+       "recording": "e07a9a0a-945e-484e-b24b-f21445daca26",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 11,
+     "title": "Veridis Quo",
+     "seconds": 345,
+     "recording": "2a220770-1150-4190-b0e0-57d89a0a7469",
+     "remixes": [
+      {
+       "title": "Veridis Quo",
+       "artist": "Astrophysics",
+       "recording": "5556fbb4-8c91-438a-ba92-d5472c6ec48d",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Veridis Quo (Ferndrop remix)",
+       "artist": "Daft Punk",
+       "recording": "4aded947-6e29-4bac-b298-118713adf5b8",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Veridis Quo (Ghost Radio remix)",
+       "artist": "Daft Punk",
+       "recording": "2bbf0aff-9cfa-406e-b0e6-f4a07a1172fe",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Veridis Quo (US Golf 95 vaporgaze remix)",
+       "artist": "Daft Punk",
+       "recording": "e2204d89-3f7b-4e7a-b0e6-aa2f48ec963c",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Veridis Quo (Y&V remix)",
+       "artist": "Daft Punk",
+       "recording": "3901ec4e-7a41-4993-aac1-e17545575349",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Veridisstrack",
+       "artist": "Moustiluigi Random",
+       "recording": "3d0dcbe5-ac86-4b3c-928b-54b1ef08d682",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 12,
+     "title": "Short Circuit",
+     "seconds": 207,
+     "recording": "3f60ae01-43cc-4db9-86ec-97b79f83764f",
+     "remixes": [
+      {
+       "title": "Short Circuit (Dr.GoFast's 'Haters Gone Hate' remix)",
+       "artist": "Daft Punk",
+       "recording": "9ea4dddb-fa36-4c22-a6af-eeb58eef5ddc",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Short Dick",
+       "artist": "Moustiluigi Random",
+       "recording": "6339a889-5f3f-4969-b033-45a9bb60574c",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 13,
+     "title": "Face to Face",
+     "seconds": 240,
+     "recording": "59038571-03ea-4ca4-965c-a57eae2aa138",
+     "remixes": [
+      {
+       "title": "Ass to Face",
+       "artist": "Moustiluigi Random",
+       "recording": "78890185-a6cc-4542-86c5-9e8cc6ff4dce",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Face to Face (Cosmo Vitelli remix)",
+       "artist": "Daft Punk",
+       "recording": "15a30807-73e2-45ad-ad81-6e978686ab9c",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Face to Face (Demon remix)",
+       "artist": "Daft Punk",
+       "recording": "916f9465-9e20-4f59-8907-0f8c7b7d9177",
+       "direction": "remixed_as"
+      }
+     ]
+    },
+    {
+     "disc": 1,
+     "position": 14,
+     "title": "Too Long",
+     "seconds": 600,
+     "recording": "1a915a2d-e2f4-4300-a230-96fc9c8a7b60",
+     "remixes": [
+      {
+       "title": "Long Schlong",
+       "artist": "Moustiluigi Random",
+       "recording": "4000faf1-8a0d-457a-9f77-cfc3fca1604c",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Too Long (Cosmonaut Grechko version)",
+       "artist": "Daft Punk",
+       "recording": "863e9d83-cda4-42e3-ac33-759e3897894b",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Too Long (Gonzales version)",
+       "artist": "Daft Punk",
+       "recording": "eda4bf35-a5ae-40f5-aa29-10824ae1a2d3",
+       "direction": "remixed_as"
+      },
+      {
+       "title": "Too Long/Steam Machine (Fighter X Remix)",
+       "artist": "Fighter X",
+       "recording": "306792a0-d204-4f95-9b9f-f98d9c17d212",
+       "direction": "remixed_as"
+      }
+     ]
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/48117b90-a16e-34ca-a514-19c702df1158/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ],
+   "conflicts": []
+  },
+  "lift-your-skinny-fists-2000": {
+   "match": null,
+   "reason": "no album release group with matching title, artist and year",
+   "candidates": []
+  },
+  "the-disintegration-loops-2002": {
+   "match": {
+    "mbid": "29560694-e850-385b-8cee-8d3b41c2bd1c",
+    "release": "9b5def6c-4cda-443a-92ef-e045385ccbea",
+    "reason": "exact title, artist and year"
+   },
+   "url": "https://musicbrainz.org/release-group/29560694-e850-385b-8cee-8d3b41c2bd1c",
+   "facts": {
+    "runtime_minutes": 74
+   },
+   "tracks": [
+    {
+     "disc": 1,
+     "position": 1,
+     "title": "dlp 1.1",
+     "seconds": 3813,
+     "recording": "00faffe0-c695-41c2-b601-a776b5425c1e",
+     "remixes": []
+    },
+    {
+     "disc": 1,
+     "position": 2,
+     "title": "dlp 2.1",
+     "seconds": 656,
+     "recording": "afb2a4e3-1d73-42a1-9714-0ecaaab869fe",
+     "remixes": []
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/29560694-e850-385b-8cee-8d3b41c2bd1c/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ],
+   "conflicts": []
+  }
+ }
+}

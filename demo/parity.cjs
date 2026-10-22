@@ -5,7 +5,7 @@ const path = require("path");
 const MDE = require("./engine.cjs");
 
 const api = path.join(__dirname, "..", "api", "mde");
-const catalogue = JSON.parse(fs.readFileSync(path.join(api, "seed", "catalogue.json"), "utf8"));
+const catalogue = require("./seed.cjs").readSeed(path.join(api, "seed"));
 const taxonomy = JSON.parse(fs.readFileSync(path.join(api, "taxonomy", "taxonomy.json"), "utf8"));
 const input = JSON.parse(fs.readFileSync(0, "utf8"));
 const shelves = JSON.parse(fs.readFileSync(path.join(api, "catalogue", "shelves.json"), "utf8"));
@@ -24,6 +24,7 @@ const view = ([kind, arg]) => {
   if (kind === "mood_rings") return cat.moodRings();
   if (kind === "remix_rack") return cat.remixRack();
   if (kind === "where") return cat.where(arg[0], arg[1]);
+  if (kind === "recommend") return cat.recommend(arg.ratings, arg.limit, arg.medium);
   throw new Error(`unknown view ${kind}`);
 };
 process.stdout.write(JSON.stringify({

@@ -1,9 +1,9 @@
-import json
 
 import pytest
 
 from mde import taxonomy
-from mde.catalogue.load import SEED_PATH, possible_duplicates, validate
+from mde.catalogue.load import possible_duplicates, validate
+from mde.catalogue.seedfiles import read_seed
 
 
 def test_taxonomy_loads_and_every_term_is_defined():
@@ -23,7 +23,7 @@ def test_ambiguous_synonym_is_rejected():
 
 
 def test_seed_catalogue_is_valid_and_has_no_duplicates():
-    data = json.loads(SEED_PATH.read_text())
+    data = read_seed()
     assert validate(data, taxonomy.load()) == []
     assert possible_duplicates(data["works"]) == []
 

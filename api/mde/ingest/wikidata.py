@@ -17,10 +17,11 @@ LICENCE = "CC0 1.0"
 
 # Accepted P31 (instance of) values per medium.
 TYPES = {
-    "film": {"Q11424", "Q24869", "Q29168811", "Q202866", "Q506240", "Q93204"},
-    "book": {"Q7725634", "Q8261", "Q149537", "Q49084", "Q47461344", "Q571", "Q1279564", "Q112983"},
+    "film": {"Q11424", "Q24869", "Q29168811", "Q202866", "Q506240", "Q93204", "Q20650540", "Q24862", "Q226730"},
+    "series": {"Q5398426", "Q1259759", "Q117467246", "Q63952888", "Q526877", "Q15416", "Q581714", "Q3464665", "Q1366112"},
+    "book": {"Q7725634", "Q8261", "Q149537", "Q49084", "Q47461344", "Q571", "Q1279564", "Q112983", "Q725377", "Q8274"},
     "game": {"Q7889", "Q21125433", "Q64170203"},
-    "album": {"Q482994", "Q208569", "Q209939", "Q222910"},
+    "album": {"Q482994", "Q208569", "Q209939", "Q222910", "Q169930", "Q4176708"},
 }
 UNIT_MINUTES = {"Q7727": 1.0, "Q25235": 60.0, "Q11574": 1 / 60}
 CURRENCIES = {"Q4917": "USD", "Q4916": "EUR", "Q25224": "GBP", "Q8146": "JPY", "Q202040": "KRW", "Q80524": "INR",
@@ -64,6 +65,17 @@ def year_of(entity: dict, prop: str = "P577") -> int | None:
         if m:
             years.append(int(m.group(1)))
     return min(years) if years else None
+
+
+def label_of(entity: dict) -> str:
+    """English label, else the language-neutral 'mul' label Wikidata now uses for many names."""
+    labels = entity.get("labels", {})
+    return (labels.get("en") or labels.get("mul") or {}).get("value", "")
+
+
+def names_of(entity: dict) -> list[str]:
+    aliases = entity.get("aliases", {})
+    return [label_of(entity), *(a["value"] for lang in ("en", "mul") for a in aliases.get(lang, []))]
 
 
 def instance_types(entity: dict) -> set[str]:
@@ -151,63 +163,107 @@ def external_ids(entity: dict) -> dict[str, str]:
     return out
 
 
-def score_candidate(entity: dict, title: str, medium: str, year: int | None) -> tuple[float, str]:
-    """0 means reject. Type must match; year must agree within one; exact title earns most."""
+def is_exact(entity: dict, titles: list[str]) -> bool:
+    return bool({normalise_title(t) for t in titles} & {normalise_title(n) for n in names_of(entity) if n})
+
+
+def score_candidate(entity: dict, title: str | list[str], medium: str, year: int | None) -> tuple[float, str]:
+    """0 means reject. Type must match; year must agree within one; exact title (or a known alternative) earns most."""
+    titles = [title] if isinstance(title, str) else title
     if not instance_types(entity) & TYPES[medium]:
         return 0.0, "wrong type"
     y = year_of(entity)
     if year is not None and y is not None and abs(y - year) > 1:
         return 0.0, f"year {y} vs {year}"
-    label = entity.get("labels", {}).get("en", {}).get("value", "")
-    aliases = [a["value"] for a in entity.get("aliases", {}).get("en", [])]
-    exact = normalise_title(title) in {normalise_title(t) for t in [label, *aliases]}
+    exact = is_exact(entity, titles)
     conf = 0.5 + (0.3 if exact else 0) + (0.2 if y == year else 0.1 if y is not None else 0)
     return round(conf, 2), f"type ok, year {y}, {'exact' if exact else 'partial'} title"
 
 
 # ------------------------------------------------------------------ fetching
 
+def choose(ents: dict[str, dict], titles: list[str], medium: str, year: int | None) -> list[tuple[float, str, str]]:
+    """Candidates scored best first. Ties are broken by item completeness (claim count), which favours the canonical
+    work over editions and re-releases. When nothing passes the year check but exactly one candidate has the right
+    type and an exact title, it is accepted at 0.6 with the year difference stated (e.g. a game finished years after
+    its first episode), and the disagreement is reported as a conflict for review."""
+    scored = []
+    for q, e in ents.items():
+        conf, why = score_candidate(e, titles, medium, year)
+        scored.append((conf, len(e.get("claims", {})), q, why))
+    scored.sort(key=lambda t: (-t[0], -t[1], t[2]))
+    if scored and scored[0][0] > 0 and len(scored) > 1 and scored[1][0] == scored[0][0] and scored[1][1] != scored[0][1]:
+        conf, _, q, why = scored[0]
+        scored[0] = (round(conf + 0.01, 2), scored[0][1], q, f"{why}; tie broken by completeness")
+    if (not scored or scored[0][0] < 0.7):
+        typed = [(q, e) for q, e in ents.items() if instance_types(e) & TYPES[medium] and is_exact(e, titles)]
+        if len(typed) == 1:
+            q, e = typed[0]
+            scored = [(0.6, 0, q, f"only exact-title match of the right type; year {year_of(e)} differs from {year}")] + \
+                     [s for s in scored if s[2] != q]
+    return [(c, q, why) for c, _, q, why in scored]
+
+
 class Wikidata:
     def __init__(self, client: Client):
         self.client = client
+        self._labels: dict[str, str] = {}
 
     def entities(self, ids: list[str], props: str = "claims|labels|aliases|sitelinks|descriptions") -> dict[str, dict]:
         out: dict[str, dict] = {}
         for i in range(0, len(ids), 50):
             chunk = ids[i:i + 50]
             data = self.client.get_json(API, {"action": "wbgetentities", "ids": "|".join(chunk), "props": props,
-                                              "languages": "en", "sitefilter": "enwiki", "format": "json"})
+                                              "languages": "en|mul", "sitefilter": "enwiki", "format": "json"})
             out.update(data.get("entities", {}))
         return out
 
     def labels(self, ids: list[str]) -> dict[str, str]:
-        ents = self.entities(sorted(set(ids)), props="labels")
-        return {q: e.get("labels", {}).get("en", {}).get("value", q) for q, e in ents.items()}
+        missing = sorted(set(ids) - self._labels.keys())
+        if missing:
+            for q, e in self.entities(missing, props="labels").items():
+                self._labels[q] = label_of(e) or q
+        return {q: self._labels.get(q, q) for q in ids}
 
-    def find(self, title: str, medium: str, year: int | None, creator: str | None = None) -> tuple[Match, dict | None]:
+    def _search(self, title: str) -> list[str]:
         found = self.client.get_json(API, {"action": "wbsearchentities", "search": title, "language": "en",
                                            "type": "item", "limit": 12, "format": "json"})
-        cands = [c["id"] for c in found.get("search", [])]
-        if not cands:
+        return [c["id"] for c in found.get("search", [])]
+
+    def _typed_search(self, title: str, medium: str) -> list[str]:
+        """Full-text search restricted to the medium's item types, for titles buried under common words (Moon, Columbus)."""
+        types = "|".join(f"P31={t}" for t in sorted(TYPES[medium]))
+        found = self.client.get_json(API, {"action": "query", "list": "search", "srsearch": f'"{title}" haswbstatement:{types}',
+                                           "srlimit": 10, "format": "json"})
+        return [h["title"] for h in found.get("query", {}).get("search", []) if h.get("title", "").startswith("Q")]
+
+    def find(self, title: str, medium: str, year: int | None, creator: str | None = None,
+             aka: list[str] | None = None) -> tuple[Match, dict | None]:
+        titles = [title, *(aka or [])]
+        cands: list[str] = []
+        for t in titles:
+            cands += [q for q in self._search(t) if q not in cands]
+        ents = self.entities(cands) if cands else {}
+        scored = choose(ents, titles, medium, year)
+        if not scored or scored[0][0] < 0.7:
+            extra = [q for t in titles for q in self._typed_search(t, medium) if q not in ents]
+            if extra:
+                ents.update(self.entities(sorted(set(extra))))
+                scored = choose(ents, titles, medium, year)
+        if not scored:
             return Match(None, 0, "no search results"), None
-        ents = self.entities(cands)
-        scored = []
-        for q in cands:
-            conf, why = score_candidate(ents[q], title, medium, year)
-            scored.append((conf, q, why))
-        scored.sort(key=lambda t: -t[0])
-        summary = [{"qid": q, "label": ents[q].get("labels", {}).get("en", {}).get("value"),
+        summary = [{"qid": q, "label": label_of(ents[q]) or None,
                     "description": ents[q].get("descriptions", {}).get("en", {}).get("value"),
                     "confidence": c, "reason": why} for c, q, why in scored[:5]]
         best = scored[0]
-        if best[0] < 0.7:
+        if best[0] < 0.6:
             return Match(None, best[0], "no confident match", summary), None
         if len(scored) > 1 and scored[1][0] == best[0]:
             return Match(None, best[0], "ambiguous: two equally good candidates", summary), None
         return Match(best[1], best[0], best[2], summary), ents[best[1]]
 
     def enrich(self, work: dict) -> dict:
-        match, entity = self.find(work["title"], work["medium"], work.get("year"))
+        match, entity = self.find(work["title"], work["medium"], work.get("year"), aka=(work.get("attributes") or {}).get("aka"))
         if entity is None:
             return {"match": None, "reason": match.reason, "candidates": match.candidates}
         refs = []
@@ -219,7 +275,8 @@ class Wikidata:
         facts = {}
         if (y := year_of(entity)) is not None:
             facts["release_year"] = y
-        if work["medium"] in ("film", "album") and (rt := runtime_minutes(entity)) is not None:
+        # Album durations on Wikidata often include bonus tracks; MusicBrainz track lists are used for albums instead.
+        if work["medium"] == "film" and (rt := runtime_minutes(entity)) is not None:
             facts["runtime_minutes"] = rt
         images = []
         for c in claim_values(entity, "P18")[:1]:

@@ -1,0 +1,3259 @@
+{
+ "source": "openlibrary",
+ "licence": "Open Library data: open; cover images remain the publishers' and are shown for identification",
+ "generated_at": "2026-10-22T19:22:28Z",
+ "unmatched": [
+  "kafka-on-the-shore-2002",
+  "mans-search-for-meaning-1946",
+  "persepolis-2000",
+  "story-of-your-life-1998",
+  "the-girl-with-the-dragon-tattoo-2005",
+  "the-metamorphosis-1915",
+  "the-stranger-1942",
+  "the-three-body-problem-2008",
+  "the-vegetarian-2007",
+  "the-wind-up-bird-chronicle-1994"
+ ],
+ "works": {
+  "story-of-your-life-1998": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": [
+    {
+     "key": "/works/OL6216050W",
+     "title": "Stories of Your Life and Others",
+     "authors": [
+      "Ted Chiang"
+     ],
+     "year": 2002
+    }
+   ]
+  },
+  "solaris-1961": {
+   "match": {
+    "key": "/works/OL109524W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL109524W",
+   "url": "https://openlibrary.org/works/OL109524W",
+   "facts": {
+    "page_count": 229
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.93,
+     "scale_max": 5.0,
+     "votes": 28,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12313764-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "roadside-picnic-1972": {
+   "match": {
+    "key": "/works/OL7967812W",
+    "reason": "exact title and author; first published 1978 here, 1972 in the catalogue"
+   },
+   "key": "/works/OL7967812W",
+   "url": "https://openlibrary.org/works/OL7967812W",
+   "facts": {
+    "page_count": 170
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.32,
+     "scale_max": 5.0,
+     "votes": 73,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6752719-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "do-androids-dream-1968": {
+   "match": {
+    "key": "/works/OL2172356W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL2172356W",
+   "url": "https://openlibrary.org/works/OL2172356W",
+   "facts": {
+    "page_count": 224
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.04,
+     "scale_max": 5.0,
+     "votes": 161,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/207515-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "annihilation-2014": {
+   "match": {
+    "key": "/works/OL17268007W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL17268007W",
+   "url": "https://openlibrary.org/works/OL17268007W",
+   "facts": {
+    "page_count": 208
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.61,
+     "scale_max": 5.0,
+     "votes": 100,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8408974-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-left-hand-of-darkness-1969": {
+   "match": {
+    "key": "/works/OL59800W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL59800W",
+   "url": "https://openlibrary.org/works/OL59800W",
+   "facts": {
+    "page_count": 304
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.27,
+     "scale_max": 5.0,
+     "votes": 56,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10618463-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-dispossessed-1974": {
+   "match": {
+    "key": "/works/OL59863W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL59863W",
+   "url": "https://openlibrary.org/works/OL59863W",
+   "facts": {
+    "page_count": 352
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.49,
+     "scale_max": 5.0,
+     "votes": 37,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6979680-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "piranesi-2020": {
+   "match": {
+    "key": "/works/OL20893680W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL20893680W",
+   "url": "https://openlibrary.org/works/OL20893680W",
+   "facts": {
+    "page_count": 272
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.33,
+     "scale_max": 5.0,
+     "votes": 63,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10226290-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "never-let-me-go-2005": {
+   "match": {
+    "key": "/works/OL59038W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL59038W",
+   "url": "https://openlibrary.org/works/OL59038W",
+   "facts": {
+    "page_count": 319
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.84,
+     "scale_max": 5.0,
+     "votes": 76,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1047334-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-remains-of-the-day-1989": {
+   "match": {
+    "key": "/works/OL59048W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL59048W",
+   "url": "https://openlibrary.org/works/OL59048W",
+   "facts": {
+    "page_count": 254
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.21,
+     "scale_max": 5.0,
+     "votes": 28,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/95742-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "a-psalm-for-the-wild-built-2021": {
+   "match": {
+    "key": "/works/OL22561871W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL22561871W",
+   "url": "https://openlibrary.org/works/OL22561871W",
+   "facts": {
+    "page_count": 154
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.4,
+     "scale_max": 5.0,
+     "votes": 10,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10476616-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "kindred-1979": {
+   "match": {
+    "key": "/works/OL35616W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL35616W",
+   "url": "https://openlibrary.org/works/OL35616W",
+   "facts": {
+    "page_count": 287
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.39,
+     "scale_max": 5.0,
+     "votes": 51,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8745330-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "nineteen-eighty-four-1949": {
+   "match": {
+    "key": "/works/OL1168083W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1168083W",
+   "url": "https://openlibrary.org/works/OL1168083W",
+   "facts": {
+    "page_count": 318
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.28,
+     "scale_max": 5.0,
+     "votes": 441,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9267242-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-name-of-the-rose-1980": {
+   "match": {
+    "key": "/works/OL37535473W",
+    "reason": "exact title and author; first published 1983 here, 1980 in the catalogue"
+   },
+   "key": "/works/OL37535473W",
+   "url": "https://openlibrary.org/works/OL37535473W",
+   "facts": {
+    "page_count": 518
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.0,
+     "scale_max": 5.0,
+     "votes": 1,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15023290-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "dune-1965": {
+   "match": {
+    "key": "/works/OL893414W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL893414W",
+   "url": "https://openlibrary.org/works/OL893414W",
+   "facts": {
+    "page_count": 608
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.3,
+     "scale_max": 5.0,
+     "votes": 448,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11481354-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "pride-and-prejudice-1813": {
+   "match": {
+    "key": "/works/OL66554W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL66554W",
+   "url": "https://openlibrary.org/works/OL66554W",
+   "facts": {
+    "page_count": 351
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.21,
+     "scale_max": 5.0,
+     "votes": 412,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14348537-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "to-kill-a-mockingbird-1960": {
+   "match": {
+    "key": "/works/OL3140822W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL3140822W",
+   "url": "https://openlibrary.org/works/OL3140822W",
+   "facts": {
+    "page_count": 320
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.14,
+     "scale_max": 5.0,
+     "votes": 277,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14351077-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-great-gatsby-1925": {
+   "match": {
+    "key": "/works/OL33864210W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL33864210W",
+   "url": "https://openlibrary.org/works/OL33864210W",
+   "facts": {},
+   "scores": [],
+   "images": [],
+   "conflicts": []
+  },
+  "one-hundred-years-of-solitude-1967": {
+   "match": {
+    "key": "/works/OL29355621W",
+    "reason": "exact title and author; first published 2007 here, 1967 in the catalogue"
+   },
+   "key": "/works/OL29355621W",
+   "url": "https://openlibrary.org/works/OL29355621W",
+   "facts": {},
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.5,
+     "scale_max": 5.0,
+     "votes": 2,
+     "as_of": null
+    }
+   ],
+   "images": [],
+   "conflicts": []
+  },
+  "crime-and-punishment-1866": {
+   "match": {
+    "key": "/works/OL35681437W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL35681437W",
+   "url": "https://openlibrary.org/works/OL35681437W",
+   "facts": {},
+   "scores": [],
+   "images": [],
+   "conflicts": []
+  },
+  "the-fellowship-of-the-ring-1954": {
+   "match": {
+    "key": "/works/OL27513W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL27513W",
+   "url": "https://openlibrary.org/works/OL27513W",
+   "facts": {
+    "page_count": 492
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.34,
+     "scale_max": 5.0,
+     "votes": 405,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14627060-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-hobbit-1937": {
+   "match": {
+    "key": "/works/OL27482W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL27482W",
+   "url": "https://openlibrary.org/works/OL27482W",
+   "facts": {
+    "page_count": 310
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.3,
+     "scale_max": 5.0,
+     "votes": 505,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14627509-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "harry-potter-and-the-philosophers-stone-1997": {
+   "match": {
+    "key": "/works/OL82563W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL82563W",
+   "url": "https://openlibrary.org/works/OL82563W",
+   "facts": {
+    "page_count": 302
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.22,
+     "scale_max": 5.0,
+     "votes": 1057,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15155833-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-hunger-games-2008": {
+   "match": {
+    "key": "/works/OL5735363W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL5735363W",
+   "url": "https://openlibrary.org/works/OL5735363W",
+   "facts": {
+    "page_count": 397
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.14,
+     "scale_max": 5.0,
+     "votes": 570,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12646537-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-handmaids-tale-1985": {
+   "match": {
+    "key": "/works/OL675783W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL675783W",
+   "url": "https://openlibrary.org/works/OL675783W",
+   "facts": {
+    "page_count": 352
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.95,
+     "scale_max": 5.0,
+     "votes": 141,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8231851-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "brave-new-world-1932": {
+   "match": {
+    "key": "/works/OL64365W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL64365W",
+   "url": "https://openlibrary.org/works/OL64365W",
+   "facts": {
+    "page_count": 241
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.97,
+     "scale_max": 5.0,
+     "votes": 483,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8231823-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "fahrenheit-451-1953": {
+   "match": {
+    "key": "/works/OL103123W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL103123W",
+   "url": "https://openlibrary.org/works/OL103123W",
+   "facts": {
+    "page_count": 190
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.98,
+     "scale_max": 5.0,
+     "votes": 456,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12993656-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "frankenstein-1818": {
+   "match": {
+    "key": "/works/OL26860869W",
+    "reason": "exact title and author; first published 2017 here, 1818 in the catalogue"
+   },
+   "key": "/works/OL26860869W",
+   "url": "https://openlibrary.org/works/OL26860869W",
+   "facts": {
+    "page_count": 291
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 5.0,
+     "scale_max": 5.0,
+     "votes": 1,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15266215-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "dracula-1897": {
+   "match": {
+    "key": "/works/OL85892W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL85892W",
+   "url": "https://openlibrary.org/works/OL85892W",
+   "facts": {
+    "page_count": 384
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.0,
+     "scale_max": 5.0,
+     "votes": 251,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12216503-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "jane-eyre-1847": {
+   "match": {
+    "key": "/works/OL1095427W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1095427W",
+   "url": "https://openlibrary.org/works/OL1095427W",
+   "facts": {
+    "page_count": 480
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.04,
+     "scale_max": 5.0,
+     "votes": 189,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8235363-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "wuthering-heights-1847": {
+   "match": {
+    "key": "/works/OL21177W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL21177W",
+   "url": "https://openlibrary.org/works/OL21177W",
+   "facts": {
+    "page_count": 318
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.11,
+     "scale_max": 5.0,
+     "votes": 307,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12818862-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-catcher-in-the-rye-1951": {
+   "match": {
+    "key": "/works/OL3335245W",
+    "reason": "exact title and author; first published 1945 here, 1951 in the catalogue"
+   },
+   "key": "/works/OL3335245W",
+   "url": "https://openlibrary.org/works/OL3335245W",
+   "facts": {
+    "page_count": 240
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.61,
+     "scale_max": 5.0,
+     "votes": 412,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9273490-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "beloved-1987": {
+   "match": {
+    "key": "/works/OL50548W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL50548W",
+   "url": "https://openlibrary.org/works/OL50548W",
+   "facts": {
+    "page_count": 321
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.91,
+     "scale_max": 5.0,
+     "votes": 75,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8261367-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-road-2006": {
+   "match": {
+    "key": "/works/OL40873W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL40873W",
+   "url": "https://openlibrary.org/works/OL40873W",
+   "facts": {
+    "page_count": 256
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.89,
+     "scale_max": 5.0,
+     "votes": 176,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/198120-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "blood-meridian-1985": {
+   "match": {
+    "key": "/works/OL40879W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL40879W",
+   "url": "https://openlibrary.org/works/OL40879W",
+   "facts": {
+    "page_count": 354
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.85,
+     "scale_max": 5.0,
+     "votes": 20,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/419991-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-kite-runner-2003": {
+   "match": {
+    "key": "/works/OL5781992W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL5781992W",
+   "url": "https://openlibrary.org/works/OL5781992W",
+   "facts": {
+    "page_count": 371
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.11,
+     "scale_max": 5.0,
+     "votes": 148,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14846827-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-god-of-small-things-1997": {
+   "match": {
+    "key": "/works/OL1052133W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1052133W",
+   "url": "https://openlibrary.org/works/OL1052133W",
+   "facts": {
+    "page_count": 357
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.81,
+     "scale_max": 5.0,
+     "votes": 78,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10513792-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "midnights-children-1981": {
+   "match": {
+    "key": "/works/OL457179W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL457179W",
+   "url": "https://openlibrary.org/works/OL457179W",
+   "facts": {
+    "page_count": 580
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.89,
+     "scale_max": 5.0,
+     "votes": 38,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8346713-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "a-suitable-boy-1993": {
+   "match": {
+    "key": "/works/OL11930W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL11930W",
+   "url": "https://openlibrary.org/works/OL11930W",
+   "facts": {
+    "page_count": 1408
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.62,
+     "scale_max": 5.0,
+     "votes": 13,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/911254-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-white-tiger-2008": {
+   "match": {
+    "key": "/works/OL9740815W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL9740815W",
+   "url": "https://openlibrary.org/works/OL9740815W",
+   "facts": {
+    "page_count": 304
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.79,
+     "scale_max": 5.0,
+     "votes": 33,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2787359-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-palace-of-illusions-2008": {
+   "match": {
+    "key": "/works/OL1926995W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1926995W",
+   "url": "https://openlibrary.org/works/OL1926995W",
+   "facts": {
+    "page_count": 372
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.19,
+     "scale_max": 5.0,
+     "votes": 21,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2412074-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "train-to-pakistan-1956": {
+   "match": {
+    "key": "/works/OL318479W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL318479W",
+   "url": "https://openlibrary.org/works/OL318479W",
+   "facts": {
+    "page_count": 206
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.88,
+     "scale_max": 5.0,
+     "votes": 17,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/568646-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "malgudi-days-1943": {
+   "match": {
+    "key": "/works/OL1057177W",
+    "reason": "exact title and author; first published 1982 here, 1943 in the catalogue"
+   },
+   "key": "/works/OL1057177W",
+   "url": "https://openlibrary.org/works/OL1057177W",
+   "facts": {
+    "page_count": 246
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.47,
+     "scale_max": 5.0,
+     "votes": 15,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7981639-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-namesake-2003": {
+   "match": {
+    "key": "/works/OL37520919W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL37520919W",
+   "url": "https://openlibrary.org/works/OL37520919W",
+   "facts": {},
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.0,
+     "scale_max": 5.0,
+     "votes": 1,
+     "as_of": null
+    }
+   ],
+   "images": [],
+   "conflicts": []
+  },
+  "interpreter-of-maladies-1999": {
+   "match": {
+    "key": "/works/OL2001058W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL2001058W",
+   "url": "https://openlibrary.org/works/OL2001058W",
+   "facts": {
+    "page_count": 211
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.86,
+     "scale_max": 5.0,
+     "votes": 43,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4915588-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "norwegian-wood-1987": {
+   "match": {
+    "key": "/works/OL2625457W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL2625457W",
+   "url": "https://openlibrary.org/works/OL2625457W",
+   "facts": {
+    "page_count": 389
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.88,
+     "scale_max": 5.0,
+     "votes": 123,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2237620-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "kafka-on-the-shore-2002": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": []
+  },
+  "the-wind-up-bird-chronicle-1994": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": []
+  },
+  "klara-and-the-sun-2021": {
+   "match": {
+    "key": "/works/OL20883297W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL20883297W",
+   "url": "https://openlibrary.org/works/OL20883297W",
+   "facts": {
+    "page_count": 334
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.79,
+     "scale_max": 5.0,
+     "votes": 48,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10648686-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-vegetarian-2007": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": []
+  },
+  "convenience-store-woman-2016": {
+   "match": {
+    "key": "/works/OL19744024W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL19744024W",
+   "url": "https://openlibrary.org/works/OL19744024W",
+   "facts": {
+    "page_count": 163
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.07,
+     "scale_max": 5.0,
+     "votes": 14,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9315164-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "before-the-coffee-gets-cold-2015": {
+   "match": {
+    "key": "/works/OL20832477W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL20832477W",
+   "url": "https://openlibrary.org/works/OL20832477W",
+   "facts": {},
+   "scores": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10138333-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-three-body-problem-2008": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": [
+    {
+     "key": "/works/OL16314245W",
+     "title": "The Dark Forest (The Three-Body Problem Series Book 2)",
+     "authors": [
+      "刘慈欣"
+     ],
+     "year": 2008
+    },
+    {
+     "key": "/works/OL17610507W",
+     "title": "Death's End (The Three-Body Problem Series Book 3)",
+     "authors": [
+      "刘慈欣"
+     ],
+     "year": 2010
+    },
+    {
+     "key": "/works/OL44576333W",
+     "title": "Cixin Liu Bestselling Collecting Books Series, Set of 4 Books. the Three-Body Problem, the Wandering Earth, the Dark Forest and Death's End",
+     "authors": [
+      "Cixin Liu"
+     ],
+     "year": 2022
+    }
+   ]
+  },
+  "the-little-prince-1943": {
+   "match": {
+    "key": "/works/OL43264921W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL43264921W",
+   "url": "https://openlibrary.org/works/OL43264921W",
+   "facts": {
+    "page_count": 114
+   },
+   "scores": [],
+   "images": [],
+   "conflicts": []
+  },
+  "the-stranger-1942": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": [
+    {
+     "key": "/works/OL31270346W",
+     "title": "The Stranger, The Plague (Coles Notes)",
+     "authors": [
+      "Albert Camus"
+     ],
+     "year": 1980
+    },
+    {
+     "key": "/works/OL37995496W",
+     "title": "The Stranger, The Plague (Coles Notes)",
+     "authors": [
+      "Albert Camus"
+     ],
+     "year": 1980
+    }
+   ]
+  },
+  "the-alchemist-1988": {
+   "match": {
+    "key": "/works/OL42974242W",
+    "reason": "exact title and author; first published 2010 here, 1988 in the catalogue"
+   },
+   "key": "/works/OL42974242W",
+   "url": "https://openlibrary.org/works/OL42974242W",
+   "facts": {
+    "page_count": 386
+   },
+   "scores": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15075893-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-shadow-of-the-wind-2001": {
+   "match": {
+    "key": "/works/OL36433603W",
+    "reason": "exact title and author; first published 2009 here, 2001 in the catalogue"
+   },
+   "key": "/works/OL36433603W",
+   "url": "https://openlibrary.org/works/OL36433603W",
+   "facts": {},
+   "scores": [],
+   "images": [],
+   "conflicts": []
+  },
+  "my-brilliant-friend-2011": {
+   "match": {
+    "key": "/works/OL34947113W",
+    "reason": "exact title and author; first published 2023 here, 2011 in the catalogue"
+   },
+   "key": "/works/OL34947113W",
+   "url": "https://openlibrary.org/works/OL34947113W",
+   "facts": {
+    "page_count": 256
+   },
+   "scores": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13772133-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-trial-1925": {
+   "match": {
+    "key": "/works/OL43043884W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL43043884W",
+   "url": "https://openlibrary.org/works/OL43043884W",
+   "facts": {
+    "page_count": 340
+   },
+   "scores": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14910748-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-metamorphosis-1915": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": [
+    {
+     "key": "/works/OL15176533W",
+     "title": "The Metamorphosis and Other Stories",
+     "authors": [
+      "Franz Kafka"
+     ],
+     "year": 1996
+    },
+    {
+     "key": "/works/OL17897916W",
+     "title": "The metamorphosis and related readings",
+     "authors": [
+      "Franz Kafka"
+     ],
+     "year": 2000
+    },
+    {
+     "key": "/works/OL498628W",
+     "title": "The metamorphosis ; The penal colony, and other stories",
+     "authors": [
+      "Franz Kafka"
+     ],
+     "year": 1975
+    },
+    {
+     "key": "/works/OL498691W",
+     "title": "The Trial / Metamorphosis",
+     "authors": [
+      "Franz Kafka"
+     ],
+     "year": 1983
+    },
+    {
+     "key": "/works/OL35424934W",
+     "title": "La metamorfosis. Carta al padre/ The metamorphosis. Letter to father (Spanish Edition)",
+     "authors": [
+      "Franz Kafka"
+     ],
+     "year": 2008
+    }
+   ]
+  },
+  "things-fall-apart-1958": {
+   "match": {
+    "key": "/works/OL891786W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL891786W",
+   "url": "https://openlibrary.org/works/OL891786W",
+   "facts": {
+    "page_count": 192
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.94,
+     "scale_max": 5.0,
+     "votes": 96,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12816943-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "half-of-a-yellow-sun-2006": {
+   "match": {
+    "key": "/works/OL5731542W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL5731542W",
+   "url": "https://openlibrary.org/works/OL5731542W",
+   "facts": {
+    "page_count": 500
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.26,
+     "scale_max": 5.0,
+     "votes": 35,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8472660-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-hitchhikers-guide-to-the-galaxy-1979": {
+   "match": {
+    "key": "/works/OL2163649W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL2163649W",
+   "url": "https://openlibrary.org/works/OL2163649W",
+   "facts": {
+    "page_count": 216
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.51,
+     "scale_max": 5.0,
+     "votes": 178,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12986869-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "neuromancer-1984": {
+   "match": {
+    "key": "/works/OL27258W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL27258W",
+   "url": "https://openlibrary.org/works/OL27258W",
+   "facts": {
+    "page_count": 317
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.06,
+     "scale_max": 5.0,
+     "votes": 81,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/283860-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "foundation-1951": {
+   "match": {
+    "key": "/works/OL46125W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL46125W",
+   "url": "https://openlibrary.org/works/OL46125W",
+   "facts": {
+    "page_count": 240
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.09,
+     "scale_max": 5.0,
+     "votes": 308,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14612610-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "project-hail-mary-2021": {
+   "match": {
+    "key": "/works/OL21745884W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL21745884W",
+   "url": "https://openlibrary.org/works/OL21745884W",
+   "facts": {
+    "page_count": 496
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.53,
+     "scale_max": 5.0,
+     "votes": 190,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11200092-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-martian-2011": {
+   "match": {
+    "key": "/works/OL17091839W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL17091839W",
+   "url": "https://openlibrary.org/works/OL17091839W",
+   "facts": {
+    "page_count": 407
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.4,
+     "scale_max": 5.0,
+     "votes": 337,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11447888-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "a-wizard-of-earthsea-1968": {
+   "match": {
+    "key": "/works/OL59798W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL59798W",
+   "url": "https://openlibrary.org/works/OL59798W",
+   "facts": {
+    "page_count": 205
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.94,
+     "scale_max": 5.0,
+     "votes": 119,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13617691-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-name-of-the-wind-2007": {
+   "match": {
+    "key": "/works/OL8479867W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL8479867W",
+   "url": "https://openlibrary.org/works/OL8479867W",
+   "facts": {
+    "page_count": 736
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.34,
+     "scale_max": 5.0,
+     "votes": 259,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11480483-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "mistborn-the-final-empire-2006": {
+   "match": {
+    "key": "/works/OL16044142W",
+    "reason": "exact title and author; first published 2001 here, 2006 in the catalogue"
+   },
+   "key": "/works/OL16044142W",
+   "url": "https://openlibrary.org/works/OL16044142W",
+   "facts": {
+    "page_count": 1712
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.91,
+     "scale_max": 5.0,
+     "votes": 11,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11329782-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-way-of-kings-2010": {
+   "match": {
+    "key": "/works/OL15358691W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL15358691W",
+   "url": "https://openlibrary.org/works/OL15358691W",
+   "facts": {
+    "page_count": 1008
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.51,
+     "scale_max": 5.0,
+     "votes": 166,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14658316-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "a-game-of-thrones-1996": {
+   "match": {
+    "key": "/works/OL257943W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL257943W",
+   "url": "https://openlibrary.org/works/OL257943W",
+   "facts": {
+    "page_count": 801
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.22,
+     "scale_max": 5.0,
+     "votes": 763,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9269962-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "guards-guards-1989": {
+   "match": {
+    "key": "/works/OL453735W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL453735W",
+   "url": "https://openlibrary.org/works/OL453735W",
+   "facts": {
+    "page_count": 378
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.34,
+     "scale_max": 5.0,
+     "votes": 121,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13095550-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "good-omens-1990": {
+   "match": {
+    "key": "/works/OL453936W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL453936W",
+   "url": "https://openlibrary.org/works/OL453936W",
+   "facts": {
+    "page_count": 400
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.42,
+     "scale_max": 5.0,
+     "votes": 90,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10482258-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "american-gods-2001": {
+   "match": {
+    "key": "/works/OL679360W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL679360W",
+   "url": "https://openlibrary.org/works/OL679360W",
+   "facts": {
+    "page_count": 576
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.23,
+     "scale_max": 5.0,
+     "votes": 62,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8494659-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-ocean-at-the-end-of-the-lane-2013": {
+   "match": {
+    "key": "/works/OL16804661W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL16804661W",
+   "url": "https://openlibrary.org/works/OL16804661W",
+   "facts": {
+    "page_count": 224
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.02,
+     "scale_max": 5.0,
+     "votes": 122,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7258156-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "circe-2018": {
+   "match": {
+    "key": "/works/OL18012166W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL18012166W",
+   "url": "https://openlibrary.org/works/OL18012166W",
+   "facts": {
+    "page_count": 404
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.16,
+     "scale_max": 5.0,
+     "votes": 109,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8739376-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-song-of-achilles-2011": {
+   "match": {
+    "key": "/works/OL16509148W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL16509148W",
+   "url": "https://openlibrary.org/works/OL16509148W",
+   "facts": {
+    "page_count": 386
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.29,
+     "scale_max": 5.0,
+     "votes": 139,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7098465-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-night-circus-2011": {
+   "match": {
+    "key": "/works/OL16086747W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL16086747W",
+   "url": "https://openlibrary.org/works/OL16086747W",
+   "facts": {
+    "page_count": 512
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.09,
+     "scale_max": 5.0,
+     "votes": 68,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8773134-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-secret-history-1992": {
+   "match": {
+    "key": "/works/OL4321141W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL4321141W",
+   "url": "https://openlibrary.org/works/OL4321141W",
+   "facts": {
+    "page_count": 608
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.04,
+     "scale_max": 5.0,
+     "votes": 90,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/744854-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "gone-girl-2012": {
+   "match": {
+    "key": "/works/OL16239762W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL16239762W",
+   "url": "https://openlibrary.org/works/OL16239762W",
+   "facts": {
+    "page_count": 475
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.78,
+     "scale_max": 5.0,
+     "votes": 76,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8368314-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "and-then-there-were-none-1939": {
+   "match": {
+    "key": "/works/OL471565W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL471565W",
+   "url": "https://openlibrary.org/works/OL471565W",
+   "facts": {
+    "page_count": 222
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.28,
+     "scale_max": 5.0,
+     "votes": 181,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11172296-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-murder-of-roger-ackroyd-1926": {
+   "match": {
+    "key": "/works/OL471932W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL471932W",
+   "url": "https://openlibrary.org/works/OL471932W",
+   "facts": {
+    "page_count": 256
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.23,
+     "scale_max": 5.0,
+     "votes": 83,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13151356-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-girl-with-the-dragon-tattoo-2005": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": [
+    {
+     "key": "/works/OL31964906W",
+     "title": "Man SOM Hatar Kvinnor [The Girl with the Dragon Tattoo] (Korean Edition)",
+     "authors": [
+      "Stieg Larsson"
+     ],
+     "year": 2011
+    }
+   ]
+  },
+  "the-silent-patient-2019": {
+   "match": {
+    "key": "/works/OL19096402W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL19096402W",
+   "url": "https://openlibrary.org/works/OL19096402W",
+   "facts": {
+    "page_count": 352
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.05,
+     "scale_max": 5.0,
+     "votes": 212,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9407338-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "rebecca-1938": {
+   "match": {
+    "key": "/works/OL36633W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL36633W",
+   "url": "https://openlibrary.org/works/OL36633W",
+   "facts": {
+    "page_count": 386
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.17,
+     "scale_max": 5.0,
+     "votes": 53,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8238729-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "it-1986": {
+   "match": {
+    "key": "/works/OL81613W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL81613W",
+   "url": "https://openlibrary.org/works/OL81613W",
+   "facts": {
+    "page_count": 1168
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.09,
+     "scale_max": 5.0,
+     "votes": 495,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8569284-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-shining-1977": {
+   "match": {
+    "key": "/works/OL81633W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL81633W",
+   "url": "https://openlibrary.org/works/OL81633W",
+   "facts": {
+    "page_count": 506
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.18,
+     "scale_max": 5.0,
+     "votes": 290,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12376585-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "normal-people-2018": {
+   "match": {
+    "key": "/works/OL20150260W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL20150260W",
+   "url": "https://openlibrary.org/works/OL20150260W",
+   "facts": {
+    "page_count": 304
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.02,
+     "scale_max": 5.0,
+     "votes": 84,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8794265-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "tomorrow-and-tomorrow-and-tomorrow-2022": {
+   "match": {
+    "key": "/works/OL26004554W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL26004554W",
+   "url": "https://openlibrary.org/works/OL26004554W",
+   "facts": {
+    "page_count": 460
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.23,
+     "scale_max": 5.0,
+     "votes": 26,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12859975-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "a-little-life-2015": {
+   "match": {
+    "key": "/works/OL17370186W",
+    "reason": "exact title and author; first published 2008 here, 2015 in the catalogue"
+   },
+   "key": "/works/OL17370186W",
+   "url": "https://openlibrary.org/works/OL17370186W",
+   "facts": {
+    "page_count": 800
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.96,
+     "scale_max": 5.0,
+     "votes": 128,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12065783-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-midnight-library-2020": {
+   "match": {
+    "key": "/works/OL20965973W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL20965973W",
+   "url": "https://openlibrary.org/works/OL20965973W",
+   "facts": {
+    "page_count": 304
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.01,
+     "scale_max": 5.0,
+     "votes": 87,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10313767-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "where-the-crawdads-sing-2018": {
+   "match": {
+    "key": "/works/OL18766691W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL18766691W",
+   "url": "https://openlibrary.org/works/OL18766691W",
+   "facts": {
+    "page_count": 416
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.31,
+     "scale_max": 5.0,
+     "votes": 102,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8362947-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "watchmen-1987": {
+   "match": {
+    "key": "/works/OL2897798W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL2897798W",
+   "url": "https://openlibrary.org/works/OL2897798W",
+   "facts": {
+    "page_count": 421
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.47,
+     "scale_max": 5.0,
+     "votes": 240,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7774899-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "maus-1986": {
+   "match": {
+    "key": "/works/OL36901652W",
+    "reason": "exact title and author; first published 1997 here, 1986 in the catalogue"
+   },
+   "key": "/works/OL36901652W",
+   "url": "https://openlibrary.org/works/OL36901652W",
+   "facts": {
+    "page_count": 295
+   },
+   "scores": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6280337-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "persepolis-2000": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": [
+    {
+     "key": "/works/OL5735175W",
+     "title": "Persepolis 1-4",
+     "authors": [
+      "Marjane Satrapi"
+     ],
+     "year": 2000
+    },
+    {
+     "key": "/works/OL20715162W",
+     "title": "Persepolis 1 & 2",
+     "authors": [
+      "Marjane Satrapi"
+     ],
+     "year": 2003
+    },
+    {
+     "key": "/works/OL5735174W",
+     "title": "Persepolis 1",
+     "authors": [
+      "Marjane Satrapi"
+     ],
+     "year": 2003
+    },
+    {
+     "key": "/works/OL27421760W",
+     "title": "Persepolis 3 & 4",
+     "authors": [
+      "Marjane Satrapi"
+     ],
+     "year": 2004
+    },
+    {
+     "key": "/works/OL5735178W",
+     "title": "Persepolis 2",
+     "authors": [
+      "Marjane Satrapi"
+     ],
+     "year": 2001
+    }
+   ]
+  },
+  "sapiens-2011": {
+   "match": {
+    "key": "/works/OL17075811W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL17075811W",
+   "url": "https://openlibrary.org/works/OL17075811W",
+   "facts": {
+    "page_count": 456
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.19,
+     "scale_max": 5.0,
+     "votes": 212,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8634250-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "a-brief-history-of-time-1988": {
+   "match": {
+    "key": "/works/OL1892617W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1892617W",
+   "url": "https://openlibrary.org/works/OL1892617W",
+   "facts": {
+    "page_count": 241
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.15,
+     "scale_max": 5.0,
+     "votes": 239,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10432365-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-diary-of-a-young-girl-1947": {
+   "match": {
+    "key": "/works/OL5259772W",
+    "reason": "exact title and author; first published 1956 here, 1947 in the catalogue"
+   },
+   "key": "/works/OL5259772W",
+   "url": "https://openlibrary.org/works/OL5259772W",
+   "facts": {
+    "page_count": 116
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.18,
+     "scale_max": 5.0,
+     "votes": 11,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/116790-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "educated-2018": {
+   "match": {
+    "key": "/works/OL18139176W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL18139176W",
+   "url": "https://openlibrary.org/works/OL18139176W",
+   "facts": {
+    "page_count": 384
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.45,
+     "scale_max": 5.0,
+     "votes": 22,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8314077-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "becoming-2018": {
+   "match": {
+    "key": "/works/OL17930367W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL17930367W",
+   "url": "https://openlibrary.org/works/OL17930367W",
+   "facts": {
+    "page_count": 464
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.38,
+     "scale_max": 5.0,
+     "votes": 13,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8824664-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "thinking-fast-and-slow-2011": {
+   "match": {
+    "key": "/works/OL15992072W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL15992072W",
+   "url": "https://openlibrary.org/works/OL15992072W",
+   "facts": {
+    "page_count": 548
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.09,
+     "scale_max": 5.0,
+     "votes": 241,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13290711-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "atomic-habits-2018": {
+   "match": {
+    "key": "/works/OL17930368W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL17930368W",
+   "url": "https://openlibrary.org/works/OL17930368W",
+   "facts": {
+    "page_count": 322
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.97,
+     "scale_max": 5.0,
+     "votes": 1463,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12539702-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "mans-search-for-meaning-1946": {
+   "match": null,
+   "reason": "no doc with matching title and author",
+   "candidates": [
+    {
+     "key": "/works/OL24557376W",
+     "title": "Man's Search for Meaning adapted for Young Adults [adaptation]",
+     "authors": [
+      "Viktor Emil Frankl"
+     ],
+     "year": 2017
+    },
+    {
+     "key": "/works/OL8257090W",
+     "title": "Man's Search for Ultimate Meaning",
+     "authors": [
+      "Viktor Emil Frankl"
+     ],
+     "year": 1997
+    },
+    {
+     "key": "/works/OL43270708W",
+     "title": "man's search for meaning an introduction to logotherapy",
+     "authors": [
+      "Viktor Emil Frankl"
+     ],
+     "year": 1967
+    },
+    {
+     "key": "/works/OL31263386W",
+     "title": "Man's Search for Meaning : An Introduction to Logotherapy",
+     "authors": [
+      "Viktor Emil Frankl"
+     ],
+     "year": 1968
+    }
+   ]
+  },
+  "the-immortal-life-of-henrietta-lacks-2010": {
+   "match": {
+    "key": "/works/OL13850788W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL13850788W",
+   "url": "https://openlibrary.org/works/OL13850788W",
+   "facts": {
+    "page_count": 381
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.22,
+     "scale_max": 5.0,
+     "votes": 46,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8364866-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "when-breath-becomes-air-2016": {
+   "match": {
+    "key": "/works/OL17356252W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL17356252W",
+   "url": "https://openlibrary.org/works/OL17356252W",
+   "facts": {
+    "page_count": 232
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.24,
+     "scale_max": 5.0,
+     "votes": 42,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11463139-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "wings-of-fire-1999": {
+   "match": {
+    "key": "/works/OL1037811W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1037811W",
+   "url": "https://openlibrary.org/works/OL1037811W",
+   "facts": {
+    "page_count": 180
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.28,
+     "scale_max": 5.0,
+     "votes": 111,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9153819-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-discovery-of-india-1946": {
+   "match": {
+    "key": "/works/OL296039W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL296039W",
+   "url": "https://openlibrary.org/works/OL296039W",
+   "facts": {
+    "page_count": 582
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 3.87,
+     "scale_max": 5.0,
+     "votes": 15,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/128122-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "silent-spring-1962": {
+   "match": {
+    "key": "/works/OL1884862W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1884862W",
+   "url": "https://openlibrary.org/works/OL1884862W",
+   "facts": {
+    "page_count": 336
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.0,
+     "scale_max": 5.0,
+     "votes": 19,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3825693-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-selfish-gene-1976": {
+   "match": {
+    "key": "/works/OL1966488W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1966488W",
+   "url": "https://openlibrary.org/works/OL1966488W",
+   "facts": {
+    "page_count": 352
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.35,
+     "scale_max": 5.0,
+     "votes": 75,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/133936-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "cosmos-1980": {
+   "match": {
+    "key": "/works/OL15829966W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL15829966W",
+   "url": "https://openlibrary.org/works/OL15829966W",
+   "facts": {
+    "page_count": 354
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.6,
+     "scale_max": 5.0,
+     "votes": 25,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8283901-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "in-cold-blood-1966": {
+   "match": {
+    "key": "/works/OL1992198W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL1992198W",
+   "url": "https://openlibrary.org/works/OL1992198W",
+   "facts": {
+    "page_count": 352
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.06,
+     "scale_max": 5.0,
+     "votes": 99,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/228066-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "the-body-keeps-the-score-2014": {
+   "match": {
+    "key": "/works/OL18147687W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL18147687W",
+   "url": "https://openlibrary.org/works/OL18147687W",
+   "facts": {
+    "page_count": 520
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.1,
+     "scale_max": 5.0,
+     "votes": 39,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8315367-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "born-a-crime-2016": {
+   "match": {
+    "key": "/works/OL17824318W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL17824318W",
+   "url": "https://openlibrary.org/works/OL17824318W",
+   "facts": {
+    "page_count": 304
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.55,
+     "scale_max": 5.0,
+     "votes": 65,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8294078-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  },
+  "i-know-why-the-caged-bird-sings-1969": {
+   "match": {
+    "key": "/works/OL80021W",
+    "reason": "exact title, author and year"
+   },
+   "key": "/works/OL80021W",
+   "url": "https://openlibrary.org/works/OL80021W",
+   "facts": {
+    "page_count": 281
+   },
+   "scores": [
+    {
+     "publisher": "Open Library readers",
+     "metric": "average rating",
+     "value": 4.12,
+     "scale_max": 5.0,
+     "votes": 50,
+     "as_of": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9367075-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ],
+   "conflicts": []
+  }
+ }
+}

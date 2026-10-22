@@ -73,8 +73,8 @@ def test_reference_similarity_ignores_genre_across_media_and_uses_relationships(
     r = rank(Intent("q", reference_slug="ref", reference_other_medium=True), [ref, book, adapted])
     assert set(slugs(r)) == {"book", "adapted"}
     by = {s.work.slug: s for s in r.results}
-    # (0.9 + 0.8) / 1.8: the game's 'rpg' genre is left out of the denominator for a book.
-    assert by["book"].breakdown["reference_similarity"] == 0.944
+    # (0.9 + 0.8 * 0.9) / (1 + 0.8 * 0.9), with mood weighted 0.9: the game's 'rpg' genre is left out for a book.
+    assert by["book"].breakdown["reference_similarity"] == 0.942
     assert by["adapted"].relation is not None
 
 

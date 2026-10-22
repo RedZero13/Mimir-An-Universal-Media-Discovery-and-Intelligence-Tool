@@ -77,9 +77,9 @@
       "id": "theme-any-medium",
       "category": "theme",
       "query": "stories about surveillance and complicity under authoritarian rule, any medium",
-      "good_results": "The Lives of Others, Papers, Please and Nineteen Eighty-Four, across three media.",
-      "relevant": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"],
-      "checks": {"top_k_includes_all": {"k": 3, "slugs": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"]}, "min_distinct_media_top3": 3}
+      "good_results": "The Lives of Others, Papers, Please and Nineteen Eighty-Four, across three media. In the beta catalogue Andor and The Handmaid's Tale belong in the same group, so the three must be in the top five.",
+      "relevant": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949", "andor-2022", "the-handmaids-tale-1985"],
+      "checks": {"top_k_includes_all": {"k": 5, "slugs": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"]}, "min_distinct_media_top3": 3}
     },
     {
       "id": "calm-focus-album",
@@ -140,8 +140,8 @@
     {
       "id": "out-of-catalogue",
       "category": "honesty",
-      "query": "a K-pop album about football",
-      "good_results": "Nothing; the catalogue has no such work. Returning unrelated albums would be a failure.",
+      "query": "a Finnish-language album about whaling",
+      "good_results": "Nothing; the catalogue has no such work. Returning unrelated albums would be a failure. (Was 'a K-pop album about football' until the beta catalogue added K-pop, which is now answered with K-pop albums and a 'not a match for: sports' caveat.)",
       "relevant": [],
       "checks": {"max_results": 0}
     },
@@ -149,9 +149,9 @@
       "id": "historical-exploration",
       "category": "educational",
       "query": "historical works about the cost of war",
-      "good_results": "Come and See first.",
-      "relevant": ["come-and-see-1985"],
-      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["come-and-see-1985"]}}
+      "good_results": "A work that faces war's human cost directly comes first (Come and See, Schindler's List, Band of Brothers, The Zone of Interest), with Come and See in the top six (it ties with Maus).",
+      "relevant": ["come-and-see-1985", "schindlers-list-1993", "band-of-brothers-2001", "the-zone-of-interest-2023"],
+      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["come-and-see-1985", "schindlers-list-1993", "band-of-brothers-2001", "the-zone-of-interest-2023"]}, "top_k_includes_all": {"k": 6, "slugs": ["come-and-see-1985"]}}
     },
     {
       "id": "unknown-advisory-honesty",
