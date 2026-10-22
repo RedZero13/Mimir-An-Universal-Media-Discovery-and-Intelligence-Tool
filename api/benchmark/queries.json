@@ -1,0 +1,165 @@
+{
+  "about": "Discovery benchmark v0.1. 'relevant' lists are editorial relevance judgements over the pilot catalogue, made before tuning. They are a starting point to be replaced by judgements from real users. Checks are hard requirements; precision@5 and hit@3 are tracked metrics.",
+  "queries": [
+    {
+      "id": "directive-example",
+      "category": "natural-language",
+      "query": "I want an intelligent science-fiction film with ambitious world-building, philosophical questions, a strong atmosphere, and very little graphic violence. Ideally under two hours, and not something obvious that everyone recommends.",
+      "good_results": "Cerebral, atmospheric SF films with little violence. Length is a preference, so a great longer film may appear but should rank lower and say so. Lesser-known titles should rise.",
+      "relevant": ["arrival-2016", "moon-2009", "primer-2004", "coherence-2013", "solaris-1972", "stalker-1979", "gattaca-1997"],
+      "checks": {"all_media": ["film"], "must_not_include": ["mad-max-fury-road-2015", "come-and-see-1985", "blade-runner-1982", "blade-runner-2049-2017", "annihilation-2018"], "top_k_includes_any": {"k": 3, "slugs": ["arrival-2016", "moon-2009", "primer-2004", "coherence-2013"]}, "length_soft": true}
+    },
+    {
+      "id": "comfort-after-hard-day",
+      "category": "mood",
+      "query": "something comforting after a difficult day, no violence",
+      "good_results": "Gentle, warm, low-stakes works in any medium, with no violence.",
+      "relevant": ["my-neighbor-totoro-1988", "paddington-2-2017", "stardew-valley-2016", "a-psalm-for-the-wild-built-2021", "paterson-2016", "music-for-airports-1978", "perfect-days-2023", "kind-of-blue-1959"],
+      "checks": {"must_not_include": ["come-and-see-1985", "parasite-2019", "soma-2015", "elden-ring-2022", "nineteen-eighty-four-1949"], "min_results": 3, "top_k_includes_any": {"k": 3, "slugs": ["my-neighbor-totoro-1988", "paddington-2-2017", "stardew-valley-2016", "a-psalm-for-the-wild-built-2021"]}}
+    },
+    {
+      "id": "cross-medium-outer-wilds-books",
+      "category": "cross-medium",
+      "query": "a book like Outer Wilds",
+      "good_results": "Books driven by curiosity, wonder and the gradual understanding of a strange place or of time.",
+      "relevant": ["piranesi-2020", "story-of-your-life-1998", "solaris-1961", "the-dispossessed-1974"],
+      "checks": {"all_media": ["book"], "must_not_include": ["outer-wilds-2019"], "top_k_includes_any": {"k": 2, "slugs": ["piranesi-2020", "story-of-your-life-1998"]}}
+    },
+    {
+      "id": "cross-medium-blade-runner",
+      "category": "cross-medium",
+      "query": "something like Blade Runner but in a different medium",
+      "good_results": "Non-film works on artificial minds, identity and melancholic, atmospheric futures; the source novel is an obvious, explainable first pick.",
+      "relevant": ["do-androids-dream-1968", "soma-2015", "the-talos-principle-2014", "never-let-me-go-2005", "disco-elysium-2019", "kentucky-route-zero-2020"],
+      "checks": {"must_not_media": ["film"], "top_k_includes_any": {"k": 1, "slugs": ["do-androids-dream-1968"]}, "first_has_relationship": true}
+    },
+    {
+      "id": "adaptation-source",
+      "category": "relationship",
+      "query": "books like Arrival",
+      "good_results": "The source novella first, then other language/time/first-contact fiction.",
+      "relevant": ["story-of-your-life-1998", "solaris-1961", "the-left-hand-of-darkness-1969", "roadside-picnic-1972"],
+      "checks": {"all_media": ["book"], "top_k_includes_any": {"k": 1, "slugs": ["story-of-your-life-1998"]}}
+    },
+    {
+      "id": "keyword-architecture",
+      "category": "keyword",
+      "query": "a film about architecture",
+      "good_results": "Columbus; nothing padded in.",
+      "relevant": ["columbus-2017"],
+      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["columbus-2017"]}, "max_results": 3}
+    },
+    {
+      "id": "hand-drawn-melancholy-games",
+      "category": "style",
+      "query": "melancholic games with hand-drawn art",
+      "good_results": "Hollow Knight first; other melancholic games may follow, flagged as not hand-drawn.",
+      "relevant": ["hollow-knight-2017", "kentucky-route-zero-2020"],
+      "checks": {"all_media": ["game"], "top_k_includes_any": {"k": 1, "slugs": ["hollow-knight-2017"]}}
+    },
+    {
+      "id": "language-and-decade",
+      "category": "structured",
+      "query": "Japanese films from the 80s",
+      "good_results": "Only 1980s Japanese-language films.",
+      "relevant": ["my-neighbor-totoro-1988"],
+      "checks": {"all_media": ["film"], "all_languages": ["ja"], "year_range": [1980, 1989], "min_results": 1}
+    },
+    {
+      "id": "short-wordless-game",
+      "category": "situational",
+      "query": "a game I can finish in one evening, wordless and beautiful",
+      "good_results": "Journey.",
+      "relevant": ["journey-2012"],
+      "checks": {"all_media": ["game"], "top_k_includes_any": {"k": 1, "slugs": ["journey-2012"]}, "must_not_include": ["elden-ring-2022", "disco-elysium-2019"]}
+    },
+    {
+      "id": "theme-any-medium",
+      "category": "theme",
+      "query": "stories about surveillance and complicity under authoritarian rule, any medium",
+      "good_results": "The Lives of Others, Papers, Please and Nineteen Eighty-Four, across three media.",
+      "relevant": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"],
+      "checks": {"top_k_includes_all": {"k": 3, "slugs": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"]}, "min_distinct_media_top3": 3}
+    },
+    {
+      "id": "calm-focus-album",
+      "category": "situational",
+      "query": "an album for focusing, calm and minimal",
+      "good_results": "Ambient / spare instrumental records.",
+      "relevant": ["music-for-airports-1978", "kind-of-blue-1959", "the-disintegration-loops-2002"],
+      "checks": {"all_media": ["album"], "top_k_includes_any": {"k": 1, "slugs": ["music-for-airports-1978"]}, "must_not_include": ["discovery-2001"]}
+    },
+    {
+      "id": "hard-runtime",
+      "category": "exclusion",
+      "query": "a thought-provoking film, strictly under 100 minutes",
+      "good_results": "Only films of 100 minutes or less.",
+      "relevant": ["moon-2009", "primer-2004", "coherence-2013", "my-neighbor-totoro-1988"],
+      "checks": {"all_media": ["film"], "max_minutes_hard": 100, "min_results": 2}
+    },
+    {
+      "id": "no-horror",
+      "category": "exclusion",
+      "query": "sci-fi games about consciousness without jump scares or body horror",
+      "good_results": "The Talos Principle and Outer Wilds; SOMA must be excluded.",
+      "relevant": ["the-talos-principle-2014", "outer-wilds-2019"],
+      "checks": {"all_media": ["game"], "must_not_include": ["soma-2015", "elden-ring-2022"], "top_k_includes_any": {"k": 1, "slugs": ["the-talos-principle-2014"]}}
+    },
+    {
+      "id": "obscure-preference",
+      "category": "novelty",
+      "query": "an underrated mind-bending puzzle-box film",
+      "good_results": "Primer and Coherence over better-known options.",
+      "relevant": ["primer-2004", "coherence-2013"],
+      "checks": {"top_k_includes_all": {"k": 2, "slugs": ["primer-2004", "coherence-2013"]}}
+    },
+    {
+      "id": "negation-scope",
+      "category": "parser-trap",
+      "query": "not too slow sci-fi with time loops",
+      "good_results": "Time-loop science fiction; science fiction must be treated as wanted, slowness as unwanted.",
+      "relevant": ["outer-wilds-2019", "primer-2004"],
+      "checks": {"top_k_includes_any": {"k": 2, "slugs": ["outer-wilds-2019"]}, "intent_prefers": ["genre:science-fiction", "narrative:time-loop"], "intent_avoids": ["pacing:slow-burn"]}
+    },
+    {
+      "id": "like-is-a-verb",
+      "category": "parser-trap",
+      "query": "I'd like a romantic film full of conversation",
+      "good_results": "Before Sunrise. 'like' here is a verb, not a reference.",
+      "relevant": ["before-sunrise-1995"],
+      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["before-sunrise-1995"]}, "no_reference": true}
+    },
+    {
+      "id": "word-title-collision",
+      "category": "parser-trap",
+      "query": "an uplifting journey of self-discovery",
+      "good_results": "Uplifting works about identity. Must not treat 'journey' or 'discovery' as references to the game or album.",
+      "relevant": ["journey-2012", "spirited-away-2001", "gattaca-1997", "paddington-2-2017", "discovery-2001"],
+      "checks": {"no_reference": true, "min_results": 1}
+    },
+    {
+      "id": "out-of-catalogue",
+      "category": "honesty",
+      "query": "a K-pop album about football",
+      "good_results": "Nothing; the catalogue has no such work. Returning unrelated albums would be a failure.",
+      "relevant": [],
+      "checks": {"max_results": 0}
+    },
+    {
+      "id": "historical-exploration",
+      "category": "educational",
+      "query": "historical works about the cost of war",
+      "good_results": "Come and See first.",
+      "relevant": ["come-and-see-1985"],
+      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["come-and-see-1985"]}}
+    },
+    {
+      "id": "unknown-advisory-honesty",
+      "category": "honesty",
+      "query": "melancholic music with no violence",
+      "good_results": "Melancholic albums; since album advisories aren't assessed, each must carry a caveat rather than a claim of 'no violence'.",
+      "relevant": ["the-disintegration-loops-2002", "in-the-aeroplane-over-the-sea-1998", "lift-your-skinny-fists-2000", "ok-computer-1997"],
+      "checks": {"all_media": ["album"], "all_have_caveat_containing": "haven't been assessed", "min_results": 2}
+    }
+  ]
+}
