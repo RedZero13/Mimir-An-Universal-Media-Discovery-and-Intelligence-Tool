@@ -76,6 +76,9 @@ BROWSE_CASES = [
     {"q": "  the  "},
     {"q": "zzz-nothing"},
     {"media": ["album"], "tags": ["mood:melancholic"], "sort": "shortest"},
+    {"exclude": ["genre:science-fiction", "mood:bleak"], "sort": "title"},
+    {"media": ["film"], "year_min": 1980, "year_max": 1999, "sort": "oldest"},
+    {"year_min": 2015, "exclude": ["theme:grief-loss"]},
 ]
 
 

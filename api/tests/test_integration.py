@@ -105,6 +105,9 @@ def test_api_catalogue_views_match_the_in_memory_catalogue(client):
     assert r.status_code == 200
     assert r.json() == json.loads(json.dumps(mem.browse(BrowseFilters(media=["film"], avoid=["advisory:graphic-violence"],
                                                                          sort="newest"))))
+    r = client.get("/api/works", params={"exclude": "genre:science-fiction", "year_min": 1980, "year_max": 2010})
+    assert r.json() == json.loads(json.dumps(mem.browse(BrowseFilters(exclude=["genre:science-fiction"], year_min=1980,
+                                                                         year_max=2010))))
     page = client.get("/api/works/annihilation-2018").json()
     expected = json.loads(json.dumps(mem.work("annihilation-2018")))
     assert {k: page[k] for k in expected} == expected

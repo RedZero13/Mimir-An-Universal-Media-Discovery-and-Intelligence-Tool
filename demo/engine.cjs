@@ -852,6 +852,9 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       if (f.media.length && !f.media.includes(w.medium)) return false;
       if (f.tags.some((t) => strengthOf(w, t) < TAG_THRESHOLD)) return false;
       if (f.decade !== null && (w.year === null || decadeOf(w.year) !== f.decade)) return false;
+      if (f.exclude.some((t) => strengthOf(w, t) >= TAG_THRESHOLD)) return false;
+      if (f.year_min !== null && (w.year === null || w.year < f.year_min)) return false;
+      if (f.year_max !== null && (w.year === null || w.year > f.year_max)) return false;
       if (f.language && w.language !== f.language) return false;
       if (f.country && !w.countries.includes(f.country)) return false;
       const len = lengthMinutesOf(w);
@@ -888,7 +891,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
 
     function browse(works, filters) {
       const f = { media: [], tags: [], decade: null, language: null, country: null, max_minutes: null, avoid: [], q: "",
-        sort: "popular", ...filters };
+        exclude: [], year_min: null, year_max: null, sort: "popular", ...filters };
       const hits = works.filter((w) => matches(w, f)).sort((a, b) => cmp(sortKey(a, f), sortKey(b, f)));
       const media = new Map(), decades = new Map(), languages = new Map();
       const byDim = { genre: new Map(), theme: new Map(), mood: new Map() };

@@ -33,6 +33,9 @@ class BrowseFilters:
     country: str | None = None
     max_minutes: int | None = None                       # works of unknown length are excluded
     avoid: list[str] = field(default_factory=list)       # advisory keys; unassessed works are excluded
+    exclude: list[str] = field(default_factory=list)     # taxonomy keys that must not apply
+    year_min: int | None = None
+    year_max: int | None = None
     q: str = ""                                          # title, original title or credited name
     sort: str = "popular"
 
@@ -86,6 +89,12 @@ def _matches(w: WorkProfile, f: BrowseFilters) -> bool:
     if any(w.strength(t) < TAG_THRESHOLD for t in f.tags):
         return False
     if f.decade is not None and (w.year is None or w.year // 10 * 10 != f.decade):
+        return False
+    if any(w.strength(t) >= TAG_THRESHOLD for t in f.exclude):
+        return False
+    if f.year_min is not None and (w.year is None or w.year < f.year_min):
+        return False
+    if f.year_max is not None and (w.year is None or w.year > f.year_max):
         return False
     if f.language and w.language != f.language:
         return False

@@ -20,10 +20,24 @@ const safe = (s) => s.replace(/<\/(script)/gi, "<\\/$1");
 const json = (p) => safe(JSON.stringify(JSON.parse(fs.readFileSync(p, "utf8"))));
 const dataUri = (p, type) => `data:${type};base64,${fs.readFileSync(p).toString("base64")}`;
 
+// Open-data enrichment written by `python -m mde ingest` (one file per source); empty until fetched.
+function enrichment() {
+  const dir = path.join(api, "data", "enrichment");
+  const out = {};
+  if (fs.existsSync(dir)) {
+    for (const f of fs.readdirSync(dir).filter((n) => n.endsWith(".json")).sort()) {
+      out[f.slice(0, -5)] = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
+    }
+  }
+  return out;
+}
+
 function page() {
   return fs.readFileSync(path.join(here, "page.html"), "utf8")
     .replace("/*__TAXONOMY__*/", () => json(path.join(api, "taxonomy", "taxonomy.json")))
     .replace("/*__CATALOGUE__*/", () => json(path.join(api, "seed", "catalogue.json")))
+    .replace("/*__SHELVES__*/", () => json(path.join(api, "catalogue", "shelves.json")))
+    .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
     .replace("/*__ENGINE__*/", () => safe(fs.readFileSync(path.join(here, "engine.cjs"), "utf8")))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }

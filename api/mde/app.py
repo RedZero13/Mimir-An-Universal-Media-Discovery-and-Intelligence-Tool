@@ -56,15 +56,19 @@ def browse_endpoint(
     country: str | None = Query(default=None, max_length=8),
     max_minutes: int | None = Query(default=None, ge=1),
     avoid: list[str] = Query(default=[], description="advisory keys; keeps works assessed as none or mild"),
+    exclude: list[str] = Query(default=[], description="taxonomy keys that must not apply"),
+    year_min: int | None = Query(default=None, ge=1000, le=2100),
+    year_max: int | None = Query(default=None, ge=1000, le=2100),
     q: str = Query(default="", max_length=200),
     sort: Literal["popular", "title", "newest", "oldest", "shortest"] = "popular",
 ) -> dict:
     tax = taxonomy_mod.load()
-    unknown = [k for k in [*tag, *avoid] if k not in tax.terms]
+    unknown = [k for k in [*tag, *avoid, *exclude] if k not in tax.terms]
     if unknown or any(not k.startswith("advisory:") for k in avoid):
         raise HTTPException(422, f"unknown or invalid taxonomy keys: {unknown or avoid}")
     filters = browse.BrowseFilters(media=medium, tags=tag, decade=decade, language=language, country=country,
-                                   max_minutes=max_minutes, avoid=avoid, q=q, sort=sort)
+                                   max_minutes=max_minutes, avoid=avoid, exclude=exclude, year_min=year_min,
+                                   year_max=year_max, q=q, sort=sort)
     with db.connect() as conn:
         return browse.browse(repository.load_profiles(conn), tax, filters)
 
