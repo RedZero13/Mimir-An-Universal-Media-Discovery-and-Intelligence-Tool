@@ -18,6 +18,7 @@ parents'-guide category; open tag pages and people pages; and read full work pag
 connected works and a parents' guide that tells "none" apart from "not assessed".
 
 - **Beta testers start here:** [`docs/BETA.md`](docs/BETA.md)
+- **Where Mimir stands against MAL, MangaUpdates, IMDb, Letterboxd, Goodreads and Spotify:** [`docs/COMPETITIVE.md`](docs/COMPETITIVE.md) · **What comes next:** [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - **Brand guide (name, mark, colour, type, voice):** [`docs/BRAND.md`](docs/BRAND.md)
 - **Putting it on terratalesmedia.world:** [`docs/DEPLOY.md`](docs/DEPLOY.md)
 - **Project assessment, architecture, data model, roadmap:** [`docs/ASSESSMENT.md`](docs/ASSESSMENT.md)

@@ -248,23 +248,23 @@ details > summary:hover { color: var(--bone); }
 .mine-link { font: 500 .88rem var(--f-body); color: var(--ink); text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
 .mine-link:hover { color: var(--gold-bright); }
 .mine-n { font: 500 .72rem var(--f-mono); min-width: 22px; text-align: center; padding: 2px 6px; border-radius: 99px; background: var(--gold-deep); color: var(--bone); }
-.menubar { position: sticky; top: 0; z-index: 20; display: flex; align-items: stretch; gap: 12px; flex-wrap: wrap;
-  background: linear-gradient(180deg, #2A2418, #1E1B14); border-top: 1px solid var(--gold-deep); border-bottom: 1px solid var(--gold-deep);
-  margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+.menubar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 8px 12px; flex-wrap: wrap;
+  background: linear-gradient(180deg, #2A2418, #1E1B14); border: 1px solid var(--gold-deep); border-radius: 6px;
+  padding: 6px 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, .35); }
 .menu-toggle { display: none; }
-.menus { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+.menus { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; }
 .menu { position: relative; }
-.menu-btn { all: unset; cursor: pointer; display: block; padding: 13px 16px; font: 600 .78rem/1 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--cream); }
+.menu-btn { all: unset; cursor: pointer; display: block; padding: 12px 16px; border-radius: 4px; font: 600 .78rem/1 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--cream); }
 .menu-btn:hover, .menu.open .menu-btn { background: var(--black); color: var(--gold-bright); }
-.menu-btn.here { color: var(--gold-bright); box-shadow: inset 0 -2px 0 var(--gold); }
+.menu-btn.here { color: var(--gold-bright); box-shadow: inset 0 -2px 0 var(--gold); border-radius: 4px 4px 0 0; }
 .menu-btn:focus-visible { outline: 1.5px solid var(--gold-bright); outline-offset: -3px; }
-.drop { display: none; position: absolute; left: 0; top: 100%; min-width: 230px; list-style: none; margin: 0; padding: 6px 0; background: var(--black);
+.drop { display: none; position: absolute; left: 0; top: calc(100% + 6px); min-width: 230px; list-style: none; margin: 0; padding: 6px 0; background: var(--black);
   border: 1px solid var(--line-strong); border-top: 2px solid var(--gold); box-shadow: 0 18px 40px rgba(0, 0, 0, .55); z-index: 30; }
 .drop a { display: block; padding: 10px 18px; color: var(--ink); text-decoration: none; font: 400 .92rem var(--f-body); }
 .drop a:hover, .drop a:focus-visible { background: var(--surface-2); color: var(--gold-bright); outline: none; }
 @media (hover: hover) and (min-width: 761px) { .menubar:not(.settle) .menu:hover .drop { display: block; } }
 .menu.open .drop { display: block; }
-.scope-search { margin-left: auto; display: flex; align-items: center; gap: 0; padding-block: 7px; min-width: 0; flex: 0 1 460px; }
+.scope-search { margin: 0 0 0 auto; display: flex; align-items: center; gap: 0; min-width: 0; flex: 1 1 260px; max-width: 460px; }
 .scope-search select, .scope-search input, .scope-search button { font: 400 .88rem var(--f-body); color: var(--bone); background: var(--black); border: 1px solid var(--line-strong); height: 36px; }
 .scope-search select { border-radius: 4px 0 0 4px; padding: 0 8px; border-color: var(--gold); flex: none; }
 .scope-search input { flex: 1; min-width: 0; padding: 0 12px; border-left: 0; }
@@ -394,6 +394,12 @@ a.letter { color: var(--muted); text-decoration: none; }
 .badge.rate { right: 6px; top: 6px; }
 .badge.score { right: 6px; top: 30px; color: var(--gold-bright); }
 .badge.ord { right: 6px; bottom: 6px; color: var(--gold-bright); }
+.badge.prog { left: 6px; top: 6px; z-index: 2; background: var(--black); box-shadow: 0 2px 8px rgba(0, 0, 0, .6); border-color: var(--gold); color: var(--gold-bright); }
+.badge.prog.done { background: var(--gold-bright); color: var(--black); }
+.work-art-frame, .lib-art, .rank-art, .dt-art { position: relative; display: block; }
+.rank-art .badge.prog { font-size: .56rem; padding: 2px 3px; left: 2px; top: 2px; }
+.work-art-frame .badge.prog { left: 10px; top: 10px; font-size: .78rem; padding: 6px 8px; }
+.lib-art .badge.prog { font-size: .56rem; padding: 2px 3px; left: 2px; top: 2px; }
 .pcap h3 { font: 600 1.06rem/1.2 var(--f-head); }
 .pcap h3 a { color: var(--bone); text-decoration: none; }
 .pcap h3 a:hover { color: var(--gold-bright); }
@@ -446,10 +452,81 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .tile-range { font-size: .8rem; color: var(--muted); }
 .families { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
 .rings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
-.ring-chip { display: grid; gap: 4px; padding: 18px 16px; min-height: 120px; align-content: end; border-radius: 8px; text-decoration: none;
+.rings > li { display: flex; }
+.ring-chip { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; min-height: 132px; border-radius: 8px; text-decoration: none;
   background: radial-gradient(140% 120% at 100% 0%, var(--r1), var(--r0) 70%); border: 1px solid rgba(255, 255, 255, .08); position: relative; overflow: hidden; }
-.ring-chip::before { content: ""; position: absolute; right: -30px; top: -30px; width: 120px; height: 120px; border-radius: 50%; border: 1px solid var(--ra); opacity: .45; box-shadow: 0 0 0 12px rgba(0,0,0,0), 0 0 0 13px var(--ra); }
+.ring-chip > * { position: relative; z-index: 1; max-width: calc(100% - 44px); }
+.ring-chip .ring-n { margin-top: auto; padding-top: 6px; }
+.ring-chip::before { content: ""; position: absolute; right: -52px; top: -52px; width: 104px; height: 104px; border-radius: 50%; border: 1px solid var(--ra); opacity: .45; box-shadow: 0 0 0 12px rgba(0,0,0,0), 0 0 0 13px var(--ra); }
 .ring-chip:hover { border-color: var(--ra); }
+/* ---------------------------------------------------------------- library, tracker, diary, lists, stats, import */
+.tracker { margin-top: 18px; padding: 16px 18px; border: 1px solid var(--line-strong); border-radius: 8px; background: rgba(19, 19, 21, .55); display: grid; gap: 12px; max-width: 640px; }
+.tracker h2 { margin: 0; }
+.tr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 12px 14px; align-items: end; }
+.tracker label, .tr-lists { display: grid; gap: 5px; font-size: .78rem; color: var(--muted); }
+.tracker label > span:first-child, .tr-lists > span:first-child { font: 600 .66rem var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.tracker select, .tracker input, .tracker textarea, .lib-ctl select, .lib-ctl input, .lib-filters select, .lib-form input, .transfer textarea {
+  font: 400 .88rem var(--f-body); color: var(--bone); background: var(--black); border: 1px solid var(--line-strong); border-radius: 4px; padding: 0 9px; min-width: 0; height: 36px; box-sizing: border-box; }
+.tracker textarea, .transfer textarea { height: auto; padding: 8px 9px; }
+.tracker textarea, .transfer textarea { width: 100%; resize: vertical; box-sizing: border-box; }
+.tracker :is(select, input, textarea):focus, .lib-ctl :is(select, input):focus, .lib-form input:focus { outline: none; border-color: var(--gold-bright); }
+.tr-prog { display: inline-flex; align-items: center; gap: 6px; flex-wrap: nowrap; white-space: nowrap; }
+.tr-prog input { width: 64px; }
+.tr-plus { cursor: pointer; font: 500 .74rem var(--f-mono); color: var(--gold-bright); background: transparent; border: 1px solid var(--gold); border-radius: 4px; padding: 5px 8px; }
+.tr-plus:hover { background: var(--gold-bright); color: var(--black); }
+.tr-lists { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.tr-lists > span:first-child { margin-right: 4px; }
+.tr-newlist { display: inline-flex; gap: 6px; align-items: center; margin: 0; }
+.tracker .tr-newlist input { width: 130px; height: 28px; font-size: .78rem; }
+.lib-filters { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 16px 0; font-size: .86rem; color: var(--muted); }
+.lib-filters label { display: inline-flex; align-items: center; gap: 8px; }
+.lib-list { list-style: none; margin: 8px 0 0; padding: 0; }
+.lib-row { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 6px 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.lib-art { grid-row: span 2; } .lib-art .poster { width: 52px; }
+.lib-main h3 { font-size: 1.1rem; margin: 0; } .lib-main h3 a { color: var(--bone); text-decoration: none; } .lib-main h3 a:hover { color: var(--gold-bright); }
+.lib-ctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-end; }
+.lib-dates { grid-column: 3; text-align: right; margin: 0; }
+.lib-note { margin: 4px 0 0; font-size: .84rem; color: var(--ink); font-style: italic; }
+.lib-form { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; max-width: 760px; }
+.lib-form input { flex: 0 1 260px; } .lib-form input.grow { flex: 1 1 300px; }
+.lib-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 12px 0; }
+.lib-row-actions { display: flex; gap: 12px; margin-top: 4px; }
+.list-cards { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.list-cards a { display: grid; gap: 6px; padding: 16px; border: 1px solid var(--line-strong); border-radius: 8px; text-decoration: none; background: var(--surface); height: 100%; box-sizing: border-box; }
+.list-cards a:hover { border-color: var(--gold); }
+.lc-name { font: 600 1.3rem var(--f-head); color: var(--bone); }
+.lc-fan { display: flex; gap: 6px; margin-top: 6px; } .lc-fan .poster { width: 48px; }
+.diary-month h2 { font-size: 1.3rem; margin: 28px 0 8px; border-bottom: 1px solid var(--line-strong); padding-bottom: 6px; }
+.diary { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.diary li { display: grid; grid-template-columns: 34px 40px minmax(0, 1fr); gap: 12px; align-items: start; }
+.d-day { font: 500 1.1rem var(--f-mono); color: var(--gold-bright); text-align: right; padding-top: 4px; }
+.d-art .poster { width: 40px; }
+.diary a { color: var(--bone); }
+.d-score { margin-left: 8px; font: 500 .74rem var(--f-mono); color: var(--black); background: var(--gold-bright); border-radius: 3px; padding: 1px 6px; }
+.stat-heads { list-style: none; margin: 18px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+.stat-heads li { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font-size: .8rem; color: var(--muted); }
+.sh-n { font: 600 1.8rem var(--f-head); color: var(--gold-bright); }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.stat-box { padding: 16px 18px; border: 1px solid var(--line-strong); border-radius: 8px; display: grid; gap: 10px; align-content: start; }
+.stat-box h2 { font-size: 1.25rem; margin: 0; } .stat-box h3 { font-size: 1rem; margin: 6px 0 0; color: var(--cream); }
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.bars li { display: grid; grid-template-columns: minmax(70px, 34%) 1fr auto; gap: 10px; align-items: center; font-size: .8rem; }
+.b-l { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b-track { height: 10px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.b-fill { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); }
+.b-n { font: 500 .74rem var(--f-mono); color: var(--cream); min-width: 2ch; text-align: right; }
+.stat-table { border-collapse: collapse; font-size: .78rem; width: 100%; }
+.stat-table th, .stat-table td { padding: 5px 6px; border-bottom: 1px solid var(--line); text-align: center; }
+.stat-table th:first-child { text-align: left; } .stat-table thead th { color: var(--muted); font-weight: 500; }
+.stat-table a { color: var(--bone); text-decoration: none; } .stat-table a:hover { color: var(--gold-bright); }
+.transfer { display: grid; gap: 10px; max-width: 760px; }
+.file-btn { justify-self: start; cursor: pointer; }
+.imp-list { max-height: 260px; overflow: auto; font-size: .84rem; padding-left: 18px; }
+#imp-out details { margin-top: 8px; } #imp-out summary { cursor: pointer; color: var(--gold-bright); }
+@media (max-width: 760px) {
+  .lib-row { grid-template-columns: 44px minmax(0, 1fr); } .lib-art .poster { width: 44px; }
+  .lib-ctl { grid-column: 1 / -1; justify-content: flex-start; } .lib-dates { grid-column: 1 / -1; text-align: left; }
+}
 .ring-name { font: 600 1.3rem var(--f-head); color: #F6EEDC; }
 .ring-tag { font-size: .82rem; color: var(--ra); }
 .ring-n { font: 400 .72rem var(--f-mono); color: rgba(246, 238, 220, .7); }
@@ -562,7 +639,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#D8B24A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="29.2"/><path d="M11 22 H53 M11 20.4 V23.6 M53 20.4 V23.6"/><path d="M32 22 V15"/><path d="M32 15 C29.4 14.1 28 11.8 28.2 9 C30.8 9.7 32.2 12.1 32 15 Z"/><path d="M32 22 V43"/><path d="M32 22 C31.2 28.6 27.6 32.4 26.4 37 C25.8 39.6 27.4 41.4 29.2 40.6"/><path d="M32 22 C32.8 28.6 36.4 32.4 37.6 37 C38.2 39.6 36.6 41.4 34.8 40.6"/><path d="M32 22 C28.6 25.6 21.6 27.4 19.6 33 C18.6 35.9 20.2 38.2 22.4 37.4"/><path d="M32 22 C35.4 25.6 42.4 27.4 44.4 33 C45.4 35.9 43.8 38.2 41.6 37.4"/><ellipse cx="32" cy="47.2" rx="16.5" ry="4.3"/><ellipse cx="32" cy="47.2" rx="8.5" ry="2.1"/></g></svg>
       <span><span class="brand-word">MIMIR</span><span class="brand-sub">A TERRATALES VENTURE</span></span>
     </a>
-    <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#mine">My shelf <span id="mine-n" class="mine-n">0</span></a><span class="pilot" id="beta-pill">Beta</span></span>
+    <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#library">Library <span id="mine-n" class="mine-n">0</span></a><span class="pilot" id="beta-pill">Beta</span></span>
   </header>
   <nav class="menubar" id="menubar" aria-label="Main"></nav>
   <main id="app"></main>
@@ -573,7 +650,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       </a>
       <span class="legal">© 2026 Terratales Media Entertainment · All realms reserved</span>
     </div>
-    <p>Mimir is in beta. Its catalogue holds <span id="cat-count">hundreds of</span> works. Facts and credits come from open data where a source matches (and say so); otherwise they are unverified, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Each is labelled where it appears. Your ratings, shelf and feedback stay in your browser unless you email them to us. <a id="foot-feedback" href="mailto:hello@terratalesmedia.world">Send beta feedback</a>.</p>
+    <p>Mimir is in beta. Its catalogue holds <span id="cat-count">hundreds of</span> works. Facts and credits come from open data where a source matches (and say so); otherwise they are unverified, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Each is labelled where it appears. Your library, lists, ratings and feedback stay in your browser unless you email them to us. <a id="foot-feedback" href="mailto:hello@terratalesmedia.world">Send beta feedback</a>.</p>
   </footer>
 </div>
 
@@ -836,7 +913,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const ord = w.continuity && w.continuity.kind === "series" && w.continuity.position ? `<span class="badge ord">#${esc(w.continuity.position)}</span>` : "";
     return `
       <li class="pcard">
-        <a class="pcard-art" href="#work-${esc(w.slug)}" aria-label="${esc(w.title)}">${poster(cardCover(w))}${flag}${score}${ord}</a>
+        <a class="pcard-art" href="#work-${esc(w.slug)}" aria-label="${esc(w.title)}">${poster(cardCover(w))}${flag}${score}${ord}${progressBadge(w.slug)}</a>
         <div class="pcap">
           <h3><a href="#work-${esc(w.slug)}">${esc(w.title)}</a></h3>
           <p class="pmeta">${esc([mediumLabel(w.medium), w.year, (w.creators || [])[0]].filter(Boolean).join(" · "))}</p>
@@ -1071,23 +1148,6 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       </section>`;
   }
 
-  // ------------------------------------------------------------------ my shelf (kept in this browser only)
-  function loadMine() { try { return JSON.parse(localStorage.getItem("mimir-shelf") || "[]"); } catch { return []; } }
-  let mine = loadMine();
-  function toggleMine(slug) {
-    mine = mine.includes(slug) ? mine.filter((s) => s !== slug) : [...mine, slug];
-    try { localStorage.setItem("mimir-shelf", JSON.stringify(mine)); } catch { /* storage unavailable: keep for this visit */ }
-    document.querySelectorAll(`[data-mine="${CSS.escape(slug)}"]`).forEach((b) => mineButton(b, slug));
-    const n = document.getElementById("mine-n");
-    if (n) n.textContent = mine.length;
-  }
-  function mineButton(b, slug) {
-    const on = mine.includes(slug);
-    b.classList.toggle("on", on);
-    b.setAttribute("aria-pressed", String(on));
-    b.textContent = on ? "On my shelf ✓" : "Add to my shelf";
-  }
-  const mineBtn = (slug, small = false) => `<button type="button" class="mine-btn${small ? " small" : ""}${mine.includes(slug) ? " on" : ""}" data-mine="${esc(slug)}" aria-pressed="${mine.includes(slug)}">${mine.includes(slug) ? "On my shelf ✓" : "Add to my shelf"}</button>`;
 
   // ------------------------------------------------------------------ search pages (one per medium) and rankings
   const MEDIA = ["film", "series", "book", "game", "album"];
@@ -1208,7 +1268,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <p class="dt-meta">${meta.map((m) => `<span>${esc(m)}</span>`).join("")}</p>
         <p class="dt-genres">${w.genres.map((g) => `<a href="${hrefSearch(w.medium, { tags: [g.key] })}">${esc(g.label)}</a>`).join("")}</p>
         <div class="dt-body">
-          <a class="dt-art" href="#work-${esc(w.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(w))}</a>
+          <a class="dt-art" href="#work-${esc(w.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(w))}${progressBadge(w.slug)}</a>
           <div class="dt-text">
             <p class="dt-syn">${esc(w.summary || "No synopsis yet.")}</p>${w.summary && w.summary.length > 220 ? `<button type="button" class="syn-more" data-syn aria-expanded="false">More ▾</button>` : ""}
             <dl class="dt-facts">
@@ -1279,11 +1339,11 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const s0 = w.scores && w.scores[0];
     return `<li class="rank-row${compact ? " compact" : ""}">
       <span class="rank-n">${i + 1}</span>
-      <a class="rank-art" href="#work-${esc(w.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(w))}</a>
+      <a class="rank-art" href="#work-${esc(w.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(w))}${progressBadge(w.slug)}</a>
       <div class="rank-body"><a class="rank-t" href="#work-${esc(w.slug)}">${esc(w.title)}</a>
         <span class="rank-m">${esc([mediumLabel(w.medium), w.year, w.time ? hm(w.time.minutes) : null].filter(Boolean).join(", "))}</span>
         <span class="rank-m">${s0 ? `scored ${esc(scoreText(s0))} · ${esc(s0.publisher)}` : esc(w.creators.slice(0, 2).join(", "))}</span></div>
-      ${compact ? `<button type="button" class="add-mini${mine.includes(w.slug) ? " on" : ""}" data-mine="${esc(w.slug)}" aria-pressed="${mine.includes(w.slug)}" aria-label="Add ${esc(w.title)} to my shelf">${mine.includes(w.slug) ? "✓" : "add"}</button>` : mineBtn(w.slug, true)}
+      ${compact ? `<button type="button" class="add-mini${library[w.slug] ? " on" : ""}" data-mine="${esc(w.slug)}" aria-pressed="${!!library[w.slug]}" aria-label="Add ${esc(w.title)} to my library">${library[w.slug] ? "✓" : "add"}</button>` : mineBtn(w.slug, true)}
     </li>`;
   }
 
@@ -1303,14 +1363,6 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     return `<aside class="rail" aria-label="Rankings">${box("Top films", "film")}${box("Top books", "book")}${box("Top games", "game")}${box("Top albums", "album")}</aside>`;
   }
 
-  function renderMine() {
-    const works = allWorks().filter((w) => mine.includes(w.slug));
-    app.innerHTML = `
-      <header class="page-band"><h1>My shelf</h1></header>
-      <p class="muted" style="margin:14px 0">Works you've set aside. Your shelf is kept in this browser only; nothing is sent anywhere.</p>
-      ${works.length ? `<ol class="dtiles">${works.map(detailTile).join("")}</ol>` : `<p class="empty">Your shelf is empty. Use "Add to my shelf" on any work to keep it here.</p>`}`;
-  }
-
   function renderShelves() {
     app.innerHTML = `<header class="page-band"><h1>All shelves</h1></header>${timeTiles()}${allShelves().map(shelfRow).join("")}`;
   }
@@ -1326,7 +1378,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     ["Games", [["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
     ["Music", [["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
-    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["My shelf", "#mine"], ["About Mimir", "#about"], ["Send beta feedback", feedbackHref()]]],
+    ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
+      ["Lists", "#lists"], ["Stats", "#stats"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
+    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Send beta feedback", feedbackHref()]]],
   ];
   const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
   function renderMenubar() {
@@ -1447,7 +1501,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     app.innerHTML = `
       <article>
         <header class="work-hero" style="--s0:${bg0};--s1:${bg1};--sa:${ac}">
-          <div class="work-art">${poster(coverOf(w, mood), "big")}
+          <div class="work-art"><div class="work-art-frame">${poster(coverOf(w, mood), "big")}<span id="work-prog">${progressBadge(w.slug)}</span></div>
             <p class="art-credit">${img ? `${esc(img.kind[0].toUpperCase() + img.kind.slice(1))}: ${esc(img.licence)}${img.attribution ? ` · ${esc(img.attribution)}` : ""} · via ${esc(img.source)}` : "Generated cover. No licensed artwork on file yet."}</p></div>
           <div class="work-id">
             <p class="crumbs"><a href="#search-${esc(w.medium)}">${esc(PLURAL[w.medium] || mediumLabel(w.medium))}</a>${c.group ? ` / <a href="#group-${esc(c.group.slug)}">${esc(c.group.name)}</a>` : ""}</p>
@@ -1465,6 +1519,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
               ${mineBtn(w.slug)}
             </div>
             <p class="rate-row"><span class="eyebrow">Your rating</span>${rateButtons(w.slug)}<span class="muted small">Ratings tune your <a href="#for-you">picks for you</a>.</span></p>
+            ${trackerPanel(w)}
             <p class="hero-tags">${w.tags.flatMap((dd) => dd.terms).filter((t) => !t.key.startsWith("genre:")).sort((a, b) => b.strength - a.strength).slice(0, 6).map((t) => tagChip(t)).join("")}</p>
             <p class="hero-links"><span class="eyebrow">Reactions</span>${reactions.map((l) => ext(l.url, l.label)).join("")}</p>
           </div>
@@ -1664,11 +1719,487 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       b.classList.toggle("on", on);
       b.setAttribute("aria-pressed", String(on));
     });
-    const n = document.getElementById("fy-n");
-    if (n) n.textContent = Object.keys(ratings).length;
+    refreshCounts();
   }
   const rateButtons = (slug, compact = false) => `<span class="rate${compact ? " compact" : ""}" role="group" aria-label="Your rating">${RATINGS.map(([v, l]) =>
     `<button type="button" class="rate-btn${ratings[slug] === v ? " on" : ""} r-${v}" data-rate="${v}" data-rate-slug="${esc(slug)}" aria-pressed="${ratings[slug] === v}"${compact ? ` title="${esc(l.slice(2))}" aria-label="${esc(l.slice(2))}"` : ""}>${compact ? l.slice(0, 1) : l}</button>`).join("")}</span>`;
+
+  // ------------------------------------------------------------------ library: status, score, progress, dates, notes (kept in this browser only)
+  // One list across every medium, in the spirit of MyAnimeList, Letterboxd and Goodreads shelves.
+  const STATUS = ["active", "planned", "completed", "paused", "dropped"];
+  const STATUS_TAB = { active: "In progress", planned: "Planned", completed: "Completed", paused: "On hold", dropped: "Dropped" };
+  const VERB = { film: "watch", series: "watch", book: "read", game: "play", album: "listen to" };
+  const ING = { film: "Watching", series: "Watching", book: "Reading", game: "Playing", album: "Listening" };
+  const statusLabel = (s, m) => (s === "active" ? ING[m] || "In progress" : s === "planned" ? (VERB[m] ? `Plan to ${VERB[m]}` : "Planned") : STATUS_TAB[s] || s);
+  const SCORE_WORDS = { 10: "Masterpiece", 9: "Great", 8: "Very good", 7: "Good", 6: "Fine", 5: "Average", 4: "Bad", 3: "Very bad", 2: "Horrible", 1: "Appalling" };
+  const today = () => new Date().toISOString().slice(0, 10);
+  const store = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable: keep for this visit */ } };
+  const stored = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || "null") ?? fallback; } catch { return fallback; } };
+
+  function loadLibrary() {
+    const lib = stored("mimir-library", {});
+    if (!Object.keys(lib).length) {   // one-time move from the old shelf, which only knew "set aside"
+      for (const s of stored("mimir-shelf", [])) lib[s] = { status: "planned", added: today(), updated: today() };
+    }
+    return lib;
+  }
+  let library = loadLibrary();
+  function saveLibrary() { store("mimir-library", library); refreshCounts(); }
+
+  // What progress is counted in, and how much there is, where the catalogue knows.
+  function progressUnit(w) {
+    const a = w.attributes || {};
+    if (w.medium === "series") return { unit: "episodes", total: a.episodes || null, step: 1 };
+    if (w.medium === "book") return { unit: "pages", total: w.page_count || null, step: 10 };
+    if (w.medium === "game") return { unit: "hours", total: w.playtime_hours || null, step: 1 };
+    return null;
+  }
+
+  function updateEntry(slug, patch) {
+    const w = cat.work(slug);
+    if (!w) return;
+    const e = { added: today(), ...(library[slug] || {}), ...patch, updated: today() };
+    const pu = progressUnit(w);
+    if (patch.status === "active" && !e.started) e.started = today();
+    if (patch.status === "completed") {
+      e.finished = e.finished || today();
+      e.started = e.started || e.finished;
+      if (pu && pu.total) e.progress = pu.total;
+    }
+    if (patch.progress !== undefined && pu) {
+      e.progress = Math.max(0, pu.total ? Math.min(pu.total, e.progress) : e.progress);
+      if (pu.total && e.progress >= pu.total && e.status !== "completed") { e.status = "completed"; e.finished = e.finished || today(); }
+      else if (e.progress > 0 && (!e.status || e.status === "planned")) { e.status = "active"; e.started = e.started || today(); }
+    }
+    if (!e.status) e.status = "planned";
+    library[slug] = e;
+    saveLibrary();
+  }
+  function removeEntry(slug) { delete library[slug]; saveLibrary(); }
+
+  // Scores feed the taste profile too: 8–10 counts as loved, 6–7 as liked, 1–4 as not for me. A quick rating wins.
+  function tasteRatings() {
+    const out = {};
+    for (const [s, e] of Object.entries(library)) {
+      const v = !e.score ? null : e.score >= 8 ? "loved" : e.score >= 6 ? "liked" : e.score <= 4 ? "disliked" : null;
+      if (v) out[s] = v;
+    }
+    return { ...out, ...ratings };
+  }
+
+  function refreshCounts() {
+    const n = document.getElementById("mine-n");
+    if (n) n.textContent = Object.keys(library).length;
+    const f = document.getElementById("fy-n");
+    if (f) f.textContent = Object.keys(tasteRatings()).length;
+  }
+
+  // Quick add on tiles: one click puts a work on the "planned" list; a second takes it off if nothing else was recorded.
+  function toggleMine(slug) {
+    const e = library[slug];
+    if (!e) updateEntry(slug, { status: "planned" });
+    else if (e.status === "planned" && !e.score && !e.notes && !e.progress) removeEntry(slug);
+    else if (confirm("Remove this from your library? Its status, score, dates and notes will be deleted.")) removeEntry(slug);
+    syncMine(slug);
+    if (document.getElementById("tracker")) afterTrack();
+  }
+  function syncMine(slug) {
+    document.querySelectorAll(`[data-mine="${CSS.escape(slug)}"]`).forEach((b) => {
+      const on = !!library[slug];
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", String(on));
+      b.textContent = b.classList.contains("add-mini") ? (on ? "✓" : "add") : on ? "In library ✓" : "Add to library";
+    });
+  }
+  // "12 / 62 ep" on the cover of anything you're tracking with progress (episodes, pages, hours).
+  const BADGE_UNIT = { episodes: "ep", pages: "p", hours: "h" };
+  function progressBadge(slug) {
+    const e = library[slug];
+    if (!e || (!e.progress && e.status !== "completed")) return "";
+    const w = cat.work(slug), pu = w && progressUnit(w);
+    if (!pu) return "";
+    const done = e.status === "completed" && pu.total ? pu.total : e.progress || 0;
+    return `<span class="badge prog${e.status === "completed" ? " done" : ""}" title="${esc(`${done}${pu.total ? ` of ${pu.total}` : ""} ${pu.unit}`)}">${e.status === "completed" ? "✓ " : "▶ "}${done}${pu.total ? `/${pu.total}` : ""} ${BADGE_UNIT[pu.unit]}</span>`;
+  }
+  const mineBtn = (slug, small = false) => `<button type="button" class="mine-btn${small ? " small" : ""}${library[slug] ? " on" : ""}" data-mine="${esc(slug)}" aria-pressed="${!!library[slug]}">${library[slug] ? "In library ✓" : "Add to library"}</button>`;
+
+  const sel = (field, slug, options, value, label) => `<select data-track="${field}" data-slug="${esc(slug)}" aria-label="${esc(label)}">${options.map(([v, l]) => `<option value="${esc(v)}"${String(value ?? "") === String(v) ? " selected" : ""}>${esc(l)}</option>`).join("")}</select>`;
+  const statusSel = (w, e) => sel("status", w.slug, [["", "Not in library"], ...STATUS.map((s) => [s, statusLabel(s, w.medium)])], e && e.status, "Status");
+  const scoreSel = (w, e) => sel("score", w.slug, [["", "Score –"], ...Object.keys(SCORE_WORDS).reverse().map((n) => [n, `${n} · ${SCORE_WORDS[n]}`])], e && e.score, "Score");
+  function progressCtl(w, e, compact = false) {
+    const pu = progressUnit(w);
+    if (!pu) return compact ? `<span class="muted small">–</span>` : "";
+    const v = (e && e.progress) || 0;
+    return `<span class="tr-prog"><input type="number" inputmode="numeric" min="0"${pu.total ? ` max="${pu.total}"` : ""} value="${v}" data-track="progress" data-slug="${esc(w.slug)}" aria-label="${esc(pu.unit)} done">
+      <span class="muted small">${pu.total ? `/ ${pu.total}` : ""} ${esc(pu.unit)}</span>
+      <button type="button" class="tr-plus" data-track-plus="${pu.step}" data-slug="${esc(w.slug)}" aria-label="Add ${pu.step} ${esc(pu.unit)}">+${pu.step}</button></span>`;
+  }
+
+  function trackerPanel(w) {
+    const e = library[w.slug];
+    const pu = progressUnit(w);
+    return `
+      <section class="tracker" id="tracker" aria-labelledby="tracker-h">
+        <h2 id="tracker-h" class="eyebrow">Your library</h2>
+        <div class="tr-grid">
+          <label><span>Status</span>${statusSel(w, e)}</label>
+          <label><span>Your score</span>${scoreSel(w, e)}</label>
+          ${pu ? `<label><span>Progress</span>${progressCtl(w, e)}</label>` : ""}
+          <label><span>Started</span><input type="date" data-track="started" data-slug="${esc(w.slug)}" value="${esc((e && e.started) || "")}"></label>
+          <label><span>Finished</span><input type="date" data-track="finished" data-slug="${esc(w.slug)}" value="${esc((e && e.finished) || "")}"></label>
+          <label><span>Times through</span><input type="number" min="0" data-track="rewatches" data-slug="${esc(w.slug)}" value="${(e && e.rewatches) || 0}" aria-label="Times rewatched, reread or replayed"></label>
+        </div>
+        <label class="tr-notes"><span>Private notes or review</span><textarea rows="3" data-track="notes" data-slug="${esc(w.slug)}" placeholder="What stayed with you? Only you can see this.">${esc((e && e.notes) || "")}</textarea></label>
+        ${listPicker(w.slug)}
+        <p class="muted small">${e ? `Added ${esc(e.added)} · updated ${esc(e.updated)}. ` : ""}Kept in this browser only. <a href="#library">Your library</a> · <a href="#stats">Your stats</a> · <a href="#transfer">Import & export</a></p>
+      </section>`;
+  }
+
+  // ------------------------------------------------------------------ custom lists, shareable by link
+  let lists = stored("mimir-lists", []);
+  const saveLists = () => store("mimir-lists", lists);
+  const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  function listPicker(slug) {
+    return `<div class="tr-lists"><span>Lists</span>
+      ${lists.map((l) => `<button type="button" class="tchip${l.slugs.includes(slug) ? " on" : ""}" data-list-toggle="${esc(l.id)}" data-slug="${esc(slug)}" aria-pressed="${l.slugs.includes(slug)}">${esc(l.name)}</button>`).join("")}
+      <form class="tr-newlist" data-newlist="${esc(slug)}"><input name="name" placeholder="New list…" aria-label="New list name" maxlength="60"><button type="submit" class="linkish">Create</button></form></div>`;
+  }
+  const shareUrl = (l) => `${location.origin}${location.pathname}#shared?n=${encodeURIComponent(l.name)}&w=${encodeURIComponent(l.slugs.join(","))}${l.note ? `&d=${encodeURIComponent(l.note)}` : ""}`;
+  const worksOf = (slugs) => slugs.map((s) => allWorks().find((w) => w.slug === s)).filter(Boolean);
+
+  function renderLists() {
+    app.innerHTML = `
+      <header class="page-band"><h1>Your lists</h1></header>
+      <p class="muted" style="margin:14px 0">Make lists across any medium: a reading order, a weekend marathon, the best of a year. Share one with a link; whoever opens it can save a copy.</p>
+      <form class="lib-form" data-newlist=""><input name="name" placeholder="Name a new list" maxlength="60" aria-label="List name" required><button class="btn" type="submit">Create list</button></form>
+      ${lists.length ? `<ul class="list-cards">${lists.map((l) => `<li><a href="#list-${esc(l.id)}"><span class="lc-name">${esc(l.name)}</span><span class="count">${l.slugs.length} works · updated ${esc(l.updated || l.created)}</span>
+        <span class="lc-fan">${worksOf(l.slugs).slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span></a></li>`).join("")}</ul>`
+        : `<p class="empty">No lists yet. Create one here, or add works to a list from any work page.</p>`}`;
+  }
+
+  function renderList(id) {
+    const l = lists.find((x) => x.id === id);
+    if (!l) { app.innerHTML = `<p class="empty">That list isn't in this browser. <a href="#lists">Your lists</a></p>`; return; }
+    app.innerHTML = `
+      <header class="page-band"><h1>${esc(l.name)}</h1></header>
+      <p class="crumbs" style="margin-top:12px"><a href="#lists">Your lists</a></p>
+      <form class="lib-form" data-list-meta="${esc(l.id)}">
+        <input name="name" value="${esc(l.name)}" maxlength="60" aria-label="List name">
+        <input name="note" value="${esc(l.note || "")}" maxlength="200" placeholder="A line about this list" aria-label="Description" class="grow">
+        <button class="btn ghost" type="submit">Save</button>
+      </form>
+      <p class="lib-actions"><button type="button" class="btn" data-list-share="${esc(l.id)}">Copy share link</button>
+        <button type="button" class="linkish" data-list-delete="${esc(l.id)}">Delete list</button></p>
+      ${l.slugs.length ? pgrid(worksOf(l.slugs), (w) => `<p class="lib-row-actions"><button type="button" class="linkish" data-list-move="${esc(l.id)}" data-slug="${esc(w.slug)}" data-dir="-1" aria-label="Move up">↑</button><button type="button" class="linkish" data-list-move="${esc(l.id)}" data-slug="${esc(w.slug)}" data-dir="1" aria-label="Move down">↓</button><button type="button" class="linkish" data-list-toggle="${esc(l.id)}" data-slug="${esc(w.slug)}">Remove</button></p>`)
+        : `<p class="empty">This list is empty. Open any work and add it from "Your library".</p>`}`;
+  }
+
+  function renderShared(p) {
+    const name = p.get("n") || "A shared list";
+    const slugs = (p.get("w") || "").split(",").filter(Boolean);
+    const works = worksOf(slugs);
+    app.innerHTML = `
+      <header class="page-band"><h1>${esc(name)}</h1></header>
+      <p class="muted" style="margin:14px 0">${p.get("d") ? esc(p.get("d")) + " · " : ""}A list shared with you: ${works.length} works${works.length < slugs.length ? ` (${slugs.length - works.length} not in this catalogue)` : ""}.</p>
+      <p class="lib-actions"><button type="button" class="btn" data-shared-save>Save a copy to my lists</button></p>
+      ${pgrid(works, (w) => mineBtn(w.slug, true))}`;
+  }
+
+  // ------------------------------------------------------------------ the library page, diary and "up next"
+  const libState = { tab: "all", medium: "all", sort: "updated", fits: "" };
+  const FITS = [["", "Any length"], ["quick-bite", "Under an hour"], ["one-sitting", "One sitting"], ["evening-or-two", "An evening or two"], ["weekend", "A weekend"]];
+  const FIT_MAX = { "quick-bite": 60, "one-sitting": 180, "evening-or-two": 480, weekend: 1440 };
+
+  // The next instalment, in the same medium, after the furthest one you've finished in each series
+  // (what MyAnimeList and MangaUpdates surface as "what's next"). A saga can mix a book and its films, both #1.
+  function upNext() {
+    const furthest = new Map();
+    for (const [slug, e] of Object.entries(library)) {
+      if (e.status !== "completed") continue;
+      const c = (cat.work(slug) || {}).continuity;
+      if (!c || c.kind !== "series" || !c.position) continue;
+      const me = c.members.find((m) => m.slug === slug);
+      const k = `${c.group.slug}|${me ? me.medium : ""}`;
+      if (!furthest.has(k) || Number(c.position) > furthest.get(k).pos) furthest.set(k, { pos: Number(c.position), c, medium: me && me.medium });
+    }
+    const out = [];
+    for (const { pos, c, medium } of furthest.values()) {
+      const next = c.members.filter((m) => m.medium === medium && Number(m.position) > pos).sort((a, b) => Number(a.position) - Number(b.position))[0];
+      const e = next && library[next.slug];
+      const w = next && allWorks().find((x) => x.slug === next.slug);
+      if (w && !(e && ["completed", "dropped", "active"].includes(e.status))) out.push({ w, group: c.group.name });
+    }
+    return out;
+  }
+
+  function libRow(w) {
+    const e = library[w.slug];
+    return `<li class="lib-row">
+      <a class="lib-art" href="#work-${esc(w.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(w))}${progressBadge(w.slug)}</a>
+      <div class="lib-main"><h3><a href="#work-${esc(w.slug)}">${esc(w.title)}</a></h3>
+        <p class="pmeta">${esc([mediumLabel(w.medium), w.year, (w.creators || [])[0]].filter(Boolean).join(" · "))}${w.time ? ` · ${esc(hm(w.time.minutes))}` : ""}</p>
+        ${e.notes ? `<p class="lib-note">${esc(e.notes.length > 140 ? e.notes.slice(0, 140) + "…" : e.notes)}</p>` : ""}</div>
+      <div class="lib-ctl">${statusSel(w, e)}${scoreSel(w, e)}${progressCtl(cat.work(w.slug), e, true)}</div>
+      <p class="lib-dates small muted">${e.finished ? `Finished ${esc(e.finished)}` : e.started ? `Started ${esc(e.started)}` : `Added ${esc(e.added)}`}</p>
+    </li>`;
+  }
+
+  function renderLibrary(p) {
+    const tab = p.get("tab") || libState.tab;
+    libState.tab = tab;
+    if (p.get("m")) libState.medium = p.get("m");
+    const entries = allWorks().filter((w) => library[w.slug]);
+    const inMedium = entries.filter((w) => libState.medium === "all" || w.medium === libState.medium);
+    const counts = Object.fromEntries(STATUS.map((s) => [s, inMedium.filter((w) => library[w.slug].status === s).length]));
+    let shown = tab === "all" || tab === "diary" ? inMedium : inMedium.filter((w) => library[w.slug].status === tab);
+    if (libState.fits) shown = shown.filter((w) => w.time && w.time.minutes <= FIT_MAX[libState.fits]);
+    const by = { updated: (a, b) => (library[b.slug].updated || "").localeCompare(library[a.slug].updated || ""), title: (a, b) => a.title.localeCompare(b.title),
+      score: (a, b) => (library[b.slug].score || 0) - (library[a.slug].score || 0), added: (a, b) => (library[b.slug].added || "").localeCompare(library[a.slug].added || ""),
+      length: (a, b) => ((a.time || {}).minutes || 1e9) - ((b.time || {}).minutes || 1e9) };
+    shown = [...shown].sort(by[libState.sort] || by.updated);
+    const next = upNext();
+    const tabs = [["all", "All", inMedium.length], ...STATUS.map((s) => [s, STATUS_TAB[s], counts[s]]), ["diary", "Diary", inMedium.filter((w) => library[w.slug].finished).length]];
+    app.innerHTML = `
+      <header class="page-band"><h1>Your library</h1></header>
+      <p class="muted" style="margin:14px 0">Everything you're watching, reading, playing and listening to, in one place. Kept in this browser only. <a href="#stats">Your stats</a> · <a href="#lists">Your lists</a> · <a href="#transfer">Import from MyAnimeList, IMDb, Letterboxd or Goodreads</a></p>
+      <nav class="medium-tabs" aria-label="Status">${tabs.map(([k, l, n]) => `<a href="#library?tab=${k}" class="${tab === k ? "on" : ""}">${esc(l)} <span class="count">${n}</span></a>`).join("")}</nav>
+      <div class="lib-filters">
+        <label>Medium <select data-lib="medium">${["all", ...MEDIA].map((m) => `<option value="${m}"${libState.medium === m ? " selected" : ""}>${esc(PLURAL[m])}</option>`).join("")}</select></label>
+        <label>I have <select data-lib="fits">${FITS.map(([v, l]) => `<option value="${v}"${libState.fits === v ? " selected" : ""}>${esc(l)}</option>`).join("")}</select></label>
+        ${tab === "diary" ? "" : `<label>Sort <select data-lib="sort">${[["updated", "Recently updated"], ["added", "Recently added"], ["score", "Your score"], ["title", "Title"], ["length", "Shortest first"]].map(([v, l]) => `<option value="${v}"${libState.sort === v ? " selected" : ""}>${l}</option>`).join("")}</select></label>`}
+      </div>
+      ${next.length && tab !== "diary" ? `<section class="shelf" aria-label="Up next"><header class="shelf-head"><div><h2>Up next</h2><p>The next instalment in series you've started.</p></div></header>
+        ${row(next.map((n) => n.w), (w) => `<p class="pmeta">Next in ${esc(next.find((n) => n.w === w).group)}</p>${mineBtn(w.slug, true)}`)}</section>` : ""}
+      ${tab === "diary" ? diary(shown) : shown.length ? `<ol class="lib-list">${shown.map(libRow).join("")}</ol>`
+        : `<p class="empty">${entries.length ? "Nothing here with these filters." : "Your library is empty. Use \"Add to library\" on any work, set a status on its page, or import your lists from another service."}</p>`}`;
+  }
+
+  function diary(works) {
+    const done = works.filter((w) => library[w.slug].finished).sort((a, b) => library[b.slug].finished.localeCompare(library[a.slug].finished));
+    if (!done.length) return `<p class="empty">Your diary fills in as you finish things: mark a work Completed, or set a finished date.</p>`;
+    const months = new Map();
+    for (const w of done) { const k = library[w.slug].finished.slice(0, 7); if (!months.has(k)) months.set(k, []); months.get(k).push(w); }
+    const name = (k) => new Date(`${k}-01T00:00:00`).toLocaleDateString("en", { month: "long", year: "numeric" });
+    return [...months].map(([k, ws]) => `<section class="diary-month"><h2>${esc(name(k))} <span class="count">${ws.length}</span></h2><ol class="diary">${ws.map((w) => {
+      const e = library[w.slug];
+      return `<li><span class="d-day">${esc(e.finished.slice(8))}</span><a class="d-art" href="#work-${esc(w.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(w))}</a>
+        <div><a href="#work-${esc(w.slug)}">${esc(w.title)}</a> <span class="muted small">${esc(mediumLabel(w.medium))} · ${w.year || ""}</span>
+        ${e.score ? `<span class="d-score">${e.score}/10</span>` : ""}${e.rewatches ? `<span class="muted small"> · ↻ ${e.rewatches}</span>` : ""}${e.notes ? `<p class="lib-note">${esc(e.notes)}</p>` : ""}</div></li>`; }).join("")}</ol></section>`).join("");
+  }
+
+  // ------------------------------------------------------------------ stats: time spent, scores, what you gravitate to
+  function minutesSpent(w, e) {
+    const t = w.time && w.time.minutes;
+    if (!t) return 0;
+    if (e.status === "completed") return t * (1 + (e.rewatches || 0));
+    const pu = progressUnit(w);
+    if (pu && e.progress) return pu.unit === "hours" ? e.progress * 60 : pu.total ? Math.round(t * e.progress / pu.total) : 0;
+    return 0;
+  }
+
+  const bars = (rows, max) => `<ul class="bars">${rows.map(([label, n, note]) => `<li><span class="b-l">${esc(label)}</span><span class="b-track"><span class="b-fill" style="width:${max ? Math.round((n / max) * 100) : 0}%"></span></span><span class="b-n">${esc(note ?? n)}</span></li>`).join("")}</ul>`;
+
+  function renderStats() {
+    const entries = Object.entries(library).map(([s, e]) => [cat.work(s), e]).filter(([w]) => w);
+    if (!entries.length) { app.innerHTML = `<header class="page-band"><h1>Your stats</h1></header><p class="empty">Stats appear once your library has something in it. <a href="#library">Your library</a></p>`; return; }
+    const done = entries.filter(([, e]) => e.status === "completed");
+    const scored = entries.filter(([, e]) => e.score);
+    const mins = entries.reduce((a, [w, e]) => a + minutesSpent(w, e), 0);
+    const mean = scored.length ? (scored.reduce((a, [, e]) => a + Number(e.score), 0) / scored.length).toFixed(1) : "–";
+    const perMedium = MEDIA.map((m) => { const es = entries.filter(([w]) => w.medium === m); return [m, es, es.reduce((a, [w, e]) => a + minutesSpent(w, e), 0)]; }).filter(([, es]) => es.length);
+    const dist = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map((n) => [`${n} · ${SCORE_WORDS[n]}`, scored.filter(([, e]) => Number(e.score) === n).length]);
+    // What you gravitate to: themes and moods across works you finished or scored 7+, weighted by how strongly each applies.
+    const liked = entries.filter(([, e]) => e.status === "completed" || (e.score && e.score >= 7));
+    const weight = new Map();
+    for (const [w, e] of liked) for (const d of w.tags) if (d.dimension === "theme" || d.dimension === "mood") for (const t of d.terms) {
+      const k = t.key; const cur = weight.get(k) || { label: t.label, key: k, v: 0 };
+      cur.v += t.strength * (e.score ? e.score / 7 : 1); weight.set(k, cur);
+    }
+    const top = [...weight.values()].sort((a, b) => b.v - a.v).slice(0, 12);
+    const langs = new Map(); for (const [w] of liked) if (w.original_language) langs.set(w.original_language, (langs.get(w.original_language) || 0) + 1);
+    const months = []; const now = new Date();
+    for (let i = 11; i >= 0; i--) { const d = new Date(now.getFullYear(), now.getMonth() - i, 1); const k = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`; months.push([d.toLocaleDateString("en", { month: "short" }), done.filter(([, e]) => (e.finished || "").startsWith(k)).length]); }
+    const decades = new Map(); for (const [w] of liked) if (w.year) { const k = `${Math.floor(w.year / 10) * 10}s`; decades.set(k, (decades.get(k) || 0) + 1); }
+    app.innerHTML = `
+      <header class="page-band"><h1>Your stats</h1></header>
+      <ul class="stat-heads">
+        <li><span class="sh-n">${entries.length}</span><span>in your library</span></li>
+        <li><span class="sh-n">${done.length}</span><span>completed</span></li>
+        <li><span class="sh-n">${esc(hm(mins) || "0m")}</span><span>time spent, by catalogue lengths</span></li>
+        <li><span class="sh-n">${mean}</span><span>mean score (${scored.length} scored)</span></li>
+        <li><span class="sh-n">${langs.size}</span><span>languages explored</span></li>
+      </ul>
+      <div class="stat-grid">
+        <section class="stat-box"><h2>By medium</h2>${bars(perMedium.map(([m, es, t]) => [PLURAL[m], es.length, `${es.length} · ${hm(t) || "0m"}`]), Math.max(...perMedium.map(([, es]) => es.length)))}
+          <table class="stat-table"><thead><tr><th></th>${STATUS.map((s) => `<th>${esc(STATUS_TAB[s])}</th>`).join("")}</tr></thead><tbody>${perMedium.map(([m, es]) => `<tr><th>${esc(PLURAL[m])}</th>${STATUS.map((s) => `<td><a href="#library?tab=${s}&m=${m}">${es.filter(([, e]) => e.status === s).length}</a></td>`).join("")}</tr>`).join("")}</tbody></table></section>
+        <section class="stat-box"><h2>Your scores</h2>${scored.length ? bars(dist, Math.max(...dist.map((d) => d[1]))) : `<p class="muted">Score a few works to see how you rate.</p>`}</section>
+        <section class="stat-box"><h2>Finished, last 12 months</h2>${bars(months, Math.max(1, ...months.map((m) => m[1])))}</section>
+        <section class="stat-box"><h2>What you gravitate to</h2>${top.length ? `<p class="pchips">${top.map((t) => tagChip(t)).join("")}</p><p class="muted small">Themes and moods across what you finished or scored 7 and up, weighted by how strongly each applies. These also steer <a href="#for-you">your picks</a>.</p>` : `<p class="muted">Finish or score a few works first.</p>`}
+          ${decades.size ? `<h3>Eras</h3>${bars([...decades].sort(), Math.max(...decades.values()))}` : ""}
+          ${langs.size ? `<h3>Languages</h3><p class="pchips">${[...langs].sort((a, b) => b[1] - a[1]).map(([l, n]) => `<span class="tchip">${esc(langName(l))} · ${n}</span>`).join("")}</p>` : ""}</section>
+      </div>`;
+  }
+  const langName = (code) => { try { return new Intl.DisplayNames(["en"], { type: "language" }).of(code) || code; } catch { return code; } };
+
+  // ------------------------------------------------------------------ import & export
+  // Bring your history from MyAnimeList (XML export), IMDb (ratings or watchlist CSV), Letterboxd (CSV export) or
+  // Goodreads (library CSV). Titles are matched to this catalogue by title and year; nothing leaves the browser.
+  const normT = (s) => String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s*[([].*?[)\]]\s*/g, " ").replace(/&/g, " and ").replace(/^(the|a|an)\s+/, "").replace(/[^\p{L}\p{N}]+/gu, "");
+  const titleIndex = once(() => {
+    const idx = new Map();
+    const add = (k, w) => { if (!k) return; if (!idx.has(k)) idx.set(k, []); idx.get(k).push(w); };
+    for (const w of allWorks()) { const full = cat.work(w.slug); add(normT(w.title), w); add(normT(w.original_title), w); for (const a of ((full && full.attributes) || {}).aka || []) add(normT(a), w); }
+    return idx;
+  });
+  function matchTitle(title, year, media) {
+    const hits = (titleIndex().get(normT(title)) || []).filter((w) => !media || media.includes(w.medium));
+    if (!year) return hits.length === 1 ? hits[0] : null;
+    return hits.find((w) => w.year && Math.abs(w.year - year) <= 1) || null;
+  }
+
+  function parseCsv(text) {
+    const rows = []; let row = [], cell = "", q = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (q) { if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; } else if (c === '"') q = false; else cell += c; }
+      else if (c === '"') q = true;
+      else if (c === ",") { row.push(cell); cell = ""; }
+      else if (c === "\n" || c === "\r") { if (c === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+      else cell += c;
+    }
+    if (cell || row.length) { row.push(cell); rows.push(row); }
+    const head = (rows.shift() || []).map((h) => h.trim());
+    return rows.filter((r) => r.some((c) => c.trim())).map((r) => Object.fromEntries(head.map((h, i) => [h, (r[i] || "").trim()])));
+  }
+  const isoDate = (s) => { if (!s || /^0000/.test(s)) return null; const m = String(s).match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/); return m ? `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}` : null; };
+  const MAL_STATUS = { watching: "active", reading: "active", completed: "completed", "on-hold": "paused", dropped: "dropped", "plan to watch": "planned", "plan to read": "planned" };
+  const GR_STATUS = { read: "completed", "currently-reading": "active", "to-read": "planned" };
+
+  function parseImport(text, fileName = "") {
+    const t = text.trim();
+    if (t.startsWith("{")) {
+      const data = JSON.parse(t);
+      return { source: "Mimir backup", backup: data, items: Object.entries(data.library || {}).map(([slug, e]) => ({ title: slug, slug, entry: e })) };
+    }
+    if (t.startsWith("<")) {   // MyAnimeList export
+      const doc = new DOMParser().parseFromString(t, "text/xml");
+      const val = (n, tag) => (n.getElementsByTagName(tag)[0] || {}).textContent || "";
+      const items = [...doc.getElementsByTagName("anime"), ...doc.getElementsByTagName("manga")].map((n) => {
+        const anime = n.tagName === "anime";
+        const status = MAL_STATUS[val(n, "my_status").toLowerCase()];
+        const score = Number(val(n, "my_score")) || null;
+        return { title: val(n, anime ? "series_title" : "manga_title"), year: null, media: anime ? ["series", "film"] : ["book"],
+          entry: { status: status || "planned", score, progress: Number(val(n, anime ? "my_watched_episodes" : "my_read_chapters")) || undefined,
+            started: isoDate(val(n, "my_start_date")), finished: isoDate(val(n, "my_finish_date")) } };
+      });
+      return { source: "MyAnimeList", items };
+    }
+    const rows = parseCsv(t);
+    const h = rows.length ? Object.keys(rows[0]) : [];
+    if (h.includes("Const")) {   // IMDb ratings or watchlist
+      const kind = (r) => (/tv(Mini)?Series/i.test(r["Title Type"] || "") ? ["series"] : /movie|tvMovie|short/i.test(r["Title Type"] || "") ? ["film"] : ["film", "series"]);
+      return { source: "IMDb", items: rows.map((r) => ({ title: r.Title, year: Number(r.Year) || null, media: kind(r),
+        entry: r["Your Rating"] ? { status: "completed", score: Number(r["Your Rating"]) || null, finished: isoDate(r["Date Rated"]) } : { status: "planned" } })) };
+    }
+    if (h.includes("Letterboxd URI")) {
+      return { source: "Letterboxd", items: rows.map((r) => ({ title: r.Name, year: Number(r.Year) || null, media: ["film", "series"],
+        // watched.csv and watchlist.csv share their columns, so the file name tells them apart.
+        entry: /watchlist/i.test(fileName) ? { status: "planned" }
+          : { status: "completed", score: r.Rating ? Math.round(Number(r.Rating) * 2) : null, finished: isoDate(r["Watched Date"] || r.Date), notes: r.Review || undefined } })) };
+    }
+    if (h.includes("Exclusive Shelf")) {   // Goodreads
+      return { source: "Goodreads", items: rows.map((r) => ({ title: r.Title, year: Number(r["Original Publication Year"] || r["Year Published"]) || null, media: ["book"],
+        entry: { status: GR_STATUS[r["Exclusive Shelf"]] || "planned", score: Number(r["My Rating"]) ? Number(r["My Rating"]) * 2 : null, finished: isoDate(r["Date Read"]), notes: r["My Review"] || undefined } })) };
+    }
+    const tk = h.find((k) => /^(title|name)$/i.test(k)), yk = h.find((k) => /^year$/i.test(k));
+    if (tk) return { source: "a CSV list", items: rows.map((r) => ({ title: r[tk], year: Number(r[yk]) || null, media: null, entry: { status: "planned" } })) };
+    throw new Error("Couldn't recognise this file. Mimir reads MyAnimeList XML, IMDb, Letterboxd and Goodreads CSV exports, a CSV with a Title column, or a Mimir backup.");
+  }
+
+  let pendingImport = null;
+  function previewImport(text, fileName = "") {
+    const out = document.getElementById("imp-out");
+    try {
+      const parsed = parseImport(text, fileName);
+      const matched = [], missed = [];
+      for (const it of parsed.items) {
+        const w = it.slug ? allWorks().find((x) => x.slug === it.slug) : matchTitle(it.title, it.year, it.media);
+        (w ? matched : missed).push({ ...it, w });
+      }
+      pendingImport = { parsed, matched };
+      out.innerHTML = `<p><strong>${esc(parsed.source)}</strong>: ${matched.length} of ${parsed.items.length} matched to the catalogue.</p>
+        ${matched.length ? `<p><button type="button" class="btn" data-import-apply>Add ${matched.length} to my library</button> <span class="muted small">Existing entries keep what you already recorded; gaps are filled in.</span></p>
+          <details><summary>Matched (${matched.length})</summary><ul class="imp-list">${matched.map((m) => `<li>${esc(m.title)} → <a href="#work-${esc(m.w.slug)}">${esc(m.w.title)}</a> (${esc(mediumLabel(m.w.medium))}, ${m.w.year || ""}) · ${esc(statusLabel(m.entry.status, m.w.medium))}${m.entry.score ? ` · ${m.entry.score}/10` : ""}</li>`).join("")}</ul></details>` : ""}
+        ${missed.length ? `<details><summary>Not in the catalogue yet (${missed.length})</summary><ul class="imp-list">${missed.slice(0, 200).map((m) => `<li>${esc(m.title)}${m.year ? ` (${m.year})` : ""}</li>`).join("")}</ul>
+          <p class="muted small">The beta catalogue holds ${allWorks().length} works. <a href="${esc(feedbackHref("Mimir: titles to add", `Titles from my ${parsed.source} import that Mimir doesn't have:\n${missed.slice(0, 50).map((m) => m.title).join("\n")}`))}">Ask us to add these</a>.</p></details>` : ""}`;
+    } catch (err) {
+      pendingImport = null;
+      out.innerHTML = `<p class="empty">${esc(err.message || "That file couldn't be read.")}</p>`;
+    }
+  }
+  function applyImport() {
+    if (!pendingImport) return;
+    const { parsed, matched } = pendingImport;
+    for (const m of matched) {
+      const cur = library[m.w.slug] || {};
+      const e = Object.fromEntries(Object.entries(m.entry).filter(([, v]) => v !== null && v !== undefined && v !== ""));
+      library[m.w.slug] = { added: today(), ...e, ...Object.fromEntries(Object.entries(cur).filter(([, v]) => v !== null && v !== undefined && v !== "")), updated: today() };
+    }
+    if (parsed.backup) {
+      Object.assign(ratings, parsed.backup.ratings || {});
+      store("mimir-ratings", ratings);
+      for (const l of parsed.backup.lists || []) if (!lists.some((x) => x.id === l.id)) lists.push(l);
+      saveLists();
+    }
+    saveLibrary();
+    pendingImport = null;
+    location.hash = "#library?tab=all";
+  }
+  function exportBackup() {
+    const data = { app: "Mimir", version: 1, exported: new Date().toISOString(), library, ratings, lists, prefs };
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
+    a.download = `mimir-library-${today()}.json`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }
+  function exportCsv() {
+    const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const rows = [["Title", "Year", "Medium", "Status", "Score", "Progress", "Started", "Finished", "Times through", "Notes"]];
+    for (const [slug, e] of Object.entries(library)) { const w = allWorks().find((x) => x.slug === slug); if (w) rows.push([w.title, w.year, mediumLabel(w.medium), STATUS_TAB[e.status], e.score, e.progress, e.started, e.finished, e.rewatches, e.notes]); }
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([rows.map((r) => r.map(q).join(",")).join("\n")], { type: "text/csv" }));
+    a.download = `mimir-library-${today()}.csv`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }
+
+  function renderTransfer() {
+    app.innerHTML = `
+      <header class="page-band"><h1>Import & export</h1></header>
+      <div class="prose block">
+        <p>Bring your history with you. Mimir reads the export files these services give you and matches each title to its catalogue by title and year. Everything happens in this browser; the file is never uploaded.</p>
+        <ul>
+          <li><strong>MyAnimeList</strong>: Profile → Export Lists, then unzip the .xml (anime or manga).</li>
+          <li><strong>IMDb</strong>: Your ratings (or Watchlist) → ⋯ → Export, a .csv.</li>
+          <li><strong>Letterboxd</strong>: Settings → Data → Export your data, then ratings.csv, diary.csv, watched.csv or watchlist.csv.</li>
+          <li><strong>Goodreads</strong>: My Books → Import and export → Export library, a .csv.</li>
+          <li>Any spreadsheet with a <em>Title</em> column (and ideally <em>Year</em>), or a Mimir backup.</li>
+        </ul>
+      </div>
+      <section class="block transfer">
+        <label class="btn ghost file-btn">Choose a file<input type="file" id="imp-file" accept=".xml,.csv,.json,.txt" hidden></label>
+        <p class="muted small">…or paste its contents:</p>
+        <textarea id="imp-text" rows="6" placeholder="Paste CSV, XML or JSON here"></textarea>
+        <p><button type="button" class="btn ghost" data-import-read>Read pasted text</button></p>
+        <div id="imp-out" aria-live="polite"></div>
+      </section>
+      <section class="block">
+        <header class="sec-head"><h2>Export</h2></header>
+        <p class="muted">Your library lives only in this browser. Save a backup now and then, or move it to another device.</p>
+        <p class="lib-actions"><button type="button" class="btn" data-export="json">Download backup (.json)</button><button type="button" class="btn ghost" data-export="csv">Download as spreadsheet (.csv)</button></p>
+      </section>`;
+  }
 
   // Beta feedback goes by email, with the page it was sent from, so nothing is collected silently.
   function feedbackHref(subject = "Mimir beta feedback", extra = "") {
@@ -1694,7 +2225,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   }
 
   function forYouRows(medium = null, groups = 3) {
-    const rec = cat.recommend(ratings, 36, medium);
+    const taste = tasteRatings();
+    const rec = cat.recommend(taste, 36, medium);
     if (!rec.results.length) return "";
     const byBecause = new Map();
     for (const w of rec.results) {
@@ -1704,7 +2236,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const why = (w) => `<p class="pmeta">Shares ${esc(w.shared.map((t) => t.label.toLowerCase()).join(", "))}</p>`;
     return [...byBecause.entries()].slice(0, groups).map(([slug, g]) => `
       <section class="shelf" aria-label="Because you rated ${esc(g.title)}">
-        <header class="shelf-head"><div><h2>Because you ${ratings[slug] === "loved" ? "loved" : "liked"} <a href="#work-${esc(slug)}">${esc(g.title)}</a></h2>
+        <header class="shelf-head"><div><h2>Because you ${taste[slug] === "loved" ? "loved" : "liked"} <a href="#work-${esc(slug)}">${esc(g.title)}</a></h2>
           <p>Picked for the qualities it shares with everything you rated.</p></div><a class="see-all" href="#for-you">All picks for you</a></header>
         ${row(g.works, why)}
       </section>`).join("");
@@ -1712,17 +2244,18 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   function renderForYou(medium = "all") {
     const m = MEDIA.includes(medium) ? medium : null;
-    const rec = cat.recommend(ratings, 60, m);
-    const rated = allWorks().filter((w) => ratings[w.slug]);
+    const taste = tasteRatings();
+    const rec = cat.recommend(taste, 60, m);
+    const rated = allWorks().filter((w) => taste[w.slug]);
     app.innerHTML = `
       <header class="page-band"><h1>For you</h1></header>
-      <p class="muted" style="margin:14px 0">Mimir builds a taste profile from the works you rate: what they're about and how they feel, counted more than genre. Loved counts twice as much as liked; "not for me" steers away. It all stays in this browser.</p>
+      <p class="muted" style="margin:14px 0">Mimir builds a taste profile from the works you rate: what they're about and how they feel, counted more than genre. Loved counts twice as much as liked; "not for me" steers away. Scores in your <a href="#library">library</a> count too: 8 and up as loved, 6–7 as liked, 4 and below as not for me. It all stays in this browser.</p>
       ${rec.profile.length ? `<p class="pchips">Your taste leans ${rec.profile.map((t) => tagChip(t)).join("")}</p>` : ""}
       <nav class="medium-tabs" aria-label="Medium">${["all", ...MEDIA].map((x) => `<a href="#for-you?m=${x}" class="${(m || "all") === x ? "on" : ""}">${esc(PLURAL[x])}</a>`).join("")}</nav>
       ${rated.length ? (rec.results.length ? `
         <section class="results-sec"><header class="sec-head"><h2>Picks for you <span class="count">(${rec.results.length})</span></h2></header>
-          ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${ratings[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${rateButtons(w.slug, true)}`)}
-        </section>` : `<p class="empty">${Object.values(ratings).some((v) => v === "loved" || v === "liked") ? "Nothing new in this medium matches your taste yet. Try another tab." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
+          ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${taste[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${rateButtons(w.slug, true)}`)}
+        </section>` : `<p class="empty">${Object.values(taste).some((v) => v === "loved" || v === "liked") ? "Nothing new in this medium matches your taste yet. Try another tab." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
       ${starterPicker()}
       ${rated.length ? `<section class="block"><header class="sec-head"><h2>Your ratings <span class="count">(${rated.length})</span></h2>
         <button type="button" class="linkish" data-clear-ratings>Clear all ratings</button></header>
@@ -1741,12 +2274,13 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
           <li>Finds works across mediums, so a game can lead you to a novel and a film to an album.</li>
           <li>Explains every pick, and marks which reasons are recorded facts and which are editorial readings.</li>
           <li>Gives each work a page with tags, a parents' guide, credits and connected stories.</li>
+          <li>Keeps one library for everything you watch, read, play and listen to: status, score, progress, dates, notes, a diary, lists, "up next" in series and stats, with import from MyAnimeList, IMDb, Letterboxd and Goodreads.</li>
         </ul>
         <h2>How picks are made</h2>
         <p>Every work is tagged against a controlled vocabulary of moods, themes, pacing, style and more, each with a definition. Mimir matches your request to those tags, respects your limits, favours lesser-known works when you ask, and spreads its picks so one creator doesn't fill the list. If nothing fits, it says so instead of guessing.</p>
         <h2>The beta</h2>
         <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(allWorks().map((w) => w.language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
-        <p>Your ratings, shelf and preferred apps live in your browser only. To tell us what's wrong or missing, <a href="${esc(feedbackHref())}">send beta feedback</a>.</p>
+        <p>Your library, lists, ratings and preferred apps live in your browser only; Library → Import & export saves a backup. To tell us what's wrong or missing, <a href="${esc(feedbackHref())}">send beta feedback</a>.</p>
         <h2>A Terratales venture</h2>
         <p>Mimir is built by Terratales Media Entertainment, a media, entertainment and story-technology house: stories rooted in the earth, branched out to every realm of the world. <a href="https://terratalesmedia.world/">Visit Terratales</a>.</p>
       </div>`;
@@ -1778,7 +2312,12 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else if (h === "series") { setNav("Sagas"); renderSeries(); }
     else if (h === "for-you") { setNav("Discover"); renderForYou(p.get("m") || "all"); }
     else if (h === "shelves") { setNav("Discover"); renderShelves(); }
-    else if (h === "mine") { setNav("Catalogue"); renderMine(); }
+    else if (h === "library" || h === "mine") { setNav("Library"); renderLibrary(p); }
+    else if (h === "lists") { setNav("Library"); renderLists(); }
+    else if (h.startsWith("list-")) { setNav("Library"); renderList(h.slice(5)); }
+    else if (h === "shared") { setNav("Library"); renderShared(p); }
+    else if (h === "stats") { setNav("Library"); renderStats(); }
+    else if (h === "transfer") { setNav("Library"); renderTransfer(); }
     else if (h === "tags") { setNav("Catalogue"); renderTags(p.get("q") || ""); }
     else if (h === "people") { setNav("Catalogue"); renderPeople(p.get("q") || ""); }
     else if (h === "about") { setNav("Catalogue"); renderAbout(); }
@@ -1793,9 +2332,41 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else { renderDiscover(); document.querySelector(".reading")?.scrollIntoView({ block: "start" }); }
   }
 
+  // Re-draw after a library change: just the tracker on a work page, the whole view elsewhere, keeping the scroll.
+  function afterTrack() {
+    const panel = document.getElementById("tracker");
+    if (panel && location.hash.startsWith("#work-")) {
+      const w = cat.work(location.hash.slice(6).split("?")[0]);
+      if (w) { panel.outerHTML = trackerPanel(w); syncMine(w.slug); const b = document.getElementById("work-prog"); if (b) b.innerHTML = progressBadge(w.slug); }
+      return;
+    }
+    const y = window.scrollY;
+    route();
+    window.scrollTo(0, y);
+  }
+  function makeList(name, slug) {
+    const l = { id: newId(), name: name.trim().slice(0, 60), note: "", slugs: slug ? [slug] : [], created: today(), updated: today() };
+    lists.push(l);
+    saveLists();
+    return l;
+  }
+
   app.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (e.target.id !== "ask") return;
+    const f = e.target;
+    if (f.dataset.newlist !== undefined) {
+      const name = f.elements.name.value.trim();
+      if (!name) return;
+      const l = makeList(name, f.dataset.newlist);
+      if (f.dataset.newlist) afterTrack(); else location.hash = `#list-${l.id}`;
+      return;
+    }
+    if (f.dataset.listMeta) {
+      const l = lists.find((x) => x.id === f.dataset.listMeta);
+      if (l) { l.name = f.elements.name.value.trim().slice(0, 60) || l.name; l.note = f.elements.note.value.trim().slice(0, 200); l.updated = today(); saveLists(); renderList(l.id); }
+      return;
+    }
+    if (f.id !== "ask") return;
     const q = document.getElementById("q").value.trim();
     if (q.length >= 2) seek(q);
   });
@@ -1817,6 +2388,15 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   });
   app.addEventListener("change", (e) => {
     const t = e.target;
+    if (t.dataset.track) {
+      const field = t.dataset.track, slug = t.dataset.slug;
+      if (field === "status" && !t.value) { if (confirm("Remove this from your library? Its score, dates and notes will be deleted.")) removeEntry(slug); }
+      else updateEntry(slug, { [field]: ["score", "progress", "rewatches"].includes(field) ? (t.value === "" ? null : Number(t.value)) : t.value || null });
+      afterTrack();
+      return;
+    }
+    if (t.dataset.lib) { libState[t.dataset.lib] = t.value; renderLibrary(new URLSearchParams(location.hash.split("?")[1] || "")); return; }
+    if (t.id === "imp-file" && t.files[0]) { const file = t.files[0]; file.text().then((text) => previewImport(text, file.name)); return; }
     if (t.dataset.prefApp || t.dataset.prefRegion !== undefined) {
       if (t.dataset.prefApp) prefs.apps[t.dataset.prefApp] = t.value;
       else prefs.region = t.value;
@@ -1842,12 +2422,38 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else if (d.jump) document.getElementById(d.jump)?.scrollIntoView({ block: "start" });
     else if (d.scroll) { const r = t.parentElement.querySelector(".row"); r.scrollBy({ left: Number(d.scroll) * r.clientWidth * 0.85, behavior: "smooth" }); }
     else if (d.mine) toggleMine(d.mine);
+    else if (d.trackPlus) { const cur = (library[d.slug] || {}).progress || 0; updateEntry(d.slug, { progress: cur + Number(d.trackPlus) }); afterTrack(); }
+    else if (d.listToggle) {
+      const l = lists.find((x) => x.id === d.listToggle);
+      if (l) { l.slugs = l.slugs.includes(d.slug) ? l.slugs.filter((x) => x !== d.slug) : [...l.slugs, d.slug]; l.updated = today(); saveLists(); afterTrack(); }
+    }
+    else if (d.listMove) {
+      const l = lists.find((x) => x.id === d.listMove), i = l ? l.slugs.indexOf(d.slug) : -1, j = i + Number(d.dir);
+      if (i >= 0 && j >= 0 && j < l.slugs.length) { [l.slugs[i], l.slugs[j]] = [l.slugs[j], l.slugs[i]]; saveLists(); renderList(l.id); }
+    }
+    else if (d.listShare) {
+      const url = shareUrl(lists.find((x) => x.id === d.listShare));
+      (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { t.textContent = "Link copied ✓"; }, () => prompt("Copy this link to share the list:", url));
+    }
+    else if (d.listDelete) { if (confirm("Delete this list? The works stay in your library.")) { lists = lists.filter((x) => x.id !== d.listDelete); saveLists(); location.hash = "#lists"; } }
+    else if (d.sharedSave !== undefined) {
+      const p = new URLSearchParams(location.hash.split("?")[1] || "");
+      const l = makeList(p.get("n") || "Shared list");
+      l.slugs = worksOf((p.get("w") || "").split(",").filter(Boolean)).map((w) => w.slug);
+      l.note = p.get("d") || "";
+      saveLists();
+      location.hash = `#list-${l.id}`;
+    }
+    else if (d.importRead !== undefined) previewImport(document.getElementById("imp-text").value);
+    else if (d.importApply !== undefined) applyImport();
+    else if (d.export === "json") exportBackup();
+    else if (d.export === "csv") exportCsv();
     else if (d.rate) setRating(d.rateSlug, d.rate);
     else if (d.clearRatings !== undefined) {
       if (confirm("Clear all your ratings? Your picks will start again from scratch.")) {
         ratings = {};
         try { localStorage.removeItem("mimir-ratings"); } catch { /* storage unavailable */ }
-        document.getElementById("fy-n").textContent = 0;
+        refreshCounts();
         renderForYou();
       }
     }
@@ -1888,6 +2494,14 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       if (!was) { li.classList.add("open"); b.setAttribute("aria-expanded", "true"); }
     }
   });
+  // The logo always returns to the home page as a first visit sees it, not to the last request's results.
+  document.querySelector(".brand").addEventListener("click", (e) => {
+    e.preventDefault();
+    query = EXAMPLES[0];
+    hasAsked = false;
+    if (location.hash && location.hash !== "#") history.pushState(null, "", location.pathname + location.search);
+    route();
+  });
   bar.addEventListener("submit", (e) => {
     e.preventDefault();
     const scope = document.getElementById("scope").value;
@@ -1905,8 +2519,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   bar.addEventListener("click", (e) => { if (e.target.closest(".drop a")) { closeMenus(); bar.classList.remove("open"); } });
 
   renderMenubar();
-  document.getElementById("mine-n").textContent = mine.length;
-  document.getElementById("fy-n").textContent = Object.keys(ratings).length;
+  refreshCounts();
   document.getElementById("beta-pill").textContent = `Beta · ${allWorks().length} works`;
   document.getElementById("cat-count").textContent = allWorks().length;
   document.getElementById("foot-feedback").href = feedbackHref();

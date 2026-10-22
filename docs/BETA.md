@@ -28,7 +28,16 @@ listen.
    Side Quests, Page Turners, Rap Sheet, Hush Hour and more.
 5. **Pick your apps.** On any work page, "Where to watch / listen / read / play" lets you choose your service
    (Netflix, Prime Video, JioHotstar, Spotify, Apple Music, Kindle, Steam …) and region. Mimir remembers them.
-6. **Check the parents' guide** on a few works you know well. Is the level right? Is anything "not assessed"
+6. **Track what you watch, read, play and listen to.** On any work page, "Your library" sets a status (watching,
+   reading, playing … planned, completed, on hold, dropped), a score out of 10, progress (episodes, pages, hours),
+   dates, rewatches and private notes. **Library** in the menu has your lists by status, a diary of what you
+   finished, "Up next" in series you've started, and an "I have…" filter that finds what in your list fits the
+   time you have.
+7. **Bring your history.** Library → Import & export reads MyAnimeList (XML), IMDb, Letterboxd and Goodreads
+   (CSV) exports and matches them to the catalogue. Tell us which titles it couldn't find.
+8. **Make and share lists** across media (a reading order, a weekend marathon), and look at **Stats**: time spent,
+   score spread, the themes and moods you gravitate to, and languages explored.
+9. **Check the parents' guide** on a few works you know well. Is the level right? Is anything "not assessed"
    that should be?
 
 ## What we want to hear
@@ -44,8 +53,9 @@ any work. Both open an email to hello@terratalesmedia.world with the page addres
 
 ## Good to know
 
-- Your ratings, shelf, preferred apps and region are stored **in your browser only**. Clearing site data resets
-  them. Nothing is sent anywhere unless you email us.
+- Your library, lists, ratings, preferred apps and region are stored **in your browser only**. Clearing site data
+  resets them, so use Library → Import & export → **Download backup** now and then (also how you move to another
+  device). Nothing is sent anywhere unless you email us.
 - Tags, summaries and parents' guide levels are **AI-assisted readings awaiting editorial review**, and are
   labelled as such. Facts without a source note are unverified.
 - Links to streaming and music services **open a search** on that service; Mimir can't yet confirm what's
