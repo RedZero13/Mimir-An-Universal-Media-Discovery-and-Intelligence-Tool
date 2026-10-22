@@ -386,7 +386,7 @@ a.letter { color: var(--muted); text-decoration: none; }
 .poster.sq { aspect-ratio: 1 / 1; }
 .poster .cover, .poster img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
 .poster.big { width: 100%; }
-.pcard { min-width: 0; display: grid; gap: 8px; align-content: start; }
+.pcard { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; align-content: start; }
 .pcard-art { position: relative; display: block; border-radius: 4px; transition: transform .18s ease; }
 .pcard-art:hover { transform: translateY(-3px); }
 .pcard-art:hover .poster { box-shadow: 0 10px 26px rgba(0, 0, 0, .6), 0 0 0 1px var(--gold); }
@@ -400,7 +400,8 @@ a.letter { color: var(--muted); text-decoration: none; }
 .pmeta { font: 400 .76rem/1.4 var(--f-body); color: var(--muted); margin-top: 3px; }
 .pchips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; align-items: center; }
 .pchips.big { margin-top: 14px; gap: 8px; }
-.tchip, .cchip { font: 500 .68rem/1.2 var(--f-mono); padding: 3px 8px; border-radius: 99px; border: 1px solid var(--line-strong); color: var(--cream); background: transparent; text-decoration: none; white-space: nowrap; }
+.tchip, .cchip { font: 500 .68rem/1.2 var(--f-mono); padding: 3px 8px; border-radius: 99px; border: 1px solid var(--line-strong); color: var(--cream); background: transparent; text-decoration: none; white-space: nowrap;
+  max-width: 100%; overflow: hidden; text-overflow: ellipsis; }   /* long series names truncate rather than widen the card */
 button.tchip { cursor: pointer; }
 a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone); }
 .tchip.on { background: var(--gold-bright); color: var(--black); border-color: var(--gold-bright); }
@@ -411,7 +412,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .pgrid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 26px 18px; }
 .row-wrap { position: relative; }
 .row { list-style: none; margin: 0; padding: 4px 2px 14px; display: grid; grid-auto-flow: column; grid-auto-columns: 152px; gap: 18px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; overscroll-behavior-x: contain; }
-.row > li { scroll-snap-align: start; }
+.row > li { scroll-snap-align: start; min-width: 0; }   /* never wider than the column */
 .row-btn { position: absolute; top: 34%; z-index: 2; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--gold); background: rgba(19, 19, 21, .9); color: var(--gold-bright); font-size: 1.4rem; line-height: 1; cursor: pointer; display: none; }
 .row-btn.prev { left: -12px; } .row-btn.next { right: -12px; }
 .row-btn:hover { background: var(--gold-bright); color: var(--black); }
@@ -823,7 +824,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   const timeChip = (t, album = false) => (t ? `<span class="tchip t-${t.bucket}" title="${esc(timeText(t, album))}">${esc(t.label)}</span>` : "");
   const contText = (c) => (c.kind === "standalone" ? "Standalone"
     : c.kind === "series" ? `${c.group.name}${c.position ? ` · #${c.position}` : ""}` : `${c.group.name} family`);
-  const contChip = (c, medium) => (c && !(medium === "album" && c.kind === "standalone") ? `<span class="cchip k-${c.kind}">${esc(contText(c))}</span>` : "");
+  const contChip = (c, medium) => (c && !(medium === "album" && c.kind === "standalone") ? `<span class="cchip k-${c.kind}" title="${esc(contText(c))}">${esc(contText(c))}</span>` : "");
   const fmtNum = (v) => (Number.isInteger(v) ? String(v) : v.toFixed(1));
   const scoreText = (s) => (s.scale_max === 100 && /tomato|%|percent|audience/i.test(`${s.publisher} ${s.metric}`) ? `${fmtNum(s.value)}%` : `${fmtNum(s.value)}/${fmtNum(s.scale_max)}`);
   const money = (b) => { try { return new Intl.NumberFormat("en", { style: "currency", currency: b.currency, notation: "compact", maximumFractionDigits: 1 }).format(b.amount); } catch { return `${b.amount} ${b.currency}`; } };
