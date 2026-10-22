@@ -264,8 +264,9 @@ def import_catalogue(conn: psycopg.Connection, data: dict, tax: Taxonomy | None 
                 conn.execute(
                     "INSERT INTO classification (work_id, term_id, strength, confidence, origin, is_interpretation, "
                     "source_id, taxonomy_version) VALUES (%s, %s, %s, %s, 'ai_assisted', %s, %s, %s)",
-                    (work_id, term_ids[key], strength, conf, not key.startswith("genre:"),
-                     sources["ai-assisted-seed"], tax.version),
+                    # Everything from this source is an interpretation, genres included: none of it has
+                    # been checked against an authoritative source yet.
+                    (work_id, term_ids[key], strength, conf, True, sources["ai-assisted-seed"], tax.version),
                 )
                 stats.classifications += 1
 
