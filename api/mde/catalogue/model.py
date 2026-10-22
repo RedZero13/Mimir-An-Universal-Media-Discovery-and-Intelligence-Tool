@@ -24,6 +24,25 @@ RELATIONSHIP_TYPES: dict[str, tuple[str, str, bool]] = {  # slug: (label, invers
 }
 
 PRIMARY_ROLES = ("director", "author", "developer", "artist")
+ORGANISATION_ROLES = {"developer", "publisher", "studio", "label", "distributor"}
+
+
+def parse_advisory(value: float | list) -> tuple[float, str | None, str | None]:
+    """Seed advisory value: an intensity, or [intensity, note] or [intensity, note, spoiler note]."""
+    if isinstance(value, list):
+        return float(value[0]), (value[1] if len(value) > 1 else None), (value[2] if len(value) > 2 else None)
+    return float(value), None, None
+
+
+def severity(level: float) -> str:
+    """Parents' guide wording for an advisory intensity."""
+    if level <= 0:
+        return "None"
+    if level < 0.45:
+        return "Mild"
+    if level < 0.75:
+        return "Moderate"
+    return "Severe"
 
 
 def slugify(text: str) -> str:
@@ -42,6 +61,22 @@ class TermEvidence:
     origin: str
     review_status: str
     is_interpretation: bool
+    note: str | None = None             # non-spoiler evidence (parents' guide notes)
+    spoiler_note: str | None = None     # hidden unless the reader asks
+
+
+@dataclass(frozen=True)
+class Credit:
+    role: str
+    name: str
+    kind: str            # "person" | "organisation"
+
+
+@dataclass(frozen=True)
+class Rating:
+    system: str          # MPA, BBFC, ESRB, PEGI …
+    rating: str
+    reason: str | None
 
 
 @dataclass(frozen=True)
@@ -73,9 +108,12 @@ class WorkProfile:
     length_is_estimate: bool
     popularity_tier: int | None
     advisories_assessed: bool
-    creators: list[str] = field(default_factory=list)
+    creators: list[str] = field(default_factory=list)            # primary credits, for display and diversity
     terms: dict[str, TermEvidence] = field(default_factory=dict)
     relations: list[Relation] = field(default_factory=list)
+    credits: list[Credit] = field(default_factory=list)          # all credits, in billing order
+    ratings: list[Rating] = field(default_factory=list)
+    attributes: dict = field(default_factory=dict)
 
     def strength(self, key: str) -> float:
         ev = self.terms.get(key)

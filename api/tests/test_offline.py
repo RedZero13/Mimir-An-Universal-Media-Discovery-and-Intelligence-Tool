@@ -40,5 +40,50 @@ def test_work_page_data():
     work = MemoryCatalogue.from_seed().work("arrival-2016")
     assert work["relationships"][0]["slug"] == "story-of-your-life-1998"
     assert work["relationships"][0]["factual"]
-    assert {c["dimension"] for c in work["classifications"]} >= {"genre", "theme", "mood", "advisory"}
+    assert {d["dimension"] for d in work["tags"]} >= {"genre", "theme", "mood"}
     assert MemoryCatalogue.from_seed().work("nope") is None
+
+
+def test_parents_guide_distinguishes_none_from_not_assessed():
+    guide = MemoryCatalogue.from_seed().work("arrival-2016")["parents_guide"]
+    groups = {g["slug"]: g for g in guide["groups"]}
+    assert guide["ratings"] == [{"system": "MPA", "rating": "PG-13", "reason": "Brief strong language"}]
+    assert groups["violence"]["severity"] == "Mild"
+    assert groups["language"]["severity"] == "Mild"
+    assert groups["substances"]["severity"] == "Not assessed"     # never claimed to be "none"
+    assert groups["sex"]["severity"] == "None"
+    unassessed = MemoryCatalogue.from_seed().work("ok-computer-1997")["parents_guide"]
+    assert not unassessed["assessed"] and all(g["severity"] == "Not assessed" for g in unassessed["groups"])
+
+
+def test_spoiler_notes_are_kept_separate():
+    guide = MemoryCatalogue.from_seed().work("solaris-1972")["parents_guide"]
+    item = next(i for g in guide["groups"] for i in g["items"] if i["key"] == "advisory:suicide-self-harm")
+    assert item["note"] and item["spoiler_note"] and item["spoiler_note"] not in item["note"]
+
+
+def test_browse_filters_and_facets():
+    from mde.catalogue.browse import BrowseFilters
+    cat = MemoryCatalogue.from_seed()
+    everything = cat.browse(BrowseFilters())
+    assert everything["total"] == len(cat.works)
+    assert {f["value"]: f["count"] for f in everything["facets"]["medium"]} == {"film": 22, "book": 15, "game": 11, "album": 8}
+    safe = cat.browse(BrowseFilters(avoid=["advisory:graphic-violence"]))
+    # Unassessed works are left out rather than presumed safe.
+    assert "ok-computer-1997" not in [r["slug"] for r in safe["results"]]
+    assert "come-and-see-1985" not in [r["slug"] for r in safe["results"]]
+    short = cat.browse(BrowseFilters(media=["film"], max_minutes=100, sort="shortest"))
+    assert [r["slug"] for r in short["results"]][:2] == ["primer-2004", "my-neighbor-totoro-1988"]
+    tagged = cat.browse(BrowseFilters(tags=["theme:consciousness-ai", "genre:horror"]))
+    assert [r["slug"] for r in tagged["results"]] == ["soma-2015"]
+    assert [r["slug"] for r in cat.browse(BrowseFilters(q="tarkovsky"))["results"]] == ["solaris-1972", "stalker-1979"]  # same tier, then title
+
+
+def test_tag_and_person_pages():
+    cat = MemoryCatalogue.from_seed()
+    tag = cat.tag("theme:grief-loss")
+    strengths = [w["strength"] for w in tag["works"]]
+    assert strengths == sorted(strengths, reverse=True) and min(strengths) >= 0.4
+    person = cat.person("ursula-k-le-guin")
+    assert [w["slug"] for w in person["works"]] == ["the-dispossessed-1974", "the-left-hand-of-darkness-1969"]
+    assert cat.person("nobody") is None and cat.tag("theme:nope") is None

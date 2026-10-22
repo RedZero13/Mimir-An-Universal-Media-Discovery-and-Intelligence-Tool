@@ -37,7 +37,8 @@ def test_hard_advisory_excludes_but_unassessed_work_is_kept_with_caveat():
     r = rank(intent, works)
     assert slugs(r) == ["mild", "unknown"]
     assert r.excluded["content you asked to avoid"] == 1
-    assert any("haven't been assessed" in c for c in r.results[1].caveats)
+    assert r.results[1].caveats == ["Not yet assessed for graphic violence."]
+    assert r.results[0].caveats == []
 
 
 def test_soft_length_penalises_and_explains_but_hard_length_excludes():

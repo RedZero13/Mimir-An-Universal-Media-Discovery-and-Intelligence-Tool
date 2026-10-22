@@ -7,6 +7,10 @@ This is the first vertical slice. A user writes a request in plain language. The
 inspectable constraints and preferences, ranks a classified catalogue against them, and explains every result
 from recorded evidence. Facts are labelled separately from interpretations.
 
+It is also a browsable catalogue, in the spirit of IMDb: filter by medium, tag, decade, language, length and
+parents'-guide category; open tag pages and people pages; and read full work pages with tags, credits,
+connected works and a parents' guide that tells "none" apart from "not assessed".
+
 - **Project assessment, architecture, data model, roadmap:** [`docs/ASSESSMENT.md`](docs/ASSESSMENT.md)
 - **Taxonomy and classification specification:** [`docs/TAXONOMY.md`](docs/TAXONOMY.md)
 - **Data sources and licensing register:** [`docs/SOURCES.md`](docs/SOURCES.md)
@@ -90,7 +94,10 @@ CI (`.github/workflows/ci.yml`) runs the same checks against a PostgreSQL 16 ser
 | Method | Path | |
 | --- | --- | --- |
 | GET | `/api/discover?q=…&limit=8` | Interpretation, ranked results with reasons, caveats and score breakdowns, and the exclusion counts. Logs an anonymous discovery event |
-| GET | `/api/works/{slug}` | Work page data: credits, classifications with origin/confidence/review status, relationships, provenance, sources |
+| GET | `/api/works?medium=&tag=&avoid=&decade=&language=&country=&max_minutes=&q=&sort=` | Browse: filtered, sorted work cards plus facet counts. `tag` and `avoid` take taxonomy keys and repeat; `avoid` keeps works assessed as none or mild |
+| GET | `/api/works/{slug}` | Work page: facts, credits, tags by dimension, parents' guide (official ratings plus per-category severity and notes), connected works, provenance, sources |
+| GET | `/api/tags`, `/api/tags/{dimension}/{slug}` | Tag index with counts; a tag's definition, its works (strongest first) and related tags |
+| GET | `/api/people`, `/api/people/{slug}` | Everyone credited; a person's or studio's works, roles and recurring qualities |
 | GET | `/api/taxonomy` | The controlled vocabulary |
 | POST | `/api/feedback` | `{event_id, work_slug, kind}` where kind is one of `relevant`, `irrelevant`, `too_long`, `wrong_mood`, `already_experienced`, `not_what_i_meant`, `will_try` |
 | GET | `/api/health` | |
@@ -107,4 +114,7 @@ CI (`.github/workflows/ci.yml`) runs the same checks against a PostgreSQL 16 ser
 - Ranking happens in memory over the whole catalogue. That is fine for hundreds of works; retrieval needs to move
   into SQL/pgvector before tens of thousands.
 - Feedback is stored but not yet used to adjust ranking.
+- Parents'-guide levels, notes and official ratings in the pilot were compiled from general knowledge and are
+  unverified. Many categories are deliberately left "not assessed" rather than guessed.
+- Browse, tag and people views are computed in memory over the whole catalogue, like discovery.
 - No accounts, availability data, reviews, or online video in the catalogue yet. The schema has room for them.

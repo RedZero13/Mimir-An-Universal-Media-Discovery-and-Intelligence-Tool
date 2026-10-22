@@ -68,10 +68,12 @@ const MDE = (() => {
       terms.set(key, {
         key, dimension: raw.dimension, slug: raw.slug, label: raw.label, definition: raw.definition,
         applies_to: raw.applies_to || ["*"], synonyms: (raw.synonyms || []).map((s) => s.toLowerCase()),
+        group: raw.group ?? null,
       });
     }
     return {
       version: data.version, dimensions, terms,
+      guideGroups: (data.guide_groups || []).map((g) => [g.slug, g.label]),
       get(key) {
         const t = terms.get(key);
         if (!t) throw new Error(`unknown taxonomy term ${key}`);
@@ -526,8 +528,8 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       const ev = w.terms.get(a.term);
       if (!ev) {
         if (a.hard) {
-          if (a.term.startsWith("advisory:") && !w.advisories_assessed) {
-            s.caveats.push("Content advisories haven't been assessed for this work yet.");
+          if (a.term.startsWith("advisory:")) {
+            s.caveats.push(`Not yet assessed for ${a.term.split(":")[1].replace(/-/g, " ")}.`);
           }
           penalty += WEIGHTS.unknown_advisory_penalty;
         }
@@ -699,6 +701,247 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
     contrasting_take: ["offers a contrasting take on the themes of", "offers a contrasting take on the themes of", false],
   };
   const PRIMARY_ROLES = ["director", "author", "developer", "artist"];
+  const ORGANISATION_ROLES = ["developer", "publisher", "studio", "label", "distributor"];
+
+  function parseAdvisory(value) {
+    if (Array.isArray(value)) return [Number(value[0]), value.length > 1 ? value[1] : null, value.length > 2 ? value[2] : null];
+    return [Number(value), null, null];
+  }
+
+  function severity(level) {
+    if (level <= 0) return "None";
+    if (level < 0.45) return "Mild";
+    if (level < 0.75) return "Moderate";
+    return "Severe";
+  }
+
+  // ------------------------------------------------------------------ catalogue views (mirrors browse.py)
+  const TAG_DIMENSIONS = ["genre", "theme", "mood", "pacing", "complexity", "narrative", "world", "style"];
+  const TAG_THRESHOLD = 0.4;
+  const SUITABLE_BELOW = 0.45;
+
+  function cmp(a, b) {
+    for (let i = 0; i < Math.max(a.length, b.length); i++) {
+      if (a[i] < b[i]) return -1;
+      if (a[i] > b[i]) return 1;
+    }
+    return 0;
+  }
+  const strengthOf = (w, key) => (w.terms.has(key) ? w.terms.get(key).strength : 0.0);
+  const decadeOf = (year) => Math.floor(year / 10) * 10;
+  const lengthMinutesOf = (w) =>
+    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : null;
+
+  function tagsOf(w, dimensions) {
+    const found = [...w.terms].filter(([k, ev]) => dimensions.includes(k.split(":")[0]) && ev.strength >= TAG_THRESHOLD)
+      .map(([k, ev]) => [k, ev.strength]);
+    return found.sort((a, b) => cmp([-a[1], a[0]], [-b[1], b[0]]));
+  }
+
+  function createViews(tax) {
+    const basisOf = (interp, status) => (!interp ? "catalogue" : status !== "reviewed" ? "interpretation" : "reviewed_interpretation");
+
+    function guideFlags(w) {
+      const flags = [];
+      for (const [group, label] of tax.guideGroups) {
+        const levels = [...w.terms].filter(([k]) => k.startsWith("advisory:") && tax.get(k).group === group).map(([, ev]) => ev.strength);
+        if (levels.length && Math.max(...levels) >= SUITABLE_BELOW) flags.push({ group, label, severity: severity(Math.max(...levels)) });
+      }
+      return flags;
+    }
+
+    function card(w) {
+      return {
+        slug: w.slug, title: w.title, original_title: w.original_title, medium: w.medium, year: w.year,
+        length: lengthText(w), creators: w.creators, summary: w.summary,
+        genres: tagsOf(w, ["genre"]).map(([k]) => ({ key: k, label: tax.get(k).label })),
+        tags: tagsOf(w, TAG_DIMENSIONS.slice(1)).slice(0, 4).map(([k]) => ({ key: k, label: tax.get(k).label })),
+        ratings: w.ratings.map((r) => ({ system: r.system, rating: r.rating })),
+        guide_flags: guideFlags(w),
+      };
+    }
+
+    function matches(w, f) {
+      if (f.media.length && !f.media.includes(w.medium)) return false;
+      if (f.tags.some((t) => strengthOf(w, t) < TAG_THRESHOLD)) return false;
+      if (f.decade !== null && (w.year === null || decadeOf(w.year) !== f.decade)) return false;
+      if (f.language && w.language !== f.language) return false;
+      if (f.country && !w.countries.includes(f.country)) return false;
+      const len = lengthMinutesOf(w);
+      if (f.max_minutes !== null && (len === null || len > f.max_minutes)) return false;
+      for (const key of f.avoid) {
+        if (!w.terms.has(key) || w.terms.get(key).strength >= SUITABLE_BELOW) return false;
+      }
+      if (f.q) {
+        const needle = f.q.trim().toLowerCase();
+        const haystack = [w.title, w.original_title || "", ...w.credits.map((c) => c.name)];
+        if (!haystack.some((h) => h.toLowerCase().includes(needle))) return false;
+      }
+      return true;
+    }
+
+    function sortKey(w, f) {
+      const title = normaliseTitle(w.title);
+      if (f.sort === "title") return [title];
+      if (f.sort === "newest") return [-(w.year || 0), title];
+      if (f.sort === "oldest") return [w.year || 9999, title];
+      if (f.sort === "shortest") {
+        const len = lengthMinutesOf(w);
+        return [len !== null ? len : 10 ** 9, title];
+      }
+      if (f.tags.length) return [-pyRound(f.tags.reduce((a, t) => a + strengthOf(w, t), 0), 6), w.popularity_tier || 5, title];
+      return [w.popularity_tier || 5, title];
+    }
+
+    function facet(counts, label) {
+      return [...counts].map(([value, count]) => ({ value, label: label(value), count }))
+        .sort((a, b) => cmp([-a.count, String(a.label)], [-b.count, String(b.label)]));
+    }
+    const bump = (m, k) => m.set(k, (m.get(k) || 0) + 1);
+
+    function browse(works, filters) {
+      const f = { media: [], tags: [], decade: null, language: null, country: null, max_minutes: null, avoid: [], q: "",
+        sort: "popular", ...filters };
+      const hits = works.filter((w) => matches(w, f)).sort((a, b) => cmp(sortKey(a, f), sortKey(b, f)));
+      const media = new Map(), decades = new Map(), languages = new Map();
+      const byDim = { genre: new Map(), theme: new Map(), mood: new Map() };
+      for (const w of hits) {
+        bump(media, w.medium);
+        if (w.year !== null) bump(decades, decadeOf(w.year));
+        if (w.language) bump(languages, w.language);
+        for (const [k] of tagsOf(w, Object.keys(byDim))) bump(byDim[k.split(":")[0]], k);
+      }
+      const facets = {
+        medium: facet(media, (v) => v),
+        decade: [...decades].map(([d, n]) => ({ value: d, label: `${d}s`, count: n })).sort((a, b) => b.value - a.value),
+        language: facet(languages, (v) => v),
+      };
+      for (const [d, c] of Object.entries(byDim)) facets[d] = facet(c, (v) => tax.get(v).label).slice(0, 12);
+      return { total: hits.length, results: hits.map(card), facets };
+    }
+
+    function tagIndex(works) {
+      const counts = new Map();
+      for (const w of works) for (const [k] of tagsOf(w, TAG_DIMENSIONS)) bump(counts, k);
+      const out = [];
+      for (const d of TAG_DIMENSIONS) {
+        const terms = tax.inDimension(d).filter((t) => counts.get(t.key))
+          .map((t) => ({ key: t.key, label: t.label, count: counts.get(t.key) }))
+          .sort((a, b) => cmp([-a.count, a.label], [-b.count, b.label]));
+        if (terms.length) out.push({ dimension: d, label: tax.dimensions[d].label, terms });
+      }
+      return out;
+    }
+
+    function tagPage(works, key) {
+      if (!tax.terms.has(key)) return null;
+      const term = tax.get(key);
+      const tagged = works.filter((w) => strengthOf(w, key) >= TAG_THRESHOLD)
+        .sort((a, b) => cmp([-strengthOf(a, key), normaliseTitle(a.title)], [-strengthOf(b, key), normaliseTitle(b.title)]));
+      const related = new Map();
+      for (const w of tagged) for (const [k] of tagsOf(w, TAG_DIMENSIONS)) if (k !== key) bump(related, k);
+      return {
+        key, label: term.label, definition: term.definition, dimension: term.dimension,
+        dimension_label: tax.dimensions[term.dimension].label, applies_to: [...term.applies_to],
+        works: tagged.map((w) => ({ ...card(w), strength: strengthOf(w, key) })),
+        related: [...related].sort((a, b) => cmp([-a[1], tax.get(a[0]).label], [-b[1], tax.get(b[0]).label])).slice(0, 10)
+          .map(([k, n]) => ({ key: k, label: tax.get(k).label, count: n })),
+      };
+    }
+
+    function peopleIndex(works) {
+      const people = new Map();
+      for (const w of works) {
+        for (const c of w.credits) {
+          const slug = slugify(c.name);
+          if (!people.has(slug)) people.set(slug, { slug, name: c.name, kind: c.kind, roles: [], count: 0, _works: new Set() });
+          const p = people.get(slug);
+          if (!p.roles.includes(c.role)) p.roles.push(c.role);
+          p._works.add(w.slug);
+        }
+      }
+      const out = [...people.values()].map(({ _works, ...p }) => ({ ...p, count: _works.size, roles: [...p.roles].sort() }));
+      return out.sort((a, b) => cmp([-a.count, a.name], [-b.count, b.name]));
+    }
+
+    function personPage(works, slug) {
+      const credited = [];
+      let name = null, kind = null;
+      for (const w of works) {
+        const roles = w.credits.filter((c) => slugify(c.name) === slug).map((c) => c.role);
+        if (roles.length) {
+          const c = w.credits.find((x) => slugify(x.name) === slug);
+          name = c.name;
+          kind = c.kind;
+          credited.push([w, roles]);
+        }
+      }
+      if (!credited.length) return null;
+      credited.sort((a, b) => cmp([-(a[0].year || 0), normaliseTitle(a[0].title)], [-(b[0].year || 0), normaliseTitle(b[0].title)]));
+      const roles = [...new Set(credited.flatMap(([, rs]) => rs))].sort();
+      const themes = new Map();
+      for (const [w] of credited) for (const [k] of tagsOf(w, ["theme", "mood"])) bump(themes, k);
+      return {
+        slug, name, kind, roles,
+        works: credited.map(([w, rs]) => ({ ...card(w), roles: rs })),
+        recurring_tags: [...themes].sort((a, b) => cmp([-a[1], tax.get(a[0]).label], [-b[1], tax.get(b[0]).label]))
+          .filter(([, n]) => n > 1).slice(0, 8).map(([k, n]) => ({ key: k, label: tax.get(k).label, count: n })),
+      };
+    }
+
+    function parentsGuide(w) {
+      const groups = [];
+      for (const [group, label] of tax.guideGroups) {
+        const items = tax.inDimension("advisory").filter((t) => t.group === group).map((t) => {
+          const ev = w.terms.get(t.key);
+          return {
+            key: t.key, label: t.label, definition: t.definition, assessed: !!ev,
+            level: ev ? ev.strength : null, severity: ev ? severity(ev.strength) : "Not assessed",
+            note: ev ? ev.note ?? null : null, spoiler_note: ev ? ev.spoiler_note ?? null : null,
+            basis: ev ? basisOf(ev.is_interpretation, ev.review_status) : null,
+          };
+        });
+        const assessed = items.filter((i) => i.assessed);
+        groups.push({
+          slug: group, label,
+          severity: assessed.length ? severity(Math.max(...assessed.map((i) => i.level))) : "Not assessed",
+          partial: assessed.length > 0 && assessed.length < items.length,
+          items,
+        });
+      }
+      return {
+        ratings: w.ratings.map((r) => ({ system: r.system, rating: r.rating, reason: r.reason })),
+        assessed: groups.some((g) => g.severity !== "Not assessed"),
+        groups,
+      };
+    }
+
+    function workPage(w, works) {
+      const bySlug = new Map(works.map((x) => [x.slug, x]));
+      const tags = [];
+      for (const d of TAG_DIMENSIONS) {
+        const terms = [...w.terms].filter(([k, ev]) => k.split(":")[0] === d && ev.strength > 0)
+          .map(([k, ev]) => ({ key: k, label: tax.get(k).label, definition: tax.get(k).definition, strength: ev.strength,
+            confidence: ev.confidence, basis: basisOf(ev.is_interpretation, ev.review_status) }))
+          .sort((a, b) => cmp([-a.strength, a.key], [-b.strength, b.key]));
+        if (terms.length) tags.push({ dimension: d, label: tax.dimensions[d].label, terms });
+      }
+      const relationships = w.relations.map((r) => ({ label: r.label, type: r.type, factual: r.factual, slug: r.other_slug,
+        title: r.other_title, medium: r.other_medium, year: bySlug.has(r.other_slug) ? bySlug.get(r.other_slug).year : null,
+        note: r.note, confidence: r.confidence }))
+        .sort((a, b) => cmp([a.factual ? 0 : 1, -a.confidence, a.title], [b.factual ? 0 : 1, -b.confidence, b.title]));
+      return {
+        slug: w.slug, medium: w.medium, title: w.title, original_title: w.original_title,
+        original_language: w.language, countries: w.countries, year: w.year, summary: w.summary,
+        length: lengthText(w), runtime_minutes: w.runtime_minutes, playtime_hours: w.playtime_hours,
+        length_is_estimate: w.length_is_estimate, popularity_tier: w.popularity_tier, attributes: w.attributes,
+        credits: w.credits.map((c) => ({ role: c.role, name: c.name, kind: c.kind, slug: slugify(c.name) })),
+        tags, parents_guide: parentsGuide(w), relationships,
+      };
+    }
+
+    return { browse, tagIndex, tagPage, peopleIndex, personPage, workPage };
+  }
 
   function stem(word) {
     for (const suffix of ["ing", "es", "ed", "s"]) {
@@ -718,20 +961,23 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
         const conf = key.startsWith("genre:") ? d.genre_confidence : d.term_confidence;
         terms.set(key, { strength, confidence: conf, origin: "ai_assisted", review_status: "unreviewed", is_interpretation: true });
       }
-      if (has(w, "advisories")) {
-        for (const t of tax.inDimension("advisory")) {
-          terms.set(t.key, { strength: has(w.advisories, t.slug) ? w.advisories[t.slug] : 0.0,
-            confidence: d.advisory_confidence, origin: "ai_assisted", review_status: "unreviewed", is_interpretation: true });
-        }
+      for (const [slug, value] of Object.entries(w.advisories || {})) {
+        const [level, note, spoiler] = parseAdvisory(value);
+        terms.set(`advisory:${slug}`, { strength: level, confidence: d.advisory_confidence, origin: "ai_assisted",
+          review_status: "unreviewed", is_interpretation: true, note, spoiler_note: spoiler });
       }
       works.set(w.slug, {
         id: w.slug, slug: w.slug, medium: w.medium, title: w.title, original_title: w.original_title ?? null,
         year: w.year ?? null, language: w.language ?? null, countries: w.countries || [], summary: w.summary ?? null,
         runtime_minutes: w.runtime_minutes ?? null, playtime_hours: w.playtime_hours ?? null,
         length_is_estimate: !!w.length_is_estimate, popularity_tier: w.popularity_tier ?? null,
-        advisories_assessed: has(w, "advisories"),
+        advisories_assessed: Object.keys(w.advisories || {}).length > 0,
         creators: (w.credits || []).filter((c) => PRIMARY_ROLES.includes(c[0])).map((c) => c[1]),
         terms, relations: [],
+        credits: (w.credits || []).map((c) => ({ role: c[0], name: c[1],
+          kind: c.length === 3 ? c[2] : ORGANISATION_ROLES.includes(c[0]) ? "organisation" : "person" })),
+        ratings: (w.ratings || []).map(([system, rating, reason]) => ({ system, rating, reason })),
+        attributes: w.attributes || {},
       });
     }
     for (const [aSlug, type, bSlug, note, confidence] of data.relationships || []) {
@@ -787,31 +1033,16 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       };
     }
 
-    function work(slug) {
-      const raw = data.works.find((w) => w.slug === slug);
-      if (!raw) return null;
-      const p = works.get(slug);
-      const classifications = [...p.terms].map(([key, ev]) => {
-        const t = tax.get(key);
-        return { dimension: t.dimension, slug: t.slug, label: t.label, definition: t.definition, strength: ev.strength,
-          confidence: ev.confidence, origin: ev.origin, review_status: ev.review_status,
-          is_interpretation: ev.is_interpretation, is_spoiler: false };
-      }).sort((a, b) => (a.dimension < b.dimension ? -1 : a.dimension > b.dimension ? 1 : b.strength - a.strength));
-      const relationships = p.relations.map((r) => ({ label: r.label, type: r.type, factual: r.factual, slug: r.other_slug,
-        title: r.other_title, medium: r.other_medium, release_year: works.get(r.other_slug).year, note: r.note,
-        confidence: r.confidence, is_spoiler: false }))
-        .sort((a, b) => (a.factual === b.factual ? b.confidence - a.confidence : a.factual ? -1 : 1));
-      return {
-        slug, medium: raw.medium, title: raw.title, original_title: raw.original_title ?? null,
-        original_language: raw.language ?? null, countries: raw.countries || [], release_year: raw.year ?? null,
-        summary: raw.summary ?? null, summary_spoiler: null, runtime_minutes: raw.runtime_minutes ?? null,
-        playtime_hours: raw.playtime_hours ?? null, length_is_estimate: !!raw.length_is_estimate,
-        attributes: raw.attributes || {}, advisories_assessed: has(raw, "advisories"),
-        credits: (raw.credits || []).map((c) => ({ role: c[0], name: c[1] })), classifications, relationships,
-      };
-    }
-
-    return { discover, work, works: list, taxonomy: tax };
+    const views = createViews(tax);
+    const work = (slug) => (works.has(slug) ? views.workPage(works.get(slug), list) : null);
+    return {
+      discover, work, works: list, taxonomy: tax,
+      browse: (filters) => views.browse(list, filters || {}),
+      tags: () => views.tagIndex(list),
+      tag: (key) => views.tagPage(list, key),
+      people: () => views.peopleIndex(list),
+      person: (slug) => views.personPage(list, slug),
+    };
   }
 
   return { createCatalogue };

@@ -15,7 +15,7 @@ import psycopg
 from psycopg.types.json import Jsonb
 
 from mde import taxonomy as taxonomy_mod
-from mde.catalogue.model import normalise_title, slugify
+from mde.catalogue.model import ORGANISATION_ROLES, normalise_title, parse_advisory, slugify
 from mde.taxonomy import Taxonomy
 
 SEED_PATH = Path(__file__).parent.parent / "seed" / "catalogue.json"
@@ -39,7 +39,6 @@ SEED_SOURCES = {
     },
 }
 
-ORGANISATION_ROLES = {"developer", "publisher", "studio", "label", "distributor"}
 VALID_MEDIA = {"film", "series", "episode", "book", "comic", "game", "album", "track", "podcast", "online_video", "channel"}
 
 
@@ -83,8 +82,15 @@ def validate(data: dict, tax: Taxonomy) -> list[str]:
         for slug, value in (w.get("advisories") or {}).items():
             if f"advisory:{slug}" not in tax.terms:
                 errors.append(f"{where}: unknown advisory {slug!r}")
-            if not isinstance(value, (int, float)) or not 0 <= value <= 1:
+            if isinstance(value, list) and not (2 <= len(value) <= 3 and all(isinstance(x, str) for x in value[1:])):
+                errors.append(f"{where}: advisory {slug} must be a number or [intensity, note, spoiler note?]")
+                continue
+            level = value[0] if isinstance(value, list) else value
+            if not isinstance(level, (int, float)) or not 0 <= level <= 1:
                 errors.append(f"{where}: intensity for advisory {slug} must be in [0, 1]")
+        for r in w.get("ratings", []):
+            if len(r) != 3 or not all(isinstance(x, str) for x in r[:2]) or not (r[2] is None or isinstance(r[2], str)):
+                errors.append(f"{where}: rating must be [system, rating, reason or null], got {r!r}")
         for c in w.get("credits", []):
             if len(c) not in (2, 3) or (len(c) == 3 and c[2] not in ("person", "organisation")):
                 errors.append(f"{where}: malformed credit {c!r}")
@@ -155,7 +161,7 @@ def _work_values(w: dict) -> dict:
         "length_is_estimate": bool(w.get("length_is_estimate", False)),
         "popularity_tier": w.get("popularity_tier"),
         "attributes": w.get("attributes", {}),
-        "advisories_assessed": "advisories" in w,
+        "advisories_assessed": bool(w.get("advisories")),
     }
 
 
@@ -243,21 +249,31 @@ def import_catalogue(conn: psycopg.Connection, data: dict, tax: Taxonomy | None 
             rows = []
             for key, strength in w.get("terms", {}).items():
                 conf = defaults["genre_confidence"] if key.startswith("genre:") else defaults["term_confidence"]
-                rows.append((key, strength, conf))
-            if "advisories" in w:
-                # Assessed works get an explicit 0 for every advisory not listed: "assessed absent" is
-                # different from "never assessed".
-                for term in tax.in_dimension("advisory"):
-                    rows.append((term.key, w["advisories"].get(term.slug, 0.0), defaults["advisory_confidence"]))
-            for key, strength, conf in rows:
+                rows.append((key, strength, conf, None, None))
+            # Only listed advisory categories were assessed. A listed 0 means "assessed, none"; an unlisted
+            # category stays absent, which reads as "not assessed".
+            for slug, value in (w.get("advisories") or {}).items():
+                level, note, spoiler = parse_advisory(value)
+                rows.append((f"advisory:{slug}", level, defaults["advisory_confidence"], note, spoiler))
+            for key, strength, conf, note, spoiler in rows:
                 conn.execute(
                     "INSERT INTO classification (work_id, term_id, strength, confidence, origin, is_interpretation, "
-                    "source_id, taxonomy_version) VALUES (%s, %s, %s, %s, 'ai_assisted', %s, %s, %s)",
+                    "evidence, spoiler_evidence, source_id, taxonomy_version) "
+                    "VALUES (%s, %s, %s, %s, 'ai_assisted', %s, %s, %s, %s, %s)",
                     # Everything from this source is an interpretation, genres included: none of it has
                     # been checked against an authoritative source yet.
-                    (work_id, term_ids[key], strength, conf, True, sources["ai-assisted-seed"], tax.version),
+                    (work_id, term_ids[key], strength, conf, True, note, spoiler, sources["ai-assisted-seed"],
+                     tax.version),
                 )
                 stats.classifications += 1
+
+            conn.execute("DELETE FROM content_rating WHERE work_id = %s AND source_id = %s",
+                         (work_id, sources["editorial-seed"]))
+            for system, rating, reason in w.get("ratings", []):
+                conn.execute(
+                    "INSERT INTO content_rating (work_id, system, rating, reason, source_id) VALUES (%s, %s, %s, %s, %s)",
+                    (work_id, system, rating, reason, sources["editorial-seed"]),
+                )
 
         for from_slug, rel_type, to_slug, note, confidence in data.get("relationships", []):
             factual = conn.execute("SELECT factual FROM relationship_type WHERE slug = %s", (rel_type,)).fetchone()

@@ -12,10 +12,10 @@ from pydantic import BaseModel, Field
 
 from mde import db
 from mde import taxonomy as taxonomy_mod
-from mde.catalogue import repository
+from mde.catalogue import browse, repository
 from mde.discovery.engine import discover
 
-app = FastAPI(title="Media Discovery Engine", version="0.1.0")
+app = FastAPI(title="Media Discovery Engine", version="0.2.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[o for o in os.environ.get("CORS_ORIGINS", "http://localhost:3000").split(",") if o],
@@ -47,13 +47,66 @@ def discover_endpoint(q: str = Query(min_length=2, max_length=500), limit: int =
         return discover(conn, q, limit=limit).to_dict()
 
 
+@app.get("/api/works")
+def browse_endpoint(
+    medium: list[str] = Query(default=[]),
+    tag: list[str] = Query(default=[], description="taxonomy keys such as theme:grief-loss; all must apply"),
+    decade: int | None = Query(default=None, ge=1800, le=2100),
+    language: str | None = Query(default=None, max_length=8),
+    country: str | None = Query(default=None, max_length=8),
+    max_minutes: int | None = Query(default=None, ge=1),
+    avoid: list[str] = Query(default=[], description="advisory keys; keeps works assessed as none or mild"),
+    q: str = Query(default="", max_length=200),
+    sort: Literal["popular", "title", "newest", "oldest", "shortest"] = "popular",
+) -> dict:
+    tax = taxonomy_mod.load()
+    unknown = [k for k in [*tag, *avoid] if k not in tax.terms]
+    if unknown or any(not k.startswith("advisory:") for k in avoid):
+        raise HTTPException(422, f"unknown or invalid taxonomy keys: {unknown or avoid}")
+    filters = browse.BrowseFilters(media=medium, tags=tag, decade=decade, language=language, country=country,
+                                   max_minutes=max_minutes, avoid=avoid, q=q, sort=sort)
+    with db.connect() as conn:
+        return browse.browse(repository.load_profiles(conn), tax, filters)
+
+
 @app.get("/api/works/{slug}")
 def work_endpoint(slug: str) -> dict:
     with db.connect() as conn:
-        work = repository.get_work(conn, slug)
-    if work is None:
-        raise HTTPException(404, "work not found")
-    return work
+        works = repository.load_profiles(conn)
+        work = next((w for w in works if w.slug == slug), None)
+        if work is None:
+            raise HTTPException(404, "work not found")
+        return {**browse.work_page(work, works, taxonomy_mod.load()), **repository.work_sources(conn, slug)}
+
+
+@app.get("/api/tags")
+def tags_endpoint() -> list[dict]:
+    with db.connect() as conn:
+        return browse.tag_index(repository.load_profiles(conn), taxonomy_mod.load())
+
+
+@app.get("/api/tags/{dimension}/{slug}")
+def tag_endpoint(dimension: str, slug: str) -> dict:
+    with db.connect() as conn:
+        page = browse.tag_page(repository.load_profiles(conn), taxonomy_mod.load(), f"{dimension}:{slug}")
+    if page is None:
+        raise HTTPException(404, "tag not found")
+    return page
+
+
+@app.get("/api/people")
+def people_endpoint() -> list[dict]:
+    with db.connect() as conn:
+        return browse.people_index(repository.load_profiles(conn))
+
+
+@app.get("/api/people/{slug}")
+def person_endpoint(slug: str) -> dict:
+    with db.connect() as conn:
+        page = browse.person_page(repository.load_profiles(conn), taxonomy_mod.load(), slug)
+    if page is None:
+        raise HTTPException(404, "person not found")
+    return page
 
 
 @app.get("/api/taxonomy")
@@ -63,7 +116,9 @@ def taxonomy_endpoint() -> dict:
         "version": tax.version,
         "dimensions": [d.__dict__ for d in tax.dimensions.values()],
         "terms": [{"key": t.key, "dimension": t.dimension, "slug": t.slug, "label": t.label,
-                   "definition": t.definition, "applies_to": list(t.applies_to)} for t in tax.terms.values()],
+                   "definition": t.definition, "applies_to": list(t.applies_to), "group": t.group}
+                  for t in tax.terms.values()],
+        "guide_groups": [{"slug": g, "label": label} for g, label in tax.guide_groups],
     }
 
 

@@ -60,34 +60,99 @@ export interface DiscoverResponse {
   message: string | null;
 }
 
-export interface Classification {
-  dimension: string;
-  slug: string;
+export interface TagRef {
+  key: string;
   label: string;
-  definition: string;
-  strength: number;
-  confidence: number;
-  origin: string;
-  review_status: string;
-  is_interpretation: boolean;
-  is_spoiler: boolean;
-  taxonomy_version: string;
-  source: string;
 }
 
-export interface WorkRelationship {
+export interface GuideFlag {
+  group: string;
   label: string;
-  type: string;
-  factual: boolean;
+  severity: Severity;
+}
+
+export type Severity = "None" | "Mild" | "Moderate" | "Severe" | "Not assessed";
+
+/** A work as shown in lists: browse results, tag pages, person pages. */
+export interface WorkCard {
   slug: string;
   title: string;
+  original_title: string | null;
   medium: string;
-  release_year: number | null;
+  year: number | null;
+  length: string | null;
+  creators: string[];
+  summary: string | null;
+  genres: TagRef[];
+  tags: TagRef[];
+  ratings: { system: string; rating: string }[];
+  guide_flags: GuideFlag[];
+  strength?: number; // tag pages
+  roles?: string[]; // person pages
+}
+
+export interface FacetValue {
+  value: string | number;
+  label: string;
+  count: number;
+}
+
+export interface BrowseResponse {
+  total: number;
+  results: WorkCard[];
+  facets: Record<"medium" | "decade" | "language" | "genre" | "theme" | "mood", FacetValue[]>;
+}
+
+export interface TagIndexGroup {
+  dimension: string;
+  label: string;
+  terms: (TagRef & { count: number })[];
+}
+
+export interface TagPage {
+  key: string;
+  label: string;
+  definition: string;
+  dimension: string;
+  dimension_label: string;
+  applies_to: string[];
+  works: WorkCard[];
+  related: (TagRef & { count: number })[];
+}
+
+export interface PersonSummary {
+  slug: string;
+  name: string;
+  kind: "person" | "organisation";
+  roles: string[];
+  count: number;
+}
+
+export interface PersonPage {
+  slug: string;
+  name: string;
+  kind: "person" | "organisation";
+  roles: string[];
+  works: WorkCard[];
+  recurring_tags: (TagRef & { count: number })[];
+}
+
+export interface GuideItem {
+  key: string;
+  label: string;
+  definition: string;
+  assessed: boolean;
+  level: number | null;
+  severity: Severity;
   note: string | null;
-  confidence: number;
-  origin: string;
-  review_status: string;
-  is_spoiler: boolean;
+  spoiler_note: string | null;
+  basis: Basis | null;
+}
+
+export interface ParentsGuide {
+  ratings: { system: string; rating: string; reason: string | null }[];
+  assessed: boolean;
+  groups: { slug: string; label: string; severity: Severity; partial: boolean; items: GuideItem[] }[];
 }
 
 export interface Work {
@@ -97,20 +162,32 @@ export interface Work {
   original_title: string | null;
   original_language: string | null;
   countries: string[];
-  release_year: number | null;
+  year: number | null;
   summary: string | null;
-  summary_spoiler: string | null;
+  length: string | null;
   runtime_minutes: number | null;
-  page_count: number | null;
   playtime_hours: number | null;
   length_is_estimate: boolean;
   popularity_tier: number | null;
   attributes: Record<string, unknown>;
-  advisories_assessed: boolean;
-  updated_at: string;
-  credits: { role: string; name: string; kind: string; source: string }[];
-  classifications: Classification[];
-  relationships: WorkRelationship[];
+  credits: { role: string; name: string; kind: string; slug: string }[];
+  tags: {
+    dimension: string;
+    label: string;
+    terms: { key: string; label: string; definition: string; strength: number; confidence: number; basis: Basis }[];
+  }[];
+  parents_guide: ParentsGuide;
+  relationships: {
+    label: string;
+    type: string;
+    factual: boolean;
+    slug: string;
+    title: string;
+    medium: string;
+    year: number | null;
+    note: string | null;
+    confidence: number;
+  }[];
   provenance: { field: string; value: unknown; source: string; source_name: string; observed: string }[];
   sources: { slug: string; name: string; kind: string; notes: string | null }[];
 }

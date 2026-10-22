@@ -32,13 +32,27 @@ def test_invalid_import_writes_nothing(conn):
     assert counts(conn) == before
 
 
-def test_assessed_advisories_are_explicit_zeros_and_unassessed_are_absent(conn):
+def test_only_assessed_advisory_categories_are_stored(conn):
     rows = conn.execute(
-        "SELECT w.slug, count(*) FILTER (WHERE t.dimension = 'advisory') AS n FROM work w "
+        "SELECT w.slug, count(*) FILTER (WHERE t.dimension = 'advisory') AS n, "
+        "count(*) FILTER (WHERE t.dimension = 'advisory' AND c.strength = 0) AS zeros FROM work w "
         "LEFT JOIN classification c ON c.work_id = w.id LEFT JOIN taxonomy_term t ON t.id = c.term_id "
-        "WHERE w.slug IN ('arrival-2016', 'ok-computer-1997') GROUP BY w.slug").fetchall()
-    n = {r["slug"]: r["n"] for r in rows}
-    assert n["arrival-2016"] == 5 and n["ok-computer-1997"] == 0
+        "WHERE w.slug IN ('arrival-2016', 'ok-computer-1997', 'kind-of-blue-1959') GROUP BY w.slug").fetchall()
+    n = {r["slug"]: (r["n"], r["zeros"]) for r in rows}
+    assert n["arrival-2016"] == (6, 4)          # five original categories + strong language; four are "none"
+    assert n["ok-computer-1997"] == (0, 0)      # not assessed at all
+    assert n["kind-of-blue-1959"] == (8, 8)     # instrumental: every category assessed as none
+
+
+def test_parents_guide_notes_and_ratings_are_stored(conn):
+    row = conn.execute(
+        "SELECT c.evidence, c.spoiler_evidence FROM classification c JOIN work w ON w.id = c.work_id "
+        "JOIN taxonomy_term t ON t.id = c.term_id WHERE w.slug = 'solaris-1972' AND t.slug = 'suicide-self-harm'"
+    ).fetchone()
+    assert row["evidence"] and row["spoiler_evidence"]
+    rating = conn.execute("SELECT r.system, r.rating FROM content_rating r JOIN work w ON w.id = r.work_id "
+                          "WHERE w.slug = 'arrival-2016'").fetchone()
+    assert (rating["system"], rating["rating"]) == ("MPA", "PG-13")
 
 
 def test_discover_logs_event_and_explains(conn):
@@ -70,8 +84,8 @@ def test_api_discover_work_and_feedback(client):
     body = r.json()
     slug = body["results"][0]["slug"]
     work = client.get(f"/api/works/{slug}").json()
-    assert work["classifications"] and work["sources"]
-    assert all(c["origin"] == "ai_assisted" for c in work["classifications"])
+    assert work["tags"] and work["sources"] and work["provenance"]
+    assert all(t["basis"] == "interpretation" for d in work["tags"] for t in d["terms"])
     ok = client.post("/api/feedback", json={"event_id": body["event_id"], "work_slug": slug, "kind": "relevant"})
     assert ok.status_code == 201
     assert client.post("/api/feedback", json={"work_slug": slug, "kind": "nonsense"}).status_code == 422
@@ -79,3 +93,27 @@ def test_api_discover_work_and_feedback(client):
                                               "kind": "relevant"}).status_code == 422
     assert client.get("/api/works/does-not-exist").status_code == 404
     assert client.get("/api/discover", params={"q": "x"}).status_code == 422
+
+
+def test_api_catalogue_views_match_the_in_memory_catalogue(client):
+    """Same pure views over PostgreSQL and over the seed file must give the same pages."""
+    from mde.catalogue.browse import BrowseFilters
+    from mde.catalogue.memory import MemoryCatalogue
+    mem = MemoryCatalogue.from_seed()
+
+    r = client.get("/api/works", params={"medium": "film", "avoid": "advisory:graphic-violence", "sort": "newest"})
+    assert r.status_code == 200
+    assert r.json() == json.loads(json.dumps(mem.browse(BrowseFilters(media=["film"], avoid=["advisory:graphic-violence"],
+                                                                         sort="newest"))))
+    page = client.get("/api/works/annihilation-2018").json()
+    expected = json.loads(json.dumps(mem.work("annihilation-2018")))
+    assert {k: page[k] for k in expected} == expected
+    assert client.get("/api/tags/theme/grief-loss").json() == json.loads(json.dumps(mem.tag("theme:grief-loss")))
+    assert client.get("/api/people/denis-villeneuve").json() == json.loads(json.dumps(mem.person("denis-villeneuve")))
+    assert client.get("/api/people").json() == json.loads(json.dumps(mem.people()))
+    assert client.get("/api/tags").json() == json.loads(json.dumps(mem.tags()))
+
+    assert client.get("/api/tags/theme/nope").status_code == 404
+    assert client.get("/api/people/nobody").status_code == 404
+    assert client.get("/api/works", params={"tag": "theme:nope"}).status_code == 422
+    assert client.get("/api/works", params={"avoid": "mood:bleak"}).status_code == 422

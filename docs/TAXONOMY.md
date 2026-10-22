@@ -1,4 +1,4 @@
-# Taxonomy and classification specification (v0.1.0)
+# Taxonomy and classification specification (v0.2.0)
 
 The taxonomy is the product's core intellectual asset. It lives in
 [`api/mde/taxonomy/taxonomy.json`](../api/mde/taxonomy/taxonomy.json) and is synced into `taxonomy_dimension` and
@@ -44,11 +44,37 @@ The taxonomy is the product's core intellectual asset. It lives in
 | `narrative` | graded | Structure and storytelling devices | nonlinear, time-loop, unreliable-narrator, puzzle-box, environmental-storytelling, meaningful-choices |
 | `world` | graded | Setting and world-building | rich-worldbuilding, grounded-realism, space-setting, mythic |
 | `style` | graded | Visual, sonic, prose or interactive craft | atmospheric, visually-striking, hand-drawn, minimalist, lyrical-prose |
-| `advisory` | intensity | Content people may want to avoid | graphic-violence, body-horror, sexual-content, atrocity, jump-scares |
+| `advisory` | intensity | Content people may want to avoid; the basis of the parents' guide | graphic-violence, body-horror, sexual-content, atrocity, jump-scares, strong-language, substance-use, suicide-self-harm |
 
 **Advisory intensity scale:** 0 = assessed and absent · ~0.3 = mild or brief · ~0.6 = notable · ~0.9 = graphic
 or central. The parser maps "no X" to a hard exclusion at ≥ 0.4, and "very little / not too much X" to a hard
 exclusion at ≥ 0.6 plus a ranking penalty from 0.2.
+
+## Parents' guide
+
+Every advisory term belongs to one guide group, shown in this order on each work page:
+
+| Group | Terms |
+| --- | --- |
+| Sex & nudity | sexual-content |
+| Violence & gore | graphic-violence, body-horror, atrocity |
+| Profanity | strong-language |
+| Alcohol, drugs & smoking | substance-use |
+| Frightening & intense scenes | jump-scares |
+| Sensitive topics | suicide-self-harm |
+
+Each assessed term has an intensity, shown as a severity: 0 is **None**, under 0.45 is **Mild**, under 0.75 is
+**Moderate**, and anything higher is **Severe**. A group's severity is the highest among its assessed terms.
+
+Assessment is **per category**. In the seed, a work's `advisories` object lists only the categories someone
+assessed, and an explicit `0` means "assessed: none". A category that isn't listed shows as **Not assessed**,
+both on the work page and in discovery caveats ("Not yet assessed for strong language"). The browse filter
+"none or mild" excludes unassessed works rather than presuming them safe. A note (`[intensity, "note"]`) gives a
+short non-spoiler description. An optional third element is a spoiler note, which is stored separately
+(`classification.spoiler_evidence`) and only shown when the reader asks.
+
+Official age ratings (MPA, ESRB, …) are stored per system in `content_rating`, as recorded facts with a source,
+separate from our own guide.
 
 ## How classifications are made
 

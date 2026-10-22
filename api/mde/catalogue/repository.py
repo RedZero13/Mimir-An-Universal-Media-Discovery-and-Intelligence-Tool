@@ -6,9 +6,9 @@ import re
 
 import psycopg
 
-from mde.catalogue.model import PRIMARY_ROLES, Relation, TermEvidence, WorkProfile, normalise_title
+from mde.catalogue.model import PRIMARY_ROLES, Credit, Rating, Relation, TermEvidence, WorkProfile, normalise_title
 
-__all__ = ["Relation", "TermEvidence", "WorkProfile", "get_work", "keyword_scores", "load_profiles", "resolve_title"]
+__all__ = ["Relation", "TermEvidence", "WorkProfile", "keyword_scores", "load_profiles", "resolve_title", "work_sources"]
 
 
 def load_profiles(conn: psycopg.Connection) -> list[WorkProfile]:
@@ -19,7 +19,7 @@ def load_profiles(conn: psycopg.Connection) -> list[WorkProfile]:
     """
     rows = conn.execute(
         "SELECT id::text, slug, medium, title, original_title, release_year, original_language, countries, summary, "
-        "runtime_minutes, playtime_hours, length_is_estimate, popularity_tier, advisories_assessed FROM work"
+        "runtime_minutes, playtime_hours, length_is_estimate, popularity_tier, advisories_assessed, attributes FROM work"
     ).fetchall()
     works = {
         r["id"]: WorkProfile(
@@ -28,26 +28,36 @@ def load_profiles(conn: psycopg.Connection) -> list[WorkProfile]:
             summary=r["summary"], runtime_minutes=r["runtime_minutes"],
             playtime_hours=float(r["playtime_hours"]) if r["playtime_hours"] is not None else None,
             length_is_estimate=r["length_is_estimate"], popularity_tier=r["popularity_tier"],
-            advisories_assessed=r["advisories_assessed"],
+            advisories_assessed=r["advisories_assessed"], attributes=r["attributes"],
         )
         for r in rows
     }
     for r in conn.execute(
         "SELECT c.work_id::text, t.dimension || ':' || t.slug AS key, c.strength, c.confidence, c.origin, "
-        "c.review_status, c.is_interpretation FROM classification c JOIN taxonomy_term t ON t.id = c.term_id "
+        "c.review_status, c.is_interpretation, c.evidence, c.spoiler_evidence FROM classification c "
+        "JOIN taxonomy_term t ON t.id = c.term_id "
         "WHERE c.review_status <> 'rejected' AND NOT t.deprecated AND NOT c.is_spoiler"
     ).fetchall():
         w = works[r["work_id"]]
-        ev = TermEvidence(r["strength"], r["confidence"], r["origin"], r["review_status"], r["is_interpretation"])
+        ev = TermEvidence(r["strength"], r["confidence"], r["origin"], r["review_status"], r["is_interpretation"],
+                          r["evidence"], r["spoiler_evidence"])
         # Several origins may classify the same term; keep the most confident claim.
         if r["key"] not in w.terms or w.terms[r["key"]].confidence < ev.confidence:
             w.terms[r["key"]] = ev
     for r in conn.execute(
-        "SELECT cr.work_id::text, coalesce(p.name, o.name) AS name FROM credit cr "
+        "SELECT cr.work_id::text, cr.role, coalesce(p.name, o.name) AS name, "
+        "CASE WHEN p.id IS NULL THEN 'organisation' ELSE 'person' END AS kind FROM credit cr "
         "LEFT JOIN person p ON p.id = cr.person_id LEFT JOIN organisation o ON o.id = cr.organisation_id "
-        "WHERE cr.role = ANY(%s) ORDER BY cr.ordinal", (list(PRIMARY_ROLES),)
+        "ORDER BY cr.work_id, cr.ordinal"
     ).fetchall():
-        works[r["work_id"]].creators.append(r["name"])
+        w = works[r["work_id"]]
+        w.credits.append(Credit(r["role"], r["name"], r["kind"]))
+        if r["role"] in PRIMARY_ROLES:
+            w.creators.append(r["name"])
+    for r in conn.execute(
+        "SELECT work_id::text, system, rating, reason FROM content_rating ORDER BY work_id, system"
+    ).fetchall():
+        works[r["work_id"]].ratings.append(Rating(r["system"], r["rating"], r["reason"]))
     for r in conn.execute(
         "SELECT r.from_work_id::text AS a, r.to_work_id::text AS b, r.type, r.note, r.confidence, r.origin, "
         "rt.label, rt.inverse, rt.factual FROM relationship r JOIN relationship_type rt ON rt.slug = r.type "
@@ -92,46 +102,22 @@ def resolve_title(conn: psycopg.Connection, phrase: str) -> str | None:
     return hits[0]["slug"]
 
 
-def get_work(conn: psycopg.Connection, slug: str) -> dict | None:
-    work = conn.execute(
-        "SELECT id, slug, medium, title, original_title, original_language, countries, release_year, summary, "
-        "summary_spoiler, runtime_minutes, page_count, playtime_hours, length_is_estimate, popularity_tier, "
-        "attributes, advisories_assessed, updated_at FROM work WHERE slug = %s", (slug,)
-    ).fetchone()
-    if work is None:
+def work_sources(conn: psycopg.Connection, slug: str) -> dict | None:
+    """Database-only provenance for a work page: which source supplied each fact, and the sources involved."""
+    row = conn.execute("SELECT id FROM work WHERE slug = %s", (slug,)).fetchone()
+    if row is None:
         return None
-    wid = work.pop("id")
-    if work["playtime_hours"] is not None:
-        work["playtime_hours"] = float(work["playtime_hours"])
-    work["updated_at"] = work["updated_at"].isoformat()
-    work["credits"] = conn.execute(
-        "SELECT cr.role, coalesce(p.name, o.name) AS name, CASE WHEN p.id IS NULL THEN 'organisation' ELSE 'person' "
-        "END AS kind, s.slug AS source FROM credit cr LEFT JOIN person p ON p.id = cr.person_id "
-        "LEFT JOIN organisation o ON o.id = cr.organisation_id JOIN source s ON s.id = cr.source_id "
-        "WHERE cr.work_id = %s ORDER BY cr.ordinal", (wid,)
-    ).fetchall()
-    work["classifications"] = conn.execute(
-        "SELECT t.dimension, t.slug, t.label, t.definition, c.strength, c.confidence, c.origin, c.review_status, "
-        "c.is_interpretation, c.is_spoiler, c.taxonomy_version, s.slug AS source FROM classification c "
-        "JOIN taxonomy_term t ON t.id = c.term_id JOIN source s ON s.id = c.source_id "
-        "WHERE c.work_id = %s AND c.review_status <> 'rejected' ORDER BY t.dimension, c.strength DESC", (wid,)
-    ).fetchall()
-    work["relationships"] = conn.execute(
-        "SELECT CASE WHEN r.from_work_id = %(id)s THEN rt.label ELSE rt.inverse END AS label, r.type, rt.factual, "
-        "w.slug, w.title, w.medium, w.release_year, r.note, r.confidence, r.origin, r.review_status, r.is_spoiler "
-        "FROM relationship r JOIN relationship_type rt ON rt.slug = r.type "
-        "JOIN work w ON w.id = CASE WHEN r.from_work_id = %(id)s THEN r.to_work_id ELSE r.from_work_id END "
-        "WHERE (r.from_work_id = %(id)s OR r.to_work_id = %(id)s) AND r.review_status <> 'rejected' "
-        "ORDER BY rt.factual DESC, r.confidence DESC", {"id": wid}
-    ).fetchall()
-    work["provenance"] = conn.execute(
-        "SELECT fp.field, fp.value, s.slug AS source, s.name AS source_name, fp.observed_at::date::text AS observed "
-        "FROM field_provenance fp JOIN source s ON s.id = fp.source_id WHERE fp.work_id = %s AND fp.is_selected "
-        "ORDER BY fp.field", (wid,)
-    ).fetchall()
-    work["sources"] = conn.execute(
-        "SELECT DISTINCT s.slug, s.name, s.kind, s.notes FROM source s WHERE s.id IN ("
-        "SELECT source_id FROM credit WHERE work_id = %(id)s UNION SELECT source_id FROM classification "
-        "WHERE work_id = %(id)s UNION SELECT source_id FROM field_provenance WHERE work_id = %(id)s)", {"id": wid}
-    ).fetchall()
-    return work
+    wid = row["id"]
+    return {
+        "provenance": conn.execute(
+            "SELECT fp.field, fp.value, s.slug AS source, s.name AS source_name, fp.observed_at::date::text AS observed "
+            "FROM field_provenance fp JOIN source s ON s.id = fp.source_id WHERE fp.work_id = %s AND fp.is_selected "
+            "ORDER BY fp.field", (wid,)
+        ).fetchall(),
+        "sources": conn.execute(
+            "SELECT DISTINCT s.slug, s.name, s.kind, s.notes FROM source s WHERE s.id IN ("
+            "SELECT source_id FROM credit WHERE work_id = %(id)s UNION SELECT source_id FROM classification "
+            "WHERE work_id = %(id)s UNION SELECT source_id FROM field_provenance WHERE work_id = %(id)s "
+            "UNION SELECT source_id FROM content_rating WHERE work_id = %(id)s) ORDER BY s.slug", {"id": wid}
+        ).fetchall(),
+    }

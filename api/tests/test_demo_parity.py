@@ -58,6 +58,33 @@ EXTRA_QUERIES = [
 ]
 
 
+BROWSE_CASES = [
+    {},
+    {"media": ["film"]},
+    {"media": ["game", "book"], "sort": "title"},
+    {"tags": ["theme:grief-loss"]},
+    {"tags": ["theme:consciousness-ai", "genre:science-fiction"], "sort": "popular"},
+    {"decade": 1970},
+    {"language": "ja"},
+    {"country": "GB", "sort": "oldest"},
+    {"max_minutes": 100, "sort": "shortest"},
+    {"media": ["film"], "avoid": ["advisory:graphic-violence", "advisory:strong-language"], "sort": "newest"},
+    {"avoid": ["advisory:substance-use"]},
+    {"q": "tarkovsky"},
+    {"q": "  the  "},
+    {"q": "zzz-nothing"},
+    {"media": ["album"], "tags": ["mood:melancholic"], "sort": "shortest"},
+]
+
+
+def _views():
+    cat = MemoryCatalogue.from_seed()
+    tag_keys = [t["key"] for d in cat.tags() for t in d["terms"]] + ["theme:not-a-tag", "advisory:strong-language"]
+    people = [p["slug"] for p in cat.people()] + ["nobody"]
+    return ([["browse", b] for b in BROWSE_CASES] + [["tag", k] for k in tag_keys] + [["tags", None]]
+            + [["person", s] for s in people] + [["people", None]])
+
+
 @pytest.fixture(scope="module")
 def js_output():
     node = shutil.which("node")
@@ -65,7 +92,8 @@ def js_output():
         pytest.skip("node is not installed")
     queries = [q["query"] for q in BENCHMARK["queries"]] + EXTRA_QUERIES
     slugs = [w.slug for w in MemoryCatalogue.from_seed().works]
-    proc = subprocess.run([node, str(ROOT / "demo/parity.cjs")], input=json.dumps({"queries": queries, "slugs": slugs}),
+    payload = {"queries": queries, "slugs": slugs, "views": _views()}
+    proc = subprocess.run([node, str(ROOT / "demo/parity.cjs")], input=json.dumps(payload),
                           capture_output=True, text=True, check=True)
     return queries, slugs, json.loads(proc.stdout)
 
@@ -91,3 +119,13 @@ def test_work_pages_are_identical(js_output):
     cat = MemoryCatalogue.from_seed()
     for slug, js in zip(slugs, out["works"], strict=True):
         assert _normalise(cat.work(slug)) == js, slug
+
+
+def test_catalogue_views_are_identical(js_output):
+    from mde.catalogue.browse import BrowseFilters
+    cat = MemoryCatalogue.from_seed()
+    run = {"browse": lambda a: cat.browse(BrowseFilters(**a)), "tag": cat.tag, "tags": lambda _: cat.tags(),
+           "person": cat.person, "people": lambda _: cat.people()}
+    views = _views()
+    mismatches = [v for v, js in zip(views, js_output[2]["views"], strict=True) if _normalise(run[v[0]](v[1])) != js]
+    assert not mismatches, mismatches

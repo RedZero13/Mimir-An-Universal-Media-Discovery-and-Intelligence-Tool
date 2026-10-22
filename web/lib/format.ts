@@ -44,3 +44,23 @@ export function termLabel(key: string): string {
   const slug = key.split(":")[1] ?? key;
   return slug.replace(/-/g, " ");
 }
+
+export const tagHref = (key: string) => `/tags/${key.replace(":", "/")}`;
+
+/** Advisory filters offered on the browse page, in parents' guide order. */
+export const AVOID_OPTIONS: { key: string; label: string }[] = [
+  { key: "advisory:sexual-content", label: "Sex & nudity" },
+  { key: "advisory:graphic-violence", label: "Graphic violence" },
+  { key: "advisory:body-horror", label: "Body horror" },
+  { key: "advisory:atrocity", label: "Atrocity" },
+  { key: "advisory:strong-language", label: "Strong language" },
+  { key: "advisory:substance-use", label: "Alcohol, drugs & smoking" },
+  { key: "advisory:jump-scares", label: "Frightening scenes" },
+  { key: "advisory:suicide-self-harm", label: "Suicide & self-harm" },
+];
+
+export const LANGUAGE_LABELS: Record<string, string> = {
+  en: "English", ja: "Japanese", ru: "Russian", ko: "Korean", de: "German", pl: "Polish", it: "Italian", fr: "French",
+  be: "Belarusian", es: "Spanish",
+};
+export const languageLabel = (code: string) => LANGUAGE_LABELS[code] ?? code;

@@ -11,7 +11,19 @@ import json
 import re
 from pathlib import Path
 
-from mde.catalogue.model import RELATIONSHIP_TYPES, Relation, TermEvidence, WorkProfile, normalise_title
+from mde.catalogue import browse
+from mde.catalogue.model import (
+    ORGANISATION_ROLES,
+    PRIMARY_ROLES,
+    RELATIONSHIP_TYPES,
+    Credit,
+    Rating,
+    Relation,
+    TermEvidence,
+    WorkProfile,
+    normalise_title,
+    parse_advisory,
+)
 from mde.discovery.pipeline import DiscoveryResponse, run_pipeline
 from mde.taxonomy import Taxonomy
 from mde.taxonomy import load as load_taxonomy
@@ -27,18 +39,22 @@ def profiles_from_catalogue(data: dict, tax: Taxonomy) -> list[WorkProfile]:
         for key, strength in w.get("terms", {}).items():
             conf = d["genre_confidence"] if key.startswith("genre:") else d["term_confidence"]
             terms[key] = TermEvidence(strength, conf, "ai_assisted", "unreviewed", True)
-        if "advisories" in w:
-            for term in tax.in_dimension("advisory"):
-                terms[term.key] = TermEvidence(w["advisories"].get(term.slug, 0.0), d["advisory_confidence"],
-                                               "ai_assisted", "unreviewed", True)
+        for slug, value in (w.get("advisories") or {}).items():
+            level, note, spoiler = parse_advisory(value)
+            terms[f"advisory:{slug}"] = TermEvidence(level, d["advisory_confidence"], "ai_assisted", "unreviewed", True,
+                                                     note, spoiler)
         works[w["slug"]] = WorkProfile(
             id=w["slug"], slug=w["slug"], medium=w["medium"], title=w["title"], original_title=w.get("original_title"),
             year=w.get("year"), language=w.get("language"), countries=w.get("countries", []), summary=w.get("summary"),
             runtime_minutes=w.get("runtime_minutes"), playtime_hours=w.get("playtime_hours"),
             length_is_estimate=bool(w.get("length_is_estimate")), popularity_tier=w.get("popularity_tier"),
-            advisories_assessed="advisories" in w,
-            creators=[c[1] for c in w.get("credits", []) if c[0] in ("director", "author", "developer", "artist")],
+            advisories_assessed=bool(w.get("advisories")),
+            creators=[c[1] for c in w.get("credits", []) if c[0] in PRIMARY_ROLES],
             terms=terms,
+            credits=[Credit(c[0], c[1], c[2] if len(c) == 3 else ("organisation" if c[0] in ORGANISATION_ROLES else "person"))
+                     for c in w.get("credits", [])],
+            ratings=[Rating(*r) for r in w.get("ratings", [])],
+            attributes=w.get("attributes", {}),
         )
     for a_slug, rel_type, b_slug, note, confidence in data.get("relationships", []):
         label, inverse, factual = RELATIONSHIP_TYPES[rel_type]
@@ -86,34 +102,24 @@ class MemoryCatalogue:
     def discover(self, query: str, limit: int = 8) -> DiscoveryResponse:
         return run_pipeline(query, self.works, self.keyword_scores, self.resolve_title, limit=limit)
 
+    def get(self, slug: str) -> WorkProfile | None:
+        return next((w for w in self.works if w.slug == slug), None)
+
     def work(self, slug: str) -> dict | None:
-        """Work-page data in the same shape as GET /api/works/{slug}, minus database-only fields."""
-        raw = next((w for w in self.data["works"] if w["slug"] == slug), None)
-        if raw is None:
-            return None
-        profile = next(w for w in self.works if w.slug == slug)
-        by_slug = {w.slug: w for w in self.works}
-        classifications = []
-        for key, ev in profile.terms.items():
-            term = self.tax.get(key)
-            classifications.append({
-                "dimension": term.dimension, "slug": term.slug, "label": term.label, "definition": term.definition,
-                "strength": ev.strength, "confidence": ev.confidence, "origin": ev.origin,
-                "review_status": ev.review_status, "is_interpretation": ev.is_interpretation, "is_spoiler": False,
-            })
-        classifications.sort(key=lambda c: (c["dimension"], -c["strength"]))
-        return {
-            "slug": slug, "medium": raw["medium"], "title": raw["title"], "original_title": raw.get("original_title"),
-            "original_language": raw.get("language"), "countries": raw.get("countries", []),
-            "release_year": raw.get("year"), "summary": raw.get("summary"), "summary_spoiler": None,
-            "runtime_minutes": raw.get("runtime_minutes"), "playtime_hours": raw.get("playtime_hours"),
-            "length_is_estimate": bool(raw.get("length_is_estimate")), "attributes": raw.get("attributes", {}),
-            "advisories_assessed": "advisories" in raw,
-            "credits": [{"role": c[0], "name": c[1]} for c in raw.get("credits", [])],
-            "classifications": classifications,
-            "relationships": sorted(
-                ({"label": r.label, "type": r.type, "factual": r.factual, "slug": r.other_slug, "title": r.other_title,
-                  "medium": r.other_medium, "release_year": by_slug[r.other_slug].year, "note": r.note,
-                  "confidence": r.confidence, "is_spoiler": False} for r in profile.relations),
-                key=lambda r: (not r["factual"], -r["confidence"])),
-        }
+        w = self.get(slug)
+        return browse.work_page(w, self.works, self.tax) if w else None
+
+    def browse(self, filters: browse.BrowseFilters) -> dict:
+        return browse.browse(self.works, self.tax, filters)
+
+    def tag(self, key: str) -> dict | None:
+        return browse.tag_page(self.works, self.tax, key)
+
+    def tags(self) -> list[dict]:
+        return browse.tag_index(self.works, self.tax)
+
+    def person(self, slug: str) -> dict | None:
+        return browse.person_page(self.works, self.tax, slug)
+
+    def people(self) -> list[dict]:
+        return browse.people_index(self.works)

@@ -9,7 +9,16 @@ const catalogue = JSON.parse(fs.readFileSync(path.join(api, "seed", "catalogue.j
 const taxonomy = JSON.parse(fs.readFileSync(path.join(api, "taxonomy", "taxonomy.json"), "utf8"));
 const input = JSON.parse(fs.readFileSync(0, "utf8"));
 const cat = MDE.createCatalogue(catalogue, taxonomy);
+const view = ([kind, arg]) => {
+  if (kind === "browse") return cat.browse(arg);
+  if (kind === "tag") return cat.tag(arg);
+  if (kind === "tags") return cat.tags();
+  if (kind === "person") return cat.person(arg);
+  if (kind === "people") return cat.people();
+  throw new Error(`unknown view ${kind}`);
+};
 process.stdout.write(JSON.stringify({
   discover: input.queries.map((q) => cat.discover(q, 8)),
   works: input.slugs.map((s) => cat.work(s)),
+  views: (input.views || []).map(view),
 }));

@@ -1,6 +1,15 @@
 // Server-side API client. Only imported from server components and server actions.
 import "server-only";
-import type { DiscoverResponse, FeedbackKind, Work } from "./types";
+import type {
+  BrowseResponse,
+  DiscoverResponse,
+  FeedbackKind,
+  PersonPage,
+  PersonSummary,
+  TagIndexGroup,
+  TagPage,
+  Work,
+} from "./types";
 
 const API_URL = process.env.API_URL ?? "http://localhost:8000";
 
@@ -22,14 +31,43 @@ export function discover(query: string): Promise<DiscoverResponse> {
   return request(`/api/discover?q=${encodeURIComponent(query)}`);
 }
 
-export async function getWork(slug: string): Promise<Work | null> {
+async function orNull<T>(p: Promise<T>): Promise<T | null> {
   try {
-    return await request<Work>(`/api/works/${encodeURIComponent(slug)}`);
+    return await p;
   } catch (e) {
     if (e instanceof ApiError && e.status === 404) return null;
     throw e;
   }
 }
+
+export const getWork = (slug: string) => orNull(request<Work>(`/api/works/${encodeURIComponent(slug)}`));
+
+export interface BrowseParams {
+  medium?: string[];
+  tag?: string[];
+  avoid?: string[];
+  decade?: string;
+  language?: string;
+  max_minutes?: string;
+  q?: string;
+  sort?: string;
+}
+
+export function browse(params: BrowseParams): Promise<BrowseResponse> {
+  const qs = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) {
+    for (const item of Array.isArray(v) ? v : [v]) if (item) qs.append(k, item);
+  }
+  return request(`/api/works?${qs}`);
+}
+
+export const getTags = () => request<TagIndexGroup[]>("/api/tags");
+export const getTag = (key: string) => {
+  const [dimension, slug] = key.split(":");
+  return orNull(request<TagPage>(`/api/tags/${encodeURIComponent(dimension)}/${encodeURIComponent(slug ?? "")}`));
+};
+export const getPeople = () => request<PersonSummary[]>("/api/people");
+export const getPerson = (slug: string) => orNull(request<PersonPage>(`/api/people/${encodeURIComponent(slug)}`));
 
 export function postFeedback(body: {
   event_id: string | null;

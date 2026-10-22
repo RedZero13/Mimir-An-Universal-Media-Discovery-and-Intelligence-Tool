@@ -19,6 +19,7 @@
   --limit-bg: #e6ebfb; --limit-fg: #24398a;
   --interp-bg: #fdf1d6; --interp-fg: #7a5000;
   --bar: #2346c7; --bar-track: #e6e9ef;
+  --sev-mild-bg: #fbf1c4; --sev-mild-fg: #675000; --sev-mod-bg: #fde0c3; --sev-mod-fg: #873d00;
   --font-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -31,6 +32,7 @@
     --want-bg: #163222; --want-fg: #9fdfb4; --avoid-bg: #3a1b18; --avoid-fg: #f4aca2;
     --limit-bg: #1b2448; --limit-fg: #b8c6ff; --interp-bg: #3a2c0f; --interp-fg: #f1d18a;
     --bar: #8fa6ff; --bar-track: #2a2f3a;
+    --sev-mild-bg: #3a3412; --sev-mild-fg: #eadb8a; --sev-mod-bg: #45270f; --sev-mod-fg: #ffbf86;
     color-scheme: dark;
   }
 }
@@ -40,6 +42,7 @@
   --want-bg: #163222; --want-fg: #9fdfb4; --avoid-bg: #3a1b18; --avoid-fg: #f4aca2;
   --limit-bg: #1b2448; --limit-fg: #b8c6ff; --interp-bg: #3a2c0f; --interp-fg: #f1d18a;
   --bar: #8fa6ff; --bar-track: #2a2f3a;
+    --sev-mild-bg: #3a3412; --sev-mild-fg: #eadb8a; --sev-mod-bg: #45270f; --sev-mod-fg: #ffbf86;
   color-scheme: dark;
 }
 
@@ -51,7 +54,8 @@ body {
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 0 48px;
 }
-.wrap { max-width: 760px; margin: 0 auto; }
+.wrap { max-width: 1000px; margin: 0 auto; }
+#app > .lede, #app > form.ask, #app > .examples, #app > .reading, #app > ol.results, #app > .empty, .work { max-width: 760px; }
 a, .link { color: var(--accent); }
 button { font: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -94,6 +98,8 @@ ol.results { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap:
 .card-head { display: grid; grid-template-columns: 2ch minmax(0, 1fr); gap: 10px; align-items: baseline; }
 .rank { font: 500 1rem var(--font-mono); color: var(--ink-soft); font-variant-numeric: tabular-nums; }
 .card h3 { margin: 0; font-size: 1.2rem; }
+.title-link { color: var(--ink); text-decoration: none; }
+.title-link:hover { text-decoration: underline; }
 .title-btn { all: unset; cursor: pointer; }
 .title-btn:hover { text-decoration: underline; }
 .title-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -135,6 +141,72 @@ details > summary { cursor: pointer; color: var(--accent); font-size: 0.92rem; }
 .small { font-size: 0.88rem; }
 footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--rule); color: var(--ink-soft); font-size: 0.88rem; }
 
+
+/* ---- catalogue ---- */
+.nav { display: flex; gap: 4px 14px; flex-wrap: wrap; }
+.nav a { color: var(--ink); text-decoration: none; font-family: var(--font-display); font-size: 0.95rem; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--accent); }
+.nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+.page-title { font-size: clamp(1.6rem, 4vw, 2.1rem); margin: 14px 0 6px; }
+.crumbs { margin: 14px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
+.block { margin-top: 24px; }
+.block h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.link { all: unset; cursor: pointer; color: var(--accent); }
+.link:hover { text-decoration: underline; }
+.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.filters { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 10px; }
+.filters input[type="search"], .filters select { font: 1rem var(--font-body); padding: 8px 10px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper); color: var(--ink); min-width: 0; }
+.filters fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.filters legend { margin-bottom: 6px; }
+.filters .row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.filters .row .eyebrow { margin: 0; }
+.check { font-size: 0.93rem; display: inline-flex; align-items: center; gap: 6px; }
+.active { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0 0; }
+.active .chip { border: 0; cursor: pointer; }
+.browse { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 22px; margin-top: 16px; }
+.facet h3 { font: 500 0.72rem/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); margin: 14px 0 6px; }
+.facet ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 3px; font-size: 0.93rem; }
+.facet-btn { all: unset; cursor: pointer; color: var(--ink); }
+.facet-btn:hover { color: var(--accent); }
+.facet-btn.on { color: var(--accent); font-weight: 600; }
+.facet-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.count { font: 0.75rem var(--font-mono); color: var(--ink-soft); }
+.wgrid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.wcard { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.wcard-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.wcard h3 { margin: 0; font-size: 1.05rem; }
+.wcard h3 a { color: var(--ink); text-decoration: none; }
+.wcard h3 a:hover { text-decoration: underline; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 5px; }
+.tag-chip { font-size: 0.8rem; padding: 2px 9px; border-radius: 99px; border: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+.tag-chip:hover { border-color: var(--accent); color: var(--accent); }
+.rating { display: inline-block; font: 600 0.72rem/1.4 var(--font-mono); border: 1.5px solid currentColor; border-radius: 3px; padding: 0 5px; margin-left: 6px; white-space: nowrap; }
+.rating.big { font-size: 0.9rem; margin: 0 4px 0 0; }
+.flags { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.82rem; }
+.sev { display: inline-block; font: 600 0.68rem/1.5 var(--font-mono); text-transform: uppercase; letter-spacing: 0.04em; padding: 0 6px; border-radius: 3px; vertical-align: 1px; }
+.sev-none { background: var(--want-bg); color: var(--want-fg); }
+.sev-mild { background: var(--sev-mild-bg); color: var(--sev-mild-fg); }
+.sev-moderate { background: var(--sev-mod-bg); color: var(--sev-mod-fg); }
+.sev-severe { background: var(--avoid-bg); color: var(--avoid-fg); }
+.sev-unknown { background: var(--bar-track); color: var(--ink-soft); }
+.strength { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--ink-soft); }
+.strength .bar { width: 90px; }
+.people { columns: 2 240px; padding-left: 18px; }
+.people li { margin: 4px 0; break-inside: avoid; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 0.93rem; }
+.notice { padding: 10px 12px; border-radius: 6px; background: var(--interp-bg); color: var(--interp-fg); font-size: 0.93rem; }
+.guide { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.ggroup { background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius); padding: 12px 14px; min-width: 0; }
+.ggroup h3 { font-size: 0.98rem; margin: 0 0 6px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ggroup ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 0.92rem; }
+.ggroup .basis { margin: 0 0 0 4px; }
+.gnote { margin: 2px 0 0; color: var(--ink-soft); }
+.spoiler summary { color: var(--avoid-fg); font-size: 0.88rem; }
+.terms a { color: var(--ink); }
+@media (max-width: 720px) {
+  .browse { grid-template-columns: minmax(0, 1fr); }
+  .facets { order: 2; }
+}
 @media (max-width: 540px) {
   form.ask { flex-direction: column; }
   .terms li { grid-template-columns: minmax(0, 1fr) 64px 108px; }
@@ -148,13 +220,16 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
 <div class="wrap">
   <header class="top">
     <span class="brand">Media Discovery</span>
+    <nav class="nav" aria-label="Main">
+      <a href="#" data-view="discover">Discover</a><a href="#browse" data-view="browse">Browse</a><a href="#tags" data-view="tags">Tags</a><a href="#people" data-view="people">People</a>
+    </nav>
     <span class="tag">Pilot · 56 works</span>
   </header>
   <main id="app"></main>
   <footer class="note">
-    Runs entirely in your browser on the pilot catalogue: 22 films, 15 books, 11 games and 8 albums. Facts are
-    unverified, and every quality is an AI-assisted interpretation awaiting editorial review; each is labelled
-    where it appears. Feedback you give here stays in this browser.
+    Runs entirely in your browser on the pilot catalogue: 22 films, 15 books, 11 games and 8 albums. Facts,
+    official ratings and credits are unverified; tags and parents' guide levels are AI-assisted interpretations
+    awaiting editorial review, labelled where they appear. Feedback you give here stays in this browser.
   </footer>
 </div>
 
@@ -252,7 +327,7 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
         <div class="card-head">
           <span class="rank">${rank}</span>
           <div>
-            <h3><button class="title-btn" type="button" data-work="${esc(res.slug)}">${esc(res.title)}</button></h3>
+            <h3><a class="title-link" href="#work-${esc(res.slug)}">${esc(res.title)}</a></h3>
             <p class="meta">${esc(meta)}</p>
           </div>
         </div>
@@ -280,69 +355,226 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
     if (focus) document.getElementById("q").focus();
   }
 
+  // ------------------------------------------------------------------ shared catalogue pieces
+  const GROUP_AVOID = [
+    ["advisory:sexual-content", "Sex & nudity"], ["advisory:graphic-violence", "Graphic violence"],
+    ["advisory:body-horror", "Body horror"], ["advisory:atrocity", "Atrocity"],
+    ["advisory:strong-language", "Strong language"], ["advisory:substance-use", "Alcohol, drugs & smoking"],
+    ["advisory:jump-scares", "Frightening scenes"], ["advisory:suicide-self-harm", "Suicide & self-harm"],
+  ];
+  const LANG = { en: "English", ja: "Japanese", ru: "Russian", ko: "Korean", de: "German", pl: "Polish", it: "Italian",
+    fr: "French", be: "Belarusian" };
+  const langLabel = (c) => LANG[c] || c;
+  const tagToken = (key) => `tag-${key.replace(":", ".")}`;
+  const sevPill = (s) => `<span class="sev sev-${s === "Not assessed" ? "unknown" : s.toLowerCase()}">${esc(s)}</span>`;
+  const tagChip = (t, extra = "") => `<a class="tag-chip" href="#${tagToken(t.key)}">${esc(t.label)}${extra}</a>`;
+
+  function workCard(w, extra = "") {
+    const meta = [mediumLabel(w.medium), w.year, w.length, w.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · ");
+    return `
+      <li class="wcard">
+        <div class="wcard-head">
+          <h3><a href="#work-${esc(w.slug)}">${esc(w.title)}</a></h3>
+          ${w.ratings.map((r) => `<span class="rating" title="${esc(r.system)} rating">${esc(r.rating)}</span>`).join("")}
+        </div>
+        <p class="meta">${esc(meta)}</p>
+        ${extra}
+        ${w.summary ? `<p class="summary small">${esc(w.summary)}</p>` : ""}
+        <div class="tag-row">${[...w.genres, ...w.tags].map((t) => tagChip(t)).join("")}</div>
+        ${w.guide_flags.length ? `<p class="flags">${w.guide_flags.map((f) => `<span>${sevPill(f.severity)} ${esc(f.label)}</span>`).join("")}</p>` : ""}
+      </li>`;
+  }
+
+  // ------------------------------------------------------------------ browse
+  const browseState = { media: [], tags: [], avoid: [], decade: null, language: null, max_minutes: null, q: "", sort: "popular" };
+  const toggle = (arr, v) => (arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
+
+  function renderBrowse() {
+    const s = browseState;
+    const r = cat.browse(s);
+    const facet = (title, values, kind) => !values.length ? "" : `
+      <div class="facet"><h3>${title}</h3><ul>${values.map((v) => {
+        const value = String(v.value);
+        const on = kind === "tag" ? s.tags.includes(value) : kind === "media" ? s.media.includes(value)
+          : String(s[kind]) === value;
+        const label = kind === "media" ? mediumLabel(value) : kind === "language" ? langLabel(value) : v.label;
+        return `<li><button type="button" class="facet-btn${on ? " on" : ""}" data-facet="${kind}" data-value="${esc(value)}"
+          aria-pressed="${on}">${esc(label)}</button> <span class="count">${v.count}</span></li>`;
+      }).join("")}</ul></div>`;
+    const active = [
+      ...s.media.map((m) => ["media", m, mediumLabel(m)]),
+      ...s.tags.map((t) => ["tag", t, cat.taxonomy.get(t).label]),
+      ...(s.decade !== null ? [["decade", String(s.decade), `${s.decade}s`]] : []),
+      ...(s.language ? [["language", s.language, langLabel(s.language)]] : []),
+    ];
+    app.innerHTML = `
+      <h1 class="page-title">Browse the catalogue</h1>
+      <form class="filters" id="filters">
+        <label class="eyebrow" for="bq">Title or name</label>
+        <input id="bq" type="search" value="${esc(s.q)}" placeholder="e.g. Tarkovsky, Solaris">
+        <fieldset><legend class="eyebrow">Medium</legend>
+          ${["film", "book", "game", "album"].map((m) => `<label class="check"><input type="checkbox" data-media="${m}" ${s.media.includes(m) ? "checked" : ""}> ${mediumLabel(m)}</label>`).join("")}
+        </fieldset>
+        <fieldset><legend class="eyebrow">Parents' guide: none or mild</legend>
+          ${GROUP_AVOID.map(([k, l]) => `<label class="check"><input type="checkbox" data-avoid="${k}" ${s.avoid.includes(k) ? "checked" : ""}> ${l}</label>`).join("")}
+          <p class="muted small" style="margin:4px 0 0;flex-basis:100%">Works not yet assessed for a checked category are left out.</p>
+        </fieldset>
+        <div class="row">
+          <label class="eyebrow" for="bmax">Max length</label>
+          <select id="bmax">${[["", "Any"], ["90", "90 min"], ["120", "2 hours"], ["180", "3 hours"], ["600", "10 hours"]]
+            .map(([v, l]) => `<option value="${v}" ${String(s.max_minutes ?? "") === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+          <label class="eyebrow" for="bsort">Sort</label>
+          <select id="bsort">${[["popular", "Best known"], ["title", "Title A–Z"], ["newest", "Newest"], ["oldest", "Oldest"], ["shortest", "Shortest"]]
+            .map(([v, l]) => `<option value="${v}" ${s.sort === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+        </div>
+      </form>
+      ${active.length ? `<p class="active">${active.map(([k, v, l]) => `<button type="button" class="chip limit" data-facet="${k}" data-value="${esc(v)}" aria-label="Remove ${esc(l)}">${esc(l)} ×</button>`).join("")}
+        <button type="button" class="link small" data-clear>Clear all</button></p>` : ""}
+      <div class="browse">
+        <aside class="facets" aria-label="Refine">
+          ${facet("Medium", r.facets.medium, "media")}${facet("Genre", r.facets.genre, "tag")}${facet("Themes", r.facets.theme, "tag")}
+          ${facet("Mood", r.facets.mood, "tag")}${facet("Decade", r.facets.decade, "decade")}${facet("Original language", r.facets.language, "language")}
+        </aside>
+        <section aria-label="Results">
+          <p class="stats" style="margin:0 0 10px">${r.total === 1 ? "1 work" : `${r.total} works`}</p>
+          ${r.total ? `<ol class="wgrid">${r.results.map((w) => workCard(w)).join("")}</ol>` : `<p class="empty">Nothing matches these filters. Try removing one.</p>`}
+        </section>
+      </div>`;
+  }
+
+  // ------------------------------------------------------------------ tags & people
+  function renderTags() {
+    app.innerHTML = `<h1 class="page-title">Tags</h1>
+      <p class="lede">Every quality in the controlled taxonomy that at least one work carries. Open one to see its works, strongest first.</p>
+      ${cat.tags().map((g) => `<section class="block"><h2>${esc(g.label)}</h2><div class="tag-row">${g.terms.map((t) => tagChip(t, ` <span class="count">${t.count}</span>`)).join("")}</div></section>`).join("")}`;
+  }
+
+  function renderTag(key) {
+    const t = cat.tag(key);
+    if (!t) { app.innerHTML = `<p class="empty">That tag isn't in the taxonomy. <a href="#tags">See all tags</a></p>`; return; }
+    app.innerHTML = `
+      <p class="crumbs"><a href="#tags">Tags</a> / ${esc(t.dimension_label)}</p>
+      <h1 class="page-title">${esc(t.label)}</h1>
+      <p class="lede">${esc(t.definition)}</p>
+      <p><button type="button" class="btn ghost" data-browse-tag="${esc(t.key)}">Filter the catalogue by this tag</button></p>
+      ${t.related.length ? `<section class="block"><h2>Often found with</h2><div class="tag-row">${t.related.map((r) => tagChip(r, ` <span class="count">${r.count}</span>`)).join("")}</div></section>` : ""}
+      <section class="block"><h2>${t.works.length === 1 ? "1 work" : `${t.works.length} works`}, strongest first</h2>
+        <ol class="wgrid">${t.works.map((w) => workCard(w, `<p class="strength"><span class="bar"><span style="width:${Math.round(w.strength * 100)}%"></span></span> ${intensity(w.strength)} (${Math.round(w.strength * 100)}%)</p>`)).join("")}</ol>
+      </section>`;
+  }
+
+  function renderPeople() {
+    app.innerHTML = `<h1 class="page-title">People &amp; studios</h1>
+      <p class="lede">Directors, authors, developers, artists, cinematographers and studios credited in the catalogue.</p>
+      <ul class="people">${cat.people().map((p) => `<li><a href="#person-${esc(p.slug)}">${esc(p.name)}</a> <span class="muted small">${esc(p.roles.join(", "))} · ${p.count === 1 ? "1 work" : `${p.count} works`}</span></li>`).join("")}</ul>`;
+  }
+
+  function renderPerson(slug) {
+    const p = cat.person(slug);
+    if (!p) { app.innerHTML = `<p class="empty">Nobody by that name is credited. <a href="#people">See everyone</a></p>`; return; }
+    app.innerHTML = `
+      <p class="crumbs"><a href="#people">People &amp; studios</a></p>
+      <h1 class="page-title">${esc(p.name)}</h1>
+      <p class="meta">${p.kind === "organisation" ? "Studio / organisation" : "Person"} · ${esc(p.roles.join(", "))}</p>
+      ${p.recurring_tags.length ? `<section class="block"><h2>Recurring qualities</h2><div class="tag-row">${p.recurring_tags.map((t) => tagChip(t, ` <span class="count">${t.count}</span>`)).join("")}</div></section>` : ""}
+      <section class="block"><h2>Works in the catalogue</h2>
+        <ol class="wgrid">${p.works.map((w) => workCard(w, `<p class="meta">Credited as ${esc(w.roles.join(", "))}</p>`)).join("")}</ol>
+      </section>`;
+  }
+
+  // ------------------------------------------------------------------ work page
+  const ROLE_ORDER = ["director", "author", "developer", "artist", "writer", "cinematographer", "studio", "publisher"];
+  const roleRank = (r) => (ROLE_ORDER.includes(r) ? ROLE_ORDER.indexOf(r) : ROLE_ORDER.length);
+
+  function parentsGuide(g) {
+    return `
+      <section class="block" id="guide">
+        <h2>Parents' guide</h2>
+        ${g.ratings.length ? `<ul class="plain">${g.ratings.map((r) => `<li><span class="rating big">${esc(r.rating)}</span> <strong>${esc(r.system)}</strong>${r.reason ? `<span class="muted">: rated ${esc(r.rating)} for ${esc(r.reason.toLowerCase())}</span>` : ""}</li>`).join("")}</ul>`
+          : `<p class="muted small">No official rating recorded.</p>`}
+        ${g.assessed ? "" : `<p class="notice">This work's content hasn't been assessed yet. No warning here does not mean it is suitable.</p>`}
+        <div class="guide">${g.groups.map((grp) => `
+          <div class="ggroup">
+            <h3>${esc(grp.label)} ${sevPill(grp.severity)}${grp.partial ? ` <span class="muted small">partly assessed</span>` : ""}</h3>
+            <ul>${grp.items.map((i) => `
+              <li title="${esc(i.definition)}"><strong>${esc(i.label)}</strong>: ${esc(i.severity)}${i.basis ? " " + basisTag(i.basis) : ""}
+                ${i.note ? `<p class="gnote">${esc(i.note)}</p>` : ""}
+                ${i.spoiler_note ? `<details class="spoiler"><summary>Show spoiler detail</summary><p>${esc(i.spoiler_note)}</p></details>` : ""}
+              </li>`).join("")}</ul>
+          </div>`).join("")}</div>
+        <p class="muted small">Severity is None, Mild, Moderate or Severe. "Not assessed" means nobody has reviewed that category for this work yet. Pilot ratings and notes are unverified.</p>
+      </section>`;
+  }
+
   function renderWork(slug) {
     const w = cat.work(slug);
-    if (!w) { location.hash = ""; return; }
-    const visible = w.classifications.filter((c) => c.dimension !== "advisory" && c.strength > 0);
-    const advisories = w.classifications.filter((c) => c.dimension === "advisory");
-    const basisOf = (c) => (c.is_interpretation ? (c.review_status === "reviewed" ? "reviewed_interpretation" : "interpretation") : "catalogue");
+    if (!w) { app.innerHTML = `<p class="empty">That work isn't in the pilot catalogue. <a href="#browse">Browse everything</a></p>`; return; }
     const approx = w.length_is_estimate ? "about " : "";
-    const length = w.runtime_minutes ? `${approx}${w.runtime_minutes} minutes` : w.playtime_hours ? `${approx}${w.playtime_hours} hours (main path)` : "Not recorded";
-    const facts = [["Medium", mediumLabel(w.medium)], ["Released", w.release_year ?? "Unknown"],
-      ["Original language", w.original_language ?? "None / not recorded"], ["Country", w.countries.length ? w.countries.join(", ") : "Not recorded"],
-      ["Length", length]];
+    const length = w.runtime_minutes ? `${approx}${w.runtime_minutes} minutes` : w.playtime_hours ? `${approx}${w.playtime_hours} hours (main path)`
+      : w.medium === "book" ? "Varies by edition" : "Not recorded";
+    const facts = [["Medium", mediumLabel(w.medium)], ["Released", w.year ?? "Unknown"], ["Length", length],
+      ["Original language", w.original_language ? langLabel(w.original_language) : "None / not recorded"],
+      ["Country", w.countries.length ? w.countries.join(", ") : "Not recorded"]];
     if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
-    w.credits.forEach((c) => facts.push([c.role[0].toUpperCase() + c.role.slice(1), c.name]));
+    const credits = [...w.credits].sort((a, b) => roleRank(a.role) - roleRank(b.role));
     app.innerHTML = `
       <article class="work">
-        <p style="margin:12px 0 0"><button class="btn ghost" type="button" data-back>← Back to results</button></p>
+        <p class="crumbs"><a href="#browse">Catalogue</a> / ${esc(mediumLabel(w.medium))}</p>
         <h1>${esc(w.title)}</h1>
         ${w.original_title ? `<p class="orig">${esc(w.original_title)}</p>` : ""}
-        <p class="meta">${esc([mediumLabel(w.medium), w.release_year, w.credits.slice(0, 3).map((c) => c.name).join(", ")].filter(Boolean).join(" · "))}</p>
-        ${w.summary ? `<p style="font-size:1.1rem">${esc(w.summary)}</p>` : ""}
-        <div class="actions">
-          <button class="btn" type="button" data-similar="${esc(w.title)}">Find similar works</button>
-          <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
-        </div>
-        <section>
-          <h2>What kind of experience is it?</h2>
-          <p class="muted small" style="margin:0 0 6px">Bars show how strongly each quality applies.</p>
-          ${DIM_ORDER.map((d) => {
-            const cs = visible.filter((c) => c.dimension === d);
-            if (!cs.length) return "";
-            return `<div class="dim"><h3>${DIM_LABEL[d]}</h3><ul class="terms">${cs.map((c) => `
-              <li title="${esc(c.definition)}"><span>${esc(c.label)}</span>
-                <span class="bar" role="img" aria-label="${intensity(c.strength)}, ${Math.round(c.strength * 100)}%"><span style="width:${Math.round(c.strength * 100)}%"></span></span>
-                ${basisTag(basisOf(c))}</li>`).join("")}</ul></div>`;
-          }).join("")}
-        </section>
-        <section>
-          <h2>Before you start</h2>
-          ${w.advisories_assessed && advisories.length
-            ? `<ul class="plain">${advisories.map((a) => `<li>${esc(a.label)}: <strong>${intensity(a.strength)}</strong> ${basisTag(basisOf(a))}</li>`).join("")}</ul>`
-            : `<p style="margin:0">Content advisories haven't been assessed for this work yet.</p>`}
-        </section>
-        ${w.relationships.length ? `<section><h2>Connected works</h2><ul class="plain">${w.relationships.map((r) => `
-          <li>${basisTag(r.factual ? "catalogue" : "interpretation")}${esc(r.label[0].toUpperCase() + r.label.slice(1))}
-            <button class="title-btn link" type="button" data-work="${esc(r.slug)}">${esc(r.title)}</button>
-            (${esc(mediumLabel(r.medium))}${r.release_year ? `, ${r.release_year}` : ""})${r.note ? `<span class="muted">: ${esc(r.note)}</span>` : ""}</li>`).join("")}</ul></section>` : ""}
-        <section>
-          <h2>Facts and sources</h2>
+        <p class="meta">${esc([mediumLabel(w.medium), w.year, w.length].filter(Boolean).join(" · "))}
+          ${w.parents_guide.ratings.map((r) => `<span class="rating" title="${esc(r.system)} rating">${esc(r.rating)}</span>`).join("")}</p>
+        <nav class="jump" aria-label="On this page">
+          <button type="button" class="link" data-jump="overview">Overview</button><button type="button" class="link" data-jump="tags">Tags</button><button type="button" class="link" data-jump="guide">Parents' guide</button><button type="button" class="link" data-jump="credits">Credits</button>${w.relationships.length ? `<button type="button" class="link" data-jump="connected">Connected works</button>` : ""}
+        </nav>
+        <section class="block" id="overview">
+          ${w.summary ? `<p style="font-size:1.1rem;margin-top:0">${esc(w.summary)}</p>` : ""}
           <dl class="facts">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
-          <p class="muted small">Facts: editorial seed, unverified. Qualities and advisories: AI-assisted classification, not yet reviewed.</p>
+          <div class="actions">
+            <button class="btn" type="button" data-similar="${esc(w.title)}">Find similar works</button>
+            <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
+          </div>
         </section>
+        <section class="block" id="tags">
+          <h2>Tags</h2>
+          <p class="muted small" style="margin:0 0 6px">Bars show how strongly each quality applies. Select a tag to see every work that has it.</p>
+          ${w.tags.map((d) => `<div class="dim"><h3>${esc(d.label)}</h3><ul class="terms">${d.terms.map((t) => `
+            <li title="${esc(t.definition)}"><a href="#${tagToken(t.key)}">${esc(t.label)}</a>
+              <span class="bar" role="img" aria-label="${intensity(t.strength)}, ${Math.round(t.strength * 100)}%"><span style="width:${Math.round(t.strength * 100)}%"></span></span>
+              ${basisTag(t.basis)}</li>`).join("")}</ul></div>`).join("")}
+        </section>
+        ${parentsGuide(w.parents_guide)}
+        <section class="block" id="credits">
+          <h2>Credits</h2>
+          <dl class="facts">${credits.map((c) => `<div><dt>${esc(c.role[0].toUpperCase() + c.role.slice(1))}</dt><dd><a href="#person-${esc(c.slug)}">${esc(c.name)}</a></dd></div>`).join("")}</dl>
+        </section>
+        ${w.relationships.length ? `<section class="block" id="connected"><h2>Connected works</h2><ul class="plain">${w.relationships.map((r) => `
+          <li>${basisTag(r.factual ? "catalogue" : "interpretation")}${esc(r.label[0].toUpperCase() + r.label.slice(1))}
+            <a href="#work-${esc(r.slug)}">${esc(r.title)}</a> (${esc(mediumLabel(r.medium))}${r.year ? `, ${r.year}` : ""})${r.note ? `<span class="muted">: ${esc(r.note)}</span>` : ""}</li>`).join("")}</ul></section>` : ""}
+        <p class="muted small">Sources: facts from the editorial seed (unverified); tags, guide levels and notes from AI-assisted classification awaiting review.</p>
       </article>`;
-    window.scrollTo(0, 0);
+  }
+
+  // ------------------------------------------------------------------ routing
+  function setNav(view) {
+    document.querySelectorAll(".nav a").forEach((a) => a.setAttribute("aria-current", a.dataset.view === view ? "page" : "false"));
   }
 
   function route() {
     const h = location.hash.slice(1);
-    if (h.startsWith("work-")) renderWork(h.slice(5));
-    else renderDiscover(false);
+    if (h.startsWith("work-")) { setNav("browse"); renderWork(h.slice(5)); }
+    else if (h.startsWith("tag-")) { setNav("tags"); renderTag(h.slice(4).replace(".", ":")); }
+    else if (h.startsWith("person-")) { setNav("people"); renderPerson(h.slice(7)); }
+    else if (h === "browse") { setNav("browse"); renderBrowse(); }
+    else if (h === "tags") { setNav("tags"); renderTags(); }
+    else if (h === "people") { setNav("people"); renderPeople(); }
+    else { setNav("discover"); renderDiscover(false); }
+    if (!h.startsWith("work-") || !document.activeElement || document.activeElement === document.body) window.scrollTo(0, 0);
   }
 
   app.addEventListener("submit", (e) => {
     e.preventDefault();
+    if (e.target.id !== "ask") return;
     const q = document.getElementById("q").value.trim();
     if (q.length < 2) return;
     query = q;
@@ -354,14 +586,48 @@ footer.note { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--r
       app.querySelector("#ask").requestSubmit();
     }
   });
+  app.addEventListener("input", (e) => {
+    if (e.target.id !== "bq") return;
+    browseState.q = e.target.value;
+    const pos = e.target.selectionStart;
+    renderBrowse();
+    const input = document.getElementById("bq");
+    input.focus();
+    input.setSelectionRange(pos, pos);
+  });
+  app.addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.dataset.media) browseState.media = toggle(browseState.media, t.dataset.media);
+    else if (t.dataset.avoid) browseState.avoid = toggle(browseState.avoid, t.dataset.avoid);
+    else if (t.id === "bmax") browseState.max_minutes = t.value ? Number(t.value) : null;
+    else if (t.id === "bsort") browseState.sort = t.value;
+    else return;
+    renderBrowse();
+  });
   app.addEventListener("click", (e) => {
     const t = e.target.closest("button");
     if (!t) return;
     if (t.dataset.example !== undefined) { query = EXAMPLES[Number(t.dataset.example)]; renderDiscover(false); }
     else if (t.dataset.work) location.hash = `work-${t.dataset.work}`;
-    else if (t.dataset.back !== undefined) location.hash = "";
     else if (t.dataset.similar) { query = `something like "${t.dataset.similar}"`; location.hash = ""; renderDiscover(false); }
     else if (t.dataset.similarOther) { query = `something like "${t.dataset.similarOther}" in a different medium`; location.hash = ""; renderDiscover(false); }
+    else if (t.dataset.jump) document.getElementById(t.dataset.jump)?.scrollIntoView({ block: "start" });
+    else if (t.dataset.browseTag) {
+      Object.assign(browseState, { media: [], tags: [t.dataset.browseTag], avoid: [], decade: null, language: null, max_minutes: null, q: "" });
+      location.hash = "browse";
+    }
+    else if (t.dataset.facet) {
+      const { facet, value } = t.dataset;
+      if (facet === "tag") browseState.tags = toggle(browseState.tags, value);
+      else if (facet === "media") browseState.media = toggle(browseState.media, value);
+      else if (facet === "decade") browseState.decade = String(browseState.decade) === value ? null : Number(value);
+      else if (facet === "language") browseState.language = browseState.language === value ? null : value;
+      renderBrowse();
+    }
+    else if (t.dataset.clear !== undefined) {
+      Object.assign(browseState, { media: [], tags: [], avoid: [], decade: null, language: null, max_minutes: null, q: "" });
+      renderBrowse();
+    }
     else if (t.dataset.fb) {
       saveFeedback(`${query}::${t.dataset.slug}`, t.dataset.fb);
       const group = t.closest(".feedback");

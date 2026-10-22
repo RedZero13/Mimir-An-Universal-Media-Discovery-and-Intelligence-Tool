@@ -15,6 +15,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/" className="brand">
             Media Discovery
           </Link>
+          <nav className="site-nav" aria-label="Main">
+            <Link href="/">Discover</Link>
+            <Link href="/browse">Browse</Link>
+            <Link href="/tags">Tags</Link>
+            <Link href="/people">People</Link>
+          </nav>
           <span className="pill">pilot catalogue</span>
         </header>
         <main>{children}</main>
