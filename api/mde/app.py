@@ -165,6 +165,19 @@ def remix_rack_endpoint() -> list[dict]:
         return browse.remix_rack(repository.load_profiles(conn))
 
 
+class RecommendIn(BaseModel):
+    ratings: dict[str, Literal["loved", "liked", "disliked", "want"]] = Field(max_length=2000)
+    limit: int = Field(default=12, ge=1, le=50)
+    medium: str | None = Field(default=None, max_length=20)
+
+
+@app.post("/api/recommend")
+def recommend_endpoint(body: RecommendIn) -> dict:
+    """'For you': works closest to what you loved and liked, away from what you didn't, each with its reason."""
+    with db.connect() as conn:
+        return browse.recommend(repository.load_profiles(conn), taxonomy_mod.load(), body.ratings, body.limit, body.medium)
+
+
 @app.get("/api/taxonomy")
 def taxonomy_endpoint() -> dict:
     tax = taxonomy_mod.load()

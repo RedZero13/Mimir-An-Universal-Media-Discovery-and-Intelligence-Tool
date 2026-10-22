@@ -10,12 +10,13 @@ of thousands of works, browse filtering and facet counts move into SQL with the 
 from __future__ import annotations
 
 import json
+import math
 from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import quote
 
-from mde.catalogue.model import RELATIONSHIP_TYPES, WorkProfile, normalise_title, series_length_text, severity, slugify
+from mde.catalogue.model import RELATIONSHIP_TYPES, SIMILARITY_WEIGHTS, WorkProfile, normalise_title, series_length_text, severity, slugify
 from mde.taxonomy import Taxonomy
 
 TAG_DIMENSIONS = ["genre", "theme", "mood", "pacing", "complexity", "narrative", "world", "style"]
@@ -539,3 +540,67 @@ def mood_rings(works: list[WorkProfile], tax: Taxonomy, spec: dict | None = None
 
 def remix_rack(works: list[WorkProfile]) -> list[dict]:
     return [t for w in works if w.medium == "album" for t in _track_items(w) if t["remixes"]]
+
+
+# ------------------------------------------------------------------ taste profile and "for you"
+TASTE_WEIGHTS = {"loved": 2.0, "liked": 1.0, "disliked": -1.5}
+
+
+def _taste_vector(w: WorkProfile) -> dict[str, float]:
+    return {k: ev.strength * SIMILARITY_WEIGHTS.get(k.split(":")[0], 1.0) for k, ev in w.terms.items()
+            if not k.startswith("advisory:") and ev.strength >= TAG_THRESHOLD}
+
+
+def _cosine(a: dict[str, float], b: dict[str, float]) -> float:
+    # Sorted-key sums so the JS engine gets the same float, bit for bit.
+    dot = sum(a[k] * b[k] for k in sorted(a) if k in b)
+    na = math.sqrt(sum(a[k] * a[k] for k in sorted(a)))
+    nb = math.sqrt(sum(b[k] * b[k] for k in sorted(b)))
+    return dot / (na * nb) if na and nb else 0.0
+
+
+def taste_profile(works: list[WorkProfile], ratings: dict[str, str]) -> dict[str, float]:
+    by_slug = {w.slug: w for w in works}
+    profile: dict[str, float] = {}
+    for slug in sorted(ratings):
+        weight, w = TASTE_WEIGHTS.get(ratings[slug]), by_slug.get(slug)
+        if weight is None or w is None:
+            continue
+        vec = _taste_vector(w)
+        for k in sorted(vec):
+            profile[k] = profile.get(k, 0.0) + weight * vec[k]
+    return profile
+
+
+def recommend(works: list[WorkProfile], tax: Taxonomy, ratings: dict[str, str], limit: int = 12,
+              medium: str | None = None) -> dict:
+    """Works you haven't rated, closest to what you loved and liked and away from what you didn't, each with the
+    rated work it most resembles and the qualities it shares with your profile."""
+    profile = taste_profile(works, ratings)
+    liked = sorted(s for s, r in ratings.items() if TASTE_WEIGHTS.get(r, 0) > 0)
+    by_slug = {w.slug: w for w in works}
+    liked_vecs = [(s, _taste_vector(by_slug[s])) for s in liked if s in by_slug]
+    top_terms = sorted((k for k, v in profile.items() if v > 0), key=lambda k: (-round(profile[k], 6), k))
+    out = {"profile": [{"key": k, "label": tax.get(k).label, "weight": round(profile[k], 3)} for k in top_terms[:8]],
+           "rated": len([s for s in ratings if s in by_slug]), "results": []}
+    if not liked_vecs:
+        return out
+    ctx = _context(works)
+    scored = []
+    for w in works:
+        if w.slug in ratings or (medium and w.medium != medium):
+            continue
+        vec = _taste_vector(w)
+        score = round(_cosine(profile, vec), 6)
+        if score <= 0:
+            continue
+        because = max(liked_vecs, key=lambda sv: round(_cosine(sv[1], vec), 6))[0]   # ties: earliest slug (list is sorted)
+        shared = sorted((k for k in vec if profile.get(k, 0) > 0), key=lambda k: (-round(profile[k] * vec[k], 6), k))[:3]
+        scored.append((score, w, because, shared))
+    scored.sort(key=lambda t: (-t[0], t[1].popularity_tier or 5, normalise_title(t[1].title)))
+    out["results"] = [{**_rich_card(w, tax, ctx), "score": round(score, 4),
+                       "because": {"slug": b, "title": by_slug[b].title},
+                       "shared": [{"key": k, "label": tax.get(k).label} for k in shared]}
+                      for score, w, b, shared in scored[:limit]]
+    return out
+

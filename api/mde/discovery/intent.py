@@ -78,13 +78,25 @@ MEDIUM_WORDS = {
     "book": ["book", "books", "novel", "novels", "novella", "novellas", "something to read", "a read", "reading"],
     "game": ["game", "games", "video game", "video games", "videogame", "something to play", "to play", "gaming"],
     "album": ["album", "albums", "record", "records", "music", "something to listen to", "listen to", "listening"],
-    "series": ["tv show", "tv series", "series", "show to watch"],
+    "series": ["tv show", "tv shows", "tv series", "series", "show to watch", "miniseries", "mini-series", "limited series",
+               "web series", "k-drama", "k-dramas", "kdrama", "kdramas", "to binge", "binge-watch", "binge watch",
+               "something to binge"],
 }
 WATCH_WORDS = ["to watch", "watch tonight", "something to watch", "watch"]  # → screen media
 
 LANGUAGE_WORDS = {
     "japanese": "ja", "korean": "ko", "french": "fr", "german": "de", "italian": "it", "russian": "ru",
-    "polish": "pl", "spanish": "es", "english": "en", "english-language": "en", "belarusian": "be",
+    "polish": "pl", "spanish": "es", "english": "en", "english-language": "en", "belarusian": "be", "finnish": "fi",
+    "hindi": "hi", "tamil": "ta", "telugu": "te", "malayalam": "ml", "bengali": "bn", "kannada": "kn",
+    "marathi": "mr", "punjabi": "pa", "urdu": "ur", "mandarin": "zh", "chinese": "zh", "cantonese": "yue",
+    "portuguese": "pt", "swedish": "sv", "danish": "da", "norwegian": "no", "persian": "fa", "farsi": "fa",
+    "arabic": "ar", "icelandic": "is", "indonesian": "id", "dutch": "nl", "hebrew": "he",
+}
+# Words that imply an original language but also mean something else (a genre or medium), so they are not consumed.
+LANGUAGE_HINTS = {
+    "k-pop": "ko", "kpop": "ko", "k-drama": "ko", "kdrama": "ko", "k-dramas": "ko", "kdramas": "ko",
+    "j-pop": "ja", "anime": "ja", "manga": "ja", "bollywood": "hi", "tollywood": "te", "kollywood": "ta",
+    "mollywood": "ml",
 }
 NON_ENGLISH = ["foreign language", "foreign-language", "non-english", "not in english", "subtitled", "world cinema",
                "international"]
@@ -102,14 +114,16 @@ SOFT_CUES = ["ideally", "preferably", "if possible", "roughly", "around", "or so
 HARD_CUES = ["must", "strictly", "has to be", "need it", "absolutely", "at most", "no more than", "no longer than"]
 # Vague length words → soft limits per medium, in minutes.
 VAGUE_LENGTHS = {
-    "one evening": {"film": 150, "game": 240, "album": 90, "book": 300},
-    "an evening": {"film": 150, "game": 240, "album": 90, "book": 300},
-    "one sitting": {"film": 150, "game": 240, "album": 90, "book": 240},
-    "short evening": {"film": 110, "game": 180, "album": 60, "book": 180},
-    "something short": {"film": 100, "game": 240, "album": 45, "book": 240},
-    "short": {"film": 100, "game": 240, "album": 45, "book": 240},
-    "quick": {"film": 100, "game": 180, "album": 45, "book": 180},
-    "bite-sized": {"film": 60, "game": 120, "album": 30, "book": 120},
+    "a weekend": {"film": 300, "game": 900, "album": 180, "book": 900, "series": 900},
+    "one weekend": {"film": 300, "game": 900, "album": 180, "book": 900, "series": 900},
+    "one evening": {"film": 150, "game": 240, "album": 90, "book": 300, "series": 180},
+    "an evening": {"film": 150, "game": 240, "album": 90, "book": 300, "series": 180},
+    "one sitting": {"film": 150, "game": 240, "album": 90, "book": 240, "series": 150},
+    "short evening": {"film": 110, "game": 180, "album": 60, "book": 180, "series": 120},
+    "something short": {"film": 100, "game": 240, "album": 45, "book": 240, "series": 300},
+    "short": {"film": 100, "game": 240, "album": 45, "book": 240, "series": 300},
+    "quick": {"film": 100, "game": 180, "album": 45, "book": 180, "series": 240},
+    "bite-sized": {"film": 60, "game": 120, "album": 30, "book": 120, "series": 120},
 }
 
 OBSCURE_CUES = ["not something obvious", "not obvious", "nothing obvious", "underrated", "hidden gem", "hidden gems",
@@ -143,6 +157,7 @@ whom whose there their them they then so not no can could should might may maybe
 ive also kind sort bit lot lots more most much one ones get got have has had do does did make makes made feel
 feeling mood vibe something's thing things stuff good great nice after before questions question story
 stories recommends recommend everyone people ambitious strong real deep lot
+finish finished binge binged through will watching reading playing listening start show shows
 """.split())
 
 DECADE_RE = re.compile(r"\b(?:the\s+)?(?:(19|20)(\d)0s|'?(\d)0s)\b")
@@ -307,6 +322,10 @@ class RuleBasedIntentParser:
             if _contains(text, word):
                 intent.languages.append(code)
                 text = _phrase_re(word).sub(" ", text)
+        original = " " + re.sub(r"\s+", " ", intent.query.lower().replace("’", "'")).strip() + " "
+        for word, code in LANGUAGE_HINTS.items():   # read from the whole query: these words may already be consumed
+            if _contains(original, word) and code not in intent.languages:
+                intent.languages.append(code)
         if intent.languages:
             intent.notes.append(f"Original language: {', '.join(intent.languages)}.")
         return text

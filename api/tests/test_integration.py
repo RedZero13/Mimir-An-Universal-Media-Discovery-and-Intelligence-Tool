@@ -124,6 +124,9 @@ def test_api_catalogue_views_match_the_in_memory_catalogue(client):
     assert client.get(f"/api/groups/{group}").json() == json.loads(json.dumps(mem.group(group)))
     assert client.get("/api/works/arrival-2016/where", params={"region": "IN"}).json() == mem.where("arrival-2016", "IN")
     assert client.get("/api/works/nope/where").status_code == 404
+    ratings = {"arrival-2016": "loved", "friends-1994": "disliked"}
+    assert client.post("/api/recommend", json={"ratings": ratings, "limit": 5}).json() == json.loads(json.dumps(mem.recommend(ratings, 5)))
+    assert client.post("/api/recommend", json={"ratings": {"x": "adored"}}).status_code == 422
     assert client.get("/api/shelves/nope").status_code == 404
     assert client.get("/api/groups/nope").status_code == 404
 

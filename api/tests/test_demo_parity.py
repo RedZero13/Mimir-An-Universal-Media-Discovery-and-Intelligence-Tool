@@ -58,6 +58,16 @@ EXTRA_QUERIES = [
     "what's like stalker",
     "Something LIKE OUTER WILDS!!!",
     "a constructor game",
+    "a K-pop album about football",
+    "k-dramas that will make me cry",
+    "bollywood comedies for the family",
+    "anime about grief",
+    "a hindi thriller under 2 hours",
+    "tamil or malayalam films about justice",
+    "a cricket film",
+    "a tv series I can finish in a weekend",
+    "something like Breaking Bad",
+    "an album like OK Computer but more hopeful",
 ]
 
 
@@ -90,6 +100,17 @@ def _catalogue(enrichment):
     return MemoryCatalogue(SEED, enrichment=enrichment)
 
 
+RECOMMEND_CASES = [
+    {"ratings": {}, "limit": 8, "medium": None},
+    {"ratings": {"arrival-2016": "loved"}, "limit": 8, "medium": None},
+    {"ratings": {"arrival-2016": "loved", "the-martian-2015": "liked", "friends-1994": "disliked", "nope": "loved"},
+     "limit": 12, "medium": None},
+    {"ratings": {"breaking-bad-2008": "loved", "the-wire-2002": "liked", "hollow-knight-2017": "loved"}, "limit": 10, "medium": "series"},
+    {"ratings": {"ok-computer-1997": "loved", "blue-1971": "liked", "thriller-1982": "disliked"}, "limit": 6, "medium": "album"},
+    {"ratings": {"friends-1994": "disliked"}, "limit": 5, "medium": None},
+]
+
+
 def _views(cat):
     tag_keys = [t["key"] for d in cat.tags() for t in d["terms"]] + ["theme:not-a-tag", "advisory:strong-language"]
     people = [p["slug"] for p in cat.people()] + ["nobody"]
@@ -99,7 +120,8 @@ def _views(cat):
             + [["person", s] for s in people] + [["people", None]]
             + [["shelves", None]] + [["shelf", s] for s in shelves] + [["groups", None]] + [["group", g] for g in groups]
             + [["mood_rings", None], ["remix_rack", None]]
-            + [["where", [w.slug, region]] for w in cat.works for region in ("US", "IN", "GB", "XX", None)])
+            + [["where", [w.slug, region]] for w in cat.works for region in ("US", "IN", "GB", "XX", None)]
+            + [["recommend", case] for case in RECOMMEND_CASES])
 
 
 def _run(cat, kind, arg):
@@ -108,7 +130,8 @@ def _run(cat, kind, arg):
             "person": cat.person, "people": lambda _: cat.people(), "shelves": lambda _: cat.shelves(),
             "shelf": cat.shelf, "groups": lambda _: cat.groups(), "group": cat.group,
             "mood_rings": lambda _: cat.mood_rings(), "remix_rack": lambda _: cat.remix_rack(),
-            "where": lambda a: cat.where(*a)}[kind](arg)
+            "where": lambda a: cat.where(*a),
+            "recommend": lambda a: cat.recommend(a["ratings"], a["limit"], a["medium"])}[kind](arg)
 
 
 # Each side runs twice: with no enrichment, and with the labelled test fixture (images, scores, series, tracks …).

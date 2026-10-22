@@ -119,7 +119,7 @@
     {"dimension": "theme", "slug": "decay-impermanence", "label": "Decay & impermanence", "definition": "Erosion, entropy and things passing away.", "applies_to": ["*"], "synonyms": ["decay", "impermanence", "entropy", "erosion"]},
 
     {"dimension": "mood", "slug": "contemplative", "label": "Contemplative", "definition": "Invites reflection; leaves room to think.", "applies_to": ["*"], "synonyms": ["contemplative", "reflective", "meditative", "thoughtful"]},
-    {"dimension": "mood", "slug": "melancholic", "label": "Melancholic", "definition": "Wistful sadness that is felt but not crushing.", "applies_to": ["*"], "synonyms": ["melancholic", "melancholy", "wistful", "bittersweet"]},
+    {"dimension": "mood", "slug": "melancholic", "label": "Melancholic", "definition": "Wistful sadness that is felt but not crushing.", "applies_to": ["*"], "synonyms": ["melancholic", "melancholy", "wistful", "bittersweet", "tearjerker", "tear-jerker", "weepy", "make me cry", "made me cry"]},
     {"dimension": "mood", "slug": "comforting", "label": "Comforting", "definition": "Restorative and safe; leaves you feeling better.", "applies_to": ["*"], "synonyms": ["comforting", "cozy", "cosy", "wholesome", "feel-good", "feel good", "gentle", "soothing", "heartwarming", "difficult day", "rough day", "bad day", "relaxing", "calm"]},
     {"dimension": "mood", "slug": "tense", "label": "Tense", "definition": "Sustained suspense or anxiety.", "applies_to": ["*"], "synonyms": ["tense", "suspenseful", "nail-biting", "gripping", "edge of my seat"]},
     {"dimension": "mood", "slug": "eerie", "label": "Eerie", "definition": "Uncanny, strange and quietly unsettling.", "applies_to": ["*"], "synonyms": ["eerie", "uncanny", "strange", "weird", "mysterious atmosphere"]},
@@ -175,7 +175,7 @@
     {"dimension": "genre", "slug": "biography", "label": "Biography", "definition": "Tells the story of a real person's life.", "applies_to": ["film", "series", "book"], "synonyms": ["biopic", "biography", "biographical", "true story", "based on a true story"]},
     {"dimension": "genre", "slug": "superhero", "label": "Superhero", "definition": "Costumed heroes with extraordinary powers.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["superhero", "superheroes", "comic book movie", "marvel", "dc"]},
     {"dimension": "genre", "slug": "western", "label": "Western", "definition": "Set on a frontier, usually the American West, with its codes and violence.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["western", "westerns", "cowboy", "cowboys"]},
-    {"dimension": "genre", "slug": "sports", "label": "Sports", "definition": "Centred on a sport, its contests and those who play it.", "applies_to": ["*"], "synonyms": ["sports", "sport", "sports drama"]},
+    {"dimension": "genre", "slug": "sports", "label": "Sports", "definition": "Centred on a sport, its contests and those who play it.", "applies_to": ["*"], "synonyms": ["sports", "sport", "sports drama", "football", "soccer", "cricket", "basketball", "baseball", "boxing", "tennis", "wrestling", "olympics"]},
     {"dimension": "genre", "slug": "non-fiction", "label": "Non-fiction", "definition": "Factual writing about real events, people or ideas.", "applies_to": ["book"], "synonyms": ["non-fiction", "nonfiction", "non fiction"]},
     {"dimension": "genre", "slug": "memoir", "label": "Memoir", "definition": "A first-person account of the author's own life.", "applies_to": ["book"], "synonyms": ["memoir", "memoirs", "autobiography"]},
     {"dimension": "genre", "slug": "popular-science", "label": "Popular science", "definition": "Explains science or how the world works for general readers.", "applies_to": ["book", "series", "film"], "synonyms": ["popular science", "pop science", "science book"]},
@@ -208,7 +208,7 @@
     {"dimension": "mood", "slug": "darkly-funny", "label": "Darkly funny", "definition": "Humour found in grim, absurd or taboo places.", "applies_to": ["*"], "synonyms": ["dark comedy", "black comedy", "darkly funny", "dark humour", "dark humor", "gallows humour"]},
     {"dimension": "mood", "slug": "epic", "label": "Epic", "definition": "Grand in scale and stakes; sweeping.", "applies_to": ["*"], "synonyms": ["epic", "sweeping", "grand", "larger than life"]},
     {"dimension": "narrative", "slug": "ensemble", "label": "Ensemble cast", "definition": "Many protagonists share the story.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["ensemble", "ensemble cast", "multiple protagonists"]},
-    {"dimension": "narrative", "slug": "anthology", "label": "Anthology", "definition": "Separate stories collected around a theme or format.", "applies_to": ["film", "series", "book"], "synonyms": ["anthology", "short stories", "short story collection", "standalone episodes"]},
+    {"dimension": "narrative", "slug": "anthology", "label": "Anthology", "definition": "Separate stories collected around a theme or format.", "applies_to": ["film", "series", "book", "game", "album"], "synonyms": ["anthology", "short stories", "short story collection", "standalone episodes"]},
     {"dimension": "world", "slug": "open-world", "label": "Open world", "definition": "A large world you can roam freely, in any order.", "applies_to": ["game"], "synonyms": ["open world", "open-world", "sandbox"]}
   ]
 }

@@ -1,4 +1,4 @@
-# Taxonomy and classification specification (v0.2.0)
+# Taxonomy and classification specification (v0.3.0)
 
 The taxonomy is the product's core intellectual asset. It lives in
 [`api/mde/taxonomy/taxonomy.json`](../api/mde/taxonomy/taxonomy.json) and is synced into `taxonomy_dimension` and
@@ -36,13 +36,13 @@ The taxonomy is the product's core intellectual asset. It lives in
 
 | Dimension | Kind | Purpose | Example terms |
 | --- | --- | --- | --- |
-| `genre` | categorical | Conventional labels for filtering, deliberately not the main signal | science-fiction, mystery, rpg, metroidvania, ambient, post-rock |
-| `theme` | graded | What the work substantively engages with | language-communication, grief-loss, consciousness-ai, surveillance-authoritarianism, decay-impermanence |
-| `mood` | graded | The felt experience | contemplative, melancholic, comforting, eerie, wonder, exhilarating |
+| `genre` | categorical | Conventional labels for filtering, deliberately not the main signal | science-fiction, crime, documentary, family, biography, superhero, rpg, roguelike, strategy, hip-hop, classical, soul-rnb, world-music, graphic-novel, memoir |
+| `theme` | graded | What the work substantively engages with | language-communication, grief-loss, consciousness-ai, surveillance-authoritarianism, family, revenge, survival, migration-diaspora, mental-health, ambition-money |
+| `mood` | graded | The felt experience | contemplative, melancholic, comforting, eerie, wonder, exhilarating, nostalgic, darkly-funny, epic |
 | `pacing` | graded | Patience asked of the audience | slow-burn, brisk |
 | `complexity` | graded | Attention and interpretation required | intellectually-demanding, accessible |
-| `narrative` | graded | Structure and storytelling devices | nonlinear, time-loop, unreliable-narrator, puzzle-box, environmental-storytelling, meaningful-choices |
-| `world` | graded | Setting and world-building | rich-worldbuilding, grounded-realism, space-setting, mythic |
+| `narrative` | graded | Structure and storytelling devices | nonlinear, time-loop, unreliable-narrator, puzzle-box, environmental-storytelling, meaningful-choices, ensemble, anthology |
+| `world` | graded | Setting and world-building | rich-worldbuilding, grounded-realism, space-setting, mythic, open-world |
 | `style` | graded | Visual, sonic, prose or interactive craft | atmospheric, visually-striking, hand-drawn, minimalist, lyrical-prose |
 | `advisory` | intensity | Content people may want to avoid; the basis of the parents' guide | graphic-violence, body-horror, sexual-content, atrocity, jump-scares, strong-language, substance-use, suicide-self-harm |
 
@@ -91,9 +91,14 @@ separate from our own guide.
 4. Disagreement between drafts and reviews is tracked per term to find vague definitions. Terms with high
    adjustment rates get rewritten.
 
+v0.3.0 (beta) added 42 terms for the 503-work catalogue (TV series, world cinema, non-fiction, more music and game
+genres), 136 terms in all. Similarity ("something like X", taste profiles) weights dimensions: theme 1.0, mood 0.9,
+narrative and world 0.8, style 0.7, pacing 0.6, genre 0.5, complexity 0.4 (`model.SIMILARITY_WEIGHTS`).
+Narrative continuity (standalone / series / franchise) is derived from groups and relationships rather than tagged.
+
 ## Planned extensions
 
-Not every requested axis needs a term on day one. Proposed for v0.2, prioritised by benchmark failures:
-narrative continuity (standalone / requires prior entries / entry point to a series), production scale (studio /
+Not every requested axis needs a term on day one. Still proposed, prioritised by benchmark failures:
+production scale (studio /
 independent / solo), visual technique (live action / stop-motion / CG / pixel art), audience (all ages / young
 adult / adult), emotional intensity, humour type, cultural context, historical period, and setting geography.

@@ -149,3 +149,6 @@ class MemoryCatalogue:
     def where(self, slug: str, region: str | None = None) -> dict | None:
         w = self.get(slug)
         return providers.where_to(providers.item_of(w), region) if w else None
+
+    def recommend(self, ratings: dict[str, str], limit: int = 12, medium: str | None = None) -> dict:
+        return browse.recommend(self.works, self.tax, ratings, limit, medium)

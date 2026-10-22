@@ -10,7 +10,7 @@ from __future__ import annotations
 from collections import Counter
 from dataclasses import dataclass, field
 
-from mde.catalogue.model import Relation, WorkProfile
+from mde.catalogue.model import SIMILARITY_WEIGHTS, Relation, WorkProfile
 from mde.discovery.intent import Intent
 
 RANKER_VERSION = "transparent-v1"
@@ -115,7 +115,7 @@ def rank(intent: Intent, works: list[WorkProfile], keyword_scores: dict[str, flo
         c.relevance < weights.min_relevance
         or (intent.preferences and not ref and c.breakdown.get("request_match", 0) < 0.05))]
     kept = [c for c in candidates if c not in weak]
-    kept.sort(key=lambda c: (-c.score, c.work.title))
+    kept.sort(key=lambda c: (-c.score, c.work.popularity_tier or 5, c.work.title))
     return RankResult(_diversify(kept, intent, limit, weights), len(works), excluded, len(weak), ref)
 
 
@@ -172,12 +172,12 @@ def _score(intent: Intent, w: WorkProfile, ref: WorkProfile | None, ref_vec: dic
     # the same medium; a novel isn't "less similar" to a game for lacking the 'rpg' tag.
     if ref:
         vec = {k: v for k, v in ref_vec.items() if w.medium == ref.medium or not k.startswith("genre:")}
-        denom = sum(vec.values()) or 1.0
+        denom = sum(rv * SIMILARITY_WEIGHTS.get(k.split(":")[0], 1.0) for k, rv in vec.items()) or 1.0
         shared = 0.0
         for k, rv in vec.items():
             ev = w.terms.get(k)
             if ev and ev.strength >= weights.match_threshold:
-                shared += min(rv, ev.strength)
+                shared += min(rv, ev.strength) * SIMILARITY_WEIGHTS.get(k.split(":")[0], 1.0)
                 if not any(m.term == k for m in s.matched):
                     s.matched.append(MatchedTerm(k, rv, ev.strength, ev.confidence, ev.is_interpretation,
                                                  ev.review_status, "reference"))

@@ -24,6 +24,7 @@ const view = ([kind, arg]) => {
   if (kind === "mood_rings") return cat.moodRings();
   if (kind === "remix_rack") return cat.remixRack();
   if (kind === "where") return cat.where(arg[0], arg[1]);
+  if (kind === "recommend") return cat.recommend(arg.ratings, arg.limit, arg.medium);
   throw new Error(`unknown view ${kind}`);
 };
 process.stdout.write(JSON.stringify({

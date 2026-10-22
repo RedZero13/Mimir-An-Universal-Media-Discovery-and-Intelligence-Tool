@@ -12,17 +12,35 @@ The database `source` table is the authoritative register for sources in use. Th
 | Slug | Kind | Store | Display | Commercial | AI use | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | `editorial-seed` | editorial | yes | yes | yes | yes | Pilot facts compiled from general knowledge. **Unverified**; must be checked against primary sources before launch |
-| `ai-assisted-seed` | ai_assisted | yes | yes | yes | yes | Pilot classifications and interpretive relationships. **Unreviewed** |
+| `ai-assisted-seed` | ai_assisted | yes | yes | yes | yes | Classifications, summaries and interpretive relationships. **Unreviewed** |
+| `wikidata` | open data | yes | yes | yes | yes | CC0. Identity (QIDs), release year, film runtime, series and order, published review scores (Rotten Tomatoes, Metacritic, IMDb as recorded on Wikidata, with date and vote count), box office, external IDs, Commons images (each with its own licence and attribution) |
+| `openlibrary` | open data | yes | yes | yes | check | Median page count, reader ratings, cover thumbnails. Covers remain the publishers'; shown for identification with attribution |
+| `musicbrainz` | open data | yes | yes | yes | yes | Core data CC0: release groups, standard-edition track lists and lengths, remix relationships. Covers via the Cover Art Archive (rights remain with the owners) |
 
-The pilot synopses are original writing. No third-party text, images or scores are stored.
+Summaries are original writing. Scores are shown as published by their owners, with source and date; Mimir never
+computes or republishes reviews.
+
+### Matching rules (api/mde/ingest)
+
+A match is accepted only when the candidate has the right type for the medium and its year agrees within one
+(books: within two, or any year when title and author match exactly, since translations carry later dates).
+Exact titles, known alternative titles (`attributes.aka`) and Wikidata's language-neutral `mul` labels count.
+Equal candidates are separated by item completeness; a single exact-title item of the right type is accepted at
+lower confidence with the year difference recorded. Everything else is left unmatched with its candidates listed
+for an editor. When a source disagrees with the seed (year, runtime), the source value is used and the seed value
+is kept in `fact_sources` and reported under `conflicts` in the enrichment file. Album lengths come only from
+MusicBrainz's standard-edition track list, never from Wikidata, whose durations often include bonus tracks.
+
+### Link-only services
+
+"Where to watch / listen / read / play" (`catalogue/providers.json`) links to each service's own search page, per
+region, or to an exact store page when the catalogue holds the ID (Steam). Nothing is fetched from these services
+and no availability is claimed.
 
 ## Candidates
 
 | Provider | Likely role | What we believe the terms are | Status |
 | --- | --- | --- | --- |
-| Wikidata | Identity backbone: QIDs, dates, credits, cross-identifiers | CC0 public domain | Recommended first integration |
-| MusicBrainz | Music releases, artists, credits | Core data CC0; supplementary data CC BY-NC-SA | Recommended (core data only) |
-| Open Library | Books, editions, ISBNs | Open data; confirm the licence of dumps and covers | Verify |
 | Wikipedia | Background reading only | Text is CC BY-SA (share-alike); don't copy into proprietary fields | Link out only |
 | TMDB | Film/TV metadata and images | Attribution required; commercial use needs an agreement; check caching and AI/ML clauses | Verify; likely needs a commercial agreement |
 | IMDb | Film/TV metadata | Public datasets are for personal and non-commercial use; commercial use needs a paid licence | Not without a licence |

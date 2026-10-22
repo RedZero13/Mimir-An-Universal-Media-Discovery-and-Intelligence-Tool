@@ -497,6 +497,16 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .pref-link { font-size: .84rem; color: var(--gold-bright); text-decoration: none; }
 .pref-link:hover { color: var(--bone); text-decoration: underline; }
 .dt-where { background: transparent !important; padding: 2px 0 0 !important; }
+.rate { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.rate-btn { cursor: pointer; font: 500 .8rem/1 var(--f-body); padding: 8px 12px; border-radius: 99px; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); }
+.rate-btn:hover { border-color: var(--gold); color: var(--bone); }
+.rate-btn.on.r-loved { background: #B5485A; border-color: #B5485A; color: #fff; }
+.rate-btn.on.r-liked { background: var(--gold-deep); border-color: var(--gold); color: var(--bone); }
+.rate-btn.on.r-disliked { background: var(--surface-2); border-color: var(--faint); color: var(--muted); text-decoration: line-through; }
+.rate.compact .rate-btn { padding: 4px 8px; font-size: .78rem; min-width: 30px; }
+.rate-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 12px; }
+.pcard .rate { margin-top: 6px; }
+.starter .pgrid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
 .linkouts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .linkouts a { display: inline-block; padding: 8px 14px; border: 1px solid var(--line-strong); border-radius: 99px; color: var(--ink); text-decoration: none; font-size: .88rem; }
 .linkouts a::after { content: " ↗"; color: var(--gold); }
@@ -551,7 +561,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#D8B24A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="29.2"/><path d="M11 22 H53 M11 20.4 V23.6 M53 20.4 V23.6"/><path d="M32 22 V15"/><path d="M32 15 C29.4 14.1 28 11.8 28.2 9 C30.8 9.7 32.2 12.1 32 15 Z"/><path d="M32 22 V43"/><path d="M32 22 C31.2 28.6 27.6 32.4 26.4 37 C25.8 39.6 27.4 41.4 29.2 40.6"/><path d="M32 22 C32.8 28.6 36.4 32.4 37.6 37 C38.2 39.6 36.6 41.4 34.8 40.6"/><path d="M32 22 C28.6 25.6 21.6 27.4 19.6 33 C18.6 35.9 20.2 38.2 22.4 37.4"/><path d="M32 22 C35.4 25.6 42.4 27.4 44.4 33 C45.4 35.9 43.8 38.2 41.6 37.4"/><ellipse cx="32" cy="47.2" rx="16.5" ry="4.3"/><ellipse cx="32" cy="47.2" rx="8.5" ry="2.1"/></g></svg>
       <span><span class="brand-word">MIMIR</span><span class="brand-sub">A TERRATALES VENTURE</span></span>
     </a>
-    <span class="top-right"><a class="mine-link" href="#mine">My shelf <span id="mine-n" class="mine-n">0</span></a><span class="pilot" title="The pilot catalogue holds 56 works">Pilot · 56 works</span></span>
+    <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#mine">My shelf <span id="mine-n" class="mine-n">0</span></a><span class="pilot" id="beta-pill">Beta</span></span>
   </header>
   <nav class="menubar" id="menubar" aria-label="Main"></nav>
   <main id="app"></main>
@@ -562,7 +572,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       </a>
       <span class="legal">© 2026 Terratales Media Entertainment · All realms reserved</span>
     </div>
-    <p>Mimir is in pilot. Its catalogue holds 56 works. Facts, credits and official ratings are unverified, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Each is labelled where it appears. Feedback you give stays in your browser. Write to hello@terratalesmedia.world.</p>
+    <p>Mimir is in beta. Its catalogue holds <span id="cat-count">hundreds of</span> works. Facts and credits come from open data where a source matches (and say so); otherwise they are unverified, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Each is labelled where it appears. Your ratings, shelf and feedback stay in your browser unless you email them to us. <a id="foot-feedback" href="mailto:hello@terratalesmedia.world">Send beta feedback</a>.</p>
   </footer>
 </div>
 
@@ -591,13 +601,17 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     "A game I can finish in one evening, wordless and beautiful",
     "Stories about surveillance and complicity, any medium",
     "An album for focusing, calm and minimal",
+    "A Korean drama that will make me cry",
+    "A short, funny Hindi film for the family",
+    "A TV series I can finish in a weekend",
   ];
-  const MEDIUM = { film: "Film", series: "Series", book: "Book", game: "Game", album: "Album", track: "Track" };
+  const MEDIUM = { film: "Film", series: "TV series", book: "Book", game: "Game", album: "Album", track: "Track" };
   const MEDAL = {
     film: '<rect x="7" y="8.6" width="10" height="7.6" rx="1.2"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
     book: '<path d="M12 8.4v8.4M12 8.4c-1.6-1-3.5-1-5 0v8c1.5-1 3.4-1 5 0M12 8.4c1.6-1 3.5-1 5 0v8c-1.5-1-3.4-1-5 0"/>',
     game: '<path d="M9 10h6a2.6 2.6 0 0 1 2.6 2.6v1.2a1.6 1.6 0 0 1-2.9.9l-.7-1h-4l-.7 1a1.6 1.6 0 0 1-2.9-.9v-1.2A2.6 2.6 0 0 1 9 10z"/><path d="M9.4 11.6v2M8.4 12.6h2"/>',
     album: '<circle cx="12" cy="12.4" r="4.6"/><circle cx="12" cy="12.4" r="1.2"/>',
+    series: '<rect x="6.6" y="8.4" width="10.8" height="7.6" rx="1.2"/><path d="M10 6.4l2 2 2-2M9.6 17.6h4.8"/>',
   };
   const medal = (m) => `<svg class="medal" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12.4" r="10.6"/>${MEDAL[m] || ""}</svg>`;
   const BASIS = {
@@ -614,8 +628,11 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     ["advisory:jump-scares", "Frightening scenes"], ["advisory:suicide-self-harm", "Suicide & self-harm"],
   ];
   const LANG = { en: "English", ja: "Japanese", ru: "Russian", ko: "Korean", de: "German", pl: "Polish", it: "Italian",
-    fr: "French", be: "Belarusian" };
-  const ROLE_ORDER = ["director", "author", "developer", "artist", "writer", "cinematographer", "studio", "publisher"];
+    fr: "French", be: "Belarusian", hi: "Hindi", ta: "Tamil", te: "Telugu", ml: "Malayalam", bn: "Bengali", kn: "Kannada",
+    mr: "Marathi", pa: "Punjabi", ur: "Urdu", zh: "Mandarin", yue: "Cantonese", es: "Spanish", pt: "Portuguese",
+    sv: "Swedish", da: "Danish", no: "Norwegian", fa: "Persian", ar: "Arabic", is: "Icelandic", id: "Indonesian",
+    nl: "Dutch", he: "Hebrew", fi: "Finnish" };
+  const ROLE_ORDER = ["director", "creator", "author", "developer", "artist", "writer", "cinematographer", "studio", "publisher"];
 
   let query = EXAMPLES[0];
   let hasAsked = false;
@@ -750,6 +767,25 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       motif = `<g stroke="${ac}" stroke-width=".5" opacity=".18">${grid}</g>${pixels}
         <path d="M100 ${n1(cy - size)}L${n1(100 + size * 0.9)} ${cy}L100 ${n1(cy + size)}L${n1(100 - size * 0.9)} ${cy}Z" fill="url(#${id}s)" stroke="${ac}" stroke-width="1.1"/>
         <path d="M100 ${n1(cy - size * 0.5)}L${n1(100 + size * 0.45)} ${cy}L100 ${n1(cy + size * 0.5)}L${n1(100 - size * 0.45)} ${cy}Z" fill="none" stroke="${bg0}" stroke-width="1"/>`;
+    } else if (c.medium === "series") {
+      const sx = 22, sy = n1(48 + r() * 12), sw = 156, sh = n1(104 + r() * 16);
+      const frame = `<rect x="${sx}" y="${sy}" width="${sw}" height="${sh}" rx="10" fill="${bg0}" opacity=".55" stroke="${ac}" stroke-width="1.2"/>
+        <path d="M${n1(100 - 14)} ${n1(sy - 12)}L100 ${n1(sy - 2)}L${n1(100 + 14)} ${n1(sy - 12)}" fill="none" stroke="${ac}" stroke-width="1"/>`;
+      if (variant === 1) {
+        const cols = 4, rows = 3, gw = n1((sw - 30) / cols), gh = n1((sh - 26) / rows);
+        let cells = "";
+        for (let i = 0; i < rows; i++) for (let j = 0; j < cols; j++) {
+          const lit = r() > 0.45;
+          cells += `<rect x="${n1(sx + 10 + j * (gw + 3))}" y="${n1(sy + 9 + i * (gh + 3))}" width="${n1(gw - 3)}" height="${n1(gh - 3)}" rx="2" fill="${ac}" opacity="${lit ? n1(0.35 + r() * 0.5) : 0.08}"/>`;
+        }
+        motif = frame + cells;
+      } else if (variant === 2) {
+        motif = frame + Array.from({ length: 5 }, (_, i) => `<rect x="${n1(sx + 10 + i * 9)}" y="${n1(sy + 8 + i * 7)}" width="${n1(sw - 20 - i * 18)}" height="${n1(sh - 16 - i * 14)}" rx="6" fill="none" stroke="${ac}" stroke-width=".8" opacity="${n1(0.8 - i * 0.13)}"/>`).join("");
+      } else {
+        const cx = n1(60 + r() * 80), cy = n1(sy + sh * 0.45), rad = n1(18 + r() * 12);
+        motif = frame + `<circle cx="${cx}" cy="${cy}" r="${rad}" fill="url(#${id}s)"/>`
+          + Array.from({ length: 9 }, (_, i) => `<path d="M${sx + 6} ${n1(sy + 8 + i * (sh - 16) / 8)}H${sx + sw - 6}" stroke="${ac}" stroke-width=".4" opacity=".25"/>`).join("");
+      }
     } else {
       const cx = n1(70 + r() * 60), cy = n1(64 + r() * 40), rings = 7 + Math.floor(r() * 6);
       motif = Array.from({ length: rings }, (_, i) => `<circle cx="${cx}" cy="${cy}" r="${n1(10 + i * (92 / rings) * 1.25)}" fill="none" stroke="${ac}" stroke-width="${i % 3 === 0 ? 1.4 : 0.6}" opacity="${n1(0.75 - i * 0.045)}"/>`).join("")
@@ -782,7 +818,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   // ------------------------------------------------------------------ time, continuity, scores
   const hm = (m) => (m < 60 ? `${m} min` : m < 600 && m % 60 ? `${Math.floor(m / 60)}h ${m % 60}m` : `${Math.round(m / 60)}h`);
-  const TIME_VERB = { runtime: "to watch", playtime: "to play", pages: "to read", form: "to read" };
+  const TIME_VERB = { runtime: "to watch", playtime: "to play", pages: "to read", form: "to read", episodes: "to watch everything" };
   const timeText = (t, album) => `${t.estimate ? "about " : ""}${hm(t.minutes)} ${album ? "to listen" : TIME_VERB[t.basis]}`;
   const timeChip = (t, album = false) => (t ? `<span class="tchip t-${t.bucket}" title="${esc(timeText(t, album))}">${esc(t.label)}</span>` : "");
   const contText = (c) => (c.kind === "standalone" ? "Standalone"
@@ -830,10 +866,12 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   // Search links for reactions and listening when no source has supplied exact pages (mirrors ingest/links.py).
   function reactionLinks(w) {
     if (w.links.length) return w.links;
-    const creator = (w.credits.find((c) => ["director", "author", "developer", "artist"].includes(c.role)) || {}).name || "";
+    const creator = (w.credits.find((c) => ["director", "creator", "author", "developer", "artist"].includes(c.role)) || {}).name || "";
     const q = encodeURIComponent, qp = (s) => encodeURIComponent(s).replace(/%20/g, "+");
     const out = [];
     const add = (kind, label, url) => out.push({ kind, label, url });
+    if (w.medium === "film" || w.medium === "series") add("info:imdb", "IMDb", `https://www.imdb.com/find/?q=${qp(`${w.title} ${w.year || ""}`.trim())}`);
+    if (w.medium === "series") add("reactions:rotten-tomatoes", "Rotten Tomatoes", `https://www.rottentomatoes.com/search?search=${qp(w.title)}`);
     if (w.medium === "film") {
       add("reactions:letterboxd", "Letterboxd", `https://letterboxd.com/search/${q(w.title)}/`);
       add("reactions:rotten-tomatoes", "Rotten Tomatoes", `https://www.rottentomatoes.com/search?search=${qp(w.title)}`);
@@ -968,9 +1006,11 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       </section>
       <div class="home">
         <div class="home-main">
+          ${!hasAsked && Object.values(ratings).some((v) => v === "loved" || v === "liked") ? forYouRows(null, 2) : ""}
           ${hasAsked ? `${readingStrip(r)}
           ${r.results.length ? `<ol class="results">${r.results.map((x, i) => resultItem(x, i + 1)).join("")}</ol>` : `<p class="empty">${esc(r.message)}</p>`}
           <p class="eyebrow wander">Or wander the shelves</p>` : spotlight()}
+          ${hasAsked || Object.keys(ratings).length >= 3 ? "" : starterPicker(true)}
           ${timeTiles()}
           ${allShelves().slice(0, 2).map(shelfRow).join("")}
         </div>
@@ -1048,13 +1088,13 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   const mineBtn = (slug, small = false) => `<button type="button" class="mine-btn${small ? " small" : ""}${mine.includes(slug) ? " on" : ""}" data-mine="${esc(slug)}" aria-pressed="${mine.includes(slug)}">${mine.includes(slug) ? "On my shelf ✓" : "Add to my shelf"}</button>`;
 
   // ------------------------------------------------------------------ search pages (one per medium) and rankings
-  const MEDIA = ["film", "book", "game", "album"];
-  const PLURAL = { all: "Everything", film: "Films", book: "Books", game: "Games", album: "Albums" };
-  const MAKER = { film: "Directors", book: "Authors", game: "Developers & studios", album: "Artists", all: "People & studios" };
-  const CREATOR_ROLE = { film: "Director", book: "Author", game: "Developer", album: "Artist" };
+  const MEDIA = ["film", "series", "book", "game", "album"];
+  const PLURAL = { all: "Everything", film: "Films", series: "TV series", book: "Books", game: "Games", album: "Albums" };
+  const MAKER = { film: "Directors", series: "Creators", book: "Authors", game: "Developers & studios", album: "Artists", all: "People & studios" };
+  const CREATOR_ROLE = { film: "Director", series: "Created by", book: "Author", game: "Developer", album: "Artist" };
   const SORTS = [["popular", "Best known"], ["score", "Highest scored"], ["title", "Title A–Z"], ["newest", "Newest"], ["oldest", "Oldest"], ["shortest", "Shortest"]];
   const blankSearch = (medium = "all") => ({ medium, q: "", letter: "", tags: [], exclude: [], avoid: [], sort: "popular",
-    year_min: null, year_max: null, max_minutes: null, rating: "", view: "tiles", adv: false, list: false });
+    year_min: null, year_max: null, max_minutes: null, rating: "", view: "tiles", adv: false, list: false, shown: 48 });
   let search = blankSearch();
 
   function searchHash(s) {
@@ -1181,6 +1221,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <footer class="dt-foot">
           <span title="${s0 ? esc(`${s0.publisher} ${s0.metric}`) : "No published score on file"}">★ ${s0 ? esc(scoreText(s0)) : "N/A"}</span>
           <span title="${w.time ? esc(timeText(w.time, w.medium === "album")) : "Length not recorded"}">◷ ${w.time ? esc(hm(w.time.minutes)) : "N/A"}</span>
+          ${rateButtons(w.slug, true)}
           ${mineBtn(w.slug, true)}
         </footer>
       </li>`;
@@ -1215,7 +1256,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
               <span class="viewtog" role="group" aria-label="View"><button type="button" data-s-view="tiles" aria-pressed="${s.view === "tiles"}" title="Detail tiles">▦</button><button type="button" data-s-view="grid" aria-pressed="${s.view === "grid"}" title="Poster grid">▤</button></span></span></header>
           ${single ? `<p class="defbox">${esc(single.definition)}</p>` : ""}
           ${(s.tags.length + s.exclude.length > (single ? 1 : 0)) ? `<p class="active">${[...s.tags.map((k) => ["inc", k]), ...s.exclude.map((k) => ["exc", k])].map(([st, k]) => `<button type="button" class="tri ${st}" data-tri-remove="${esc(k)}">${st === "inc" ? "✓" : "✕"} ${esc(cat.taxonomy.get(k).label)} ×</button>`).join("")}<button type="button" class="linkish" data-s-clear>Clear all</button></p>` : ""}
-          ${!works.length ? `<p class="empty">Nothing matches. Try removing a filter.</p>` : s.view === "grid" ? pgrid(works) : `<ol class="dtiles">${works.map(detailTile).join("")}</ol>`}
+          ${!works.length ? `<p class="empty">Nothing matches. Try removing a filter, or <a href="${esc(feedbackHref("Mimir: suggest a title", `Search: ${s.q || heading}`))}">suggest a title we should add</a>.</p>`
+            : s.view === "grid" ? pgrid(works.slice(0, s.shown)) : `<ol class="dtiles">${works.slice(0, s.shown).map(detailTile).join("")}</ol>`}
+          ${works.length > s.shown ? `<p class="more-shelves"><button type="button" class="btn ghost" data-s-more>Show ${Math.min(48, works.length - s.shown)} more of ${works.length - s.shown}</button></p>` : ""}
         </section>` : `
         ${d.dims.map((dim) => dirSection(dim.label, dim.terms.map((t) => [hrefSearch(s.medium, { tags: [t.key] }), t.label, t.count]))).join("")}
         ${dirSection(MAKER[s.medium], d.makers.slice(0, 20).map((m) => [`#person-${m.slug}`, m.name, m.n]), "#people")}
@@ -1274,14 +1317,16 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   const MENU = [
     ["Films", [["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
-    ["Books", [["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Food", "#shelf-brain-food"], ["Book series", "#series"]]],
+    ["TV", [["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
+      ["Seoul Searching", "#shelf-seoul-searching"], ["Desi Delights", "#shelf-desi-delights"]]],
+    ["Books", [["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Book series", "#series"]]],
     ["Games", [["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
     ["Music", [["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
-    ["Discover", [["Ask Mimir", "#"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
-    ["Series", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"]]],
-    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["My shelf", "#mine"], ["About Mimir", "#about"]]],
+    ["Discover", [["For you", "#for-you"], ["Ask Mimir", "#"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["My shelf", "#mine"], ["About Mimir", "#about"], ["Send beta feedback", feedbackHref()]]],
   ];
-  const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
+  const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
   function renderMenubar() {
     document.getElementById("menubar").innerHTML = `
       <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="menus">☰ Menu</button>
@@ -1376,7 +1421,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const w = cat.work(slug);
     if (!w) { app.innerHTML = `<p class="empty">That work isn't in the pilot catalogue. <a href="#browse">Browse everything</a></p>`; return; }
     const album = w.medium === "album";
-    w.creators = w.credits.filter((cr) => ["director", "author", "developer", "artist"].includes(cr.role)).map((cr) => cr.name);
+    w.creators = w.credits.filter((cr) => ["director", "creator", "author", "developer", "artist"].includes(cr.role)).map((cr) => cr.name);
     const mood = moodFromPage(w);
     const [bg0, bg1, ac] = PALETTES[mood] || PALETTES.default;
     const img = w.images[0] || null;
@@ -1387,6 +1432,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       ["Original language", w.original_language ? langLabel(w.original_language) : "None / not recorded"],
       ["Country", w.countries.length ? w.countries.join(", ") : "Not recorded"]];
     if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
+    if (w.medium === "series" && w.attributes.episodes) facts.push(["Episodes", `${w.attributes.seasons ? `${w.attributes.seasons} season${w.attributes.seasons === 1 ? "" : "s"}, ` : ""}${w.attributes.episodes} episodes of about ${w.attributes.episode_minutes} min`]);
     const factSource = (k) => ({ Released: "release_year", Time: "runtime_minutes" })[k];
     const credits = [...w.credits].sort((a, b) => roleRank(a.role) - roleRank(b.role));
     const links = reactionLinks(w);
@@ -1402,7 +1448,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
           <div class="work-art">${poster(coverOf(w, mood), "big")}
             <p class="art-credit">${img ? `${esc(img.kind[0].toUpperCase() + img.kind.slice(1))}: ${esc(img.licence)}${img.attribution ? ` · ${esc(img.attribution)}` : ""} · via ${esc(img.source)}` : "Generated cover. No licensed artwork on file yet."}</p></div>
           <div class="work-id">
-            <p class="crumbs"><a href="#browse?media=${esc(w.medium)}">${esc(mediumLabel(w.medium))}s</a>${c.group ? ` / <a href="#group-${esc(c.group.slug)}">${esc(c.group.name)}</a>` : ""}</p>
+            <p class="crumbs"><a href="#search-${esc(w.medium)}">${esc(PLURAL[w.medium] || mediumLabel(w.medium))}</a>${c.group ? ` / <a href="#group-${esc(c.group.slug)}">${esc(c.group.name)}</a>` : ""}</p>
             <h1>${esc(w.title)}</h1>
             ${w.original_title ? `<p class="orig">${esc(w.original_title)}</p>` : ""}
             <p class="meta">${medal(w.medium)}<span>${esc([mediumLabel(w.medium), w.year, w.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · "))}</span>
@@ -1416,6 +1462,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
               <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
               ${mineBtn(w.slug)}
             </div>
+            <p class="rate-row"><span class="eyebrow">Your rating</span>${rateButtons(w.slug)}<span class="muted small">Ratings tune your <a href="#for-you">picks for you</a>.</span></p>
             <p class="hero-tags">${w.tags.flatMap((dd) => dd.terms).filter((t) => !t.key.startsWith("genre:")).sort((a, b) => b.strength - a.strength).slice(0, 6).map((t) => tagChip(t)).join("")}</p>
             <p class="hero-links"><span class="eyebrow">Reactions</span>${reactions.map((l) => ext(l.url, l.label)).join("")}</p>
           </div>
@@ -1454,7 +1501,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         ${w.relationships.length ? `<section class="block" id="connected"><h2>Connected stories</h2><ul class="plain">${w.relationships.map((r) => `
           <li>${basisTag(r.factual ? "catalogue" : "interpretation")}${esc(r.label[0].toUpperCase() + r.label.slice(1))}
             <a href="#work-${esc(r.slug)}">${esc(r.title)}</a> <span class="muted">(${esc(mediumLabel(r.medium))}${r.year ? `, ${r.year}` : ""})</span>${r.note ? `<span class="muted">: ${esc(r.note)}</span>` : ""}</li>`).join("")}</ul></section>` : ""}
-        <p class="muted small block">Sources: facts and credits from the editorial seed (unverified)${Object.keys(w.fact_sources).length || w.images.length || w.scores.length ? ", with open-data facts, scores and artwork where marked" : ""}; tags, guide levels and notes from AI-assisted classification awaiting review.</p>
+        <p class="muted small block"><a href="${esc(feedbackHref(`Mimir: problem with ${w.title}`, `Work: ${w.slug}`))}">Report a problem with this page</a></p>
+        <p class="muted small">Sources: facts and credits from the editorial seed (unverified)${Object.keys(w.fact_sources).length || w.images.length || w.scores.length ? ", with open-data facts, scores and artwork where marked" : ""}; tags, guide levels and notes from AI-assisted classification awaiting review.</p>
       </article>`;
   }
 
@@ -1602,6 +1650,83 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   }
 
   // ------------------------------------------------------------------ about
+  // ------------------------------------------------------------------ ratings and "for you" (kept in this browser only)
+  const RATINGS = [["loved", "♥ Loved it"], ["liked", "✓ Liked it"], ["disliked", "✕ Not for me"]];
+  function loadRatings() { try { return JSON.parse(localStorage.getItem("mimir-ratings") || "{}") || {}; } catch { return {}; } }
+  let ratings = loadRatings();
+  function setRating(slug, value) {
+    if (ratings[slug] === value) delete ratings[slug]; else ratings[slug] = value;
+    try { localStorage.setItem("mimir-ratings", JSON.stringify(ratings)); } catch { /* storage unavailable: keep for this visit */ }
+    document.querySelectorAll(`[data-rate-slug="${CSS.escape(slug)}"]`).forEach((b) => {
+      const on = ratings[slug] === b.dataset.rate;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", String(on));
+    });
+    const n = document.getElementById("fy-n");
+    if (n) n.textContent = Object.keys(ratings).length;
+  }
+  const rateButtons = (slug, compact = false) => `<span class="rate${compact ? " compact" : ""}" role="group" aria-label="Your rating">${RATINGS.map(([v, l]) =>
+    `<button type="button" class="rate-btn${ratings[slug] === v ? " on" : ""} r-${v}" data-rate="${v}" data-rate-slug="${esc(slug)}" aria-pressed="${ratings[slug] === v}"${compact ? ` title="${esc(l.slice(2))}" aria-label="${esc(l.slice(2))}"` : ""}>${compact ? l.slice(0, 1) : l}</button>`).join("")}</span>`;
+
+  // Beta feedback goes by email, with the page it was sent from, so nothing is collected silently.
+  function feedbackHref(subject = "Mimir beta feedback", extra = "") {
+    const body = `Page: ${location.href}\n${extra}\nWhat happened, or what would make Mimir better?\n\n`;
+    return `mailto:hello@terratalesmedia.world?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  // A first-visit picker: well-known works across media to react to, so "for you" has something to work with.
+  const starterSet = once(() => {
+    const out = [];
+    for (const m of ["film", "series", "book", "game", "album"]) out.push(...allWorks().filter((w) => w.medium === m && w.popularity_tier === 1).slice(0, 6));
+    return out;
+  });
+
+  function starterPicker(compact = false) {
+    return `
+      <section class="block starter" aria-labelledby="starter-h">
+        <header class="shelf-head"><div><h2 id="starter-h">Tell Mimir what you love</h2>
+          <p>React to a few you know. Your picks are worked out in this browser from what they're about and how they feel; nothing is sent anywhere.</p></div>
+          ${Object.keys(ratings).length ? `<a class="see-all" href="#for-you">See your picks (${Object.keys(ratings).length} rated)</a>` : ""}</header>
+        ${compact ? row(starterSet().slice(0, 18), (w) => rateButtons(w.slug, true)) : pgrid(starterSet(), (w) => rateButtons(w.slug, true))}
+      </section>`;
+  }
+
+  function forYouRows(medium = null, groups = 3) {
+    const rec = cat.recommend(ratings, 36, medium);
+    if (!rec.results.length) return "";
+    const byBecause = new Map();
+    for (const w of rec.results) {
+      if (!byBecause.has(w.because.slug)) byBecause.set(w.because.slug, { title: w.because.title, works: [] });
+      byBecause.get(w.because.slug).works.push(w);
+    }
+    const why = (w) => `<p class="pmeta">Shares ${esc(w.shared.map((t) => t.label.toLowerCase()).join(", "))}</p>`;
+    return [...byBecause.entries()].slice(0, groups).map(([slug, g]) => `
+      <section class="shelf" aria-label="Because you rated ${esc(g.title)}">
+        <header class="shelf-head"><div><h2>Because you ${ratings[slug] === "loved" ? "loved" : "liked"} <a href="#work-${esc(slug)}">${esc(g.title)}</a></h2>
+          <p>Picked for the qualities it shares with everything you rated.</p></div><a class="see-all" href="#for-you">All picks for you</a></header>
+        ${row(g.works, why)}
+      </section>`).join("");
+  }
+
+  function renderForYou(medium = "all") {
+    const m = MEDIA.includes(medium) ? medium : null;
+    const rec = cat.recommend(ratings, 60, m);
+    const rated = allWorks().filter((w) => ratings[w.slug]);
+    app.innerHTML = `
+      <header class="page-band"><h1>For you</h1></header>
+      <p class="muted" style="margin:14px 0">Mimir builds a taste profile from the works you rate: what they're about and how they feel, counted more than genre. Loved counts twice as much as liked; "not for me" steers away. It all stays in this browser.</p>
+      ${rec.profile.length ? `<p class="pchips">Your taste leans ${rec.profile.map((t) => tagChip(t)).join("")}</p>` : ""}
+      <nav class="medium-tabs" aria-label="Medium">${["all", ...MEDIA].map((x) => `<a href="#for-you?m=${x}" class="${(m || "all") === x ? "on" : ""}">${esc(PLURAL[x])}</a>`).join("")}</nav>
+      ${rated.length ? (rec.results.length ? `
+        <section class="results-sec"><header class="sec-head"><h2>Picks for you <span class="count">(${rec.results.length})</span></h2></header>
+          ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${ratings[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${rateButtons(w.slug, true)}`)}
+        </section>` : `<p class="empty">${Object.values(ratings).some((v) => v === "loved" || v === "liked") ? "Nothing new in this medium matches your taste yet. Try another tab." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
+      ${starterPicker()}
+      ${rated.length ? `<section class="block"><header class="sec-head"><h2>Your ratings <span class="count">(${rated.length})</span></h2>
+        <button type="button" class="linkish" data-clear-ratings>Clear all ratings</button></header>
+        ${pgrid(rated, (w) => rateButtons(w.slug, true))}</section>` : ""}`;
+  }
+
   function renderAbout() {
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">About Mimir</p><h1>The well beneath the tree</h1></header>
@@ -1617,8 +1742,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         </ul>
         <h2>How picks are made</h2>
         <p>Every work is tagged against a controlled vocabulary of moods, themes, pacing, style and more, each with a definition. Mimir matches your request to those tags, respects your limits, favours lesser-known works when you ask, and spreads its picks so one creator doesn't fill the list. If nothing fits, it says so instead of guessing.</p>
-        <h2>The pilot</h2>
-        <p>This is an early version with 56 works. Its facts, credits and official ratings were gathered for the pilot and haven't been verified yet, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
+        <h2>The beta</h2>
+        <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(allWorks().map((w) => w.language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
+        <p>Your ratings, shelf and preferred apps live in your browser only. To tell us what's wrong or missing, <a href="${esc(feedbackHref())}">send beta feedback</a>.</p>
         <h2>A Terratales venture</h2>
         <p>Mimir is built by Terratales Media Entertainment, a media, entertainment and story-technology house: stories rooted in the earth, branched out to every realm of the world. <a href="https://terratalesmedia.world/">Visit Terratales</a>.</p>
       </div>`;
@@ -1637,7 +1763,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     setTimeout(() => document.getElementById("menubar").classList.remove("settle"), 400);
     const [h, qs = ""] = location.hash.slice(1).split("?");
     const p = new URLSearchParams(qs);
-    const MEDIUM_MENU = { film: "Films", book: "Books", game: "Games", album: "Music", all: "Catalogue" };
+    const MEDIUM_MENU = { film: "Films", series: "TV", book: "Books", game: "Games", album: "Music", all: "Catalogue" };
     if (h.startsWith("work-")) { const w = cat.work(h.slice(5)); setNav(w ? MEDIUM_MENU[w.medium] : ""); renderWork(h.slice(5)); }
     else if (h.startsWith("search-") || h === "browse") { search = searchFrom(h === "browse" ? "all" : h.slice(7), p); setNav(MEDIUM_MENU[search.medium]); renderSearch(); }
     else if (h.startsWith("top-")) { setNav(MEDIUM_MENU[h.slice(4)] || "Catalogue"); renderTop(h.slice(4)); }
@@ -1645,9 +1771,10 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else if (h.startsWith("person-")) { setNav("Catalogue"); renderPerson(h.slice(7)); }
     else if (h.startsWith("shelf-")) { setNav("Discover"); renderShelf(h.slice(6)); }
     else if (h.startsWith("time-")) { setNav("Discover"); renderTime(h.slice(5)); }
-    else if (h.startsWith("group-")) { setNav("Series"); renderGroup(h.slice(6)); }
+    else if (h.startsWith("group-")) { setNav("Sagas"); renderGroup(h.slice(6)); }
     else if (h === "music" || h.startsWith("music-")) { setNav("Music"); renderMusic(h.slice(6)); }
-    else if (h === "series") { setNav("Series"); renderSeries(); }
+    else if (h === "series") { setNav("Sagas"); renderSeries(); }
+    else if (h === "for-you") { setNav("Discover"); renderForYou(p.get("m") || "all"); }
     else if (h === "shelves") { setNav("Discover"); renderShelves(); }
     else if (h === "mine") { setNav("Catalogue"); renderMine(); }
     else if (h === "tags") { setNav("Catalogue"); renderTags(p.get("q") || ""); }
@@ -1713,6 +1840,16 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else if (d.jump) document.getElementById(d.jump)?.scrollIntoView({ block: "start" });
     else if (d.scroll) { const r = t.parentElement.querySelector(".row"); r.scrollBy({ left: Number(d.scroll) * r.clientWidth * 0.85, behavior: "smooth" }); }
     else if (d.mine) toggleMine(d.mine);
+    else if (d.rate) setRating(d.rateSlug, d.rate);
+    else if (d.clearRatings !== undefined) {
+      if (confirm("Clear all your ratings? Your picks will start again from scratch.")) {
+        ratings = {};
+        try { localStorage.removeItem("mimir-ratings"); } catch { /* storage unavailable */ }
+        document.getElementById("fy-n").textContent = 0;
+        renderForYou();
+      }
+    }
+    else if (d.sMore !== undefined) goSearch({ ...search, shown: search.shown + 48 });
     else if (d.syn !== undefined) { const box = t.closest(".dt-text"); const open = box.classList.toggle("open"); t.setAttribute("aria-expanded", String(open)); t.textContent = open ? "Less ▴" : "More ▾"; }
     else if (d.sLetter) goSearch({ ...search, letter: search.letter === d.sLetter ? "" : d.sLetter });
     else if (d.sSort) goSearch({ ...search, sort: d.sSort, letter: "", list: true });
@@ -1763,6 +1900,10 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   renderMenubar();
   document.getElementById("mine-n").textContent = mine.length;
+  document.getElementById("fy-n").textContent = Object.keys(ratings).length;
+  document.getElementById("beta-pill").textContent = `Beta · ${allWorks().length} works`;
+  document.getElementById("cat-count").textContent = allWorks().length;
+  document.getElementById("foot-feedback").href = feedbackHref();
   window.addEventListener("hashchange", route);
   route();
 })();

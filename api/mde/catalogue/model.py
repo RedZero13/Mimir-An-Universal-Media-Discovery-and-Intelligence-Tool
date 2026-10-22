@@ -24,7 +24,13 @@ RELATIONSHIP_TYPES: dict[str, tuple[str, str, bool]] = {  # slug: (label, invers
     "track_of": ("is a track on", "includes the track", True),
     "remix_of": ("is a remix of", "was remixed as", True),
     "spin_off_of": ("is a spin-off of", "spun off", True),
+    "soundtrack_of": ("is the soundtrack of", "has the soundtrack", True),
 }
+
+# How much each dimension counts when comparing works ("something like X", taste profiles): mostly what a work is
+# about and how it feels; genre and accessibility matter less.
+SIMILARITY_WEIGHTS = {"theme": 1.0, "mood": 0.9, "narrative": 0.8, "world": 0.8, "style": 0.7, "pacing": 0.6,
+                      "genre": 0.5, "complexity": 0.4}
 
 PRIMARY_ROLES = ("director", "creator", "author", "developer", "artist")
 ORGANISATION_ROLES = {"developer", "publisher", "studio", "label", "distributor"}
