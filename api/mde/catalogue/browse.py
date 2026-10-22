@@ -9,10 +9,13 @@ of thousands of works, browse filtering and facet counts move into SQL with the 
 
 from __future__ import annotations
 
+import json
 from collections import Counter
 from dataclasses import dataclass, field
+from pathlib import Path
+from urllib.parse import quote
 
-from mde.catalogue.model import WorkProfile, normalise_title, severity, slugify
+from mde.catalogue.model import RELATIONSHIP_TYPES, WorkProfile, normalise_title, severity, slugify
 from mde.taxonomy import Taxonomy
 
 TAG_DIMENSIONS = ["genre", "theme", "mood", "pacing", "complexity", "narrative", "world", "style"]
@@ -134,9 +137,10 @@ def browse(works: list[WorkProfile], tax: Taxonomy, f: BrowseFilters) -> dict:
             languages[w.language] += 1
         for k, _ in _tags(w, list(by_dim)):
             by_dim[k.split(":")[0]][k] += 1
+    ctx = _context(works)
     return {
         "total": len(hits),
-        "results": [card(w, tax) for w in hits],
+        "results": [_rich_card(w, tax, ctx) for w in hits],
         "facets": {
             "medium": _facet(media, lambda v: v),
             "decade": sorted(({"value": d, "label": f"{d}s", "count": n} for d, n in decades.items()),
@@ -166,6 +170,7 @@ def tag_page(works: list[WorkProfile], tax: Taxonomy, key: str) -> dict | None:
     if key not in tax.terms:
         return None
     term = tax.get(key)
+    ctx = _context(works)
     tagged = sorted((w for w in works if w.strength(key) >= TAG_THRESHOLD),
                     key=lambda w: (-w.strength(key), normalise_title(w.title)))
     related: Counter = Counter()
@@ -176,7 +181,7 @@ def tag_page(works: list[WorkProfile], tax: Taxonomy, key: str) -> dict | None:
     return {
         "key": key, "label": term.label, "definition": term.definition, "dimension": term.dimension,
         "dimension_label": tax.dimensions[term.dimension].label, "applies_to": list(term.applies_to),
-        "works": [{**card(w, tax), "strength": w.strength(key)} for w in tagged],
+        "works": [{**_rich_card(w, tax, ctx), "strength": w.strength(key)} for w in tagged],
         "related": [{"key": k, "label": tax.get(k).label, "count": n}
                     for k, n in sorted(related.items(), key=lambda kv: (-kv[1], tax.get(kv[0]).label))[:10]],
     }
@@ -209,6 +214,7 @@ def person_page(works: list[WorkProfile], tax: Taxonomy, slug: str) -> dict | No
     if not credited:
         return None
     credited.sort(key=lambda wr: (-(wr[0].year or 0), normalise_title(wr[0].title)))
+    ctx = _context(works)
     roles = sorted({r for _, rs in credited for r in rs})
     themes: Counter = Counter()
     for w, _ in credited:
@@ -216,7 +222,7 @@ def person_page(works: list[WorkProfile], tax: Taxonomy, slug: str) -> dict | No
             themes[k] += 1
     return {
         "slug": slug, "name": name, "kind": kind, "roles": roles,
-        "works": [{**card(w, tax), "roles": rs} for w, rs in credited],
+        "works": [{**_rich_card(w, tax, ctx), "roles": rs} for w, rs in credited],
         "recurring_tags": [{"key": k, "label": tax.get(k).label, "count": n}
                            for k, n in sorted(themes.items(), key=lambda kv: (-kv[1], tax.get(kv[0]).label)) if n > 1][:8],
     }
@@ -269,9 +275,250 @@ def work_page(w: WorkProfile, works: list[WorkProfile], tax: Taxonomy) -> dict:
         "slug": w.slug, "medium": w.medium, "title": w.title, "original_title": w.original_title,
         "original_language": w.language, "countries": w.countries, "year": w.year, "summary": w.summary,
         "length": length_text(w), "runtime_minutes": w.runtime_minutes, "playtime_hours": w.playtime_hours,
-        "length_is_estimate": w.length_is_estimate, "popularity_tier": w.popularity_tier, "attributes": w.attributes,
+        "page_count": w.page_count, "length_is_estimate": w.length_is_estimate, "popularity_tier": w.popularity_tier,
+        "attributes": w.attributes,
         "credits": [{"role": c.role, "name": c.name, "kind": c.kind, "slug": slugify(c.name)} for c in w.credits],
         "tags": tags,
         "parents_guide": parents_guide(w, tax),
         "relationships": relationships,
+        "time": time_investment(w),
+        "continuity": continuity(w, works),
+        "images": [{"kind": i.kind, "url": i.url, "source": i.source, "licence": i.licence, "attribution": i.attribution}
+                   for i in w.images],
+        "scores": [{"publisher": s.publisher, "metric": s.metric, "value": s.value, "scale_max": s.scale_max,
+                    "votes": s.votes, "as_of": s.as_of, "source": s.source} for s in w.scores],
+        "box_office": [dict(b) for b in w.box_office],
+        "links": [dict(link) for link in w.links],
+        "tracks": _track_items(w) if w.medium == "album" else [],
+        "spotify": spotify_search(w.creators[0] if w.creators else "", w.title) if w.medium == "album" else None,
+        "fact_sources": {k: dict(v) for k, v in w.fact_sources.items()},
+        "ids": dict(w.ids),
     }
+
+
+# ====================================================================== time, continuity, shelves, music
+# Everything below is mirrored in demo/engine.cjs (parity-tested).
+
+TIME_BUCKETS = ((45, "quick-bite", "Quick bite"), (150, "one-sitting", "One sitting"),
+                (360, "evening-or-two", "An evening or two"), (900, "weekend", "A weekend"),
+                (2400, "season", "A season"))
+LONG_HAUL = ("long-haul", "A long haul")
+READING_MINUTES_PER_PAGE = 1.7      # about 35 pages an hour: an unhurried adult reading pace
+NOVELLA_MINUTES = 150
+CHAIN_TYPES = ("sequel_of", "spin_off_of", "same_universe", "remake_of")
+SHELVES_PATH = Path(__file__).parent / "shelves.json"
+
+
+def load_shelves(path: Path = SHELVES_PATH) -> dict:
+    return json.loads(path.read_text())
+
+
+def time_investment(w: WorkProfile) -> dict | None:
+    """How much time a work asks for, with how the figure was reached."""
+    if w.runtime_minutes:
+        minutes, basis, estimate = w.runtime_minutes, "runtime", w.length_is_estimate
+    elif w.playtime_hours:
+        minutes, basis, estimate = w.length_minutes, "playtime", w.length_is_estimate
+    elif w.medium == "book" and w.page_count:
+        minutes, basis, estimate = round(w.page_count * READING_MINUTES_PER_PAGE), "pages", True
+    elif w.medium == "book" and w.attributes.get("form") == "novella":
+        minutes, basis, estimate = NOVELLA_MINUTES, "form", True
+    else:
+        return None
+    bucket, label = LONG_HAUL
+    for limit, slug, name in TIME_BUCKETS:
+        if minutes <= limit:
+            bucket, label = slug, name
+            break
+    return {"minutes": minutes, "bucket": bucket, "label": label, "estimate": estimate, "basis": basis}
+
+
+def _is_forward(r) -> bool:
+    return r.label == RELATIONSHIP_TYPES[r.type][0]
+
+
+def _position_key(position: str | None) -> float:
+    try:
+        return float(position) if position is not None else 1e9
+    except ValueError:
+        return 1e9
+
+
+def continuity(w: WorkProfile, works: list[WorkProfile]) -> dict:
+    """Standalone, part of a series, or part of a franchise; plus adaptation links either way."""
+    by_slug = {x.slug: x for x in works}
+    adapted_from = [r for r in w.relations if r.type == "adaptation_of" and _is_forward(r)]
+    adapted_as = [r for r in w.relations if r.type == "adaptation_of" and not _is_forward(r)]
+    out = {"kind": "standalone", "group": None, "position": None, "members": [],
+           "adapted_from": [{"slug": r.other_slug, "title": r.other_title, "medium": r.other_medium} for r in adapted_from],
+           "adapted_as": [{"slug": r.other_slug, "title": r.other_title, "medium": r.other_medium} for r in adapted_as]}
+    # A named group wins when the catalogue holds two or more of its works; otherwise the relationship chain
+    # decides, so one entry with a series label and its sequel without one still read as the same franchise.
+    series = None
+    if w.groups:
+        g = w.groups[0]
+        members = [x for x in works if any(xg.slug == g.slug for xg in x.groups)]
+        pos = {x.slug: next(xg.position for xg in x.groups if xg.slug == g.slug) for x in members}
+        members.sort(key=lambda x: (_position_key(pos[x.slug]), x.year or 9999, normalise_title(x.title)))
+        series = {"kind": g.kind, "group": {"slug": g.slug, "name": g.name}, "position": g.position,
+                  "members": [{"slug": x.slug, "title": x.title, "year": x.year, "medium": x.medium, "position": pos[x.slug]}
+                              for x in members]}
+        if len(members) > 1:
+            out.update(series)
+            return out
+    seen, queue = {w.slug}, [w.slug]
+    while queue:
+        cur = by_slug.get(queue.pop())
+        for r in (cur.relations if cur else []):
+            if r.type in CHAIN_TYPES and r.other_slug not in seen and r.other_slug in by_slug:
+                seen.add(r.other_slug)
+                queue.append(r.other_slug)
+    if len(seen) > 1:
+        members = sorted((by_slug[s] for s in seen), key=lambda x: (x.year or 9999, normalise_title(x.title)))
+        root = members[0]
+        out.update(kind="franchise", group={"slug": f"franchise-{root.slug}", "name": root.title},
+                   members=[{"slug": x.slug, "title": x.title, "year": x.year, "medium": x.medium, "position": None}
+                            for x in members])
+    elif series:
+        out.update(series)
+    return out
+
+
+def _context(works: list[WorkProfile]) -> dict[str, dict]:
+    return {w.slug: continuity(w, works) for w in works}
+
+
+def _rich_card(w: WorkProfile, tax: Taxonomy, ctx: dict[str, dict]) -> dict:
+    img = w.images[0] if w.images else None
+    c = ctx[w.slug]
+    return {**card(w, tax),
+            "image": {"url": img.url, "kind": img.kind, "licence": img.licence, "attribution": img.attribution,
+                      "source": img.source} if img else None,
+            "time": time_investment(w),
+            "continuity": {"kind": c["kind"], "group": c["group"], "position": c["position"], "count": len(c["members"])},
+            "scores": [{"publisher": s.publisher, "metric": s.metric, "value": s.value, "scale_max": s.scale_max}
+                       for s in w.scores[:2]]}
+
+
+def _shelf_match(w: WorkProfile, rule: dict, ctx: dict[str, dict]) -> bool:
+    if rule.get("media") and w.medium not in rule["media"]:
+        return False
+    floor = rule.get("min_strength", 0.5)
+    if rule.get("all_tags") and any(w.strength(t) < floor for t in rule["all_tags"]):
+        return False
+    if rule.get("any_tags") and all(w.strength(t) < floor for t in rule["any_tags"]):
+        return False
+    tier = w.popularity_tier
+    if "popularity_min" in rule and (tier is None or tier < rule["popularity_min"]):
+        return False
+    if "popularity_max" in rule and (tier is None or tier > rule["popularity_max"]):
+        return False
+    if rule.get("relation_child") and not any(r.type in rule["relation_child"] and _is_forward(r) for r in w.relations):
+        return False
+    if rule.get("continuity") and ctx[w.slug]["kind"] not in rule["continuity"]:
+        return False
+    if "max_minutes" in rule or "min_minutes" in rule:
+        t = time_investment(w)
+        if t is None:
+            return False
+        if "max_minutes" in rule and t["minutes"] > rule["max_minutes"]:
+            return False
+        if "min_minutes" in rule and t["minutes"] < rule["min_minutes"]:
+            return False
+    return True
+
+
+def _shelf_key(w: WorkProfile, rule: dict):
+    title = normalise_title(w.title)
+    sort = rule.get("sort", "popular")
+    if sort == "strength":
+        tags = list(rule.get("any_tags", [])) + list(rule.get("all_tags", []))
+        return (-max([w.strength(t) for t in tags] or [0]), w.popularity_tier or 5, title)
+    if sort == "obscure":
+        return (-(w.popularity_tier or 0), title)
+    if sort in ("shortest", "longest"):
+        t = time_investment(w)
+        m = t["minutes"] if t else 10**9
+        return (m if sort == "shortest" else -m, title)
+    return (w.popularity_tier or 5, title)
+
+
+def shelves(works: list[WorkProfile], tax: Taxonomy, spec: dict | None = None, limit: int = 12) -> list[dict]:
+    spec = spec or load_shelves()
+    ctx = _context(works)
+    out = []
+    for s in spec["shelves"]:
+        hits = sorted((w for w in works if _shelf_match(w, s["rule"], ctx)), key=lambda w: _shelf_key(w, s["rule"]))
+        if len(hits) >= spec.get("min_works", 3):
+            out.append({"slug": s["slug"], "name": s["name"], "tagline": s["tagline"], "total": len(hits),
+                        "works": [_rich_card(w, tax, ctx) for w in hits[:limit]]})
+    return out
+
+
+def shelf(works: list[WorkProfile], tax: Taxonomy, slug: str, spec: dict | None = None) -> dict | None:
+    spec = spec or load_shelves()
+    s = next((x for x in spec["shelves"] if x["slug"] == slug), None)
+    if s is None:
+        return None
+    ctx = _context(works)
+    hits = sorted((w for w in works if _shelf_match(w, s["rule"], ctx)), key=lambda w: _shelf_key(w, s["rule"]))
+    return {"slug": s["slug"], "name": s["name"], "tagline": s["tagline"], "total": len(hits),
+            "works": [_rich_card(w, tax, ctx) for w in hits]}
+
+
+def groups_index(works: list[WorkProfile]) -> list[dict]:
+    seen: dict[str, dict] = {}
+    for w in works:
+        c = continuity(w, works)
+        if c["group"] and c["group"]["slug"] not in seen:
+            seen[c["group"]["slug"]] = {"slug": c["group"]["slug"], "name": c["group"]["name"], "kind": c["kind"],
+                                        "count": len(c["members"])}
+    return sorted(seen.values(), key=lambda g: (g["kind"], normalise_title(g["name"])))
+
+
+def group_page(works: list[WorkProfile], tax: Taxonomy, slug: str) -> dict | None:
+    ctx = _context(works)
+    owner = next((w for w in works if ctx[w.slug]["group"] and ctx[w.slug]["group"]["slug"] == slug), None)
+    if owner is None:
+        return None
+    c = ctx[owner.slug]
+    by_slug = {w.slug: w for w in works}
+    members = [by_slug[m["slug"]] for m in c["members"]]
+    times = [time_investment(m) for m in members]
+    return {"slug": slug, "name": c["group"]["name"], "kind": c["kind"],
+            "works": [{**_rich_card(m, tax, ctx), "position": cm["position"]} for m, cm in zip(members, c["members"], strict=True)],
+            "total_minutes": sum(t["minutes"] for t in times if t), "unknown_length": sum(1 for t in times if not t)}
+
+
+def spotify_search(*parts: str) -> str:
+    return "https://open.spotify.com/search/" + quote(" ".join(p for p in parts if p), safe="")
+
+
+def _track_items(album: WorkProfile) -> list[dict]:
+    artist = album.creators[0] if album.creators else ""
+    return [{"title": t["title"], "seconds": t.get("seconds"), "album": album.slug, "album_title": album.title,
+             "artist": artist, "spotify": spotify_search(artist, t["title"]),
+             "remixes": [{**r, "spotify": spotify_search(r.get("artist") or "", r.get("title") or "")}
+                         for r in t.get("remixes", [])]}
+            for t in album.tracks]
+
+
+def mood_rings(works: list[WorkProfile], tax: Taxonomy, spec: dict | None = None) -> list[dict]:
+    """Music by mood. Tracks inherit their album's mood until they're classified individually."""
+    spec = spec or load_shelves()
+    ctx = _context(works)
+    out = []
+    for ring in spec["mood_rings"]:
+        albums = [w for w in works if w.medium == "album" and all(w.strength(t) >= 0.6 for t in ring["tags"])]
+        albums.sort(key=lambda w: (-sum(w.strength(t) for t in ring["tags"]), normalise_title(w.title)))
+        if albums:
+            out.append({"slug": ring["slug"], "name": ring["name"], "tagline": ring["tagline"],
+                        "albums": [{**_rich_card(a, tax, ctx), "spotify": spotify_search(a.creators[0] if a.creators else "", a.title)}
+                                   for a in albums],
+                        "tracks": [t for a in albums for t in _track_items(a)],
+                        "mood_basis": "album"})
+    return out
+
+
+def remix_rack(works: list[WorkProfile]) -> list[dict]:
+    return [t for w in works if w.medium == "album" for t in _track_items(w) if t["remixes"]]

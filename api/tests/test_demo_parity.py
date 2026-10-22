@@ -6,7 +6,9 @@ import subprocess
 from pathlib import Path
 
 import pytest
+from enrichment_fixture import FIXTURE
 
+from mde.catalogue.browse import load_shelves
 from mde.catalogue.memory import MemoryCatalogue
 
 ROOT = Path(__file__).parent.parent.parent
@@ -77,25 +79,47 @@ BROWSE_CASES = [
 ]
 
 
-def _views():
-    cat = MemoryCatalogue.from_seed()
+SEED = json.loads((ROOT / "api/mde/seed/catalogue.json").read_text())
+
+
+def _catalogue(enrichment):
+    return MemoryCatalogue(SEED, enrichment=enrichment)
+
+
+def _views(cat):
     tag_keys = [t["key"] for d in cat.tags() for t in d["terms"]] + ["theme:not-a-tag", "advisory:strong-language"]
     people = [p["slug"] for p in cat.people()] + ["nobody"]
+    shelves = [s["slug"] for s in load_shelves()["shelves"]] + ["no-such-shelf"]
+    groups = [g["slug"] for g in cat.groups()] + ["no-such-group"]
     return ([["browse", b] for b in BROWSE_CASES] + [["tag", k] for k in tag_keys] + [["tags", None]]
-            + [["person", s] for s in people] + [["people", None]])
+            + [["person", s] for s in people] + [["people", None]]
+            + [["shelves", None]] + [["shelf", s] for s in shelves] + [["groups", None]] + [["group", g] for g in groups]
+            + [["mood_rings", None], ["remix_rack", None]])
 
 
-@pytest.fixture(scope="module")
-def js_output():
+def _run(cat, kind, arg):
+    from mde.catalogue.browse import BrowseFilters
+    return {"browse": lambda a: cat.browse(BrowseFilters(**a)), "tag": cat.tag, "tags": lambda _: cat.tags(),
+            "person": cat.person, "people": lambda _: cat.people(), "shelves": lambda _: cat.shelves(),
+            "shelf": cat.shelf, "groups": lambda _: cat.groups(), "group": cat.group,
+            "mood_rings": lambda _: cat.mood_rings(), "remix_rack": lambda _: cat.remix_rack()}[kind](arg)
+
+
+# Each side runs twice: with no enrichment, and with the labelled test fixture (images, scores, series, tracks …).
+@pytest.fixture(scope="module", params=["seed-only", "enriched"])
+def js_output(request):
     node = shutil.which("node")
     if node is None:
         pytest.skip("node is not installed")
+    enrichment = {} if request.param == "seed-only" else FIXTURE
+    cat = _catalogue(enrichment)
     queries = [q["query"] for q in BENCHMARK["queries"]] + EXTRA_QUERIES
-    slugs = [w.slug for w in MemoryCatalogue.from_seed().works]
-    payload = {"queries": queries, "slugs": slugs, "views": _views()}
+    slugs = [w.slug for w in cat.works]
+    views = _views(cat)
+    payload = {"queries": queries, "slugs": slugs, "views": views, "enrichment": enrichment}
     proc = subprocess.run([node, str(ROOT / "demo/parity.cjs")], input=json.dumps(payload),
                           capture_output=True, text=True, check=True)
-    return queries, slugs, json.loads(proc.stdout)
+    return cat, queries, slugs, views, json.loads(proc.stdout)
 
 
 def _normalise(obj):
@@ -104,8 +128,7 @@ def _normalise(obj):
 
 
 def test_discovery_output_is_identical(js_output):
-    queries, _, out = js_output
-    cat = MemoryCatalogue.from_seed()
+    cat, queries, _, _, out = js_output
     mismatches = []
     for query, js in zip(queries, out["discover"], strict=True):
         py = _normalise(cat.discover(query).to_dict())
@@ -115,17 +138,12 @@ def test_discovery_output_is_identical(js_output):
 
 
 def test_work_pages_are_identical(js_output):
-    _, slugs, out = js_output
-    cat = MemoryCatalogue.from_seed()
+    cat, _, slugs, _, out = js_output
     for slug, js in zip(slugs, out["works"], strict=True):
         assert _normalise(cat.work(slug)) == js, slug
 
 
 def test_catalogue_views_are_identical(js_output):
-    from mde.catalogue.browse import BrowseFilters
-    cat = MemoryCatalogue.from_seed()
-    run = {"browse": lambda a: cat.browse(BrowseFilters(**a)), "tag": cat.tag, "tags": lambda _: cat.tags(),
-           "person": cat.person, "people": lambda _: cat.people()}
-    views = _views()
-    mismatches = [v for v, js in zip(views, js_output[2]["views"], strict=True) if _normalise(run[v[0]](v[1])) != js]
+    cat, _, _, views, out = js_output
+    mismatches = [v for v, js in zip(views, out["views"], strict=True) if _normalise(_run(cat, *v)) != js]
     assert not mismatches, mismatches

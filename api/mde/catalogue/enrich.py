@@ -79,7 +79,7 @@ def apply(works: list[WorkProfile], enrichment: dict[str, dict]) -> list[WorkPro
             w = by_slug.get(slug)
             if w is None or not rec.get("match"):
                 if w is not None and rec.get("links"):
-                    w.links = rec["links"]
+                    w.links = [dict(link) for link in rec["links"]]
                 continue
             for field, value in rec.get("facts", {}).items():
                 if field in ("release_year", "runtime_minutes", "page_count") and value is not None:
@@ -98,9 +98,9 @@ def apply(works: list[WorkProfile], enrichment: dict[str, dict]) -> list[WorkPro
                     w.groups.append(GroupRef(gslug, g["name"], "series", g.get("position"), source))
             w.ids.update(rec.get("ids", {}))
             if rec.get("links"):
-                w.links = rec["links"]
+                w.links = [dict(link) for link in rec["links"]]
             if rec.get("tracks"):
-                w.tracks = rec["tracks"]
+                w.tracks = [dict(t) for t in rec["tracks"]]
             if source == "openlibrary" and rec.get("key"):
                 w.ids.setdefault("openlibrary", rec["key"].rsplit("/", 1)[-1])
             if source == "musicbrainz" and rec["match"].get("mbid"):

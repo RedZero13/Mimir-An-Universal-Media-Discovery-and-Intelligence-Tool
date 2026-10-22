@@ -126,3 +126,21 @@ class MemoryCatalogue:
 
     def people(self) -> list[dict]:
         return browse.people_index(self.works)
+
+    def shelves(self) -> list[dict]:
+        return browse.shelves(self.works, self.tax)
+
+    def shelf(self, slug: str) -> dict | None:
+        return browse.shelf(self.works, self.tax, slug)
+
+    def groups(self) -> list[dict]:
+        return browse.groups_index(self.works)
+
+    def group(self, slug: str) -> dict | None:
+        return browse.group_page(self.works, self.tax, slug)
+
+    def mood_rings(self) -> list[dict]:
+        return browse.mood_rings(self.works, self.tax)
+
+    def remix_rack(self) -> list[dict]:
+        return browse.remix_rack(self.works)

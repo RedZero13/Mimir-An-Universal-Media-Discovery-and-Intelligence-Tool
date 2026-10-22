@@ -109,6 +109,48 @@ def person_endpoint(slug: str) -> dict:
     return page
 
 
+@app.get("/api/shelves")
+def shelves_endpoint() -> list[dict]:
+    with db.connect() as conn:
+        return browse.shelves(repository.load_profiles(conn), taxonomy_mod.load())
+
+
+@app.get("/api/shelves/{slug}")
+def shelf_endpoint(slug: str) -> dict:
+    with db.connect() as conn:
+        page = browse.shelf(repository.load_profiles(conn), taxonomy_mod.load(), slug)
+    if page is None:
+        raise HTTPException(404, "shelf not found")
+    return page
+
+
+@app.get("/api/groups")
+def groups_endpoint() -> list[dict]:
+    with db.connect() as conn:
+        return browse.groups_index(repository.load_profiles(conn))
+
+
+@app.get("/api/groups/{slug}")
+def group_endpoint(slug: str) -> dict:
+    with db.connect() as conn:
+        page = browse.group_page(repository.load_profiles(conn), taxonomy_mod.load(), slug)
+    if page is None:
+        raise HTTPException(404, "group not found")
+    return page
+
+
+@app.get("/api/music/moods")
+def mood_rings_endpoint() -> list[dict]:
+    with db.connect() as conn:
+        return browse.mood_rings(repository.load_profiles(conn), taxonomy_mod.load())
+
+
+@app.get("/api/music/remixes")
+def remix_rack_endpoint() -> list[dict]:
+    with db.connect() as conn:
+        return browse.remix_rack(repository.load_profiles(conn))
+
+
 @app.get("/api/taxonomy")
 def taxonomy_endpoint() -> dict:
     tax = taxonomy_mod.load()

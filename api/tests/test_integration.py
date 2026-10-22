@@ -113,6 +113,15 @@ def test_api_catalogue_views_match_the_in_memory_catalogue(client):
     assert client.get("/api/people").json() == json.loads(json.dumps(mem.people()))
     assert client.get("/api/tags").json() == json.loads(json.dumps(mem.tags()))
 
+    for path, view in [("/api/shelves", mem.shelves()), ("/api/shelves/nepo-babies", mem.shelf("nepo-babies")),
+                       ("/api/groups", mem.groups()), ("/api/music/moods", mem.mood_rings()),
+                       ("/api/music/remixes", mem.remix_rack())]:
+        assert client.get(path).json() == json.loads(json.dumps(view)), path
+    group = mem.groups()[0]["slug"]
+    assert client.get(f"/api/groups/{group}").json() == json.loads(json.dumps(mem.group(group)))
+    assert client.get("/api/shelves/nope").status_code == 404
+    assert client.get("/api/groups/nope").status_code == 404
+
     assert client.get("/api/tags/theme/nope").status_code == 404
     assert client.get("/api/people/nobody").status_code == 404
     assert client.get("/api/works", params={"tag": "theme:nope"}).status_code == 422
