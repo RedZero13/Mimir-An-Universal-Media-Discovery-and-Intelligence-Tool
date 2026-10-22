@@ -20,9 +20,22 @@ def main(argv: list[str] | None = None) -> int:
     d = sub.add_parser("discover", help="run a discovery query and print the results")
     d.add_argument("query")
     d.add_argument("--json", action="store_true")
+    i = sub.add_parser("ingest", help="fetch open data for seed works into mde/data/enrichment/")
+    i.add_argument("--source", action="append", choices=["wikidata", "openlibrary", "musicbrainz", "tmdb"])
+    i.add_argument("--offline", action="store_true", help="use only the local HTTP cache")
     b = sub.add_parser("benchmark", help="run the discovery benchmark")
     b.add_argument("--json", action="store_true")
     args = parser.parse_args(argv)
+
+    if args.cmd == "ingest":
+        from mde.ingest.run import SOURCES, SourceUnavailable, run
+        try:
+            for source, path in run(tuple(args.source or SOURCES), offline=args.offline).items():
+                print(f"{source}: wrote {path}")
+        except SourceUnavailable as e:
+            print(f"not written: {e}", file=sys.stderr)
+            return 2
+        return 0
 
     with db.connect() as conn:
         if args.cmd in ("migrate", "setup"):

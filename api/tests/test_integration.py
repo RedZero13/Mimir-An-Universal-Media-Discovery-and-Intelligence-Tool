@@ -117,3 +117,31 @@ def test_api_catalogue_views_match_the_in_memory_catalogue(client):
     assert client.get("/api/people/nobody").status_code == 404
     assert client.get("/api/works", params={"tag": "theme:nope"}).status_code == 422
     assert client.get("/api/works", params={"avoid": "mood:bleak"}).status_code == 422
+
+
+def test_enrichment_round_trips_through_postgres(conn):
+    """Profiles read back from the database equal the in-memory merge of the same enrichment."""
+    from dataclasses import asdict
+
+    from enrichment_fixture import FIXTURE
+
+    from mde.catalogue.load import SEED_PATH, import_catalogue
+    from mde.catalogue.memory import MemoryCatalogue
+    from mde.catalogue.repository import load_profiles
+
+    data = json.loads(SEED_PATH.read_text())
+    import_catalogue(conn, data, enrichment=FIXTURE)
+    stats = import_catalogue(conn, data, enrichment=FIXTURE)
+    assert stats.works_updated == 0                     # idempotent with enrichment too
+    db = {p.slug: asdict(p) for p in load_profiles(conn)}
+    mem = {p.slug: asdict(p) for p in MemoryCatalogue(data, enrichment=FIXTURE).works}
+    for slug in mem:
+        db[slug].pop("id"), mem[slug].pop("id")
+        assert db[slug] == mem[slug], slug
+    arrival = mem["arrival-2016"]
+    assert arrival["runtime_minutes"] == 118 and arrival["fact_sources"] == {"runtime_minutes": {"source": "wikidata", "seed": 116}}
+    assert mem["dune-1965"]["page_count"] == 600
+    assert mem["ok-computer-1997"]["tracks"][0]["remixes"][0]["direction"] == "remixed_as"
+    assert [g["slug"] for g in mem["blade-runner-2049-2017"]["groups"]] == ["blade-runner"]
+    assert mem["primer-2004"]["links"][0]["kind"] == "reactions:reddit"   # links survive an unmatched record
+    conn.rollback()

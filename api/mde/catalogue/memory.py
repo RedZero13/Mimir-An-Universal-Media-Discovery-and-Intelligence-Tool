@@ -12,6 +12,8 @@ import re
 from pathlib import Path
 
 from mde.catalogue import browse
+from mde.catalogue.enrich import apply as apply_enrichment
+from mde.catalogue.enrich import load_enrichment
 from mde.catalogue.model import (
     ORGANISATION_ROLES,
     PRIMARY_ROLES,
@@ -77,10 +79,11 @@ def _words(text: str | None) -> set[str]:
 
 
 class MemoryCatalogue:
-    def __init__(self, data: dict, tax: Taxonomy | None = None):
+    def __init__(self, data: dict, tax: Taxonomy | None = None, enrichment: dict | None = None):
         self.data = data
         self.tax = tax or load_taxonomy()
-        self.works = profiles_from_catalogue(data, self.tax)
+        self.enrichment = load_enrichment() if enrichment is None else enrichment
+        self.works = apply_enrichment(profiles_from_catalogue(data, self.tax), self.enrichment)
         self._titles = {w.slug: {normalise_title(t) for t in (w.title, w.original_title) if t} for w in self.works}
         self._index = {w.slug: (_words(f"{w.title} {w.original_title or ''}"), _words(w.summary)) for w in self.works}
 
