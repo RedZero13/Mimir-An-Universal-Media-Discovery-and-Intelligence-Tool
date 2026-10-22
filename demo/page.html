@@ -995,7 +995,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   }
 
   function renderDiscover() {
-    const r = cat.discover(query);
+    // Only parse and rank once someone has asked; the landing view doesn't show results.
+    const r = hasAsked ? cat.discover(query) : null;
     app.innerHTML = `
       <section class="hero">
         <canvas id="well" aria-hidden="true"></canvas>

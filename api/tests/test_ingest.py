@@ -149,5 +149,13 @@ def test_openlibrary_translations_and_edition_notes():
     assert openlibrary.best_doc(docs, "The Name of the Rose", "Someone Else", 1980)[0] is None
 
 
+def test_openlibrary_author_accents_and_native_scripts():
+    bronte = [{"key": "/works/je", "title": "Jane Eyre", "author_name": ["Charlotte Bronte\u0308"], "first_publish_year": 1847}]
+    assert openlibrary.best_doc(bronte, "Jane Eyre", "Charlotte Brontë", 1847)[0]["key"] == "/works/je"
+    murakami = [{"key": "/works/nw", "title": "Norwegian Wood", "author_name": ["村上春樹"], "first_publish_year": 1987}]
+    assert openlibrary.best_doc(murakami, "Norwegian Wood", "Haruki Murakami", 1987)[0]["key"] == "/works/nw"
+    assert openlibrary.best_doc(bronte, "Jane Eyre", "Someone Else", 1847)[0] is None
+
+
 def test_musicbrainz_query_escaping():
     assert musicbrainz.lucene("Godspeed You! Black Emperor") == "Godspeed You\\! Black Emperor"

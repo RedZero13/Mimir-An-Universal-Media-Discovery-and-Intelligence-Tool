@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 
 from mde.catalogue.model import normalise_title
 from mde.ingest.http import Client
@@ -17,13 +18,24 @@ def _clean(title: str) -> str:
     return normalise_title(re.sub(r"\s*\([^)]*\)\s*$", "", title))
 
 
+def _fold(name: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFKD", name) if not unicodedata.combining(c)).lower()
+
+
+def _author_ok(surname: str | None, names: list[str]) -> bool:
+    """Surname present, ignoring accents. A name with no Latin letters (村上春樹, 刘慈欣) can't be compared, so it is
+    accepted: the search itself was already filtered by author."""
+    if not surname:
+        return True
+    return any(surname in _fold(a) or not re.search(r"[A-Za-z]", _fold(a)) for a in names)
+
+
 def best_doc(docs: list[dict], title: str | list[str], author: str | None, year: int | None) -> tuple[dict | None, str]:
     """Exact (normalised) title and author surname present. Year within two is preferred; translations often carry the
     year of the English edition, so an exact title-and-author match is still accepted with the difference stated."""
     wants = {_clean(t) for t in ([title] if isinstance(title, str) else title)}
-    surname = (author or "").split()[-1].lower() if author else None
-    hits = [d for d in docs if _clean(d.get("title", "")) in wants
-            and (not surname or any(surname in a.lower() for a in d.get("author_name", [])))]
+    surname = _fold(author.split()[-1]) if author else None
+    hits = [d for d in docs if _clean(d.get("title", "")) in wants and _author_ok(surname, d.get("author_name", []))]
     for d in hits:
         fy = d.get("first_publish_year")
         if not (year and fy and abs(fy - year) > 2):

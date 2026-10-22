@@ -32,9 +32,16 @@ const MDE = (() => {
   const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\\/]/g, "\\$&");
   const has = (obj, key) => Object.hasOwn(obj, key);
 
+  // Compiled once per phrase: the parser checks ~700 synonyms per query. Global regexes are only used with
+  // replace() and matchAll(), which don't carry lastIndex between calls.
+  const phraseCache = new Map();
   function phraseRe(phrase, plural = false, flags = "gu") {
-    const suffix = plural && /\p{L}$/u.test(phrase) ? "(?:s|es)?" : "";
-    return new RegExp(`(?<!${W}|-)` + escapeRe(phrase) + suffix + `(?!${W}|-)`, flags);
+    const key = `${flags}|${plural ? 1 : 0}|${phrase}`;
+    if (!phraseCache.has(key)) {
+      const suffix = plural && /\p{L}$/u.test(phrase) ? "(?:s|es)?" : "";
+      phraseCache.set(key, new RegExp(`(?<!${W}|-)` + escapeRe(phrase) + suffix + `(?!${W}|-)`, flags));
+    }
+    return phraseCache.get(key);
   }
   const contains = (text, phrase) => phraseRe(phrase, false, "u").test(text);
   const sub = (re, repl, text) => text.replace(re, repl);
@@ -366,6 +373,7 @@ finish finished binge binged through will watching reading playing listening sta
         const taken = new Array(clause.length).fill(false);
         const matches = [];
         for (const [syn, key, pattern] of synonyms) {
+          if (!clause.includes(syn)) continue;   // cheap pre-check: a match needs the literal phrase
           pattern.lastIndex = 0;
           for (const m of clause.matchAll(pattern)) {
             const s = m.index, e = m.index + m[0].length;
