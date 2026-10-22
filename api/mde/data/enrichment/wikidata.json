@@ -1,0 +1,4674 @@
+{
+ "source": "wikidata",
+ "licence": "CC0 1.0",
+ "generated_at": "2026-10-22T18:24:03Z",
+ "unmatched": [
+  "columbus-2017",
+  "disco-elysium-2019",
+  "hollow-knight-2017",
+  "kentucky-route-zero-2020",
+  "moon-2009",
+  "spirited-away-2001"
+ ],
+ "works": {
+  "arrival-2016": {
+   "match": {
+    "qid": "Q20382729",
+    "confidence": 1.0,
+    "reason": "type ok, year 2016, exact title"
+   },
+   "facts": {
+    "release_year": 2016,
+    "runtime_minutes": 116
+   },
+   "ids": {
+    "imdb": "tt2543164",
+    "tmdb_movie": "329865",
+    "rotten_tomatoes": "m/arrival_2016",
+    "letterboxd": "arrival-2016",
+    "metacritic": "movie/arrival",
+    "twitter": "arrivalmovie"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 81.0,
+     "scale_max": 100.0,
+     "votes": 52,
+     "as_of": "2026-01-11"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.4,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 94.0,
+     "scale_max": 100.0,
+     "votes": 441,
+     "as_of": "2026-01-11"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 203388186.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 100546139.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q7620415",
+     "slug": "story-of-your-life-1998"
+    }
+   ],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Arrival 2016 Film.png",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Arrival_2016_Film.png/960px-Arrival_2016_Film.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Arrival_2016_Film.png",
+     "licence": "Public domain",
+     "attribution": "Paramount Pictures"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Arrival_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/arrival-2016/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/arrival_2016"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2543164/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/arrival"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Arrival"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Arrival%22+2016"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Arrival+2016+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Arrival_(film)"
+    }
+   ]
+  },
+  "solaris-1972": {
+   "match": {
+    "qid": "Q125772",
+    "confidence": 1.0,
+    "reason": "type ok, year 1972, exact title"
+   },
+   "facts": {
+    "release_year": 1972,
+    "runtime_minutes": 160
+   },
+   "ids": {
+    "imdb": "tt0069293",
+    "tmdb_movie": "593",
+    "rotten_tomatoes": "m/solaris_1976",
+    "letterboxd": "solaris",
+    "metacritic": "movie/solaris-re-release"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 7.9,
+     "scale_max": 10.0,
+     "votes": 105000,
+     "as_of": "2026-03-09"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 93.0,
+     "scale_max": 100.0,
+     "votes": 8,
+     "as_of": "2023-07-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 93.0,
+     "scale_max": 100.0,
+     "votes": 68,
+     "as_of": "2024-08-02"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q261281",
+     "slug": "solaris-1961"
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Solaris_(1972_film)",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 167,
+     "source": 160
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/solaris/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/solaris_1976"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0069293/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/solaris-re-release"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Solaris"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Solaris%22+1972"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Solaris+1972+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Solaris_(1972_film)"
+    }
+   ]
+  },
+  "stalker-1979": {
+   "match": {
+    "qid": "Q200437",
+    "confidence": 1.0,
+    "reason": "type ok, year 1979, exact title"
+   },
+   "facts": {
+    "release_year": 1979,
+    "runtime_minutes": 163
+   },
+   "ids": {
+    "imdb": "tt0079944",
+    "tmdb_movie": "1398",
+    "rotten_tomatoes": "m/1043378-stalker",
+    "letterboxd": "stalker",
+    "metacritic": "movie/stalker"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 85.0,
+     "scale_max": 100.0,
+     "votes": 17,
+     "as_of": "2026-02-03"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.6,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 100.0,
+     "scale_max": 100.0,
+     "votes": 42,
+     "as_of": "2022-11-29"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q848517",
+     "slug": "roadside-picnic-1972"
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Stalker_(1979_film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/stalker/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/1043378-stalker"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0079944/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/stalker"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Stalker"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Stalker%22+1979"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Stalker+1979+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Stalker_(1979_film)"
+    }
+   ]
+  },
+  "blade-runner-1982": {
+   "match": {
+    "qid": "Q184843",
+    "confidence": 1.0,
+    "reason": "type ok, year 1982, exact title"
+   },
+   "facts": {
+    "release_year": 1982,
+    "runtime_minutes": 112
+   },
+   "ids": {
+    "imdb": "tt0083658",
+    "tmdb_movie": "78",
+    "rotten_tomatoes": "m/blade_runner",
+    "letterboxd": "blade-runner",
+    "metacritic": "movie/blade-runner"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 8.1,
+     "scale_max": 10.0,
+     "votes": 877000,
+     "as_of": "2026-02-25"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 84.0,
+     "scale_max": 100.0,
+     "votes": 15,
+     "as_of": "2026-01-15"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 89.0,
+     "scale_max": 100.0,
+     "votes": 132,
+     "as_of": "2026-01-15"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 41722424.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 32914489.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "unspecified",
+     "amount": 27615743.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q21500755",
+     "slug": "blade-runner-2049-2017"
+    }
+   ],
+   "based_on": [
+    {
+     "qid": "Q605249",
+     "slug": "do-androids-dream-1968"
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Blade_Runner",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 117,
+     "source": 112
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/blade-runner/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/blade_runner"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0083658/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/blade-runner"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Blade+Runner"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Blade+Runner%22+1982"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Blade+Runner+1982+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Blade_Runner"
+    }
+   ]
+  },
+  "blade-runner-2049-2017": {
+   "match": {
+    "qid": "Q21500755",
+    "confidence": 1.0,
+    "reason": "type ok, year 2017, exact title"
+   },
+   "facts": {
+    "release_year": 2017,
+    "runtime_minutes": 164
+   },
+   "ids": {
+    "imdb": "tt1856101",
+    "tmdb_movie": "335984",
+    "rotten_tomatoes": "m/blade_runner_2049",
+    "letterboxd": "blade-runner-2049",
+    "metacritic": "movie/blade-runner-2049",
+    "twitter": "bladerunner"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 8.0,
+     "scale_max": 10.0,
+     "votes": 745000,
+     "as_of": "2026-02-21"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 81.0,
+     "scale_max": 100.0,
+     "votes": 54,
+     "as_of": "2024-05-01"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 88.0,
+     "scale_max": 100.0,
+     "votes": 440,
+     "as_of": "2024-10-30"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 259239658.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [
+    {
+     "qid": "Q184843",
+     "slug": "blade-runner-1982"
+    }
+   ],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Blade_Runner_2049",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/blade-runner-2049/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/blade_runner_2049"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt1856101/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/blade-runner-2049"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Blade+Runner+2049"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Blade+Runner+2049%22+2017"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Blade+Runner+2049+2017+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Blade_Runner_2049"
+    }
+   ]
+  },
+  "moon-2009": {
+   "match": null,
+   "reason": "no confident match",
+   "candidates": [
+    {
+     "qid": "Q16877383",
+     "label": "Moon",
+     "description": "family name",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q405",
+     "label": "Moon",
+     "description": "Earth's only natural satellite",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q16291739",
+     "label": "Moon",
+     "description": "unisex given name",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q3323544",
+     "label": "Moon",
+     "description": "2009 video game",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q2537",
+     "label": "natural satellite",
+     "description": "celestial body that orbits a planet or other smaller body in turn directly orbiting a star",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/search/Moon/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/search?search=Moon"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Moon"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Moon%22+2009"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Moon+2009+review"
+    }
+   ]
+  },
+  "coherence-2013": {
+   "match": {
+    "qid": "Q17150929",
+    "confidence": 1.0,
+    "reason": "type ok, year 2013, exact title"
+   },
+   "facts": {
+    "release_year": 2013,
+    "runtime_minutes": 87
+   },
+   "ids": {
+    "imdb": "tt2866360",
+    "tmdb_movie": "220289",
+    "rotten_tomatoes": "m/coherence_2013",
+    "letterboxd": "coherence",
+    "metacritic": "movie/coherence",
+    "twitter": "CoherenceMovie"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 65.0,
+     "scale_max": 100.0,
+     "votes": 23,
+     "as_of": "2026-01-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 7.3,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 89.0,
+     "scale_max": 100.0,
+     "votes": 96,
+     "as_of": "2024-03-14"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 139745.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 102617.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Coherence_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/coherence/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/coherence_2013"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2866360/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/coherence"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Coherence"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Coherence%22+2013"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Coherence+2013+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Coherence_(film)"
+    }
+   ]
+  },
+  "primer-2004": {
+   "match": {
+    "qid": "Q1434995",
+    "confidence": 1.0,
+    "reason": "type ok, year 2004, exact title"
+   },
+   "facts": {
+    "release_year": 2004,
+    "runtime_minutes": 77
+   },
+   "ids": {
+    "imdb": "tt0390384",
+    "tmdb_movie": "14337",
+    "rotten_tomatoes": "m/primer",
+    "letterboxd": "primer",
+    "metacritic": "movie/primer"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 68.0,
+     "scale_max": 100.0,
+     "votes": 25,
+     "as_of": "2024-04-22"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 6.6,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-07"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 72.0,
+     "scale_max": 100.0,
+     "votes": 130,
+     "as_of": "2021-10-07"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "unspecified",
+     "amount": 424760.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Time Travel Method-2.svg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Time_Travel_Method-2.svg/960px-Time_Travel_Method-2.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Time_Travel_Method-2.svg",
+     "licence": "CC BY-SA 3.0",
+     "attribution": "derivative work: Tom-b (talk)\nTime_Travel_Method.jpg: Original uploader was William lee0 at en.wikipedia"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Primer_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/primer/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/primer"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0390384/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/primer"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Primer"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Primer%22+2004"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Primer+2004+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Primer_(film)"
+    }
+   ]
+  },
+  "gattaca-1997": {
+   "match": {
+    "qid": "Q491800",
+    "confidence": 1.0,
+    "reason": "type ok, year 1997, exact title"
+   },
+   "facts": {
+    "release_year": 1997,
+    "runtime_minutes": 101
+   },
+   "ids": {
+    "imdb": "tt0119177",
+    "tmdb_movie": "782",
+    "rotten_tomatoes": "m/gattaca",
+    "letterboxd": "gattaca",
+    "metacritic": "movie/gattaca",
+    "musicbrainz_release_group": "cfd356d3-a158-3b8d-a33c-01ac0e9832c9"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 64.0,
+     "scale_max": 100.0,
+     "votes": 20,
+     "as_of": "2024-02-26"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 7.1,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 82.0,
+     "scale_max": 100.0,
+     "votes": 67,
+     "as_of": "2024-08-02"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "United States",
+     "amount": 12532777.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Gattaca",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 106,
+     "source": 101
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/gattaca/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/gattaca"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0119177/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/gattaca"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Gattaca"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Gattaca%22+1997"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Gattaca+1997+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Gattaca"
+    }
+   ]
+  },
+  "ex-machina-2014": {
+   "match": {
+    "qid": "Q16635326",
+    "confidence": 1.0,
+    "reason": "type ok, year 2014, exact title"
+   },
+   "facts": {
+    "release_year": 2014,
+    "runtime_minutes": 108
+   },
+   "ids": {
+    "imdb": "tt0470752",
+    "tmdb_movie": "264660",
+    "rotten_tomatoes": "m/ex_machina",
+    "letterboxd": "ex-machina-2015",
+    "metacritic": "movie/ex-machina",
+    "twitter": "ExMachinaMovie"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 78.0,
+     "scale_max": 100.0,
+     "votes": 42,
+     "as_of": "2025-07-14"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.1,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 92.0,
+     "scale_max": 100.0,
+     "votes": 289,
+     "as_of": "2024-03-14"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Ex_Machina_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/ex-machina-2015/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/ex_machina"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0470752/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/ex-machina"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Ex+Machina"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Ex+Machina%22+2014"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Ex+Machina+2014+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Ex_Machina_(film)"
+    }
+   ]
+  },
+  "annihilation-2018": {
+   "match": {
+    "qid": "Q25136228",
+    "confidence": 1.0,
+    "reason": "type ok, year 2018, exact title"
+   },
+   "facts": {
+    "release_year": 2018,
+    "runtime_minutes": 115
+   },
+   "ids": {
+    "imdb": "tt2798920",
+    "tmdb_movie": "300668",
+    "rotten_tomatoes": "m/annihilation",
+    "letterboxd": "annihilation",
+    "metacritic": "movie/annihilation",
+    "twitter": "AnnihilationMov"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 79.0,
+     "scale_max": 100.0,
+     "votes": 51,
+     "as_of": "2025-11-19"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 7.7,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 88.0,
+     "scale_max": 100.0,
+     "votes": 331,
+     "as_of": "2024-11-08"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 43070915.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 32732301.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q16961640",
+     "slug": "annihilation-2014"
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Annihilation_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/annihilation/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/annihilation"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2798920/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/annihilation"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Annihilation"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Annihilation%22+2018"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Annihilation+2018+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Annihilation_(film)"
+    }
+   ]
+  },
+  "spirited-away-2001": {
+   "match": null,
+   "reason": "no confident match",
+   "candidates": [
+    {
+     "qid": "Q155653",
+     "label": "Spirited Away",
+     "description": "2001 anime film directed by Hayao Miyazaki",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q3228258",
+     "label": "Miyazaki's Spirited Away",
+     "description": "album by Joe Hisaishi",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q2443949",
+     "label": "kamikakushi",
+     "description": "trope in Japanese mythology about people being abducted by an angry god",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q65943447",
+     "label": "Spirited Away",
+     "description": "episode of Unforgettable (S1 E11)",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q114520366",
+     "label": "Spirited Away",
+     "description": "episode of Disappeared (S8 E3)",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/search/Spirited%20Away/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/search?search=Spirited+Away"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Spirited+Away"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Spirited+Away%22+2001"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Spirited+Away+2001+review"
+    }
+   ]
+  },
+  "my-neighbor-totoro-1988": {
+   "match": {
+    "qid": "Q39571",
+    "confidence": 1.0,
+    "reason": "type ok, year 1988, exact title"
+   },
+   "facts": {
+    "release_year": 1988,
+    "runtime_minutes": 86
+   },
+   "ids": {
+    "imdb": "tt0096283",
+    "tmdb_movie": "8392",
+    "rotten_tomatoes": "m/my_neighbor_totoro",
+    "letterboxd": "my-neighbor-totoro",
+    "metacritic": "movie/my-neighbor-totoro"
+   },
+   "scores": [
+    {
+     "publisher": "Anime-Planet",
+     "metric": "score",
+     "value": 4.234,
+     "scale_max": 5.0,
+     "votes": 46436,
+     "as_of": "2023-12-30"
+    },
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 8.1,
+     "scale_max": 10.0,
+     "votes": 428000,
+     "as_of": "2026-03-15"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 87.0,
+     "scale_max": 100.0,
+     "votes": 16,
+     "as_of": "2024-12-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.4,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 93.0,
+     "scale_max": 100.0,
+     "votes": 59,
+     "as_of": "2024-03-14"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 30574632.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 2250213.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q104830727",
+     "name": "Studio Ghibli Feature Films",
+     "position": "4"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Tonari no Totoro title (green).jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Tonari_no_Totoro_title_%28green%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:Tonari_no_Totoro_title_(green).jpg",
+     "licence": "Public domain",
+     "attribution": "Studio Ghibli"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/My_Neighbor_Totoro",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/my-neighbor-totoro/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/my_neighbor_totoro"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0096283/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/my-neighbor-totoro"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=My+Neighbor+Totoro"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22My+Neighbor+Totoro%22+1988"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=My+Neighbor+Totoro+1988+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/My_Neighbor_Totoro"
+    }
+   ]
+  },
+  "paddington-2-2017": {
+   "match": {
+    "qid": "Q27590871",
+    "confidence": 1.0,
+    "reason": "type ok, year 2017, exact title"
+   },
+   "facts": {
+    "release_year": 2017,
+    "runtime_minutes": 103
+   },
+   "ids": {
+    "imdb": "tt4468740",
+    "tmdb_movie": "346648",
+    "rotten_tomatoes": "m/paddington_2",
+    "letterboxd": "paddington-2",
+    "metacritic": "movie/paddington-2",
+    "twitter": "paddingtonbear"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 7.8,
+     "scale_max": 10.0,
+     "votes": 114000,
+     "as_of": "2026-04-13"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 88.0,
+     "scale_max": 100.0,
+     "votes": 38,
+     "as_of": "2025-10-08"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.7,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2022-05-24"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 99.0,
+     "scale_max": 100.0,
+     "votes": 253,
+     "as_of": "2026-06-23"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 227994792.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 40907738.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q48672651",
+     "name": "Paddington",
+     "position": "2"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q15055478",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q121076570",
+     "slug": null
+    }
+   ],
+   "based_on": [
+    {
+     "qid": "Q632908",
+     "slug": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Paddington's Pop-up London - geograph.org.uk - 5615595.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Paddington%27s_Pop-up_London_-_geograph.org.uk_-_5615595.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:Paddington%27s_Pop-up_London_-_geograph.org.uk_-_5615595.jpg",
+     "licence": "CC BY-SA 2.0",
+     "attribution": "Philip Halling"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Paddington_2",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/paddington-2/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/paddington_2"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt4468740/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/paddington-2"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Paddington+2"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Paddington+2%22+2017"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Paddington+2+2017+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Paddington_2"
+    }
+   ]
+  },
+  "paterson-2016": {
+   "match": {
+    "qid": "Q23817035",
+    "confidence": 1.0,
+    "reason": "type ok, year 2016, exact title"
+   },
+   "facts": {
+    "release_year": 2016,
+    "runtime_minutes": 113
+   },
+   "ids": {
+    "imdb": "tt5247022",
+    "tmdb_movie": "370755",
+    "rotten_tomatoes": "m/paterson",
+    "letterboxd": "paterson",
+    "metacritic": "movie/paterson"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 7.3,
+     "scale_max": 10.0,
+     "votes": 95000,
+     "as_of": "2026-04-01"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 90.0,
+     "scale_max": 100.0,
+     "votes": 42,
+     "as_of": "2026-01-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 96.0,
+     "scale_max": 100.0,
+     "votes": 262,
+     "as_of": "2021-10-10"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 10727536.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 2141423.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Cannes 2016 25.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Cannes_2016_25.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:Cannes_2016_25.jpg",
+     "licence": "CC BY-SA 3.0",
+     "attribution": "Georges Biard"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Paterson_(film)",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 118,
+     "source": 113
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/paterson/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/paterson"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt5247022/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/paterson"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Paterson"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Paterson%22+2016"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Paterson+2016+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Paterson_(film)"
+    }
+   ]
+  },
+  "perfect-days-2023": {
+   "match": {
+    "qid": "Q117663112",
+    "confidence": 1.0,
+    "reason": "type ok, year 2023, exact title"
+   },
+   "facts": {
+    "release_year": 2023,
+    "runtime_minutes": 123
+   },
+   "ids": {
+    "imdb": "tt27503384",
+    "tmdb_movie": "976893",
+    "rotten_tomatoes": "m/perfect_days_2023",
+    "letterboxd": "perfect-days-2023",
+    "metacritic": "movie/perfect-days"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 80.0,
+     "scale_max": 100.0,
+     "votes": 38,
+     "as_of": "2024-09-02"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 96.0,
+     "scale_max": 100.0,
+     "votes": 184,
+     "as_of": "2024-09-02"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Perfect_Days",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/perfect-days-2023/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/perfect_days_2023"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt27503384/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/perfect-days"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Perfect+Days"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Perfect+Days%22+2023"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Perfect+Days+2023+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Perfect_Days"
+    }
+   ]
+  },
+  "columbus-2017": {
+   "match": null,
+   "reason": "no confident match",
+   "candidates": [
+    {
+     "qid": "Q16567",
+     "label": "Columbus",
+     "description": "capital city of the U.S. state of Ohio and seat of Franklin County, also located in Delaware and Fairfield counties",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q239870",
+     "label": "Columbus",
+     "description": "consolidated city-county in Muscogee County, Georgia, United States",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q985648",
+     "label": "Columbus",
+     "description": "county seat of Lowndes County, Mississippi, United States",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q941870",
+     "label": "Columbus",
+     "description": "city in Bartholomew County, Indiana, United States",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q975782",
+     "label": "Columbus",
+     "description": "city in and county seat of Colorado County, Texas, United States",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/search/Columbus/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/search?search=Columbus"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Columbus"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Columbus%22+2017"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Columbus+2017+review"
+    }
+   ]
+  },
+  "parasite-2019": {
+   "match": {
+    "qid": "Q61448040",
+    "confidence": 1.0,
+    "reason": "type ok, year 2019, exact title"
+   },
+   "facts": {
+    "release_year": 2019,
+    "runtime_minutes": 132
+   },
+   "ids": {
+    "imdb": "tt6751668",
+    "tmdb_movie": "496243",
+    "rotten_tomatoes": "m/parasite_2019",
+    "letterboxd": "parasite-2019",
+    "metacritic": "movie/parasite",
+    "twitter": "ParasiteMovie"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": 1100000,
+     "as_of": "2026-03-07"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 97.0,
+     "scale_max": 100.0,
+     "votes": 56,
+     "as_of": "2026-01-07"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 9.4,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2022-06-19"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 99.0,
+     "scale_max": 100.0,
+     "votes": 485,
+     "as_of": "2026-01-08"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 263136741.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 53369749.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Parasite_(2019_film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/parasite-2019/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/parasite_2019"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt6751668/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/parasite"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Parasite"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Parasite%22+2019"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Parasite+2019+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Parasite_(2019_film)"
+    }
+   ]
+  },
+  "the-lives-of-others-2006": {
+   "match": {
+    "qid": "Q153882",
+    "confidence": 1.0,
+    "reason": "type ok, year 2006, exact title"
+   },
+   "facts": {
+    "release_year": 2006,
+    "runtime_minutes": 137
+   },
+   "ids": {
+    "imdb": "tt0405094",
+    "tmdb_movie": "582",
+    "rotten_tomatoes": "m/the_lives_of_others",
+    "letterboxd": "the-lives-of-others",
+    "metacritic": "movie/the-lives-of-others"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 8.4,
+     "scale_max": 10.0,
+     "votes": 442000,
+     "as_of": "2026-04-09"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 89.0,
+     "scale_max": 100.0,
+     "votes": 39,
+     "as_of": "2026-01-15"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.3,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 92.0,
+     "scale_max": 100.0,
+     "votes": 162,
+     "as_of": "2026-01-15"
+    }
+   ],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q26705935",
+     "name": "BBC's 100 Greatest Films of the 21st Century",
+     "position": "32"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Lives_of_Others",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/the-lives-of-others/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/the_lives_of_others"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0405094/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/the-lives-of-others"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=The+Lives+of+Others"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Lives+of+Others%22+2006"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Lives+of+Others+2006+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Lives_of_Others"
+    }
+   ]
+  },
+  "come-and-see-1985": {
+   "match": {
+    "qid": "Q1130395",
+    "confidence": 1.0,
+    "reason": "type ok, year 1985, exact title"
+   },
+   "facts": {
+    "release_year": 1985,
+    "runtime_minutes": 146
+   },
+   "ids": {
+    "imdb": "tt0091251",
+    "tmdb_movie": "25237",
+    "rotten_tomatoes": "m/come_and_see",
+    "letterboxd": "come-and-see",
+    "metacritic": "movie/come-and-see"
+   },
+   "scores": [
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 90.0,
+     "scale_max": 100.0,
+     "votes": 60,
+     "as_of": "2026-01-16"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 20929648.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "other",
+     "amount": 20760251.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 71909.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Come_and_See",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 142,
+     "source": 146
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/come-and-see/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/come_and_see"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0091251/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/come-and-see"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Come+and+See"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Come+and+See%22+1985"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Come+and+See+1985+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Come_and_See"
+    }
+   ]
+  },
+  "before-sunrise-1995": {
+   "match": {
+    "qid": "Q659609",
+    "confidence": 1.0,
+    "reason": "type ok, year 1995, exact title"
+   },
+   "facts": {
+    "release_year": 1995,
+    "runtime_minutes": 97
+   },
+   "ids": {
+    "imdb": "tt0112471",
+    "tmdb_movie": "76",
+    "rotten_tomatoes": "m/before_sunrise",
+    "letterboxd": "before-sunrise",
+    "metacritic": "movie/before-sunrise"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 79.0,
+     "scale_max": 100.0,
+     "votes": 19,
+     "as_of": "2026-01-15"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.4,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 100.0,
+     "scale_max": 100.0,
+     "votes": 51,
+     "as_of": "2026-01-15"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 5987386.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 5535405.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q28956556",
+     "name": "The Before Trilogy",
+     "position": "1"
+    }
+   ],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q652186",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Before_Sunrise",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 101,
+     "source": 97
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/before-sunrise/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/before_sunrise"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0112471/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/before-sunrise"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Before+Sunrise"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Before+Sunrise%22+1995"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Before+Sunrise+1995+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Before_Sunrise"
+    }
+   ]
+  },
+  "mad-max-fury-road-2015": {
+   "match": {
+    "qid": "Q1757288",
+    "confidence": 1.0,
+    "reason": "type ok, year 2015, exact title"
+   },
+   "facts": {
+    "release_year": 2015,
+    "runtime_minutes": 120
+   },
+   "ids": {
+    "imdb": "tt1392190",
+    "tmdb_movie": "76341",
+    "rotten_tomatoes": "m/mad_max_fury_road",
+    "letterboxd": "mad-max-fury-road",
+    "metacritic": "movie/mad-max-fury-road",
+    "twitter": "MadMaxMovieUK"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 8.1,
+     "scale_max": 10.0,
+     "votes": 1200000,
+     "as_of": "2026-04-01"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 90.0,
+     "scale_max": 100.0,
+     "votes": 51,
+     "as_of": "2024-11-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.6,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-07"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 97.0,
+     "scale_max": 100.0,
+     "votes": 441,
+     "as_of": "2024-08-02"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 375709470.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 154109060.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q3275141",
+     "name": "Mad Max",
+     "position": "4"
+    },
+    {
+     "qid": "Q26705935",
+     "name": "BBC's 100 Greatest Films of the 21st Century",
+     "position": "19"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q426663",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q100361125",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/mad-max-fury-road/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/mad_max_fury_road"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt1392190/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/mad-max-fury-road"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Mad+Max%3A+Fury+Road"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Mad+Max%3A+Fury+Road%22+2015"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Mad+Max%3A+Fury+Road+2015+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Mad_Max:_Fury_Road"
+    }
+   ]
+  },
+  "story-of-your-life-1998": {
+   "match": {
+    "qid": "Q7620415",
+    "confidence": 1.0,
+    "reason": "type ok, year 1998, exact title"
+   },
+   "facts": {
+    "release_year": 1998
+   },
+   "ids": {},
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Ted Chiangs \"Story of your life\" illo.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Ted_Chiangs_%22Story_of_your_life%22_illo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:Ted_Chiangs_%22Story_of_your_life%22_illo.jpg",
+     "licence": "CC BY 2.0",
+     "attribution": "Hidenori Watanave from Japan"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Story_of_Your_Life",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Story+of+Your+Life+Ted+Chiang"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Story+of+Your+Life"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Story+of+Your+Life%22+1998"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Story+of+Your+Life+1998+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Story_of_Your_Life"
+    }
+   ]
+  },
+  "solaris-1961": {
+   "match": {
+    "qid": "Q261281",
+    "confidence": 1.0,
+    "reason": "type ok, year 1961, exact title"
+   },
+   "facts": {
+    "release_year": 1961
+   },
+   "ids": {
+    "openlibrary": "OL109524W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Solaris, various editions 02.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Solaris%2C_various_editions_02.jpg/960px-Solaris%2C_various_editions_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Solaris,_various_editions_02.jpg",
+     "licence": "CC0",
+     "attribution": "HTO"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Solaris_(novel)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL109524W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Solaris+Stanis%C5%82aw+Lem"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Solaris"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Solaris%22+1961"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Solaris+1961+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Solaris_(novel)"
+    }
+   ]
+  },
+  "roadside-picnic-1972": {
+   "match": {
+    "qid": "Q848517",
+    "confidence": 1.0,
+    "reason": "type ok, year 1972, exact title"
+   },
+   "facts": {
+    "release_year": 1972
+   },
+   "ids": {
+    "openlibrary": "OL16465148W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Roadside_Picnic",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL16465148W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Roadside+Picnic+Arkady+Strugatsky"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Roadside+Picnic"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Roadside+Picnic%22+1972"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Roadside+Picnic+1972+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Roadside_Picnic"
+    }
+   ]
+  },
+  "do-androids-dream-1968": {
+   "match": {
+    "qid": "Q605249",
+    "confidence": 1.0,
+    "reason": "type ok, year 1968, exact title"
+   },
+   "facts": {
+    "release_year": 1968
+   },
+   "ids": {
+    "openlibrary": "OL2172372W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q954123",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "DoAndroidsDream.png",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/DoAndroidsDream.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:DoAndroidsDream.png",
+     "licence": "Public domain",
+     "attribution": "Harry Sehring"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Do_Androids_Dream_of_Electric_Sheep?",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL2172372W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Do+Androids+Dream+of+Electric+Sheep%3F+Philip+K.+Dick"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Do+Androids+Dream+of+Electric+Sheep%3F"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Do+Androids+Dream+of+Electric+Sheep%3F%22+1968"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Do+Androids+Dream+of+Electric+Sheep%3F+1968+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Do_Androids_Dream_of_Electric_Sheep?"
+    }
+   ]
+  },
+  "annihilation-2014": {
+   "match": {
+    "qid": "Q16961640",
+    "confidence": 1.0,
+    "reason": "type ok, year 2014, exact title"
+   },
+   "facts": {
+    "release_year": 2014
+   },
+   "ids": {
+    "openlibrary": "OL17268007W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q15964658",
+     "name": "Southern Reach Series",
+     "position": "1"
+    }
+   ],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q16835895",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Annihilation_(VanderMeer_novel)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL17268007W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Annihilation+Jeff+VanderMeer"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Annihilation"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Annihilation%22+2014"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Annihilation+2014+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Annihilation_(VanderMeer_novel)"
+    }
+   ]
+  },
+  "the-left-hand-of-darkness-1969": {
+   "match": {
+    "qid": "Q2008211",
+    "confidence": 1.0,
+    "reason": "type ok, year 1969, exact title"
+   },
+   "facts": {
+    "release_year": 1969
+   },
+   "ids": {
+    "openlibrary": "OL59864W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q2328396",
+     "name": "Hainish Cycle",
+     "position": "4"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q948372",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q2447776",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL59864W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=The+Left+Hand+of+Darkness+Ursula+K.+Le+Guin"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=The+Left+Hand+of+Darkness"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Left+Hand+of+Darkness%22+1969"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Left+Hand+of+Darkness+1969+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness"
+    }
+   ]
+  },
+  "the-dispossessed-1974": {
+   "match": {
+    "qid": "Q467720",
+    "confidence": 1.0,
+    "reason": "type ok, year 1974, exact title"
+   },
+   "facts": {
+    "release_year": 1974
+   },
+   "ids": {
+    "openlibrary": "OL59863W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q2328396",
+     "name": "Hainish Cycle",
+     "position": "5"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Dispossessed",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL59863W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=The+Dispossessed+Ursula+K.+Le+Guin"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=The+Dispossessed"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Dispossessed%22+1974"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Dispossessed+1974+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Dispossessed"
+    }
+   ]
+  },
+  "piranesi-2020": {
+   "match": {
+    "qid": "Q99434216",
+    "confidence": 1.0,
+    "reason": "type ok, year 2020, exact title"
+   },
+   "facts": {
+    "release_year": 2020
+   },
+   "ids": {
+    "openlibrary": "OL20893680W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Piranesi_(novel)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL20893680W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Piranesi+Susanna+Clarke"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Piranesi"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Piranesi%22+2020"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Piranesi+2020+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Piranesi_(novel)"
+    }
+   ]
+  },
+  "never-let-me-go-2005": {
+   "match": {
+    "qid": "Q951587",
+    "confidence": 1.0,
+    "reason": "type ok, year 2005, exact title"
+   },
+   "facts": {
+    "release_year": 2005
+   },
+   "ids": {
+    "openlibrary": "OL59038W",
+    "twitter": "NLMG_tbs"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [
+    {
+     "qid": "Q708490",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q7046568",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Never_Let_Me_Go_(novel)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL59038W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Never+Let+Me+Go+Kazuo+Ishiguro"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Never+Let+Me+Go"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Never+Let+Me+Go%22+2005"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Never+Let+Me+Go+2005+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Never_Let_Me_Go_(novel)"
+    }
+   ]
+  },
+  "the-remains-of-the-day-1989": {
+   "match": {
+    "qid": "Q829934",
+    "confidence": 1.0,
+    "reason": "type ok, year 1989, exact title"
+   },
+   "facts": {
+    "release_year": 1989
+   },
+   "ids": {
+    "openlibrary": "OL59048W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [
+    {
+     "qid": "Q4003685",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q7771331",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Remains_of_the_Day",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL59048W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=The+Remains+of+the+Day+Kazuo+Ishiguro"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=The+Remains+of+the+Day"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Remains+of+the+Day%22+1989"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Remains+of+the+Day+1989+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Remains_of_the_Day"
+    }
+   ]
+  },
+  "a-psalm-for-the-wild-built-2021": {
+   "match": {
+    "qid": "Q107583553",
+    "confidence": 1.0,
+    "reason": "type ok, year 2021, exact title"
+   },
+   "facts": {
+    "release_year": 2021
+   },
+   "ids": {
+    "openlibrary": "OL22561871W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q113317311",
+     "name": "Monk and Robot",
+     "position": "1"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/A_Psalm_for_the_Wild-Built",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL22561871W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=A+Psalm+for+the+Wild-Built+Becky+Chambers"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=A+Psalm+for+the+Wild-Built"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22A+Psalm+for+the+Wild-Built%22+2021"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=A+Psalm+for+the+Wild-Built+2021+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/A_Psalm_for_the_Wild-Built"
+    }
+   ]
+  },
+  "kindred-1979": {
+   "match": {
+    "qid": "Q6410642",
+    "confidence": 1.0,
+    "reason": "type ok, year 1979, exact title"
+   },
+   "facts": {
+    "release_year": 1979
+   },
+   "ids": {
+    "openlibrary": "OL35616W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Kindred_(novel)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL35616W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Kindred+Octavia+E.+Butler"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Kindred"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Kindred%22+1979"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Kindred+1979+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Kindred_(novel)"
+    }
+   ]
+  },
+  "nineteen-eighty-four-1949": {
+   "match": {
+    "qid": "Q208460",
+    "confidence": 1.0,
+    "reason": "type ok, year 1949, exact title"
+   },
+   "facts": {
+    "release_year": 1949
+   },
+   "ids": {
+    "openlibrary": "OL1168083W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [
+    {
+     "qid": "Q1396889",
+     "slug": null
+    }
+   ],
+   "followed_by": [],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "1984 first edition cover.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/1984_first_edition_cover.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:1984_first_edition_cover.jpg",
+     "licence": "Public domain",
+     "attribution": "Michael Kennard"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL1168083W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Nineteen+Eighty-Four+George+Orwell"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Nineteen+Eighty-Four"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Nineteen+Eighty-Four%22+1949"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Nineteen+Eighty-Four+1949+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four"
+    }
+   ]
+  },
+  "the-name-of-the-rose-1980": {
+   "match": {
+    "qid": "Q172850",
+    "confidence": 1.0,
+    "reason": "type ok, year 1980, exact title"
+   },
+   "facts": {
+    "release_year": 1980
+   },
+   "ids": {
+    "openlibrary": "OL8996439W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q437791",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Il nome della rosa (dall'omonimo romanzo di Umberto Eco).JPG",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Il_nome_della_rosa_%28dall%27omonimo_romanzo_di_Umberto_Eco%29.JPG/960px-Il_nome_della_rosa_%28dall%27omonimo_romanzo_di_Umberto_Eco%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Il_nome_della_rosa_(dall%27omonimo_romanzo_di_Umberto_Eco).JPG",
+     "licence": "CC BY-SA 3.0",
+     "attribution": "William Girometti"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Name_of_the_Rose",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL8996439W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=The+Name+of+the+Rose+Umberto+Eco"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=The+Name+of+the+Rose"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Name+of+the+Rose%22+1980"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Name+of+the+Rose+1980+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Name_of_the_Rose"
+    }
+   ]
+  },
+  "dune-1965": {
+   "match": {
+    "qid": "Q190192",
+    "confidence": 1.0,
+    "reason": "type ok, year 1965, exact title"
+   },
+   "facts": {
+    "release_year": 1965
+   },
+   "ids": {
+    "openlibrary": "OL893527W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q6095696",
+     "name": "Dune",
+     "position": "1"
+    }
+   ],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q437383",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Dune by Frank Herbert first edition cover.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Dune_by_Frank_Herbert_first_edition_cover.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:Dune_by_Frank_Herbert_first_edition_cover.jpg",
+     "licence": "Public domain",
+     "attribution": "John Schoenherr"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Dune_(novel)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL893527W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Dune+Frank+Herbert"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Dune"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Dune%22+1965"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Dune+1965+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Dune_(novel)"
+    }
+   ]
+  },
+  "outer-wilds-2019": {
+   "match": {
+    "qid": "Q19631660",
+    "confidence": 1.0,
+    "reason": "type ok, year 2019, exact title"
+   },
+   "facts": {
+    "release_year": 2019
+   },
+   "ids": {
+    "imdb": "tt10949454",
+    "igdb": "outer-wilds",
+    "steam": "753640"
+   },
+   "scores": [
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 86.0,
+     "scale_max": 100.0,
+     "votes": 13,
+     "as_of": null
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 82.0,
+     "scale_max": 100.0,
+     "votes": 60,
+     "as_of": "2024-02-23"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 85.0,
+     "scale_max": 100.0,
+     "votes": 57,
+     "as_of": "2024-01-31"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Outer_Wilds",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/753640/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Outer%20Wilds/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Outer+Wilds%22+2019"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Outer+Wilds+2019+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Outer_Wilds"
+    }
+   ]
+  },
+  "disco-elysium-2019": {
+   "match": null,
+   "reason": "ambiguous: two equally good candidates",
+   "candidates": [
+    {
+     "qid": "Q71693825",
+     "label": null,
+     "description": "2019 role-playing video game",
+     "confidence": 0.7,
+     "reason": "type ok, year 2019, partial title"
+    },
+    {
+     "qid": "Q127164835",
+     "label": "Disco Elysium: The Final Cut",
+     "description": "2021 video game",
+     "confidence": 0.7,
+     "reason": "type ok, year 2019, partial title"
+    },
+    {
+     "qid": "Q134287165",
+     "label": "Disco Elysium",
+     "description": "soundtrack for the video game Disco Elysium",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Disco%20Elysium/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Disco+Elysium%22+2019"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Disco+Elysium+2019+review"
+    }
+   ]
+  },
+  "journey-2012": {
+   "match": {
+    "qid": "Q677274",
+    "confidence": 1.0,
+    "reason": "type ok, year 2012, exact title"
+   },
+   "facts": {
+    "release_year": 2012
+   },
+   "ids": {
+    "imdb": "tt1821474",
+    "musicbrainz_release_group": "d1850227-c7c7-42c8-b469-6e99023412de",
+    "igdb": "journey",
+    "steam": "638230"
+   },
+   "scores": [
+    {
+     "publisher": "Edge",
+     "metric": "score",
+     "value": 8.0,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": null
+    },
+    {
+     "publisher": "GameRankings",
+     "metric": "score",
+     "value": 92.6,
+     "scale_max": 100.0,
+     "votes": null,
+     "as_of": null
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "score",
+     "value": 92.0,
+     "scale_max": 100.0,
+     "votes": 23,
+     "as_of": null
+    },
+    {
+     "publisher": "PlayStation Official Magazine UK",
+     "metric": "score",
+     "value": 10.0,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": null
+    },
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 96.0,
+     "scale_max": 100.0,
+     "votes": 6,
+     "as_of": null
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 96.0,
+     "scale_max": 100.0,
+     "votes": 46,
+     "as_of": "2019-06-28"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 93.0,
+     "scale_max": 100.0,
+     "votes": 46,
+     "as_of": "2019-06-28"
+    },
+    {
+     "publisher": "Q281243",
+     "metric": "score",
+     "value": 9.0,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": null
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Journey_(2012_video_game)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/638230/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Journey/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Journey%22+2012"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Journey+2012+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Journey_(2012_video_game)"
+    }
+   ]
+  },
+  "hollow-knight-2017": {
+   "match": null,
+   "reason": "fetch failed: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q114712322%7CQ117190337%7CQ119576498%7CQ123017178%7CQ131917281%7CQ132178503%7CQ207708%7CQ21039459%7CQ21563301%7CQ2283786%7CQ27197%7CQ45836%7CQ459734%7CQ5265424%7CQ589042%7CQ7118716%7CQ84370099&props=labels&languages=en&sitefilter=enwiki&format=json: HTTP 429",
+   "links": [
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Hollow%20Knight/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Hollow+Knight%22+2017"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Hollow+Knight+2017+review"
+    }
+   ]
+  },
+  "return-of-the-obra-dinn-2018": {
+   "match": {
+    "qid": "Q48987695",
+    "confidence": 1.0,
+    "reason": "type ok, year 2018, exact title"
+   },
+   "facts": {
+    "release_year": 2018
+   },
+   "ids": {
+    "imdb": "tt9433398",
+    "igdb": "return-of-the-obra-dinn",
+    "steam": "653530"
+   },
+   "scores": [
+    {
+     "publisher": "Q117190337",
+     "metric": "score",
+     "value": 86.0,
+     "scale_max": 100.0,
+     "votes": 10,
+     "as_of": null
+    },
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 91.0,
+     "scale_max": 100.0,
+     "votes": 8,
+     "as_of": null
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 96.0,
+     "scale_max": 100.0,
+     "votes": 55,
+     "as_of": "2021-05-13"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 89.0,
+     "scale_max": 100.0,
+     "votes": 55,
+     "as_of": "2021-05-13"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Return_of_the_Obra_Dinn",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/653530/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Return%20of%20the%20Obra%20Dinn/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Return+of+the+Obra+Dinn%22+2018"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Return+of+the+Obra+Dinn+2018+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Return_of_the_Obra_Dinn"
+    }
+   ]
+  },
+  "papers-please-2013": {
+   "match": {
+    "qid": "Q14565978",
+    "confidence": 1.0,
+    "reason": "type ok, year 2013, exact title"
+   },
+   "facts": {
+    "release_year": 2013
+   },
+   "ids": {
+    "imdb": "tt3618274",
+    "igdb": "papers-please",
+    "steam": "239030"
+   },
+   "scores": [
+    {
+     "publisher": "Q117190337",
+     "metric": "score",
+     "value": 91.0,
+     "scale_max": 100.0,
+     "votes": 18,
+     "as_of": null
+    },
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 85.0,
+     "scale_max": 100.0,
+     "votes": 6,
+     "as_of": null
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Papers,_Please",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/239030/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Papers%2C%20Please/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Papers%2C+Please%22+2013"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Papers%2C+Please+2013+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Papers,_Please"
+    }
+   ]
+  },
+  "elden-ring-2022": {
+   "match": {
+    "qid": "Q64826862",
+    "confidence": 0.7,
+    "reason": "type ok, year 2022, partial title"
+   },
+   "facts": {
+    "release_year": 2022
+   },
+   "ids": {
+    "imdb": "tt10562854",
+    "igdb": "elden-ring",
+    "steam": "1245620",
+    "twitter": "ELDENRING"
+   },
+   "scores": [
+    {
+     "publisher": "Gameblog.fr",
+     "metric": "score",
+     "value": 9.0,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2022-03-05"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 94.0,
+     "scale_max": 100.0,
+     "votes": 63,
+     "as_of": null
+    },
+    {
+     "publisher": "Q117190337",
+     "metric": "score",
+     "value": 86.0,
+     "scale_max": 100.0,
+     "votes": 26,
+     "as_of": null
+    },
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 95.0,
+     "scale_max": 100.0,
+     "votes": 48,
+     "as_of": null
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 97.0,
+     "scale_max": 100.0,
+     "votes": 216,
+     "as_of": "2025-10-06"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 95.0,
+     "scale_max": 100.0,
+     "votes": 211,
+     "as_of": "2023-06-02"
+    }
+   ],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q124706366",
+     "name": "Elden Ring",
+     "position": "1"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Elden_Ring",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/1245620/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Elden%20Ring/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Elden+Ring%22+2022"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Elden+Ring+2022+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Elden_Ring"
+    }
+   ]
+  },
+  "soma-2015": {
+   "match": {
+    "qid": "Q15121353",
+    "confidence": 1.0,
+    "reason": "type ok, year 2015, exact title"
+   },
+   "facts": {
+    "release_year": 2015
+   },
+   "ids": {
+    "imdb": "tt3255592",
+    "igdb": "soma",
+    "steam": "282140"
+   },
+   "scores": [
+    {
+     "publisher": "Q117190337",
+     "metric": "score",
+     "value": 81.0,
+     "scale_max": 100.0,
+     "votes": 20,
+     "as_of": null
+    },
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 81.0,
+     "scale_max": 100.0,
+     "votes": 20,
+     "as_of": null
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 80.0,
+     "scale_max": 100.0,
+     "votes": 93,
+     "as_of": "2025-08-07"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 83.0,
+     "scale_max": 100.0,
+     "votes": 87,
+     "as_of": "2019-05-16"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Soma_(video_game)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/282140/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/SOMA/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22SOMA%22+2015"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=SOMA+2015+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Soma_(video_game)"
+    }
+   ]
+  },
+  "kentucky-route-zero-2020": {
+   "match": null,
+   "reason": "no confident match",
+   "candidates": [
+    {
+     "qid": "Q6392377",
+     "label": "Kentucky Route Zero",
+     "description": "2013 magical realist independent episodic adventure game",
+     "confidence": 0.0,
+     "reason": "year 2013 vs 2020"
+    },
+    {
+     "qid": "Q136511385",
+     "label": "Kentucky Route Zero: Act II",
+     "description": "second episode of Kentucky Route Zero",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q136511387",
+     "label": "Kentucky Route Zero: Act IV",
+     "description": "fourth episode of Kentucky Route Zero",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q136511262",
+     "label": "Kentucky Route Zero: Act I",
+     "description": "first episode of Kentucky Route Zero",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q136511388",
+     "label": "Kentucky Route Zero: Act V",
+     "description": "fifth and final episode of Kentucky Route Zero",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Kentucky%20Route%20Zero/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Kentucky+Route+Zero%22+2020"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Kentucky+Route+Zero+2020+review"
+    }
+   ]
+  },
+  "stardew-valley-2016": {
+   "match": {
+    "qid": "Q23013817",
+    "confidence": 1.0,
+    "reason": "type ok, year 2016, exact title"
+   },
+   "facts": {
+    "release_year": 2016
+   },
+   "ids": {
+    "imdb": "tt5580378",
+    "igdb": "stardew-valley",
+    "steam": "413150",
+    "twitter": "ConcernedApe"
+   },
+   "scores": [
+    {
+     "publisher": "Google Play",
+     "metric": "score",
+     "value": 4.44728422164917,
+     "scale_max": 5.0,
+     "votes": 157338,
+     "as_of": "2024-02-02"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "score",
+     "value": 89.0,
+     "scale_max": 100.0,
+     "votes": 30,
+     "as_of": "2024-02-02"
+    },
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 92.0,
+     "scale_max": 100.0,
+     "votes": 15,
+     "as_of": null
+    },
+    {
+     "publisher": "Q1486288",
+     "metric": "score",
+     "value": 4.8,
+     "scale_max": 5.0,
+     "votes": 339,
+     "as_of": "2024-02-02"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 99.0,
+     "scale_max": 100.0,
+     "votes": 69,
+     "as_of": "2021-10-02"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 90.0,
+     "scale_max": 100.0,
+     "votes": 73,
+     "as_of": "2024-05-07"
+    },
+    {
+     "publisher": "Q4047065",
+     "metric": "score",
+     "value": 8.9,
+     "scale_max": 10.0,
+     "votes": 746,
+     "as_of": "2024-02-02"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Stardew_Valley",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/413150/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Stardew%20Valley/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Stardew+Valley%22+2016"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Stardew+Valley+2016+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Stardew_Valley"
+    }
+   ]
+  },
+  "the-talos-principle-2014": {
+   "match": {
+    "qid": "Q18620506",
+    "confidence": 1.0,
+    "reason": "type ok, year 2014, exact title"
+   },
+   "facts": {
+    "release_year": 2014
+   },
+   "ids": {
+    "imdb": "tt3817070",
+    "igdb": "the-talos-principle",
+    "steam": "257510"
+   },
+   "scores": [
+    {
+     "publisher": "Q117190337",
+     "metric": "score",
+     "value": 86.0,
+     "scale_max": 100.0,
+     "votes": 17,
+     "as_of": null
+    },
+    {
+     "publisher": "Q131917281",
+     "metric": "CriticDB Rating",
+     "value": 89.0,
+     "scale_max": 100.0,
+     "votes": 13,
+     "as_of": null
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 89.0,
+     "scale_max": 100.0,
+     "votes": 58,
+     "as_of": "2019-12-19"
+    },
+    {
+     "publisher": "Q21039459",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 87.0,
+     "scale_max": 100.0,
+     "votes": 58,
+     "as_of": "2019-12-19"
+    }
+   ],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q118726645",
+     "name": "The Talos Principle",
+     "position": null
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Talos_Principle",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/257510/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/The%20Talos%20Principle/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Talos+Principle%22+2014"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Talos+Principle+2014+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Talos_Principle"
+    }
+   ]
+  },
+  "ok-computer-1997": {
+   "match": {
+    "qid": "Q202996",
+    "confidence": 1.0,
+    "reason": "type ok, year 1997, exact title"
+   },
+   "facts": {
+    "release_year": 1997,
+    "runtime_minutes": 53
+   },
+   "ids": {
+    "musicbrainz_release_group": "b1392450-e666-3926-a536-22c65f834433"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/OK_Computer",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/Radiohead%20OK%20Computer"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=Radiohead+OK+Computer"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/b1392450-e666-3926-a536-22c65f834433"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22OK+Computer%22+1997"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=OK+Computer+1997+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/OK_Computer"
+    }
+   ]
+  },
+  "music-for-airports-1978": {
+   "match": {
+    "qid": "Q127100",
+    "confidence": 0.9,
+    "reason": "type ok, year 1979, exact title"
+   },
+   "facts": {
+    "release_year": 1979,
+    "runtime_minutes": 49
+   },
+   "ids": {
+    "musicbrainz_release_group": "5fdd6ba8-83c1-3a87-b378-d5f61dec5ddd"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q95640504",
+     "name": "Ambient albums",
+     "position": "1"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Ambient_1:_Music_for_Airports",
+   "conflicts": [
+    {
+     "field": "release_year",
+     "seed": 1978,
+     "source": 1979
+    }
+   ],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/Brian%20Eno%20Ambient%201%3A%20Music%20for%20Airports"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=Brian+Eno+Ambient+1%3A+Music+for+Airports"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/5fdd6ba8-83c1-3a87-b378-d5f61dec5ddd"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Ambient+1%3A+Music+for+Airports%22+1978"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Ambient+1%3A+Music+for+Airports+1978+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Ambient_1:_Music_for_Airports"
+    }
+   ]
+  },
+  "kind-of-blue-1959": {
+   "match": {
+    "qid": "Q283221",
+    "confidence": 1.0,
+    "reason": "type ok, year 1959, exact title"
+   },
+   "facts": {
+    "release_year": 1959,
+    "runtime_minutes": 55
+   },
+   "ids": {
+    "musicbrainz_release_group": "8e8a594f-2175-38c7-a871-abb68ec363e7"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Kind_of_Blue",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 46,
+     "source": 55
+    }
+   ],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/Miles%20Davis%20Kind%20of%20Blue"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=Miles+Davis+Kind+of+Blue"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/8e8a594f-2175-38c7-a871-abb68ec363e7"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Kind+of+Blue%22+1959"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Kind+of+Blue+1959+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Kind_of_Blue"
+    }
+   ]
+  },
+  "hounds-of-love-1985": {
+   "match": {
+    "qid": "Q1055992",
+    "confidence": 1.0,
+    "reason": "type ok, year 1985, exact title"
+   },
+   "facts": {
+    "release_year": 1985,
+    "runtime_minutes": 48
+   },
+   "ids": {
+    "musicbrainz_release_group": "017f2a37-a78f-3578-9611-fa40408e5d90"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Hounds_of_Love",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/Kate%20Bush%20Hounds%20of%20Love"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=Kate+Bush+Hounds+of+Love"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/017f2a37-a78f-3578-9611-fa40408e5d90"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Hounds+of+Love%22+1985"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Hounds+of+Love+1985+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Hounds_of_Love"
+    }
+   ]
+  },
+  "in-the-aeroplane-over-the-sea-1998": {
+   "match": {
+    "qid": "Q1660782",
+    "confidence": 1.0,
+    "reason": "type ok, year 1998, exact title"
+   },
+   "facts": {
+    "release_year": 1998,
+    "runtime_minutes": 40
+   },
+   "ids": {
+    "musicbrainz_release_group": "8f310800-045b-3e12-8268-50b3d33a2267"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [
+    {
+     "qid": "Q1236077",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q5445383",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/In_the_Aeroplane_Over_the_Sea",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/Neutral%20Milk%20Hotel%20In%20the%20Aeroplane%20Over%20the%20Sea"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=Neutral+Milk+Hotel+In+the+Aeroplane+Over+the+Sea"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/8f310800-045b-3e12-8268-50b3d33a2267"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22In+the+Aeroplane+Over+the+Sea%22+1998"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=In+the+Aeroplane+Over+the+Sea+1998+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/In_the_Aeroplane_Over_the_Sea"
+    }
+   ]
+  },
+  "discovery-2001": {
+   "match": {
+    "qid": "Q1901313",
+    "confidence": 1.0,
+    "reason": "type ok, year 2001, exact title"
+   },
+   "facts": {
+    "release_year": 2001,
+    "runtime_minutes": 61
+   },
+   "ids": {
+    "metacritic": "music/discovery/daft-punk",
+    "musicbrainz_release_group": "48117b90-a16e-34ca-a514-19c702df1158"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Discovery_(Daft_Punk_album)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/Daft%20Punk%20Discovery"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=Daft+Punk+Discovery"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/48117b90-a16e-34ca-a514-19c702df1158"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Discovery%22+2001"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Discovery+2001+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Discovery_(Daft_Punk_album)"
+    }
+   ]
+  },
+  "lift-your-skinny-fists-2000": {
+   "match": {
+    "qid": "Q920503",
+    "confidence": 1.0,
+    "reason": "type ok, year 2000, exact title"
+   },
+   "facts": {
+    "release_year": 2000
+   },
+   "ids": {
+    "metacritic": "music/lift-your-skinny-fists-like-antennas-to-heaven/godspeed-you!-black-emperor",
+    "musicbrainz_release_group": "3822abb6-ca53-3ae1-a4ec-7718cb321e9b"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [
+    {
+     "qid": "Q1849370",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q1338941",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Lift_Your_Skinny_Fists_like_Antennas_to_Heaven",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/Godspeed%20You%21%20Black%20Emperor%20Lift%20Your%20Skinny%20Fists%20Like%20Antennas%20to%20Heaven"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=Godspeed+You%21+Black+Emperor+Lift+Your+Skinny+Fists+Like+Antennas+to+Heaven"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/3822abb6-ca53-3ae1-a4ec-7718cb321e9b"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Lift+Your+Skinny+Fists+Like+Antennas+to+Heaven%22+2000"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Lift+Your+Skinny+Fists+Like+Antennas+to+Heaven+2000+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Lift_Your_Skinny_Fists_like_Antennas_to_Heaven"
+    }
+   ]
+  },
+  "the-disintegration-loops-2002": {
+   "match": {
+    "qid": "Q92709389",
+    "confidence": 1.0,
+    "reason": "type ok, year 2002, exact title"
+   },
+   "facts": {
+    "release_year": 2002
+   },
+   "ids": {
+    "musicbrainz_release_group": "29560694-e850-385b-8cee-8d3b41c2bd1c"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": null,
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "listen:spotify",
+     "label": "Listen on Spotify",
+     "url": "https://open.spotify.com/search/William%20Basinski%20The%20Disintegration%20Loops"
+    },
+    {
+     "kind": "listen:youtube-music",
+     "label": "YouTube Music",
+     "url": "https://music.youtube.com/search?q=William+Basinski+The+Disintegration+Loops"
+    },
+    {
+     "kind": "info:musicbrainz",
+     "label": "MusicBrainz",
+     "url": "https://musicbrainz.org/release-group/29560694-e850-385b-8cee-8d3b41c2bd1c"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Disintegration+Loops%22+2002"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Disintegration+Loops+2002+review"
+    }
+   ]
+  }
+ }
+}
