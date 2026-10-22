@@ -1,0 +1,161 @@
+{
+  "version": "0.1.0",
+  "notes": "Foundational taxonomy for the MVP. Terms are controlled: a classification may only reference a term defined here. Synonyms feed the rule-based intent parser; they are matched as whole phrases.",
+  "dimensions": [
+    {
+      "slug": "genre",
+      "label": "Genre",
+      "description": "Conventional form/genre labels. Necessary for filtering, deliberately not the main discovery signal.",
+      "kind": "categorical"
+    },
+    {
+      "slug": "theme",
+      "label": "Theme & subject",
+      "description": "What the work is about: ideas, questions and subject matter it substantively engages with (not merely mentions).",
+      "kind": "graded"
+    },
+    {
+      "slug": "mood",
+      "label": "Mood & experience",
+      "description": "The felt experience of engaging with the work. Multidimensional: a work can be comforting and melancholic at once.",
+      "kind": "graded"
+    },
+    {
+      "slug": "pacing",
+      "label": "Pacing",
+      "description": "How quickly the work moves and how much patience it asks of its audience.",
+      "kind": "graded"
+    },
+    {
+      "slug": "complexity",
+      "label": "Complexity & demand",
+      "description": "How much attention, interpretation or prior knowledge the work asks for.",
+      "kind": "graded"
+    },
+    {
+      "slug": "narrative",
+      "label": "Narrative framework",
+      "description": "Structural and storytelling devices.",
+      "kind": "graded"
+    },
+    {
+      "slug": "world",
+      "label": "World & setting",
+      "description": "Qualities of the setting and world-building.",
+      "kind": "graded"
+    },
+    {
+      "slug": "style",
+      "label": "Style & craft",
+      "description": "Visual, sonic, prose or interactive style.",
+      "kind": "graded"
+    },
+    {
+      "slug": "advisory",
+      "label": "Content advisory",
+      "description": "Content some people want to avoid. Strength encodes intensity: 0 = assessed and absent, 0.3 = mild/brief, 0.6 = notable, 0.9 = graphic/central. A missing row means NOT ASSESSED, never 'absent'.",
+      "kind": "intensity"
+    }
+  ],
+  "terms": [
+    {"dimension": "genre", "slug": "science-fiction", "label": "Science fiction", "definition": "Speculation grounded in science, technology or plausible-seeming extrapolation.", "applies_to": ["*"], "synonyms": ["science fiction", "sci-fi", "scifi", "sf", "science-fiction"]},
+    {"dimension": "genre", "slug": "fantasy", "label": "Fantasy", "definition": "Worlds or events governed by magic, myth or the impossible, presented without scientific rationale.", "applies_to": ["*"], "synonyms": ["fantasy"]},
+    {"dimension": "genre", "slug": "drama", "label": "Drama", "definition": "Primarily character- and situation-driven, played straight.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["drama"]},
+    {"dimension": "genre", "slug": "horror", "label": "Horror", "definition": "Designed primarily to frighten, disturb or create dread.", "applies_to": ["*"], "synonyms": ["horror", "scary", "frightening"]},
+    {"dimension": "genre", "slug": "thriller", "label": "Thriller", "definition": "Organised around suspense, danger and escalating stakes.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["thriller", "suspense"]},
+    {"dimension": "genre", "slug": "romance", "label": "Romance", "definition": "A romantic relationship is the central narrative concern.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["romance", "romantic story", "love story"]},
+    {"dimension": "genre", "slug": "comedy", "label": "Comedy", "definition": "Primarily intended to amuse.", "applies_to": ["*"], "synonyms": ["comedy", "comedic"]},
+    {"dimension": "genre", "slug": "mystery", "label": "Mystery", "definition": "Structured around uncovering hidden facts: a crime, a puzzle or a secret.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["mystery", "whodunit", "detective"]},
+    {"dimension": "genre", "slug": "historical", "label": "Historical", "definition": "Set in, and substantively engaged with, a real historical period.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["historical", "period piece", "history"]},
+    {"dimension": "genre", "slug": "war", "label": "War", "definition": "Armed conflict is the setting and central concern.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["war film", "war movie", "war story"]},
+    {"dimension": "genre", "slug": "animation", "label": "Animation", "definition": "A screen work made wholly or chiefly through animation.", "applies_to": ["film", "series", "online_video"], "synonyms": ["animated", "animation", "anime", "cartoon"]},
+    {"dimension": "genre", "slug": "literary-fiction", "label": "Literary fiction", "definition": "Fiction foregrounding prose, character interiority and theme over genre convention.", "applies_to": ["book"], "synonyms": ["literary fiction", "literary"]},
+    {"dimension": "genre", "slug": "adventure", "label": "Adventure", "definition": "Journeys, exploration and discovery drive the experience.", "applies_to": ["*"], "synonyms": ["adventure"]},
+    {"dimension": "genre", "slug": "action", "label": "Action", "definition": "Physical conflict, pursuit and spectacle drive the experience.", "applies_to": ["film", "series", "game"], "synonyms": ["action"]},
+    {"dimension": "genre", "slug": "puzzle", "label": "Puzzle", "definition": "Progress depends chiefly on solving logical or observational problems.", "applies_to": ["game"], "synonyms": ["puzzle", "puzzles", "puzzle game"]},
+    {"dimension": "genre", "slug": "rpg", "label": "Role-playing game", "definition": "Player shapes a character's abilities and choices over a long arc.", "applies_to": ["game"], "synonyms": ["rpg", "role-playing", "role playing game"]},
+    {"dimension": "genre", "slug": "metroidvania", "label": "Metroidvania", "definition": "Interconnected map gated by abilities acquired over time.", "applies_to": ["game"], "synonyms": ["metroidvania"]},
+    {"dimension": "genre", "slug": "life-sim", "label": "Life / farming sim", "definition": "Everyday routines, cultivation and community as the core loop.", "applies_to": ["game"], "synonyms": ["life sim", "farming sim", "farming game", "cozy game"]},
+    {"dimension": "genre", "slug": "ambient", "label": "Ambient", "definition": "Music prioritising atmosphere and texture over melody or rhythm.", "applies_to": ["album", "track"], "synonyms": ["ambient"]},
+    {"dimension": "genre", "slug": "jazz", "label": "Jazz", "definition": "Music in the jazz tradition.", "applies_to": ["album", "track"], "synonyms": ["jazz"]},
+    {"dimension": "genre", "slug": "rock", "label": "Rock", "definition": "Music in the rock tradition, including alternative rock.", "applies_to": ["album", "track"], "synonyms": ["rock", "alternative rock", "alt rock"]},
+    {"dimension": "genre", "slug": "electronic", "label": "Electronic", "definition": "Music made primarily with electronic instruments and production.", "applies_to": ["album", "track"], "synonyms": ["electronic", "electronica", "dance music"]},
+    {"dimension": "genre", "slug": "post-rock", "label": "Post-rock", "definition": "Rock instrumentation used for texture and long-form dynamics rather than song form.", "applies_to": ["album", "track"], "synonyms": ["post-rock", "post rock"]},
+    {"dimension": "genre", "slug": "folk", "label": "Folk / indie folk", "definition": "Acoustic, song-centred music in folk traditions.", "applies_to": ["album", "track"], "synonyms": ["folk", "indie folk"]},
+    {"dimension": "genre", "slug": "art-pop", "label": "Art pop", "definition": "Pop song forms pursued with experimental ambition.", "applies_to": ["album", "track"], "synonyms": ["art pop", "art-pop"]},
+
+    {"dimension": "theme", "slug": "language-communication", "label": "Language & communication", "definition": "How meaning is made and shared; translation, misunderstanding, the limits of language.", "applies_to": ["*"], "synonyms": ["language", "linguistics", "communication", "translation"]},
+    {"dimension": "theme", "slug": "time", "label": "Time & causality", "definition": "Time travel, loops, non-linear perception or the nature of time itself.", "applies_to": ["*"], "synonyms": ["time travel", "nature of time", "causality"]},
+    {"dimension": "theme", "slug": "grief-loss", "label": "Grief & loss", "definition": "Mourning, bereavement, and living with absence.", "applies_to": ["*"], "synonyms": ["grief", "loss", "mourning", "bereavement"]},
+    {"dimension": "theme", "slug": "memory", "label": "Memory", "definition": "Remembering, forgetting and the reliability of the past.", "applies_to": ["*"], "synonyms": ["memory", "memories", "nostalgia"]},
+    {"dimension": "theme", "slug": "identity-self", "label": "Identity & selfhood", "definition": "What makes a self: continuity, authenticity, who one is.", "applies_to": ["*"], "synonyms": ["identity", "selfhood", "who am i", "sense of self"]},
+    {"dimension": "theme", "slug": "consciousness-ai", "label": "Consciousness & artificial minds", "definition": "Machine intelligence, synthetic life, or what it means to be conscious.", "applies_to": ["*"], "synonyms": ["artificial intelligence", "ai", "robots", "androids", "consciousness", "what makes us human", "being human"]},
+    {"dimension": "theme", "slug": "isolation", "label": "Isolation & solitude", "definition": "Physical or emotional aloneness as a central condition.", "applies_to": ["*"], "synonyms": ["isolation", "loneliness", "solitude", "alone"]},
+    {"dimension": "theme", "slug": "first-contact", "label": "First contact & the alien", "definition": "Encounter with an intelligence or phenomenon radically unlike us.", "applies_to": ["*"], "synonyms": ["first contact", "aliens", "alien", "the unknowable"]},
+    {"dimension": "theme", "slug": "class-inequality", "label": "Class & inequality", "definition": "Economic and social hierarchy and its consequences.", "applies_to": ["*"], "synonyms": ["class", "inequality", "rich and poor", "wealth gap", "social class"]},
+    {"dimension": "theme", "slug": "surveillance-authoritarianism", "label": "Surveillance & authoritarianism", "definition": "State control, surveillance, censorship and complicity.", "applies_to": ["*"], "synonyms": ["surveillance", "authoritarian", "totalitarian", "dictatorship", "police state", "dystopia", "dystopian"]},
+    {"dimension": "theme", "slug": "war-violence", "label": "War & its human cost", "definition": "The experience and consequences of war for individuals.", "applies_to": ["*"], "synonyms": ["world war", "ww2", "wwii", "the cost of war"]},
+    {"dimension": "theme", "slug": "love-connection", "label": "Love & connection", "definition": "Romantic love, intimacy or deep human connection.", "applies_to": ["*"], "synonyms": ["human connection", "intimacy", "relationships", "falling in love"]},
+    {"dimension": "theme", "slug": "nature-ecology", "label": "Nature & ecology", "definition": "The natural world, ecosystems and humanity's place within them.", "applies_to": ["*"], "synonyms": ["nature", "ecology", "environment", "the natural world", "forest"]},
+    {"dimension": "theme", "slug": "coming-of-age", "label": "Coming of age", "definition": "Transition from childhood or youth to maturity.", "applies_to": ["*"], "synonyms": ["coming of age", "growing up", "childhood"]},
+    {"dimension": "theme", "slug": "everyday-life", "label": "Everyday life & routine", "definition": "The texture and meaning of ordinary days.", "applies_to": ["*"], "synonyms": ["everyday life", "routine", "ordinary life", "slice of life", "daily life"]},
+    {"dimension": "theme", "slug": "politics-society", "label": "Politics & social systems", "definition": "Ideologies, political systems and how societies organise themselves.", "applies_to": ["*"], "synonyms": ["politics", "political", "ideology", "anarchism", "utopia", "society"]},
+    {"dimension": "theme", "slug": "mortality-meaning", "label": "Mortality & meaning", "definition": "Death, finitude and the search for meaning or purpose.", "applies_to": ["*"], "synonyms": ["death", "mortality", "meaning of life", "purpose", "existential"]},
+    {"dimension": "theme", "slug": "duty-regret", "label": "Duty, restraint & regret", "definition": "Lives shaped by obligation, repression or missed chances.", "applies_to": ["*"], "synonyms": ["regret", "duty", "repression", "missed chances"]},
+    {"dimension": "theme", "slug": "race-history", "label": "Race & the legacy of slavery", "definition": "Racial injustice and the historical legacy of slavery.", "applies_to": ["*"], "synonyms": ["slavery", "race", "racism"]},
+    {"dimension": "theme", "slug": "gender", "label": "Gender & sexuality", "definition": "Gender roles, gender identity and sexuality as subjects.", "applies_to": ["*"], "synonyms": ["gender", "sexuality"]},
+    {"dimension": "theme", "slug": "power-empire", "label": "Power, empire & religion", "definition": "Imperial power, messianism and the manipulation of belief.", "applies_to": ["*"], "synonyms": ["empire", "colonialism", "religion", "messiah", "power"]},
+    {"dimension": "theme", "slug": "knowledge-curiosity", "label": "Knowledge & curiosity", "definition": "The pursuit of understanding; science, scholarship and the urge to know.", "applies_to": ["*"], "synonyms": ["curiosity", "knowledge", "scientific discovery", "exploration of ideas", "learning"]},
+    {"dimension": "theme", "slug": "kindness-community", "label": "Kindness & community", "definition": "Decency, care and belonging as central forces.", "applies_to": ["*"], "synonyms": ["kindness", "community", "friendship", "found family", "belonging"]},
+    {"dimension": "theme", "slug": "technology-alienation", "label": "Technology & alienation", "definition": "Modern life, technology and consumerism as sources of estrangement.", "applies_to": ["*"], "synonyms": ["technology", "modern life", "alienation", "consumerism"]},
+    {"dimension": "theme", "slug": "decay-impermanence", "label": "Decay & impermanence", "definition": "Erosion, entropy and things passing away.", "applies_to": ["*"], "synonyms": ["decay", "impermanence", "entropy", "erosion"]},
+
+    {"dimension": "mood", "slug": "contemplative", "label": "Contemplative", "definition": "Invites reflection; leaves room to think.", "applies_to": ["*"], "synonyms": ["contemplative", "reflective", "meditative", "thoughtful"]},
+    {"dimension": "mood", "slug": "melancholic", "label": "Melancholic", "definition": "Wistful sadness that is felt but not crushing.", "applies_to": ["*"], "synonyms": ["melancholic", "melancholy", "wistful", "bittersweet"]},
+    {"dimension": "mood", "slug": "comforting", "label": "Comforting", "definition": "Restorative and safe; leaves you feeling better.", "applies_to": ["*"], "synonyms": ["comforting", "cozy", "cosy", "wholesome", "feel-good", "feel good", "gentle", "soothing", "heartwarming", "difficult day", "rough day", "bad day", "relaxing", "calm"]},
+    {"dimension": "mood", "slug": "tense", "label": "Tense", "definition": "Sustained suspense or anxiety.", "applies_to": ["*"], "synonyms": ["tense", "suspenseful", "nail-biting", "gripping", "edge of my seat"]},
+    {"dimension": "mood", "slug": "eerie", "label": "Eerie", "definition": "Uncanny, strange and quietly unsettling.", "applies_to": ["*"], "synonyms": ["eerie", "uncanny", "strange", "weird", "mysterious atmosphere"]},
+    {"dimension": "mood", "slug": "uplifting", "label": "Uplifting", "definition": "Hopeful; leaves the audience with optimism.", "applies_to": ["*"], "synonyms": ["uplifting", "hopeful", "optimistic", "inspiring", "joyful"]},
+    {"dimension": "mood", "slug": "bleak", "label": "Bleak", "definition": "Dark and largely without consolation.", "applies_to": ["*"], "synonyms": ["bleak", "dark", "grim", "harrowing", "depressing"]},
+    {"dimension": "mood", "slug": "whimsical", "label": "Whimsical", "definition": "Playful, fanciful, lightly magical.", "applies_to": ["*"], "synonyms": ["whimsical", "playful", "magical", "charming"]},
+    {"dimension": "mood", "slug": "romantic", "label": "Romantic", "definition": "Tender and swooning; the feeling of falling for someone.", "applies_to": ["*"], "synonyms": ["romantic"]},
+    {"dimension": "mood", "slug": "exhilarating", "label": "Exhilarating", "definition": "High energy and adrenaline.", "applies_to": ["*"], "synonyms": ["exhilarating", "adrenaline", "thrilling", "high energy", "high-energy", "intense action", "pumped"]},
+    {"dimension": "mood", "slug": "wonder", "label": "Sense of wonder", "definition": "Awe at the scale or strangeness of the world or universe.", "applies_to": ["*"], "synonyms": ["wonder", "awe", "awe-inspiring", "sense of wonder", "mind-blowing", "mind blowing"]},
+    {"dimension": "mood", "slug": "funny", "label": "Funny", "definition": "Reliably makes you laugh.", "applies_to": ["*"], "synonyms": ["funny", "hilarious", "laugh"]},
+    {"dimension": "mood", "slug": "unsettling", "label": "Unsettling / disturbing", "definition": "Leaves lasting discomfort or dread.", "applies_to": ["*"], "synonyms": ["unsettling", "disturbing", "dread", "creepy"]},
+
+    {"dimension": "pacing", "slug": "slow-burn", "label": "Slow burn", "definition": "Unhurried; rewards patience.", "applies_to": ["*"], "synonyms": ["slow burn", "slow-burn", "slow", "unhurried", "slow paced", "slow-paced"]},
+    {"dimension": "pacing", "slug": "brisk", "label": "Brisk", "definition": "Moves quickly; little downtime.", "applies_to": ["*"], "synonyms": ["fast paced", "fast-paced", "brisk", "pacey", "quick moving"]},
+
+    {"dimension": "complexity", "slug": "intellectually-demanding", "label": "Intellectually demanding", "definition": "Rewards close attention and interpretation; ideas carry weight.", "applies_to": ["*"], "synonyms": ["intelligent", "intellectual", "cerebral", "intellectually stimulating", "smart", "challenging", "philosophical", "big ideas", "makes me think", "thought-provoking", "thought provoking", "makes you think", "mind-bending", "mind bending", "complex"]},
+    {"dimension": "complexity", "slug": "accessible", "label": "Easy to get into", "definition": "Low barrier to entry; enjoyable without effort.", "applies_to": ["*"], "synonyms": ["easy watch", "easy to get into", "lighthearted", "light-hearted", "undemanding", "switch off", "turn my brain off", "easygoing"]},
+
+    {"dimension": "narrative", "slug": "nonlinear", "label": "Non-linear structure", "definition": "Events presented out of chronological order by design.", "applies_to": ["*"], "synonyms": ["nonlinear", "non-linear", "out of order", "fragmented structure"]},
+    {"dimension": "narrative", "slug": "time-loop", "label": "Time loop", "definition": "A repeating span of time is the structural engine.", "applies_to": ["*"], "synonyms": ["time loop", "groundhog day"]},
+    {"dimension": "narrative", "slug": "unreliable-narrator", "label": "Unreliable narrator", "definition": "The telling cannot be fully trusted, and this matters to the meaning.", "applies_to": ["*"], "synonyms": ["unreliable narrator"]},
+    {"dimension": "narrative", "slug": "puzzle-box", "label": "Puzzle-box narrative", "definition": "The audience must actively piece together what is happening.", "applies_to": ["*"], "synonyms": ["puzzle box", "puzzle-box", "figure it out", "piece together", "deduction"]},
+    {"dimension": "narrative", "slug": "environmental-storytelling", "label": "Environmental storytelling", "definition": "Story told through places, objects and traces rather than exposition.", "applies_to": ["game", "film", "book"], "synonyms": ["environmental storytelling", "story through the world"]},
+    {"dimension": "narrative", "slug": "minimal-dialogue", "label": "Minimal or no dialogue", "definition": "Communicates largely without words.", "applies_to": ["film", "game", "online_video"], "synonyms": ["wordless", "no dialogue", "minimal dialogue", "without words"]},
+    {"dimension": "narrative", "slug": "meaningful-choices", "label": "Meaningful choices", "definition": "Player decisions materially shape outcomes.", "applies_to": ["game"], "synonyms": ["choices", "meaningful choices", "choices matter", "branching"]},
+    {"dimension": "narrative", "slug": "dialogue-driven", "label": "Dialogue-driven", "definition": "Conversation carries most of the story.", "applies_to": ["*"], "synonyms": ["dialogue-driven", "dialogue driven", "talky", "conversations", "conversation"]},
+    {"dimension": "narrative", "slug": "concept-album", "label": "Concept / narrative album", "definition": "An album organised around a unifying story or concept.", "applies_to": ["album"], "synonyms": ["concept album"]},
+
+    {"dimension": "world", "slug": "rich-worldbuilding", "label": "Rich world-building", "definition": "A detailed, internally coherent invented world with history and systems.", "applies_to": ["*"], "synonyms": ["world-building", "worldbuilding", "world building", "lore", "ambitious world", "rich world", "deep lore"]},
+    {"dimension": "world", "slug": "grounded-realism", "label": "Grounded realism", "definition": "A recognisable real world, closely observed.", "applies_to": ["*"], "synonyms": ["realistic", "grounded", "realism"]},
+    {"dimension": "world", "slug": "space-setting", "label": "Space & other worlds", "definition": "Set substantially in space or on other planets.", "applies_to": ["*"], "synonyms": ["space", "outer space", "space station", "other planets"]},
+    {"dimension": "world", "slug": "mythic", "label": "Mythic & folkloric", "definition": "Draws on myth, folklore or spirits as a living framework.", "applies_to": ["*"], "synonyms": ["mythology", "mythological", "folklore", "spirits", "mythic"]},
+
+    {"dimension": "style", "slug": "atmospheric", "label": "Atmospheric", "definition": "Mood and sense of place are primary craft achievements.", "applies_to": ["*"], "synonyms": ["atmospheric", "atmosphere", "moody", "immersive atmosphere"]},
+    {"dimension": "style", "slug": "visually-striking", "label": "Visually striking", "definition": "Distinctive imagery is central to the experience.", "applies_to": ["film", "series", "game", "online_video"], "synonyms": ["visually stunning", "beautiful visuals", "gorgeous", "striking visuals", "cinematography", "visually striking", "beautiful to look at"]},
+    {"dimension": "style", "slug": "hand-drawn", "label": "Hand-drawn", "definition": "Hand-drawn animation or art.", "applies_to": ["film", "series", "game"], "synonyms": ["hand-drawn", "hand drawn", "2d animation"]},
+    {"dimension": "style", "slug": "minimalist", "label": "Minimalist", "definition": "Spare, restrained use of means.", "applies_to": ["*"], "synonyms": ["minimalist", "minimal", "spare", "restrained"]},
+    {"dimension": "style", "slug": "lyrical-prose", "label": "Lyrical prose", "definition": "Prose valued for its beauty and rhythm.", "applies_to": ["book"], "synonyms": ["beautiful prose", "lyrical", "beautifully written", "poetic"]},
+    {"dimension": "style", "slug": "lo-fi-indie", "label": "Low-budget ingenuity", "definition": "Made on small means, with inventiveness substituting for budget.", "applies_to": ["film", "game"], "synonyms": ["low budget", "low-budget", "indie", "independent"]},
+
+    {"dimension": "advisory", "slug": "graphic-violence", "label": "Graphic violence", "definition": "On-screen or described violence depicted explicitly.", "applies_to": ["*"], "synonyms": ["graphic violence", "violence", "violent", "gore", "gory", "bloody", "brutal"]},
+    {"dimension": "advisory", "slug": "body-horror", "label": "Body horror", "definition": "Disturbing transformation or violation of the body.", "applies_to": ["*"], "synonyms": ["body horror"]},
+    {"dimension": "advisory", "slug": "sexual-content", "label": "Sexual content", "definition": "Depicted or explicitly described sexual activity or nudity.", "applies_to": ["*"], "synonyms": ["sex", "sexual content", "nudity", "sex scenes"]},
+    {"dimension": "advisory", "slug": "atrocity", "label": "Atrocity & mass death", "definition": "Depiction of massacre, genocide or mass death.", "applies_to": ["*"], "synonyms": ["atrocity", "atrocities", "massacre", "genocide"]},
+    {"dimension": "advisory", "slug": "jump-scares", "label": "Jump scares & horror intensity", "definition": "Sudden frights or sustained horror intensity.", "applies_to": ["*"], "synonyms": ["jump scares", "jumpscares", "too scary"]}
+  ]
+}
