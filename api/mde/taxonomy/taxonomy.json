@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "notes": "Foundational taxonomy for the MVP. Terms are controlled: a classification may only reference a term defined here. Synonyms feed the rule-based intent parser; they are matched as whole phrases.",
   "guide_groups": [
     {"slug": "sex", "label": "Sex & nudity"},
@@ -122,7 +122,7 @@
     {"dimension": "mood", "slug": "melancholic", "label": "Melancholic", "definition": "Wistful sadness that is felt but not crushing.", "applies_to": ["*"], "synonyms": ["melancholic", "melancholy", "wistful", "bittersweet", "tearjerker", "tear-jerker", "weepy", "make me cry", "made me cry"]},
     {"dimension": "mood", "slug": "comforting", "label": "Comforting", "definition": "Restorative and safe; leaves you feeling better.", "applies_to": ["*"], "synonyms": ["comforting", "cozy", "cosy", "wholesome", "feel-good", "feel good", "gentle", "soothing", "heartwarming", "difficult day", "rough day", "bad day", "relaxing", "calm"]},
     {"dimension": "mood", "slug": "tense", "label": "Tense", "definition": "Sustained suspense or anxiety.", "applies_to": ["*"], "synonyms": ["tense", "suspenseful", "nail-biting", "gripping", "edge of my seat"]},
-    {"dimension": "mood", "slug": "eerie", "label": "Eerie", "definition": "Uncanny, strange and quietly unsettling.", "applies_to": ["*"], "synonyms": ["eerie", "uncanny", "strange", "weird", "mysterious atmosphere"]},
+    {"dimension": "mood", "slug": "eerie", "label": "Eerie", "definition": "Uncanny, strange and quietly unsettling.", "applies_to": ["*"], "synonyms": ["eerie", "uncanny", "strange", "weird", "mysterious atmosphere", "spooky"]},
     {"dimension": "mood", "slug": "uplifting", "label": "Uplifting", "definition": "Hopeful; leaves the audience with optimism.", "applies_to": ["*"], "synonyms": ["uplifting", "hopeful", "optimistic", "inspiring", "joyful"]},
     {"dimension": "mood", "slug": "bleak", "label": "Bleak", "definition": "Dark and largely without consolation.", "applies_to": ["*"], "synonyms": ["bleak", "dark", "grim", "harrowing", "depressing"]},
     {"dimension": "mood", "slug": "whimsical", "label": "Whimsical", "definition": "Playful, fanciful, lightly magical.", "applies_to": ["*"], "synonyms": ["whimsical", "playful", "magical", "charming"]},
@@ -204,6 +204,8 @@
     {"dimension": "theme", "slug": "migration-diaspora", "label": "Migration & diaspora", "definition": "Leaving home, arriving elsewhere, and living between cultures.", "applies_to": ["*"], "synonyms": ["immigration", "immigrant", "diaspora", "migration", "refugee"]},
     {"dimension": "theme", "slug": "mental-health", "label": "Mental health", "definition": "Depression, anxiety, trauma and recovery, treated seriously.", "applies_to": ["*"], "synonyms": ["mental health", "depression", "anxiety", "trauma", "therapy"]},
     {"dimension": "theme", "slug": "ambition-money", "label": "Ambition & money", "definition": "Success, greed, status and what people trade for them.", "applies_to": ["*"], "synonyms": ["ambition", "money", "greed", "wealth", "success", "capitalism"]},
+    {"dimension": "theme", "slug": "holidays-festivals", "label": "Holidays & festivals", "definition": "Set around, or about, a holiday or festival (Christmas, Halloween, Diwali, Lunar New Year, Thanksgiving …) that shapes the story or the mood.", "applies_to": ["*"], "synonyms": ["christmas", "xmas", "christmassy", "festive", "holiday season", "the holidays", "halloween", "diwali", "thanksgiving", "lunar new year", "chinese new year", "hanukkah", "eid", "new year's eve"]},
+    {"dimension": "theme", "slug": "lgbtq-lives", "label": "LGBTQ+ lives", "definition": "Centres the lives, love or identity of lesbian, gay, bisexual, trans or queer people.", "applies_to": ["*"], "synonyms": ["lgbtq", "lgbtq+", "lgbt", "queer", "gay", "lesbian", "bisexual", "transgender", "trans"]},
     {"dimension": "mood", "slug": "nostalgic", "label": "Nostalgic", "definition": "A warm or aching pull toward the past.", "applies_to": ["*"], "synonyms": ["nostalgic", "bittersweet memories"]},
     {"dimension": "mood", "slug": "darkly-funny", "label": "Darkly funny", "definition": "Humour found in grim, absurd or taboo places.", "applies_to": ["*"], "synonyms": ["dark comedy", "black comedy", "darkly funny", "dark humour", "dark humor", "gallows humour"]},
     {"dimension": "mood", "slug": "epic", "label": "Epic", "definition": "Grand in scale and stakes; sweeping.", "applies_to": ["*"], "synonyms": ["epic", "sweeping", "grand", "larger than life"]},

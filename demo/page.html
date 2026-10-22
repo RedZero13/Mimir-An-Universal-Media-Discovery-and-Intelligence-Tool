@@ -254,12 +254,14 @@ details > summary:hover { color: var(--bone); }
 .menu-toggle { display: none; }
 .menus { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; }
 .menu { position: relative; }
-.menu-btn { all: unset; cursor: pointer; display: block; padding: 12px 16px; border-radius: 4px; font: 600 .78rem/1 var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--cream); }
+.menu-btn { all: unset; cursor: pointer; display: block; padding: 12px 12px; border-radius: 4px; font: 600 .76rem/1 var(--f-display); letter-spacing: .13em; text-transform: uppercase; color: var(--cream); }
 .menu-btn:hover, .menu.open .menu-btn { background: var(--black); color: var(--gold-bright); }
 .menu-btn.here { color: var(--gold-bright); box-shadow: inset 0 -2px 0 var(--gold); border-radius: 4px 4px 0 0; }
 .menu-btn:focus-visible { outline: 1.5px solid var(--gold-bright); outline-offset: -3px; }
 .drop { display: none; position: absolute; left: 0; top: calc(100% + 6px); min-width: 230px; list-style: none; margin: 0; padding: 6px 0; background: var(--black);
   border: 1px solid var(--line-strong); border-top: 2px solid var(--gold); box-shadow: 0 18px 40px rgba(0, 0, 0, .55); z-index: 30; }
+/* An invisible bridge over the gap between a button and its menu, so the menu stays open as the pointer moves down. */
+.drop::before { content: ""; position: absolute; left: -1px; right: -1px; top: -10px; height: 10px; }
 .drop a { display: block; padding: 10px 18px; color: var(--ink); text-decoration: none; font: 400 .92rem var(--f-body); }
 .drop a:hover, .drop a:focus-visible { background: var(--surface-2); color: var(--gold-bright); outline: none; }
 @media (hover: hover) and (min-width: 761px) { .menubar:not(.settle) .menu:hover .drop { display: block; } }
@@ -372,7 +374,7 @@ a.letter { color: var(--muted); text-decoration: none; }
 .add-mini:hover, .add-mini.on { color: var(--gold-bright); border-color: var(--gold); }
 
 /* ---------------------------------------------------------------- home: main column + rankings rail */
-.home { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; margin-top: 8px; }
+.home { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; margin-top: 8px; align-items: start; }
 .home-main { min-width: 0; }
 .rail { display: grid; gap: 22px; align-content: start; padding-top: 28px; }
 .rail-box { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0 14px 6px; }
@@ -385,6 +387,9 @@ a.letter { color: var(--muted); text-decoration: none; }
 .poster { position: relative; aspect-ratio: 2 / 3; border-radius: 4px; overflow: hidden; background: var(--surface-2); box-shadow: 0 6px 18px rgba(0, 0, 0, .45); }
 .poster.sq { aspect-ratio: 1 / 1; }
 .poster .cover, .poster img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+/* In rows and grids every card shares the 2:3 frame; a square album cover sits centred on a dark sleeve. */
+.pcard .poster.sq { aspect-ratio: 2 / 3; background: radial-gradient(120% 70% at 50% 50%, #26221B, #0E0E10 70%); }
+.pcard .poster.sq > .cover, .pcard .poster.sq > img { inset: auto 0; top: 50%; height: auto; aspect-ratio: 1 / 1; transform: translateY(-50%); box-shadow: 0 8px 22px rgba(0, 0, 0, .6); }
 .poster.big { width: 100%; }
 .pcard { min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; align-content: start; }
 .pcard-art { position: relative; display: block; border-radius: 4px; transition: transform .18s ease; }
@@ -459,6 +464,83 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .ring-chip .ring-n { margin-top: auto; padding-top: 6px; }
 .ring-chip::before { content: ""; position: absolute; right: -52px; top: -52px; width: 104px; height: 104px; border-radius: 50%; border: 1px solid var(--ra); opacity: .45; box-shadow: 0 0 0 12px rgba(0,0,0,0), 0 0 0 13px var(--ra); }
 .ring-chip:hover { border-color: var(--ra); }
+/* ---------------------------------------------------------------- journal, decide, calendar, community */
+.decide-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; }
+.journal-panel { max-width: 760px; }
+.journal-form { display: grid; gap: 12px; margin: 0; }
+.jf-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+.jf-row label:not(.check) { display: grid; gap: 5px; flex: 1 1 200px; }
+.journal-form label > span, .jf-feel legend { font: 600 .66rem var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.journal-form input:not([type=checkbox]):not([type=radio]), .journal-form textarea, .auth-form input:not([type=checkbox]), .review-form select, .review-form textarea, .comment-form input, #j-q {
+  font: 400 .9rem var(--f-body); color: var(--bone); background: var(--black); border: 1px solid var(--line-strong); border-radius: 4px; padding: 8px 10px; box-sizing: border-box; min-width: 0; }
+.journal-form textarea, .review-form textarea { width: 100%; resize: vertical; }
+.jf-text { display: grid; gap: 5px; }
+.jf-feel { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.jf-feel legend { margin-bottom: 6px; }
+.chip-check input { position: absolute; opacity: 0; pointer-events: none; }
+.chip-check span { display: inline-block; cursor: pointer; font: 500 .74rem var(--f-mono); padding: 4px 10px; border-radius: 99px; border: 1px solid var(--line-strong); color: var(--cream); }
+.chip-check input:checked + span { background: var(--gold-bright); color: var(--black); border-color: var(--gold-bright); }
+.chip-check input:focus-visible + span { outline: 1.5px solid var(--gold-bright); outline-offset: 2px; }
+.j-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; }
+.j-entry { padding: 12px 14px; border-left: 2px solid var(--gold-deep); background: rgba(255, 255, 255, .02); border-radius: 0 6px 6px 0; }
+.j-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 6px; }
+.j-date { font: 500 .78rem var(--f-mono); color: var(--gold-bright); }
+.j-text { margin: 0; white-space: pre-wrap; color: var(--ink); }
+.j-spoiler summary { cursor: pointer; color: var(--gold-bright); font-size: .86rem; }
+.decide-q { display: grid; gap: 16px; margin: 20px 0; }
+.decide-q h2 { font-size: 1.05rem; margin: 0 0 8px; color: var(--cream); }
+.d-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.d-chips .tchip { font-size: .8rem; padding: 6px 12px; }
+.decide-pick { display: grid; grid-template-columns: minmax(160px, 260px) minmax(0, 1fr); gap: 28px; align-items: start; margin-top: 18px; padding: 22px; border: 1px solid var(--gold-deep); border-radius: 10px;
+  background: linear-gradient(160deg, rgba(192, 144, 47, .08), transparent 60%); }
+.decide-pick h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 6px 0; } .decide-pick h2 a { color: var(--bone); text-decoration: none; }
+.dp-why { margin: 12px 0; padding-left: 18px; color: var(--cream); }
+.dp-not { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 16px; }
+.cal-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.cal-cards > li { display: flex; }
+.cal-card { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--surface); text-decoration: none; }
+.cal-card:hover { border-color: var(--gold); }
+.cal-card.now { border-color: var(--gold); background: linear-gradient(160deg, rgba(192, 144, 47, .14), var(--surface) 70%); }
+.cal-name { font: 600 1.3rem var(--f-head); color: var(--bone); }
+.cal-tag { font-size: .84rem; color: var(--ink); }
+.cal-today { margin-top: auto; padding-top: 6px; font-size: .84rem; color: var(--gold-bright); }
+.cal-month h2 { font-size: 1.3rem; margin: 28px 0 10px; border-bottom: 1px solid var(--line-strong); padding-bottom: 6px; }
+.prog-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 16px 0; }
+.prog-progress { display: inline-flex; align-items: center; gap: 10px; font-size: .86rem; color: var(--cream); }
+.prog-progress .b-track { width: 160px; display: inline-block; }
+.prog-days { list-style: none; margin: 10px 0 0; padding: 0; }
+.prog-day { display: grid; grid-template-columns: 110px 56px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.prog-day.today { background: rgba(192, 144, 47, .1); border-radius: 6px; }
+.prog-day.done .pd-main h3 a { text-decoration: line-through; text-decoration-color: var(--gold); }
+.pd-day { display: grid; gap: 2px; } .pd-n { font: 600 .8rem var(--f-display); letter-spacing: .12em; color: var(--gold-bright); text-transform: uppercase; }
+.pd-art { position: relative; display: block; } .pd-art .poster { width: 56px; }
+.pd-art .badge.prog { font-size: .5rem; padding: 2px 3px; left: 2px; top: 2px; }
+.pd-main h3 { font-size: 1.1rem; margin: 0; } .pd-main h3 a { color: var(--bone); text-decoration: none; }
+.pd-act { display: grid; gap: 6px; justify-items: end; font-size: .84rem; }
+.auth-form { display: grid; gap: 12px; max-width: 420px; margin: 18px 0; }
+.auth-form label:not(.check) { display: grid; gap: 5px; font-size: .86rem; color: var(--muted); }
+.auth-err { color: #EDB7A6; min-height: 1.2em; margin: 0; }
+.review-form { display: grid; gap: 10px; max-width: 760px; margin: 12px 0 18px; }
+.review-form label:not(.check) { display: grid; gap: 5px; font-size: .78rem; color: var(--muted); }
+.reviews, .acts, .comments { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.review, .act { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: start; }
+.review:not(:has(.act-art)) { grid-template-columns: minmax(0, 1fr); }
+.act-art { display: block; width: 40px; } .act-art .poster { width: 40px; }
+.rv-head, .act p { margin: 0; }
+.rv-body p { margin: 4px 0; color: var(--ink); }
+.rv-actions { display: flex; gap: 14px; }
+.rv-actions .on { color: #E07A5F; }
+.rv-comments { margin: 8px 0 0 12px; padding-left: 12px; border-left: 1px solid var(--line-strong); }
+.comment-form { display: flex; gap: 8px; margin-top: 8px; } .comment-form input { flex: 1; }
+.u-link { color: var(--bone); text-decoration: none; font-weight: 500; } .u-link:hover { color: var(--gold-bright); }
+.comm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; margin-top: 18px; }
+.settings summary { list-style: none; cursor: pointer; display: inline-flex; }
+.settings summary::-webkit-details-marker { display: none; }
+@media (max-width: 760px) {
+  .decide-pick { grid-template-columns: 1fr; } .dp-art { max-width: 200px; }
+  .prog-day { grid-template-columns: 56px minmax(0, 1fr); } .pd-day { grid-column: 1 / -1; grid-template-columns: auto auto; justify-content: start; gap: 10px; }
+  .pd-act { grid-column: 1 / -1; justify-items: start; }
+}
 /* ---------------------------------------------------------------- library, tracker, diary, lists, stats, import */
 .tracker { margin-top: 18px; padding: 16px 18px; border: 1px solid var(--line-strong); border-radius: 8px; background: rgba(19, 19, 21, .55); display: grid; gap: 12px; max-width: 640px; }
 .tracker h2 { margin: 0; }
@@ -639,7 +721,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#D8B24A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="29.2"/><path d="M11 22 H53 M11 20.4 V23.6 M53 20.4 V23.6"/><path d="M32 22 V15"/><path d="M32 15 C29.4 14.1 28 11.8 28.2 9 C30.8 9.7 32.2 12.1 32 15 Z"/><path d="M32 22 V43"/><path d="M32 22 C31.2 28.6 27.6 32.4 26.4 37 C25.8 39.6 27.4 41.4 29.2 40.6"/><path d="M32 22 C32.8 28.6 36.4 32.4 37.6 37 C38.2 39.6 36.6 41.4 34.8 40.6"/><path d="M32 22 C28.6 25.6 21.6 27.4 19.6 33 C18.6 35.9 20.2 38.2 22.4 37.4"/><path d="M32 22 C35.4 25.6 42.4 27.4 44.4 33 C45.4 35.9 43.8 38.2 41.6 37.4"/><ellipse cx="32" cy="47.2" rx="16.5" ry="4.3"/><ellipse cx="32" cy="47.2" rx="8.5" ry="2.1"/></g></svg>
       <span><span class="brand-word">MIMIR</span><span class="brand-sub">A TERRATALES VENTURE</span></span>
     </a>
-    <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#library">Library <span id="mine-n" class="mine-n">0</span></a><span class="pilot" id="beta-pill">Beta</span></span>
+    <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#library">Library <span id="mine-n" class="mine-n">0</span></a><a class="mine-link" id="account-link" href="#signin" hidden>Sign in</a><span class="pilot" id="beta-pill">Beta</span></span>
   </header>
   <nav class="menubar" id="menubar" aria-label="Main"></nav>
   <main id="app"></main>
@@ -659,6 +741,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 <script id="shelves-data" type="application/json">/*__SHELVES__*/</script>
 <script id="enrichment-data" type="application/json">/*__ENRICHMENT__*/</script>
 <script id="providers-data" type="application/json">/*__PROVIDERS__*/</script>
+<script id="calendar-data" type="application/json">/*__CALENDAR__*/</script>
+<script id="config-data" type="application/json">/*__CONFIG__*/</script>
 <script>/*__ENGINE__*/</script>
 <script>
 (() => {
@@ -669,7 +753,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     JSON.parse(document.getElementById("enrichment-data").textContent),
     JSON.parse(document.getElementById("shelves-data").textContent),
     JSON.parse(document.getElementById("providers-data").textContent),
+    JSON.parse(document.getElementById("calendar-data").textContent),
   );
+  const CONFIG = JSON.parse(document.getElementById("config-data").textContent);
   const app = document.getElementById("app");
   const EXAMPLES = [
     "An intelligent sci-fi film with a strong atmosphere and very little violence, ideally under two hours, not something obvious",
@@ -1082,6 +1168,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <h1>Drawn from the well of <em>every story.</em></h1>
         <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, books, games and music that fit, and tells you why each one does.</p>
         ${askForm()}
+        <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>
       </section>
       <div class="home">
         <div class="home-main">
@@ -1089,6 +1176,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
           ${hasAsked ? `${readingStrip(r)}
           ${r.results.length ? `<ol class="results">${r.results.map((x, i) => resultItem(x, i + 1)).join("")}</ol>` : `<p class="empty">${esc(r.message)}</p>`}
           <p class="eyebrow wander">Or wander the shelves</p>` : spotlight()}
+          ${hasAsked ? "" : calendarBand()}
           ${hasAsked || Object.keys(ratings).length >= 3 ? "" : starterPicker(true)}
           ${timeTiles()}
           ${allShelves().slice(0, 2).map(shelfRow).join("")}
@@ -1103,6 +1191,19 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <div><p class="num">III</p><h3>Follow a thread</h3><p>Open a work for its tags, parents' guide, credits and connected stories, then wander by tag or by person.</p></div>
       </section>`}`;
     startRipples(document.getElementById("well"));
+    balanceHome();
+  }
+
+  // The rankings rail is taller than the opening shelves: move full-width shelves up beside it until the columns
+  // match, so the page never shows an empty column. Only when the rail actually sits beside the main column.
+  function balanceHome() {
+    const main = app.querySelector(".home-main"), rail = app.querySelector(".home > .rail");
+    if (!main || !rail || rail.offsetTop > main.offsetTop + 40) return;
+    const below = [...app.querySelectorAll(":scope > section.shelf")];
+    for (const sec of below) {
+      if (main.offsetHeight + sec.offsetHeight / 2 > rail.offsetHeight) break;
+      main.appendChild(sec);
+    }
   }
 
   // ------------------------------------------------------------------ catalogue pieces
@@ -1369,7 +1470,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
-    ["Discover", [["For you", "#for-you"], ["Ask Mimir", "#"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Films", [["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
@@ -1379,7 +1480,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     ["Music", [["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
-      ["Lists", "#lists"], ["Stats", "#stats"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
+      ["Journal", "#journal"], ["Lists", "#lists"], ["Stats", "#stats"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
+    ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Send beta feedback", feedbackHref()]]],
   ];
   const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
@@ -1495,7 +1597,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const where = cat.where(w.slug, prefs.region);
     const reactions = links.filter((l) => l.kind.startsWith("reactions:"));
     const elsewhere = links.filter((l) => !l.kind.startsWith("reactions:"));
-    const jumps = [["overview", "Overview"], ["where", `Where to ${where ? where.verb.toLowerCase() : "find"}`], ...(c.members.length > 1 ? [["run", c.kind === "series" ? "Series" : "Family"]] : []),
+    const jumps = [["overview", "Overview"], ["where", `Where to ${where ? where.verb.toLowerCase() : "find"}`], ...(CONFIG.api ? [["reviews", "Reviews"]] : []), ["journal", "Journal"], ...(c.members.length > 1 ? [["run", c.kind === "series" ? "Series" : "Family"]] : []),
       ...(w.tracks.length ? [["tracks", "Tracks"]] : []), ["tags", "Tags"], ["guide", "Parents' guide"], ["reactions", "Reactions"],
       ["credits", "Credits"], ...(w.relationships.length ? [["connected", "Connected stories"]] : [])];
     app.innerHTML = `
@@ -1535,6 +1637,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
           <ol class="run">${c.members.map((m, i) => `<li class="${m.slug === w.slug ? "here" : ""}"><a href="#work-${esc(m.slug)}">${(() => { const mw = cat.work(m.slug); return poster(coverOf({ ...m, creators: [], images: mw.images }, moodFromPage(mw))); })()}<span class="run-n">${m.position ? `No. ${esc(m.position)}` : i + 1}</span><span class="run-t">${esc(m.title)}</span><span class="pmeta">${esc([mediumLabel(m.medium), m.year].filter(Boolean).join(" · "))}${m.slug === w.slug ? " · this one" : ""}</span></a></li>`).join("")}</ol>
         </section>` : ""}
         ${whereBlock(where)}
+        ${CONFIG.api ? `<section class="block" id="reviews"><h2>Reviews</h2><div id="reviews-box"><p class="muted small">Loading reviews…</p></div></section>` : ""}
+        <section class="block" id="journal">${journalPanel(w)}</section>
         ${w.tracks.length ? `<section class="block" id="tracks"><h2>Tracks</h2>${trackList(w.tracks, false)}</section>` : ""}
         <section class="block" id="tags">
           <h2>Tags</h2>
@@ -1714,6 +1818,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   function setRating(slug, value) {
     if (ratings[slug] === value) delete ratings[slug]; else ratings[slug] = value;
     try { localStorage.setItem("mimir-ratings", JSON.stringify(ratings)); } catch { /* storage unavailable: keep for this visit */ }
+    queueSync();
     document.querySelectorAll(`[data-rate-slug="${CSS.escape(slug)}"]`).forEach((b) => {
       const on = ratings[slug] === b.dataset.rate;
       b.classList.toggle("on", on);
@@ -1732,7 +1837,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   const ING = { film: "Watching", series: "Watching", book: "Reading", game: "Playing", album: "Listening" };
   const statusLabel = (s, m) => (s === "active" ? ING[m] || "In progress" : s === "planned" ? (VERB[m] ? `Plan to ${VERB[m]}` : "Planned") : STATUS_TAB[s] || s);
   const SCORE_WORDS = { 10: "Masterpiece", 9: "Great", 8: "Very good", 7: "Good", 6: "Fine", 5: "Average", 4: "Bad", 3: "Very bad", 2: "Horrible", 1: "Appalling" };
-  const today = () => new Date().toISOString().slice(0, 10);
+  const today = () => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); };   // local date
   const store = (key, value) => { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable: keep for this visit */ } };
   const stored = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key) || "null") ?? fallback; } catch { return fallback; } };
 
@@ -1744,7 +1849,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     return lib;
   }
   let library = loadLibrary();
-  function saveLibrary() { store("mimir-library", library); refreshCounts(); }
+  function saveLibrary() { store("mimir-library", library); refreshCounts(); queueSync(); }
 
   // What progress is counted in, and how much there is, where the catalogue knows.
   function progressUnit(w) {
@@ -1772,8 +1877,10 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       else if (e.progress > 0 && (!e.status || e.status === "planned")) { e.status = "active"; e.started = e.started || today(); }
     }
     if (!e.status) e.status = "planned";
+    const was = (library[slug] || {}).status;
     library[slug] = e;
     saveLibrary();
+    if (e.status !== was) shareActivity(slug, e.status);
   }
   function removeEntry(slug) { delete library[slug]; saveLibrary(); }
 
@@ -1857,7 +1964,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   // ------------------------------------------------------------------ custom lists, shareable by link
   let lists = stored("mimir-lists", []);
-  const saveLists = () => store("mimir-lists", lists);
+  const saveLists = () => { store("mimir-lists", lists); queueSync(); };
   const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   function listPicker(slug) {
     return `<div class="tr-lists"><span>Lists</span>
@@ -1889,6 +1996,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <button class="btn ghost" type="submit">Save</button>
       </form>
       <p class="lib-actions"><button type="button" class="btn" data-list-share="${esc(l.id)}">Copy share link</button>
+        ${session ? `<button type="button" class="btn ghost" data-list-publish="${esc(l.id)}">Publish to my profile</button>` : ""}
         <button type="button" class="linkish" data-list-delete="${esc(l.id)}">Delete list</button></p>
       ${l.slugs.length ? pgrid(worksOf(l.slugs), (w) => `<p class="lib-row-actions"><button type="button" class="linkish" data-list-move="${esc(l.id)}" data-slug="${esc(w.slug)}" data-dir="-1" aria-label="Move up">↑</button><button type="button" class="linkish" data-list-move="${esc(l.id)}" data-slug="${esc(w.slug)}" data-dir="1" aria-label="Move down">↓</button><button type="button" class="linkish" data-list-toggle="${esc(l.id)}" data-slug="${esc(w.slug)}">Remove</button></p>`)
         : `<p class="empty">This list is empty. Open any work and add it from "Your library".</p>`}`;
@@ -2150,13 +2258,18 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       store("mimir-ratings", ratings);
       for (const l of parsed.backup.lists || []) if (!lists.some((x) => x.id === l.id)) lists.push(l);
       saveLists();
+      const ids = new Set(journal.map((j) => j.id));
+      journal = [...journal, ...(parsed.backup.journal || []).filter((j) => !ids.has(j.id))];
+      saveJournal();
+      challenges = { ...(parsed.backup.challenges || {}), ...challenges };
+      saveChallenges();
     }
     saveLibrary();
     pendingImport = null;
     location.hash = "#library?tab=all";
   }
   function exportBackup() {
-    const data = { app: "Mimir", version: 1, exported: new Date().toISOString(), library, ratings, lists, prefs };
+    const data = { app: "Mimir", version: 1, exported: new Date().toISOString(), library, ratings, lists, journal, challenges, prefs };
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
     a.download = `mimir-library-${today()}.json`;
@@ -2199,6 +2312,471 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <p class="muted">Your library lives only in this browser. Save a backup now and then, or move it to another device.</p>
         <p class="lib-actions"><button type="button" class="btn" data-export="json">Download backup (.json)</button><button type="button" class="btn ghost" data-export="csv">Download as spreadsheet (.csv)</button></p>
       </section>`;
+  }
+
+  // ------------------------------------------------------------------ journal (kept in this browser; synced with an account)
+  // Notes as you go, not a review: a dated entry, a feeling, where you were up to, and a spoiler flag.
+  const FEELINGS = ["Moved", "Delighted", "Gripped", "Thoughtful", "Comforted", "Unsettled", "Amused", "Bored", "Confused", "Inspired"];
+  const PROMPTS = {
+    film: ["Which moment will you still picture next week?", "Who did you side with, and did that change?", "What would you tell a friend about it, spoiler-free?"],
+    series: ["Where are you up to, and what do you think happens next?", "Which character are you watching for now?", "What did this episode change?"],
+    book: ["Copy a line that stopped you.", "What do you know now that you didn't at the start?", "Whose voice is in your head as you read?"],
+    game: ["What did you try that the game didn't expect?", "Where did you get stuck, and how did you get past it?", "What does this world feel like to move through?"],
+    album: ["Which track did you replay, and why?", "Where were you while you listened?", "What does it sound like, in three words?"],
+  };
+  let journal = stored("mimir-journal", []);
+  function saveJournal() { store("mimir-journal", journal); queueSync(); }
+  const promptFor = (m) => { const ps = PROMPTS[m] || PROMPTS.film; return ps[(journal.length + new Date().getDate()) % ps.length]; };
+
+  function journalForm(w) {
+    const e = library[w.slug], pu = progressUnit(w);
+    const at = e && e.progress && pu ? `${BADGE_UNIT[pu.unit] === "ep" ? "Episode" : pu.unit === "pages" ? "Page" : "Hour"} ${e.progress}` : "";
+    return `<form class="journal-form" data-journal="${esc(w.slug)}">
+      <div class="jf-row"><label><span>Date</span><input type="date" name="date" value="${today()}" required></label>
+        <label><span>Where you're up to</span><input name="at" value="${esc(at)}" maxlength="60" placeholder="e.g. Episode 3, chapter 12, the second act"></label></div>
+      <fieldset class="jf-feel"><legend>Feeling</legend>${FEELINGS.map((f) => `<label class="chip-check"><input type="radio" name="feel" value="${f}"><span>${f}</span></label>`).join("")}</fieldset>
+      <label class="jf-text"><span>Entry</span><textarea name="text" rows="4" maxlength="5000" required placeholder="${esc(promptFor(w.medium))}"></textarea></label>
+      <div class="jf-row"><label class="check"><input type="checkbox" name="spoiler"> Contains spoilers</label><button class="btn" type="submit">Add to journal</button></div>
+    </form>`;
+  }
+  const jEntry = (j, showWork = false) => {
+    const w = showWork && allWorks().find((x) => x.slug === j.slug);
+    return `<li class="j-entry" id="j-${esc(j.id)}">
+      <p class="j-meta"><span class="j-date">${esc(j.date)}</span>${j.feel ? `<span class="tchip">${esc(j.feel)}</span>` : ""}${j.at ? `<span class="muted small">${esc(j.at)}</span>` : ""}
+        ${w ? `<a href="#work-${esc(w.slug)}">${esc(w.title)}</a> <span class="muted small">${esc(mediumLabel(w.medium))}</span>` : ""}</p>
+      ${j.spoiler ? `<details class="j-spoiler"><summary>Spoilers: show entry</summary><p class="j-text">${esc(j.text)}</p></details>` : `<p class="j-text">${esc(j.text)}</p>`}
+      <button type="button" class="linkish small" data-journal-delete="${esc(j.id)}">Delete</button></li>`;
+  };
+  function journalPanel(w) {
+    const mine = journal.filter((j) => j.slug === w.slug).sort((a, b) => b.date.localeCompare(a.date) || b.created.localeCompare(a.created));
+    return `<section class="tracker journal-panel" id="journal-panel" aria-labelledby="journal-h">
+      <h2 id="journal-h" class="eyebrow">Your journal</h2>
+      ${journalForm(w)}
+      ${mine.length ? `<ol class="j-list">${mine.map((j) => jEntry(j)).join("")}</ol>` : `<p class="muted small">Write as you go: a feeling, a line, a guess about what happens next. Only you can see it.</p>`}
+    </section>`;
+  }
+
+  const journalState = { q: "", medium: "all" };
+  function renderJournal() {
+    const byMedium = journal.filter((j) => { const w = allWorks().find((x) => x.slug === j.slug); return w && (journalState.medium === "all" || w.medium === journalState.medium); });
+    const shown = byMedium.filter((j) => !journalState.q || `${j.text} ${j.at || ""} ${j.feel || ""}`.toLowerCase().includes(journalState.q.toLowerCase()))
+      .sort((a, b) => b.date.localeCompare(a.date) || b.created.localeCompare(a.created));
+    const months = new Map();
+    for (const j of shown) { const k = j.date.slice(0, 7); if (!months.has(k)) months.set(k, []); months.get(k).push(j); }
+    const active = allWorks().filter((w) => library[w.slug] && library[w.slug].status === "active").slice(0, 12);
+    const feels = new Map(); for (const j of journal) if (j.feel) feels.set(j.feel, (feels.get(j.feel) || 0) + 1);
+    app.innerHTML = `
+      <header class="page-band"><h1>Your journal</h1></header>
+      <p class="muted" style="margin:14px 0">Notes on what you're watching, reading, playing and listening to, as you go. ${journal.length} entries. Private to you; synced if you sign in.</p>
+      ${active.length ? `<section class="shelf" aria-label="Write about"><header class="shelf-head"><div><h2>Write about what you're in the middle of</h2></div></header>
+        ${row(active, (w) => `<a class="linkish small" href="#work-${esc(w.slug)}?journal">Write an entry</a>`)}</section>` : ""}
+      ${feels.size ? `<p class="pchips">${[...feels].sort((a, b) => b[1] - a[1]).map(([f, n]) => `<span class="tchip">${esc(f)} · ${n}</span>`).join("")}</p>` : ""}
+      <div class="lib-filters">
+        <label>Search <input type="search" id="j-q" value="${esc(journalState.q)}" placeholder="Words in your entries"></label>
+        <label>Medium <select data-journal-medium>${["all", ...MEDIA].map((m) => `<option value="${m}"${journalState.medium === m ? " selected" : ""}>${esc(PLURAL[m])}</option>`).join("")}</select></label>
+      </div>
+      ${shown.length ? [...months].map(([k, js]) => `<section class="diary-month"><h2>${esc(new Date(`${k}-01T00:00:00`).toLocaleDateString("en", { month: "long", year: "numeric" }))} <span class="count">${js.length}</span></h2>
+        <ol class="j-list">${js.map((j) => jEntry(j, true)).join("")}</ol></section>`).join("")
+        : `<p class="empty">${journal.length ? "No entries match." : "No entries yet. Open anything you're watching, reading or playing and add a journal entry under \"Your journal\"."}</p>`}`;
+  }
+
+  // ------------------------------------------------------------------ decide for me: one pick, fast
+  // Fewer choices, sooner: three quick answers give one pick with its reasons; "not this" learns what to avoid.
+  const DECIDE_TIME = [["", "Any length"], ["45", "Under 45 minutes"], ["130", "About two hours"], ["480", "An evening or two"], ["1440", "A weekend"]];
+  const DECIDE_MOOD = [["", "Surprise me"], ["mood:comforting", "Comforting"], ["mood:funny", "Funny"], ["mood:tense", "Gripping"], ["mood:eerie", "Spooky"],
+    ["mood:romantic", "Romantic"], ["mood:uplifting", "Uplifting"], ["mood:wonder", "Full of wonder"], ["mood:exhilarating", "Thrilling"], ["mood:melancholic", "A good cry"],
+    ["complexity:intellectually-demanding", "Mind-bending"]];
+  const DECIDE_WHO = [["me", "Just me"], ["family", "With the family"], ["date", "Date night"], ["friends", "With friends"]];
+  const decide = stored("mimir-decide", { time: "130", mood: "", medium: "film", who: "me", source: "all" });
+  let decideState = { skipped: [], penalties: {}, index: 0 };
+  const termMap = once(() => new Map(allWorks().map((w) => {
+    const full = cat.work(w.slug);
+    return [w.slug, new Map(full.tags.flatMap((d) => d.terms.map((t) => [t.key, t.strength])))];
+  })));
+
+  function decideRanked() {
+    const taste = tasteRatings();
+    const recRank = new Map(Object.values(taste).some((v) => v === "loved" || v === "liked") ? cat.recommend(taste, 200).results.map((w, i) => [w.slug, { i, because: w.because }]) : []);
+    const maxMin = decide.time ? Number(decide.time) : Infinity;
+    const out = [];
+    for (const w of allWorks()) {
+      const e = library[w.slug];
+      if (decide.source === "planned" ? !(e && (e.status === "planned" || e.status === "paused")) : e && ["completed", "dropped", "active"].includes(e.status)) continue;
+      if (decide.medium !== "any" && w.medium !== decide.medium) continue;
+      if (decideState.skipped.includes(w.slug)) continue;
+      if (maxMin < Infinity && !(w.time && w.time.minutes <= maxMin)) continue;
+      if (decide.who === "family" && w.guide_flags.length) continue;   // anything above mild in the parents' guide
+      const tm = termMap().get(w.slug);
+      let score = 0;
+      const why = [];
+      if (decide.mood) { const s = tm.get(decide.mood) || 0; if (s < 0.5) continue; score += 2 * s; why.push(DECIDE_MOOD.find((m) => m[0] === decide.mood)[1]); }
+      if (decide.who === "date") { const s = Math.max(tm.get("mood:romantic") || 0, tm.get("genre:romance") || 0); score += s; if (s >= 0.6) why.push("Romantic"); }
+      if (decide.who === "friends") { const s = Math.max(tm.get("mood:funny") || 0, tm.get("mood:exhilarating") || 0); score += 0.6 * s; }
+      if (decide.who === "family") { score += 0.6 * Math.max(tm.get("genre:family") || 0, tm.get("genre:animation") || 0); why.push("Family-friendly"); }
+      const rec = recRank.get(w.slug);
+      if (rec) { score += 1.5 * (1 - rec.i / 200); why.push(`Close to ${rec.because.title}, which you rated`); }
+      if (e && e.status === "planned") { score += 0.4; why.push("On your planned list"); }
+      for (const [k, p] of Object.entries(decideState.penalties)) score -= p * (tm.get(k) || 0);
+      score -= 0.08 * ((w.popularity_tier || 5) - 1);
+      if (w.time && maxMin < Infinity) why.push(`${hm(w.time.minutes)}, fits your time`);
+      out.push({ w, score, why });
+    }
+    return out.sort((a, b) => b.score - a.score || a.w.title.localeCompare(b.w.title));
+  }
+
+  function renderDecide() {
+    const ranked = decideRanked();
+    const pick = ranked[0];
+    const chips = (field, opts) => `<div class="d-chips" role="radiogroup" aria-label="${field}">${opts.map(([v, l]) => `<button type="button" class="tchip${String(decide[field]) === v ? " on" : ""}" data-decide="${field}" data-value="${esc(v)}" aria-pressed="${String(decide[field]) === v}">${esc(l)}</button>`).join("")}</div>`;
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Decide for me</p><h1>One pick, not a hundred</h1>
+        <p class="muted">Answer three quick questions and Mimir picks one thing for right now, with its reasons. Not feeling it? Say why and it picks again.</p></header>
+      <section class="decide-q">
+        <div><h2>What are you in the mood for?</h2>${chips("medium", [["film", "A film"], ["series", "A series"], ["book", "A book"], ["game", "A game"], ["album", "An album"], ["any", "Anything"]])}</div>
+        <div><h2>How much time do you have?</h2>${chips("time", DECIDE_TIME)}</div>
+        <div><h2>How do you want to feel?</h2>${chips("mood", DECIDE_MOOD)}</div>
+        <div><h2>Who's it for?</h2>${chips("who", DECIDE_WHO)}</div>
+        <div><h2>From</h2>${chips("source", [["all", "The whole catalogue"], ["planned", "My planned list"]])}</div>
+      </section>
+      ${pick ? `<section class="decide-pick" aria-live="polite">
+        <a class="dp-art" href="#work-${esc(pick.w.slug)}">${poster(cardCover(pick.w), "big")}</a>
+        <div class="dp-text">
+          <p class="eyebrow">Tonight: ${esc(mediumLabel(pick.w.medium))}</p>
+          <h2><a href="#work-${esc(pick.w.slug)}">${esc(pick.w.title)}</a></h2>
+          <p class="pmeta">${esc([pick.w.year, (pick.w.creators || [])[0], pick.w.time && hm(pick.w.time.minutes)].filter(Boolean).join(" · "))}</p>
+          <p>${esc(pick.w.summary || "")}</p>
+          ${pick.why.length ? `<ul class="dp-why">${[...new Set(pick.why)].map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+          <div class="actions">${prefLink(whereOfCard(pick.w), "btn")}<button type="button" class="btn ghost" data-decide-start="${esc(pick.w.slug)}">Start it</button>${mineBtn(pick.w.slug)}</div>
+          <p class="dp-not"><span class="eyebrow">Not this?</span>
+            <button type="button" class="tchip" data-decide-not="mood">Not in the mood</button>
+            <button type="button" class="tchip" data-decide-not="seen">Seen it</button>
+            <button type="button" class="tchip" data-decide-not="long">Too long</button>
+            <button type="button" class="tchip" data-decide-not="other">Just another</button></p>
+          <p class="muted small">${ranked.length - 1} more options fit. ${decideState.skipped.length ? `${decideState.skipped.length} skipped. <button type="button" class="linkish small" data-decide-reset>Start over</button>` : ""}</p>
+        </div></section>` : `<p class="empty">Nothing fits all of that${decideState.skipped.length ? " after what you've skipped" : ""}. Try a longer time, another medium or "Surprise me". ${decideState.skipped.length ? `<button type="button" class="linkish" data-decide-reset>Start over</button>` : ""}</p>`}`;
+  }
+
+  function decideNot(kind) {
+    const pick = decideRanked()[0];
+    if (!pick) return;
+    decideState.skipped.push(pick.w.slug);
+    if (kind === "seen") updateEntry(pick.w.slug, { status: "completed" });
+    if (kind === "mood") {   // steer away from what this pick was strongest in
+      const top = [...termMap().get(pick.w.slug)].filter(([k]) => /^(mood|theme|genre):/.test(k) && k !== decide.mood).sort((a, b) => b[1] - a[1]).slice(0, 3);
+      for (const [k] of top) decideState.penalties[k] = (decideState.penalties[k] || 0) + 0.6;
+    }
+    if (kind === "long" && pick.w.time) {
+      const shorter = DECIDE_TIME.filter(([v]) => v && Number(v) < pick.w.time.minutes).map(([v]) => v);
+      decide.time = shorter.length ? shorter[shorter.length - 1] : "45";
+      store("mimir-decide", decide);
+    }
+    renderDecide();
+  }
+
+  // ------------------------------------------------------------------ the social calendar
+  let challenges = stored("mimir-challenges", {});   // "slug/year" → { joined, done: [day numbers] }
+  const saveChallenges = () => { store("mimir-challenges", challenges); queueSync(); };
+  const thisYear = () => new Date().getFullYear();
+  const progMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const fmtDay = (iso) => new Date(`${iso}T00:00:00`).toLocaleDateString("en", { day: "numeric", month: "short" });
+  const daysBetween = (a, b) => Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86400000);
+  function calendarNow() {
+    const t = today(), y = thisYear();
+    const all = [...cat.calendar(y), ...cat.calendar(y + 1)].map((p) => ({ ...p, year: Number(p.start.slice(0, 4)) }));
+    return { t, active: all.filter((p) => p.start <= t && t <= p.end), upcoming: all.filter((p) => p.start > t).slice(0, 8), all: all.filter((p) => p.year === y) };
+  }
+  const progHref = (p) => `#programme-${esc(p.slug)}?y=${p.year || p.start.slice(0, 4)}`;
+  function todayPick(p) {
+    const full = cat.programme(p.slug, p.year);
+    const day = daysBetween(full.start, today()) + 1;
+    return full.picks.find((x) => x.day === day) || full.picks.find((x) => x.day > day) || null;
+  }
+
+  function calendarBand() {
+    const { active, upcoming } = calendarNow();
+    const items = [...active.slice(0, 2).map((p) => ({ p, now: true })), ...upcoming.slice(0, active.length ? 2 : 3).map((p) => ({ p, now: false }))];
+    if (!items.length) return "";
+    return `<section class="block cal-band" aria-labelledby="cal-h">
+      <header class="shelf-head"><div><h2 id="cal-h">On the calendar</h2><p>Seasonal programmes with a pick for each day. Join one and tick them off.</p></div><a class="see-all" href="#calendar">The full calendar</a></header>
+      <ul class="cal-cards">${items.map(({ p, now }) => { const tp = now && todayPick(p); return `<li><a class="cal-card${now ? " now" : ""}" href="${progHref(p)}">
+        <span class="eyebrow">${now ? "On now" : `In ${daysBetween(today(), p.start)} days`} · ${esc(fmtDay(p.start))}–${esc(fmtDay(p.end))}</span>
+        <span class="cal-name">${esc(p.name)}</span><span class="cal-tag">${esc(p.tagline)}</span>
+        ${tp ? `<span class="cal-today">Today: <strong>${esc(tp.work.title)}</strong></span>` : ""}</a></li>`; }).join("")}</ul></section>`;
+  }
+
+  function renderCalendar(p) {
+    const y = Number(p.get("y")) || thisYear();
+    const progs = cat.calendar(y).map((x) => ({ ...x, year: y }));
+    const t = today();
+    const byMonth = new Map(); for (const x of progs) { const m = Number(x.start.slice(5, 7)) - 1; if (!byMonth.has(m)) byMonth.set(m, []); byMonth.get(m).push(x); }
+    const joined = Object.keys(challenges).filter((k) => k.endsWith(`/${y}`));
+    app.innerHTML = `
+      <header class="page-band"><h1>The social calendar · ${y}</h1></header>
+      <p class="muted" style="margin:14px 0">Seasonal programmes built from the catalogue: a pick for each day, in an order that makes sense (Spooktober builds from cosy to terrifying and ends with Halloween on Halloween night). Join one to tick them off${CONFIG.api ? " and see who else is in" : ""}.</p>
+      <nav class="medium-tabs" aria-label="Year">${[y - 1, y, y + 1].map((yy) => `<a href="#calendar?y=${yy}" class="${yy === y ? "on" : ""}">${yy}</a>`).join("")}</nav>
+      ${joined.length ? `<section class="block"><header class="sec-head"><h2>Joined</h2></header><ul class="cal-cards">${joined.map((k) => { const x = progs.find((q) => `${q.slug}/${y}` === k); if (!x) return ""; const done = challenges[k].done.length; return `<li><a class="cal-card now" href="${progHref(x)}"><span class="cal-name">${esc(x.name)}</span><span class="cal-tag">${done} of ${cat.programme(x.slug, y).picks.length} done</span></a></li>`; }).join("")}</ul></section>` : ""}
+      ${[...byMonth].sort((a, b) => a[0] - b[0]).map(([m, xs]) => `<section class="cal-month"><h2>${progMonths[m]}</h2><ul class="cal-cards">${xs.map((x) => `<li><a class="cal-card${x.start <= t && t <= x.end ? " now" : ""}" href="${progHref(x)}">
+        <span class="eyebrow">${esc(fmtDay(x.start))}–${esc(fmtDay(x.end))} · ${x.days} days</span><span class="cal-name">${esc(x.name)}</span><span class="cal-tag">${esc(x.tagline)}</span></a></li>`).join("")}</ul></section>`).join("")}`;
+  }
+
+  function renderProgramme(slug, p) {
+    const y = Number(p.get("y")) || thisYear();
+    const prog = cat.programme(slug, y);
+    if (!prog) { app.innerHTML = `<p class="empty">That programme isn't on the calendar for ${y}. <a href="#calendar">The calendar</a></p>`; return; }
+    const key = `${slug}/${y}`, mine = challenges[key], t = today();
+    const todayDay = daysBetween(prog.start, t) + 1;
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">${esc(fmtDay(prog.start))} – ${esc(fmtDay(prog.end))} ${y} · ${prog.days} days</p><h1>${esc(prog.name)}</h1><p class="muted">${esc(prog.tagline)}</p></header>
+      <div class="prog-bar">
+        ${mine ? `<span class="prog-progress"><span class="b-track"><span class="b-fill" style="width:${Math.round((100 * mine.done.length) / prog.picks.length)}%"></span></span> ${mine.done.length} of ${prog.picks.length} done</span>
+          <button type="button" class="linkish" data-prog-leave="${esc(key)}">Leave</button>` : `<button type="button" class="btn" data-prog-join="${esc(key)}">Join ${esc(prog.name)}</button>`}
+        <button type="button" class="btn ghost" data-prog-plan="${esc(key)}">Add all to my library</button>
+        <button type="button" class="btn ghost" data-prog-share="${esc(key)}">Copy link</button>
+        <span id="prog-community" class="muted small"></span>
+      </div>
+      ${prog.picks.length < prog.days ? `<p class="muted small">The beta catalogue has ${prog.picks.length} fitting works, so picks are spread across the ${prog.days} days.</p>` : ""}
+      <ol class="prog-days">${prog.picks.map((x) => {
+        const done = mine && mine.done.includes(x.day), isToday = x.day === todayDay, past = x.day < todayDay;
+        return `<li class="prog-day${isToday ? " today" : ""}${done ? " done" : ""}">
+          <span class="pd-day"><span class="pd-n">Day ${x.day}</span><span class="muted small">${esc(fmtDay(x.date))}${isToday ? " · today" : ""}${x.day === prog.days && prog.finale ? ` · ${esc(prog.finale)}` : ""}</span></span>
+          <a class="pd-art" href="#work-${esc(x.work.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(x.work))}${progressBadge(x.work.slug)}</a>
+          <div class="pd-main"><h3><a href="#work-${esc(x.work.slug)}">${esc(x.work.title)}</a></h3>
+            <p class="pmeta">${esc([mediumLabel(x.work.medium), x.work.year, (x.work.creators || [])[0], x.work.time && hm(x.work.time.minutes)].filter(Boolean).join(" · "))}</p>
+            ${x.why.length ? `<p class="pchips">${x.why.slice(0, 3).map((l) => `<span class="tchip">${esc(l)}</span>`).join("")}</p>` : ""}</div>
+          <div class="pd-act">${prefLink(whereOfCard(x.work), "pref-link")}
+            ${mine ? `<label class="check"><input type="checkbox" data-prog-done="${esc(key)}" data-day="${x.day}" data-slug="${esc(x.work.slug)}"${done ? " checked" : ""}> ${past || isToday ? "Done" : "Done early"}</label>` : ""}</div>
+        </li>`; }).join("")}</ol>`;
+    if (CONFIG.api) api(`/api/challenges/${slug}/${y}`).then((c) => {
+      const el = document.getElementById("prog-community");
+      if (el) el.innerHTML = `${c.members} ${c.members === 1 ? "person" : "people"} joined${c.leaders.length ? ` · leading: ${c.leaders.slice(0, 3).map((l) => `<a href="#u-${esc(l.user.username)}">@${esc(l.user.username)}</a> (${l.done})`).join(", ")}` : ""}`;
+    }).catch(() => {});
+  }
+
+  function setChallenge(key, change) {
+    const [slug, y] = key.split("/");
+    if (change === "join") challenges[key] = challenges[key] || { joined: today(), done: [] };
+    else if (change === "leave") delete challenges[key];
+    saveChallenges();
+    if (session && CONFIG.api) {
+      const call = change === "join" ? api(`/api/challenges/${slug}/${y}/join`, { method: "POST" })
+        : change === "leave" ? api(`/api/challenges/${slug}/${y}/join`, { method: "DELETE" })
+        : api(`/api/challenges/${slug}/${y}/progress`, { method: "PUT", body: { done: challenges[key].done } });
+      call.catch(() => {});
+    }
+  }
+
+  // ------------------------------------------------------------------ accounts: talking to the API
+  let session = stored("mimir-session", null);   // { token, user }
+  async function api(path, { method = "GET", body } = {}) {
+    if (!CONFIG.api) throw new Error("Accounts aren't switched on for this site yet.");
+    const res = await fetch(CONFIG.api + path, { method, headers: { ...(body !== undefined ? { "content-type": "application/json" } : {}), ...(session ? { authorization: `Bearer ${session.token}` } : {}) },
+      body: body !== undefined ? JSON.stringify(body) : undefined });
+    if (res.status === 401 && session && !path.startsWith("/api/auth/")) { signedOut(); }
+    const data = res.status === 204 ? null : await res.json().catch(() => null);
+    if (!res.ok) throw new Error((data && (typeof data.detail === "string" ? data.detail : data.detail && data.detail[0] && data.detail[0].msg)) || `Something went wrong (${res.status}).`);
+    return data;
+  }
+  function signedOut() { session = null; store("mimir-session", null); renderAccountLink(); }
+  function renderAccountLink() {
+    const el = document.getElementById("account-link");
+    if (!el) return;
+    el.hidden = !CONFIG.api;
+    el.innerHTML = session ? `@${esc(session.user.username)}` : "Sign in";
+    el.href = session ? `#u-${encodeURIComponent(session.user.username)}` : "#signin";
+  }
+
+  // The whole private library syncs as one document; the newer copy of each entry wins.
+  const stateNow = () => ({ v: 1, library, lists, ratings, journal, challenges, prefs });
+  function mergeState(remote) {
+    if (!remote) return;
+    const newer = (a, b, key = "updated") => ((a && a[key]) || "") >= ((b && b[key]) || "") ? a : b;
+    for (const [slug, e] of Object.entries(remote.library || {})) library[slug] = library[slug] ? newer(library[slug], e) : e;
+    const byId = new Map(lists.map((l) => [l.id, l]));
+    for (const l of remote.lists || []) byId.set(l.id, byId.has(l.id) ? newer(byId.get(l.id), l) : l);
+    lists = [...byId.values()];
+    const jIds = new Set(journal.map((j) => j.id));
+    journal = [...journal, ...(remote.journal || []).filter((j) => !jIds.has(j.id))];
+    for (const [k, v] of Object.entries(remote.ratings || {})) if (!(k in ratings)) ratings[k] = v;
+    for (const [k, v] of Object.entries(remote.challenges || {})) {
+      challenges[k] = challenges[k] ? { ...challenges[k], done: [...new Set([...challenges[k].done, ...v.done])].sort((a, b) => a - b) } : v;
+    }
+    store("mimir-library", library); store("mimir-lists", lists); store("mimir-journal", journal); store("mimir-ratings", ratings); store("mimir-challenges", challenges);
+    refreshCounts();
+  }
+  let syncTimer = null;
+  function queueSync() {
+    if (!session || !CONFIG.api) return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => api("/api/me/state", { method: "PUT", body: stateNow() }).catch(() => {}), 1200);
+  }
+  async function syncNow() {
+    if (!session) return;
+    const remote = await api("/api/me/state");
+    mergeState(remote.data);
+    await api("/api/me/state", { method: "PUT", body: stateNow() });
+  }
+  function shareActivity(slug, status) {
+    if (session && CONFIG.api && (status === "completed" || status === "active")) {
+      api("/api/activity", { method: "POST", body: { kind: status === "completed" ? "finished" : "started", work_slug: slug } }).catch(() => {});
+    }
+  }
+
+  function renderSignin(p) {
+    if (!CONFIG.api) { renderCommunity(); return; }
+    if (session) { location.hash = `#u-${session.user.username}`; return; }
+    const mode = p.get("mode") === "signup" ? "signup" : "signin";
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>${mode === "signup" ? "Join the community" : "Welcome back"}</h1>
+        <p class="muted">An account keeps your library, lists, journal and challenges in step across devices, and lets you review, follow people and join challenges together.</p></header>
+      <nav class="medium-tabs"><a href="#signin" class="${mode === "signin" ? "on" : ""}">Sign in</a><a href="#signin?mode=signup" class="${mode === "signup" ? "on" : ""}">Create an account</a></nav>
+      <form class="auth-form" data-auth="${mode}">
+        ${mode === "signup" ? `<label><span>Username</span><input name="username" required minlength="3" maxlength="24" pattern="[a-z0-9_]{3,24}" autocomplete="username" placeholder="lowercase, numbers, underscores"></label>
+          <label><span>Display name</span><input name="display_name" required maxlength="60" autocomplete="name"></label>
+          <label><span>Email</span><input name="email" type="email" required autocomplete="email"></label>`
+          : `<label><span>Username or email</span><input name="login" required autocomplete="username"></label>`}
+        <label><span>Password</span><input name="password" type="password" required minlength="${mode === "signup" ? 8 : 1}" autocomplete="${mode === "signup" ? "new-password" : "current-password"}"></label>
+        <p class="auth-err" id="auth-err" role="alert"></p>
+        <button class="btn" type="submit">${mode === "signup" ? "Create account" : "Sign in"}</button>
+        <p class="muted small">${mode === "signup" ? "Your library, lists and journal from this browser are added to your account. Reviews you write are public unless you make your profile private." : ""}</p>
+      </form>`;
+  }
+
+  async function submitAuth(form) {
+    const mode = form.dataset.auth, err = document.getElementById("auth-err");
+    const body = Object.fromEntries(new FormData(form).entries());
+    if (body.username) body.username = body.username.trim().toLowerCase();
+    err.textContent = "";
+    try {
+      const res = await api(mode === "signup" ? "/api/auth/signup" : "/api/auth/login", { method: "POST", body });
+      session = { token: res.token, user: res.user };
+      store("mimir-session", session);
+      renderAccountLink();
+      await syncNow().catch(() => {});
+      location.hash = "#community";
+    } catch (e) { err.textContent = e.message; }
+  }
+
+  // ------------------------------------------------------------------ community: the shared front page, profiles, reviews
+  const workOf = (slug) => allWorks().find((w) => w.slug === slug);
+  const userLink = (u) => `<a class="u-link" href="#u-${esc(u.username)}">${esc(u.display_name)} <span class="muted">@${esc(u.username)}</span></a>`;
+  const ago = (iso) => { const s = (Date.now() - Date.parse(iso)) / 1000; return s < 3600 ? `${Math.max(1, Math.round(s / 60))}m` : s < 86400 ? `${Math.round(s / 3600)}h` : `${Math.round(s / 86400)}d`; };
+  const progName = (ref) => { const [slug, y] = (ref || "").split("/"); const p = cat.programme(slug, Number(y)); return p ? `<a href="#programme-${esc(slug)}?y=${esc(y)}">${esc(p.name)} ${esc(y)}</a>` : esc(ref); };
+  function activityItem(a) {
+    const w = a.work && `<a href="#work-${esc(a.work.slug)}">${esc(a.work.title)}</a>`;
+    const what = { review: `reviewed ${w}${a.review && a.review.score ? ` · <span class="d-score">${a.review.score}/10</span>` : ""}`, finished: `finished ${w}`, started: `started ${w}`,
+      list: `published <a href="#plist-${esc(a.ref)}">a list</a>`, joined_challenge: `joined ${progName(a.ref)}` }[a.kind] || a.kind;
+    const card = a.work && workOf(a.work.slug);
+    return `<li class="act">${card ? `<a class="act-art" href="#work-${esc(card.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(card))}</a>` : `<span class="act-art"></span>`}
+      <div><p>${userLink(a.user)} ${what} <span class="muted small">${ago(a.at)}</span></p>
+      ${a.review && a.review.excerpt ? (a.review.spoiler ? `<details class="j-spoiler"><summary>Spoilers</summary><p class="lib-note">${esc(a.review.excerpt)}</p></details>` : `<p class="lib-note">${esc(a.review.excerpt)}</p>`) : ""}</div></li>`;
+  }
+  function reviewItem(r, withWork = false) {
+    const card = withWork && workOf(r.work.slug);
+    return `<li class="review" id="r-${esc(r.id)}">
+      ${card ? `<a class="act-art" href="#work-${esc(card.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(card))}</a>` : ""}
+      <div class="rv-body"><p class="rv-head">${userLink(r.user)}${r.score ? ` <span class="d-score">${r.score}/10</span>` : ""}${withWork ? ` on <a href="#work-${esc(r.work.slug)}">${esc(r.work.title)}</a>` : ""} <span class="muted small">${ago(r.created_at)}${r.edited ? " · edited" : ""}</span></p>
+        ${r.body ? (r.spoiler ? `<details class="j-spoiler"><summary>Contains spoilers: show</summary><p>${esc(r.body)}</p></details>` : `<p>${esc(r.body)}</p>`) : ""}
+        <p class="rv-actions"><button type="button" class="linkish small${r.liked ? " on" : ""}" data-like="${esc(r.id)}" data-liked="${r.liked ? 1 : 0}" ${session ? "" : "disabled"}>♥ ${r.likes}</button>
+          <button type="button" class="linkish small" data-comments="${esc(r.id)}">Comments (${r.comments})</button>
+          ${session && !r.mine ? `<button type="button" class="linkish small" data-report="review" data-id="${esc(r.id)}">Report</button>` : ""}</p>
+        <div class="rv-comments" id="c-${esc(r.id)}" hidden></div></div></li>`;
+  }
+
+  async function loadWorkReviews(w) {
+    const box = document.getElementById("reviews-box");
+    if (!box || !CONFIG.api) return;
+    try {
+      const data = await api(`/api/works/${encodeURIComponent(w.slug)}/reviews`);
+      const mine = data.reviews.find((r) => r.mine);
+      const e = library[w.slug];
+      box.innerHTML = `
+        <p class="muted">${data.count ? `${data.count} review${data.count === 1 ? "" : "s"}${data.mean_score ? ` · community score ${data.mean_score}/10 from ${data.scored}` : ""}` : "No reviews yet. Be the first."}</p>
+        ${session ? `<form class="review-form" data-review="${esc(w.slug)}">
+          <label><span>Your score</span><select name="score"><option value="">–</option>${Object.keys(SCORE_WORDS).reverse().map((n) => `<option value="${n}"${String((mine && mine.score) || (e && e.score) || "") === n ? " selected" : ""}>${n} · ${SCORE_WORDS[n]}</option>`).join("")}</select></label>
+          <label class="grow"><span>Your review</span><textarea name="body" rows="3" maxlength="5000" placeholder="What would you tell someone deciding whether to start it?">${esc((mine && mine.body) || "")}</textarea></label>
+          <label class="check"><input type="checkbox" name="spoiler"${mine && mine.spoiler ? " checked" : ""}> Contains spoilers</label>
+          <p class="lib-actions"><button class="btn" type="submit">${mine ? "Update review" : "Post review"}</button>${mine ? `<button type="button" class="linkish" data-review-delete="${esc(w.slug)}">Delete</button>` : ""}<span class="muted small" id="rv-msg"></span></p>
+        </form>` : `<p><a class="btn ghost" href="#signin">Sign in to review</a></p>`}
+        ${data.reviews.length ? `<ol class="reviews">${data.reviews.map((r) => reviewItem(r)).join("")}</ol>` : ""}`;
+    } catch (err) { box.innerHTML = `<p class="muted small">Reviews couldn't load: ${esc(err.message)}</p>`; }
+  }
+  async function toggleComments(id, el) {
+    if (!el.hidden && el.dataset.loaded) { el.hidden = true; return; }
+    el.hidden = false;
+    const cs = await api(`/api/reviews/${id}/comments`).catch(() => []);
+    el.dataset.loaded = "1";
+    el.innerHTML = `<ol class="comments">${cs.map((c) => `<li>${userLink(c.user)} <span class="muted small">${ago(c.created_at)}</span><p>${esc(c.body)}</p>${c.mine ? `<button type="button" class="linkish small" data-comment-delete="${esc(c.id)}" data-review="${esc(id)}">Delete</button>` : ""}</li>`).join("")}</ol>
+      ${session ? `<form class="comment-form" data-comment="${esc(id)}"><input name="body" maxlength="2000" required placeholder="Reply…" aria-label="Reply"><button class="linkish" type="submit">Post</button></form>` : ""}`;
+  }
+
+  async function renderCommunity() {
+    if (!CONFIG.api) {
+      app.innerHTML = `
+        <header class="page-head"><p class="eyebrow">Community</p><h1>Find your next story through people</h1>
+          <p class="muted">Reviews, a feed of what friends are finishing, shared lists, trending picks and calendar challenges together. Accounts are built and switch on here as soon as the community server goes live.</p></header>
+        <div class="prose block"><p>Until then, everything personal already works in this browser: your <a href="#library">library</a>, <a href="#journal">journal</a>, <a href="#lists">lists</a> (shareable by link), <a href="#calendar">calendar challenges</a> and <a href="#decide">Decide for me</a>. When accounts open, all of it moves into your account in one step.</p></div>
+        ${calendarBand()}`;
+      return;
+    }
+    app.innerHTML = `<header class="page-band"><h1>Community</h1></header><p class="muted" style="margin:14px 0">Loading…</p>`;
+    try {
+      const [c, feed] = await Promise.all([api("/api/community"), session ? api("/api/feed").catch(() => []) : Promise.resolve(null)]);
+      const trending = c.trending.map((t) => workOf(t.slug)).filter(Boolean);
+      const y = thisYear();
+      app.innerHTML = `
+        <header class="page-band"><h1>Community</h1></header>
+        <p class="muted" style="margin:14px 0">${c.members} member${c.members === 1 ? "" : "s"}. ${session ? `Signed in as ${userLink(session.user)}.` : `<a href="#signin">Sign in</a> or <a href="#signin?mode=signup">create an account</a> to review, follow people and join challenges together.`}</p>
+        ${trending.length ? `<section class="shelf" aria-label="Trending"><header class="shelf-head"><div><h2>Trending this fortnight</h2><p>What people are finishing, starting and reviewing.</p></div></header>${row(trending)}</section>` : ""}
+        <div class="comm-grid">
+          ${feed ? `<section class="stat-box"><h2>Your feed</h2>${feed.length ? `<ol class="acts">${feed.map(activityItem).join("")}</ol>` : `<p class="muted">Follow people (open their name anywhere) to see what they're finishing and reviewing here.</p>`}</section>` : ""}
+          <section class="stat-box"><h2>Latest reviews</h2>${c.reviews.length ? `<ol class="reviews">${c.reviews.map((r) => reviewItem(r, true)).join("")}</ol>` : `<p class="muted">No reviews yet.</p>`}</section>
+          <section class="stat-box"><h2>Everyone, lately</h2>${c.activity.length ? `<ol class="acts">${c.activity.map(activityItem).join("")}</ol>` : `<p class="muted">Quiet so far.</p>`}</section>
+          <section class="stat-box"><h2>Challenges</h2><ul class="plain">${cat.calendar(y).slice(0, 30).map((p) => { const m = c.challenges.find((x) => x.slug === p.slug && x.year === y); return `<li><a href="#programme-${esc(p.slug)}?y=${y}">${esc(p.name)}</a> <span class="muted small">${esc(fmtDay(p.start))} · ${m ? `${m.members} joined` : "be the first"}</span></li>`; }).join("")}</ul></section>
+        </div>`;
+    } catch (err) { app.innerHTML = `<header class="page-band"><h1>Community</h1></header><p class="empty">The community server didn't answer: ${esc(err.message)}</p>`; }
+  }
+
+  async function renderProfile(username) {
+    if (!CONFIG.api) { renderCommunity(); return; }
+    app.innerHTML = `<p class="muted" style="margin:24px 0">Loading…</p>`;
+    try {
+      const u = await api(`/api/users/${encodeURIComponent(username)}`);
+      app.innerHTML = `
+        <header class="page-head"><p class="eyebrow">@${esc(u.username)} · joined ${esc(u.joined)}${u.is_private ? " · private" : ""}</p><h1>${esc(u.display_name)}</h1>${u.bio ? `<p class="muted">${esc(u.bio)}</p>` : ""}
+          <p class="pchips"><span class="tchip">${u.followers} follower${u.followers === 1 ? "" : "s"}</span><span class="tchip">${u.following_count} following</span><span class="tchip">${u.reviews} review${u.reviews === 1 ? "" : "s"}</span></p>
+          ${u.is_me ? "" : session ? `<button type="button" class="btn${u.following ? " ghost" : ""}" data-follow="${esc(u.username)}" data-on="${u.following ? 1 : 0}">${u.following ? "Following ✓" : "Follow"}</button> <button type="button" class="linkish small" data-report="user" data-id="${esc(u.username)}">Report</button>` : `<a class="btn ghost" href="#signin">Sign in to follow</a>`}</header>
+        ${u.is_me ? profileSettings() : ""}
+        ${!u.visible ? `<p class="empty">This profile is private. Follow to see reviews and activity.</p>` : `
+          ${u.lists.length ? `<section class="block"><header class="sec-head"><h2>Lists</h2></header><ul class="list-cards">${u.lists.map((l) => `<li><a href="#plist-${esc(l.id)}"><span class="lc-name">${esc(l.name)}</span><span class="count">${l.slugs.length} works</span><span class="lc-fan">${l.slugs.map(workOf).filter(Boolean).slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span></a></li>`).join("")}</ul></section>` : ""}
+          <div class="comm-grid">
+            <section class="stat-box"><h2>Reviews</h2>${u.reviews_recent.length ? `<ol class="reviews">${u.reviews_recent.map((r) => reviewItem(r, true)).join("")}</ol>` : `<p class="muted">No reviews yet.</p>`}</section>
+            <section class="stat-box"><h2>Activity</h2>${u.activity.length ? `<ol class="acts">${u.activity.map(activityItem).join("")}</ol>` : `<p class="muted">Nothing yet.</p>`}</section>
+          </div>`}`;
+    } catch (err) { app.innerHTML = `<p class="empty">${esc(err.message)}</p>`; }
+  }
+  function profileSettings() {
+    const u = session.user;
+    return `<details class="block settings"><summary class="btn ghost">Profile & privacy</summary>
+      <form class="auth-form" data-profile>
+        <label><span>Display name</span><input name="display_name" value="${esc(u.display_name)}" maxlength="60" required></label>
+        <label><span>Bio</span><input name="bio" value="${esc(u.bio || "")}" maxlength="300"></label>
+        <label class="check"><input type="checkbox" name="is_private"${u.is_private ? " checked" : ""}> Private profile: only followers see my reviews and activity</label>
+        <label class="check"><input type="checkbox" name="share_activity"${u.share_activity !== false ? " checked" : ""}> Share what I start and finish with followers</label>
+        <p class="lib-actions"><button class="btn" type="submit">Save</button><span class="muted small" id="pf-msg"></span></p>
+      </form>
+      <p class="lib-actions"><button type="button" class="btn ghost" data-sync>Sync library now</button><button type="button" class="btn ghost" data-signout>Sign out</button><button type="button" class="linkish" data-delete-account>Delete my account</button></p>
+    </details>`;
+  }
+
+  async function renderPublicList(id) {
+    if (!CONFIG.api) { renderCommunity(); return; }
+    try {
+      const l = await api(`/api/lists/${encodeURIComponent(id)}`);
+      app.innerHTML = `<header class="page-band"><h1>${esc(l.name)}</h1></header>
+        <p class="muted" style="margin:14px 0">A list by ${userLink(l.user)}${l.note ? ` · ${esc(l.note)}` : ""}</p>
+        <p class="lib-actions"><a class="btn ghost" href="#shared?n=${encodeURIComponent(l.name)}&w=${encodeURIComponent(l.slugs.join(","))}">Save a copy</a>${session && session.user.username === l.user.username ? `<button type="button" class="linkish" data-plist-delete="${esc(l.id)}">Unpublish</button>` : ""}</p>
+        ${pgrid(l.slugs.map(workOf).filter(Boolean), (w) => mineBtn(w.slug, true))}`;
+    } catch (err) { app.innerHTML = `<p class="empty">${esc(err.message)}</p>`; }
   }
 
   // Beta feedback goes by email, with the page it was sent from, so nothing is collected silently.
@@ -2300,7 +2878,11 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const [h, qs = ""] = location.hash.slice(1).split("?");
     const p = new URLSearchParams(qs);
     const MEDIUM_MENU = { film: "Films", series: "TV", book: "Books", game: "Games", album: "Music", all: "Catalogue" };
-    if (h.startsWith("work-")) { const w = cat.work(h.slice(5)); setNav(w ? MEDIUM_MENU[w.medium] : ""); renderWork(h.slice(5)); }
+    if (h.startsWith("work-")) {
+      const w = cat.work(h.slice(5)); setNav(w ? MEDIUM_MENU[w.medium] : ""); renderWork(h.slice(5));
+      if (w) loadWorkReviews(w);
+      if (w && p.has("journal")) { setTimeout(() => document.getElementById("journal")?.scrollIntoView({ block: "start" }), 0); return; }
+    }
     else if (h.startsWith("search-") || h === "browse") { search = searchFrom(h === "browse" ? "all" : h.slice(7), p); setNav(MEDIUM_MENU[search.medium]); renderSearch(); }
     else if (h.startsWith("top-")) { setNav(MEDIUM_MENU[h.slice(4)] || "Catalogue"); renderTop(h.slice(4)); }
     else if (h.startsWith("tag-")) { setNav("Catalogue"); renderTag(h.slice(4).replace(".", ":")); }
@@ -2312,6 +2894,14 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else if (h === "series") { setNav("Sagas"); renderSeries(); }
     else if (h === "for-you") { setNav("Discover"); renderForYou(p.get("m") || "all"); }
     else if (h === "shelves") { setNav("Discover"); renderShelves(); }
+    else if (h === "decide") { setNav("Discover"); renderDecide(); }
+    else if (h === "journal") { setNav("Library"); renderJournal(); }
+    else if (h === "calendar") { setNav("Community"); renderCalendar(p); }
+    else if (h.startsWith("programme-")) { setNav("Community"); renderProgramme(h.slice(10), p); }
+    else if (h === "community") { setNav("Community"); renderCommunity(); }
+    else if (h === "signin") { setNav("Community"); renderSignin(p); }
+    else if (h.startsWith("u-")) { setNav("Community"); renderProfile(decodeURIComponent(h.slice(2))); }
+    else if (h.startsWith("plist-")) { setNav("Community"); renderPublicList(h.slice(6)); }
     else if (h === "library" || h === "mine") { setNav("Library"); renderLibrary(p); }
     else if (h === "lists") { setNav("Library"); renderLists(); }
     else if (h.startsWith("list-")) { setNav("Library"); renderList(h.slice(5)); }
@@ -2366,6 +2956,36 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       if (l) { l.name = f.elements.name.value.trim().slice(0, 60) || l.name; l.note = f.elements.note.value.trim().slice(0, 200); l.updated = today(); saveLists(); renderList(l.id); }
       return;
     }
+    if (f.dataset.journal) {
+      const d = Object.fromEntries(new FormData(f).entries());
+      if (!d.text.trim()) return;
+      journal.push({ id: newId(), slug: f.dataset.journal, date: d.date || today(), at: d.at.trim() || null, feel: d.feel || null,
+        text: d.text.trim(), spoiler: !!d.spoiler, created: new Date().toISOString() });
+      saveJournal();
+      const w = cat.work(f.dataset.journal);
+      document.getElementById("journal").innerHTML = journalPanel(w);
+      return;
+    }
+    if (f.dataset.auth) { submitAuth(f); return; }
+    if (f.dataset.profile !== undefined) {
+      const d = new FormData(f);
+      api("/api/me", { method: "PATCH", body: { display_name: d.get("display_name"), bio: d.get("bio"), is_private: d.has("is_private"), share_activity: d.has("share_activity") } })
+        .then((u) => { session.user = { ...session.user, ...u }; store("mimir-session", session); document.getElementById("pf-msg").textContent = "Saved."; })
+        .catch((err) => { document.getElementById("pf-msg").textContent = err.message; });
+      return;
+    }
+    if (f.dataset.review) {
+      const d = new FormData(f), slug = f.dataset.review;
+      api(`/api/works/${encodeURIComponent(slug)}/review`, { method: "PUT", body: { score: d.get("score") ? Number(d.get("score")) : null, body: d.get("body") || "", spoiler: d.has("spoiler") } })
+        .then(() => { if (d.get("score")) updateEntry(slug, { score: Number(d.get("score")) }); loadWorkReviews(cat.work(slug)); })
+        .catch((err) => { document.getElementById("rv-msg").textContent = err.message; });
+      return;
+    }
+    if (f.dataset.comment) {
+      const id = f.dataset.comment, body = new FormData(f).get("body");
+      api(`/api/reviews/${id}/comments`, { method: "POST", body: { body } }).then(() => { const el = document.getElementById(`c-${id}`); el.dataset.loaded = ""; el.hidden = true; toggleComments(id, el); }).catch((err) => alert(err.message));
+      return;
+    }
     if (f.id !== "ask") return;
     const q = document.getElementById("q").value.trim();
     if (q.length >= 2) seek(q);
@@ -2378,6 +2998,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   });
   app.addEventListener("input", (e) => {
     const id = e.target.id;
+    if (id === "j-q") { journalState.q = e.target.value; renderJournal(); const el = document.getElementById("j-q"); el.focus(); el.setSelectionRange(el.value.length, el.value.length); return; }
     if (id !== "s-q" && id !== "f-q") return;
     const pos = e.target.selectionStart;
     if (id === "s-q") goSearch({ ...search, q: e.target.value, letter: "", list: false });
@@ -2395,6 +3016,17 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       afterTrack();
       return;
     }
+    if (t.dataset.progDone) {
+      const key = t.dataset.progDone, c = challenges[key];
+      if (!c) return;
+      const day = Number(t.dataset.day);
+      c.done = t.checked ? [...new Set([...c.done, day])].sort((a, b) => a - b) : c.done.filter((x) => x !== day);
+      if (t.checked && !(library[t.dataset.slug] && library[t.dataset.slug].status === "completed")) updateEntry(t.dataset.slug, { status: "completed" });
+      setChallenge(key, "progress");
+      const y = window.scrollY; route(); window.scrollTo(0, y);
+      return;
+    }
+    if (t.dataset.journalMedium !== undefined) { journalState.medium = t.value; renderJournal(); return; }
     if (t.dataset.lib) { libState[t.dataset.lib] = t.value; renderLibrary(new URLSearchParams(location.hash.split("?")[1] || "")); return; }
     if (t.id === "imp-file" && t.files[0]) { const file = t.files[0]; file.text().then((text) => previewImport(text, file.name)); return; }
     if (t.dataset.prefApp || t.dataset.prefRegion !== undefined) {
@@ -2444,6 +3076,51 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       saveLists();
       location.hash = `#list-${l.id}`;
     }
+    else if (d.decide) { decide[d.decide] = d.value; store("mimir-decide", decide); decideState = { skipped: [], penalties: {}, index: 0 }; renderDecide(); }
+    else if (d.decideNot) decideNot(d.decideNot);
+    else if (d.decideReset !== undefined) { decideState = { skipped: [], penalties: {}, index: 0 }; renderDecide(); }
+    else if (d.decideStart) { updateEntry(d.decideStart, { status: "active" }); location.hash = `#work-${d.decideStart}`; }
+    else if (d.journalDelete) { if (confirm("Delete this journal entry?")) { journal = journal.filter((j) => j.id !== d.journalDelete); saveJournal(); const y = window.scrollY; route(); window.scrollTo(0, y); } }
+    else if (d.progJoin) { setChallenge(d.progJoin, "join"); const y = window.scrollY; route(); window.scrollTo(0, y); }
+    else if (d.progLeave) { if (confirm("Leave this programme? Your ticks are removed.")) { setChallenge(d.progLeave, "leave"); route(); } }
+    else if (d.progPlan) {
+      const [slug, y] = d.progPlan.split("/");
+      for (const x of cat.programme(slug, Number(y)).picks) if (!library[x.work.slug]) updateEntry(x.work.slug, { status: "planned" });
+      t.textContent = "Added to your library ✓";
+    }
+    else if (d.progShare) {
+      const url = `${location.origin}${location.pathname}#programme-${d.progShare.replace("/", "?y=")}`;
+      (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { t.textContent = "Link copied ✓"; }, () => prompt("Copy this link:", url));
+    }
+    else if (d.like) {
+      const on = d.liked === "1";
+      api(`/api/reviews/${d.like}/like`, { method: on ? "DELETE" : "POST" }).then(() => {
+        const n = Number(t.textContent.replace(/\D/g, "")) + (on ? -1 : 1);
+        t.dataset.liked = on ? "0" : "1"; t.classList.toggle("on", !on); t.textContent = `♥ ${n}`;
+      }).catch((err) => alert(err.message));
+    }
+    else if (d.comments) toggleComments(d.comments, document.getElementById(`c-${d.comments}`));
+    else if (d.commentDelete) api(`/api/comments/${d.commentDelete}`, { method: "DELETE" }).then(() => { const el = document.getElementById(`c-${d.review}`); el.dataset.loaded = ""; el.hidden = true; toggleComments(d.review, el); }).catch((err) => alert(err.message));
+    else if (d.reviewDelete) { if (confirm("Delete your review?")) api(`/api/works/${encodeURIComponent(d.reviewDelete)}/review`, { method: "DELETE" }).then(() => loadWorkReviews(cat.work(d.reviewDelete))); }
+    else if (d.report) {
+      const reason = prompt("What's wrong with it? (spam, abuse, spoilers without a warning …)");
+      if (reason) api("/api/reports", { method: "POST", body: { target_kind: d.report, target_id: d.id, reason } }).then(() => alert("Thanks. A moderator will look at it.")).catch((err) => alert(err.message));
+    }
+    else if (d.follow) {
+      const on = d.on === "1";
+      api(`/api/users/${encodeURIComponent(d.follow)}/follow`, { method: on ? "DELETE" : "POST" }).then(() => renderProfile(d.follow)).catch((err) => alert(err.message));
+    }
+    else if (d.signout !== undefined) { api("/api/auth/logout", { method: "POST" }).catch(() => {}).finally(() => { signedOut(); location.hash = "#community"; }); }
+    else if (d.sync !== undefined) { t.textContent = "Syncing…"; syncNow().then(() => { t.textContent = "Synced ✓"; }, (err) => { t.textContent = err.message; }); }
+    else if (d.deleteAccount !== undefined) {
+      const pw = prompt("This deletes your account and everything you've posted: reviews, comments, lists, follows and your synced library. Your library stays in this browser. Enter your password to confirm.");
+      if (pw) api("/api/me/delete", { method: "POST", body: { password: pw } }).then(() => { signedOut(); location.hash = "#community"; alert("Your account has been deleted."); }).catch((err) => alert(err.message));
+    }
+    else if (d.listPublish) {
+      const l = lists.find((x) => x.id === d.listPublish);
+      api("/api/lists", { method: "POST", body: { name: l.name, note: l.note || "", slugs: l.slugs } }).then((pl) => { location.hash = `#plist-${pl.id}`; }).catch((err) => alert(err.message));
+    }
+    else if (d.plistDelete) { if (confirm("Unpublish this list? Your own copy stays in Lists.")) api(`/api/lists/${d.plistDelete}`, { method: "DELETE" }).then(() => { location.hash = "#lists"; }); }
     else if (d.importRead !== undefined) previewImport(document.getElementById("imp-text").value);
     else if (d.importApply !== undefined) applyImport();
     else if (d.export === "json") exportBackup();
@@ -2520,6 +3197,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   renderMenubar();
   refreshCounts();
+  renderAccountLink();
+  if (session) syncNow().catch(() => {});
   document.getElementById("beta-pill").textContent = `Beta · ${allWorks().length} works`;
   document.getElementById("cat-count").textContent = allWorks().length;
   document.getElementById("foot-feedback").href = feedbackHref();

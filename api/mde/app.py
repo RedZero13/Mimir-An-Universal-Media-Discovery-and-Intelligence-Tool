@@ -10,7 +10,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from mde import db
+from mde import community, db
 from mde import taxonomy as taxonomy_mod
 from mde.catalogue import browse, providers, repository
 from mde.discovery.engine import discover
@@ -19,9 +19,10 @@ app = FastAPI(title="Media Discovery Engine", version="0.2.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[o for o in os.environ.get("CORS_ORIGINS", "http://localhost:3000").split(",") if o],
-    allow_methods=["GET", "POST"],
-    allow_headers=["content-type"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allow_headers=["content-type", "authorization"],
 )
+app.include_router(community.router)
 
 FeedbackKind = Literal["relevant", "irrelevant", "too_long", "wrong_mood", "already_experienced",
                        "not_what_i_meant", "will_try"]

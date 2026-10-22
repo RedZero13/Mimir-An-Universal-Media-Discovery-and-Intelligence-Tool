@@ -20,7 +20,7 @@ build-backend = "setuptools.build_meta"
 include = ["mde*", "benchmark*"]
 
 [tool.setuptools.package-data]
-mde = ["migrations/*.sql", "taxonomy/*.json", "seed/*.json"]
+mde = ["migrations/*.sql", "taxonomy/*.json", "seed/*.json", "catalogue/*.json", "data/enrichment/*.json"]
 benchmark = ["*.json"]
 
 [tool.pytest.ini_options]

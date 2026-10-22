@@ -26,6 +26,10 @@ jobs:
         with:
           node-version: 22
       - run: node demo/build.cjs --site _site
+        env:
+          # Accounts and community switch on when the API is hosted: Settings → Secrets and variables → Actions →
+          # Variables → MIMIR_API_URL (e.g. https://mimir-api.onrender.com). Empty keeps the site browser-only.
+          MIMIR_API_URL: ${{ vars.MIMIR_API_URL }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

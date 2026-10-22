@@ -39,6 +39,9 @@ function page() {
     .replace("/*__CATALOGUE__*/", () => safe(JSON.stringify(readSeed(path.join(api, "seed")))))
     .replace("/*__PROVIDERS__*/", () => json(path.join(api, "catalogue", "providers.json")))
     .replace("/*__SHELVES__*/", () => json(path.join(api, "catalogue", "shelves.json")))
+    .replace("/*__CALENDAR__*/", () => json(path.join(api, "catalogue", "calendar.json")))
+    // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
+    .replace("/*__CONFIG__*/", () => safe(JSON.stringify({ api: (process.env.MIMIR_API_URL || "").replace(/\/$/, "") })))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
     .replace("/*__ENGINE__*/", () => safe(fs.readFileSync(path.join(here, "engine.cjs"), "utf8")))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));

@@ -1,4 +1,4 @@
-# Taxonomy and classification specification (v0.3.0)
+# Taxonomy and classification specification (v0.4.0)
 
 The taxonomy is the product's core intellectual asset. It lives in
 [`api/mde/taxonomy/taxonomy.json`](../api/mde/taxonomy/taxonomy.json) and is synced into `taxonomy_dimension` and
@@ -94,6 +94,8 @@ separate from our own guide.
 v0.3.0 (beta) added 42 terms for the 503-work catalogue (TV series, world cinema, non-fiction, more music and game
 genres), 136 terms in all. Similarity ("something like X", taste profiles) weights dimensions: theme 1.0, mood 0.9,
 narrative and world 0.8, style 0.7, pacing 0.6, genre 0.5, complexity 0.4 (`model.SIMILARITY_WEIGHTS`).
+v0.4.0 added `theme:holidays-festivals` (Christmas, Halloween, Diwali, Lunar New Year …) and `theme:lgbtq-lives`
+for the social calendar's seasonal and heritage programmes, 138 terms in all; "spooky" is now a synonym of Eerie.
 Narrative continuity (standalone / series / franchise) is derived from groups and relationships rather than tagged.
 
 ## Planned extensions

@@ -22,7 +22,7 @@ Status: **Yes** shipped in the beta · **Partly** a first version, with the gap 
 | Recommendations | **Yes**, taste profile from ratings and scores, with the reason for each pick |
 | Top rankings, genres, studios, people | **Yes** (Top lists, tags, people & studios) |
 | Seasonal charts, airing schedules, episode release dates | **Not yet**: needs a live data source |
-| Public profiles, friends, forums, clubs | **Not yet**: Mimir has no accounts; everything is local to the browser |
+| Public profiles, friends, forums, clubs | **Partly**: accounts, profiles, follows, a feed and reviews with comments are built; they go live when the API is hosted. No forums or clubs yet |
 
 ### MangaUpdates
 
@@ -43,18 +43,19 @@ Status: **Yes** shipped in the beta · **Partly** a first version, with the gap 
 | Parents' guide | **Yes**, six categories, and "not assessed" kept separate from "none" |
 | Ratings from critics and audiences, box office | **Yes** where Wikidata records them, with source and date |
 | Where to watch | **Yes**, with your preferred service and region (links open a search; availability isn't claimed) |
-| Trailers, photos, trivia, goofs, user reviews | **Not yet** (licensing; reviews would need accounts) |
+| User reviews and a community score | **Yes** (with an account) |
+| Trailers, photos, trivia, goofs | **Not yet** (licensing) |
 
 ### Letterboxd and Goodreads
 
 | Feature | Mimir |
 | --- | --- |
 | Diary of what you finished, by date | **Yes** (Library → Diary) |
-| Reviews / notes per work | **Partly**: private notes; no public reviews yet |
+| Reviews / notes per work | **Yes**: private journal entries as you go, and public reviews with likes and comments (with an account) |
 | Custom lists, shareable | **Yes**: lists across media, shared by link, saved with one click |
 | Year-in-review stats | **Yes**: last 12 months, eras, languages, themes |
 | Import from Letterboxd and Goodreads | **Yes** (CSV exports) |
-| Social feed, following, likes | **Not yet** |
+| Social feed, following, likes | **Yes** (with an account): follow people, a feed of what they review, start and finish, likes and comments |
 
 ### Spotify (for discovery, not playback)
 
@@ -83,12 +84,16 @@ Status: **Yes** shipped in the beta · **Partly** a first version, with the gap 
    a source disagreed with the editorial record.
 9. **Private by default.** Library, lists and ratings stay in the browser; nothing is collected silently.
    Backups are a file you own.
-10. **Bring your history.** One import for MAL, IMDb, Letterboxd and Goodreads, so switching costs minutes.
+10. **Less browsing, more watching.** "Decide for me" turns three taps into one pick with its reasons, and
+    learns from "not this". The social calendar gives a pick a day for seasons and festivals people already
+    celebrate: Spooktober, 12 Days of Christmas, Diwali, Lunar New Year, Pride, Noirvember.
+11. **A journal as you go**, not just a review at the end: dated entries, feelings, where you were up to.
+12. **Bring your history.** One import for MAL, IMDb, Letterboxd and Goodreads, so switching costs minutes.
 
 ## Next, to close the remaining gaps
 
-1. **Accounts and sync** (optional, with export always available), so a library follows you across devices. This
-   unlocks public profiles, reviews, following and shared lists that update.
+1. **Host the community API** (built and tested: accounts, sync, reviews, follows, feed, challenges). Then email
+   verification, password reset, moderation tools and notifications.
 2. **Manga and anime as first-class formats**: chapters and volumes, seasons and cours, MAL and AniList IDs for
    exact matching on import.
 3. **Release and availability feeds** from licensed partners (JustWatch-style availability, airing and

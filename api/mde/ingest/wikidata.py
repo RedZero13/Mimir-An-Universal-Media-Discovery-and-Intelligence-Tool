@@ -111,9 +111,13 @@ def review_scores(entity: dict, labels: dict[str, str]) -> list[dict]:
         method = [q["id"] for q in qualifier_values(c, "P459")]
         when = [q["time"][1:11] for q in qualifier_values(c, "P585")]
         votes = [q["amount"] for q in qualifier_values(c, "P7887")]
+        publisher = labels.get(by[0], by[0]) if by else None
+        if not publisher or re.fullmatch(r"Q\d+", publisher):   # no publisher with a name: nobody can weigh the score
+            continue
+        metric = labels.get(method[0], method[0]) if method else "score"
         out.append({
-            "publisher": labels.get(by[0], by[0]) if by else "Unknown",
-            "metric": labels.get(method[0], method[0]) if method else "score",
+            "publisher": publisher,
+            "metric": "score" if re.fullmatch(r"Q\d+", metric) else metric,
             "value": parsed[0], "scale_max": parsed[1],
             "votes": int(float(votes[0])) if votes else None,
             "as_of": when[0] if when else None,

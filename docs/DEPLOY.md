@@ -44,6 +44,24 @@ Suggested placements, in keeping with how Akashic Records is presented:
 </a>
 ```
 
+## Accounts and community (the API)
+
+The site works on its own: library, journal, lists, calendar and Decide for me live in each browser. Accounts,
+reviews, follows, the feed and challenge leaderboards need the API (`api/`, FastAPI and PostgreSQL) on a server.
+
+1. **Host the API and a database.** The repository has a Render blueprint (`render.yaml`): in Render choose
+   **New → Blueprint**, pick this repository, and it creates `mimir-api` (from `api/Dockerfile`) and a Postgres
+   database. The container applies migrations and loads the catalogue on every start (both idempotent). Any host
+   that runs a Docker image with a `DATABASE_URL` works the same way (Fly.io, Railway, a VM).
+2. **Allow the site to call it.** `CORS_ORIGINS` must include `https://mimir.terratalesmedia.world` (the blueprint
+   sets it).
+3. **Point the site at it.** In GitHub: **Settings → Secrets and variables → Actions → Variables → New repository
+   variable**, name `MIMIR_API_URL`, value the API's address (for example `https://mimir-api.onrender.com`, or a
+   subdomain such as `https://api.mimir.terratalesmedia.world` with a CNAME to the host). Then re-run **Deploy
+   Mimir site**. Sign-in, reviews and the community pages appear; without the variable they stay hidden.
+4. **Before opening sign-ups widely:** add a privacy notice and terms of use, a moderation routine for the
+   `report` table, and email verification and password reset (not built yet: they need an email-sending service).
+
 ## What is deployed
 
 The static site runs the discovery engine in the browser on the beta catalogue (503 works) with the open-data

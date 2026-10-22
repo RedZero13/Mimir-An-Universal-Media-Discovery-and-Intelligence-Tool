@@ -124,6 +124,24 @@ CI (`.github/workflows/ci.yml`) runs the same checks against a PostgreSQL 16 ser
 | POST | `/api/feedback` | `{event_id, work_slug, kind}` where kind is one of `relevant`, `irrelevant`, `too_long`, `wrong_mood`, `already_experienced`, `not_what_i_meant`, `will_try` |
 | GET | `/api/health` | |
 
+**Accounts and community** (`mde/community.py`; clients send `Authorization: Bearer <token>`):
+
+| Method | Path | |
+| --- | --- | --- |
+| POST | `/api/auth/signup`, `/api/auth/login`, `/api/auth/logout` | Accounts. Passwords hashed with scrypt; only a SHA-256 of each session token is stored; sign-in is rate-limited |
+| GET, PATCH | `/api/me` | Profile, privacy (private profile, share activity) |
+| POST | `/api/me/delete` | Deletes the account and everything it wrote |
+| GET, PUT | `/api/me/state` | The private library (statuses, scores, progress, lists, journal, challenges), synced as one document |
+| GET | `/api/users/{username}` | Profile: counts, recent reviews, public lists, activity (followers only when private) |
+| POST, DELETE | `/api/users/{username}/follow` | Follow and unfollow |
+| GET, PUT, DELETE | `/api/works/{slug}/reviews`, `/api/works/{slug}/review` | Reviews with a community score; one review per person per work |
+| POST, DELETE | `/api/reviews/{id}/like`; GET, POST `/api/reviews/{id}/comments`; DELETE `/api/comments/{id}` | Likes and comments |
+| POST | `/api/activity` | "started" / "finished", shared with followers when the user allows |
+| GET | `/api/feed`, `/api/community` | Your feed; trending works, latest reviews and activity, challenge counts |
+| POST, GET, DELETE | `/api/lists`, `/api/lists/{id}` | Published lists |
+| GET, POST, DELETE, PUT | `/api/challenges/{slug}/{year}` (`/join`, `/progress`) | Social-calendar challenges: members, leaders, your ticked days |
+| POST | `/api/reports` | Report a review, comment, user or list |
+
 ## Known limitations
 
 - **Facts are partly verified.** Where Wikidata, Open Library or MusicBrainz match a work, their year, length,

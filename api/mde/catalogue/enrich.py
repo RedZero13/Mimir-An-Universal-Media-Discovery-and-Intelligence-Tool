@@ -12,6 +12,7 @@ all apply the same rules.
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 
 from mde.catalogue.model import GroupRef, Image, Score, WorkProfile, slugify
@@ -19,6 +20,9 @@ from mde.catalogue.model import GroupRef, Image, Score, WorkProfile, slugify
 ENRICHMENT_DIR = Path(__file__).parent.parent / "data" / "enrichment"
 SOURCE_ORDER = ("wikidata", "openlibrary", "musicbrainz", "tmdb")   # later sources win for images of the same kind
 IMAGE_PREFERENCE = {"poster": 0, "cover": 1, "still": 2, "logo": 3}
+
+
+UNNAMED = re.compile(r"^Q\d+$")
 
 
 def load_enrichment(directory: Path = ENRICHMENT_DIR) -> dict[str, dict]:
@@ -89,6 +93,8 @@ def apply(works: list[WorkProfile], enrichment: dict[str, dict]) -> list[WorkPro
                     w.images = [i for i in w.images if not (i.kind == img["kind"] and i.source == source)]
                     w.images.append(Image(img["kind"], img["url"], source, img.get("licence", "see source"), img.get("attribution")))
             for sc in rec.get("scores", []):
+                if UNNAMED.match(sc["publisher"]):   # a publisher Wikidata couldn't name: a score nobody can weigh
+                    continue
                 w.scores.append(Score(sc["publisher"], sc["metric"], float(sc["value"]), float(sc["scale_max"]),
                                       sc.get("votes"), sc.get("as_of"), source))
             w.box_office.extend({**b, "source": source} for b in rec.get("box_office", []))
