@@ -139,11 +139,12 @@ def test_enrichment_round_trips_through_postgres(conn):
 
     from enrichment_fixture import FIXTURE
 
-    from mde.catalogue.load import SEED_PATH, import_catalogue
+    from mde.catalogue.load import import_catalogue
     from mde.catalogue.memory import MemoryCatalogue
     from mde.catalogue.repository import load_profiles
+    from mde.catalogue.seedfiles import read_seed
 
-    data = json.loads(SEED_PATH.read_text())
+    data = read_seed()
     import_catalogue(conn, data, enrichment=FIXTURE)
     stats = import_catalogue(conn, data, enrichment=FIXTURE)
     assert stats.works_updated == 0                     # idempotent with enrichment too

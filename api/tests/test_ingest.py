@@ -89,6 +89,11 @@ def test_musicbrainz_tracks_and_remixes():
                     {"position": 2, "title": "Two", "recording": {"id": "r2", "length": 210500}}]}]}]
     rel = musicbrainz.pick_release(releases)
     assert rel["id"] == "early"
+    # A Japanese first pressing with a bonus track is not the standard edition when most releases share another list.
+    twelve = [{"tracks": [{"position": i} for i in range(12)]}]
+    editions = [{"id": "jp", "date": "1997-05-21", "media": [{"tracks": [{"position": i} for i in range(13)]}]},
+                {"id": "uk", "date": "1997-06-16", "media": twelve}, {"id": "us", "date": "1997-07-01", "media": twelve}]
+    assert musicbrainz.pick_release(editions)["id"] == "uk"
     assert musicbrainz.tracklist(rel) == [
         {"disc": 1, "position": 1, "title": "One", "seconds": 320, "recording": "r1"},
         {"disc": 1, "position": 2, "title": "Two", "seconds": 210, "recording": "r2"}]
@@ -106,3 +111,43 @@ def test_links_use_exact_ids_when_known():
     assert "reddit.com/search" in by_kind["reactions:reddit"]
     album = {"title": "Kind of Blue", "medium": "album", "credits": [["artist", "Miles Davis"]]}
     assert any(link["kind"] == "listen:spotify" for link in links.links_for(album, {}))
+
+
+def _item(label, types, year, claims=3, lang="en"):
+    return {"labels": {lang: {"value": label}} if label else {}, "aliases": {},
+            "claims": {"P31": [{"rank": "normal", "mainsnak": {"snaktype": "value", "datavalue": {"value": {"id": t}}}} for t in types],
+                       "P577": [{"rank": "normal", "mainsnak": {"snaktype": "value", "datavalue": {"value": {"time": f"+{year}-01-01T00:00:00Z"}}}}],
+                       **{f"X{i}": [] for i in range(claims)}}}
+
+
+def test_wikidata_matching_rules():
+    # Labels stored only under the language-neutral 'mul' code still count as exact titles.
+    assert wikidata.label_of(_item("Disco Elysium", ["Q7889"], 2019, lang="mul")) == "Disco Elysium"
+    game = _item("Disco Elysium", ["Q7889"], 2019, claims=40, lang="mul")
+    final_cut = _item("Disco Elysium: The Final Cut", ["Q7889"], 2019)
+    best = wikidata.choose({"Qgame": game, "Qcut": final_cut}, ["Disco Elysium"], "game", 2019)[0]
+    assert best[1] == "Qgame" and best[0] >= 0.7
+    # Equal scores: the more complete item wins, and the reason says so.
+    a, b = _item("Moon", ["Q11424"], 2009, claims=50), _item("Moon", ["Q11424"], 2009, claims=5)
+    ranked = wikidata.choose({"Qa": a, "Qb": b}, ["Moon"], "film", 2009)
+    assert ranked[0][1] == "Qa" and ranked[0][0] > ranked[1][0] and "completeness" in ranked[0][2]
+    # A single exact-title item of the right type is accepted at 0.6 even when the year disagrees, with the reason stated.
+    krz = _item("Kentucky Route Zero", ["Q7889"], 2013)
+    act = _item("Kentucky Route Zero: Act II", ["Q1"], 2013)
+    top = wikidata.choose({"Qk": krz, "Qa": act}, ["Kentucky Route Zero"], "game", 2020)[0]
+    assert top[:2] == (0.6, "Qk") and "2013" in top[2]
+    # Two exact-title items of the right type with the wrong year stay unmatched (remakes).
+    assert wikidata.choose({"Q1": _item("Dune", ["Q11424"], 1984), "Q2": _item("Dune", ["Q11424"], 2000)}, ["Dune"], "film", 2021)[0][0] == 0
+
+
+def test_openlibrary_translations_and_edition_notes():
+    docs = [{"key": "/works/a", "title": "The Name of the Rose (Helen and Kurt Wolff Books)", "author_name": ["Umberto Eco"],
+             "first_publish_year": 1983, "edition_count": 40},
+            {"key": "/works/b", "title": "The Name of the Game", "author_name": ["Umberto Eco"], "first_publish_year": 1980}]
+    doc, why = openlibrary.best_doc(docs, "The Name of the Rose", "Umberto Eco", 1980)
+    assert doc["key"] == "/works/a" and "1983" in why
+    assert openlibrary.best_doc(docs, "The Name of the Rose", "Someone Else", 1980)[0] is None
+
+
+def test_musicbrainz_query_escaping():
+    assert musicbrainz.lucene("Godspeed You! Black Emperor") == "Godspeed You\\! Black Emperor"

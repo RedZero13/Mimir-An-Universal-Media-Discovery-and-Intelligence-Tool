@@ -5,6 +5,7 @@
 //                                      <head>, favicons, social card, web manifest, robots.txt and CNAME
 "use strict";
 const fs = require("fs");
+const { readSeed } = require("./seed.cjs");
 const path = require("path");
 
 const here = __dirname;
@@ -35,7 +36,7 @@ function enrichment() {
 function page() {
   return fs.readFileSync(path.join(here, "page.html"), "utf8")
     .replace("/*__TAXONOMY__*/", () => json(path.join(api, "taxonomy", "taxonomy.json")))
-    .replace("/*__CATALOGUE__*/", () => json(path.join(api, "seed", "catalogue.json")))
+    .replace("/*__CATALOGUE__*/", () => safe(JSON.stringify(readSeed(path.join(api, "seed")))))
     .replace("/*__PROVIDERS__*/", () => json(path.join(api, "catalogue", "providers.json")))
     .replace("/*__SHELVES__*/", () => json(path.join(api, "catalogue", "shelves.json")))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))

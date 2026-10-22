@@ -80,6 +80,8 @@ def _length_label(w: WorkProfile) -> str:
         return f"{approx}{w.runtime_minutes} min"
     if w.playtime_hours is not None:
         return f"{approx}{w.playtime_hours:g} hours to finish"
+    if w.length_minutes is not None:
+        return f"{w.attributes['episodes']} episodes of about {w.attributes['episode_minutes']:g} min"
     return "length unknown"
 
 

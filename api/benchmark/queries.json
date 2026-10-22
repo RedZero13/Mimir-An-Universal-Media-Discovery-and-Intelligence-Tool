@@ -77,9 +77,9 @@
       "id": "theme-any-medium",
       "category": "theme",
       "query": "stories about surveillance and complicity under authoritarian rule, any medium",
-      "good_results": "The Lives of Others, Papers, Please and Nineteen Eighty-Four, across three media.",
-      "relevant": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"],
-      "checks": {"top_k_includes_all": {"k": 3, "slugs": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"]}, "min_distinct_media_top3": 3}
+      "good_results": "The Lives of Others, Papers, Please and Nineteen Eighty-Four, across three media. In the beta catalogue Andor belongs in the same group, so the three must be in the top four.",
+      "relevant": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949", "andor-2022"],
+      "checks": {"top_k_includes_all": {"k": 4, "slugs": ["the-lives-of-others-2006", "papers-please-2013", "nineteen-eighty-four-1949"]}, "min_distinct_media_top3": 3}
     },
     {
       "id": "calm-focus-album",
@@ -149,9 +149,9 @@
       "id": "historical-exploration",
       "category": "educational",
       "query": "historical works about the cost of war",
-      "good_results": "Come and See first.",
-      "relevant": ["come-and-see-1985"],
-      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["come-and-see-1985"]}}
+      "good_results": "A work that faces war's human cost directly comes first (Come and See, Schindler's List, Band of Brothers, The Zone of Interest), with Come and See in the top five.",
+      "relevant": ["come-and-see-1985", "schindlers-list-1993", "band-of-brothers-2001", "the-zone-of-interest-2023"],
+      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["come-and-see-1985", "schindlers-list-1993", "band-of-brothers-2001", "the-zone-of-interest-2023"]}, "top_k_includes_all": {"k": 5, "slugs": ["come-and-see-1985"]}}
     },
     {
       "id": "unknown-advisory-honesty",

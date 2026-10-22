@@ -1,51 +1,511 @@
 {
-  "about": "Browsing shelves. Names are playful (Vol. II §11: social and marketing may be playful, in-world); taglines say plainly what is on the shelf. Rules are evaluated by catalogue/browse.py and demo/engine.cjs. A shelf with fewer than three works is hidden. 'Comedy Central' is a TV channel's trademark, so the comedy shelf is 'Laugh Riot'.",
-  "min_works": 3,
-  "shelves": [
-    {"slug": "diamonds-in-the-rough", "name": "Diamonds in the Rough", "tagline": "Overlooked, under-hyped, worth it.",
-     "rule": {"popularity_min": 3, "any_tags": ["complexity:intellectually-demanding", "style:atmospheric", "mood:wonder"], "min_strength": 0.9, "sort": "obscure"}},
-    {"slug": "laugh-riot", "name": "Laugh Riot", "tagline": "Comedy, front and centre.",
-     "rule": {"any_tags": ["genre:comedy", "mood:funny"], "min_strength": 0.5, "sort": "strength"}},
-    {"slug": "drama-mamas", "name": "Drama Mamas", "tagline": "Big feelings, beautifully made.",
-     "rule": {"all_tags": ["genre:drama"], "any_tags": ["mood:melancholic", "mood:tense"], "min_strength": 0.5, "sort": "strength"}},
-    {"slug": "nepo-babies", "name": "Nepo Babies", "tagline": "Born into famous families: sequels, adaptations and spin-offs.",
-     "rule": {"relation_child": ["adaptation_of", "sequel_of", "remake_of", "spin_off_of"], "sort": "popular"}},
-    {"slug": "action-blockbusters", "name": "Action Blockbusters", "tagline": "Big screens, bigger set pieces.",
-     "rule": {"media": ["film", "game"], "any_tags": ["genre:action", "mood:exhilarating"], "min_strength": 0.6, "sort": "popular"}},
-    {"slug": "fright-club", "name": "Fright Club", "tagline": "The first rule: don't watch alone.",
-     "rule": {"any_tags": ["genre:horror", "mood:unsettling"], "min_strength": 0.6, "sort": "strength"}},
-    {"slug": "brain-food", "name": "Brain Food", "tagline": "Stories that ask more of you, and give more back.",
-     "rule": {"any_tags": ["complexity:intellectually-demanding"], "min_strength": 0.8, "sort": "strength"}},
-    {"slug": "cosy-corner", "name": "Cosy Corner", "tagline": "Warm, gentle, safe to land in.",
-     "rule": {"any_tags": ["mood:comforting"], "min_strength": 0.7, "sort": "strength"}},
-    {"slug": "cry-me-a-river", "name": "Cry Me a River", "tagline": "Have the tissues ready.",
-     "rule": {"any_tags": ["mood:melancholic"], "min_strength": 0.8, "sort": "strength"}},
-    {"slug": "mind-benders", "name": "Mind Benders", "tagline": "Puzzle boxes, time loops and tricks of structure.",
-     "rule": {"any_tags": ["narrative:puzzle-box", "narrative:time-loop", "narrative:nonlinear"], "min_strength": 0.7, "sort": "strength"}},
-    {"slug": "world-builders", "name": "World Builders", "tagline": "Worlds you could get lost in.",
-     "rule": {"any_tags": ["world:rich-worldbuilding"], "min_strength": 0.9, "sort": "strength"}},
-    {"slug": "quick-bites", "name": "Quick Bites", "tagline": "Two hours or less, start to finish.",
-     "rule": {"media": ["film", "book", "game"], "max_minutes": 120, "sort": "shortest"}},
-    {"slug": "slow-burners", "name": "Slow Burners", "tagline": "Patience, rewarded.",
-     "rule": {"any_tags": ["pacing:slow-burn"], "min_strength": 0.8, "sort": "strength"}},
-    {"slug": "page-turners", "name": "Page Turners", "tagline": "Books that won't let you stop.",
-     "rule": {"media": ["book"], "any_tags": ["mood:tense", "pacing:brisk", "genre:mystery"], "min_strength": 0.5, "sort": "strength"}},
-    {"slug": "side-quests", "name": "Side Quests", "tagline": "Games you can finish in a weekend or less.",
-     "rule": {"media": ["game"], "max_minutes": 900, "sort": "shortest"}},
-    {"slug": "main-quests", "name": "Main Quests", "tagline": "Clear your calendar.",
-     "rule": {"media": ["game"], "min_minutes": 1200, "sort": "longest"}},
-    {"slug": "lone-wolves", "name": "Lone Wolves", "tagline": "Standalone stories. No homework required.",
-     "rule": {"continuity": ["standalone"], "popularity_max": 2, "sort": "popular"}},
-    {"slug": "pack-animals", "name": "Pack Animals", "tagline": "Series, sequels and shared worlds.",
-     "rule": {"continuity": ["series", "franchise"], "sort": "popular"}},
-    {"slug": "spin-cycle", "name": "Spin Cycle", "tagline": "Albums worth hearing start to finish.",
-     "rule": {"media": ["album"], "sort": "popular"}}
-  ],
-  "mood_rings": [
-    {"slug": "golden-hour", "name": "Golden Hour", "tagline": "Bright, warm, hopeful.", "tags": ["mood:uplifting"]},
-    {"slug": "rainy-window", "name": "Rainy Window", "tagline": "Wistful and bittersweet.", "tags": ["mood:melancholic"]},
-    {"slug": "deep-focus", "name": "Deep Focus", "tagline": "Calm, spare, out of the way.", "tags": ["mood:contemplative", "style:minimalist"]},
-    {"slug": "night-drive", "name": "Night Drive", "tagline": "Atmosphere for the long road.", "tags": ["style:atmospheric"]},
-    {"slug": "pulse-racers", "name": "Pulse Racers", "tagline": "Turn it up.", "tags": ["mood:exhilarating"]}
-  ]
+ "about": "Browsing shelves. Names are playful (Vol. II §11: social and marketing may be playful, in-world); taglines say plainly what is on the shelf. Rules (media, all_tags, any_tags, min_strength, popularity_min/max, relation_child, continuity, min/max_minutes, languages, not_languages, sort) are evaluated by catalogue/browse.py and demo/engine.cjs. A shelf with fewer than three works is hidden. 'Comedy Central' is a TV channel's trademark, so the comedy shelf is 'Laugh Riot'.",
+ "min_works": 3,
+ "shelves": [
+  {
+   "slug": "diamonds-in-the-rough",
+   "name": "Diamonds in the Rough",
+   "tagline": "Overlooked, under-hyped, worth it.",
+   "rule": {
+    "popularity_min": 3,
+    "any_tags": [
+     "complexity:intellectually-demanding",
+     "style:atmospheric",
+     "mood:wonder"
+    ],
+    "min_strength": 0.9,
+    "sort": "obscure"
+   }
+  },
+  {
+   "slug": "laugh-riot",
+   "name": "Laugh Riot",
+   "tagline": "Comedy, front and centre.",
+   "rule": {
+    "any_tags": [
+     "genre:comedy",
+     "mood:funny"
+    ],
+    "min_strength": 0.5,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "drama-mamas",
+   "name": "Drama Mamas",
+   "tagline": "Big feelings, beautifully made.",
+   "rule": {
+    "all_tags": [
+     "genre:drama"
+    ],
+    "any_tags": [
+     "mood:melancholic",
+     "mood:tense"
+    ],
+    "min_strength": 0.5,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "nepo-babies",
+   "name": "Nepo Babies",
+   "tagline": "Born into famous families: sequels, adaptations and spin-offs.",
+   "rule": {
+    "relation_child": [
+     "adaptation_of",
+     "sequel_of",
+     "remake_of",
+     "spin_off_of"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "binge-worthy",
+   "name": "Binge-Worthy",
+   "tagline": "Series that make 'one more episode' a lie.",
+   "rule": {
+    "media": [
+     "series"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "desi-delights",
+   "name": "Desi Delights",
+   "tagline": "From Bollywood to the south and beyond: Indian stories in Indian languages.",
+   "rule": {
+    "languages": [
+     "hi",
+     "ta",
+     "te",
+     "ml",
+     "kn",
+     "bn",
+     "mr",
+     "pa",
+     "ur"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "cops-and-robbers",
+   "name": "Cops & Robbers",
+   "tagline": "Heists, gangsters and the people chasing them.",
+   "rule": {
+    "any_tags": [
+     "genre:crime"
+    ],
+    "min_strength": 0.6,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "action-blockbusters",
+   "name": "Action Blockbusters",
+   "tagline": "Big screens, bigger set pieces.",
+   "rule": {
+    "media": [
+     "film",
+     "game"
+    ],
+    "any_tags": [
+     "genre:action",
+     "mood:exhilarating"
+    ],
+    "min_strength": 0.6,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "fright-club",
+   "name": "Fright Club",
+   "tagline": "The first rule: don't watch alone.",
+   "rule": {
+    "any_tags": [
+     "genre:horror",
+     "mood:unsettling"
+    ],
+    "min_strength": 0.6,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "brain-food",
+   "name": "Brain Food",
+   "tagline": "Stories that ask more of you, and give more back.",
+   "rule": {
+    "any_tags": [
+     "complexity:intellectually-demanding"
+    ],
+    "min_strength": 0.8,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "seoul-searching",
+   "name": "Seoul Searching",
+   "tagline": "Korean films, series and music.",
+   "rule": {
+    "languages": [
+     "ko"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "true-stories",
+   "name": "Based on a True Story",
+   "tagline": "Real lives and real events.",
+   "rule": {
+    "any_tags": [
+     "genre:biography",
+     "genre:documentary",
+     "genre:memoir"
+    ],
+    "min_strength": 0.6,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "mini-marathons",
+   "name": "Mini Marathons",
+   "tagline": "Whole series you can finish in a weekend or two.",
+   "rule": {
+    "media": [
+     "series"
+    ],
+    "max_minutes": 900,
+    "sort": "shortest"
+   }
+  },
+  {
+   "slug": "cosy-corner",
+   "name": "Cosy Corner",
+   "tagline": "Warm, gentle, safe to land in.",
+   "rule": {
+    "any_tags": [
+     "mood:comforting"
+    ],
+    "min_strength": 0.7,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "cry-me-a-river",
+   "name": "Cry Me a River",
+   "tagline": "Have the tissues ready.",
+   "rule": {
+    "any_tags": [
+     "mood:melancholic"
+    ],
+    "min_strength": 0.8,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "mind-benders",
+   "name": "Mind Benders",
+   "tagline": "Puzzle boxes, time loops and tricks of structure.",
+   "rule": {
+    "any_tags": [
+     "narrative:puzzle-box",
+     "narrative:time-loop",
+     "narrative:nonlinear"
+    ],
+    "min_strength": 0.7,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "world-builders",
+   "name": "World Builders",
+   "tagline": "Worlds you could get lost in.",
+   "rule": {
+    "any_tags": [
+     "world:rich-worldbuilding"
+    ],
+    "min_strength": 0.9,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "quick-bites",
+   "name": "Quick Bites",
+   "tagline": "Two hours or less, start to finish.",
+   "rule": {
+    "media": [
+     "film",
+     "book",
+     "game"
+    ],
+    "max_minutes": 120,
+    "sort": "shortest"
+   }
+  },
+  {
+   "slug": "slow-burners",
+   "name": "Slow Burners",
+   "tagline": "Patience, rewarded.",
+   "rule": {
+    "any_tags": [
+     "pacing:slow-burn"
+    ],
+    "min_strength": 0.8,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "page-turners",
+   "name": "Page Turners",
+   "tagline": "Books that won't let you stop.",
+   "rule": {
+    "media": [
+     "book"
+    ],
+    "any_tags": [
+     "mood:tense",
+     "pacing:brisk",
+     "genre:mystery"
+    ],
+    "min_strength": 0.5,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "side-quests",
+   "name": "Side Quests",
+   "tagline": "Games you can finish in a weekend or less.",
+   "rule": {
+    "media": [
+     "game"
+    ],
+    "max_minutes": 900,
+    "sort": "shortest"
+   }
+  },
+  {
+   "slug": "main-quests",
+   "name": "Main Quests",
+   "tagline": "Clear your calendar.",
+   "rule": {
+    "media": [
+     "game"
+    ],
+    "min_minutes": 1200,
+    "sort": "longest"
+   }
+  },
+  {
+   "slug": "lone-wolves",
+   "name": "Lone Wolves",
+   "tagline": "Standalone stories. No homework required.",
+   "rule": {
+    "continuity": [
+     "standalone"
+    ],
+    "popularity_max": 2,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "pack-animals",
+   "name": "Pack Animals",
+   "tagline": "Series, sequels and shared worlds.",
+   "rule": {
+    "continuity": [
+     "series",
+     "franchise"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "spin-cycle",
+   "name": "Spin Cycle",
+   "tagline": "Albums worth hearing start to finish.",
+   "rule": {
+    "media": [
+     "album"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "subtitles-welcome",
+   "name": "Subtitles Welcome",
+   "tagline": "Not in English, and all the better for it.",
+   "rule": {
+    "media": [
+     "film",
+     "series"
+    ],
+    "not_languages": [
+     "en"
+    ],
+    "popularity_max": 3,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "drawn-together",
+   "name": "Drawn Together",
+   "tagline": "Animation for grown-ups and everyone else.",
+   "rule": {
+    "any_tags": [
+     "genre:animation"
+    ],
+    "min_strength": 0.8,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "family-matinee",
+   "name": "Family Matinee",
+   "tagline": "Safe to press play with everyone on the sofa.",
+   "rule": {
+    "any_tags": [
+     "genre:family"
+    ],
+    "min_strength": 0.6,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "brain-gain",
+   "name": "Brain Gain",
+   "tagline": "Non-fiction that rewires how you see things.",
+   "rule": {
+    "media": [
+     "book"
+    ],
+    "any_tags": [
+     "genre:non-fiction",
+     "genre:popular-science",
+     "genre:memoir"
+    ],
+    "min_strength": 0.6,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "rap-sheet",
+   "name": "Rap Sheet",
+   "tagline": "Hip-hop albums with something to say.",
+   "rule": {
+    "media": [
+     "album"
+    ],
+    "any_tags": [
+     "genre:hip-hop"
+    ],
+    "min_strength": 0.7,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "head-bangers",
+   "name": "Head Bangers",
+   "tagline": "Loud guitars, louder feelings.",
+   "rule": {
+    "media": [
+     "album"
+    ],
+    "any_tags": [
+     "genre:rock",
+     "genre:metal",
+     "genre:punk",
+     "genre:indie-rock"
+    ],
+    "min_strength": 0.7,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "hush-hour",
+   "name": "Hush Hour",
+   "tagline": "Quiet music for late nights and deep work.",
+   "rule": {
+    "media": [
+     "album"
+    ],
+    "any_tags": [
+     "genre:ambient",
+     "genre:classical",
+     "genre:jazz"
+    ],
+    "min_strength": 0.6,
+    "sort": "strength"
+   }
+  },
+  {
+   "slug": "epic-quests",
+   "name": "Epic Quests",
+   "tagline": "Sweeping stakes, vast worlds, long journeys.",
+   "rule": {
+    "any_tags": [
+     "mood:epic"
+    ],
+    "min_strength": 0.7,
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "dark-laughs",
+   "name": "Gallows Humour",
+   "tagline": "Funny in all the wrong places.",
+   "rule": {
+    "any_tags": [
+     "mood:darkly-funny"
+    ],
+    "min_strength": 0.6,
+    "sort": "strength"
+   }
+  }
+ ],
+ "mood_rings": [
+  {
+   "slug": "golden-hour",
+   "name": "Golden Hour",
+   "tagline": "Bright, warm, hopeful.",
+   "tags": [
+    "mood:uplifting"
+   ]
+  },
+  {
+   "slug": "rainy-window",
+   "name": "Rainy Window",
+   "tagline": "Wistful and bittersweet.",
+   "tags": [
+    "mood:melancholic"
+   ]
+  },
+  {
+   "slug": "deep-focus",
+   "name": "Deep Focus",
+   "tagline": "Calm, spare, out of the way.",
+   "tags": [
+    "mood:contemplative",
+    "style:minimalist"
+   ]
+  },
+  {
+   "slug": "night-drive",
+   "name": "Night Drive",
+   "tagline": "Atmosphere for the long road.",
+   "tags": [
+    "style:atmospheric"
+   ]
+  },
+  {
+   "slug": "pulse-racers",
+   "name": "Pulse Racers",
+   "tagline": "Turn it up.",
+   "tags": [
+    "mood:exhilarating"
+   ]
+  }
+ ]
 }

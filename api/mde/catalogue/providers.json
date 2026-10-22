@@ -24,6 +24,20 @@
         {"id": "youtube", "name": "YouTube (rent or buy)", "url": "https://www.youtube.com/results?search_query={q}", "enc": "query", "q": "{title} {year} full movie"}
       ]
     },
+    "series": {
+      "verb": "Watch",
+      "default": "justwatch",
+      "providers": [
+        {"id": "justwatch", "name": "JustWatch (every service)", "url": "https://www.justwatch.com/{jw}/search?q={q}", "enc": "query", "q": "{title}"},
+        {"id": "netflix", "name": "Netflix", "url": "https://www.netflix.com/search?q={q}", "enc": "query", "q": "{title}"},
+        {"id": "prime-video", "name": "Prime Video", "url": "https://www.primevideo.com/search?phrase={q}", "enc": "query", "q": "{title}"},
+        {"id": "jiohotstar", "name": "JioHotstar", "url": "https://www.hotstar.com/in/explore?search_query={q}", "enc": "query", "q": "{title}", "regions": ["IN"]},
+        {"id": "disney-plus", "name": "Disney+", "url": "https://www.disneyplus.com/search?q={q}", "enc": "query", "q": "{title}", "regions": ["US", "GB", "CA", "AU"]},
+        {"id": "apple-tv", "name": "Apple TV", "url": "https://tv.apple.com/{cc}/search?term={q}", "enc": "query", "q": "{title}"},
+        {"id": "sonyliv", "name": "Sony LIV", "url": "https://www.sonyliv.com/search?searchTerm={q}", "enc": "query", "q": "{title}", "regions": ["IN"]},
+        {"id": "google-tv", "name": "Google TV / Play", "url": "https://play.google.com/store/search?q={q}&c=movies", "enc": "query", "q": "{title}"}
+      ]
+    },
     "album": {
       "verb": "Listen",
       "default": "spotify",

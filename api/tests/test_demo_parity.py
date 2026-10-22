@@ -10,6 +10,7 @@ from enrichment_fixture import FIXTURE
 
 from mde.catalogue.browse import load_shelves
 from mde.catalogue.memory import MemoryCatalogue
+from mde.catalogue.seedfiles import read_seed
 
 ROOT = Path(__file__).parent.parent.parent
 BENCHMARK = json.loads((ROOT / "api/benchmark/queries.json").read_text())
@@ -82,7 +83,7 @@ BROWSE_CASES = [
 ]
 
 
-SEED = json.loads((ROOT / "api/mde/seed/catalogue.json").read_text())
+SEED = read_seed()
 
 
 def _catalogue(enrichment):

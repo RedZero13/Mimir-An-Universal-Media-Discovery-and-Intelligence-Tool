@@ -15,7 +15,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import quote
 
-from mde.catalogue.model import RELATIONSHIP_TYPES, WorkProfile, normalise_title, severity, slugify
+from mde.catalogue.model import RELATIONSHIP_TYPES, WorkProfile, normalise_title, series_length_text, severity, slugify
 from mde.taxonomy import Taxonomy
 
 TAG_DIMENSIONS = ["genre", "theme", "mood", "pacing", "complexity", "narrative", "world", "style"]
@@ -46,6 +46,8 @@ def length_text(w: WorkProfile) -> str | None:
         return f"{approx}{w.runtime_minutes} min"
     if w.playtime_hours:
         return f"{approx}{w.playtime_hours:g} h"
+    if (series := series_length_text(w)) is not None:
+        return series
     return None
 
 
@@ -328,6 +330,8 @@ def time_investment(w: WorkProfile) -> dict | None:
         minutes, basis, estimate = w.runtime_minutes, "runtime", w.length_is_estimate
     elif w.playtime_hours:
         minutes, basis, estimate = w.length_minutes, "playtime", w.length_is_estimate
+    elif w.medium == "series" and w.length_minutes:
+        minutes, basis, estimate = w.length_minutes, "episodes", True
     elif w.medium == "book" and w.page_count:
         minutes, basis, estimate = round(w.page_count * READING_MINUTES_PER_PAGE), "pages", True
     elif w.medium == "book" and w.attributes.get("form") == "novella":
@@ -411,6 +415,10 @@ def _rich_card(w: WorkProfile, tax: Taxonomy, ctx: dict[str, dict]) -> dict:
 
 def _shelf_match(w: WorkProfile, rule: dict, ctx: dict[str, dict]) -> bool:
     if rule.get("media") and w.medium not in rule["media"]:
+        return False
+    if rule.get("languages") and w.language not in rule["languages"]:
+        return False
+    if rule.get("not_languages") and w.language in rule["not_languages"]:
         return False
     floor = rule.get("min_strength", 0.5)
     if rule.get("all_tags") and any(w.strength(t) < floor for t in rule["all_tags"]):

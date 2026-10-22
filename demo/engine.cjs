@@ -435,13 +435,14 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
   };
 
   const lengthMinutes = (w) =>
-    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : null;
+    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : seriesMinutes(w);
   const forMedium = (length, medium) => (has(length.per_medium, medium) ? length.per_medium[medium] : length.max_minutes);
 
   function lengthLabel(w) {
     const approx = w.length_is_estimate ? "about " : "";
     if (w.runtime_minutes !== null) return `${approx}${w.runtime_minutes} min`;
     if (w.playtime_hours !== null) return `${approx}${fmtG(w.playtime_hours)} hours to finish`;
+    if (seriesMinutes(w) !== null) return `${w.attributes.episodes} episodes of about ${fmtG(w.attributes.episode_minutes)} min`;
     return "length unknown";
   }
 
@@ -635,7 +636,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
     const approx = w.length_is_estimate ? "~" : "";
     if (w.runtime_minutes) return `${approx}${w.runtime_minutes} min`;
     if (w.playtime_hours) return `${approx}${fmtG(w.playtime_hours)} h`;
-    return null;
+    return seriesLengthText(w);
   }
 
   function headline(s, tax) {
@@ -703,7 +704,18 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
     remix_of: ["is a remix of", "was remixed as", true],
     spin_off_of: ["is a spin-off of", "spun off", true],
   };
-  const PRIMARY_ROLES = ["director", "author", "developer", "artist"];
+  const PRIMARY_ROLES = ["director", "creator", "author", "developer", "artist"];
+  const isInt = (v) => typeof v === "number" && Number.isInteger(v);
+  function seriesMinutes(w) {
+    if (w.medium !== "series") return null;
+    const eps = w.attributes.episodes, mins = w.attributes.episode_minutes;
+    return isInt(eps) && typeof mins === "number" ? pyRound(eps * mins) : null;
+  }
+  function seriesLengthText(w) {
+    if (w.medium !== "series" || !isInt(w.attributes.episodes)) return null;
+    const seasons = w.attributes.seasons, eps = w.attributes.episodes;
+    return isInt(seasons) ? `${seasons} season${seasons === 1 ? "" : "s"}, ${eps} ep` : `${eps} ep`;
+  }
   const ORGANISATION_ROLES = ["developer", "publisher", "studio", "label", "distributor"];
 
   function parseAdvisory(value) {
@@ -817,7 +829,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
   const strengthOf = (w, key) => (w.terms.has(key) ? w.terms.get(key).strength : 0.0);
   const decadeOf = (year) => Math.floor(year / 10) * 10;
   const lengthMinutesOf = (w) =>
-    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : null;
+    w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : seriesMinutes(w);
 
   function tagsOf(w, dimensions) {
     const found = [...w.terms].filter(([k, ev]) => dimensions.includes(k.split(":")[0]) && ev.strength >= TAG_THRESHOLD)
@@ -1050,6 +1062,7 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
       let minutes, basis, estimate;
       if (w.runtime_minutes) [minutes, basis, estimate] = [w.runtime_minutes, "runtime", w.length_is_estimate];
       else if (w.playtime_hours) [minutes, basis, estimate] = [lengthMinutesOf(w), "playtime", w.length_is_estimate];
+      else if (w.medium === "series" && lengthMinutesOf(w)) [minutes, basis, estimate] = [lengthMinutesOf(w), "episodes", true];
       else if (w.medium === "book" && w.page_count) [minutes, basis, estimate] = [pyRound(w.page_count * READING_MINUTES_PER_PAGE), "pages", true];
       else if (w.medium === "book" && w.attributes.form === "novella") [minutes, basis, estimate] = [NOVELLA_MINUTES, "form", true];
       else return null;
@@ -1115,6 +1128,8 @@ stories recommends recommend everyone people ambitious strong real deep lot`.spl
 
     function shelfMatch(w, rule, ctx) {
       if (rule.media && rule.media.length && !rule.media.includes(w.medium)) return false;
+      if (rule.languages && rule.languages.length && !rule.languages.includes(w.language)) return false;
+      if (rule.not_languages && rule.not_languages.length && rule.not_languages.includes(w.language)) return false;
       const floor = has(rule, "min_strength") ? rule.min_strength : 0.5;
       if (rule.all_tags && rule.all_tags.length && rule.all_tags.some((t) => strengthOf(w, t) < floor)) return false;
       if (rule.any_tags && rule.any_tags.length && rule.any_tags.every((t) => strengthOf(w, t) < floor)) return false;

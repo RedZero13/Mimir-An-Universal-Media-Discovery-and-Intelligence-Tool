@@ -15,7 +15,7 @@ import json
 import time
 from pathlib import Path
 
-from mde.catalogue.load import SEED_PATH
+from mde.catalogue.seedfiles import read_seed
 from mde.ingest import commons, links, tmdb
 from mde.ingest.http import Client, FetchError
 from mde.ingest.musicbrainz import LICENCE as MB_LICENCE
@@ -30,7 +30,7 @@ SOURCES = ("wikidata", "openlibrary", "musicbrainz", "tmdb")
 
 
 def _seed() -> list[dict]:
-    return json.loads(SEED_PATH.read_text())["works"]
+    return read_seed()["works"]
 
 
 def _conflicts(work: dict, facts: dict) -> list[dict]:
