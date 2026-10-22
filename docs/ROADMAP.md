@@ -17,6 +17,11 @@ Each item says why it matters, what "done" means, and what it depends on. Horizo
   diary, lists shared by link, "Up next" in series, stats, import from MAL, IMDb, Letterboxd and Goodreads,
   JSON and CSV export.
 - Open-data enrichment: Open Library (105 of 115 books), MusicBrainz (78 of 84 albums), Wikidata in progress.
+- Journal per work; Decide for me; the social calendar (22 programmes: Spooktober, 12 Days of Christmas, Diwali,
+  Pride Month, Noirvember …) with challenges you join and tick off.
+- Accounts and community in the API, with the site wired to it: sign-up and sign-in, library sync, public
+  reviews with likes and comments, follows and a feed, trending, published lists, challenge leaderboards,
+  reports, private profiles and account deletion. Live once the API is hosted (DEPLOY.md).
 
 ## Now: harden the beta
 
@@ -34,8 +39,11 @@ Each item says why it matters, what "done" means, and what it depends on. Horizo
 
 | Item | Why | Depends on |
 | --- | --- | --- |
-| Optional accounts and sync | A library that follows you across devices; today it lives in one browser | Hosting the API and Postgres (already built: `api/`) |
-| Public profiles and reviews | Parity with Letterboxd, Goodreads and MAL; reviews become a discovery signal | Accounts, moderation policy |
+| Host the community API | Accounts, sync, reviews and the feed are built; they need a server | Render blueprint in the repo; a hosting account |
+| Email verification and password reset | Safe sign-ups and account recovery | An email-sending service |
+| Moderation queue and community guidelines | Reports are stored; someone needs to act on them | Policy, a small admin view |
+| Notifications | "Someone replied", "your friend finished …", "Spooktober starts tomorrow" | Hosted API; push or email |
+| Reviews as a ranking signal | Let community scores and likes shape picks and trending | Enough reviews to be meaningful |
 | Availability feed | "On Netflix in India now" instead of a search link | Licensed partner (JustWatch, Reelgood or similar) |
 | Release calendar and alerts | New episode, volume, album or game for things on your list | Release data source; accounts for notifications |
 | Install as an app (PWA) | Home-screen icon, offline library, faster repeat visits | None |

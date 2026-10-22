@@ -6,7 +6,7 @@ listen.
 
 ## What's in it
 
-- **503 works**: 171 films, 67 TV series, 115 books, 66 games and 84 albums, from 28 original languages
+- **570 works**: 221 films, 74 TV series, 121 books, 68 games and 86 albums, from 28 original languages
   (including Hindi, Tamil, Telugu, Malayalam, Bengali, Korean, Japanese, Mandarin, Spanish, French and Arabic).
 - **128 tags** in a controlled vocabulary (genre, theme, mood, pacing, complexity, narrative, world, style), each
   with a definition, and a parents' guide in six categories that distinguishes "none" from "not assessed".
@@ -37,7 +37,15 @@ listen.
    (CSV) exports and matches them to the catalogue. Tell us which titles it couldn't find.
 8. **Make and share lists** across media (a reading order, a weekend marathon), and look at **Stats**: time spent,
    score spread, the themes and moods you gravitate to, and languages explored.
-9. **Check the parents' guide** on a few works you know well. Is the level right? Is anything "not assessed"
+9. **Can't choose?** **Discover → Decide for me**: pick a medium, how long you have, a feeling and who it's for,
+   and Mimir gives one pick with its reasons. "Not in the mood", "seen it" or "too long" picks again and learns.
+10. **The social calendar** (Community → Calendar & challenges): Spooktober (31 days from cosy to terrifying,
+   Halloween on Halloween night), 12 Days of Christmas, Mistletoe & Romcoms, Advent of Comfort, Valentine's Week,
+   Pride Month, Diwali Week, Lunar New Year, Noirvember, Sci-Fi Month, Nonfiction November and more. Join one and
+   tick off each day's pick.
+11. **Keep a journal** on any work page: a dated entry, a feeling, where you're up to, spoilers hidden. All
+   entries are under Library → Journal.
+12. **Check the parents' guide** on a few works you know well. Is the level right? Is anything "not assessed"
    that should be?
 
 ## What we want to hear

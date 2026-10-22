@@ -817,6 +817,7 @@ finish finished binge binged through will watching reading playing listening sta
             attribution: has(img, "attribution") ? img.attribution : null });
         }
         for (const sc of rec.scores || []) {
+          if (/^Q\d+$/.test(sc.publisher)) continue;   // a publisher Wikidata couldn't name (mirrors enrich.py)
           w.scores.push({ publisher: sc.publisher, metric: sc.metric, value: Number(sc.value), scale_max: Number(sc.scale_max),
             votes: has(sc, "votes") ? sc.votes : null, as_of: has(sc, "as_of") ? sc.as_of : null, source });
         }
@@ -1223,6 +1224,93 @@ finish finished binge binged through will watching reading playing listening sta
       return { slug: s.slug, name: s.name, tagline: s.tagline, total: hits.length, works: hits.map((w) => richCard(w, ctx)) };
     }
 
+    // ---------------------------------------------------------------- social calendar (catalogue/calendar.json)
+    // A programme is a dated window (fixed, a movable feast, or the nth weekday of a month) plus a shelf rule.
+    const iso = (d) => d.toISOString().slice(0, 10);
+    function programmeDates(p, spec, year) {
+      const w = p.when;
+      let start;
+      if (w.start) { const [m, d] = w.start.split("-").map(Number); start = new Date(Date.UTC(year, m - 1, d)); }
+      else if (w.movable) {
+        const md = ((spec.movable || {})[w.movable] || {})[String(year)];
+        if (!md) return null;   // no date on file for that year
+        const [m, d] = md.split("-").map(Number);
+        start = new Date(Date.UTC(year, m - 1, d + (w.offset || 0)));
+      } else if (w.nth) {
+        const first = new Date(Date.UTC(year, w.nth.month - 1, 1));
+        const shift = (w.nth.weekday - first.getUTCDay() + 7) % 7;
+        start = new Date(Date.UTC(year, w.nth.month - 1, 1 + shift + 7 * (w.nth.n - 1) + (w.offset || 0)));
+      } else return null;
+      const end = new Date(start.getTime() + (w.days - 1) * 86400000);
+      return { start: iso(start), end: iso(end), days: w.days };
+    }
+
+    // How intense a work is, for "gentle" ordering: scares, violence and gore (unassessed counts as middling).
+    function intensity(w) {
+      return ["advisory:jump-scares", "advisory:graphic-violence", "advisory:body-horror"].reduce((a, k) => {
+        const ev = w.terms.get(k);
+        return a + (ev ? ev.strength : 0.5);
+      }, 0);
+    }
+
+    function programmePicks(works, p, ctx) {
+      const rule = p.rule;
+      const tags = [...(rule.any_tags || []), ...(rule.all_tags || [])];
+      const fit = (w) => (tags.length ? Math.max(...tags.map((t) => strengthOf(w, t))) : 0.5)
+        + 0.5 * (p.prefer_tags || []).reduce((a, t) => a + strengthOf(w, t), 0) - 0.04 * ((w.popularity_tier || 5) - 1);
+      // Editorial exclusions: tags at or above exclude_min (default 0.6), or named works.
+      const excluded = (w) => (p.exclude_slugs || []).includes(w.slug)
+        || (p.exclude_tags || []).some((t) => strengthOf(w, t) >= (has(p, "exclude_min") ? p.exclude_min : 0.6));
+      const pool = (media) => works.filter((w) => shelfMatch(w, { ...rule, media }, ctx) && !excluded(w));
+      let hits = pool(rule.media || []);
+      if (rule.media && rule.media.length && hits.length < p.when.days && p.fallback_media) {
+        const extra = pool(p.fallback_media).sort((a, b) => cmp([-fit(a), normaliseTitle(a.title)], [-fit(b), normaliseTitle(b.title)]));
+        hits = [...hits, ...extra.slice(0, p.when.days - hits.length)];
+      }
+      const key = { strength: (w) => [-fit(w), w.popularity_tier || 5, normaliseTitle(w.title)],
+        popular: (w) => [w.popularity_tier || 5, -fit(w), normaliseTitle(w.title)],
+        chronological: (w) => [w.year || 9999, normaliseTitle(w.title)],
+        gentle: (w) => [intensity(w), normaliseTitle(w.title)] }[p.order] || ((w) => [-fit(w), normaliseTitle(w.title)]);
+      // Choose the strongest matches first, at most two per creator, then put them in the programme's order.
+      const chosen = [], perCreator = new Map();
+      for (const w of [...hits].sort((a, b) => cmp([-fit(a), w2t(a)], [-fit(b), w2t(b)]))) {
+        const c = w.creators[0] || w.slug;
+        if ((perCreator.get(c) || 0) >= 2) continue;
+        perCreator.set(c, (perCreator.get(c) || 0) + 1);
+        chosen.push(w);
+        if (chosen.length >= p.when.days) break;
+      }
+      chosen.sort((a, b) => cmp(key(a), key(b)));
+      // A named finale (Halloween on Halloween night) takes the last day if it qualified.
+      const fin = p.finale_slug ? chosen.findIndex((w) => w.slug === p.finale_slug) : -1;
+      if (fin >= 0) chosen.push(...chosen.splice(fin, 1));
+      return { picks: chosen, matches: hits.length };
+    }
+    const w2t = (w) => normaliseTitle(w.title);
+
+    function calendar(works, spec, year) {
+      return spec.programmes.map((p) => {
+        const dates = programmeDates(p, spec, year);
+        return dates && { slug: p.slug, name: p.name, kind: p.kind, tagline: p.tagline, ...dates };
+      }).filter(Boolean).sort((a, b) => cmp([a.start, a.name], [b.start, b.name]));
+    }
+
+    function programme(works, spec, slug, year) {
+      const p = spec.programmes.find((x) => x.slug === slug);
+      if (!p) return null;
+      const dates = programmeDates(p, spec, year);
+      if (!dates) return null;
+      const ctx = context(works);
+      const { picks, matches } = programmePicks(works, p, ctx);
+      const n = picks.length, startMs = Date.parse(dates.start + "T00:00:00Z");
+      // One a day when there are enough; otherwise spread across the window, keeping the last day for the finale.
+      const dayOf = (i) => (n >= p.when.days || n < 2 ? i + 1 : Math.round(1 + (i * (p.when.days - 1)) / (n - 1)));
+      const tagKeys = [...(p.rule.any_tags || []), ...(p.rule.all_tags || []), ...(p.prefer_tags || [])];
+      return { slug: p.slug, name: p.name, kind: p.kind, tagline: p.tagline, finale: p.finale || null, ...dates, matches,
+        picks: picks.map((w, i) => ({ day: dayOf(i), date: iso(new Date(startMs + (dayOf(i) - 1) * 86400000)),
+          why: tagKeys.filter((k) => strengthOf(w, k) >= 0.5).map((k) => tax.get(k).label), work: richCard(w, ctx) })) };
+    }
+
     function groupsIndex(works) {
       const seen = new Map();
       for (const w of works) {
@@ -1337,7 +1425,7 @@ finish finished binge binged through will watching reading playing listening sta
       return out;
     }
 
-    return { browse, tagIndex, tagPage, peopleIndex, personPage, workPage, shelves, shelf, groupsIndex, groupPage,
+    return { browse, tagIndex, tagPage, peopleIndex, personPage, workPage, shelves, shelf, groupsIndex, groupPage, calendar, programme,
       moodRings, remixRack, recommend, timeInvestment, continuity, context, richCard };
   }
 
@@ -1388,7 +1476,7 @@ finish finished binge binged through will watching reading playing listening sta
     return { medium: item.medium, verb: media.verb, region, default: dflt, providers: out };
   }
 
-  function createCatalogue(data, taxonomyData, enrichment = {}, shelfSpec = { shelves: [], mood_rings: [] }, providerSpec = null) {
+  function createCatalogue(data, taxonomyData, enrichment = {}, shelfSpec = { shelves: [], mood_rings: [] }, providerSpec = null, calendarSpec = { programmes: [] }) {
     const tax = parseTaxonomy(taxonomyData);
     const d = { genre_confidence: 0.9, term_confidence: 0.7, advisory_confidence: 0.75, ...(data.defaults || {}) };
     const works = new Map();
@@ -1487,6 +1575,8 @@ finish finished binge binged through will watching reading playing listening sta
       moodRings: () => views.moodRings(list, shelfSpec),
       remixRack: () => views.remixRack(list),
       recommend: (ratings, limit = 12, medium = null) => views.recommend(list, ratings, limit, medium),
+      calendar: (year) => views.calendar(list, calendarSpec, year),
+      programme: (slug, year) => views.programme(list, calendarSpec, slug, year),
       where: (slug, region) => { const w = list.find((x) => x.slug === slug); return w && providerSpec ? whereFor(itemOf(w), region, providerSpec) : null; },
       whereFor: (item, region) => (providerSpec ? whereFor(item, region, providerSpec) : null),
       regions: () => (providerSpec ? Object.entries(providerSpec.regions).map(([code, r]) => ({ code, name: r.name })) : []),
