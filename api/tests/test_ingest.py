@@ -157,5 +157,17 @@ def test_openlibrary_author_accents_and_native_scripts():
     assert openlibrary.best_doc(bronte, "Jane Eyre", "Someone Else", 1847)[0] is None
 
 
+def test_musicbrainz_matches_despite_punctuation():
+    def g(title, artist, first="1971-05-20"):
+        return {"id": title, "title": title, "primary-type": "Album", "first-release-date": first, "artist-credit": [{"name": artist}]}
+    assert musicbrainz.best_release_group([g("What\u2019s Going On", "Marvin Gaye")], "What's Going On", "Marvin Gaye", 1971)
+    assert musicbrainz.best_release_group([g("Purple Rain", "Prince & The Revolution", "1984")], "Purple Rain", "Prince and the Revolution", 1984)
+    assert musicbrainz.best_release_group([g("The Blueprint", "JAY\u2010Z", "2001")], "The Blueprint", "Jay-Z", 2001)
+    assert musicbrainz.best_release_group([g("Purple Rain", "Someone Else", "1984")], "Purple Rain", "Prince", 1984) is None
+    split = g("Purple Rain", "Prince", "1984")
+    split["artist-credit"] = [{"name": "Prince", "joinphrase": " and "}, {"name": "The Revolution"}]
+    assert musicbrainz.best_release_group([split], "Purple Rain", "Prince and the Revolution", 1984)
+
+
 def test_musicbrainz_query_escaping():
     assert musicbrainz.lucene("Godspeed You! Black Emperor") == "Godspeed You\\! Black Emperor"

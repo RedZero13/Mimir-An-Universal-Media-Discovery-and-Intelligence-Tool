@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 
-from mde.catalogue.model import normalise_title
 from mde.ingest.http import Client
 
 WS = "https://musicbrainz.org/ws/2"
@@ -16,13 +16,21 @@ def lucene(text: str) -> str:
     return re.sub(r'([+\-&|!(){}\[\]^"~*?:\\/])', r"\\\1", text)
 
 
+def _key(text: str) -> str:
+    """Comparison key that ignores case, accents, punctuation (’ vs ', ‐ vs -), "&" vs "and" and a leading article."""
+    text = "".join(c for c in unicodedata.normalize("NFKD", text) if not unicodedata.combining(c)).lower()
+    text = re.sub(r"^(the|a|an)\s+", "", text.replace("&", " and ").strip())
+    return re.sub(r"[\W_]", "", text)
+
+
 def best_release_group(groups: list[dict], title: str | list[str], artist: str | None, year: int | None) -> dict | None:
-    wants = {normalise_title(t) for t in ([title] if isinstance(title, str) else title)}
+    wants = {_key(t) for t in ([title] if isinstance(title, str) else title)}
     for g in groups:
-        if normalise_title(g.get("title", "")) not in wants or g.get("primary-type") not in ("Album", "EP"):
+        if _key(g.get("title", "")) not in wants or g.get("primary-type") not in ("Album", "EP"):
             continue
-        credit = " ".join(a.get("name", "") for a in g.get("artist-credit", []) if isinstance(a, dict))
-        if artist and normalise_title(artist) not in normalise_title(credit):
+        # Joined as credited ("Prince" + " and " + "The Revolution"), so multi-artist credits compare whole.
+        credit = "".join(a.get("name", "") + a.get("joinphrase", " ") for a in g.get("artist-credit", []) if isinstance(a, dict))
+        if artist and _key(artist) not in _key(credit):
             continue
         first = (g.get("first-release-date") or "")[:4]
         if year and first.isdigit() and abs(int(first) - year) > 1:
