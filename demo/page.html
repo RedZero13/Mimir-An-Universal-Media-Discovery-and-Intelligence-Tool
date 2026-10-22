@@ -376,6 +376,7 @@ a.letter { color: var(--muted); text-decoration: none; }
 /* ---------------------------------------------------------------- home: main column + rankings rail */
 .home { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; margin-top: 8px; align-items: start; }
 .home-main { min-width: 0; }
+.rank-row.rail-spare { display: none; }
 .rail { display: grid; gap: 22px; align-content: start; padding-top: 28px; }
 .rail-box { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 0 14px 6px; }
 .rail-head { display: flex; justify-content: space-between; align-items: baseline; margin: 0 -14px; padding: 10px 14px; background: var(--surface-2); border-bottom: 1px solid var(--line-strong); border-radius: 6px 6px 0 0; }
@@ -1196,13 +1197,23 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   // The rankings rail is taller than the opening shelves: move full-width shelves up beside it until the columns
   // match, so the page never shows an empty column. Only when the rail actually sits beside the main column.
+  // Whole shelves are too coarse to match exactly, so the rail then shows spare ranking rows, one at a time across
+  // its boxes, until the two columns end within a row of each other.
   function balanceHome() {
     const main = app.querySelector(".home-main"), rail = app.querySelector(".home > .rail");
     if (!main || !rail || rail.offsetTop > main.offsetTop + 40) return;
-    const below = [...app.querySelectorAll(":scope > section.shelf")];
-    for (const sec of below) {
+    for (const sec of app.querySelectorAll(":scope > section.shelf")) {
       if (main.offsetHeight + sec.offsetHeight / 2 > rail.offsetHeight) break;
       main.appendChild(sec);
+    }
+    const spares = [...rail.querySelectorAll(".rank-row.rail-spare")];
+    const byBox = [...rail.querySelectorAll(".ranks")].map((ol) => spares.filter((x) => x.parentElement === ol));
+    for (let round = 0, shown = true; shown && main.offsetHeight - rail.offsetHeight > 60; round++) {
+      shown = false;
+      for (const list of byBox) {
+        if (main.offsetHeight - rail.offsetHeight <= 60) break;
+        if (list[round]) { list[round].classList.remove("rail-spare"); shown = true; }
+      }
     }
   }
 
@@ -1460,8 +1471,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   }
 
   function sideRail() {
-    const box = (title, medium) => `<section class="rail-box"><header class="rail-head"><h2>${esc(title)}</h2><a href="#top-${medium}">More</a></header><ol class="ranks">${topList(medium).map((w, i) => rankRow(w, i, true)).join("")}</ol></section>`;
-    return `<aside class="rail" aria-label="Rankings">${box("Top films", "film")}${box("Top books", "book")}${box("Top games", "game")}${box("Top albums", "album")}</aside>`;
+    // Five per box; the rest are spare rows the page reveals to keep the rail level with the main column.
+    const box = (title, medium) => `<section class="rail-box"><header class="rail-head"><h2>${esc(title)}</h2><a href="#top-${medium}">More</a></header><ol class="ranks">${topList(medium, 9).map((w, i) => rankRow(w, i, true).replace('<li class="rank-row', `<li class="rank-row${i >= 5 ? " rail-spare" : ""}`)).join("")}</ol></section>`;
+    return `<aside class="rail" aria-label="Rankings">${box("Top films", "film")}${box("Top TV", "series")}${box("Top books", "book")}${box("Top games", "game")}${box("Top albums", "album")}</aside>`;
   }
 
   function renderShelves() {
