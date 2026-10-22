@@ -76,7 +76,7 @@ def load_profiles(conn: psycopg.Connection) -> list[WorkProfile]:
     for r in conn.execute(
         "SELECT r.from_work_id::text AS a, r.to_work_id::text AS b, r.type, r.note, r.confidence, r.origin, "
         "rt.label, rt.inverse, rt.factual FROM relationship r JOIN relationship_type rt ON rt.slug = r.type "
-        "WHERE r.review_status <> 'rejected' AND NOT r.is_spoiler"
+        "WHERE r.review_status <> 'rejected' AND NOT r.is_spoiler ORDER BY r.id"   # seed order, as in memory
     ).fetchall():
         a, b = works[r["a"]], works[r["b"]]
         a.relations.append(Relation(b.slug, b.title, b.medium, r["type"], r["label"], r["note"], r["confidence"],
