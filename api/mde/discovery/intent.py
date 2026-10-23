@@ -81,7 +81,8 @@ MEDIUM_WORDS = {
     "album": ["album", "albums", "record", "records", "music", "something to listen to", "listen to", "listening"],
     "series": ["tv show", "tv shows", "tv series", "series", "show to watch", "miniseries", "mini-series", "limited series",
                "web series", "k-drama", "k-dramas", "kdrama", "kdramas", "to binge", "binge-watch", "binge watch",
-               "something to binge", "a show", "the show", "shows", "a tv", "on tv", "an anime", "anime series", "a sitcom", "a drama series", "episodes"],
+               "something to binge", "a show", "the show", "shows", "a tv", "on tv", "an anime", "anime series", "a sitcom",
+               "a drama series", "episodes"],
 }
 WATCH_WORDS = ["to watch", "watch tonight", "something to watch", "watch"]  # → screen media
 
