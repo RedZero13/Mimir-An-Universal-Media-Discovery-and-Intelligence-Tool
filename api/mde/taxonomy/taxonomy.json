@@ -854,7 +854,16 @@
         "tear-jerker",
         "weepy",
         "make me cry",
-        "made me cry"
+        "made me cry",
+        "cry",
+        "crying",
+        "sob",
+        "sad",
+        "heartbreaking",
+        "heart-breaking",
+        "weep",
+        "tissues",
+        "emotional"
       ]
     },
     {
@@ -879,7 +888,15 @@
         "rough day",
         "bad day",
         "relaxing",
-        "calm"
+        "calm",
+        "chill",
+        "unwind",
+        "comfort watch",
+        "comfort show",
+        "comfort read",
+        "comfort food",
+        "happy place",
+        "light watch"
       ]
     },
     {
@@ -895,7 +912,11 @@
         "suspenseful",
         "nail-biting",
         "gripping",
-        "edge of my seat"
+        "edge of my seat",
+        "on the edge of my seat",
+        "heart-pounding",
+        "heart pounding",
+        "nerve-wracking"
       ]
     },
     {
@@ -928,7 +949,13 @@
         "hopeful",
         "optimistic",
         "inspiring",
-        "joyful"
+        "joyful",
+        "motivating",
+        "motivational",
+        "happy",
+        "make me happy",
+        "pick me up",
+        "pick-me-up"
       ]
     },
     {
@@ -989,7 +1016,11 @@
         "high energy",
         "high-energy",
         "intense action",
-        "pumped"
+        "pumped",
+        "action-packed",
+        "action packed",
+        "adrenaline rush",
+        "blockbuster"
       ]
     },
     {
@@ -1020,7 +1051,24 @@
       "synonyms": [
         "funny",
         "hilarious",
-        "laugh"
+        "laugh",
+        "die laughing",
+        "dying of laughter",
+        "laughing",
+        "laughs",
+        "make me laugh",
+        "made me laugh",
+        "crack me up",
+        "cracks me up",
+        "laugh out loud",
+        "lol",
+        "in stitches",
+        "witty",
+        "silly",
+        "goofy",
+        "sidesplitting",
+        "side-splitting",
+        "comedy fix"
       ]
     },
     {
