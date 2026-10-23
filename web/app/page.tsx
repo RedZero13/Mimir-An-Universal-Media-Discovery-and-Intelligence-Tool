@@ -23,7 +23,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
         <section className="hero">
           <p className="eyebrow">The well beneath the tree</p>
           <h1>
-            Drawn from the well of <em>every story.</em>
+            Find what to watch, read, play or listen to <em>next.</em>
           </h1>
           <p>
             Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, books, games and music that fit,

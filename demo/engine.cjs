@@ -55,13 +55,20 @@ const MDE = (() => {
   const capitalize = (s) => (s ? s[0].toUpperCase() + s.slice(1).toLowerCase() : s);
   const fmtG = (n) => String(Number(n)); // Python's :g for the values we format
 
+  // Memoised: titles and names are slugified for every card the page draws.
+  const slugCache = new Map();
   function slugify(text) {
-    return text
-      .normalize("NFKD")
-      .replace(/[^\x00-\x7f]/g, "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+    let slug = slugCache.get(text);
+    if (slug === undefined) {
+      slug = text
+        .normalize("NFKD")
+        .replace(/[^\x00-\x7f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      slugCache.set(text, slug);
+    }
+    return slug;
   }
   const normaliseTitle = (t) => slugify(t).replace(/^(the|a|an)-/, "");
 
@@ -184,9 +191,16 @@ finish finished binge binged through will watching reading playing listening sta
 
   function createParser(tax, resolveTitle) {
     resolveTitle = resolveTitle || (() => null);
-    const synonyms = [];
-    for (const t of tax.terms.values()) for (const syn of t.synonyms) synonyms.push([syn, t.key, phraseRe(syn, true)]);
-    synonyms.sort((a, b) => b[0].length - a[0].length);
+    // Built on the first query rather than at start-up: compiling ~700 regexes is the page's costliest set-up step.
+    let synonymList = null;
+    const synonymsOf = () => {
+      if (!synonymList) {
+        synonymList = [];
+        for (const t of tax.terms.values()) for (const syn of t.synonyms) synonymList.push([syn, t.key, phraseRe(syn, true)]);
+        synonymList.sort((a, b) => b[0].length - a[0].length);
+      }
+      return synonymList;
+    };
 
     function extractReference(text, intent) {
       const quoted = text.match(/["“]([^"”]{2,80})["”]/);
@@ -374,7 +388,7 @@ finish finished binge binged through will watching reading playing listening sta
         // practice, so the two agree.
         const taken = new Array(clause.length).fill(false);
         const matches = [];
-        for (const [syn, key, pattern] of synonyms) {
+        for (const [syn, key, pattern] of synonymsOf()) {
           if (!clause.includes(syn)) continue;   // cheap pre-check: a match needs the literal phrase
           pattern.lastIndex = 0;
           for (const m of clause.matchAll(pattern)) {
@@ -1110,8 +1124,23 @@ finish finished binge binged through will watching reading playing listening sta
     const isForward = (r) => r.label === RELATIONSHIP_TYPES[r.type][0];
     const positionKey = (p) => (p !== null && p !== undefined && /^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$/.test(p) ? Number(p) : 1e9);
 
+    // Lookups shared by every continuity() call on the same list (otherwise each card would rescan the catalogue).
+    const slugIndexCache = new WeakMap(), groupIndexCache = new WeakMap();
+    const slugIndex = (works) => {
+      if (!slugIndexCache.has(works)) slugIndexCache.set(works, new Map(works.map((x) => [x.slug, x])));
+      return slugIndexCache.get(works);
+    };
+    const groupIndex = (works) => {
+      if (!groupIndexCache.has(works)) {
+        const idx = new Map();
+        for (const x of works) for (const slug of new Set(x.groups.map((xg) => xg.slug))) (idx.get(slug) || idx.set(slug, []).get(slug)).push(x);
+        groupIndexCache.set(works, idx);
+      }
+      return groupIndexCache.get(works);
+    };
+
     function continuity(w, works) {
-      const bySlug = new Map(works.map((x) => [x.slug, x]));
+      const bySlug = slugIndex(works);
       const ref = (r) => ({ slug: r.other_slug, title: r.other_title, medium: r.other_medium });
       const out = { kind: "standalone", group: null, position: null, members: [],
         adapted_from: w.relations.filter((r) => r.type === "adaptation_of" && isForward(r)).map(ref),
@@ -1119,7 +1148,7 @@ finish finished binge binged through will watching reading playing listening sta
       let series = null;
       if (w.groups.length) {
         const g = w.groups[0];
-        const members = works.filter((x) => x.groups.some((xg) => xg.slug === g.slug));
+        const members = (groupIndex(works).get(g.slug) || []).slice();
         const pos = new Map(members.map((x) => [x.slug, x.groups.find((xg) => xg.slug === g.slug).position]));
         members.sort((a, b) => cmp([positionKey(pos.get(a.slug)), a.year || 9999, normaliseTitle(a.title)],
           [positionKey(pos.get(b.slug)), b.year || 9999, normaliseTitle(b.title)]));
