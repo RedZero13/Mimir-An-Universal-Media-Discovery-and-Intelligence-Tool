@@ -12,7 +12,7 @@
 /* Layout: one column that breathes (Terratales Vol. II: hairline gold rules divide, not boxes). Reading views
    hold a 720px measure; catalogue views widen to 1080px. Night ground, gold structure, parchment text. */
 /* The night palette is also kept inside "dark islands" (mood-tinted heroes, rings and cover badges) in light mode. */
-:root, .work-hero, .spot-light, .ring-chip, .badge {
+:root, .work-hero, .spot-light, .ring-chip, .ring, .badge {
   /* Terratales Brand Guidelines Vol. II, §09 Colour: fixed values */
   --void: #0B0B0C; --black: #131315; --surface: #1A1813; --surface-2: #23211C;
   --gold: #C0902F; --gold-bright: #D8B24A; --gold-deep: #8A6A18; --cream: #D8C084;
@@ -39,6 +39,8 @@
   color-scheme: light;
 }
 :root[data-theme="light"] .mine-n { color: #F6F0E2; }
+/* Dark islands re-declare the palette; their text must take the island's ink, not the light page's. */
+:root[data-theme="light"] :is(.work-hero, .spot-light, .ring-chip, .ring) { color: var(--ink); }
 :root[data-theme="light"] .menubar { background: linear-gradient(180deg, #F6F0E2, #E8DCC0); box-shadow: 0 6px 18px rgba(110, 90, 40, .14); }
 * { box-sizing: border-box; }
 html { background: var(--black); }
@@ -117,7 +119,10 @@ a.btn { display: inline-flex; align-items: center; justify-content: center; text
 }
 .examples button:hover { border-color: var(--gold); color: var(--bone); }
 
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; margin-top: 56px; padding-block: 36px; border-top: 1px solid var(--line); }
+.steps p { margin: 0; }
+/* When the steps end the page, the footer's rule closes them, so the band sits centred between two lines. */
+main:has(> .steps:last-child) + .foot, #app:has(> .steps:last-child) + .foot { margin-top: 0; }
 .steps .num { font: 600 13px var(--f-display); letter-spacing: .3em; color: var(--gold); }
 .steps h3 { font-size: 1.5rem; margin: 8px 0 6px; }
 .steps p { color: var(--muted); font-size: .95rem; }
@@ -626,6 +631,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .yir-records { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .yir-records li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; } .yir-records li > span:first-child { min-width: 64px; font: 600 .7rem var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 @media (max-width: 640px) { .yir-hero { grid-template-columns: 1fr; } .yir-hero > div:first-child { max-width: 140px; } }
+.industry-chips { margin: 10px 0 0; align-items: center; } .industry-chips .tchip.on { background: var(--gold-deep); color: var(--surface); border-color: var(--gold-deep); }
 .hub-links { list-style: none; margin: 18px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .hub-links a { display: inline-block; padding: 9px 14px; border: 1px solid var(--line-strong); border-radius: 99px; color: var(--ink); text-decoration: none; font-size: .86rem; background: var(--surface); }
 .hub-links a:hover { border-color: var(--gold); color: var(--gold-bright); }
@@ -1326,7 +1332,16 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   const MAKER = { film: "Directors", series: "Creators", book: "Authors", game: "Developers & studios", album: "Artists", all: "People & studios" };
   const CREATOR_ROLE = { film: "Director", series: "Created by", book: "Author", game: "Developer", album: "Artist" };
   const SORTS = [["popular", "Best known"], ["score", "Highest scored"], ["title", "Title A–Z"], ["newest", "Newest"], ["oldest", "Oldest"], ["shortest", "Shortest"]];
-  const blankSearch = (medium = "all") => ({ medium, q: "", letter: "", tags: [], exclude: [], avoid: [], sort: "popular",
+  // Film and TV industries, by country of production (ISO codes on each work).
+  const INDUSTRIES = [
+    ["hollywood", "Hollywood & North America", ["US", "CA"]], ["india", "India", ["IN"]], ["uk", "UK & Ireland", ["GB", "IE"]],
+    ["japan", "Japan", ["JP"]], ["korea", "Korea", ["KR"]], ["china", "China, Hong Kong & Taiwan", ["CN", "HK", "TW"]],
+    ["france", "France", ["FR"]], ["europe", "Rest of Europe", ["DE", "ES", "IT", "SE", "DK", "NO", "FI", "IS", "NL", "BE", "PL", "AT", "CH", "PT", "GR", "CZ", "HU", "RO", "SU", "RU"]],
+    ["latam", "Latin America", ["MX", "AR", "BR", "CO", "CL", "PE", "CU"]], ["oceania", "Australia & New Zealand", ["AU", "NZ"]],
+    ["mena-africa", "Middle East & Africa", ["IR", "LB", "IL", "TR", "EG", "NG", "ZA", "SA", "AE", "KE", "MA", "SN"]],
+  ];
+  const inIndustry = (w, key) => { const ind = INDUSTRIES.find(([k]) => k === key); const wk = ind && cat.work(w.slug); return !!(wk && (wk.countries || []).some((c) => ind[2].includes(c))); };
+  const blankSearch = (medium = "all") => ({ medium, q: "", letter: "", tags: [], exclude: [], avoid: [], sort: "popular", industry: "",
     year_min: null, year_max: null, max_minutes: null, rating: "", view: "tiles", adv: false, list: false, shown: 48 });
   let search = blankSearch();
 
@@ -1342,6 +1357,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     if (s.year_max !== null) p.set("to", s.year_max);
     if (s.max_minutes !== null) p.set("max", s.max_minutes);
     if (s.rating) p.set("rating", s.rating);
+    if (s.industry) p.set("ind", s.industry);
     if (s.view !== "tiles") p.set("view", s.view);
     if (s.adv) p.set("adv", "1");
     if (s.list) p.set("list", "1");
@@ -1355,7 +1371,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       tags: p.getAll("tag").filter(known), exclude: p.getAll("x").filter(known),
       avoid: p.getAll("avoid").filter((k) => k.startsWith("advisory:") && known(k)),
       sort: SORTS.some(([v]) => v === p.get("sort")) ? p.get("sort") : "popular",
-      year_min: num("from"), year_max: num("to"), max_minutes: num("max"), rating: p.get("rating") || "",
+      year_min: num("from"), year_max: num("to"), max_minutes: num("max"), rating: p.get("rating") || "", industry: INDUSTRIES.some(([k]) => k === p.get("ind")) ? p.get("ind") : "",
       view: p.get("view") === "grid" ? "grid" : "tiles", adv: p.get("adv") === "1", list: p.get("list") === "1" };
   }
   const hrefSearch = (medium, patch = {}) => `#${searchHash({ ...blankSearch(medium), ...patch })}`;
@@ -1370,6 +1386,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     let works = r.results;
     if (s.letter) works = works.filter((w) => initial(w.title) === s.letter);
     if (s.rating) works = works.filter((w) => w.ratings.some((x) => x.rating === s.rating));
+    if (s.industry) works = works.filter((w) => inIndustry(w, s.industry));
     if (s.sort === "score") works = [...works].sort((a, b) => scoreNorm(b) - scoreNorm(a));
     return works;
   }
@@ -1417,6 +1434,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <header class="sec-head"><h2>Filters</h2></header>
         <div class="adv-grid">
           <label for="s-rating">Rated</label><select id="s-rating" data-s-field="rating"><option value="">Any rating</option>${ratings.map((r) => `<option ${s.rating === r ? "selected" : ""}>${esc(r)}</option>`).join("")}</select>
+          ${["film", "series", "all"].includes(s.medium) ? `<label for="s-ind">Made in</label><select id="s-ind" data-s-field="industry"><option value="">Any industry</option>${INDUSTRIES.map(([k, l]) => `<option value="${k}" ${s.industry === k ? "selected" : ""}>${esc(l)}</option>`).join("")}</select>` : ""}
           <label for="s-from">Released from</label><span class="pair"><select id="s-from" data-s-field="year_min">${yOpts(s.year_min)}</select> to <select aria-label="Released up to" data-s-field="year_max">${[`<option value="">Any</option>`, ...[...new Set(years.map((y) => Math.floor(y / 10) * 10 + 9))].sort().map((y) => `<option value="${y}" ${s.year_max === y ? "selected" : ""}>${y}</option>`)].join("")}</select></span>
           <label for="s-max">Time</label><select id="s-max" data-s-field="max_minutes">${[["", "Any length"], ["45", "Quick bite (under 45 min)"], ["150", "One sitting (2½ h)"], ["360", "An evening or two (6 h)"], ["900", "A weekend (15 h)"], ["2400", "A season (40 h)"]].map(([v, l]) => `<option value="${v}" ${String(s.max_minutes ?? "") === v ? "selected" : ""}>${l}</option>`).join("")}</select>
           <label for="s-sort2">Sort</label><select id="s-sort2" data-s-field="sort">${SORTS.map(([v, l]) => `<option value="${v}" ${s.sort === v ? "selected" : ""}>${l}</option>`).join("")}</select>
@@ -1464,11 +1482,11 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const s = search;
     const d = directoryFor(s.medium);
     const filtered = s.list || s.q || s.letter || s.tags.length || s.exclude.length || s.avoid.length || s.year_min !== null || s.year_max !== null
-      || s.max_minutes !== null || s.rating || s.sort !== "popular";
+      || s.max_minutes !== null || s.rating || s.industry || s.sort !== "popular";
     const plural = PLURAL[s.medium];
     const single = s.tags.length === 1 && !s.exclude.length && !s.q && !s.letter ? cat.taxonomy.get(s.tags[0]) : null;
     const heading = single ? `${single.label} ${s.medium === "all" ? "" : plural.toLowerCase()}`.trim()
-      : s.letter ? `${plural}: ${s.letter}` : s.q ? `${plural} matching "${s.q}"` : s.list && !s.tags.length && !s.exclude.length ? `All ${plural.toLowerCase()}` : filtered ? `${plural}, filtered` : `${s.medium === "all" ? "Catalogue" : mediumLabel(s.medium)} search`;
+      : s.letter ? `${plural}: ${s.letter}` : s.q ? `${plural} matching "${s.q}"` : s.list && !s.tags.length && !s.exclude.length ? (s.industry ? `${plural} made in ${INDUSTRIES.find(([k]) => k === s.industry)[1]}` : `All ${plural.toLowerCase()}`) : filtered ? `${plural}, filtered` : `${s.medium === "all" ? "Catalogue" : mediumLabel(s.medium)} search`;
     const works = filtered ? searchResults(s) : [];
     app.innerHTML = `
       <header class="page-band"><h1>${esc(s.medium === "all" ? "Catalogue search" : `${mediumLabel(s.medium)} search`)}</h1></header>
@@ -1480,6 +1498,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <input id="s-q" type="search" value="${esc(s.q)}" placeholder="Search ${esc(plural.toLowerCase())} by title, director, author, studio…" autocomplete="off">
         <span class="bigsearch-ico" aria-hidden="true">⌕</span>
       </form>
+      ${["film", "series"].includes(s.medium) ? `<nav class="pchips industry-chips" aria-label="Where it's made"><span class="muted small">Made in</span>${INDUSTRIES.map(([k, l]) => `<a class="tchip${s.industry === k ? " on" : ""}" href="${esc(hrefSearch(s.medium, { ...s, industry: s.industry === k ? "" : k, list: true }))}">${esc(l)}</a>`).join("")}</nav>` : ""}
       <p class="adv-toggle"><button type="button" class="linkish" data-s-adv aria-expanded="${s.adv}">${s.adv ? "− Hide advanced search" : "+ Advanced search"}</button></p>
       ${s.adv ? advanced(s, d) : ""}
       ${filtered ? `
@@ -1598,6 +1617,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
           <a class="see-all" href="#top-${medium}">The full top 100</a></section>
         <div class="hub-side">
           <section class="stat-box"><h2>By genre</h2><p class="pchips">${[...genres.values()].sort((a, b) => b.n - a.n).map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></section>
+          ${["film", "series"].includes(medium) ? `<section class="stat-box"><h2>By industry</h2><p class="pchips">${INDUSTRIES.map(([k, l]) => [k, l, works.filter((w) => inIndustry(w, k)).length]).filter(([, , n]) => n).map(([k, l, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { industry: k, list: true }))}">${esc(l)} · ${n}</a>`).join("")}</p></section>` : ""}
           <section class="stat-box"><h2>By decade</h2><p class="pchips">${[...decades].sort((a, b) => b[0] - a[0]).map(([d, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { year_min: d, year_max: d + 9 }))}">${d}s · ${n}</a>`).join("")}</p></section>
           <section class="stat-box"><h2>By time you have</h2><p class="pchips">${TIME_TILES.map(([slug, label]) => [slug, label, works.filter((w) => w.time && w.time.bucket === slug).length]).filter(([, , n]) => n).map(([slug, label, n]) => `<a class="tchip" href="#time-${slug}">${esc(label)} · ${n}</a>`).join("")}</p></section>
         </div>
@@ -3275,7 +3295,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     if (t.dataset.sField) {
       const k = t.dataset.sField;
       const v = t.value;
-      goSearch({ ...search, [k]: k === "sort" || k === "rating" ? v : v === "" ? null : Number(v) });
+      goSearch({ ...search, [k]: k === "sort" || k === "rating" || k === "industry" ? v : v === "" ? null : Number(v) });
     } else if (t.dataset.sAvoid) goSearch({ ...search, avoid: toggle(search.avoid, t.dataset.sAvoid) });
   });
   app.addEventListener("click", (e) => {

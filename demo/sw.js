@@ -1,7 +1,7 @@
 // Mimir service worker: the app works offline after the first visit (your library lives in this browser anyway).
 // Pages are network-first so a deploy shows up at once; icons and fonts are cache-first. API calls are never cached.
 const CACHE = "mimir-__VERSION__";
-const SHELL = ["/", "/site.webmanifest", "/favicon.svg", "/favicon-32.png", "/icon-192.png", "/icon-512.png", "/apple-touch-icon.png"];
+const SHELL = ["/", "/site.webmanifest", "/favicon.svg", "/favicon-32.png", "/icon-192.png", "/icon-512.png", "/icon-maskable-192.png", "/icon-maskable-512.png", "/apple-touch-icon.png"];
 const FONT_HOSTS = ["fonts.googleapis.com", "fonts.gstatic.com"];
 
 self.addEventListener("install", (event) => {

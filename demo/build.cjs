@@ -137,7 +137,7 @@ if (args[0] === "--site") {
   const out = args[1] || path.join(here, "dist", "site");
   fs.mkdirSync(out, { recursive: true });
   fs.writeFileSync(path.join(out, "index.html"), standalone(page()));
-  for (const f of ["favicon.svg", "favicon-32.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "og-image.png"]) {
+  for (const f of ["favicon.svg", "favicon-32.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable-192.png", "icon-maskable-512.png", "app-icon.svg", "og-image.png"]) {
     fs.copyFileSync(path.join(brand, f), path.join(out, f));
   }
   fs.writeFileSync(path.join(out, "site.webmanifest"), JSON.stringify({
@@ -145,8 +145,9 @@ if (args[0] === "--site") {
     description: "Discover and track films, TV, books, manga, games and music, with the reason behind every pick.",
     categories: ["entertainment", "books", "music"],
     background_color: "#EDE3CC", theme_color: "#EDE3CC",
-    icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
-      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }],
+    icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/icon-maskable-192.png", sizes: "192x192", type: "image/png", purpose: "maskable" }, { src: "/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+      { src: "/app-icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }],
   }, null, 2));
   // Offline support: the service worker's cache name changes with the page, so each deploy replaces the old copy.
   const version = require("crypto").createHash("sha256").update(fs.readFileSync(path.join(out, "index.html"))).digest("hex").slice(0, 12);
