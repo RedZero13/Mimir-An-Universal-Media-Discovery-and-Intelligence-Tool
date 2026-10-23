@@ -44,3 +44,27 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # After each deploy: confirm GitHub Pages enforces HTTPS and that a plain-http visit (an old bookmark, a device that
+  # opened Mimir before HTTPS) is redirected to https. A failure here means Settings → Pages → Enforce HTTPS is off.
+  verify-https:
+    needs: deploy
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: read
+    steps:
+      - name: Pages settings
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/pages" --jq '{cname, https_enforced, status, https_certificate: .https_certificate.state}'
+      - name: http redirects to https
+        run: |
+          sleep 30
+          for path in / /blog/ /sw.js; do
+            echo "== http://mimir.terratalesmedia.world$path"
+            curl -sSI "http://mimir.terratalesmedia.world$path" | grep -iE '^(HTTP|location|cache-control)'
+          done
+          code=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' http://mimir.terratalesmedia.world/)
+          echo "result: $code"
+          case "$code" in 301\ https://*|308\ https://*) echo "OK: http is redirected to https" ;; *) echo "::error::http is not redirected to https ($code)"; exit 1 ;; esac
