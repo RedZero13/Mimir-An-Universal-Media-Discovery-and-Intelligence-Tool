@@ -13,28 +13,28 @@ services.
 
 | # | Feature | Status | Effort | Return | Edge | Bundle |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Experience DNA | Partial: every work is tagged on 9 dimensions (genre, mood, theme, pacing, complexity, narrative, world, style, advisory) | S to show, M to deepen | High | High | A. Experience DNA |
-| 2 | Mood and situation explorer | Partial: Ask Mimir reads moods and limits; mood rings for music | S | High | High | A |
+| 1 | Experience DNA | **Shipped (phase 1)**: a fingerprint on every work page | M to deepen | High | High | A. Experience DNA |
+| 2 | Mood and situation explorer | **Shipped (phase 1)**: mood mixer, several moods at once in Decide for me | S to add situations | High | High | A |
 | 3 | Cross-medium discovery | Shipped: "…in other media" on every work and in Ask | — | High | High | A |
 | 4 | Hidden gems mode | **Shipped now**: "Hidden gems" control on For you; Diamonds in the Rough shelf | — | Medium | Medium | B. Taste suite |
-| 5 | Why you'll like this | Shipped: reasons per pick, marked as fact or reading | S to add evidence drill-down | High | High | A |
-| 6 | Discovery by creative DNA | Partial: avoid lists in Ask | S to M | Medium | High | A |
+| 5 | Why you'll like this | **Shipped (phase 1)**: a "Why?" drill-down on every For you pick | — | High | High | A |
+| 6 | Discovery by creative DNA | **Shipped (phase 1)**: keep or drop qualities from any work's DNA | — | Medium | High | A |
 | 7 | Media relationship graph | Partial: relationships listed on work pages | M | Medium | High | E. Graph |
 | 8 | Universe and continuity navigator | Partial: sagas in order with total time | M (needs canon and timeline data) | Medium | Medium | E |
 | 9 | Themes, tropes and narrative mechanics | Partial: tag pages for every term | M (trope vocabulary) | Medium | High | E |
 | 10 | Cultural and historical context | Not started | L (editorial) | Medium | High | F. Atlas |
 | 11 | Intelligent comparison pages | **Shipped now**: compare any two works side by side | — | Medium | Medium | A |
-| 12 | Evidence and confidence explorer | Partial: basis labels, sources per fact, review file for conflicts | S to M | Low to medium | High | A |
-| 13 | Taste profile | Partial: "Your taste leans…" on For you | S | High | Medium | B |
-| 14 | Taste evolution | Not started; diary dates already exist | S | Medium | Medium | B |
-| 15 | Negative preference learning | Partial: "Not for me" steers picks away | S | High | Medium | B |
-| 16 | Contextual profiles | Not started | S to M | Medium | High | B |
-| 17 | Recommendation controls | **Shipped now**: popularity, length and variety on For you | S to add novelty and familiarity | High | Medium | B |
+| 12 | Evidence and confidence explorer | Partial: strength, basis and confidence for each tag and reason (phase 1); a catalogue-wide explorer is still to come | M | Low to medium | High | A |
+| 13 | Taste profile | **Shipped (phase 1)**: an editable profile (more, less, never) | — | High | Medium | B |
+| 14 | Taste evolution | **Shipped (phase 1)**: how your taste has changed, by year or quarter | — | Medium | Medium | B |
+| 15 | Negative preference learning | **Shipped (phase 1)**: "You lean away from", plus "never" for any quality or guide item | — | High | Medium | B |
+| 16 | Contextual profiles | **Shipped (phase 1)**: four built-in contexts, and your own saved ones | — | Medium | High | B |
+| 17 | Recommendation controls | **Shipped**: popularity, length, variety and familiarity (more of what I know, or stretch me) | — | High | Medium | B |
 | 18 | Taste overlap between two users | Not started | M (accounts) | Medium | Medium | C. Together |
 | 19 | Time-aware planner | Shipped: Decide for me, By time you have | — | High | Medium | D. Time |
 | 20 | Personal media itinerary | **Shipped now**: Plan my time (evening, weekend, week, month) | — | Medium | High | D |
 | 22 | Group decision mode | **Shipped now**: Pick together, with avoid lists and the compromise spelled out | — | High | High | C |
-| 23 | Backlog intelligence | **Shipped now**: backlog first in Plan my time, quick finishes, already started | S to add "unfinished series" | High | Medium | D |
+| 23 | Backlog intelligence | **Shipped**: backlog first in Plan my time, quick finishes, already started, and the next work in each unfinished series | — | High | Medium | D |
 | 24 | Curated discovery trails | Partial: shelves and calendar programmes | M | Medium | Medium | G. Community |
 | 25 | Community taste maps | Not started | L (needs users) | Low early | Medium | G |
 | 26 | Review perspective filters | Not started | M | Medium | Medium | G |
@@ -72,9 +72,9 @@ services.
 Compare pages (11), recommendation controls with hidden gems (4, 17), Plan my time with backlog first (20, 23),
 and Pick together (22). All run in the browser over data Mimir already holds.
 
-### Phase 1: lowest-hanging fruit, high return
+### Phase 1: lowest-hanging fruit, high return (shipped)
 
-Front-end work over existing tags and library data, each a few days:
+Front-end work over existing tags and library data. All six are live:
 
 1. Experience DNA fingerprint on every work page, and "keep this, drop that" from it (1, 6).
 2. Mood combinations in Ask and on Decide for me (2).

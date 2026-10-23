@@ -18,11 +18,20 @@ of 372 terms (233 of them subgenres).
 - **Decide for me.** Three taps, one pick, with its reasons.
 - **For you.** Rate a few works you know (loved, liked, disliked) and Mimir builds a taste profile in your browser
   and recommends from it, naming the work each pick resembles. Controls steer it: hidden gems or well-known
-  works, how long, and one pick per series.
+  works, how long, one pick per series, and familiar picks or a stretch.
+- **Experience DNA.** Every work page shows a fingerprint of its moods, themes, pacing, complexity, storytelling,
+  world and style. Keep the qualities you want and drop the rest, and Mimir finds works with that mix, in any medium.
+- **Mood mixer.** Combine moods and things to avoid ("melancholic but comforting, no bleak") with a medium and a
+  time limit, then send it to Ask. Decide for me also takes up to three moods at once.
+- **Your taste profile.** See what you lean towards and away from, ask for more or less of any quality, say
+  "never" to a quality or a parents' guide item, save contexts (winding down, learning, deep immersion, with
+  friends, or your own), and see how your taste has changed over time.
+- **Why each pick fits.** A "Why?" on every For you pick shows each shared quality, how strongly it applies to the
+  pick and to the work you rated, whether it's a recorded fact or a reading, and its confidence.
 - **Compare any two works** side by side: length, scores, popularity, age ratings, parents' guide, and the moods,
   themes and style they share or don't.
 - **Plan my time.** Pick an evening, a weekend, a week off or a month; Mimir fills it from what you've started and
-  planned first, then from picks for you, day by day.
+  planned first, then from picks for you, day by day, and shows the next work in every series you've started.
 - **Pick together.** Add each person, a few things they love and what they'd rather avoid; Mimir finds picks that
   suit everyone and says where the compromise is.
 - **By the time you have.** Quick bite, one sitting, an evening or two, a weekend, a season, a long haul: from
