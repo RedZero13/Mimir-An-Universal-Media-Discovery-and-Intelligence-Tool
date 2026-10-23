@@ -3,6 +3,7 @@
 Where Mimir goes after the beta. The aim stays the same: one place to discover and keep track of every kind of
 story, with the reasons for every pick and a source for every fact. [COMPETITIVE.md](COMPETITIVE.md) lists the
 features this closes against MyAnimeList, MangaUpdates, IMDb, Letterboxd, Goodreads and Spotify.
+[FUTURE-FEATURES.md](FUTURE-FEATURES.md) sorts the 35 proposed future features into bundles and phases.
 
 Each item says why it matters, what "done" means, and what it depends on. Horizons are sequenced, not dated:
 **Now** is in progress or next up, **Next** follows once Now is stable, **Later** needs Next in place.
