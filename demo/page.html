@@ -616,6 +616,11 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .stat-heads { list-style: none; margin: 18px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
 .stat-heads li { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font-size: .8rem; color: var(--muted); }
 .sh-n { font: 600 1.8rem var(--f-head); color: var(--gold-bright); }
+.yir-hero { grid-template-columns: 160px minmax(0, 1fr); }
+.yir-big { font: 400 1.05rem var(--f-body); color: var(--ink); } .yir-big b { font: 600 1.6rem var(--f-display); color: var(--gold-bright); }
+.yir-records { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.yir-records li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; } .yir-records li > span:first-child { min-width: 64px; font: 600 .7rem var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+@media (max-width: 640px) { .yir-hero { grid-template-columns: 1fr; } .yir-hero > div:first-child { max-width: 140px; } }
 .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
 .stat-box { padding: 16px 18px; border: 1px solid var(--line-strong); border-radius: 8px; display: grid; gap: 10px; align-content: start; }
 .stat-box h2 { font-size: 1.25rem; margin: 0; } .stat-box h3 { font-size: 1rem; margin: 6px 0 0; color: var(--cream); }
@@ -1520,7 +1525,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     ["Music", [["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
-      ["Journal", "#journal"], ["Lists", "#lists"], ["Stats", "#stats"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
+      ["Journal", "#journal"], ["Lists", "#lists"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Send beta feedback", feedbackHref()]]],
   ];
@@ -2197,6 +2202,85 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       </div>`;
   }
   const langName = (code) => { try { return new Intl.DisplayNames(["en"], { type: "language" }).of(code) || code; } catch { return code; } };
+
+  // ------------------------------------------------------------------ year in review: a shareable summary of one year
+  const finishedOn = (e) => (e.status === "completed" ? e.finished || e.updated || "" : "");
+  function renderYear(year) {
+    const all = Object.entries(library).map(([s, e]) => [cat.work(s), e]).filter(([w]) => w);
+    const years = [...new Set(all.map(([, e]) => finishedOn(e).slice(0, 4)).filter(Boolean))].sort().reverse();
+    const y = String(year || years[0] || new Date().getFullYear());
+    const done = all.filter(([, e]) => finishedOn(e).startsWith(y)).sort((a, b) => finishedOn(a[1]).localeCompare(finishedOn(b[1])));
+    const started = all.filter(([, e]) => (e.started || "").startsWith(y));
+    const notes = journal.filter((j) => (j.date || "").startsWith(y));
+    const challengesDone = Object.entries(challenges).filter(([k, c]) => k.endsWith(`/${y}`) && (c.done || []).length);
+    const yearTabs = `<div class="pchips">${[...new Set([y, ...years])].sort().reverse().map((v) => `<a class="tchip${v === y ? " on" : ""}" href="#year?y=${v}">${v}</a>`).join("")}</div>`;
+    if (!done.length && !notes.length) {
+      app.innerHTML = `<header class="page-band"><h1>Your ${esc(y)} in stories</h1></header>${yearTabs}
+        <p class="empty">Nothing finished in ${esc(y)} yet. Mark works as completed in <a href="#library">your library</a> (or import your history from <a href="#transfer">MyAnimeList, IMDb, Letterboxd or Goodreads</a>) and your year in review builds itself.</p>`;
+      return;
+    }
+    const mins = done.reduce((a, [w, e]) => a + minutesSpent(w, e), 0);
+    const byMedium = MEDIA.map((m) => [m, done.filter(([w]) => w.medium === m)]).filter(([, es]) => es.length);
+    const scored = done.filter(([, e]) => e.score).sort((a, b) => b[1].score - a[1].score || finishedOn(b[1]).localeCompare(finishedOn(a[1])));
+    const favourite = scored[0] || done[done.length - 1];
+    const months = Array.from({ length: 12 }, (_, i) => { const k = `${y}-${String(i + 1).padStart(2, "0")}`; return [new Date(Number(y), i, 1).toLocaleDateString("en", { month: "short" }), done.filter(([, e]) => finishedOn(e).startsWith(k)).length]; });
+    const busiest = months.reduce((a, m) => (m[1] > a[1] ? m : a), ["", 0]);
+    const weight = new Map();
+    for (const [w, e] of done) for (const d of w.tags) if (d.dimension === "mood" || d.dimension === "theme") for (const tm of d.terms) {
+      const cur = weight.get(tm.key) || { label: tm.label, key: tm.key, v: 0, dim: d.dimension }; cur.v += tm.strength * (e.score ? e.score / 7 : 1); weight.set(tm.key, cur);
+    }
+    const moods = [...weight.values()].filter((x) => x.dim === "mood").sort((a, b) => b.v - a.v).slice(0, 3);
+    const themes = [...weight.values()].filter((x) => x.dim === "theme").sort((a, b) => b.v - a.v).slice(0, 5);
+    const langs = [...new Set(done.map(([w]) => w.original_language).filter(Boolean))];
+    const longest = done.filter(([w]) => w.time).sort((a, b) => b[0].time.minutes - a[0].time.minutes)[0];
+    const oldest = done.filter(([w]) => w.year).sort((a, b) => a[0].year - b[0].year)[0];
+    const summary = [`My ${y} in stories, on Mimir:`, `${done.length} finished${mins ? `, about ${hm(mins)}` : ""}`,
+      byMedium.map(([m, es]) => `${es.length} ${(es.length === 1 ? mediumLabel(m) : PLURAL[m]).toLowerCase()}`).join(" · "),
+      favourite ? `Favourite: ${favourite[0].title}${favourite[1].score ? ` (${favourite[1].score}/10)` : ""}` : "",
+      moods.length ? `Mostly ${moods.map((m) => m.label.toLowerCase()).join(", ")}` : "",
+      `${location.origin}${location.pathname}`].filter(Boolean).join("\n");
+    app.innerHTML = `
+      <header class="page-band"><h1>Your ${esc(y)} in stories</h1></header>
+      ${yearTabs}
+      <section class="yir-hero spot-light" style="--s0:#1A1813;--s1:#3B3122;--sa:#D8B24A">
+        <div>${favourite && worksOf([favourite[0].slug]).length ? poster(cardCover(worksOf([favourite[0].slug])[0])) : ""}</div>
+        <div class="spot-body">
+          <p class="eyebrow">${favourite && favourite[1].score ? "Your favourite of the year" : "Your most recent finish"}</p>
+          ${favourite ? `<h2><a href="#work-${esc(favourite[0].slug)}">${esc(favourite[0].title)}</a></h2>
+          <p class="pmeta">${esc([mediumLabel(favourite[0].medium), favourite[0].year, (worksOf([favourite[0].slug])[0] || {}).creators?.[0]].filter(Boolean).join(" · "))}${favourite[1].score ? ` · you gave it ${favourite[1].score}/10` : ""}</p>` : ""}
+          <p class="yir-big"><b>${done.length}</b> finished · <b>${esc(hm(mins) || "0m")}</b> of stories${langs.length > 1 ? ` · <b>${langs.length}</b> languages` : ""}</p>
+          <div class="pchips"><button type="button" class="btn" data-yir-share>Share my year</button><span class="muted small" data-yir-status></span></div>
+        </div>
+      </section>
+      <ul class="stat-heads">
+        ${byMedium.map(([m, es]) => `<li><span class="sh-n">${es.length}</span><span>${esc((es.length === 1 ? mediumLabel(m) : PLURAL[m]).toLowerCase())} finished</span></li>`).join("")}
+        <li><span class="sh-n">${started.length}</span><span>started</span></li>
+        <li><span class="sh-n">${notes.length}</span><span>journal entries</span></li>
+        ${challengesDone.length ? `<li><span class="sh-n">${challengesDone.length}</span><span>calendar challenges joined</span></li>` : ""}
+      </ul>
+      <div class="stat-grid">
+        <section class="stat-box"><h2>Month by month</h2>${bars(months, Math.max(1, ...months.map((m) => m[1])))}${busiest[1] ? `<p class="muted small">Busiest month: ${esc(busiest[0])}, with ${busiest[1]} finished.</p>` : ""}</section>
+        <section class="stat-box"><h2>How your year felt</h2>
+          ${moods.length ? `<p class="pchips">${moods.map((m) => tagChip(m)).join("")}</p>` : `<p class="muted">Not enough to tell yet.</p>`}
+          ${themes.length ? `<h3>What it was about</h3><p class="pchips">${themes.map((m) => tagChip(m)).join("")}</p>` : ""}
+          ${langs.length ? `<h3>Languages</h3><p class="pchips">${langs.map((l) => `<span class="tchip">${esc(langName(l))}</span>`).join("")}</p>` : ""}</section>
+        <section class="stat-box"><h2>Records</h2><ul class="yir-records">
+          ${longest ? `<li><span>Longest</span><a href="#work-${esc(longest[0].slug)}">${esc(longest[0].title)}</a> <span class="muted small">${esc(hm(longest[0].time.minutes))}</span></li>` : ""}
+          ${oldest ? `<li><span>Oldest</span><a href="#work-${esc(oldest[0].slug)}">${esc(oldest[0].title)}</a> <span class="muted small">${oldest[0].year}</span></li>` : ""}
+          <li><span>First</span><a href="#work-${esc(done[0][0].slug)}">${esc(done[0][0].title)}</a> <span class="muted small">${esc(finishedOn(done[0][1]))}</span></li>
+          <li><span>Last</span><a href="#work-${esc(done[done.length - 1][0].slug)}">${esc(done[done.length - 1][0].title)}</a> <span class="muted small">${esc(finishedOn(done[done.length - 1][1]))}</span></li>
+        </ul></section>
+      </div>
+      <section class="block"><header class="shelf-head"><div><h2>Everything you finished in ${esc(y)}</h2><p>In the order you finished them.</p></div></header>
+        ${pgrid(worksOf(done.map(([w]) => w.slug)))}</section>`;
+    const shareBtn = app.querySelector("[data-yir-share]"), status = app.querySelector("[data-yir-status]");
+    shareBtn.addEventListener("click", async () => {
+      try {
+        if (navigator.share) { await navigator.share({ title: `My ${y} in stories`, text: summary }); return; }
+        await navigator.clipboard.writeText(summary); status.textContent = "Copied to your clipboard.";
+      } catch { status.textContent = "Couldn't share from this browser."; }
+    });
+  }
 
   // ------------------------------------------------------------------ import & export
   // Bring your history from MyAnimeList (XML export), IMDb (ratings or watchlist CSV), Letterboxd (CSV export) or
@@ -2956,6 +3040,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else if (h.startsWith("list-")) { setNav("Library"); renderList(h.slice(5)); }
     else if (h === "shared") { setNav("Library"); renderShared(p); }
     else if (h === "stats") { setNav("Library"); renderStats(); }
+    else if (h === "year") { setNav("Library"); renderYear(p.get("y")); }
     else if (h === "transfer") { setNav("Library"); renderTransfer(); }
     else if (h === "tags") { setNav("Catalogue"); renderTags(p.get("q") || ""); }
     else if (h === "people") { setNav("Catalogue"); renderPeople(p.get("q") || ""); }
@@ -3265,6 +3350,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     syncTheme();
   });
   syncTheme();
+  // Installable and usable offline when served from the site (the single-file build has no sw.js and skips this).
+  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("/sw.js").catch(() => {});
   document.getElementById("cat-count").textContent = allWorks().length;
   document.getElementById("foot-feedback").href = feedbackHref();
   window.addEventListener("hashchange", route);

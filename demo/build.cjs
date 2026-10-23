@@ -79,10 +79,16 @@ if (args[0] === "--site") {
     fs.copyFileSync(path.join(brand, f), path.join(out, f));
   }
   fs.writeFileSync(path.join(out, "site.webmanifest"), JSON.stringify({
-    name: "Mimir · A Terratales Venture", short_name: "Mimir", start_url: "/", display: "standalone",
-    background_color: "#131315", theme_color: "#131315",
-    icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png" }],
+    name: "Mimir · A Terratales Venture", short_name: "Mimir", start_url: "/", scope: "/", display: "standalone",
+    description: "Discover and track films, TV, books, manga, games and music, with the reason behind every pick.",
+    categories: ["entertainment", "books", "music"],
+    background_color: "#EDE3CC", theme_color: "#EDE3CC",
+    icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }],
   }, null, 2));
+  // Offline support: the service worker's cache name changes with the page, so each deploy replaces the old copy.
+  const version = require("crypto").createHash("sha256").update(fs.readFileSync(path.join(out, "index.html"))).digest("hex").slice(0, 12);
+  fs.writeFileSync(path.join(out, "sw.js"), fs.readFileSync(path.join(here, "sw.js"), "utf8").replace("__VERSION__", version));
   fs.writeFileSync(path.join(out, "robots.txt"), "User-agent: *\nAllow: /\n");
   fs.writeFileSync(path.join(out, "CNAME"), `${HOST}\n`);
   console.log(`wrote site to ${out}`);
