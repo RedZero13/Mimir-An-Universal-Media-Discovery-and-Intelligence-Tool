@@ -1597,7 +1597,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const mood = moodFromPage(w);
     const [bg0, bg1, ac] = PALETTES[mood] || PALETTES.default;
     const img = w.images.find(isCover) || null;
-    const still = w.images.find((i) => !isCover(i)) || null;   // a Commons image that isn't cover art, shown as a picture
+    const still = w.images.find((i) => i.kind === "still") || null;   // a Commons image that isn't cover art or a logo, shown as a picture
     const c = w.continuity;
     const lengthFact = w.time ? `${timeText(w.time, album)}${w.time.basis === "pages" ? ` (${w.page_count} pages)` : ""}`
       : w.medium === "book" ? "Varies by edition" : "Not recorded";

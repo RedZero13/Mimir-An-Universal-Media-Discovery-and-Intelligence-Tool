@@ -13,6 +13,21 @@ from mde.catalogue.model import normalise_title
 from mde.ingest.http import Client
 
 API = "https://www.wikidata.org/w/api.php"
+# A work's main Commons image (P18) can be anything; its file name is the best cheap hint at what it shows.
+LOGO_FILE = re.compile(r"logo|wordmark|title[ _]?card|_title[ _.(]|\btitle\b|\.svg$", re.I)
+COVER_FILE = re.compile(r"poster|cover|dust[ _]jacket", re.I)
+NOT_COVER_FILE = re.compile(r"trailer|unboxing|screenshot", re.I)
+
+
+def image_kind(commons_file: str) -> str:
+    """'logo' (never shown), 'cover' (poster or cover art, used as the cover) or 'still' (shown as a picture)."""
+    if LOGO_FILE.search(commons_file):
+        return "logo"
+    if COVER_FILE.search(commons_file) and not NOT_COVER_FILE.search(commons_file):
+        return "cover"
+    return "still"
+
+
 LICENCE = "CC0 1.0"
 
 # Accepted P31 (instance of) values per medium.
@@ -286,7 +301,7 @@ class Wikidata:
         for c in claim_values(entity, "P3383")[:1]:   # film poster: real cover art when Commons holds one
             images.append({"kind": "poster", "commons_file": value(c)})
         for c in claim_values(entity, "P18")[:1]:
-            images.append({"kind": "still", "commons_file": value(c)})
+            images.append({"kind": image_kind(value(c)), "commons_file": value(c)})
         enwiki = entity.get("sitelinks", {}).get("enwiki", {}).get("title")
         return {
             "match": {"qid": match.qid, "confidence": match.confidence, "reason": match.reason},

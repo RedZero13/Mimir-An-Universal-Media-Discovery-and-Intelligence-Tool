@@ -48,7 +48,33 @@ class SourceUnavailable(Exception):
     pass
 
 
+REVIEW_FILE = OUT_DIR / "review.json"
+
+
+def apply_review(source: str, works: dict, review: dict | None = None) -> dict:
+    """Applies editorial decisions (review.json) to a source's records: a rejected match is dropped with
+    everything it brought, and a fact kept from the seed is removed from the source's facts, its conflict
+    marked resolved. Decisions survive re-ingesting, so a wrong match never comes back silently."""
+    if review is None:
+        review = json.loads(REVIEW_FILE.read_text()) if REVIEW_FILE.exists() else {}
+    decisions = review.get(source, {})
+    for slug, why in decisions.get("reject", {}).items():
+        if slug in works and works[slug].get("match"):
+            works[slug] = {"match": None, "reason": f"match rejected in review: {why}"}
+    for slug, fields in decisions.get("keep_seed", {}).items():
+        rec = works.get(slug)
+        if not rec or not rec.get("match"):
+            continue
+        for field, why in fields.items():
+            rec.get("facts", {}).pop(field, None)
+            for c in rec.get("conflicts", []):
+                if c["field"] == field:
+                    c["resolution"] = f"kept seed: {why}"
+    return works
+
+
 def _write(source: str, licence: str, works: dict, extra: dict | None = None) -> Path:
+    works = apply_review(source, works)
     if works and all(str(r.get("reason", "")).startswith("fetch failed") for r in works.values()):
         # Never replace a good file with one where every lookup failed (e.g. the host is blocked).
         raise SourceUnavailable(f"{source}: every request failed; first error: {next(iter(works.values()))['reason']}")

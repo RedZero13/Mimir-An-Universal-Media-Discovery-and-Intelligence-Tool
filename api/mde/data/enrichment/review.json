@@ -1,0 +1,21 @@
+{
+ "_about": "Editorial decisions on ingested matches, applied by `python -m mde ingest` on every run. reject: the matched item is a different work. keep_seed: the seed's value stands (reason given).",
+ "wikidata": {
+  "reject": {
+   "queen-2013": "Q223367 is a different film (2006, 97 min), not Vikas Bahl's Queen",
+   "bojack-horseman-2014": "Q17733404 carries a 2017 date; the series premiered in 2014, so the match is unreliable"
+  },
+  "keep_seed": {
+   "dilwale-dulhania-le-jayenge-1995": {"runtime_minutes": "245 min on Wikidata is wrong; the film runs about 189 min"},
+   "the-act-of-killing-2012": {"runtime_minutes": "159 min is the director's cut; the seed gives the theatrical cut"},
+   "kentucky-route-zero-2020": {"release_year": "2013 is Act I; the complete game was released in 2020"},
+   "hades-2020": {"release_year": "2018 is early access; version 1.0 was released in 2020"},
+   "baldurs-gate-3-2023": {"release_year": "2020 is early access; the full game was released in 2023"},
+   "watchmen-1987": {"release_year": "Serialised 1986-87; dated by the collected edition"},
+   "music-for-airports-1978": {"release_year": "Released in 1978"},
+   "zombie-1976": {"release_year": "Released in Nigeria in 1976"},
+   "super-deluxe-2019": {"release_year": "Released in cinemas in 2019"},
+   "laapataa-ladies-2024": {"release_year": "2023 is the festival premiere; released in cinemas in 2024"}
+  }
+ }
+}

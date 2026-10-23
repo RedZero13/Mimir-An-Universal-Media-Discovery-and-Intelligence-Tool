@@ -26,7 +26,7 @@ function enrichment() {
   const dir = path.join(api, "data", "enrichment");
   const out = {};
   if (fs.existsSync(dir)) {
-    for (const f of fs.readdirSync(dir).filter((n) => n.endsWith(".json")).sort()) {
+    for (const f of fs.readdirSync(dir).filter((n) => n.endsWith(".json") && n !== "review.json").sort()) {
       out[f.slice(0, -5)] = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8"));
     }
   }
