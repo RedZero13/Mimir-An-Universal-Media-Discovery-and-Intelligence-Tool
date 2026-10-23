@@ -78,6 +78,18 @@
         {"id": "epic", "name": "Epic Games Store", "url": "https://store.epicgames.com/en-US/browse?q={q}", "enc": "query", "q": "{title}", "platforms": ["PC"]},
         {"id": "google-play-games", "name": "Google Play", "url": "https://play.google.com/store/search?q={q}&c=apps", "enc": "query", "q": "{title}", "platforms": ["Android"]}
       ]
+    },
+    "online_video": {
+      "verb": "Watch", "default": "youtube",
+      "providers": [
+        {"id": "youtube", "name": "YouTube", "url": "https://www.youtube.com/results?search_query={q}", "enc": "query", "q": "{creator} {title}", "exact": {"id": "youtube_video", "url": "https://www.youtube.com/watch?v={id}"}}
+      ]
+    },
+    "channel": {
+      "verb": "Watch", "default": "youtube",
+      "providers": [
+        {"id": "youtube", "name": "YouTube", "url": "https://www.youtube.com/results?search_query={q}", "enc": "query", "q": "{title}", "exact": {"id": "youtube_channel", "url": "https://www.youtube.com/channel/{id}"}}
+      ]
     }
   }
 }

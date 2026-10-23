@@ -96,6 +96,8 @@ const MDE = (() => {
     book: ["book", "books", "novel", "novels", "novella", "novellas", "something to read", "a read", "reading"],
     game: ["game", "games", "video game", "video games", "videogame", "something to play", "to play", "gaming"],
     album: ["album", "albums", "record", "records", "music", "something to listen to", "listen to", "listening"],
+    online_video: ["youtube video", "youtube videos", "a youtube", "on youtube", "video essay", "video essays", "a video"],
+    channel: ["youtuber", "youtubers", "youtube channel", "youtube channels"],
     series: ["tv show", "tv shows", "tv series", "series", "show to watch", "miniseries", "mini-series", "limited series",
       "web series", "k-drama", "k-dramas", "kdrama", "kdramas", "to binge", "binge-watch", "binge watch",
       "something to binge", "a show", "the show", "shows", "a tv", "on tv", "an anime", "anime series", "a sitcom", "a drama series", "episodes"],
@@ -762,9 +764,9 @@ finish finished binge binged through will watching reading playing listening sta
   }
 
   // ------------------------------------------------------------------ enrichment merge (mirrors enrich.py)
-  const SOURCE_ORDER = ["wikidata", "openlibrary", "musicbrainz", "tmdb", "publisher"];
+  const SOURCE_ORDER = ["wikidata", "openlibrary", "musicbrainz", "tmdb", "publisher", "youtube"];
   const IMAGE_PREFERENCE = { poster: 0, cover: 1, still: 2, logo: 3 };
-  const LINK_ORDER = ["listen:spotify", "listen:youtube-music", "watch:justwatch", "buy:steam", "buy:amazon", "info:publisher", "reactions:letterboxd",
+  const LINK_ORDER = ["listen:spotify", "listen:youtube-music", "watch:youtube", "watch:justwatch", "buy:steam", "buy:amazon", "info:publisher", "reactions:letterboxd",
     "reactions:rotten-tomatoes", "reactions:metacritic", "reactions:goodreads", "reactions:storygraph",
     "reactions:reddit", "reactions:youtube", "info:imdb", "info:openlibrary", "info:musicbrainz", "info:wikipedia"];
   const rankIn = (order, item) => (order.includes(item) ? order.indexOf(item) : order.length);

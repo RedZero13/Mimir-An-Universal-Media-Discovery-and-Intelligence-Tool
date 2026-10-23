@@ -914,6 +914,12 @@ body.is-home.deep .runes { opacity: 1; } body.is-home.deep .well-fx .caustic { o
 .wa-timeline li { display: grid; grid-template-columns: auto auto 1fr; gap: 12px; align-items: baseline; padding: 10px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
 .wa-timeline li.fresh { border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent); }
 .wa-at { border: 0; background: none; padding: 0; font: 600 .82rem var(--f-mono); color: var(--gold); cursor: pointer; } .wa-by { font-weight: 600; font-size: .9rem; } .wa-body { color: var(--ink); }
+/* YouTube directory. */
+.yt-channel { margin: 26px 0; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.yt-chan-head { display: flex; gap: 14px; align-items: center; text-decoration: none; color: var(--bone); }
+.yt-chan-head .poster { width: 64px; flex: none; border-radius: 50%; overflow: hidden; }
+.yt-chan-head strong { display: block; font-size: 1.2rem; } .yt-about { margin: 12px 0 14px; color: var(--ink); max-width: 80ch; }
+.yt-from { margin: 0 0 14px; color: var(--muted); }
 /* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
 .row { padding-bottom: 20px; }
 .row .pchips { height: 62px; }
@@ -996,7 +1002,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   <main id="app"></main>
   <footer class="foot">
     <nav class="foot-cols" aria-label="Footer">
-      <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
+      <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
       <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
       <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
       <div><h2>Mimir</h2><ul><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
@@ -1037,6 +1043,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const PARENT_OF = Object.fromEntries(JSON.parse(document.getElementById("taxonomy-data").textContent).terms
     .filter((t) => t.dimension === "genre" && t.parent).map((t) => [`genre:${t.slug}`, `genre:${t.parent}`]));
   const isSub = (key) => key in PARENT_OF;
+  // YouTube: videos name their channel in the seed.
+  const RAW_WORKS = JSON.parse(document.getElementById("catalogue-data").textContent).works;
+  const CHANNEL_OF = Object.fromEntries(RAW_WORKS.filter((w) => w.medium === "online_video" && w.attributes && w.attributes.channel).map((w) => [w.slug, w.attributes.channel]));
+  const ATTRS = Object.fromEntries(RAW_WORKS.filter((w) => w.attributes).map((w) => [w.slug, w.attributes]));
   const BLOG = JSON.parse(document.getElementById("blog-data").textContent).posts;
   const app = document.getElementById("app");
   const EXAMPLES = [
@@ -1051,13 +1061,15 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     "A short, funny Hindi film for the family",
     "A TV series I can finish in a weekend",
   ];
-  const MEDIUM = { film: "Film", series: "TV series", book: "Book", game: "Game", album: "Album", track: "Track" };
+  const MEDIUM = { film: "Film", series: "TV series", book: "Book", game: "Game", album: "Album", track: "Track", online_video: "YouTube video", channel: "YouTube channel" };
   const MEDAL = {
     film: '<rect x="7" y="8.6" width="10" height="7.6" rx="1.2"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
     book: '<path d="M12 8.4v8.4M12 8.4c-1.6-1-3.5-1-5 0v8c1.5-1 3.4-1 5 0M12 8.4c1.6-1 3.5-1 5 0v8c-1.5-1-3.4-1-5 0"/>',
     game: '<path d="M9 10h6a2.6 2.6 0 0 1 2.6 2.6v1.2a1.6 1.6 0 0 1-2.9.9l-.7-1h-4l-.7 1a1.6 1.6 0 0 1-2.9-.9v-1.2A2.6 2.6 0 0 1 9 10z"/><path d="M9.4 11.6v2M8.4 12.6h2"/>',
     album: '<circle cx="12" cy="12.4" r="4.6"/><circle cx="12" cy="12.4" r="1.2"/>',
     series: '<rect x="6.6" y="8.4" width="10.8" height="7.6" rx="1.2"/><path d="M10 6.4l2 2 2-2M9.6 17.6h4.8"/>',
+    online_video: '<rect x="6" y="8.4" width="12" height="8" rx="2.4"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
+    channel: '<rect x="6" y="8.4" width="12" height="8" rx="2.4"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
   };
   const medal = (m) => `<svg class="medal" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12.4" r="10.6"/>${MEDAL[m] || ""}</svg>`;
   const BASIS = {
@@ -1144,7 +1156,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const cardCover = (w) => coverOf(w, moodFromCard(w));
 
   function coverSvg(c) {
-    const sq = c.medium === "album";
+    const sq = ["album", "online_video", "channel"].includes(c.medium);
     const W = 200, H = sq ? 200 : 300;
     const [bg0, bg1, ac] = PALETTES[c.mood] || PALETTES.default;
     const h = hashOf(c.slug);
@@ -1260,7 +1272,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   // Licensed artwork sits over the generated cover; if it fails to load it's removed and the cover shows through.
-  const poster = (c, cls = "") => `<div class="poster${c.medium === "album" ? " sq" : ""}${cls ? " " + cls : ""}">${coverSvg(c)}${c.image ? `<img src="${esc(c.image.url)}" alt="${esc(c.title)}: ${esc(c.image.kind)}" loading="lazy" decoding="async">` : ""}</div>`;
+  const poster = (c, cls = "") => `<div class="poster${["album", "online_video", "channel"].includes(c.medium) ? " sq" : ""}${cls ? " " + cls : ""}">${coverSvg(c)}${c.image ? `<img src="${esc(c.image.url)}" alt="${esc(c.title)}: ${esc(c.image.kind)}" loading="lazy" decoding="async">` : ""}</div>`;
   document.addEventListener("error", (e) => { if (e.target.tagName === "IMG" && e.target.closest(".poster")) e.target.remove(); }, true);
 
   // ------------------------------------------------------------------ time, continuity, scores
@@ -1272,7 +1284,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const onGroupPage = () => location.hash.startsWith("#group-");
   const contText = (c) => (c.kind === "standalone" ? "Standalone"
     : c.kind === "series" ? `${c.group.name}${c.position && onGroupPage() ? ` · #${c.position}` : ""}` : `${c.group.name} family`);
-  const contChip = (c, medium) => (c && !(medium === "album" && c.kind === "standalone") ? `<span class="cchip k-${c.kind}" title="${esc(contText(c))}">${esc(contText(c))}</span>` : "");
+  const contChip = (c, medium) => (c && !(["album", "online_video", "channel"].includes(medium) && c.kind === "standalone") ? `<span class="cchip k-${c.kind}" title="${esc(contText(c))}">${esc(contText(c))}</span>` : "");
   const fmtNum = (v) => (Number.isInteger(v) ? String(v) : v.toFixed(1));
   const scoreText = (s) => (s.scale_max === 100 && /tomato|%|percent|audience/i.test(`${s.publisher} ${s.metric}`) ? `${fmtNum(s.value)}%` : `${fmtNum(s.value)}/${fmtNum(s.scale_max)}`);
   // One scale everywhere a work is summarised: the mean of every score we hold, out of 100. Each source stays on the work's page.
@@ -1483,6 +1495,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           ${hasAsked || Object.keys(ratings).length >= 3 ? "" : starterPicker(true)}
           ${timeTiles()}
           ${allShelves().slice(0, 2).map(shelfRow).join("")}
+          ${youtubeRow()}
         </div>
         ${sideRail()}
       </div>
@@ -1565,7 +1578,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ search pages (one per medium) and rankings
   const MEDIA = ["film", "series", "book", "game", "album"];
-  const PLURAL = { all: "Everything", film: "Films", series: "TV series", book: "Books", game: "Games", album: "Albums" };
+  const PLURAL = { all: "Everything", film: "Films", series: "TV series", book: "Books", game: "Games", album: "Albums", online_video: "YouTube videos", channel: "YouTube channels" };
   const MAKER = { film: "Directors", series: "Creators", book: "Authors", game: "Developers & studios", album: "Artists", all: "People & studios" };
   const CREATOR_ROLE = { film: "Director", series: "Created by", book: "Author", game: "Developer", album: "Artist" };
   const SORTS = [["popular", "Best known"], ["score", "Highest scored"], ["title", "Title A–Z"], ["newest", "Newest"], ["oldest", "Oldest"], ["shortest", "Shortest"]];
@@ -1879,6 +1892,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       ["Seoul Searching", "#shelf-seoul-searching"], ["Desi Delights", "#shelf-desi-delights"]]],
     ["Books", [["All books", "#books"], ["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Book series", "#series"]]],
     ["Games", [["All games", "#games"], ["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
+    ["YouTube", [["Channels & videos", "#youtube"], ["Comedy", "#youtube?f=comedy"], ["Food", "#youtube?f=food"], ["Gaming & horror", "#youtube?f=horror"], ["VFX & film", "#youtube?f=documentary"], ["Mysteries", "#youtube?f=mystery"]]],
     ["Music", [["All music", "#albums"], ["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
@@ -2042,6 +2056,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <nav class="jump" aria-label="On this page">${jumps.map(([id, l]) => `<button type="button" class="linkish" data-jump="${id}">${l}</button>`).join("")}</nav>
         <section class="block" id="overview">
           ${w.summary ? `<p class="lead-summary">${esc(w.summary)}</p>` : ""}
+          ${CHANNEL_OF[w.slug] && workOf(CHANNEL_OF[w.slug]) ? `<p class="yt-from">From <a href="#work-${esc(CHANNEL_OF[w.slug])}">${esc(workOf(CHANNEL_OF[w.slug]).title)}</a>${ATTRS[w.slug] && ATTRS[w.slug].views ? ` · ${esc(ATTRS[w.slug].views)} views on YouTube` : ""}</p>` : ""}
+          ${w.medium === "channel" && ATTRS[w.slug] ? `<p class="yt-from">${esc(ATTRS[w.slug].handle || "")}${ATTRS[w.slug].subscribers ? ` · ${esc(ATTRS[w.slug].subscribers)}` : ""}${ATTRS[w.slug].videos ? ` · ${esc(ATTRS[w.slug].videos)}` : ""}</p>${row(videosOf(w.slug))}` : ""}
           ${still ? `<figure class="still"><img src="${esc(still.url)}" alt="${esc(w.title)}: image from Wikimedia Commons" loading="lazy" decoding="async"><figcaption class="muted small">${esc(still.licence)}${still.attribution ? ` · ${esc(still.attribution)}` : ""} · via ${esc(still.source)}</figcaption></figure>` : ""}
           <dl class="facts">${facts.map(([k, v]) => { const fs = w.fact_sources[factSource(k)]; return `<div><dt>${esc(k)}</dt><dd>${esc(v)}${fs ? `<br><span class="muted small">from ${esc(fs.source)}; pilot seed said ${esc(fs.seed ?? "nothing")}</span>` : ""}</dd></div>`; }).join("")}</dl>
           ${c.adapted_from.length || c.adapted_as.length ? `<p class="small" style="margin-top:16px">${c.adapted_from.map((a) => `Adapted from <a href="#work-${esc(a.slug)}">${esc(a.title)}</a> (${esc(mediumLabel(a.medium).toLowerCase())}). `).join("")}${c.adapted_as.map((a) => `Adapted as <a href="#work-${esc(a.slug)}">${esc(a.title)}</a> (${esc(mediumLabel(a.medium).toLowerCase())}). `).join("")}</p>` : ""}
@@ -2843,6 +2859,30 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       ...local.map(({ slug, wa, w }) => `<li><a href="#watch-${esc(slug)}">${esc(w.title)}</a> <span class="muted small">${wa.comments.length} comments · in this browser</span></li>`),
     ];
     return `<section class="stat-box"><h2>Watch-alongs</h2>${items.length ? `<ul class="plain">${items.join("")}</ul>` : `<p class="muted">None open. Open any film or series and choose <em>Watch along</em>: start a timer when you press play, comment as you go, and share the link so friends can watch on their own screens and see your comments at the same moments.</p>`}</section>`;
+  }
+
+  // ------------------------------------------------------------------ YouTube: channels and notable videos
+  const videosOf = (channel) => allWorks().filter((x) => CHANNEL_OF[x.slug] === channel);
+  const YT_FILTERS = { comedy: "genre:comedy", food: "genre:food", horror: "genre:horror", documentary: "genre:documentary", mystery: "genre:mystery" };
+  function youtubeRow() {
+    const vids = allWorks().filter((x) => x.medium === "online_video");
+    if (!vids.length) return "";
+    return `<section class="shelf" aria-labelledby="sh-youtube"><header class="shelf-head"><div><h2 id="sh-youtube">From YouTube</h2><p>Channels worth following and some of their best-known videos.</p></div><a class="see-all" href="#youtube">All channels</a></header>${row(vids.slice(0, 16))}</section>`;
+  }
+  function renderYouTube(filter) {
+    const key = YT_FILTERS[filter];
+    const has = (x) => !key || (x.genres || []).some((g) => g.key === key) || (cat.work(x.slug) || { tags: [] }).tags.some((dd) => dd.terms.some((t) => t.key === key));
+    const channels = allWorks().filter((x) => x.medium === "channel").filter((c) => has(c) || videosOf(c.slug).some(has));
+    app.innerHTML = `
+      <header class="page-band hub-band"><p class="eyebrow">Directory</p><h1>YouTube</h1>
+        <p class="muted">Creators worth following, what they make, and some of their best-known videos. Every link opens on YouTube.</p></header>
+      <nav class="medium-tabs" aria-label="Kind of channel"><a href="#youtube" class="${filter ? "" : "on"}">Everything</a>${Object.keys(YT_FILTERS).map((f) => `<a href="#youtube?f=${f}" class="${filter === f ? "on" : ""}">${esc({ comedy: "Comedy", food: "Food", horror: "Gaming & horror", documentary: "VFX & film", mystery: "Mysteries" }[f])}</a>`).join("")}</nav>
+      ${channels.map((c) => { const a = ATTRS[c.slug] || {}; const vids = videosOf(c.slug).filter(has); return `
+        <section class="yt-channel">
+          <a class="yt-chan-head" href="#work-${esc(c.slug)}">${poster(cardCover(c))}<span><strong>${esc(c.title)}</strong><span class="muted small">${esc([a.handle, a.subscribers].filter(Boolean).join(" · "))}</span></span></a>
+          <p class="yt-about">${esc(c.summary || "")}</p>
+          ${vids.length ? row(vids) : ""}
+        </section>`; }).join("") || `<p class="empty">No channels in this group yet.</p>`}`;
   }
 
   // ------------------------------------------------------------------ the library page, diary and "up next"
@@ -3826,6 +3866,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h.startsWith("plist-")) { setNav("Community"); renderPublicList(h.slice(6)); }
     else if (h === "library" || h === "mine") { setNav("Library"); renderLibrary(p); }
     else if (h === "lists") { setNav("Library"); renderLists(); }
+    else if (h === "youtube") { setNav("YouTube"); renderYouTube(p.get("f") || ""); }
     else if (h === "achievements") { setNav("Library"); renderAchievements(); }
     else if (h === "trackers") { setNav("Library"); renderTrackers(); }
     else if (h.startsWith("list-")) { setNav("Library"); renderList(h.slice(5)); }
@@ -4115,7 +4156,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const li = b.parentElement;
       // With a mouse the menu is already open on hover, so the label opens the section's own page (a directory).
       const first = li.querySelector(".drop a");
-      if (window.matchMedia("(hover: hover)").matches && first && /^#(films|tv|books|games|albums)$/.test(first.getAttribute("href"))) { closeMenus(); location.hash = first.getAttribute("href"); return; }
+      if (window.matchMedia("(hover: hover)").matches && first && /^#(films|tv|books|games|albums|youtube)$/.test(first.getAttribute("href"))) { closeMenus(); location.hash = first.getAttribute("href"); return; }
       const was = li.classList.contains("open");
       closeMenus();
       if (!was) { li.classList.add("open"); b.setAttribute("aria-expanded", "true"); }

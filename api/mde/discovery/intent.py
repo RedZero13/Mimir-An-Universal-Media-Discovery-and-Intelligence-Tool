@@ -79,6 +79,8 @@ MEDIUM_WORDS = {
     "book": ["book", "books", "novel", "novels", "novella", "novellas", "something to read", "a read", "reading"],
     "game": ["game", "games", "video game", "video games", "videogame", "something to play", "to play", "gaming"],
     "album": ["album", "albums", "record", "records", "music", "something to listen to", "listen to", "listening"],
+    "online_video": ["youtube video", "youtube videos", "a youtube", "on youtube", "video essay", "video essays", "a video"],
+    "channel": ["youtuber", "youtubers", "youtube channel", "youtube channels"],
     "series": ["tv show", "tv shows", "tv series", "series", "show to watch", "miniseries", "mini-series", "limited series",
                "web series", "k-drama", "k-dramas", "kdrama", "kdramas", "to binge", "binge-watch", "binge watch",
                "something to binge", "a show", "the show", "shows", "a tv", "on tv", "an anime", "anime series", "a sitcom",

@@ -18,7 +18,7 @@ from pathlib import Path
 from mde.catalogue.model import GroupRef, Image, Score, WorkProfile, slugify
 
 ENRICHMENT_DIR = Path(__file__).parent.parent / "data" / "enrichment"
-SOURCE_ORDER = ("wikidata", "openlibrary", "musicbrainz", "tmdb", "publisher")   # later sources win for images of the same kind
+SOURCE_ORDER = ("wikidata", "openlibrary", "musicbrainz", "tmdb", "publisher", "youtube")   # later sources win for images of the same kind
 IMAGE_PREFERENCE = {"poster": 0, "cover": 1, "still": 2, "logo": 3}
 
 
@@ -34,7 +34,8 @@ def load_enrichment(directory: Path = ENRICHMENT_DIR) -> dict[str, dict]:
     return out
 
 
-LINK_ORDER = ("listen:spotify", "listen:youtube-music", "watch:justwatch", "buy:steam", "buy:amazon", "info:publisher", "reactions:letterboxd",
+LINK_ORDER = ("listen:spotify", "listen:youtube-music", "watch:youtube", "watch:justwatch", "buy:steam", "buy:amazon", "info:publisher",
+              "reactions:letterboxd",
               "reactions:rotten-tomatoes", "reactions:metacritic", "reactions:goodreads", "reactions:storygraph",
               "reactions:reddit", "reactions:youtube", "info:imdb", "info:openlibrary", "info:musicbrainz", "info:wikipedia")
 
