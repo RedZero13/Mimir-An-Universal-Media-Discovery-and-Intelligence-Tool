@@ -1,0 +1,32 @@
+{
+  "source": "publisher",
+  "licence": "Supplied by the rights holder (Terratales / Piyush Banerjee)",
+  "generated_at": "2026-10-23T00:00:00Z",
+  "unmatched": [],
+  "works": {
+    "a-circle-of-time-2020": {
+      "match": {"key": "B085GHDLNT", "reason": "the author's own title"},
+      "facts": {"page_count": 229},
+      "images": [{"kind": "cover", "url": "https://m.media-amazon.com/images/I/81+mKqpLHqL.jpg", "licence": "Supplied by the author", "attribution": "Piyush Banerjee"}],
+      "ids": {"asin": "B085GHDLNT"},
+      "links": [
+        {"kind": "buy:amazon", "label": "Amazon (Kindle and paperback)", "url": "https://www.amazon.in/dp/B085GHDLNT"},
+        {"kind": "info:publisher", "label": "Terratales Publishing", "url": "https://terratalesmedia.world/publishing/"},
+        {"kind": "reactions:goodreads", "label": "Goodreads", "url": "https://www.goodreads.com/search?q=A+Circle+of+Time+Piyush+Banerjee"}
+      ],
+      "conflicts": []
+    },
+    "akshata-the-ledger-of-names-2025": {
+      "match": {"key": "B0G2J4VKD9", "reason": "the author's own title"},
+      "facts": {"page_count": 157},
+      "images": [{"kind": "cover", "url": "https://m.media-amazon.com/images/I/81F1UjXtEjL.jpg", "licence": "Supplied by the author", "attribution": "Piyush Banerjee"}],
+      "ids": {"asin": "B0G2J4VKD9"},
+      "links": [
+        {"kind": "buy:amazon", "label": "Amazon (Kindle)", "url": "https://www.amazon.in/dp/B0G2J4VKD9"},
+        {"kind": "info:publisher", "label": "Terratales Publishing", "url": "https://terratalesmedia.world/publishing/"},
+        {"kind": "reactions:goodreads", "label": "Goodreads", "url": "https://www.goodreads.com/search?q=Akshata+The+Ledger+of+Names"}
+      ],
+      "conflicts": []
+    }
+  }
+}

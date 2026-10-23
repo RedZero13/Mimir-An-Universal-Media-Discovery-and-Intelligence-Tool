@@ -465,6 +465,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .ring-chip .ring-n { margin-top: auto; padding-top: 6px; }
 .ring-chip::before { content: ""; position: absolute; right: -52px; top: -52px; width: 104px; height: 104px; border-radius: 50%; border: 1px solid var(--ra); opacity: .45; box-shadow: 0 0 0 12px rgba(0,0,0,0), 0 0 0 13px var(--ra); }
 .ring-chip:hover { border-color: var(--ra); }
+.still { margin: 18px 0 0; max-width: 520px; } .still img { width: 100%; height: auto; border-radius: 6px; display: block; } .still figcaption { margin-top: 6px; }
 /* ---------------------------------------------------------------- journal, decide, calendar, community */
 .decide-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; }
 .journal-panel { max-width: 760px; }
@@ -858,7 +859,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     return genre || "default";
   }
   const coverOf = (w, mood) => ({ slug: w.slug, title: w.title, medium: w.medium, year: w.year,
-    creator: (w.creators || [])[0] || "", mood, image: w.image || (w.images && w.images[0]) || null });
+    creator: (w.creators || [])[0] || "", mood, image: w.image || (w.images && w.images.find(isCover)) || null });
+  const isCover = (i) => i.kind === "cover" || i.kind === "poster";
   const cardCover = (w) => coverOf(w, moodFromCard(w));
 
   function coverSvg(c) {
@@ -1594,7 +1596,8 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     w.creators = w.credits.filter((cr) => ["director", "creator", "author", "developer", "artist"].includes(cr.role)).map((cr) => cr.name);
     const mood = moodFromPage(w);
     const [bg0, bg1, ac] = PALETTES[mood] || PALETTES.default;
-    const img = w.images[0] || null;
+    const img = w.images.find(isCover) || null;
+    const still = w.images.find((i) => !isCover(i)) || null;   // a Commons image that isn't cover art, shown as a picture
     const c = w.continuity;
     const lengthFact = w.time ? `${timeText(w.time, album)}${w.time.basis === "pages" ? ` (${w.page_count} pages)` : ""}`
       : w.medium === "book" ? "Varies by edition" : "Not recorded";
@@ -1603,6 +1606,12 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       ["Country", w.countries.length ? w.countries.join(", ") : "Not recorded"]];
     if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
     if (w.medium === "series" && w.attributes.episodes) facts.push(["Episodes", `${w.attributes.seasons ? `${w.attributes.seasons} season${w.attributes.seasons === 1 ? "" : "s"}, ` : ""}${w.attributes.episodes} episodes of about ${w.attributes.episode_minutes} min`]);
+    if (w.attributes.form) {
+      const a = w.attributes, n = (v, s) => `${v} ${s}${v === 1 ? "" : "s"}`;
+      const run = [a.volumes && n(a.volumes, "volume"), a.chapters && n(a.chapters, "chapter"),
+        { ongoing: "ongoing", hiatus: "on hiatus" }[a.status]].filter(Boolean).join(", ");
+      facts.push(["Form", `${a.form[0].toUpperCase()}${a.form.slice(1)}${run ? ` · ${run}` : ""}`]);
+    }
     const factSource = (k) => ({ Released: "release_year", Time: "runtime_minutes" })[k];
     const credits = [...w.credits].sort((a, b) => roleRank(a.role) - roleRank(b.role));
     const links = reactionLinks(w);
@@ -1641,6 +1650,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
         <nav class="jump" aria-label="On this page">${jumps.map(([id, l]) => `<button type="button" class="linkish" data-jump="${id}">${l}</button>`).join("")}</nav>
         <section class="block" id="overview">
           ${w.summary ? `<p class="lead-summary">${esc(w.summary)}</p>` : ""}
+          ${still ? `<figure class="still"><img src="${esc(still.url)}" alt="${esc(w.title)}: image from Wikimedia Commons" loading="lazy" decoding="async"><figcaption class="muted small">${esc(still.licence)}${still.attribution ? ` · ${esc(still.attribution)}` : ""} · via ${esc(still.source)}</figcaption></figure>` : ""}
           <dl class="facts">${facts.map(([k, v]) => { const fs = w.fact_sources[factSource(k)]; return `<div><dt>${esc(k)}</dt><dd>${esc(v)}${fs ? `<br><span class="muted small">from ${esc(fs.source)}; pilot seed said ${esc(fs.seed ?? "nothing")}</span>` : ""}</dd></div>`; }).join("")}</dl>
           ${c.adapted_from.length || c.adapted_as.length ? `<p class="small" style="margin-top:16px">${c.adapted_from.map((a) => `Adapted from <a href="#work-${esc(a.slug)}">${esc(a.title)}</a> (${esc(mediumLabel(a.medium).toLowerCase())}). `).join("")}${c.adapted_as.map((a) => `Adapted as <a href="#work-${esc(a.slug)}">${esc(a.title)}</a> (${esc(mediumLabel(a.medium).toLowerCase())}). `).join("")}</p>` : ""}
         </section>
@@ -1867,6 +1877,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   function progressUnit(w) {
     const a = w.attributes || {};
     if (w.medium === "series") return { unit: "episodes", total: a.episodes || null, step: 1 };
+    if (w.medium === "book" && ["manga", "manhwa", "manhua"].includes(a.form)) return { unit: "chapters", total: a.chapters || null, step: 1 };
     if (w.medium === "book") return { unit: "pages", total: w.page_count || null, step: 10 };
     if (w.medium === "game") return { unit: "hours", total: w.playtime_hours || null, step: 1 };
     return null;
@@ -1931,7 +1942,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     });
   }
   // "12 / 62 ep" on the cover of anything you're tracking with progress (episodes, pages, hours).
-  const BADGE_UNIT = { episodes: "ep", pages: "p", hours: "h" };
+  const BADGE_UNIT = { episodes: "ep", pages: "p", hours: "h", chapters: "ch" };
   function progressBadge(slug) {
     const e = library[slug];
     if (!e || (!e.progress && e.status !== "completed")) return "";
@@ -2342,7 +2353,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 
   function journalForm(w) {
     const e = library[w.slug], pu = progressUnit(w);
-    const at = e && e.progress && pu ? `${BADGE_UNIT[pu.unit] === "ep" ? "Episode" : pu.unit === "pages" ? "Page" : "Hour"} ${e.progress}` : "";
+    const at = e && e.progress && pu ? `${{ episodes: "Episode", pages: "Page", hours: "Hour", chapters: "Chapter" }[pu.unit]} ${e.progress}` : "";
     return `<form class="journal-form" data-journal="${esc(w.slug)}">
       <div class="jf-row"><label><span>Date</span><input type="date" name="date" value="${today()}" required></label>
         <label><span>Where you're up to</span><input name="at" value="${esc(at)}" maxlength="60" placeholder="e.g. Episode 3, chapter 12, the second act"></label></div>

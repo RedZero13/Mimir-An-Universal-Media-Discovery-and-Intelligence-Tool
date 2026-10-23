@@ -16,6 +16,7 @@ The database `source` table is the authoritative register for sources in use. Th
 | `wikidata` | open data | yes | yes | yes | yes | CC0. Identity (QIDs), release year, film runtime, series and order, published review scores (Rotten Tomatoes, Metacritic, IMDb as recorded on Wikidata, with date and vote count), box office, external IDs, Commons images (each with its own licence and attribution) |
 | `openlibrary` | open data | yes | yes | yes | check | Median page count, reader ratings, cover thumbnails. Covers remain the publishers'; shown for identification with attribution |
 | `musicbrainz` | open data | yes | yes | yes | yes | Core data CC0: release groups, standard-edition track lists and lengths, remix relationships. Covers via the Cover Art Archive (rights remain with the owners) |
+| `publisher` | rights holder | yes | yes | yes | yes | Supplied by the rights holder for Terratales titles: covers, page counts, store links (`api/mde/data/enrichment/publisher.json`, edited by hand) |
 
 Summaries are original writing. Scores are shown as published by their owners, with source and date; Mimir never
 computes or republishes reviews.

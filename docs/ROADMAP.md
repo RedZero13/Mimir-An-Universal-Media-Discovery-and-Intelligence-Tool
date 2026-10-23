@@ -9,7 +9,7 @@ Each item says why it matters, what "done" means, and what it depends on. Horizo
 
 ## Shipped in the beta
 
-- 503 works across films, TV, books, games and albums in 28 languages; 136-term taxonomy; parents' guide.
+- 601 works across films, TV, books (including manga and manhwa), games and albums in 28 languages; 138-term taxonomy; parents' guide.
 - Discovery in your own words, explained picks, cross-medium "like this", time-aware requests.
 - Taste profile and "For you"; shelves, mood rings, sagas, rankings, people and tag pages.
 - Where to watch / read / play / listen with your preferred service and region.
@@ -28,8 +28,8 @@ Each item says why it matters, what "done" means, and what it depends on. Horizo
 | Item | Why | Done when |
 | --- | --- | --- |
 | Finish Wikidata enrichment | Years, runtimes, review scores and IDs for films, TV and games | All 503 works attempted; matches reviewed; conflicts listed |
-| Real covers only | Wikidata's main image is sometimes a logo or a photo, not a poster | Only cover and poster images are shown; others fall back to generated covers |
-| Manga and anime as formats | MangaUpdates and MAL users track chapters, volumes and cours | Manga is a book format with chapters and volumes; anime series carry seasons and cours; progress counts in them |
+| ~~Real covers only~~ | Shipped: only cover and poster images are shown as covers | |
+| ~~Manga and anime as formats~~ | Shipped: manga, manhwa and manhua with chapters and volumes; chapter progress; Panels & Pages and Anime Essentials shelves | |
 | Catalogue to 1,000 works | Imports report what's missing; testers will look for their favourites | Unmatched import titles and feedback triaged weekly into the seed |
 | MAL / AniList / IMDb IDs on works | Title-and-year matching misses translations and remakes | Imports match by ID first, title second |
 | Beta feedback loop | Know what's wrong before scaling | Weekly triage of emails and "report a problem"; fixes tracked in the repo |

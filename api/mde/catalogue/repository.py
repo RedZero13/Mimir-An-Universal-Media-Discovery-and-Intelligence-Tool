@@ -121,7 +121,7 @@ def _load_enrichment(conn: psycopg.Connection, works: dict[str, WorkProfile]) ->
                           "(SELECT e.value FROM field_provenance e JOIN source es ON es.id = e.source_id "
                           " WHERE e.work_id = f.work_id AND e.field = f.field AND es.slug = 'editorial-seed') AS seed "
                           "FROM field_provenance f JOIN source s ON s.id = f.source_id "
-                          "WHERE f.is_selected AND s.kind IN ('open_dataset', 'official_api')").fetchall():
+                          "WHERE f.is_selected AND s.kind IN ('open_dataset', 'official_api', 'licensed_dataset')").fetchall():
         works[r["work_id"]].fact_sources[r["field"]] = {"source": r["source"], "seed": r["seed"]}
     for w in works.values():
         normalise_order(w)

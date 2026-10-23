@@ -91,6 +91,40 @@
    }
   },
   {
+   "slug": "panels-and-pages",
+   "name": "Panels & Pages",
+   "tagline": "Manga and manhwa, by the chapter.",
+   "rule": {
+    "media": [
+     "book"
+    ],
+    "forms": [
+     "manga",
+     "manhwa",
+     "manhua"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
+   "slug": "anime-essentials",
+   "name": "Anime Essentials",
+   "tagline": "The series and films anime fans start with.",
+   "rule": {
+    "media": [
+     "film",
+     "series"
+    ],
+    "languages": [
+     "ja"
+    ],
+    "all_tags": [
+     "genre:animation"
+    ],
+    "sort": "popular"
+   }
+  },
+  {
    "slug": "cops-and-robbers",
    "name": "Cops & Robbers",
    "tagline": "Heists, gangsters and the people chasing them.",
