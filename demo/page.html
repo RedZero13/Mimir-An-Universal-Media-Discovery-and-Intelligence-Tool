@@ -1,4 +1,5 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"light";}catch(e){document.documentElement.dataset.theme="light";}</script>
 <script>if (location.protocol === "http:" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) location.replace("https:" + location.href.slice(5));</script>
 <title>Mimir · A Terratales Venture</title>
 <meta name="description" content="Mimir is a catalogue and discovery engine for films, books, games and music. Describe how you want to feel and it finds what fits, with the reasons for every pick. A Terratales venture.">
@@ -10,7 +11,8 @@
 <style>
 /* Layout: one column that breathes (Terratales Vol. II: hairline gold rules divide, not boxes). Reading views
    hold a 720px measure; catalogue views widen to 1080px. Night ground, gold structure, parchment text. */
-:root {
+/* The night palette is also kept inside "dark islands" (mood-tinted heroes, rings and cover badges) in light mode. */
+:root, .work-hero, .spot-light, .ring-chip, .badge {
   /* Terratales Brand Guidelines Vol. II, §09 Colour: fixed values */
   --void: #0B0B0C; --black: #131315; --surface: #1A1813; --surface-2: #23211C;
   --gold: #C0902F; --gold-bright: #D8B24A; --gold-deep: #8A6A18; --cream: #D8C084;
@@ -26,6 +28,18 @@
   --maxw: 1240px; --measure: 720px;
   color-scheme: dark;
 }
+/* Daylight (default): Bone ground, parchment surfaces, charcoal ink; the gold family darkens to Deep Bark for text
+   so it holds contrast on light. Dark mode is the original night palette above. */
+:root[data-theme="light"] {
+  --void: #E4D8BC; --black: #EDE3CC; --surface: #F6F0E2; --surface-2: #E6DAC0;
+  --gold: #A27A26; --gold-bright: #7D5F14; --gold-deep: #8A6A18; --cream: #5E4B1C;
+  --bone: #131315; --ink: #23211C; --muted: #5F5A4F; --faint: #6E685C;
+  --line: rgba(110, 104, 92, .24); --line-strong: rgba(138, 106, 24, .45);
+  --sev-none: #4F6E4A; --sev-mild: #7D6A2E; --sev-moderate: #A2601A; --sev-severe: #B04A31;
+  color-scheme: light;
+}
+:root[data-theme="light"] .mine-n { color: #F6F0E2; }
+:root[data-theme="light"] .menubar { background: linear-gradient(180deg, #F6F0E2, #E8DCC0); box-shadow: 0 6px 18px rgba(110, 90, 40, .14); }
 * { box-sizing: border-box; }
 html { background: var(--black); }
 body {
@@ -247,6 +261,10 @@ details > summary:hover { color: var(--bone); }
 
 /* ---------------------------------------------------------------- header, menu bar (navigation tree), scoped search */
 .top-right { margin-left: auto; display: inline-flex; align-items: center; gap: 14px; }
+.theme-btn { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--gold-bright); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+.theme-btn:hover { border-color: var(--gold); background: var(--surface); }
+.theme-btn svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+:root[data-theme="light"] .theme-btn .sun, :root:not([data-theme="light"]) .theme-btn .moon { display: none; }
 .mine-link { font: 500 .88rem var(--f-body); color: var(--ink); text-decoration: none; display: inline-flex; gap: 8px; align-items: center; }
 .mine-link:hover { color: var(--gold-bright); }
 .mine-n { font: 500 .72rem var(--f-mono); min-width: 22px; text-align: center; padding: 2px 6px; border-radius: 99px; background: var(--gold-deep); color: var(--bone); }
@@ -731,7 +749,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#D8B24A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="29.2"/><path d="M11 22 H53 M11 20.4 V23.6 M53 20.4 V23.6"/><path d="M32 22 V15"/><path d="M32 15 C29.4 14.1 28 11.8 28.2 9 C30.8 9.7 32.2 12.1 32 15 Z"/><path d="M32 22 V43"/><path d="M32 22 C31.2 28.6 27.6 32.4 26.4 37 C25.8 39.6 27.4 41.4 29.2 40.6"/><path d="M32 22 C32.8 28.6 36.4 32.4 37.6 37 C38.2 39.6 36.6 41.4 34.8 40.6"/><path d="M32 22 C28.6 25.6 21.6 27.4 19.6 33 C18.6 35.9 20.2 38.2 22.4 37.4"/><path d="M32 22 C35.4 25.6 42.4 27.4 44.4 33 C45.4 35.9 43.8 38.2 41.6 37.4"/><ellipse cx="32" cy="47.2" rx="16.5" ry="4.3"/><ellipse cx="32" cy="47.2" rx="8.5" ry="2.1"/></g></svg>
       <span><span class="brand-word">MIMIR</span><span class="brand-sub">A TERRATALES VENTURE</span></span>
     </a>
-    <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#library">Library <span id="mine-n" class="mine-n">0</span></a><a class="mine-link" id="account-link" href="#signin" hidden>Sign in</a><span class="pilot" id="beta-pill">Beta</span></span>
+    <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#library">Library <span id="mine-n" class="mine-n">0</span></a><a class="mine-link" id="account-link" href="#signin" hidden>Sign in</a><button type="button" class="theme-btn" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button><span class="pilot" id="beta-pill">Beta</span></span>
   </header>
   <nav class="menubar" id="menubar" aria-label="Main"></nav>
   <main id="app"></main>
@@ -3231,6 +3249,22 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   renderAccountLink();
   if (session) syncNow().catch(() => {});
   document.getElementById("beta-pill").textContent = `Beta · ${allWorks().length} works`;
+  // Light (default) and dark themes; the choice is remembered in this browser.
+  const themeBtn = document.getElementById("theme-btn");
+  const syncTheme = () => {
+    const dark = document.documentElement.dataset.theme === "dark";
+    const label = dark ? "Switch to light mode" : "Switch to dark mode";
+    themeBtn.setAttribute("aria-label", label); themeBtn.title = label;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = dark ? "#131315" : "#EDE3CC";
+  };
+  themeBtn.addEventListener("click", () => {
+    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("mimir-theme", next); } catch { /* storage unavailable: this visit only */ }
+    syncTheme();
+  });
+  syncTheme();
   document.getElementById("cat-count").textContent = allWorks().length;
   document.getElementById("foot-feedback").href = feedbackHref();
   window.addEventListener("hashchange", route);
