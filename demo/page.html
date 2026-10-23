@@ -846,33 +846,41 @@ a.tchip:hover, button.tchip:hover { background: color-mix(in srgb, var(--gold) 2
 .foot-cols h2 { font-family: var(--f-body); font-weight: 600; letter-spacing: .08em; font-size: .72rem; }
 .foot .legal { font-family: var(--f-body); letter-spacing: .04em; font-size: 11px; }
 @media (prefers-reduced-motion: reduce) { .pcard-art, .pcard-art:hover { transition: none; transform: none; } }
-/* Side scroll rail, falling-leaf backdrop and reveal on scroll (after the Terratales site). */
+/* Side scroll rail, the well backdrop and reveal on scroll. */
 html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--gold-deep) 70%, transparent); border-radius: 9px; border: 2px solid transparent; background-clip: padding-box; }
 ::-webkit-scrollbar-track { background: transparent; }
 .wrap { position: relative; z-index: 1; }
-.leaves { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-.leaf { position: absolute; top: -6vh; width: 9px; height: 14px; border-radius: 0 100% 0 100%; background: linear-gradient(135deg, color-mix(in srgb, var(--gold) 60%, transparent), color-mix(in srgb, var(--gold-deep) 15%, transparent)); animation: leaf-fall linear infinite; }
-@keyframes leaf-fall { 0% { opacity: 0; transform: translateY(-6vh) rotate(0deg); } 8% { opacity: .6; } 92% { opacity: .5; } 100% { opacity: 0; transform: translateY(108vh) translateX(60px) rotate(320deg); } }
+/* The well: light caustics drifting over the page, bubbles rising and the odd ripple on the surface. */
+.well-fx { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.well-fx .caustic { position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%; filter: blur(60px); opacity: .5; background: radial-gradient(circle, color-mix(in srgb, var(--gold) 16%, transparent), transparent 62%); animation: caustic 38s ease-in-out infinite alternate; }
+.well-fx .caustic.c2 { right: -25vmax; bottom: -30vmax; animation-duration: 47s; animation-direction: alternate-reverse; background: radial-gradient(circle, color-mix(in srgb, #3E7C8C 22%, transparent), transparent 62%); }
+.well-fx .caustic.c1 { left: -25vmax; top: -30vmax; }
+@keyframes caustic { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(8vw, 6vh) scale(1.12); } 100% { transform: translate(-4vw, 12vh) scale(.94); } }
+.bubble { position: absolute; bottom: -4vh; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--gold) 75%, transparent); background: radial-gradient(circle at 32% 30%, color-mix(in srgb, var(--bone) 45%, transparent), transparent 55%); animation: bubble-rise linear infinite; }
+@keyframes bubble-rise { 0% { opacity: 0; transform: translate(0, 0); } 10% { opacity: .7; } 30% { transform: translate(14px, -30vh); } 55% { transform: translate(-10px, -58vh); } 80% { transform: translate(12px, -84vh); opacity: .5; } 100% { opacity: 0; transform: translate(0, -110vh); } }
+.ripple { position: absolute; width: 10px; height: 4px; margin: -2px 0 0 -5px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent); animation: ripple-out 5.5s ease-out forwards; }
+@keyframes ripple-out { 0% { opacity: .8; transform: scale(1); } 100% { opacity: 0; transform: scale(26); } }
+@media (max-width: 700px) { .bubble:nth-of-type(n+8) { display: none; } }
 .depth { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 35; display: flex; align-items: flex-start; gap: 12px; }
 .depth[hidden], .depth.short { display: none; }
 .depth .track { position: relative; width: 2px; height: 220px; border-radius: 2px; background: var(--line); }
-.depth .fill { position: absolute; top: 0; left: 0; width: 2px; height: 0; border-radius: 2px; background: linear-gradient(180deg, var(--gold), var(--gold-deep)); }
+.depth .fill { position: absolute; top: 0; left: 0; width: 2px; height: 0; border-radius: 2px; background: linear-gradient(180deg, color-mix(in srgb, var(--gold) 30%, transparent), var(--gold)); transition: height .25s ease-out; }
+.depth .fill::after { content: ""; position: absolute; left: -2px; bottom: -5px; width: 6px; height: 8px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: var(--gold); box-shadow: 0 0 10px var(--gold); }
 .depth .tick { position: absolute; left: -4px; width: 10px; height: 10px; padding: 0; border-radius: 50%; border: 1px solid var(--gold-deep); background: var(--black); transform: translateY(-50%); cursor: pointer; transition: background .25s, transform .25s; }
 .depth .tick.on { background: var(--gold); border-color: var(--gold); transform: translateY(-50%) scale(1.2); }
 .depth .tick:hover { background: var(--gold); }
 .depth .now { position: absolute; right: 100%; top: var(--now-y, 0); margin-right: 14px; transform: translateY(-50%); max-width: 220px; padding: 5px 10px; border-radius: 999px; background: var(--glass); backdrop-filter: blur(12px); box-shadow: var(--shadow-1); font: 600 10px/1.3 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; pointer-events: none; transition: opacity .3s; }
 .depth:hover .now, .depth.moving .now { opacity: 1; }
 @media (max-width: 1320px) { .depth { display: none; } }
-@media (max-width: 700px) { .leaf:nth-child(n+9) { display: none; } }
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
 .rv.in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .leaves { display: none; } .rv { opacity: 1; transform: none; transition: none; } }
-@media print { .leaves, .depth { display: none; } }
+@media (prefers-reduced-motion: reduce) { .well-fx { display: none; } .rv { opacity: 1; transform: none; transition: none; } }
+@media print { .well-fx, .depth { display: none; } }
 </style>
 
-<div class="leaves" id="leaves" aria-hidden="true"></div>
+<div class="well-fx" id="well-fx" aria-hidden="true"><span class="caustic c1"></span><span class="caustic c2"></span></div>
 <nav class="depth short" id="depth" aria-label="Sections on this page"><div class="track"><span class="now" id="depth-now"></span><div class="fill" id="depth-fill"></div></div></nav>
 <div class="wrap">
   <header class="top">
@@ -3580,11 +3588,25 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("/sw.js").catch(() => {});
   document.getElementById("cat-count").textContent = allWorks().length;
   document.getElementById("foot-feedback").href = feedbackHref();
-  // ------------------------------------------------------------------ backdrop leaves, section rail, reveal
+  // ------------------------------------------------------------------ the well backdrop, section rail, reveal
   (function ambience() {
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const leaves = document.getElementById("leaves");
-    if (!still) leaves.innerHTML = Array.from({ length: 16 }, () => `<i class="leaf" style="left:${(Math.random() * 100).toFixed(1)}%;animation-duration:${(11 + Math.random() * 12).toFixed(1)}s;animation-delay:-${(Math.random() * 20).toFixed(1)}s"></i>`).join("");
+    const well = document.getElementById("well-fx");
+    if (!still) {
+      well.insertAdjacentHTML("beforeend", Array.from({ length: 14 }, () => {
+        const d = (5 + Math.random() * 8).toFixed(1);
+        return `<i class="bubble" style="left:${(Math.random() * 100).toFixed(1)}%;width:${d}px;height:${d}px;animation-duration:${(16 + Math.random() * 16).toFixed(1)}s;animation-delay:-${(Math.random() * 30).toFixed(1)}s"></i>`;
+      }).join(""));
+      // Now and then a drop lands somewhere on the page and rings out.
+      setInterval(() => {
+        if (document.hidden) return;
+        const r = document.createElement("i");
+        r.className = "ripple";
+        r.style.left = (8 + Math.random() * 84) + "%"; r.style.top = (12 + Math.random() * 76) + "%";
+        r.addEventListener("animationend", () => r.remove());
+        well.appendChild(r);
+      }, 4200);
+    }
     const depth = document.getElementById("depth"), fill = document.getElementById("depth-fill"), now = document.getElementById("depth-now");
     const track = depth.querySelector(".track");
     let heads = [], ticks = [], moving = 0;
