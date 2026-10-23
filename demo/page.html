@@ -398,9 +398,9 @@ a.letter { color: var(--muted); text-decoration: none; }
 .pcard-art:hover { transform: translateY(-3px); }
 .pcard-art:hover .poster { box-shadow: 0 10px 26px rgba(0, 0, 0, .6), 0 0 0 1px var(--gold); }
 .badge { position: absolute; font: 600 .66rem/1 var(--f-mono); padding: 4px 6px; border-radius: 3px; background: rgba(11, 11, 12, .82); color: var(--bone); border: 1px solid var(--line-strong); }
-.badge.rate { right: 6px; top: 6px; }
-.badge.score { right: 6px; top: 30px; color: var(--gold-bright); }
-.badge.ord { right: 6px; bottom: 6px; color: var(--gold-bright); }
+.badges { position: absolute; right: 6px; top: 6px; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; pointer-events: none; }
+.badges .badge { position: static; }
+.badge.score, .badge.ord { color: var(--gold-bright); }
 .badge.prog { left: 6px; top: 6px; z-index: 2; background: var(--black); box-shadow: 0 2px 8px rgba(0, 0, 0, .6); border-color: var(--gold); color: var(--gold-bright); }
 .badge.prog.done { background: var(--gold-bright); color: var(--black); }
 .work-art-frame, .lib-art, .rank-art, .dt-art { position: relative; display: block; }
@@ -843,7 +843,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       if (last !== undefined && (last + " " + word).length <= max) lines[lines.length - 1] = last + " " + word;
       else lines.push(word);
     }
-    if (lines.length > 4) { lines.length = 4; lines[3] = lines[3].replace(/.{0,2}$/, "…"); }
+    if (lines.length > 3) { lines.length = 3; lines[2] = lines[2].replace(/.{0,2}$/, "…"); }
     return lines;
   }
 
@@ -965,13 +965,13 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const fs = n1(Math.min(sq ? 19 : 25, (W - 36) / (longest * 0.5)));
     const lh = n1(fs * 1.08);
     const sub = [c.creator, c.year].filter(Boolean).join(" · ");
-    const baseY = H - (sub ? 26 : 16);
+    const baseY = H - (sub ? 31 : 18);
     const titleY = n1(baseY - (lines.length - 1) * lh);
     const label = `${mediumLabel(c.medium).toUpperCase()}${c.year ? " · " + c.year : ""}`;
     return `<svg class="cover" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)}: generated cover" preserveAspectRatio="xMidYMid slice">
       <defs><linearGradient id="${id}" x1="0" y1="0" x2="${n1(0.3 + r() * 0.4)}" y2="1"><stop offset="0" stop-color="${bg1}"/><stop offset="1" stop-color="${bg0}"/></linearGradient>
         <radialGradient id="${id}s"><stop offset="0" stop-color="${ac}"/><stop offset="1" stop-color="${ac}" stop-opacity=".35"/></radialGradient>
-        <linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset=".45" stop-color="${bg0}" stop-opacity="0"/><stop offset="1" stop-color="${bg0}" stop-opacity=".92"/></linearGradient></defs>
+        <linearGradient id="${id}f" x1="0" y1="0" x2="0" y2="1"><stop offset="${n1(Math.max(0.2, (titleY - fs * 2.4) / H))}" stop-color="${bg0}" stop-opacity="0"/><stop offset="${n1(Math.min(0.9, (titleY - fs * 1.15) / H))}" stop-color="${bg0}" stop-opacity=".93"/><stop offset="1" stop-color="${bg0}" stop-opacity=".97"/></linearGradient></defs>
       <rect width="${W}" height="${H}" fill="url(#${id})"/>${motif}
       <rect width="${W}" height="${H}" fill="url(#${id}f)"/>
       <text x="18" y="${sq ? 22 : 32}" fill="${ac}" opacity=".85" font-family="Cinzel, Georgia, serif" font-size="7.5" font-weight="600" letter-spacing="2.2">${esc(label)}</text>
@@ -1003,7 +1003,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     const ord = w.continuity && w.continuity.kind === "series" && w.continuity.position ? `<span class="badge ord">#${esc(w.continuity.position)}</span>` : "";
     return `
       <li class="pcard">
-        <a class="pcard-art" href="#work-${esc(w.slug)}" aria-label="${esc(w.title)}">${poster(cardCover(w))}${flag}${score}${ord}${progressBadge(w.slug)}</a>
+        <a class="pcard-art" href="#work-${esc(w.slug)}" aria-label="${esc(w.title)}">${poster(cardCover(w))}${flag || score || ord ? `<span class="badges">${flag}${score}${ord}</span>` : ""}${progressBadge(w.slug)}</a>
         <div class="pcap">
           <h3><a href="#work-${esc(w.slug)}">${esc(w.title)}</a></h3>
           <p class="pmeta">${esc([mediumLabel(w.medium), w.year, (w.creators || [])[0]].filter(Boolean).join(" · "))}</p>
