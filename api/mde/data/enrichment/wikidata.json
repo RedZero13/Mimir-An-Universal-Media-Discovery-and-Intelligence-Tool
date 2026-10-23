@@ -47982,6 +47982,1085 @@
      "url": "https://en.wikipedia.org/wiki/Bluey_(TV_series)"
     }
    ]
+  },
+  "star-wars-the-rise-of-skywalker-2019": {
+   "match": {
+    "qid": "Q20977110",
+    "confidence": 1.0,
+    "reason": "type ok, year 2019, exact title"
+   },
+   "facts": {
+    "release_year": 2019,
+    "runtime_minutes": 142
+   },
+   "ids": {
+    "imdb": "tt2527338",
+    "tmdb_movie": "181812",
+    "rotten_tomatoes": "m/star_wars_the_rise_of_skywalker",
+    "letterboxd": "star-wars-the-rise-of-skywalker",
+    "metacritic": "movie/star-wars-episode-ix---the-rise-of-skywalker",
+    "twitter": "starwars"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 6.3,
+     "scale_max": 10.0,
+     "votes": 538000,
+     "as_of": "2026-03-07"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 53.0,
+     "scale_max": 100.0,
+     "votes": 61,
+     "as_of": "2026-01-16"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 6.1,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2023-03-03"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 51.0,
+     "scale_max": 100.0,
+     "votes": 522,
+     "as_of": "2026-01-16"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 1074144248.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 515202542.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "other",
+     "amount": 75922920.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q22092344",
+     "name": "Star Wars",
+     "position": "9"
+    },
+    {
+     "qid": "Q6586871",
+     "name": "Star Wars sequel trilogy",
+     "position": "3"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q18486021",
+     "slug": null
+    }
+   ],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Star_Wars:_The_Rise_of_Skywalker",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/star-wars-the-rise-of-skywalker/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/star_wars_the_rise_of_skywalker"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2527338/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/star-wars-episode-ix---the-rise-of-skywalker"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Star+Wars%3A+The+Rise+of+Skywalker"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Star+Wars%3A+The+Rise+of+Skywalker%22+2019"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Star+Wars%3A+The+Rise+of+Skywalker+2019+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Star_Wars:_The_Rise_of_Skywalker"
+    }
+   ]
+  },
+  "the-hobbit-the-battle-of-the-five-armies-2014": {
+   "match": {
+    "qid": "Q919649",
+    "confidence": 1.0,
+    "reason": "type ok, year 2014, exact title"
+   },
+   "facts": {
+    "release_year": 2014,
+    "runtime_minutes": 144
+   },
+   "ids": {
+    "imdb": "tt2310332",
+    "tmdb_movie": "122917",
+    "rotten_tomatoes": "m/the_hobbit_the_battle_of_the_five_armies",
+    "letterboxd": "the-hobbit-the-battle-of-the-five-armies-extended-version",
+    "metacritic": "movie/the-hobbit-the-battle-of-the-five-armies"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 7.4,
+     "scale_max": 10.0,
+     "votes": 614000,
+     "as_of": "2026-02-20"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 59.0,
+     "scale_max": 100.0,
+     "votes": 46,
+     "as_of": "2026-01-15"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 6.3,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 59.0,
+     "scale_max": 100.0,
+     "votes": 265,
+     "as_of": "2026-01-15"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 956019788.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 255138261.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q74331",
+     "name": "The Hobbit trilogy",
+     "position": "3"
+    },
+    {
+     "qid": "Q26214973",
+     "name": "Peter Jackson's Middle-earth film series",
+     "position": "6"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q719915",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q127367",
+     "slug": "the-fellowship-of-the-ring-2001"
+    }
+   ],
+   "based_on": [
+    {
+     "qid": "Q74287",
+     "slug": "the-hobbit-1937"
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hobbit:_The_Battle_of_the_Five_Armies",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/the-hobbit-the-battle-of-the-five-armies-extended-version/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/the_hobbit_the_battle_of_the_five_armies"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2310332/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/the-hobbit-the-battle-of-the-five-armies"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=The+Hobbit%3A+The+Battle+of+the+Five+Armies"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Hobbit%3A+The+Battle+of+the+Five+Armies%22+2014"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Hobbit%3A+The+Battle+of+the+Five+Armies+2014+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Hobbit:_The_Battle_of_the_Five_Armies"
+    }
+   ]
+  },
+  "jurassic-world-dominion-2022": {
+   "match": {
+    "qid": "Q55178974",
+    "confidence": 1.0,
+    "reason": "type ok, year 2022, exact title"
+   },
+   "facts": {
+    "release_year": 2022,
+    "runtime_minutes": 146
+   },
+   "ids": {
+    "imdb": "tt8041270",
+    "tmdb_movie": "507086",
+    "rotten_tomatoes": "m/jurassic_world_dominion",
+    "letterboxd": "jurassic-world-dominion",
+    "metacritic": "movie/jurassic-world-dominion"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 38.0,
+     "scale_max": 100.0,
+     "votes": 60,
+     "as_of": "2025-07-14"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 29.0,
+     "scale_max": 100.0,
+     "votes": 392,
+     "as_of": "2022-11-29"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 1001978080.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 376851080.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q17862144",
+     "name": "Jurassic Park",
+     "position": null
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q110128150",
+     "slug": null
+    },
+    {
+     "qid": "Q21877685",
+     "slug": null
+    }
+   ],
+   "followed_by": [
+    {
+     "qid": "Q124380480",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "DeWanda Wise & Mamoudou Athie.jpg",
+     "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/DeWanda_Wise_%26_Mamoudou_Athie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+     "page": "https://commons.wikimedia.org/wiki/File:DeWanda_Wise_%26_Mamoudou_Athie.jpg",
+     "licence": "CC BY 3.0",
+     "attribution": "LosCriticologos"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Jurassic_World_Dominion",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/jurassic-world-dominion/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/jurassic_world_dominion"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt8041270/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/jurassic-world-dominion"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Jurassic+World+Dominion"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Jurassic+World+Dominion%22+2022"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Jurassic+World+Dominion+2022+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Jurassic_World_Dominion"
+    }
+   ]
+  },
+  "dragonball-evolution-2009": {
+   "match": {
+    "qid": "Q653303",
+    "confidence": 1.0,
+    "reason": "type ok, year 2009, exact title"
+   },
+   "facts": {
+    "release_year": 2009,
+    "runtime_minutes": 82
+   },
+   "ids": {
+    "imdb": "tt1098327",
+    "tmdb_movie": "14164",
+    "rotten_tomatoes": "m/dragonball",
+    "letterboxd": "dragonball-evolution",
+    "metacritic": "movie/dragonball-evolution"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 45.0,
+     "scale_max": 100.0,
+     "votes": 10,
+     "as_of": "2025-11-19"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 3.6,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 14.0,
+     "scale_max": 100.0,
+     "votes": 63,
+     "as_of": "2024-11-25"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 55720772.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 9362785.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q16515139",
+     "name": "Dragon Ball",
+     "position": null
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q15051307",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Dragonball_Evolution",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 85,
+     "source": 82
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/dragonball-evolution/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/dragonball"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt1098327/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/dragonball-evolution"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Dragonball+Evolution"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Dragonball+Evolution%22+2009"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Dragonball+Evolution+2009+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Dragonball_Evolution"
+    }
+   ]
+  },
+  "the-matrix-resurrections-2021": {
+   "match": {
+    "qid": "Q80322391",
+    "confidence": 1.0,
+    "reason": "type ok, year 2021, exact title"
+   },
+   "facts": {
+    "release_year": 2021,
+    "runtime_minutes": 148
+   },
+   "ids": {
+    "imdb": "tt10838180",
+    "tmdb_movie": "624860",
+    "rotten_tomatoes": "m/the_matrix_resurrections",
+    "letterboxd": "the-matrix-resurrections",
+    "metacritic": "movie/the-matrix-resurrections"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 63.0,
+     "scale_max": 100.0,
+     "votes": 57,
+     "as_of": "2023-07-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 6.2,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2022-03-28"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 63.0,
+     "scale_max": 100.0,
+     "votes": 356,
+     "as_of": "2022-11-29"
+    }
+   ],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q1210827",
+     "name": "The Matrix series",
+     "position": "4"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q207536",
+     "slug": null
+    }
+   ],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Matrix_Resurrections",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/the-matrix-resurrections/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/the_matrix_resurrections"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt10838180/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/the-matrix-resurrections"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=The+Matrix+Resurrections"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Matrix+Resurrections%22+2021"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Matrix+Resurrections+2021+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Matrix_Resurrections"
+    }
+   ]
+  },
+  "the-last-airbender-2010": {
+   "match": {
+    "qid": "Q11593",
+    "confidence": 1.0,
+    "reason": "type ok, year 2010, exact title"
+   },
+   "facts": {
+    "release_year": 2010,
+    "runtime_minutes": 99
+   },
+   "ids": {
+    "imdb": "tt0938283",
+    "tmdb_movie": "10196",
+    "rotten_tomatoes": "m/last_airbender",
+    "letterboxd": "the-last-airbender",
+    "metacritic": "movie/the-last-airbender"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 20.0,
+     "scale_max": 100.0,
+     "votes": 33,
+     "as_of": "2025-08-30"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 3.0,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 5.0,
+     "scale_max": 100.0,
+     "votes": 192,
+     "as_of": "2024-10-27"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 319700000.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q11572",
+     "slug": "avatar-the-last-airbender-2005"
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Last_Airbender_(film)",
+   "conflicts": [
+    {
+     "field": "runtime_minutes",
+     "seed": 103,
+     "source": 99
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/the-last-airbender/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/last_airbender"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0938283/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/the-last-airbender"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=The+Last+Airbender"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Last+Airbender%22+2010"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Last+Airbender+2010+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Last_Airbender_(film)"
+    }
+   ]
+  },
+  "alien-vs-predator-2004": {
+   "match": {
+    "qid": "Q155163",
+    "confidence": 1.0,
+    "reason": "type ok, year 2004, exact title"
+   },
+   "facts": {
+    "release_year": 2004,
+    "runtime_minutes": 100
+   },
+   "ids": {
+    "imdb": "tt0370263",
+    "tmdb_movie": "395",
+    "rotten_tomatoes": "m/alien_vs_predator",
+    "letterboxd": "avp-alien-vs-predator",
+    "metacritic": "movie/avp-alien-vs-predator"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 29.0,
+     "scale_max": 100.0,
+     "votes": 21,
+     "as_of": "2025-04-04"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 4.2,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 22.0,
+     "scale_max": 100.0,
+     "votes": 148,
+     "as_of": "2024-10-10"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "unspecified",
+     "amount": 172544654.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q2967318",
+     "name": "Alien vs. Predator",
+     "position": null
+    }
+   ],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q650076",
+     "slug": null
+    }
+   ],
+   "based_on": [
+    {
+     "qid": "Q209758",
+     "slug": null
+    },
+    {
+     "qid": "Q844794",
+     "slug": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "DragonCon-AlienVsPredator.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/DragonCon-AlienVsPredator.jpg/960px-DragonCon-AlienVsPredator.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:DragonCon-AlienVsPredator.jpg",
+     "licence": "CC BY-SA 3.0",
+     "attribution": "Elkman"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Alien_vs._Predator_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/avp-alien-vs-predator/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/alien_vs_predator"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0370263/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/avp-alien-vs-predator"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Alien+vs.+Predator"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Alien+vs.+Predator%22+2004"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Alien+vs.+Predator+2004+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Alien_vs._Predator_(film)"
+    }
+   ]
+  },
+  "fantastic-beasts-the-secrets-of-dumbledore-2022": {
+   "match": {
+    "qid": "Q18199332",
+    "confidence": 1.0,
+    "reason": "type ok, year 2022, exact title"
+   },
+   "facts": {
+    "release_year": 2022,
+    "runtime_minutes": 142
+   },
+   "ids": {
+    "imdb": "tt4123432",
+    "tmdb_movie": "338953",
+    "rotten_tomatoes": "m/fantastic_beasts_the_secrets_of_dumbledore",
+    "letterboxd": "fantastic-beasts-the-secrets-of-dumbledore",
+    "metacritic": "movie/fantastic-beasts-the-secrets-of-dumbledore"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 47.0,
+     "scale_max": 100.0,
+     "votes": 49,
+     "as_of": "2025-08-30"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 46.0,
+     "scale_max": 100.0,
+     "votes": 248,
+     "as_of": "2024-03-14"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 405161334.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 95850844.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q27922181",
+     "name": "Fantastic Beasts",
+     "position": "3"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q18199331",
+     "slug": null
+    }
+   ],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q119499198",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Fantastic_Beasts:_The_Secrets_of_Dumbledore",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/fantastic-beasts-the-secrets-of-dumbledore/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/fantastic_beasts_the_secrets_of_dumbledore"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt4123432/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/fantastic-beasts-the-secrets-of-dumbledore"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Fantastic+Beasts%3A+The+Secrets+of+Dumbledore"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Fantastic+Beasts%3A+The+Secrets+of+Dumbledore%22+2022"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Fantastic+Beasts%3A+The+Secrets+of+Dumbledore+2022+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Fantastic_Beasts:_The_Secrets_of_Dumbledore"
+    }
+   ]
+  },
+  "death-note-2017": {
+   "match": {
+    "qid": "Q22077183",
+    "confidence": 1.0,
+    "reason": "type ok, year 2017, exact title"
+   },
+   "facts": {
+    "release_year": 2017,
+    "runtime_minutes": 101
+   },
+   "ids": {
+    "imdb": "tt1241317",
+    "tmdb_movie": "351460",
+    "rotten_tomatoes": "m/death_note_2017",
+    "letterboxd": "death-note-2017",
+    "metacritic": "movie/death-note"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 43.0,
+     "scale_max": 100.0,
+     "votes": 14,
+     "as_of": "2025-12-02"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 4.9,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-10"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 38.0,
+     "scale_max": 100.0,
+     "votes": 76,
+     "as_of": "2021-10-10"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q1834",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Death_Note_(2017_film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/death-note-2017/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/death_note_2017"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt1241317/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/death-note"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Death+Note"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Death+Note%22+2017"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Death+Note+2017+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Death_Note_(2017_film)"
+    }
+   ]
   }
  }
 }

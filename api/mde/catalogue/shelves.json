@@ -1,11 +1,12 @@
 {
- "about": "Browsing shelves. Names are playful (Vol. II §11: social and marketing may be playful, in-world); taglines say plainly what is on the shelf. Rules (media, all_tags, any_tags, min_strength, popularity_min/max, relation_child, continuity, min/max_minutes, languages, not_languages, sort) are evaluated by catalogue/browse.py and demo/engine.cjs. A shelf with fewer than three works is hidden. 'Comedy Central' is a TV channel's trademark, so the comedy shelf is 'Laugh Riot'.",
+ "about": "Browsing shelves. Names are playful (Vol. II §11: social and marketing may be playful, in-world); taglines say plainly what is on the shelf, and each description is shown in the About panel on the shelf's own page. Rules (media, all_tags, any_tags, min_strength, popularity_min/max, relation_child, score_max (mean of all scores out of 100), continuity, min/max_minutes, languages, not_languages, forms, sort) are evaluated by catalogue/browse.py and demo/engine.cjs. A shelf with fewer than three works is hidden. 'Comedy Central' is a TV channel's trademark, so the comedy shelf is 'Laugh Riot'.",
  "min_works": 3,
  "shelves": [
   {
    "slug": "diamonds-in-the-rough",
    "name": "Diamonds in the Rough",
    "tagline": "Overlooked, under-hyped, worth it.",
+   "description": "Works that never had a marketing machine behind them but reward anyone who finds them: demanding, atmospheric or full of wonder, and known to far fewer people than they deserve. The least-known come first, so the top of this shelf is the best place to find something none of your friends have seen.",
    "rule": {
     "popularity_min": 3,
     "any_tags": [
@@ -21,6 +22,7 @@
    "slug": "laugh-riot",
    "name": "Laugh Riot",
    "tagline": "Comedy, front and centre.",
+   "description": "Stories where getting a laugh is the point, not a side effect. Sitcoms, screwball films, comic novels and games with real timing, sorted by how funny Mimir reads them to be. For something funny but darker, try Gallows Humour.",
    "rule": {
     "any_tags": [
      "genre:comedy",
@@ -34,6 +36,7 @@
    "slug": "drama-mamas",
    "name": "Drama Mamas",
    "tagline": "Big feelings, beautifully made.",
+   "description": "Character drama with the emotions turned up: stories of families, grief, ambition and love that leave you either wrung out or wound up. Everything here is a drama at heart, and each is either melancholic or tense.",
    "rule": {
     "all_tags": [
      "genre:drama"
@@ -49,7 +52,8 @@
   {
    "slug": "nepo-babies",
    "name": "Nepo Babies",
-   "tagline": "Born into famous families: sequels, adaptations and spin-offs.",
+   "tagline": "Famous names, so-so stories: follow-ons and adaptations that coast on the family they came from.",
+   "description": "Every family has one. These sequels, remakes, spin-offs and adaptations were born into famous franchises and largely failed to live up to the name: critics and audiences scored them at 65 out of 100 or lower on average. Some are guilty pleasures, some are cautionary tales, and all of them got made because of who their parents were.",
    "rule": {
     "relation_child": [
      "adaptation_of",
@@ -57,6 +61,7 @@
      "remake_of",
      "spin_off_of"
     ],
+    "score_max": 65,
     "sort": "popular"
    }
   },
@@ -64,6 +69,7 @@
    "slug": "binge-worthy",
    "name": "Binge-Worthy",
    "tagline": "Series that make 'one more episode' a lie.",
+   "description": "Television built to be watched in a run: cliffhangers, slow-building arcs and characters you will miss when the credits roll. The most-watched series come first.",
    "rule": {
     "media": [
      "series"
@@ -75,6 +81,7 @@
    "slug": "desi-delights",
    "name": "Desi Delights",
    "tagline": "From Bollywood to the south and beyond: Indian stories in Indian languages.",
+   "description": "Films, series, books and music in Hindi, Tamil, Telugu, Malayalam, Kannada, Bengali, Marathi, Punjabi and Urdu. From Bollywood's family epics to the new wave of southern cinema, sorted by how widely each is known.",
    "rule": {
     "languages": [
      "hi",
@@ -94,6 +101,7 @@
    "slug": "panels-and-pages",
    "name": "Panels & Pages",
    "tagline": "Manga and manhwa, by the chapter.",
+   "description": "Manga, manhwa and manhua, tracked chapter by chapter. Classics sit alongside current favourites, and where a series has an anime adaptation it links straight to it, so you can read on from where a season ends.",
    "rule": {
     "media": [
      "book"
@@ -110,6 +118,7 @@
    "slug": "anime-essentials",
    "name": "Anime Essentials",
    "tagline": "The series and films anime fans start with.",
+   "description": "Japanese animated series and films that newcomers are pointed to first and long-time fans keep returning to. A good place to start, ordered by how widely each is known.",
    "rule": {
     "media": [
      "film",
@@ -128,6 +137,7 @@
    "slug": "cops-and-robbers",
    "name": "Cops & Robbers",
    "tagline": "Heists, gangsters and the people chasing them.",
+   "description": "Crime in all its forms: heists, mob sagas, procedurals, noir and the detectives who never sleep. Every story here has crime at its centre, not just a body in the first act.",
    "rule": {
     "any_tags": [
      "genre:crime"
@@ -140,6 +150,7 @@
    "slug": "action-blockbusters",
    "name": "Action Blockbusters",
    "tagline": "Big screens, bigger set pieces.",
+   "description": "Films and games built around set pieces: chases, fights, explosions and the thrill of watching it all land. Expect momentum over subtlety.",
    "rule": {
     "media": [
      "film",
@@ -157,6 +168,7 @@
    "slug": "fright-club",
    "name": "Fright Club",
    "tagline": "The first rule: don't watch alone.",
+   "description": "Horror and the deeply unsettling, ordered by how frightening Mimir reads them to be. Check each one's parents' guide for jump scares and body horror before you press play.",
    "rule": {
     "any_tags": [
      "genre:horror",
@@ -170,6 +182,7 @@
    "slug": "brain-food",
    "name": "Brain Food",
    "tagline": "Stories that ask more of you, and give more back.",
+   "description": "Stories that ask for your full attention, with layered plots, big ideas and structures that only make sense on reflection. The most demanding come first.",
    "rule": {
     "any_tags": [
      "complexity:intellectually-demanding"
@@ -182,6 +195,7 @@
    "slug": "seoul-searching",
    "name": "Seoul Searching",
    "tagline": "Korean films, series and music.",
+   "description": "Korean films, dramas and music, from thrillers with a sting in the tail to the K-dramas that will make you cry. Ordered by how widely each is known.",
    "rule": {
     "languages": [
      "ko"
@@ -193,6 +207,7 @@
    "slug": "true-stories",
    "name": "Based on a True Story",
    "tagline": "Real lives and real events.",
+   "description": "Biographies, memoirs, documentaries and dramatisations of real events. Some keep closely to the record, others take liberties, and the summary on each says which.",
    "rule": {
     "any_tags": [
      "genre:biography",
@@ -207,6 +222,7 @@
    "slug": "mini-marathons",
    "name": "Mini Marathons",
    "tagline": "Whole series you can finish in a weekend or two.",
+   "description": "Complete series, not just a first season, that you can finish in fifteen hours or less. Ordered from shortest to longest, so you can fit one to the weekend you have.",
    "rule": {
     "media": [
      "series"
@@ -219,6 +235,7 @@
    "slug": "cosy-corner",
    "name": "Cosy Corner",
    "tagline": "Warm, gentle, safe to land in.",
+   "description": "Gentle, warm stories to come back to on a hard day. Low stakes, kind characters and little to fear, ordered by how comforting Mimir reads them to be.",
    "rule": {
     "any_tags": [
      "mood:comforting"
@@ -231,6 +248,7 @@
    "slug": "cry-me-a-river",
    "name": "Cry Me a River",
    "tagline": "Have the tissues ready.",
+   "description": "Stories that will break your heart and maybe put it back together, ordered by how deeply melancholic they run. Keep the tissues near.",
    "rule": {
     "any_tags": [
      "mood:melancholic"
@@ -243,6 +261,7 @@
    "slug": "mind-benders",
    "name": "Mind Benders",
    "tagline": "Puzzle boxes, time loops and tricks of structure.",
+   "description": "Puzzle boxes, time loops, unreliable narrators and stories told out of order. Each asks you to keep track and rewards you for it.",
    "rule": {
     "any_tags": [
      "narrative:puzzle-box",
@@ -257,6 +276,7 @@
    "slug": "world-builders",
    "name": "World Builders",
    "tagline": "Worlds you could get lost in.",
+   "description": "Settings so complete they feel like places you could visit: invented histories, languages, politics and maps. The richest worlds come first.",
    "rule": {
     "any_tags": [
      "world:rich-worldbuilding"
@@ -269,6 +289,7 @@
    "slug": "quick-bites",
    "name": "Quick Bites",
    "tagline": "Two hours or less, start to finish.",
+   "description": "Films, books and games you can finish in two hours or less, shortest first. Good for a lunch break, a commute or a single evening.",
    "rule": {
     "media": [
      "film",
@@ -283,6 +304,7 @@
    "slug": "slow-burners",
    "name": "Slow Burners",
    "tagline": "Patience, rewarded.",
+   "description": "Stories that take their time and trust you to stay. The patience pays off, often in a final act you will think about for days.",
    "rule": {
     "any_tags": [
      "pacing:slow-burn"
@@ -295,6 +317,7 @@
    "slug": "page-turners",
    "name": "Page Turners",
    "tagline": "Books that won't let you stop.",
+   "description": "Books with momentum: thrillers, mysteries and fast-paced fiction built to be read in a sitting or two, ordered by how hard they are to put down.",
    "rule": {
     "media": [
      "book"
@@ -312,6 +335,7 @@
    "slug": "side-quests",
    "name": "Side Quests",
    "tagline": "Games you can finish in a weekend or less.",
+   "description": "Games you can finish in a weekend or less, shortest first. Short does not mean slight: several of these are among the best-loved games of their decade.",
    "rule": {
     "media": [
      "game"
@@ -324,6 +348,7 @@
    "slug": "main-quests",
    "name": "Main Quests",
    "tagline": "Clear your calendar.",
+   "description": "Games that take twenty hours or more to finish, longest first. Clear the calendar, charge the controller.",
    "rule": {
     "media": [
      "game"
@@ -336,6 +361,7 @@
    "slug": "lone-wolves",
    "name": "Lone Wolves",
    "tagline": "Standalone stories. No homework required.",
+   "description": "Single, self-contained stories with no sequels to catch up on and no universe to learn first. Start anywhere.",
    "rule": {
     "continuity": [
      "standalone"
@@ -348,6 +374,7 @@
    "slug": "pack-animals",
    "name": "Pack Animals",
    "tagline": "Series, sequels and shared worlds.",
+   "description": "Series, sagas and shared worlds where each story leads to the next. Every card shows its place in the order, so you know where to start.",
    "rule": {
     "continuity": [
      "series",
@@ -360,6 +387,7 @@
    "slug": "spin-cycle",
    "name": "Spin Cycle",
    "tagline": "Albums worth hearing start to finish.",
+   "description": "Albums made to be heard start to finish, across every genre, ordered by how widely each is known. Each links to your music app.",
    "rule": {
     "media": [
      "album"
@@ -371,6 +399,7 @@
    "slug": "subtitles-welcome",
    "name": "Subtitles Welcome",
    "tagline": "Not in English, and all the better for it.",
+   "description": "Films and series in languages other than English, from international hits to the quieter favourites of their home countries. Turn the subtitles on; you will forget they are there.",
    "rule": {
     "media": [
      "film",
@@ -387,6 +416,7 @@
    "slug": "drawn-together",
    "name": "Drawn Together",
    "tagline": "Animation for grown-ups and everyone else.",
+   "description": "Animation that works for adults as well as children: hand-drawn, stop-motion and computer-animated, from studio classics to festival favourites.",
    "rule": {
     "any_tags": [
      "genre:animation"
@@ -399,6 +429,7 @@
    "slug": "family-matinee",
    "name": "Family Matinee",
    "tagline": "Safe to press play with everyone on the sofa.",
+   "description": "Stories made to be shared across ages. Check the parents' guide on each for anything that might frighten the youngest viewers.",
    "rule": {
     "any_tags": [
      "genre:family"
@@ -411,6 +442,7 @@
    "slug": "brain-gain",
    "name": "Brain Gain",
    "tagline": "Non-fiction that rewires how you see things.",
+   "description": "Non-fiction, popular science and memoir that change how you see something: the brain, history, money, the universe or yourself.",
    "rule": {
     "media": [
      "book"
@@ -428,6 +460,7 @@
    "slug": "rap-sheet",
    "name": "Rap Sheet",
    "tagline": "Hip-hop albums with something to say.",
+   "description": "Hip-hop albums with a point of view: storytelling, politics, autobiography and production that defined their moment.",
    "rule": {
     "media": [
      "album"
@@ -443,6 +476,7 @@
    "slug": "head-bangers",
    "name": "Head Bangers",
    "tagline": "Loud guitars, louder feelings.",
+   "description": "Rock, metal, punk and indie with the volume up. Albums of loud guitars and louder feelings.",
    "rule": {
     "media": [
      "album"
@@ -461,6 +495,7 @@
    "slug": "hush-hour",
    "name": "Hush Hour",
    "tagline": "Quiet music for late nights and deep work.",
+   "description": "Ambient, classical and jazz for late nights, reading and deep work. The purest examples of each style come first.",
    "rule": {
     "media": [
      "album"
@@ -478,6 +513,7 @@
    "slug": "epic-quests",
    "name": "Epic Quests",
    "tagline": "Sweeping stakes, vast worlds, long journeys.",
+   "description": "Long journeys, vast worlds and stakes that reach across kingdoms or galaxies. Fantasy, science fiction and adventure on the grandest scale.",
    "rule": {
     "any_tags": [
      "mood:epic"
@@ -490,6 +526,7 @@
    "slug": "dark-laughs",
    "name": "Gallows Humour",
    "tagline": "Funny in all the wrong places.",
+   "description": "Comedy in places it has no business being: death, crime, war and disaster, played for laughs. Ordered by how darkly funny Mimir reads each to be.",
    "rule": {
     "any_tags": [
      "mood:darkly-funny"

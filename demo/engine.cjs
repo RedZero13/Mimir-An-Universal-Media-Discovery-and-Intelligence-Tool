@@ -1177,6 +1177,11 @@ finish finished binge binged through will watching reading playing listening sta
       if (has(rule, "popularity_max") && (tier === null || tier > rule.popularity_max)) return false;
       if (rule.relation_child && rule.relation_child.length && !w.relations.some((r) => rule.relation_child.includes(r.type) && isForward(r))) return false;
       if (rule.continuity && rule.continuity.length && !rule.continuity.includes(ctx.get(w.slug).kind)) return false;
+      if (has(rule, "score_max")) {
+        // Mean of every score, out of 100; works with no score never qualify.
+        const vals = w.scores.filter((s) => s.scale_max).map((s) => (s.value / s.scale_max) * 100);
+        if (!vals.length || vals.reduce((a, b) => a + b, 0) / vals.length > rule.score_max) return false;
+      }
       if (has(rule, "max_minutes") || has(rule, "min_minutes")) {
         const t = timeInvestment(w);
         if (t === null) return false;
@@ -1212,7 +1217,7 @@ finish finished binge binged through will watching reading playing listening sta
       for (const s of spec.shelves) {
         const hits = shelfHits(works, s.rule, ctx);
         if (hits.length >= (has(spec, "min_works") ? spec.min_works : 3)) {
-          out.push({ slug: s.slug, name: s.name, tagline: s.tagline, total: hits.length, works: hits.slice(0, limit).map((w) => richCard(w, ctx)) });
+          out.push({ slug: s.slug, name: s.name, tagline: s.tagline, description: s.description || "", total: hits.length, works: hits.slice(0, limit).map((w) => richCard(w, ctx)) });
         }
       }
       return out;
@@ -1223,7 +1228,7 @@ finish finished binge binged through will watching reading playing listening sta
       if (!s) return null;
       const ctx = context(works);
       const hits = shelfHits(works, s.rule, ctx);
-      return { slug: s.slug, name: s.name, tagline: s.tagline, total: hits.length, works: hits.map((w) => richCard(w, ctx)) };
+      return { slug: s.slug, name: s.name, tagline: s.tagline, description: s.description || "", rule: s.rule, total: hits.length, works: hits.map((w) => richCard(w, ctx)) };
     }
 
     // ---------------------------------------------------------------- social calendar (catalogue/calendar.json)

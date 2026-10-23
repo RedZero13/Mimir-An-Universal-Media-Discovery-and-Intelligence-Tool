@@ -441,6 +441,11 @@ def _shelf_match(w: WorkProfile, rule: dict, ctx: dict[str, dict]) -> bool:
         return False
     if rule.get("continuity") and ctx[w.slug]["kind"] not in rule["continuity"]:
         return False
+    if "score_max" in rule:
+        # Mean of every score, out of 100; works with no score never qualify.
+        vals = [s.value / s.scale_max * 100 for s in w.scores if s.scale_max]
+        if not vals or sum(vals) / len(vals) > rule["score_max"]:
+            return False
     if "max_minutes" in rule or "min_minutes" in rule:
         t = time_investment(w)
         if t is None:
@@ -474,7 +479,8 @@ def shelves(works: list[WorkProfile], tax: Taxonomy, spec: dict | None = None, l
     for s in spec["shelves"]:
         hits = sorted((w for w in works if _shelf_match(w, s["rule"], ctx)), key=lambda w: _shelf_key(w, s["rule"]))
         if len(hits) >= spec.get("min_works", 3):
-            out.append({"slug": s["slug"], "name": s["name"], "tagline": s["tagline"], "total": len(hits),
+            out.append({"slug": s["slug"], "name": s["name"], "tagline": s["tagline"],
+                        "description": s.get("description", ""), "total": len(hits),
                         "works": [_rich_card(w, tax, ctx) for w in hits[:limit]]})
     return out
 
@@ -486,7 +492,8 @@ def shelf(works: list[WorkProfile], tax: Taxonomy, slug: str, spec: dict | None 
         return None
     ctx = _context(works)
     hits = sorted((w for w in works if _shelf_match(w, s["rule"], ctx)), key=lambda w: _shelf_key(w, s["rule"]))
-    return {"slug": s["slug"], "name": s["name"], "tagline": s["tagline"], "total": len(hits),
+    return {"slug": s["slug"], "name": s["name"], "tagline": s["tagline"], "description": s.get("description", ""),
+            "rule": s["rule"], "total": len(hits),
             "works": [_rich_card(w, tax, ctx) for w in hits]}
 
 
