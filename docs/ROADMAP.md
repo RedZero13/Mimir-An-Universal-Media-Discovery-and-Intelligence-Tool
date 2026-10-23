@@ -16,7 +16,7 @@ Each item says why it matters, what "done" means, and what it depends on. Horizo
 - Library: statuses, 1–10 scores, episode / page / hour progress (also on covers), dates, rewatches, notes,
   diary, lists shared by link, "Up next" in series, stats, import from MAL, IMDb, Letterboxd and Goodreads,
   JSON and CSV export.
-- Open-data enrichment: Open Library (105 of 115 books), MusicBrainz (78 of 84 albums), Wikidata in progress.
+- Open-data enrichment: Open Library (105 of 115 books), MusicBrainz (78 of 84 albums), Wikidata (564 of 570 works, conflicts reviewed in `review.json`).
 - Journal per work; Decide for me; the social calendar (22 programmes: Spooktober, 12 Days of Christmas, Diwali,
   Pride Month, Noirvember …) with challenges you join and tick off.
 - Accounts and community in the API, with the site wired to it: sign-up and sign-in, library sync, public
@@ -27,7 +27,7 @@ Each item says why it matters, what "done" means, and what it depends on. Horizo
 
 | Item | Why | Done when |
 | --- | --- | --- |
-| Finish Wikidata enrichment | Years, runtimes, review scores and IDs for films, TV and games | All 503 works attempted; matches reviewed; conflicts listed |
+| ~~Finish Wikidata enrichment~~ | Shipped: 564 of 570 matched; 2 wrong matches rejected and 10 seed values kept in `review.json` | |
 | ~~Real covers only~~ | Shipped: only cover and poster images are shown as covers | |
 | ~~Manga and anime as formats~~ | Shipped: manga, manhwa and manhua with chapters and volumes; chapter progress; Panels & Pages and Anime Essentials shelves | |
 | Catalogue to 1,000 works | Imports report what's missing; testers will look for their favourites | Unmatched import titles and feedback triaged weekly into the seed |

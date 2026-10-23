@@ -171,3 +171,22 @@ def test_musicbrainz_matches_despite_punctuation():
 
 def test_musicbrainz_query_escaping():
     assert musicbrainz.lucene("Godspeed You! Black Emperor") == "Godspeed You\\! Black Emperor"
+
+
+def test_review_rejects_matches_and_keeps_seed_facts():
+    from mde.ingest.run import apply_review
+
+    works = {
+        "a": {"match": {"qid": "Q1"}, "facts": {"release_year": 2006}, "images": [{"kind": "poster"}]},
+        "b": {"match": {"qid": "Q2"}, "facts": {"release_year": 2013, "runtime_minutes": 90},
+              "conflicts": [{"field": "release_year", "seed": 2020, "source": 2013}]},
+        "c": {"match": None, "reason": "no candidates"},
+    }
+    review = {"wikidata": {"reject": {"a": "different film", "c": "ignored: never matched"},
+                           "keep_seed": {"b": {"release_year": "2013 is early access"}}}}
+    out = apply_review("wikidata", works, review)
+    assert out["a"] == {"match": None, "reason": "match rejected in review: different film"}
+    assert out["b"]["facts"] == {"runtime_minutes": 90}
+    assert out["b"]["conflicts"][0]["resolution"] == "kept seed: 2013 is early access"
+    assert out["c"]["reason"] == "no candidates"
+    assert apply_review("openlibrary", {"a": {"match": {"key": "x"}}}, review)["a"]["match"] == {"key": "x"}
