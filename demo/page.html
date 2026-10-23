@@ -846,6 +846,45 @@ a.tchip:hover, button.tchip:hover { background: color-mix(in srgb, var(--gold) 2
 .foot-cols h2 { font-family: var(--f-body); font-weight: 600; letter-spacing: .08em; font-size: .72rem; }
 .foot .legal { font-family: var(--f-body); letter-spacing: .04em; font-size: 11px; }
 @media (prefers-reduced-motion: reduce) { .pcard-art, .pcard-art:hover { transition: none; transform: none; } }
+
+/* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
+.row { padding-bottom: 20px; }
+.row .pchips { height: 62px; }
+.row::-webkit-scrollbar { height: 6px; }
+/* Mood rings fill the row instead of leaving empty columns. */
+.rings { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+/* Short series: covers fan out side by side instead of hiding each other's titles. */
+.fan.n1, .fan.n2 { gap: 8px; } .fan.n1 .poster, .fan.n2 .poster { margin-left: 0; transform: none; flex: 0 0 auto; }
+.fan.n2 .poster:first-child { transform: rotate(-3deg); } .fan.n2 .poster:nth-child(2) { transform: rotate(3deg); }
+.fan.n3 .poster { margin-left: -10px; }
+/* The home hero, centred over the full width. */
+.hero { justify-items: center; text-align: center; padding-block: 56px 28px; }
+.hero h1 { max-width: 18ch; margin-inline: auto; }
+.hero .lead { margin-inline: auto; max-width: 60ch; }
+.hero canvas { inset: 0; width: 100%; opacity: .8; }
+.hero form.ask { width: min(880px, 100%); max-width: none; margin-inline: auto; text-align: left; }
+.hero form.ask textarea { flex: 1; }
+.hero .examples { justify-content: center; max-width: 1040px; margin-inline: auto; }
+.hero .decide-cta { justify-content: center; }
+/* About panel on shelf and tag pages. */
+.about-card { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 28px; margin: 18px 0 30px; padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); overflow: hidden; }
+.about-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(180deg, var(--gold), var(--gold-deep)); }
+.about-card h2 { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin: 0 0 10px; }
+.about-desc p { margin: 0 0 14px; font-size: 1.02rem; line-height: 1.7; color: var(--ink); }
+.about-rules { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.about-rules li { display: flex; gap: 10px; align-items: baseline; font-size: .92rem; color: var(--muted); }
+.about-rules li::before { content: ""; flex: 0 0 8px; height: 8px; border-radius: 50%; background: var(--gold); transform: translateY(-1px); }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+.stat-tile { padding: 12px 14px; border-radius: 12px; background: var(--surface-2); }
+.stat-tile.wide { grid-column: 1 / -1; }
+.stat-n { display: block; font: 650 1.45rem/1.1 var(--f-body); color: var(--bone); letter-spacing: -.01em; }
+.stat-l { display: block; margin-top: 4px; font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.mix-bar { display: flex; height: 8px; border-radius: 8px; overflow: hidden; margin: 8px 0 8px; background: var(--line); }
+.mix-bar span { display: block; height: 100%; }
+.mix-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .8rem; color: var(--muted); }
+.mix-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+@media (max-width: 800px) { .about-card { grid-template-columns: 1fr; padding: 22px 20px; } }
 /* Side scroll rail, the well backdrop and reveal on scroll. */
 html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 ::-webkit-scrollbar { width: 9px; height: 9px; }
@@ -1768,7 +1807,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <label class="sr-only" for="scope">Search in</label>
         <select id="scope">${SCOPES.map(([v, l]) => `<option value="${v}">${l}</option>`).join("")}</select>
         <label class="sr-only" for="scope-q">Search</label>
-        <input id="scope-q" type="search" placeholder="Search films, books, games, music and more…" autocomplete="off">
+        <input id="scope-q" type="search" placeholder="Search titles, people, tags…" autocomplete="off">
         <button type="submit" aria-label="Search">⌕</button>
       </form>`;
   }
@@ -1793,9 +1832,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <header class="page-head">
         <p class="crumbs"><a href="#tags">Tags</a> / ${esc(t.dimension_label)}</p>
         <h1>${esc(t.label)}</h1>
-        <p>${esc(t.definition)}</p>
         <p><a class="btn ghost btn-link" href="${hrefSearch("all", { tags: [t.key] })}">Search and filter with this tag</a></p>
       </header>
+      ${aboutCard(t.definition, [`Every work Mimir reads as ${t.label.toLowerCase()}, in the ${t.dimension_label.toLowerCase()} dimension.`, "Strongest readings first; each card shows how strongly it applies.", "Readings are AI-assisted and awaiting editorial review."], t.works)}
       ${t.related.length ? `<section class="block"><h2>Often found with</h2><div class="tag-row">${t.related.map((r) => tagChip(r, ` <span class="count">${r.count}</span>`)).join("")}</div></section>` : ""}
       <section class="block"><h2>${t.works.length === 1 ? "1 work" : `${t.works.length} works`}, strongest first</h2>
         ${pgrid(t.works, (w) => `<p class="strength"><span class="bar"><span style="width:${Math.round(w.strength * 100)}%"></span></span> ${intensity(w.strength)}</p>`)}
@@ -1983,7 +2022,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <ul class="tiles">${TIME_TILES.map(([slug, label, range]) => {
           const hits = works.filter((w) => w.time && w.time.bucket === slug);
           return `<li><a class="tile" href="#time-${slug}">
-            <span class="fan">${hits.slice(0, 3).map((w) => poster(cardCover(w))).join("")}</span>
+            <span class="fan n${Math.min(hits.length, 3)}">${hits.slice(0, 3).map((w) => poster(cardCover(w))).join("")}</span>
             <span class="tile-label">${esc(label)}</span><span class="tile-range">${esc(range)} · ${hits.length}</span></a></li>`;
         }).join("")}</ul>
       </section>`;
@@ -2011,7 +2050,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function familyCard(g) {
     const page = cat.group(g.slug);
     return `<li><a class="family" href="#group-${esc(g.slug)}">
-      <span class="fan wide">${page.works.slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span>
+      <span class="fan wide n${Math.min(page.works.length, 4)}">${page.works.slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span>
       <span class="tile-label">${esc(page.name)}</span>
       <span class="tile-range">${g.kind === "series" ? "Series" : "Franchise family"} · ${page.works.length} in the catalogue${page.total_minutes ? ` · ${hm(page.total_minutes)} in all` : ""}</span></a></li>`;
   }
@@ -2022,11 +2061,61 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       + `<p class="more-shelves"><a class="btn ghost btn-link" href="#shelves">See all ${allShelves().length} shelves</a></p>`;
   }
 
+  // ------------------------------------------------------------------ about panels (shelf and tag pages)
+  const MEDIUM_TINT = { film: "var(--gold)", series: "#3E7C8C", book: "#8C5A3E", game: "#6B5A8C", album: "#5E7A3E" };
+  const listText = (xs, joiner = "or") => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} ${joiner} ${xs[xs.length - 1]}`);
+  const tagLabel = (k) => { const t = cat.tag(k); return t ? t.label.toLowerCase() : k.split(":")[1].replace(/-/g, " "); };
+  const hrs = (m) => (m < 60 ? `${m} minutes` : `${Math.round(m / 60)} hours`);
+  function ruleLines(rule) {
+    const out = [];
+    if (rule.media && rule.media.length) out.push(`Only ${listText(rule.media.map((m) => PLURAL[m].toLowerCase()))}.`);
+    if (rule.forms && rule.forms.length) out.push(`${listText(rule.forms.map((f) => f[0].toUpperCase() + f.slice(1)))} only.`);
+    if (rule.languages && rule.languages.length) out.push(`In ${listText(rule.languages.map(langName))}.`);
+    if (rule.not_languages && rule.not_languages.length) out.push(`Not in ${listText(rule.not_languages.map(langName))}.`);
+    if (rule.relation_child && rule.relation_child.length) out.push("A sequel, remake, spin-off or adaptation of another work.");
+    if ("score_max" in rule) out.push(`Scored ${rule.score_max} out of 100 or lower, averaged across every critic and audience score we hold.`);
+    if (rule.all_tags && rule.all_tags.length) out.push(`Reads as ${listText(rule.all_tags.map(tagLabel), "and")}.`);
+    if (rule.any_tags && rule.any_tags.length) out.push(`Reads as ${listText(rule.any_tags.map(tagLabel))}${(rule.min_strength || .5) >= .8 ? ", strongly" : ""}.`);
+    if ("popularity_min" in rule) out.push("Lesser-known titles only.");
+    if ("popularity_max" in rule) out.push("Well-known titles only.");
+    if (rule.continuity && rule.continuity.length) out.push(rule.continuity.includes("standalone") ? "Standalone: no sequels or prequels." : "Part of a series or a franchise.");
+    if ("max_minutes" in rule) out.push(`Takes ${hrs(rule.max_minutes)} or less to finish.`);
+    if ("min_minutes" in rule) out.push(`Takes ${hrs(rule.min_minutes)} or more to finish.`);
+    const SORTS = { popular: "Best-known first.", strength: "Strongest match first.", obscure: "Least-known first.", shortest: "Shortest first.", longest: "Longest first." };
+    out.push(SORTS[rule.sort || "popular"]);
+    return out;
+  }
+  function aboutCard(description, rules, works) {
+    const full = works.map((w) => cat.work(w.slug) ? { ...cat.work(w.slug), ...w } : w);
+    const byMedium = {};
+    full.forEach((w) => { byMedium[w.medium] = (byMedium[w.medium] || 0) + 1; });
+    const mix = Object.entries(byMedium).sort((a, b) => b[1] - a[1]);
+    const years = full.map((w) => w.year).filter(Boolean).sort((a, b) => a - b);
+    const mins = full.map((w) => (w.time ? w.time.minutes : null)).filter((m) => m).sort((a, b) => a - b);
+    const median = mins.length ? mins[Math.floor(mins.length / 2)] : null;
+    const genres = {};
+    full.forEach((w) => (w.genres || []).forEach((g) => { genres[g.key] = genres[g.key] || { ...g, n: 0 }; genres[g.key].n += 1; }));
+    const topGenres = Object.values(genres).sort((a, b) => b.n - a.n).slice(0, 5);
+    const paras = String(description || "").split(/\n\n+/).filter(Boolean);
+    return `<section class="about-card" aria-label="About this collection">
+      <div class="about-desc"><h2>About</h2>${paras.map((t) => `<p>${esc(t)}</p>`).join("")}
+        ${rules.length ? `<h2>How Mimir picks these</h2><ul class="about-rules">${rules.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>` : ""}</div>
+      <div class="about-stats">
+        <div class="stat-tile"><span class="stat-n">${works.length}</span><span class="stat-l">${works.length === 1 ? "Work" : "Works"}</span></div>
+        <div class="stat-tile"><span class="stat-n">${years.length ? (years[0] === years[years.length - 1] ? years[0] : `${years[0]}–${String(years[years.length - 1]).slice(2)}`) : "–"}</span><span class="stat-l">Years</span></div>
+        ${median ? `<div class="stat-tile wide"><span class="stat-n">${esc(hm(median))}</span><span class="stat-l">Typical time to finish</span></div>` : ""}
+        ${mix.length ? `<div class="stat-tile wide"><span class="stat-l">Media</span><div class="mix-bar">${mix.map(([m, n]) => `<span style="width:${(n / full.length) * 100}%;background:${MEDIUM_TINT[m]}"></span>`).join("")}</div>
+          <div class="mix-legend">${mix.map(([m, n]) => `<span><i style="background:${MEDIUM_TINT[m]}"></i>${esc(PLURAL[m])} ${n}</span>`).join("")}</div></div>` : ""}
+        ${topGenres.length ? `<div class="stat-tile wide"><span class="stat-l">Most common genres</span><div class="about-tags">${topGenres.map((g) => `<a class="tchip" href="#${esc(tagToken(g.key))}">${esc(g.label)} · ${g.n}</a>`).join("")}</div></div>` : ""}
+      </div></section>`;
+  }
+
   function renderShelf(slug) {
     const s = cat.shelf(slug);
     if (!s) { app.innerHTML = `<p class="empty">There's no shelf by that name. <a href="#">Back to the shelves</a></p>`; return; }
     app.innerHTML = `
-      <header class="page-head"><p class="crumbs"><a href="#">Shelves</a></p><h1>${esc(s.name)}</h1><p>${esc(s.tagline)} ${s.total} works.</p></header>
+      <header class="page-head"><p class="crumbs"><a href="#shelves">Shelves</a></p><h1>${esc(s.name)}</h1><p>${esc(s.tagline)}</p></header>
+      ${aboutCard(s.description || s.tagline, ruleLines(s.rule || {}), s.works)}
       <section class="block">${pgrid(s.works)}</section>`;
   }
 
