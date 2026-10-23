@@ -862,8 +862,10 @@ article [id] { scroll-margin-top: 140px; }
 .sub-group h3 { margin: 0 0 4px; font: 600 .74rem var(--f-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 /* The well backdrop belongs to the home page only. Runes take over below the first fold. */
 .well-fx { display: none; } body.is-home .well-fx { display: block; }
-.runes { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
-body.is-home.deep .runes { opacity: 1; } body.is-home.deep .well-fx .caustic { opacity: .25; }
+.runes { position: absolute; inset: 0; opacity: 1; transition: opacity 1.2s ease; }
+/* Full strength behind the hero; past it, only every third rune and at a third of the strength. */
+body.is-home.deep .runes { opacity: .35; }
+body.is-home.deep .rune:not(:nth-child(3n+1)) { visibility: hidden; transition: visibility 0s .6s; } body.is-home.deep .well-fx .caustic { opacity: .25; }
 .rune { position: absolute; bottom: -6vh; fill: none; stroke: color-mix(in srgb, var(--gold) 70%, transparent); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; animation: rune-rise linear infinite; }
 :root[data-theme="light"] .rune { stroke: color-mix(in srgb, var(--gold-deep) 55%, transparent); }
 @keyframes rune-rise { 0% { opacity: 0; transform: translateY(0) rotate(-6deg); } 12% { opacity: .55; } 50% { transform: translateY(-55vh) rotate(5deg); } 85% { opacity: .35; } 100% { opacity: 0; transform: translateY(-112vh) rotate(-4deg); } }
@@ -1024,6 +1026,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script id="enrichment-data" type="application/json">/*__ENRICHMENT__*/</script>
 <script id="providers-data" type="application/json">/*__PROVIDERS__*/</script>
 <script id="calendar-data" type="application/json">/*__CALENDAR__*/</script>
+<script id="audiobooks-data" type="application/json">/*__AUDIOBOOKS__*/</script>
 <script id="config-data" type="application/json">/*__CONFIG__*/</script>
 <script id="blog-data" type="application/json">/*__BLOG__*/</script>
 <script>/*__ENGINE__*/</script>
@@ -1222,7 +1225,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const step = 18 + Math.floor(r() * 10), cy = n1(96 + r() * 26), size = n1(34 + r() * 16);
       let grid = "";
       for (let x = -H; x < W + H; x += step) grid += `<path d="M${x} 0L${n1(x + H * 0.577)} ${H}M${x} 0L${n1(x - H * 0.577)} ${H}"/>`;
-      const pixels = Array.from({ length: 7 }, () => `<rect x="${n1(20 + r() * 150)}" y="${n1(30 + r() * 140)}" width="5" height="5" fill="${ac}" opacity="${n1(0.3 + r() * 0.5)}"/>`).join("");
+      const pixels = Array.from({ length: 16 }, () => `<rect x="${n1(20 + r() * 150)}" y="${n1(30 + r() * 140)}" width="5" height="5" fill="${ac}" opacity="${n1(0.3 + r() * 0.5)}"/>`).join("");
       motif = `<g stroke="${ac}" stroke-width=".5" opacity=".18">${grid}</g>${pixels}
         <path d="M100 ${n1(cy - size)}L${n1(100 + size * 0.9)} ${cy}L100 ${n1(cy + size)}L${n1(100 - size * 0.9)} ${cy}Z" fill="url(#${id}s)" stroke="${ac}" stroke-width="1.1"/>
         <path d="M100 ${n1(cy - size * 0.5)}L${n1(100 + size * 0.45)} ${cy}L100 ${n1(cy + size * 0.5)}L${n1(100 - size * 0.45)} ${cy}Z" fill="none" stroke="${bg0}" stroke-width="1"/>`;
@@ -2343,7 +2346,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // What progress is counted in, and how much there is, where the catalogue knows.
   // Audiobooks: about 155 spoken words a minute over roughly 300 words a page. An estimate, and labelled as one.
-  const listenMinutes = (w) => (w && w.page_count ? Math.round(w.page_count * 1.95) : null);
+  // Real recordings (Audible India, LibriVox) where we matched one; otherwise an estimate from the page count.
+  const AUDIOBOOKS = JSON.parse(document.getElementById("audiobooks-data").textContent).books;
+  const recordingOf = (w) => (w && AUDIOBOOKS[w.slug]) || {};
+  const estimatedMinutes = (w) => (w && w.page_count ? Math.round(w.page_count * 1.95) : null);
+  const listenMinutes = (w) => { const r = recordingOf(w); return (r.audible || r.librivox || {}).minutes || estimatedMinutes(w); };
+  const listenIsReal = (w) => { const r = recordingOf(w); return !!(r.audible || r.librivox); };
   function progressUnit(w) {
     const a = w.attributes || {};
     if (w.medium === "series") return { unit: "episodes", total: a.episodes || null, step: 1 };
@@ -2629,7 +2637,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const next = new Map();
     all.filter((b) => !b.earned).forEach((b) => { const k = b.id.replace(/-\d+$/, ""); if (!next.has(k)) next.set(k, b); });
     const m = dayMinutes(today());
-    const week = Array.from({ length: 7 }, (_, i) => isoDay(6 - i));
+    const week = Array.from({ length: 16 }, (_, i) => isoDay(6 - i));
     app.innerHTML = `
       <header class="page-band"><p class="eyebrow">Library</p><h1>Rings & badges</h1>
         <p class="muted">Close a ring by spending time with stories each day. Time is estimated from the episodes, pages, chapters and hours you log, plus anything you add here. Kept in this browser.</p></header>
@@ -2896,18 +2904,25 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (["manga", "manhwa", "manhua"].includes((w.attributes || {}).form)) return "";
     const ab = cat.whereFor({ medium: "audiobook", title: w.title, creator: (w.creators || [])[0] || "", year: w.year }, prefs.region);
     if (!ab) return "";
-    const m = listenMinutes(w);
+    const { audible: au, librivox: lv } = recordingOf(w);
+    const est = estimatedMinutes(w);
     const free = w.year && w.year <= 1929;   // public domain in the US, where LibriVox records
-    return `<section class="block" id="listen"><h2>Prefer to listen?</h2>
-      <p class="muted">${m ? `As an audiobook, about <strong>${esc(hm(m))}</strong> of listening (estimated from the page count; editions and narrators vary). ` : ""}Set the format to <em>Audiobook</em> in your library to track it in hours and fill your Listen ring.</p>
-      <ul class="linkouts where-all">${ab.providers.map((p) => `<li>${ext(p.url, p.name)}</li>`).join("")}${free ? `<li>${ext(`https://librivox.org/search?q=${encodeURIComponent(w.title)}&search_form=advanced`, "LibriVox (free, public domain)")}</li>` : ""}</ul></section>`;
+    const names = (xs) => xs.length > 3 ? `${xs.slice(0, 3).join(", ")} and others` : xs.join(xs.length === 2 ? " and " : ", ");
+    const facts = au ? `<p>The Audible recording runs <strong>${esc(hm(au.minutes))}</strong>${au.narrators.length ? `, narrated by ${esc(names(au.narrators))}` : ""}${au.release ? ` (released ${esc(au.release.slice(0, 4))})` : ""}.${lv ? ` A free LibriVox volunteer recording runs ${esc(hm(lv.minutes))}.` : ""}</p>`
+      : lv ? `<p>A free LibriVox volunteer recording runs <strong>${esc(hm(lv.minutes))}</strong>${lv.sections ? ` across ${lv.sections} sections` : ""}.</p>`
+      : est ? `<p>As an audiobook, about <strong>${esc(hm(est))}</strong> of listening (estimated from the page count; editions and narrators vary).</p>` : "";
+    const links = [au ? `<li>${ext(au.url, "Audible: this recording")}</li>` : "", ...ab.providers.filter((p) => !(au && /audible/i.test(p.name))).map((p) => `<li>${ext(p.url, p.name)}</li>`),
+      lv ? `<li>${ext(lv.url, "LibriVox (free, public domain)")}</li>` : free ? `<li>${ext(`https://librivox.org/search?q=${encodeURIComponent(w.title)}&search_form=advanced`, "LibriVox (free, public domain)")}</li>` : ""];
+    return `<section class="block" id="listen"><h2>Prefer to listen?</h2>${facts}
+      <p class="muted">Set the format to <em>Audiobook</em> in your library to track it in hours and fill your Listen ring.</p>
+      <ul class="linkouts where-all">${links.join("")}</ul></section>`;
   }
   function renderAudiobooks() {
     const books = allWorks().filter((x) => x.medium === "book" && !["manga", "manhwa", "manhua"].includes((ATTRS[x.slug] || {}).form)).map((x) => ({ x, m: listenMinutes(cat.work(x.slug)) })).filter((b) => b.m);
     const bands = [["Short listens", "Under five hours: a few commutes or one long drive.", 0, 300], ["A week of commutes", "Five to twelve hours.", 300, 720], ["Long listens", "Twelve hours and more, to live with for a while.", 720, 1e9]];
     app.innerHTML = `
       <header class="page-band hub-band"><p class="eyebrow">Books</p><h1>Audiobooks</h1>
-        <p class="muted">Books to listen to, grouped by how long they take. Times are estimated from page counts (about 155 spoken words a minute); real editions vary with the narrator. Every book page links to Audible, Spotify, Google Play, Kobo and your library, and to LibriVox for free public-domain recordings.</p></header>
+        <p class="muted">Books to listen to, grouped by how long they take. Lengths are the real Audible or LibriVox recordings where we found one, and otherwise an estimate from the page count (about 155 spoken words a minute). Every book page links to Audible, Spotify, Google Play, Kobo and your library, and to LibriVox for free public-domain recordings.</p></header>
       ${bands.map(([t, d, lo, hi]) => { const hits = books.filter((b) => b.m >= lo && b.m < hi).sort((a, b) => a.m - b.m); return hits.length ? `<section class="shelf"><header class="shelf-head"><div><h2>${esc(t)}</h2><p>${esc(d)} ${hits.length} books.</p></div></header>${row(hits.map((b) => b.x))}</section>` : ""; }).join("")}`;
   }
 
@@ -4242,7 +4257,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   (function ambience() {
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const well = document.getElementById("well-fx");
-    // Below the first fold, runes rise from the well (Elder Futhark, drawn as strokes so no font is needed).
+    // Runes rise from the well: at full strength behind the hero, sparse and faint below it (Elder Futhark, drawn as strokes so no font is needed).
     const RUNES = ["M3 0V16M3 4L9 0M3 8L9 4", "M2 16V0L8 5V16", "M3 0V16M3 4L8 8L3 12", "M3 0V16M3 0L8 4M3 5L8 9",
       "M2 0V16M2 0L8 4L2 8L8 16", "M8 2L2 8L8 14", "M1 1L9 15M9 1L1 15", "M5 0V16M5 6L1 1M5 6L9 1", "M5 0V16M1 4L5 0L9 4",
       "M2 0V16M8 0V16M2 0L8 6M8 0L2 6", "M1 0V16L9 0V16L1 0", "M5 1L9 6L5 11L1 6ZM1 6L1 16M9 6L9 16", "M3 0V16M3 0L8 4L3 8L8 12L3 16"];
@@ -4252,7 +4267,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         return `<svg class="rune" viewBox="-2 -2 14 20" width="${size}" style="left:${(4 + Math.random() * 92).toFixed(1)}%;animation-duration:${(18 + Math.random() * 14).toFixed(1)}s;animation-delay:-${(Math.random() * 30).toFixed(1)}s"><path d="${RUNES[i % RUNES.length]}"/></svg>`;
       }).join("")}</div>`);
     }
-    addEventListener("scroll", () => document.body.classList.toggle("deep", scrollY > innerHeight * 0.7), { passive: true });
+    // "Deep" once the hero (ask box and "Can't choose?") has gone and the pick of the day is in view.
+    addEventListener("scroll", () => {
+      const hero = document.querySelector(".hero");
+      document.body.classList.toggle("deep", hero ? hero.getBoundingClientRect().bottom < innerHeight * 0.3 : scrollY > innerHeight);
+    }, { passive: true });
     const depth = document.getElementById("depth"), fill = document.getElementById("depth-fill"), now = document.getElementById("depth-now");
     const track = depth.querySelector(".track");
     let heads = [], ticks = [], moving = 0;

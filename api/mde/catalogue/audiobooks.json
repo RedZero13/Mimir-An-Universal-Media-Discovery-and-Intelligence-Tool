@@ -1,0 +1,1401 @@
+{
+ "about": "Audiobook facts for catalogue books. Audible India search results matched on title and author, English and unabridged (the longest English recording, skipping dramatisations and full-cast productions): narrators, length in minutes, release date, ASIN. LibriVox public-domain volunteer recordings for books up to 1929. Fetched 2026-10-23; regenerate rather than hand-edit.",
+ "books": {
+  "solaris-1961": {
+   "audible": {
+    "title": "Solaris",
+    "url": "https://www.audible.in/pd/Solaris-Audiobook/B07CRVWN6D",
+    "asin": "B07CRVWN6D",
+    "authors": [
+     "Stanislaw Lem",
+     "Bill Johnston - translator"
+    ],
+    "narrators": [
+     "Alessandro Juliani"
+    ],
+    "minutes": 462,
+    "release": "2011-06-07"
+   }
+  },
+  "roadside-picnic-1972": {
+   "audible": {
+    "title": "Roadside Picnic",
+    "url": "https://www.audible.in/pd/Roadside-Picnic-Audiobook/B079CN9816",
+    "asin": "B079CN9816",
+    "authors": [
+     "Arkady Strugatsky",
+     "Boris Strugatsky"
+    ],
+    "narrators": [
+     "Robert Forster"
+    ],
+    "minutes": 428,
+    "release": "2012-10-15"
+   }
+  },
+  "the-left-hand-of-darkness-1969": {
+   "audible": {
+    "title": "The Left Hand of Darkness",
+    "url": "https://www.audible.in/pd/The-Left-Hand-of-Darkness-Audiobook/B0CQPM7PHX",
+    "asin": "B0CQPM7PHX",
+    "authors": [
+     "Ursula K. Le Guin",
+     "Charlie Jane Anders - afterword"
+    ],
+    "narrators": [
+     "Alyssa Bresnahan",
+     "Michael Crouch"
+    ],
+    "minutes": 607,
+    "release": "2024-06-18"
+   }
+  },
+  "the-dispossessed-1974": {
+   "audible": {
+    "title": "The Dispossessed",
+    "url": "https://www.audible.in/pd/The-Dispossessed-Audiobook/B079B841J7",
+    "asin": "B079B841J7",
+    "authors": [
+     "Ursula K. Le Guin"
+    ],
+    "narrators": [
+     "Don Leslie"
+    ],
+    "minutes": 805,
+    "release": "2010-09-14"
+   }
+  },
+  "piranesi-2020": {
+   "audible": {
+    "title": "Piranesi",
+    "url": "https://www.audible.in/pd/Piranesi-Audiobook/B0H75Q6FT5",
+    "asin": "B0H75Q6FT5",
+    "authors": [
+     "Susanna Clarke"
+    ],
+    "narrators": [
+     "Chiwetel Ejiofor"
+    ],
+    "minutes": 418,
+    "release": "2026-07-03"
+   }
+  },
+  "never-let-me-go-2005": {
+   "audible": {
+    "title": "Never Let Me Go",
+    "url": "https://www.audible.in/pd/Never-Let-Me-Go-Audiobook/B079VJP7G9",
+    "asin": "B079VJP7G9",
+    "authors": [
+     "Kazuo Ishiguro"
+    ],
+    "narrators": [
+     "Rosalyn Landor"
+    ],
+    "minutes": 580,
+    "release": "2005-04-12"
+   }
+  },
+  "the-remains-of-the-day-1989": {
+   "audible": {
+    "title": "The Remains of the Day",
+    "url": "https://www.audible.in/pd/The-Remains-of-the-Day-Audiobook/B07YM4T238",
+    "asin": "B07YM4T238",
+    "authors": [
+     "Kazuo Ishiguro"
+    ],
+    "narrators": [
+     "Nicholas Guy Smith"
+    ],
+    "minutes": 563,
+    "release": "2019-10-15"
+   }
+  },
+  "a-psalm-for-the-wild-built-2021": {
+   "audible": {
+    "title": "A Psalm for the Wild-Built",
+    "url": "https://www.audible.in/pd/A-Psalm-for-the-Wild-Built-Audiobook/1250807743",
+    "asin": "1250807743",
+    "authors": [
+     "Becky Chambers"
+    ],
+    "narrators": [
+     "Em Grosland"
+    ],
+    "minutes": 248,
+    "release": "2021-07-13"
+   }
+  },
+  "kindred-1979": {
+   "audible": {
+    "title": "Kindred",
+    "url": "https://www.audible.in/pd/Kindred-Audiobook/B01N9K13UU",
+    "asin": "B01N9K13UU",
+    "authors": [
+     "Octavia E. Butler"
+    ],
+    "narrators": [
+     "Kim Staunton"
+    ],
+    "minutes": 655,
+    "release": "2007-09-12"
+   }
+  },
+  "the-name-of-the-rose-1980": {
+   "audible": {
+    "title": "The Name of the Rose",
+    "url": "https://www.audible.in/pd/The-Name-of-the-Rose-Audiobook/B0797Z58Q4",
+    "asin": "B0797Z58Q4",
+    "authors": [
+     "Umberto Eco"
+    ],
+    "narrators": [
+     "Sean Barrett",
+     "Neville Jason",
+     "Nicholas Rowe"
+    ],
+    "minutes": 1265,
+    "release": "2013-12-17"
+   }
+  },
+  "dune-1965": {
+   "audible": {
+    "title": "Dune",
+    "url": "https://www.audible.in/pd/Dune-Audiobook/B079TNMRW9",
+    "asin": "B079TNMRW9",
+    "authors": [
+     "Frank Herbert"
+    ],
+    "narrators": [
+     "Scott Brick",
+     "Orlagh Cassidy",
+     "Euan Morton",
+     "Simon Vance",
+     "Ilyana Kadushin",
+     "Byron Jennings",
+     "David R. Gordon",
+     "Jason Culp",
+     "Kent Broadhurst",
+     "Oliver Wyman",
+     "Patricia Kilgarriff",
+     "Scott Sowers"
+    ],
+    "minutes": 1262,
+    "release": "2007-05-29"
+   }
+  },
+  "pride-and-prejudice-1813": {
+   "audible": {
+    "title": "Pride and Prejudice",
+    "url": "https://www.audible.in/pd/Pride-and-Prejudice-Audiobook/B0HJG8L4NX",
+    "asin": "B0HJG8L4NX",
+    "authors": [
+     "Jane Austen"
+    ],
+    "narrators": [],
+    "minutes": 882,
+    "release": "2026-09-11"
+   },
+   "librivox": {
+    "title": "Pride and Prejudice",
+    "url": "https://librivox.org/pride-and-prejudice-by-jane-austen/",
+    "minutes": 787,
+    "sections": 37
+   }
+  },
+  "to-kill-a-mockingbird-1960": {
+   "audible": {
+    "title": "To Kill a Mockingbird",
+    "url": "https://www.audible.in/pd/To-Kill-a-Mockingbird-Audiobook/B079BDPSTB",
+    "asin": "B079BDPSTB",
+    "authors": [
+     "Harper Lee"
+    ],
+    "narrators": [
+     "Sissy Spacek"
+    ],
+    "minutes": 737,
+    "release": "2014-07-08"
+   }
+  },
+  "the-great-gatsby-1925": {
+   "audible": {
+    "title": "The Great Gatsby",
+    "url": "https://www.audible.in/pd/The-Great-Gatsby-Audiobook/B09VVYLB8M",
+    "asin": "B09VVYLB8M",
+    "authors": [
+     "F. Scott Fitzgerald"
+    ],
+    "narrators": [
+     "B.J. Harrison"
+    ],
+    "minutes": 341,
+    "release": "2022-03-17"
+   }
+  },
+  "one-hundred-years-of-solitude-1967": {
+   "audible": {
+    "title": "One Hundred Years of Solitude",
+    "url": "https://www.audible.in/pd/One-Hundred-Years-of-Solitude-Audiobook/B079P78G3K",
+    "asin": "B079P78G3K",
+    "authors": [
+     "Gabriel García Márquez",
+     "Gregory Rabassa - translator"
+    ],
+    "narrators": [
+     "John Lee"
+    ],
+    "minutes": 844,
+    "release": "2014-01-28"
+   }
+  },
+  "crime-and-punishment-1866": {
+   "audible": {
+    "title": "Crime and Punishment",
+    "url": "https://www.audible.in/pd/Crime-and-Punishment-Audiobook/B0DTB44WNC",
+    "asin": "B0DTB44WNC",
+    "authors": [
+     "Fyodor Dostoevsky",
+     "Richard Pevear - translator",
+     "Larissa Volokhonsky - translator"
+    ],
+    "narrators": [
+     "Bill Homewood"
+    ],
+    "minutes": 1684,
+    "release": "2025-02-20"
+   }
+  },
+  "the-hobbit-1937": {
+   "audible": {
+    "title": "The Hobbit",
+    "url": "https://www.audible.in/pd/The-Hobbit-Audiobook/B0793PP145",
+    "asin": "B0793PP145",
+    "authors": [
+     "J.R.R. Tolkien"
+    ],
+    "narrators": [
+     "Rob Inglis"
+    ],
+    "minutes": 664,
+    "release": "2012-10-09"
+   }
+  },
+  "the-hunger-games-2008": {
+   "audible": {
+    "title": "The Hunger Games",
+    "url": "https://www.audible.in/pd/The-Hunger-Games-Special-Edition-Audiobook/B07HHF7NNL",
+    "asin": "B07HHF7NNL",
+    "authors": [
+     "Suzanne Collins"
+    ],
+    "narrators": [
+     "Tatiana Maslany"
+    ],
+    "minutes": 635,
+    "release": "2018-10-30"
+   }
+  },
+  "brave-new-world-1932": {
+   "audible": {
+    "title": "Brave New World",
+    "url": "https://www.audible.in/pd/Brave-New-World-Audiobook/B01N7KJ6P2",
+    "asin": "B01N7KJ6P2",
+    "authors": [
+     "Aldous Huxley"
+    ],
+    "narrators": [
+     "Michael York"
+    ],
+    "minutes": 480,
+    "release": "2008-01-16"
+   }
+  },
+  "frankenstein-1818": {
+   "audible": {
+    "title": "Frankenstein",
+    "url": "https://www.audible.in/pd/Frankenstein-Audiobook/B07VQW5MJL",
+    "asin": "B07VQW5MJL",
+    "authors": [
+     "Mary Shelley"
+    ],
+    "narrators": [
+     "Peter Noble",
+     "Colin Salmon"
+    ],
+    "minutes": 703,
+    "release": "2019-09-26"
+   },
+   "librivox": {
+    "title": "Frankenstein, or The Modern Prometheus",
+    "url": "https://librivox.org/frankenstein-or-modern-prometheus-by-mary-w-shelley/",
+    "minutes": 497,
+    "sections": 22
+   }
+  },
+  "dracula-1897": {
+   "audible": {
+    "title": "Dracula",
+    "url": "https://www.audible.in/pd/Dracula-Audiobook/B0HLD9CNY9",
+    "asin": "B0HLD9CNY9",
+    "authors": [
+     "Bram Stoker"
+    ],
+    "narrators": [],
+    "minutes": 1118,
+    "release": "2026-09-29"
+   },
+   "librivox": {
+    "title": "Dracula",
+    "url": "https://librivox.org/dracula-by-bram-stoker/",
+    "minutes": 991,
+    "sections": 27
+   }
+  },
+  "jane-eyre-1847": {
+   "audible": {
+    "title": "Jane Eyre",
+    "url": "https://www.audible.in/pd/Jane-Eyre-Audiobook/0241438691",
+    "asin": "0241438691",
+    "authors": [
+     "Charlotte Brontë"
+    ],
+    "narrators": [
+     "Anna Popplewell"
+    ],
+    "minutes": 1371,
+    "release": "2019-09-26"
+   },
+   "librivox": {
+    "title": "Jane Eyre",
+    "url": "https://librivox.org/jane-eyre-by-charlotte-bront/",
+    "minutes": 1237,
+    "sections": 39
+   }
+  },
+  "wuthering-heights-1847": {
+   "audible": {
+    "title": "Wuthering Heights",
+    "url": "https://www.audible.in/pd/Wuthering-Heights-Audiobook/B01NBLGERE",
+    "asin": "B01NBLGERE",
+    "authors": [
+     "Emily Brontë"
+    ],
+    "narrators": [
+     "Patricia Routledge"
+    ],
+    "minutes": 855,
+    "release": "2012-04-06"
+   },
+   "librivox": {
+    "title": "Wuthering Heights",
+    "url": "https://librivox.org/wuthering-heights-by-emily-bronte/",
+    "minutes": 693,
+    "sections": 34
+   }
+  },
+  "beloved-1987": {
+   "audible": {
+    "title": "Beloved",
+    "url": "https://www.audible.in/pd/Beloved-Audiobook/B079TJMCXX",
+    "asin": "B079TJMCXX",
+    "authors": [
+     "Toni Morrison",
+     "Honorée Fanonne Jeffers - introduction"
+    ],
+    "narrators": [
+     "Toni Morrison",
+     "Karen Murray"
+    ],
+    "minutes": 753,
+    "release": "2006-05-22"
+   }
+  },
+  "the-road-2006": {
+   "audible": {
+    "title": "The Road",
+    "url": "https://www.audible.in/pd/The-Road-Audiobook/B01MY0MZ4B",
+    "asin": "B01MY0MZ4B",
+    "authors": [
+     "Cormac McCarthy"
+    ],
+    "narrators": [
+     "Tom Stechschulte"
+    ],
+    "minutes": 399,
+    "release": "2007-03-15"
+   }
+  },
+  "blood-meridian-1985": {
+   "audible": {
+    "title": "Blood Meridian",
+    "url": "https://www.audible.in/pd/Blood-Meridian-Audiobook/B01N1UQP0F",
+    "asin": "B01N1UQP0F",
+    "authors": [
+     "Cormac McCarthy"
+    ],
+    "narrators": [
+     "Richard Poe"
+    ],
+    "minutes": 786,
+    "release": "2007-05-16"
+   }
+  },
+  "the-palace-of-illusions-2008": {
+   "audible": {
+    "title": "The Palace of Illusions",
+    "url": "https://www.audible.in/pd/The-Palace-of-Illusions-Audiobook/B079DGFKNP",
+    "asin": "B079DGFKNP",
+    "authors": [
+     "Chitra Banerjee Divakaruni"
+    ],
+    "narrators": [
+     "Sneha Mathan"
+    ],
+    "minutes": 740,
+    "release": "2008-02-27"
+   }
+  },
+  "train-to-pakistan-1956": {
+   "audible": {
+    "title": "Train To Pakistan",
+    "url": "https://www.audible.in/pd/Train-to-Pakistan-Audiobook/B07MNTG84D",
+    "asin": "B07MNTG84D",
+    "authors": [
+     "Khushwant Singh"
+    ],
+    "narrators": [
+     "Paul Thottam"
+    ],
+    "minutes": 386,
+    "release": "2019-03-14"
+   }
+  },
+  "the-namesake-2003": {
+   "audible": {
+    "title": "The Namesake",
+    "url": "https://www.audible.in/pd/The-Namesake-Audiobook/B079VNZHHW",
+    "asin": "B079VNZHHW",
+    "authors": [
+     "Jhumpa Lahiri"
+    ],
+    "narrators": [
+     "Sarita Choudhury"
+    ],
+    "minutes": 610,
+    "release": "2003-09-26"
+   }
+  },
+  "interpreter-of-maladies-1999": {
+   "audible": {
+    "title": "Interpreter of Maladies",
+    "url": "https://www.audible.in/pd/Interpreter-of-Maladies-Audiobook/B01N7KJ6AH",
+    "asin": "B01N7KJ6AH",
+    "authors": [
+     "Jhumpa Lahiri"
+    ],
+    "narrators": [
+     "Matilda Novak"
+    ],
+    "minutes": 375,
+    "release": "2007-01-29"
+   }
+  },
+  "norwegian-wood-1987": {
+   "audible": {
+    "title": "Norwegian Wood",
+    "url": "https://www.audible.in/pd/Norwegian-Wood-Audiobook/B079F8F4HJ",
+    "asin": "B079F8F4HJ",
+    "authors": [
+     "Haruki Murakami"
+    ],
+    "narrators": [
+     "John Chancer"
+    ],
+    "minutes": 801,
+    "release": "2013-09-03"
+   }
+  },
+  "kafka-on-the-shore-2002": {
+   "audible": {
+    "title": "Kafka on the Shore",
+    "url": "https://www.audible.in/pd/Kafka-on-the-Shore-Audiobook/B079K2FFZW",
+    "asin": "B079K2FFZW",
+    "authors": [
+     "Haruki Murakami",
+     "Philip Gabriel - translator"
+    ],
+    "narrators": [
+     "Sean Barrett",
+     "Oliver Le Sueur"
+    ],
+    "minutes": 1148,
+    "release": "2013-08-06"
+   }
+  },
+  "the-wind-up-bird-chronicle-1994": {
+   "audible": {
+    "title": "The Wind-Up Bird Chronicle",
+    "url": "https://www.audible.in/pd/The-Wind-Up-Bird-Chronicle-Audiobook/B079MFN79L",
+    "asin": "B079MFN79L",
+    "authors": [
+     "Haruki Murakami"
+    ],
+    "narrators": [
+     "Rupert Degas"
+    ],
+    "minutes": 1571,
+    "release": "2013-09-03"
+   }
+  },
+  "klara-and-the-sun-2021": {
+   "audible": {
+    "title": "Klara and the Sun",
+    "url": "https://www.audible.in/pd/Klara-and-the-Sun-Audiobook/B08BCPNH1D",
+    "asin": "B08BCPNH1D",
+    "authors": [
+     "Kazuo Ishiguro"
+    ],
+    "narrators": [
+     "Sura Siu"
+    ],
+    "minutes": 616,
+    "release": "2021-03-02"
+   }
+  },
+  "the-vegetarian-2007": {
+   "audible": {
+    "title": "The Vegetarian",
+    "url": "https://www.audible.in/pd/The-Vegetarian-Audiobook/B079KJMDZQ",
+    "asin": "B079KJMDZQ",
+    "authors": [
+     "Han Kang",
+     "Deborah Smith - translator"
+    ],
+    "narrators": [
+     "Janet Song",
+     "Stephen Park"
+    ],
+    "minutes": 313,
+    "release": "2016-02-02"
+   }
+  },
+  "the-three-body-problem-2008": {
+   "audible": {
+    "title": "The Three-Body Problem",
+    "url": "https://www.audible.in/pd/The-Three-Body-Problem-Audiobook/B0CTS3T7H1",
+    "asin": "B0CTS3T7H1",
+    "authors": [
+     "Cixin Liu",
+     "Ken Liu - translator"
+    ],
+    "narrators": [
+     "Rosalind Chao"
+    ],
+    "minutes": 833,
+    "release": "2024-02-27"
+   }
+  },
+  "the-little-prince-1943": {
+   "audible": {
+    "title": "The Little Prince",
+    "url": "https://www.audible.in/pd/The-Little-Prince-Audiobook/B089287YWK",
+    "asin": "B089287YWK",
+    "authors": [
+     "Antoine de Saint-Exupéry"
+    ],
+    "narrators": [
+     "Stephanie Richardson"
+    ],
+    "minutes": 124,
+    "release": "2020-05-23"
+   }
+  },
+  "the-alchemist-1988": {
+   "audible": {
+    "title": "The Alchemist",
+    "url": "https://www.audible.in/pd/The-Alchemist-Audiobook/B06WWQT1NC",
+    "asin": "B06WWQT1NC",
+    "authors": [
+     "Paulo Coelho"
+    ],
+    "narrators": [
+     "Jeremy Irons"
+    ],
+    "minutes": 240,
+    "release": "2004-12-26"
+   }
+  },
+  "the-shadow-of-the-wind-2001": {
+   "audible": {
+    "title": "The Shadow of the Wind",
+    "url": "https://www.audible.in/pd/The-Shadow-of-the-Wind-Audiobook/B079K85YKZ",
+    "asin": "B079K85YKZ",
+    "authors": [
+     "Carlos Ruiz Zafon"
+    ],
+    "narrators": [
+     "Jonathan Davis"
+    ],
+    "minutes": 1085,
+    "release": "2005-05-06"
+   }
+  },
+  "my-brilliant-friend-2011": {
+   "audible": {
+    "title": "My Brilliant Friend",
+    "url": "https://www.audible.in/pd/My-Brilliant-Friend-Audiobook/B01NCO7PND",
+    "asin": "B01NCO7PND",
+    "authors": [
+     "Elena Ferrante"
+    ],
+    "narrators": [
+     "Hillary Huber"
+    ],
+    "minutes": 758,
+    "release": "2015-03-05"
+   }
+  },
+  "the-trial-1925": {
+   "audible": {
+    "title": "The Trial",
+    "url": "https://www.audible.in/pd/The-Trial-Audiobook/B0H62G3VG3",
+    "asin": "B0H62G3VG3",
+    "authors": [
+     "Franz Kafka"
+    ],
+    "narrators": [],
+    "minutes": 573,
+    "release": "2026-06-19"
+   }
+  },
+  "the-metamorphosis-1915": {
+   "audible": {
+    "title": "The Metamorphosis and Other Stories",
+    "url": "https://www.audible.in/pd/The-Metamorphosis-and-Other-Stories-Audiobook/B078LX37VY",
+    "asin": "B078LX37VY",
+    "authors": [
+     "Franz Kafka"
+    ],
+    "narrators": [
+     "George Guidall"
+    ],
+    "minutes": 521,
+    "release": "2011-12-16"
+   }
+  },
+  "half-of-a-yellow-sun-2006": {
+   "audible": {
+    "title": "Half of a Yellow Sun",
+    "url": "https://www.audible.in/pd/Half-of-a-Yellow-Sun-Audiobook/B079CN1HHR",
+    "asin": "B079CN1HHR",
+    "authors": [
+     "Chimamanda Ngozi Adichie"
+    ],
+    "narrators": [
+     "Zainab Jah"
+    ],
+    "minutes": 1090,
+    "release": "2017-09-19"
+   }
+  },
+  "the-hitchhikers-guide-to-the-galaxy-1979": {
+   "audible": {
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "url": "https://www.audible.in/pd/The-Hitchhikers-Guide-to-the-Galaxy-Audiobook/B079TMBMLD",
+    "asin": "B079TMBMLD",
+    "authors": [
+     "Douglas Adams"
+    ],
+    "narrators": [
+     "Stephen Fry"
+    ],
+    "minutes": 351,
+    "release": "2005-04-28"
+   }
+  },
+  "neuromancer-1984": {
+   "audible": {
+    "title": "Neuromancer",
+    "url": "https://www.audible.in/pd/Neuromancer-Audiobook/B079TL4NS2",
+    "asin": "B079TL4NS2",
+    "authors": [
+     "William Gibson"
+    ],
+    "narrators": [
+     "Robertson Dean"
+    ],
+    "minutes": 631,
+    "release": "2011-06-30"
+   }
+  },
+  "foundation-1951": {
+   "audible": {
+    "title": "Foundation and Earth",
+    "url": "https://www.audible.in/pd/Foundation-and-Earth-Audiobook/B079BLF1DL",
+    "asin": "B079BLF1DL",
+    "authors": [
+     "Isaac Asimov"
+    ],
+    "narrators": [
+     "Larry McKeever"
+    ],
+    "minutes": 1124,
+    "release": "2011-10-19"
+   }
+  },
+  "project-hail-mary-2021": {
+   "audible": {
+    "title": "Project Hail Mary",
+    "url": "https://www.audible.in/pd/Project-Hail-Mary-Audiobook/B08GB1VDSS",
+    "asin": "B08GB1VDSS",
+    "authors": [
+     "Andy Weir"
+    ],
+    "narrators": [
+     "Ray Porter"
+    ],
+    "minutes": 970,
+    "release": "2021-05-04"
+   }
+  },
+  "the-martian-2011": {
+   "audible": {
+    "title": "The Martian",
+    "url": "https://www.audible.in/pd/The-Martian-Audiobook/B082BGF4R7",
+    "asin": "B082BGF4R7",
+    "authors": [
+     "Andy Weir"
+    ],
+    "narrators": [
+     "Wil Wheaton"
+    ],
+    "minutes": 659,
+    "release": "2020-01-01"
+   }
+  },
+  "the-way-of-kings-2010": {
+   "audible": {
+    "title": "The Way of Kings",
+    "url": "https://www.audible.in/pd/The-Way-of-Kings-Audiobook/B078XK7QQ2",
+    "asin": "B078XK7QQ2",
+    "authors": [
+     "Brandon Sanderson"
+    ],
+    "narrators": [
+     "Michael Kramer",
+     "Kate Reading"
+    ],
+    "minutes": 2730,
+    "release": "2010-08-31"
+   }
+  },
+  "a-game-of-thrones-1996": {
+   "audible": {
+    "title": "A Game of Thrones",
+    "url": "https://www.audible.in/pd/A-Game-of-Thrones-Audiobook/B0741DPWW7",
+    "asin": "B0741DPWW7",
+    "authors": [
+     "George R. R. Martin"
+    ],
+    "narrators": [
+     "Roy Dotrice"
+    ],
+    "minutes": 2026,
+    "release": "2004-01-13"
+   }
+  },
+  "guards-guards-1989": {
+   "audible": {
+    "title": "Guards! Guards!",
+    "url": "https://www.audible.in/pd/Guards-Guards-Audiobook/B09M8VTSMB",
+    "asin": "B09M8VTSMB",
+    "authors": [
+     "Terry Pratchett",
+     "Ben Aaranovitch - introduction"
+    ],
+    "narrators": [
+     "Jon Culshaw",
+     "Peter Serafinowicz",
+     "Bill Nighy",
+     "Ben Aaronovitch"
+    ],
+    "minutes": 809,
+    "release": "2023-05-25"
+   }
+  },
+  "the-song-of-achilles-2011": {
+   "audible": {
+    "title": "The Song of Achilles",
+    "url": "https://www.audible.in/pd/The-Song-of-Achilles-Audiobook/B079DGPMBC",
+    "asin": "B079DGPMBC",
+    "authors": [
+     "Madeline Miller"
+    ],
+    "narrators": [
+     "Frazer Douglas"
+    ],
+    "minutes": 675,
+    "release": "2012-03-06"
+   }
+  },
+  "the-night-circus-2011": {
+   "audible": {
+    "title": "The Night Circus",
+    "url": "https://www.audible.in/pd/The-Night-Circus-Audiobook/B079VB5H6F",
+    "asin": "B079VB5H6F",
+    "authors": [
+     "Erin Morgenstern"
+    ],
+    "narrators": [
+     "Jim Dale"
+    ],
+    "minutes": 820,
+    "release": "2011-09-13"
+   }
+  },
+  "the-secret-history-1992": {
+   "audible": {
+    "title": "The Secret History",
+    "url": "https://www.audible.in/pd/The-Secret-History-Audiobook/B0C6FFPJ6Q",
+    "asin": "B0C6FFPJ6Q",
+    "authors": [
+     "Donna Tartt"
+    ],
+    "narrators": [
+     "Donna Tartt"
+    ],
+    "minutes": 1323,
+    "release": "2023-07-11"
+   }
+  },
+  "gone-girl-2012": {
+   "audible": {
+    "title": "Gone Girl",
+    "url": "https://www.audible.in/pd/Gone-Girl-Audiobook/B079B7VR4Z",
+    "asin": "B079B7VR4Z",
+    "authors": [
+     "Gillian Flynn"
+    ],
+    "narrators": [
+     "Julia Whelan",
+     "Kirby Heyborne"
+    ],
+    "minutes": 1197,
+    "release": "2012-06-05"
+   }
+  },
+  "and-then-there-were-none-1939": {
+   "audible": {
+    "title": "And Then There Were None",
+    "url": "https://www.audible.in/pd/And-Then-There-Were-None-Audiobook/B079BP5T37",
+    "asin": "B079BP5T37",
+    "authors": [
+     "Agatha Christie"
+    ],
+    "narrators": [
+     "Dan Stevens"
+    ],
+    "minutes": 361,
+    "release": "2013-09-10"
+   }
+  },
+  "the-murder-of-roger-ackroyd-1926": {
+   "audible": {
+    "title": "The Murder of Roger Ackroyd",
+    "url": "https://www.audible.in/pd/The-Murder-of-Roger-Ackroyd-Audiobook/B0FY4472R2",
+    "asin": "B0FY4472R2",
+    "authors": [
+     "Agatha Christie"
+    ],
+    "narrators": [
+     "Mike Vendetti"
+    ],
+    "minutes": 509,
+    "release": "2025-10-28"
+   }
+  },
+  "the-girl-with-the-dragon-tattoo-2005": {
+   "audible": {
+    "title": "The Girl with the Dragon Tattoo",
+    "url": "https://www.audible.in/pd/The-Girl-with-the-Dragon-Tattoo-Audiobook/B079TKBC94",
+    "asin": "B079TKBC94",
+    "authors": [
+     "Stieg Larsson"
+    ],
+    "narrators": [
+     "Simon Vance"
+    ],
+    "minutes": 979,
+    "release": "2008-09-16"
+   }
+  },
+  "the-silent-patient-2019": {
+   "audible": {
+    "title": "The Silent Patient",
+    "url": "https://www.audible.in/pd/The-Silent-Patient-Audiobook/B07JN93THR",
+    "asin": "B07JN93THR",
+    "authors": [
+     "Alex Michaelides"
+    ],
+    "narrators": [
+     "Jack Hawkins",
+     "Louise Brealey"
+    ],
+    "minutes": 513,
+    "release": "2019-02-05"
+   }
+  },
+  "the-shining-1977": {
+   "audible": {
+    "title": "The Shining",
+    "url": "https://www.audible.in/pd/The-Shining-Audiobook/B079CDVSHS",
+    "asin": "B079CDVSHS",
+    "authors": [
+     "Stephen King"
+    ],
+    "narrators": [
+     "Campbell Scott"
+    ],
+    "minutes": 950,
+    "release": "2012-08-07"
+   }
+  },
+  "normal-people-2018": {
+   "audible": {
+    "title": "Normal People",
+    "url": "https://www.audible.in/pd/Normal-People-Audiobook/1984843338",
+    "asin": "1984843338",
+    "authors": [
+     "Sally Rooney"
+    ],
+    "narrators": [
+     "Aoife McMahon"
+    ],
+    "minutes": 454,
+    "release": "2019-04-16"
+   }
+  },
+  "tomorrow-and-tomorrow-and-tomorrow-2022": {
+   "audible": {
+    "title": "Tomorrow, and Tomorrow, and Tomorrow",
+    "url": "https://www.audible.in/pd/Tomorrow-and-Tomorrow-and-Tomorrow-Audiobook/B09KD4K59P",
+    "asin": "B09KD4K59P",
+    "authors": [
+     "Gabrielle Zevin"
+    ],
+    "narrators": [
+     "Jennifer Kim",
+     "Julian Cihi"
+    ],
+    "minutes": 832,
+    "release": "2022-07-05"
+   }
+  },
+  "a-little-life-2015": {
+   "audible": {
+    "title": "A Little Life",
+    "url": "https://www.audible.in/pd/A-Little-Life-Audiobook/B0DQR997QF",
+    "asin": "B0DQR997QF",
+    "authors": [
+     "Hanya Yanagihara"
+    ],
+    "narrators": [
+     "Matt Bomer"
+    ],
+    "minutes": 1718,
+    "release": "2025-02-04"
+   }
+  },
+  "the-midnight-library-2020": {
+   "audible": {
+    "title": "The Midnight Library",
+    "url": "https://www.audible.in/pd/The-Midnight-Library-Audiobook/B085S7XLNJ",
+    "asin": "B085S7XLNJ",
+    "authors": [
+     "Matt Haig"
+    ],
+    "narrators": [
+     "Carey Mulligan"
+    ],
+    "minutes": 530,
+    "release": "2020-09-29"
+   }
+  },
+  "where-the-crawdads-sing-2018": {
+   "audible": {
+    "title": "Where the Crawdads Sing: Reese's Book Club",
+    "url": "https://www.audible.in/pd/Where-the-Crawdads-Sing-Audiobook/B07FSVM6WL",
+    "asin": "B07FSVM6WL",
+    "authors": [
+     "Delia Owens"
+    ],
+    "narrators": [
+     "Cassandra Campbell"
+    ],
+    "minutes": 732,
+    "release": "2018-08-14"
+   }
+  },
+  "sapiens-2011": {
+   "audible": {
+    "title": "Sapiens",
+    "url": "https://www.audible.in/pd/Sapiens-Audiobook/B079B9S594",
+    "asin": "B079B9S594",
+    "authors": [
+     "Yuval Noah Harari"
+    ],
+    "narrators": [
+     "Derek Perkins"
+    ],
+    "minutes": 918,
+    "release": "2017-08-15"
+   }
+  },
+  "the-diary-of-a-young-girl-1947": {
+   "audible": {
+    "title": "The Diary of a Young Girl",
+    "url": "https://www.audible.in/pd/The-Diary-of-a-Young-Girl-Audiobook/B0FYPGRBLP",
+    "asin": "B0FYPGRBLP",
+    "authors": [
+     "Anne Frank"
+    ],
+    "narrators": [],
+    "minutes": 547,
+    "release": "2025-11-13"
+   }
+  },
+  "educated-2018": {
+   "audible": {
+    "title": "Educated",
+    "url": "https://www.audible.in/pd/Educated-Audiobook/B079F5GB5V",
+    "asin": "B079F5GB5V",
+    "authors": [
+     "Tara Westover"
+    ],
+    "narrators": [
+     "Julia Whelan"
+    ],
+    "minutes": 730,
+    "release": "2018-02-20"
+   }
+  },
+  "becoming-2018": {
+   "audible": {
+    "title": "Becoming",
+    "url": "https://www.audible.in/pd/Becoming-Audiobook/B07B3MNQFP",
+    "asin": "B07B3MNQFP",
+    "authors": [
+     "Michelle Obama"
+    ],
+    "narrators": [
+     "Michelle Obama"
+    ],
+    "minutes": 1143,
+    "release": "2018-11-13"
+   }
+  },
+  "thinking-fast-and-slow-2011": {
+   "audible": {
+    "title": "Thinking, Fast and Slow",
+    "url": "https://www.audible.in/pd/Thinking-Fast-and-Slow-Audiobook/B079TND95Y",
+    "asin": "B079TND95Y",
+    "authors": [
+     "Daniel Kahneman"
+    ],
+    "narrators": [
+     "Patrick Egan"
+    ],
+    "minutes": 1202,
+    "release": "2011-10-25"
+   }
+  },
+  "atomic-habits-2018": {
+   "audible": {
+    "title": "Atomic Habits",
+    "url": "https://www.audible.in/pd/Atomic-Habits-Audiobook/B07GBHGC99",
+    "asin": "B07GBHGC99",
+    "authors": [
+     "James Clear"
+    ],
+    "narrators": [
+     "James Clear"
+    ],
+    "minutes": 335,
+    "release": "2018-10-16"
+   }
+  },
+  "mans-search-for-meaning-1946": {
+   "audible": {
+    "title": "Man's Search for Meaning",
+    "url": "https://www.audible.in/pd/Mans-Search-for-Meaning-Audiobook/B0CYNMX5DD",
+    "asin": "B0CYNMX5DD",
+    "authors": [
+     "Viktor E. Frankl"
+    ],
+    "narrators": [
+     "Theo Solomon"
+    ],
+    "minutes": 343,
+    "release": "2024-04-09"
+   }
+  },
+  "the-immortal-life-of-henrietta-lacks-2010": {
+   "audible": {
+    "title": "The Immortal Life of Henrietta Lacks",
+    "url": "https://www.audible.in/pd/The-Immortal-Life-of-Henrietta-Lacks-Audiobook/B079BBDVJX",
+    "asin": "B079BBDVJX",
+    "authors": [
+     "Rebecca Skloot"
+    ],
+    "narrators": [
+     "Cassandra Campbell",
+     "Bahni Turpin"
+    ],
+    "minutes": 750,
+    "release": "2010-02-02"
+   }
+  },
+  "when-breath-becomes-air-2016": {
+   "audible": {
+    "title": "When Breath Becomes Air",
+    "url": "https://www.audible.in/pd/When-Breath-Becomes-Air-Audiobook/B079B7HJ7Y",
+    "asin": "B079B7HJ7Y",
+    "authors": [
+     "Paul Kalanithi",
+     "Lucy Kalanithi",
+     "Abraham Verghese - introduction"
+    ],
+    "narrators": [
+     "Sunil Malhotra",
+     "Lucy Kalanithi"
+    ],
+    "minutes": 335,
+    "release": "2016-01-12"
+   }
+  },
+  "silent-spring-1962": {
+   "audible": {
+    "title": "Silent Spring",
+    "url": "https://www.audible.in/pd/Silent-Spring-Audiobook/B07KWC8W95",
+    "asin": "B07KWC8W95",
+    "authors": [
+     "Rachel Carson"
+    ],
+    "narrators": [
+     "Susie Berneis"
+    ],
+    "minutes": 643,
+    "release": "2018-11-27"
+   }
+  },
+  "the-selfish-gene-1976": {
+   "audible": {
+    "title": "The Selfish Gene",
+    "url": "https://www.audible.in/pd/The-Selfish-Gene-Audiobook/B07CNG6GPX",
+    "asin": "B07CNG6GPX",
+    "authors": [
+     "Richard Dawkins"
+    ],
+    "narrators": [
+     "Richard Dawkins",
+     "Lalla Ward"
+    ],
+    "minutes": 972,
+    "release": "2011-03-29"
+   }
+  },
+  "cosmos-1980": {
+   "audible": {
+    "title": "Cosmos",
+    "url": "https://www.audible.in/pd/Cosmos-Audiobook/B071952L2Q",
+    "asin": "B071952L2Q",
+    "authors": [
+     "Carl Sagan"
+    ],
+    "narrators": [
+     "LeVar Burton",
+     "Seth MacFarlane",
+     "Neil deGrasse Tyson",
+     "Ann Druyan"
+    ],
+    "minutes": 871,
+    "release": "2017-05-30"
+   }
+  },
+  "in-cold-blood-1966": {
+   "audible": {
+    "title": "In Cold Blood",
+    "url": "https://www.audible.in/pd/In-Cold-Blood-Audiobook/B079TLQGJL",
+    "asin": "B079TLQGJL",
+    "authors": [
+     "Truman Capote"
+    ],
+    "narrators": [
+     "Scott Brick"
+    ],
+    "minutes": 867,
+    "release": "2006-01-03"
+   }
+  },
+  "the-body-keeps-the-score-2014": {
+   "audible": {
+    "title": "The Body Keeps the Score",
+    "url": "https://www.audible.in/pd/The-Body-Keeps-the-Score-Audiobook/0593412702",
+    "asin": "0593412702",
+    "authors": [
+     "Bessel van der Kolk M.D."
+    ],
+    "narrators": [
+     "Sean Pratt"
+    ],
+    "minutes": 975,
+    "release": "2021-02-16"
+   }
+  },
+  "born-a-crime-2016": {
+   "audible": {
+    "title": "Born a Crime",
+    "url": "https://www.audible.in/pd/Born-a-Crime-Audiobook/B0GZ86CBS2",
+    "asin": "B0GZ86CBS2",
+    "authors": [
+     "Trevor Noah"
+    ],
+    "narrators": [
+     "Trevor Noah"
+    ],
+    "minutes": 570,
+    "release": "2026-05-05"
+   }
+  },
+  "i-know-why-the-caged-bird-sings-1969": {
+   "audible": {
+    "title": "I Know Why the Caged Bird Sings",
+    "url": "https://www.audible.in/pd/I-Know-Why-the-Caged-Bird-Sings-Audiobook/B079BJDN1K",
+    "asin": "B079BJDN1K",
+    "authors": [
+     "Maya Angelou"
+    ],
+    "narrators": [
+     "Maya Angelou"
+    ],
+    "minutes": 611,
+    "release": "2011-01-04"
+   }
+  },
+  "kitchen-confidential-2000": {
+   "audible": {
+    "title": "Kitchen Confidential",
+    "url": "https://www.audible.in/pd/Kitchen-Confidential-Audiobook/B079TKZC7S",
+    "asin": "B079TKZC7S",
+    "authors": [
+     "Anthony Bourdain",
+     "Irvine Welsh - introduction"
+    ],
+    "narrators": [
+     "Anthony Bourdain",
+     "Irvine Welsh"
+    ],
+    "minutes": 517,
+    "release": "2001-02-06"
+   }
+  },
+  "like-water-for-chocolate-1989": {
+   "audible": {
+    "title": "Like Water for Chocolate",
+    "url": "https://www.audible.in/pd/Like-Water-for-Chocolate-Audiobook/B079X5FYNN",
+    "asin": "B079X5FYNN",
+    "authors": [
+     "Laura Esquivel"
+    ],
+    "narrators": [
+     "Kate Reading"
+    ],
+    "minutes": 352,
+    "release": "2004-07-23"
+   }
+  },
+  "a-christmas-carol-1843": {
+   "audible": {
+    "title": "A Christmas Carol: A Signature Performance by Tim Curry",
+    "url": "https://www.audible.in/pd/A-Christmas-Carol-A-Signature-Performance-by-Tim-Curry-Audiobook/B01NBIW0CE",
+    "asin": "B01NBIW0CE",
+    "authors": [
+     "Charles Dickens"
+    ],
+    "narrators": [
+     "Tim Curry"
+    ],
+    "minutes": 211,
+    "release": "2010-12-01"
+   }
+  },
+  "how-the-grinch-stole-christmas-1957": {
+   "audible": {
+    "title": "How the Grinch Stole Christmas",
+    "url": "https://www.audible.in/pd/How-the-Grinch-Stole-Christmas-Audiobook/B079BFZW18",
+    "asin": "B079BFZW18",
+    "authors": [
+     "Dr. Seuss"
+    ],
+    "narrators": [
+     "Walter Matthau"
+    ],
+    "minutes": 12,
+    "release": "2006-06-27"
+   }
+  },
+  "giovannis-room-1956": {
+   "audible": {
+    "title": "Giovanni's Room",
+    "url": "https://www.audible.in/pd/Giovannis-Room-Audiobook/B0CVBPTX6J",
+    "asin": "B0CVBPTX6J",
+    "authors": [
+     "James Baldwin",
+     "Kevin Young - introduction"
+    ],
+    "narrators": [
+     "Matt Bomer",
+     "Kevin Young"
+    ],
+    "minutes": 364,
+    "release": "2024-08-27"
+   }
+  },
+  "red-white-and-royal-blue-2019": {
+   "audible": {
+    "title": "Red, White & Royal Blue",
+    "url": "https://www.audible.in/pd/Red-White-Royal-Blue-Audiobook/B07HMLS485",
+    "asin": "B07HMLS485",
+    "authors": [
+     "Casey McQuiston"
+    ],
+    "narrators": [
+     "Ramon de Ocampo"
+    ],
+    "minutes": 735,
+    "release": "2019-05-14"
+   }
+  },
+  "orlando-1928": {
+   "audible": {
+    "title": "Orlando",
+    "url": "https://www.audible.in/pd/Orlando-Audiobook/B0CSZ9S5R8",
+    "asin": "B0CSZ9S5R8",
+    "authors": [
+     "Virginia Woolf"
+    ],
+    "narrators": [
+     "Juliet Stevenson"
+    ],
+    "minutes": 556,
+    "release": "2024-01-22"
+   },
+   "librivox": {
+    "title": "Orlando, A Biography",
+    "url": "https://librivox.org/orlando-by-virginia-woolf/",
+    "minutes": 527,
+    "sections": 18
+   }
+  }
+ }
+}
