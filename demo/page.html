@@ -1026,6 +1026,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script id="enrichment-data" type="application/json">/*__ENRICHMENT__*/</script>
 <script id="providers-data" type="application/json">/*__PROVIDERS__*/</script>
 <script id="calendar-data" type="application/json">/*__CALENDAR__*/</script>
+<script id="audiobooks-data" type="application/json">/*__AUDIOBOOKS__*/</script>
 <script id="config-data" type="application/json">/*__CONFIG__*/</script>
 <script id="blog-data" type="application/json">/*__BLOG__*/</script>
 <script>/*__ENGINE__*/</script>
@@ -2345,7 +2346,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // What progress is counted in, and how much there is, where the catalogue knows.
   // Audiobooks: about 155 spoken words a minute over roughly 300 words a page. An estimate, and labelled as one.
-  const listenMinutes = (w) => (w && w.page_count ? Math.round(w.page_count * 1.95) : null);
+  // Real recordings (Audible India, LibriVox) where we matched one; otherwise an estimate from the page count.
+  const AUDIOBOOKS = JSON.parse(document.getElementById("audiobooks-data").textContent).books;
+  const recordingOf = (w) => (w && AUDIOBOOKS[w.slug]) || {};
+  const estimatedMinutes = (w) => (w && w.page_count ? Math.round(w.page_count * 1.95) : null);
+  const listenMinutes = (w) => { const r = recordingOf(w); return (r.audible || r.librivox || {}).minutes || estimatedMinutes(w); };
+  const listenIsReal = (w) => { const r = recordingOf(w); return !!(r.audible || r.librivox); };
   function progressUnit(w) {
     const a = w.attributes || {};
     if (w.medium === "series") return { unit: "episodes", total: a.episodes || null, step: 1 };
@@ -2898,18 +2904,25 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (["manga", "manhwa", "manhua"].includes((w.attributes || {}).form)) return "";
     const ab = cat.whereFor({ medium: "audiobook", title: w.title, creator: (w.creators || [])[0] || "", year: w.year }, prefs.region);
     if (!ab) return "";
-    const m = listenMinutes(w);
+    const { audible: au, librivox: lv } = recordingOf(w);
+    const est = estimatedMinutes(w);
     const free = w.year && w.year <= 1929;   // public domain in the US, where LibriVox records
-    return `<section class="block" id="listen"><h2>Prefer to listen?</h2>
-      <p class="muted">${m ? `As an audiobook, about <strong>${esc(hm(m))}</strong> of listening (estimated from the page count; editions and narrators vary). ` : ""}Set the format to <em>Audiobook</em> in your library to track it in hours and fill your Listen ring.</p>
-      <ul class="linkouts where-all">${ab.providers.map((p) => `<li>${ext(p.url, p.name)}</li>`).join("")}${free ? `<li>${ext(`https://librivox.org/search?q=${encodeURIComponent(w.title)}&search_form=advanced`, "LibriVox (free, public domain)")}</li>` : ""}</ul></section>`;
+    const names = (xs) => xs.length > 3 ? `${xs.slice(0, 3).join(", ")} and others` : xs.join(xs.length === 2 ? " and " : ", ");
+    const facts = au ? `<p>The Audible recording runs <strong>${esc(hm(au.minutes))}</strong>${au.narrators.length ? `, narrated by ${esc(names(au.narrators))}` : ""}${au.release ? ` (released ${esc(au.release.slice(0, 4))})` : ""}.${lv ? ` A free LibriVox volunteer recording runs ${esc(hm(lv.minutes))}.` : ""}</p>`
+      : lv ? `<p>A free LibriVox volunteer recording runs <strong>${esc(hm(lv.minutes))}</strong>${lv.sections ? ` across ${lv.sections} sections` : ""}.</p>`
+      : est ? `<p>As an audiobook, about <strong>${esc(hm(est))}</strong> of listening (estimated from the page count; editions and narrators vary).</p>` : "";
+    const links = [au ? `<li>${ext(au.url, "Audible: this recording")}</li>` : "", ...ab.providers.filter((p) => !(au && /audible/i.test(p.name))).map((p) => `<li>${ext(p.url, p.name)}</li>`),
+      lv ? `<li>${ext(lv.url, "LibriVox (free, public domain)")}</li>` : free ? `<li>${ext(`https://librivox.org/search?q=${encodeURIComponent(w.title)}&search_form=advanced`, "LibriVox (free, public domain)")}</li>` : ""];
+    return `<section class="block" id="listen"><h2>Prefer to listen?</h2>${facts}
+      <p class="muted">Set the format to <em>Audiobook</em> in your library to track it in hours and fill your Listen ring.</p>
+      <ul class="linkouts where-all">${links.join("")}</ul></section>`;
   }
   function renderAudiobooks() {
     const books = allWorks().filter((x) => x.medium === "book" && !["manga", "manhwa", "manhua"].includes((ATTRS[x.slug] || {}).form)).map((x) => ({ x, m: listenMinutes(cat.work(x.slug)) })).filter((b) => b.m);
     const bands = [["Short listens", "Under five hours: a few commutes or one long drive.", 0, 300], ["A week of commutes", "Five to twelve hours.", 300, 720], ["Long listens", "Twelve hours and more, to live with for a while.", 720, 1e9]];
     app.innerHTML = `
       <header class="page-band hub-band"><p class="eyebrow">Books</p><h1>Audiobooks</h1>
-        <p class="muted">Books to listen to, grouped by how long they take. Times are estimated from page counts (about 155 spoken words a minute); real editions vary with the narrator. Every book page links to Audible, Spotify, Google Play, Kobo and your library, and to LibriVox for free public-domain recordings.</p></header>
+        <p class="muted">Books to listen to, grouped by how long they take. Lengths are the real Audible or LibriVox recordings where we found one, and otherwise an estimate from the page count (about 155 spoken words a minute). Every book page links to Audible, Spotify, Google Play, Kobo and your library, and to LibriVox for free public-domain recordings.</p></header>
       ${bands.map(([t, d, lo, hi]) => { const hits = books.filter((b) => b.m >= lo && b.m < hi).sort((a, b) => a.m - b.m); return hits.length ? `<section class="shelf"><header class="shelf-head"><div><h2>${esc(t)}</h2><p>${esc(d)} ${hits.length} books.</p></div></header>${row(hits.map((b) => b.x))}</section>` : ""; }).join("")}`;
   }
 

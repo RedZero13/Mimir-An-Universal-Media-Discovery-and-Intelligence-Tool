@@ -40,6 +40,7 @@ function page() {
     .replace("/*__PROVIDERS__*/", () => json(path.join(api, "catalogue", "providers.json")))
     .replace("/*__SHELVES__*/", () => json(path.join(api, "catalogue", "shelves.json")))
     .replace("/*__CALENDAR__*/", () => json(path.join(api, "catalogue", "calendar.json")))
+    .replace("/*__AUDIOBOOKS__*/", () => json(path.join(api, "catalogue", "audiobooks.json")))
     .replace("/*__BLOG__*/", () => json(path.join(here, "blog.json")))
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify({ api: (process.env.MIMIR_API_URL || "").replace(/\/$/, "") })))

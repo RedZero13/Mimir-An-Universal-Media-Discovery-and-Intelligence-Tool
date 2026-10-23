@@ -17,6 +17,9 @@ The database `source` table is the authoritative register for sources in use. Th
 | `openlibrary` | open data | yes | yes | yes | check | Median page count, reader ratings, cover thumbnails. Covers remain the publishers'; shown for identification with attribution |
 | `musicbrainz` | open data | yes | yes | yes | yes | Core data CC0: release groups, standard-edition track lists and lengths, remix relationships. Covers via the Cover Art Archive (rights remain with the owners) |
 | `publisher` | rights holder | yes | yes | yes | yes | Supplied by the rights holder for Terratales titles: covers, page counts, store links (`api/mde/data/enrichment/publisher.json`, edited by hand) |
+| `youtube` | official pages | yes | yes | check | no | Public channel pages and RSS feeds: channel and video IDs, titles, video thumbnails as covers, channel avatars. Thumbnails and avatars remain the creators'; shown to identify the video or channel |
+| `audible` | public search | facts only | yes | check | no | Audible India search results for catalogue books (`catalogue/audiobooks.json`): ASIN, narrators, length, release date. Matched on title and author, English only, longest recording (dramatisations skipped). Facts only; no artwork or text is copied |
+| `librivox` | open data | yes | yes | yes | yes | LibriVox API: public-domain volunteer recordings (public domain in the US) for books up to 1929: length, sections, page URL |
 
 Summaries are original writing. Scores are shown as published by their owners, with source and date; Mimir never
 computes or republishes reviews.
