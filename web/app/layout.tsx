@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Mimir · A Terratales Venture",
   description:
     "Mimir is a catalogue and discovery engine for films, books, games and music. Describe how you want to feel and it finds what fits, with the reasons for every pick.",
-  openGraph: { title: "Mimir · Drawn from the well of every story", siteName: "Mimir · A Terratales Venture" },
+  openGraph: { title: "Mimir · Find what to watch, read, play or listen to next", siteName: "Mimir · A Terratales Venture" },
 };
 
 export const viewport: Viewport = { themeColor: "#131315" };

@@ -64,6 +64,24 @@ reviews, follows, the feed and challenge leaderboards need the API (`api/`, Fast
 
 ## What is deployed
 
-The static site runs the discovery engine in the browser on the beta catalogue (503 works) with the open-data
+The static site runs the discovery engine in the browser on the beta catalogue (674 works) with the open-data
 enrichment committed in `api/mde/data/enrichment/`. Ratings and feedback stay in each visitor's browser.
 The full stack (PostgreSQL, the API and the Next.js app in `web/`) needs a server host; see the README. When it's live, point the same subdomain at it instead.
+
+### Speed
+
+- `index.html` holds only the styles, the header and a static hero, so the headline paints with the first bytes.
+  The catalogue data and the app are content-hashed files in `/assets/`, requested just after the first paint and
+  cached by the service worker until they change.
+- Fonts are self-hosted from `demo/fonts/` (Latin subsets, SIL OFL); there are no third-party requests before the
+  page is usable. Cover images are requested at the size they're shown.
+- The home page draws the hero and first rows first, and the rankings rail and lower shelves in a second task.
+
+### Search engines
+
+The app's views are hash routes, which search engines don't index, so the build also writes plain HTML pages with
+structured data (schema.org) for everything in the catalogue: `/works/<slug>/` for each work, `/films/`, `/tv/`,
+`/books/`, `/games/`, `/music/` and `/youtube/` for each medium, `/shelves/<slug>/` for each shelf, and the blog with
+an RSS feed at `/blog/feed.xml`. Each links into the app. `sitemap.xml` lists every page and `robots.txt` points
+to it. To see indexing status, add the site to Google Search Console (a URL-prefix property for
+`https://mimir.terratalesmedia.world/`, verified with an HTML meta tag or the DNS TXT record) and submit the sitemap.

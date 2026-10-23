@@ -1,12 +1,13 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"light";}catch(e){document.documentElement.dataset.theme="light";}</script>
 <script>if (location.protocol === "http:" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) location.replace("https:" + location.href.slice(5));</script>
-<title>Mimir · A Terratales Venture</title>
-<meta name="description" content="Mimir is a catalogue and discovery engine for films, books, games and music. Describe how you want to feel and it finds what fits, with the reasons for every pick. A Terratales venture.">
+<title>Mimir · Find what to watch, read, play or listen to next</title>
+<meta name="description" content="Tell Mimir a mood, a favourite or how long you have, and it finds films, TV shows, books, manga, games and music that fit, with the reason for every pick. Free, from Terratales.">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <!--/head-->
 <style>
 /* Layout: one column that breathes (Terratales Vol. II: hairline gold rules divide, not boxes). Reading views
@@ -96,6 +97,19 @@ p { margin: 0; }
 .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); font-weight: 500; max-width: 24ch; }
 .hero h1 em { font-style: italic; color: var(--gold-bright); }
 .hero .lead { font-size: 1.08rem; color: var(--muted); max-width: 54ch; }
+/* Until the app renders: the static hero holds the space the ask box and examples will take. */
+.hero-shell { min-height: calc(100vh - 140px); } .ask-shell { min-height: 360px; }
+/* Sections below the opening screen skip style and layout until they come near the viewport. */
+#app > section.shelf, #app > section.steps, .foot { content-visibility: auto; contain-intrinsic-size: auto 420px; }
+/* Small gold and grey text in light mode, darkened to meet WCAG AA contrast on the parchment background. */
+:root[data-theme="light"] .steps .num, :root[data-theme="light"] .foot-cols h2 { color: var(--gold-bright); }
+:root[data-theme="light"] .foot .legal { color: var(--muted); }
+/* The menu bar is drawn by the app; until then it holds about the height it will take, so the hero doesn't jump. */
+#menubar:empty { min-height: 54px; }
+@media (max-width: 1199px) { #menubar:empty { min-height: 94px; } }
+@media (max-width: 759px) { #menubar:empty { min-height: 111px; } }
+/* Posters off to the side of a row are not drawn until scrolled to (their size comes from the card and aspect ratio). */
+.poster { content-visibility: auto; }
 form.ask { display: flex; gap: 10px; align-items: flex-end; max-width: var(--measure); }
 form.ask .btn { height: 50px; flex: none; }
 form.ask textarea {
@@ -994,20 +1008,25 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <nav class="depth short" id="depth" aria-label="Sections on this page"><div class="track"><span class="now" id="depth-now"></span><div class="fill" id="depth-fill"></div></div></nav>
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="#" aria-label="Mimir, home">
+    <a class="brand" href="#" aria-label="Mimir, a Terratales venture: home">
       <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#D8B24A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="29.2"/><path d="M11 22 H53 M11 20.4 V23.6 M53 20.4 V23.6"/><path d="M32 22 V15"/><path d="M32 15 C29.4 14.1 28 11.8 28.2 9 C30.8 9.7 32.2 12.1 32 15 Z"/><path d="M32 22 V43"/><path d="M32 22 C31.2 28.6 27.6 32.4 26.4 37 C25.8 39.6 27.4 41.4 29.2 40.6"/><path d="M32 22 C32.8 28.6 36.4 32.4 37.6 37 C38.2 39.6 36.6 41.4 34.8 40.6"/><path d="M32 22 C28.6 25.6 21.6 27.4 19.6 33 C18.6 35.9 20.2 38.2 22.4 37.4"/><path d="M32 22 C35.4 25.6 42.4 27.4 44.4 33 C45.4 35.9 43.8 38.2 41.6 37.4"/><ellipse cx="32" cy="47.2" rx="16.5" ry="4.3"/><ellipse cx="32" cy="47.2" rx="8.5" ry="2.1"/></g></svg>
       <span><span class="brand-word">MIMIR</span><span class="brand-sub">A TERRATALES VENTURE</span></span>
     </a>
     <span class="top-right"><a class="mine-link" href="#for-you">For you <span id="fy-n" class="mine-n">0</span></a><a class="mine-link" href="#library">Library <span id="mine-n" class="mine-n">0</span></a><a class="mine-link" id="account-link" href="#signin" hidden>Sign in</a><button type="button" class="theme-btn" id="theme-btn" aria-label="Switch to dark mode" title="Switch to dark mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/><g class="sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg></button><span class="pilot" id="beta-pill">Beta</span></span>
   </header>
   <nav class="menubar" id="menubar" aria-label="Main"></nav>
-  <main id="app"></main>
+  <main id="app"><section class="hero hero-shell">
+    <p class="eyebrow">The well beneath the tree</p>
+    <h1>Find what to watch, read, play or listen to <em>next.</em></h1>
+    <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, TV shows, books, manga, games and music that fit, and tells you why each one does.</p>
+    <div class="ask-shell" aria-hidden="true"></div>
+  </section></main>
   <footer class="foot">
     <nav class="foot-cols" aria-label="Footer">
       <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
       <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
       <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
-      <div><h2>Mimir</h2><ul><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
+      <div><h2>Mimir</h2><ul><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="/films/">Catalogue A–Z</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
       <div><h2>Terratales</h2><ul><li><a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></li><li><a href="https://terratalesmedia.world/publishing/" target="_blank" rel="noopener">Publishing</a></li><li><a href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener">The Akashic Records</a></li><li><a href="https://terratalesmedia.world/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
     </nav>
     <div class="foot-row">
@@ -1033,24 +1052,25 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script>
 (() => {
   "use strict";
+  const DATA = (name) => JSON.parse(window.MIMIR_DATA ? window.MIMIR_DATA[name] : document.getElementById(`${name}-data`).textContent);
   const cat = MDE.createCatalogue(
-    JSON.parse(document.getElementById("catalogue-data").textContent),
-    JSON.parse(document.getElementById("taxonomy-data").textContent),
-    JSON.parse(document.getElementById("enrichment-data").textContent),
-    JSON.parse(document.getElementById("shelves-data").textContent),
-    JSON.parse(document.getElementById("providers-data").textContent),
-    JSON.parse(document.getElementById("calendar-data").textContent),
+    DATA("catalogue"),
+    DATA("taxonomy"),
+    DATA("enrichment"),
+    DATA("shelves"),
+    DATA("providers"),
+    DATA("calendar"),
   );
-  const CONFIG = JSON.parse(document.getElementById("config-data").textContent);
+  const CONFIG = DATA("config");
   // Subgenres are genre terms that name a parent genre.
-  const PARENT_OF = Object.fromEntries(JSON.parse(document.getElementById("taxonomy-data").textContent).terms
+  const PARENT_OF = Object.fromEntries(DATA("taxonomy").terms
     .filter((t) => t.dimension === "genre" && t.parent).map((t) => [`genre:${t.slug}`, `genre:${t.parent}`]));
   const isSub = (key) => key in PARENT_OF;
   // YouTube: videos name their channel in the seed.
-  const RAW_WORKS = JSON.parse(document.getElementById("catalogue-data").textContent).works;
+  const RAW_WORKS = DATA("catalogue").works;
   const CHANNEL_OF = Object.fromEntries(RAW_WORKS.filter((w) => w.medium === "online_video" && w.attributes && w.attributes.channel).map((w) => [w.slug, w.attributes.channel]));
   const ATTRS = Object.fromEntries(RAW_WORKS.filter((w) => w.attributes).map((w) => [w.slug, w.attributes]));
-  const BLOG = JSON.parse(document.getElementById("blog-data").textContent).posts;
+  const BLOG = DATA("blog").posts;
   const app = document.getElementById("app");
   const EXAMPLES = [
     "An intelligent sci-fi film with a strong atmosphere and very little violence, ideally under two hours, not something obvious",
@@ -1275,7 +1295,28 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   // Licensed artwork sits over the generated cover; if it fails to load it's removed and the cover shows through.
-  const poster = (c, cls = "") => `<div class="poster${["album", "online_video", "channel"].includes(c.medium) ? " sq" : ""}${cls ? " " + cls : ""}">${coverSvg(c)}${c.image ? `<img src="${esc(c.image.url)}" alt="${esc(c.title)}: ${esc(c.image.kind)}" loading="lazy" decoding="async">` : ""}</div>`;
+  function sized(url) {
+    const swap = (a, b) => [url.replace(a, b), url];
+    if (/covers\.openlibrary\.org\/.*-L\.jpg$/.test(url)) return swap(/-L\.jpg$/, "-M.jpg");
+    if (/thumb\.wikimedia\.org\/.*\/960px-/.test(url)) return swap("/960px-", "/500px-");
+    if (/yt3\.googleusercontent\.com\/.*=s900/.test(url)) return [url.replace("=s900", "=s240"), url.replace("=s900", "=s480")];
+    if (/i\.ytimg\.com\/.*\/hqdefault\.jpg$/.test(url)) return swap("/hqdefault.jpg", "/mqdefault.jpg");
+    if (/m\.media-amazon\.com\/images\/I\/[^.]+\.jpg$/.test(url)) return [url.replace(/\.jpg$/, "._SY300_.jpg"), url.replace(/\.jpg$/, "._SY600_.jpg")];
+    if (/coverartarchive\.org\/.*\/front-500$/.test(url)) return swap(/front-500$/, "front-250");
+    return [url, null];
+  }
+  const imgTag = (url, alt, card) => { const [src, hi] = sized(url); return `<img src="${esc(src)}"${hi ? ` srcset="${esc(src)} 1x, ${esc(hi)} 2x"` : ""} alt="${esc(alt)}"${card ? ` data-card="${esc(card)}"` : ""} loading="lazy" decoding="async">`; };
+  // A real cover is shown on its own; the generated cover is drawn only for works without one, or if the image fails
+  // to load (each generated cover is a few dozen SVG nodes, and a page can hold hundreds of posters).
+  const COVER_CARD = new Map();
+  const poster = (c, cls = "") => {
+    if (c.image) COVER_CARD.set(c.slug, c);
+    return `<div class="poster${["album", "online_video", "channel"].includes(c.medium) ? " sq" : ""}${cls ? " " + cls : ""}">${c.image ? imgTag(c.image.url, `${c.title}: ${c.image.kind}`, c.slug) : coverSvg(c)}</div>`;
+  };
+  document.addEventListener("error", (e) => {
+    const img = e.target, c = img instanceof HTMLImageElement && COVER_CARD.get(img.dataset.card);
+    if (c && img.isConnected) img.outerHTML = coverSvg(c);
+  }, true);
   document.addEventListener("error", (e) => { if (e.target.tagName === "IMG" && e.target.closest(".poster")) e.target.remove(); }, true);
 
   // ------------------------------------------------------------------ time, continuity, scores
@@ -1303,7 +1344,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const ord = onGroupPage() && w.continuity && w.continuity.kind === "series" && w.continuity.position ? `<span class="badge ord">#${esc(w.continuity.position)}</span>` : "";
     return `
       <li class="pcard">
-        <a class="pcard-art" href="#work-${esc(w.slug)}" aria-label="${esc(w.title)}">${poster(cardCover(w))}${score || ord ? `<span class="badges">${score}${ord}</span>` : ""}${progressBadge(w.slug)}</a>
+        <a class="pcard-art" href="#work-${esc(w.slug)}">${poster(cardCover(w))}${score || ord ? `<span class="badges">${score}${ord}</span>` : ""}${progressBadge(w.slug)}</a>
         <div class="pcap">
           <h3><a href="#work-${esc(w.slug)}">${esc(w.title)}</a></h3>
           <p class="pmeta">${esc([mediumLabel(w.medium), w.year, (w.creators || [])[0]].filter(Boolean).join(" · "))}</p>
@@ -1479,15 +1520,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     document.body.classList.add("is-home");
     // Only parse and rank once someone has asked; the landing view doesn't show results.
     const r = hasAsked ? cat.discover(query) : null;
-    app.innerHTML = `
-      <section class="hero">
-        <canvas id="well" aria-hidden="true"></canvas>
-        <p class="eyebrow">The well beneath the tree</p>
-        <h1>Drawn from the well of <em>every story.</em></h1>
-        <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, books, games and music that fit, and tells you why each one does.</p>
-        ${askForm()}
-        <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>
-      </section>
+    const heroEnd = `${askForm()}
+        <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>`;
+    const rest = `
       <div class="home">
         <div class="home-main">
           ${!hasAsked && Object.values(ratings).some((v) => v === "loved" || v === "liked") ? forYouRows(null, 2) : ""}
@@ -1500,17 +1535,46 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           ${allShelves().slice(0, 2).map(shelfRow).join("")}
           ${youtubeRow()}
         </div>
-        ${sideRail()}
+        <aside class="rail" aria-label="Rankings"></aside>
       </div>
-      ${homeShelves()}
+      <div id="home-more" hidden></div>
       ${hasAsked ? "" : `
       <section class="steps" aria-label="How Mimir works">
         <div><p class="num">I</p><h3>Ask in your own words</h3><p>Moods, themes, a favourite to start from, things to avoid, how long you have. Mimir shows you how it read the request.</p></div>
         <div><p class="num">II</p><h3>See why each pick fits</h3><p>Every reason comes from the catalogue, and says whether it is a recorded fact or an editorial reading.</p></div>
         <div><p class="num">III</p><h3>Follow a thread</h3><p>Open a work for its tags, parents' guide, credits and connected stories, then wander by tag or by person.</p></div>
       </section>`}`;
-    startRipples(document.getElementById("well"));
-    balanceHome();
+    // The page arrives with the hero's headline already painted: build around it rather than replacing it.
+    const shell = app.querySelector(".hero-shell");
+    if (shell && app.children.length === 1) {
+      shell.classList.remove("hero-shell");
+      shell.insertAdjacentHTML("afterbegin", `<canvas id="well" aria-hidden="true"></canvas>`);
+      shell.querySelector(".ask-shell").outerHTML = heroEnd;
+      shell.insertAdjacentHTML("afterend", rest);
+    } else {
+      app.innerHTML = `
+      <section class="hero">
+        <canvas id="well" aria-hidden="true"></canvas>
+        <p class="eyebrow">The well beneath the tree</p>
+        <h1>Find what to watch, read, play or listen to <em>next.</em></h1>
+        <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, TV shows, books, manga, games and music that fit, and tells you why each one does.</p>
+        ${heroEnd}
+      </section>${rest}`;
+    }
+    // The well starts once the page is idle, so the animation never competes with the first render.
+    const well = document.getElementById("well");
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 600));
+    idle(() => { if (well.isConnected) startRipples(well); }, { timeout: 2000 });
+    // The rankings rail and the shelves below the opening screen are built in a second task, after the hero and first
+    // rows have painted (the rail's column has a fixed width, so nothing moves when it fills).
+    const more = document.getElementById("home-more");
+    setTimeout(() => {
+      if (!more.isConnected) return;
+      app.querySelector(".home > .rail").outerHTML = sideRail();
+      more.insertAdjacentHTML("beforebegin", homeShelves());
+      more.remove();
+      balanceHome();
+    }, 0);
   }
 
   // The rankings rail is taller than the opening shelves: move full-width shelves up beside it until the columns
@@ -1520,20 +1584,33 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function balanceHome() {
     const main = app.querySelector(".home-main"), rail = app.querySelector(".home > .rail");
     if (!main || !rail || rail.offsetTop > main.offsetTop + 40) return;
+    // Measure once, then move: reading a height after each move would lay the whole page out again every time.
+    const railH = rail.offsetHeight;
+    let mainH = main.offsetHeight;
+    const moving = [];
     for (const sec of app.querySelectorAll(":scope > section.shelf")) {
-      if (main.offsetHeight + sec.offsetHeight / 2 > rail.offsetHeight) break;
-      main.appendChild(sec);
+      const h = sec.offsetHeight;
+      if (mainH + h / 2 > railH) break;
+      moving.push(sec);
+      mainH += h;
     }
+    for (const sec of moving) main.appendChild(sec);
+    mainH = main.offsetHeight;
+    let railNow = rail.offsetHeight;
+    const shown = rail.querySelector(".rank-row:not(.rail-spare)");
+    const rowH = shown ? shown.offsetHeight : 0;
+    if (!rowH) return;
     const spares = [...rail.querySelectorAll(".rank-row.rail-spare")];
     const byBox = [...rail.querySelectorAll(".ranks")].map((ol) => spares.filter((x) => x.parentElement === ol));
-    for (let round = 0, shown = true; shown && main.offsetHeight - rail.offsetHeight > 60; round++) {
-      shown = false;
+    for (let round = 0, any = true; any && mainH - railNow > 60; round++) {
+      any = false;
       for (const list of byBox) {
-        if (main.offsetHeight - rail.offsetHeight <= 60) break;
-        if (list[round]) { list[round].classList.remove("rail-spare"); shown = true; }
+        if (mainH - railNow <= 60) break;
+        if (list[round]) { list[round].classList.remove("rail-spare"); railNow += rowH; any = true; }
       }
     }
   }
+
 
   // ------------------------------------------------------------------ catalogue pieces
   // ------------------------------------------------------------------ preferred apps and region (kept in this browser)
@@ -2347,7 +2424,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // What progress is counted in, and how much there is, where the catalogue knows.
   // Audiobooks: about 155 spoken words a minute over roughly 300 words a page. An estimate, and labelled as one.
   // Real recordings (Audible India, LibriVox) where we matched one; otherwise an estimate from the page count.
-  const AUDIOBOOKS = JSON.parse(document.getElementById("audiobooks-data").textContent).books;
+  const AUDIOBOOKS = DATA("audiobooks").books;
   const recordingOf = (w) => (w && AUDIOBOOKS[w.slug]) || {};
   const estimatedMinutes = (w) => (w && w.page_count ? Math.round(w.page_count * 1.95) : null);
   const listenMinutes = (w) => { const r = recordingOf(w); return (r.audible || r.librivox || {}).minutes || estimatedMinutes(w); };
@@ -3470,7 +3547,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const saveChallenges = () => { store("mimir-challenges", challenges); queueSync(); };
   const thisYear = () => new Date().getFullYear();
   const progMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  const fmtDay = (iso) => new Date(`${iso}T00:00:00`).toLocaleDateString("en", { day: "numeric", month: "short" });
+  const DAY_FMT = new Intl.DateTimeFormat("en", { day: "numeric", month: "short" });
+  const fmtDay = (iso) => DAY_FMT.format(new Date(`${iso}T00:00:00`));
   const daysBetween = (a, b) => Math.round((Date.parse(`${b}T00:00:00Z`) - Date.parse(`${a}T00:00:00Z`)) / 86400000);
   function calendarNow() {
     const t = today(), y = thisYear();
@@ -4311,16 +4389,21 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     };
     const io = "IntersectionObserver" in window && !still ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -6% 0px" }) : null;
     let revealed = null, queued = false;
+    // Each view's title (for tabs, history and shared links) follows its headline.
+    const homeTitle = document.title;
     new MutationObserver(() => {
       if (queued) return;
       queued = true;
       requestAnimationFrame(() => {
         queued = false;
+        const h1 = document.querySelector("#app h1");
+        document.title = location.hash.length > 1 && h1 ? `${h1.textContent.trim()} · Mimir` : homeTitle;
         if (io && revealed !== location.hash) {
           revealed = location.hash;
-          document.querySelectorAll("#app .shelf, #app .block, #app .stat-box, #app .rail-box, #app .dir-sec, #app .post-card").forEach((el) => {
-            if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("rv"); io.observe(el); }
-          });
+          // Read every position first, then mark: alternating the two would lay the page out once per element.
+          const els = [...document.querySelectorAll("#app .shelf, #app .block, #app .stat-box, #app .rail-box, #app .dir-sec, #app .post-card")];
+          const below = els.filter((el) => el.getBoundingClientRect().top > innerHeight);
+          below.forEach((el) => { el.classList.add("rv"); io.observe(el); });
         }
         build();
       });
@@ -4337,6 +4420,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     addEventListener("resize", build);
   })();
   window.addEventListener("hashchange", route);
-  route();
+  // The first view is drawn in its own task, after set-up, so neither blocks the page for long.
+  setTimeout(route, 0);
 })();
 </script>
