@@ -1,13 +1,31 @@
 {
-  "version": "0.4.0",
-  "notes": "Foundational taxonomy for the MVP. Terms are controlled: a classification may only reference a term defined here. Synonyms feed the rule-based intent parser; they are matched as whole phrases.",
+  "version": "0.5.0",
+  "notes": "Foundational taxonomy for the MVP. Terms are controlled: a classification may only reference a term defined here. Synonyms feed the rule-based intent parser; they are matched as whole phrases. Subgenres are genre terms with a 'parent' genre that groups them for display; they are assigned to works in seed/subgenres.json.",
   "guide_groups": [
-    {"slug": "sex", "label": "Sex & nudity"},
-    {"slug": "violence", "label": "Violence & gore"},
-    {"slug": "language", "label": "Profanity"},
-    {"slug": "substances", "label": "Alcohol, drugs & smoking"},
-    {"slug": "frightening", "label": "Frightening & intense scenes"},
-    {"slug": "sensitive", "label": "Sensitive topics"}
+    {
+      "slug": "sex",
+      "label": "Sex & nudity"
+    },
+    {
+      "slug": "violence",
+      "label": "Violence & gore"
+    },
+    {
+      "slug": "language",
+      "label": "Profanity"
+    },
+    {
+      "slug": "substances",
+      "label": "Alcohol, drugs & smoking"
+    },
+    {
+      "slug": "frightening",
+      "label": "Frightening & intense scenes"
+    },
+    {
+      "slug": "sensitive",
+      "label": "Sensitive topics"
+    }
   ],
   "dimensions": [
     {
@@ -66,151 +84,5669 @@
     }
   ],
   "terms": [
-    {"dimension": "genre", "slug": "science-fiction", "label": "Science fiction", "definition": "Speculation grounded in science, technology or plausible-seeming extrapolation.", "applies_to": ["*"], "synonyms": ["science fiction", "sci-fi", "scifi", "sf", "science-fiction"]},
-    {"dimension": "genre", "slug": "fantasy", "label": "Fantasy", "definition": "Worlds or events governed by magic, myth or the impossible, presented without scientific rationale.", "applies_to": ["*"], "synonyms": ["fantasy"]},
-    {"dimension": "genre", "slug": "drama", "label": "Drama", "definition": "Primarily character- and situation-driven, played straight.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["drama"]},
-    {"dimension": "genre", "slug": "horror", "label": "Horror", "definition": "Designed primarily to frighten, disturb or create dread.", "applies_to": ["*"], "synonyms": ["horror", "scary", "frightening"]},
-    {"dimension": "genre", "slug": "thriller", "label": "Thriller", "definition": "Organised around suspense, danger and escalating stakes.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["thriller", "suspense"]},
-    {"dimension": "genre", "slug": "romance", "label": "Romance", "definition": "A romantic relationship is the central narrative concern.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["romance", "romantic story", "love story"]},
-    {"dimension": "genre", "slug": "comedy", "label": "Comedy", "definition": "Primarily intended to amuse.", "applies_to": ["*"], "synonyms": ["comedy", "comedic"]},
-    {"dimension": "genre", "slug": "mystery", "label": "Mystery", "definition": "Structured around uncovering hidden facts: a crime, a puzzle or a secret.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["mystery", "whodunit", "detective"]},
-    {"dimension": "genre", "slug": "historical", "label": "Historical", "definition": "Set in, and substantively engaged with, a real historical period.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["historical", "period piece", "history"]},
-    {"dimension": "genre", "slug": "war", "label": "War", "definition": "Armed conflict is the setting and central concern.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["war film", "war movie", "war story"]},
-    {"dimension": "genre", "slug": "animation", "label": "Animation", "definition": "A screen work made wholly or chiefly through animation.", "applies_to": ["film", "series", "online_video"], "synonyms": ["animated", "animation", "anime", "cartoon"]},
-    {"dimension": "genre", "slug": "literary-fiction", "label": "Literary fiction", "definition": "Fiction foregrounding prose, character interiority and theme over genre convention.", "applies_to": ["book"], "synonyms": ["literary fiction", "literary"]},
-    {"dimension": "genre", "slug": "adventure", "label": "Adventure", "definition": "Journeys, exploration and discovery drive the experience.", "applies_to": ["*"], "synonyms": ["adventure"]},
-    {"dimension": "genre", "slug": "action", "label": "Action", "definition": "Physical conflict, pursuit and spectacle drive the experience.", "applies_to": ["film", "series", "game"], "synonyms": ["action"]},
-    {"dimension": "genre", "slug": "puzzle", "label": "Puzzle", "definition": "Progress depends chiefly on solving logical or observational problems.", "applies_to": ["game"], "synonyms": ["puzzle", "puzzles", "puzzle game"]},
-    {"dimension": "genre", "slug": "rpg", "label": "Role-playing game", "definition": "Player shapes a character's abilities and choices over a long arc.", "applies_to": ["game"], "synonyms": ["rpg", "role-playing", "role playing game"]},
-    {"dimension": "genre", "slug": "metroidvania", "label": "Metroidvania", "definition": "Interconnected map gated by abilities acquired over time.", "applies_to": ["game"], "synonyms": ["metroidvania"]},
-    {"dimension": "genre", "slug": "life-sim", "label": "Life / farming sim", "definition": "Everyday routines, cultivation and community as the core loop.", "applies_to": ["game"], "synonyms": ["life sim", "farming sim", "farming game", "cozy game"]},
-    {"dimension": "genre", "slug": "ambient", "label": "Ambient", "definition": "Music prioritising atmosphere and texture over melody or rhythm.", "applies_to": ["album", "track"], "synonyms": ["ambient"]},
-    {"dimension": "genre", "slug": "jazz", "label": "Jazz", "definition": "Music in the jazz tradition.", "applies_to": ["album", "track"], "synonyms": ["jazz"]},
-    {"dimension": "genre", "slug": "rock", "label": "Rock", "definition": "Music in the rock tradition, including alternative rock.", "applies_to": ["album", "track"], "synonyms": ["rock", "alternative rock", "alt rock"]},
-    {"dimension": "genre", "slug": "electronic", "label": "Electronic", "definition": "Music made primarily with electronic instruments and production.", "applies_to": ["album", "track"], "synonyms": ["electronic", "electronica", "dance music"]},
-    {"dimension": "genre", "slug": "post-rock", "label": "Post-rock", "definition": "Rock instrumentation used for texture and long-form dynamics rather than song form.", "applies_to": ["album", "track"], "synonyms": ["post-rock", "post rock"]},
-    {"dimension": "genre", "slug": "folk", "label": "Folk / indie folk", "definition": "Acoustic, song-centred music in folk traditions.", "applies_to": ["album", "track"], "synonyms": ["folk", "indie folk"]},
-    {"dimension": "genre", "slug": "art-pop", "label": "Art pop", "definition": "Pop song forms pursued with experimental ambition.", "applies_to": ["album", "track"], "synonyms": ["art pop", "art-pop"]},
-
-    {"dimension": "theme", "slug": "language-communication", "label": "Language & communication", "definition": "How meaning is made and shared; translation, misunderstanding, the limits of language.", "applies_to": ["*"], "synonyms": ["language", "linguistics", "communication", "translation"]},
-    {"dimension": "theme", "slug": "time", "label": "Time & causality", "definition": "Time travel, loops, non-linear perception or the nature of time itself.", "applies_to": ["*"], "synonyms": ["time travel", "nature of time", "causality"]},
-    {"dimension": "theme", "slug": "grief-loss", "label": "Grief & loss", "definition": "Mourning, bereavement, and living with absence.", "applies_to": ["*"], "synonyms": ["grief", "loss", "mourning", "bereavement"]},
-    {"dimension": "theme", "slug": "memory", "label": "Memory", "definition": "Remembering, forgetting and the reliability of the past.", "applies_to": ["*"], "synonyms": ["memory", "memories", "nostalgia"]},
-    {"dimension": "theme", "slug": "identity-self", "label": "Identity & selfhood", "definition": "What makes a self: continuity, authenticity, who one is.", "applies_to": ["*"], "synonyms": ["identity", "selfhood", "who am i", "sense of self"]},
-    {"dimension": "theme", "slug": "consciousness-ai", "label": "Consciousness & artificial minds", "definition": "Machine intelligence, synthetic life, or what it means to be conscious.", "applies_to": ["*"], "synonyms": ["artificial intelligence", "ai", "robots", "androids", "consciousness", "what makes us human", "being human"]},
-    {"dimension": "theme", "slug": "isolation", "label": "Isolation & solitude", "definition": "Physical or emotional aloneness as a central condition.", "applies_to": ["*"], "synonyms": ["isolation", "loneliness", "solitude", "alone"]},
-    {"dimension": "theme", "slug": "first-contact", "label": "First contact & the alien", "definition": "Encounter with an intelligence or phenomenon radically unlike us.", "applies_to": ["*"], "synonyms": ["first contact", "aliens", "alien", "the unknowable"]},
-    {"dimension": "theme", "slug": "class-inequality", "label": "Class & inequality", "definition": "Economic and social hierarchy and its consequences.", "applies_to": ["*"], "synonyms": ["class", "inequality", "rich and poor", "wealth gap", "social class"]},
-    {"dimension": "theme", "slug": "surveillance-authoritarianism", "label": "Surveillance & authoritarianism", "definition": "State control, surveillance, censorship and complicity.", "applies_to": ["*"], "synonyms": ["surveillance", "authoritarian", "totalitarian", "dictatorship", "police state", "dystopia", "dystopian"]},
-    {"dimension": "theme", "slug": "war-violence", "label": "War & its human cost", "definition": "The experience and consequences of war for individuals.", "applies_to": ["*"], "synonyms": ["world war", "ww2", "wwii", "the cost of war"]},
-    {"dimension": "theme", "slug": "love-connection", "label": "Love & connection", "definition": "Romantic love, intimacy or deep human connection.", "applies_to": ["*"], "synonyms": ["human connection", "intimacy", "relationships", "falling in love"]},
-    {"dimension": "theme", "slug": "nature-ecology", "label": "Nature & ecology", "definition": "The natural world, ecosystems and humanity's place within them.", "applies_to": ["*"], "synonyms": ["nature", "ecology", "environment", "the natural world", "forest"]},
-    {"dimension": "theme", "slug": "coming-of-age", "label": "Coming of age", "definition": "Transition from childhood or youth to maturity.", "applies_to": ["*"], "synonyms": ["coming of age", "growing up", "childhood"]},
-    {"dimension": "theme", "slug": "everyday-life", "label": "Everyday life & routine", "definition": "The texture and meaning of ordinary days.", "applies_to": ["*"], "synonyms": ["everyday life", "routine", "ordinary life", "slice of life", "daily life"]},
-    {"dimension": "theme", "slug": "politics-society", "label": "Politics & social systems", "definition": "Ideologies, political systems and how societies organise themselves.", "applies_to": ["*"], "synonyms": ["politics", "political", "ideology", "anarchism", "utopia", "society"]},
-    {"dimension": "theme", "slug": "mortality-meaning", "label": "Mortality & meaning", "definition": "Death, finitude and the search for meaning or purpose.", "applies_to": ["*"], "synonyms": ["death", "mortality", "meaning of life", "purpose", "existential"]},
-    {"dimension": "theme", "slug": "duty-regret", "label": "Duty, restraint & regret", "definition": "Lives shaped by obligation, repression or missed chances.", "applies_to": ["*"], "synonyms": ["regret", "duty", "repression", "missed chances"]},
-    {"dimension": "theme", "slug": "race-history", "label": "Race & the legacy of slavery", "definition": "Racial injustice and the historical legacy of slavery.", "applies_to": ["*"], "synonyms": ["slavery", "race", "racism"]},
-    {"dimension": "theme", "slug": "gender", "label": "Gender & sexuality", "definition": "Gender roles, gender identity and sexuality as subjects.", "applies_to": ["*"], "synonyms": ["gender", "sexuality"]},
-    {"dimension": "theme", "slug": "power-empire", "label": "Power, empire & religion", "definition": "Imperial power, messianism and the manipulation of belief.", "applies_to": ["*"], "synonyms": ["empire", "colonialism", "religion", "messiah", "power"]},
-    {"dimension": "theme", "slug": "knowledge-curiosity", "label": "Knowledge & curiosity", "definition": "The pursuit of understanding; science, scholarship and the urge to know.", "applies_to": ["*"], "synonyms": ["curiosity", "knowledge", "scientific discovery", "exploration of ideas", "learning"]},
-    {"dimension": "theme", "slug": "kindness-community", "label": "Kindness & community", "definition": "Decency, care and belonging as central forces.", "applies_to": ["*"], "synonyms": ["kindness", "community", "friendship", "found family", "belonging"]},
-    {"dimension": "theme", "slug": "technology-alienation", "label": "Technology & alienation", "definition": "Modern life, technology and consumerism as sources of estrangement.", "applies_to": ["*"], "synonyms": ["technology", "modern life", "alienation", "consumerism"]},
-    {"dimension": "theme", "slug": "decay-impermanence", "label": "Decay & impermanence", "definition": "Erosion, entropy and things passing away.", "applies_to": ["*"], "synonyms": ["decay", "impermanence", "entropy", "erosion"]},
-
-    {"dimension": "mood", "slug": "contemplative", "label": "Contemplative", "definition": "Invites reflection; leaves room to think.", "applies_to": ["*"], "synonyms": ["contemplative", "reflective", "meditative", "thoughtful"]},
-    {"dimension": "mood", "slug": "melancholic", "label": "Melancholic", "definition": "Wistful sadness that is felt but not crushing.", "applies_to": ["*"], "synonyms": ["melancholic", "melancholy", "wistful", "bittersweet", "tearjerker", "tear-jerker", "weepy", "make me cry", "made me cry"]},
-    {"dimension": "mood", "slug": "comforting", "label": "Comforting", "definition": "Restorative and safe; leaves you feeling better.", "applies_to": ["*"], "synonyms": ["comforting", "cozy", "cosy", "wholesome", "feel-good", "feel good", "gentle", "soothing", "heartwarming", "difficult day", "rough day", "bad day", "relaxing", "calm"]},
-    {"dimension": "mood", "slug": "tense", "label": "Tense", "definition": "Sustained suspense or anxiety.", "applies_to": ["*"], "synonyms": ["tense", "suspenseful", "nail-biting", "gripping", "edge of my seat"]},
-    {"dimension": "mood", "slug": "eerie", "label": "Eerie", "definition": "Uncanny, strange and quietly unsettling.", "applies_to": ["*"], "synonyms": ["eerie", "uncanny", "strange", "weird", "mysterious atmosphere", "spooky"]},
-    {"dimension": "mood", "slug": "uplifting", "label": "Uplifting", "definition": "Hopeful; leaves the audience with optimism.", "applies_to": ["*"], "synonyms": ["uplifting", "hopeful", "optimistic", "inspiring", "joyful"]},
-    {"dimension": "mood", "slug": "bleak", "label": "Bleak", "definition": "Dark and largely without consolation.", "applies_to": ["*"], "synonyms": ["bleak", "dark", "grim", "harrowing", "depressing"]},
-    {"dimension": "mood", "slug": "whimsical", "label": "Whimsical", "definition": "Playful, fanciful, lightly magical.", "applies_to": ["*"], "synonyms": ["whimsical", "playful", "magical", "charming"]},
-    {"dimension": "mood", "slug": "romantic", "label": "Romantic", "definition": "Tender and swooning; the feeling of falling for someone.", "applies_to": ["*"], "synonyms": ["romantic"]},
-    {"dimension": "mood", "slug": "exhilarating", "label": "Exhilarating", "definition": "High energy and adrenaline.", "applies_to": ["*"], "synonyms": ["exhilarating", "adrenaline", "thrilling", "high energy", "high-energy", "intense action", "pumped"]},
-    {"dimension": "mood", "slug": "wonder", "label": "Sense of wonder", "definition": "Awe at the scale or strangeness of the world or universe.", "applies_to": ["*"], "synonyms": ["wonder", "awe", "awe-inspiring", "sense of wonder", "mind-blowing", "mind blowing"]},
-    {"dimension": "mood", "slug": "funny", "label": "Funny", "definition": "Reliably makes you laugh.", "applies_to": ["*"], "synonyms": ["funny", "hilarious", "laugh"]},
-    {"dimension": "mood", "slug": "unsettling", "label": "Unsettling / disturbing", "definition": "Leaves lasting discomfort or dread.", "applies_to": ["*"], "synonyms": ["unsettling", "disturbing", "dread", "creepy"]},
-
-    {"dimension": "pacing", "slug": "slow-burn", "label": "Slow burn", "definition": "Unhurried; rewards patience.", "applies_to": ["*"], "synonyms": ["slow burn", "slow-burn", "slow", "unhurried", "slow paced", "slow-paced"]},
-    {"dimension": "pacing", "slug": "brisk", "label": "Brisk", "definition": "Moves quickly; little downtime.", "applies_to": ["*"], "synonyms": ["fast paced", "fast-paced", "brisk", "pacey", "quick moving"]},
-
-    {"dimension": "complexity", "slug": "intellectually-demanding", "label": "Intellectually demanding", "definition": "Rewards close attention and interpretation; ideas carry weight.", "applies_to": ["*"], "synonyms": ["intelligent", "intellectual", "cerebral", "intellectually stimulating", "smart", "challenging", "philosophical", "big ideas", "makes me think", "thought-provoking", "thought provoking", "makes you think", "mind-bending", "mind bending", "complex"]},
-    {"dimension": "complexity", "slug": "accessible", "label": "Easy to get into", "definition": "Low barrier to entry; enjoyable without effort.", "applies_to": ["*"], "synonyms": ["easy watch", "easy to get into", "lighthearted", "light-hearted", "undemanding", "switch off", "turn my brain off", "easygoing"]},
-
-    {"dimension": "narrative", "slug": "nonlinear", "label": "Non-linear structure", "definition": "Events presented out of chronological order by design.", "applies_to": ["*"], "synonyms": ["nonlinear", "non-linear", "out of order", "fragmented structure"]},
-    {"dimension": "narrative", "slug": "time-loop", "label": "Time loop", "definition": "A repeating span of time is the structural engine.", "applies_to": ["*"], "synonyms": ["time loop", "groundhog day"]},
-    {"dimension": "narrative", "slug": "unreliable-narrator", "label": "Unreliable narrator", "definition": "The telling cannot be fully trusted, and this matters to the meaning.", "applies_to": ["*"], "synonyms": ["unreliable narrator"]},
-    {"dimension": "narrative", "slug": "puzzle-box", "label": "Puzzle-box narrative", "definition": "The audience must actively piece together what is happening.", "applies_to": ["*"], "synonyms": ["puzzle box", "puzzle-box", "figure it out", "piece together", "deduction"]},
-    {"dimension": "narrative", "slug": "environmental-storytelling", "label": "Environmental storytelling", "definition": "Story told through places, objects and traces rather than exposition.", "applies_to": ["game", "film", "book"], "synonyms": ["environmental storytelling", "story through the world"]},
-    {"dimension": "narrative", "slug": "minimal-dialogue", "label": "Minimal or no dialogue", "definition": "Communicates largely without words.", "applies_to": ["film", "game", "online_video"], "synonyms": ["wordless", "no dialogue", "minimal dialogue", "without words"]},
-    {"dimension": "narrative", "slug": "meaningful-choices", "label": "Meaningful choices", "definition": "Player decisions materially shape outcomes.", "applies_to": ["game"], "synonyms": ["choices", "meaningful choices", "choices matter", "branching"]},
-    {"dimension": "narrative", "slug": "dialogue-driven", "label": "Dialogue-driven", "definition": "Conversation carries most of the story.", "applies_to": ["*"], "synonyms": ["dialogue-driven", "dialogue driven", "talky", "conversations", "conversation"]},
-    {"dimension": "narrative", "slug": "concept-album", "label": "Concept / narrative album", "definition": "An album organised around a unifying story or concept.", "applies_to": ["album"], "synonyms": ["concept album"]},
-
-    {"dimension": "world", "slug": "rich-worldbuilding", "label": "Rich world-building", "definition": "A detailed, internally coherent invented world with history and systems.", "applies_to": ["*"], "synonyms": ["world-building", "worldbuilding", "world building", "lore", "ambitious world", "rich world", "deep lore"]},
-    {"dimension": "world", "slug": "grounded-realism", "label": "Grounded realism", "definition": "A recognisable real world, closely observed.", "applies_to": ["*"], "synonyms": ["realistic", "grounded", "realism"]},
-    {"dimension": "world", "slug": "space-setting", "label": "Space & other worlds", "definition": "Set substantially in space or on other planets.", "applies_to": ["*"], "synonyms": ["space", "outer space", "space station", "other planets"]},
-    {"dimension": "world", "slug": "mythic", "label": "Mythic & folkloric", "definition": "Draws on myth, folklore or spirits as a living framework.", "applies_to": ["*"], "synonyms": ["mythology", "mythological", "folklore", "spirits", "mythic"]},
-
-    {"dimension": "style", "slug": "atmospheric", "label": "Atmospheric", "definition": "Mood and sense of place are primary craft achievements.", "applies_to": ["*"], "synonyms": ["atmospheric", "atmosphere", "moody", "immersive atmosphere"]},
-    {"dimension": "style", "slug": "visually-striking", "label": "Visually striking", "definition": "Distinctive imagery is central to the experience.", "applies_to": ["film", "series", "game", "online_video"], "synonyms": ["visually stunning", "beautiful visuals", "gorgeous", "striking visuals", "cinematography", "visually striking", "beautiful to look at"]},
-    {"dimension": "style", "slug": "hand-drawn", "label": "Hand-drawn", "definition": "Hand-drawn animation or art.", "applies_to": ["film", "series", "game"], "synonyms": ["hand-drawn", "hand drawn", "2d animation"]},
-    {"dimension": "style", "slug": "minimalist", "label": "Minimalist", "definition": "Spare, restrained use of means.", "applies_to": ["*"], "synonyms": ["minimalist", "minimal", "spare", "restrained"]},
-    {"dimension": "style", "slug": "lyrical-prose", "label": "Lyrical prose", "definition": "Prose valued for its beauty and rhythm.", "applies_to": ["book"], "synonyms": ["beautiful prose", "lyrical", "beautifully written", "poetic"]},
-    {"dimension": "style", "slug": "lo-fi-indie", "label": "Low-budget ingenuity", "definition": "Made on small means, with inventiveness substituting for budget.", "applies_to": ["film", "game", "album"], "synonyms": ["low budget", "low-budget", "indie", "independent"]},
-
-    {"dimension": "advisory", "group": "violence", "slug": "graphic-violence", "label": "Graphic violence", "definition": "On-screen or described violence depicted explicitly.", "applies_to": ["*"], "synonyms": ["graphic violence", "violence", "violent", "gore", "gory", "bloody", "brutal"]},
-    {"dimension": "advisory", "group": "violence", "slug": "body-horror", "label": "Body horror", "definition": "Disturbing transformation or violation of the body.", "applies_to": ["*"], "synonyms": ["body horror"]},
-    {"dimension": "advisory", "group": "sex", "slug": "sexual-content", "label": "Sexual content", "definition": "Depicted or explicitly described sexual activity or nudity.", "applies_to": ["*"], "synonyms": ["sex", "sexual content", "nudity", "sex scenes"]},
-    {"dimension": "advisory", "group": "violence", "slug": "atrocity", "label": "Atrocity & mass death", "definition": "Depiction of massacre, genocide or mass death.", "applies_to": ["*"], "synonyms": ["atrocity", "atrocities", "massacre", "genocide"]},
-    {"dimension": "advisory", "group": "frightening", "slug": "jump-scares", "label": "Jump scares & horror intensity", "definition": "Sudden frights or sustained horror intensity.", "applies_to": ["*"], "synonyms": ["jump scares", "jumpscares", "too scary"]},
-    {"dimension": "advisory", "group": "language", "slug": "strong-language", "label": "Strong language", "definition": "Swearing and crude or offensive language.", "applies_to": ["*"], "synonyms": ["swearing", "profanity", "bad language", "strong language", "cursing", "foul language"]},
-    {"dimension": "advisory", "group": "substances", "slug": "substance-use", "label": "Alcohol, drugs & smoking", "definition": "Depicted or described use of alcohol, drugs or tobacco.", "applies_to": ["*"], "synonyms": ["drug use", "drugs", "drinking", "alcohol", "smoking"]},
-    {"dimension": "advisory", "group": "sensitive", "slug": "suicide-self-harm", "label": "Suicide & self-harm", "definition": "Depiction, discussion or implication of suicide, suicidal thoughts or self-harm.", "applies_to": ["*"], "synonyms": ["suicide", "self-harm", "self harm", "suicidal"]},
-    {"dimension": "genre", "slug": "crime", "label": "Crime", "definition": "Built around crimes, criminals or those who pursue them.", "applies_to": ["*"], "synonyms": ["crime", "gangster", "gangsters", "heist", "mafia", "noir", "mob"]},
-    {"dimension": "genre", "slug": "documentary", "label": "Documentary", "definition": "Non-fiction film or television about real people and events.", "applies_to": ["film", "series"], "synonyms": ["documentary", "documentaries", "docuseries", "docu-series"]},
-    {"dimension": "genre", "slug": "family", "label": "Family", "definition": "Made for all ages to enjoy together.", "applies_to": ["film", "series", "game", "book"], "synonyms": ["family film", "family movie", "for the family", "for kids", "kids movie", "children's", "childrens"]},
-    {"dimension": "genre", "slug": "musical", "label": "Musical", "definition": "Story told substantially through song and dance.", "applies_to": ["film", "series"], "synonyms": ["musical", "musicals", "song and dance"]},
-    {"dimension": "genre", "slug": "biography", "label": "Biography", "definition": "Tells the story of a real person's life.", "applies_to": ["film", "series", "book"], "synonyms": ["biopic", "biography", "biographical", "true story", "based on a true story"]},
-    {"dimension": "genre", "slug": "superhero", "label": "Superhero", "definition": "Costumed heroes with extraordinary powers.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["superhero", "superheroes", "comic book movie", "marvel", "dc"]},
-    {"dimension": "genre", "slug": "western", "label": "Western", "definition": "Set on a frontier, usually the American West, with its codes and violence.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["western", "westerns", "cowboy", "cowboys"]},
-    {"dimension": "genre", "slug": "sports", "label": "Sports", "definition": "Centred on a sport, its contests and those who play it.", "applies_to": ["*"], "synonyms": ["sports", "sport", "sports drama", "football", "soccer", "cricket", "basketball", "baseball", "boxing", "tennis", "wrestling", "olympics"]},
-    {"dimension": "genre", "slug": "non-fiction", "label": "Non-fiction", "definition": "Factual writing about real events, people or ideas.", "applies_to": ["book"], "synonyms": ["non-fiction", "nonfiction", "non fiction"]},
-    {"dimension": "genre", "slug": "memoir", "label": "Memoir", "definition": "A first-person account of the author's own life.", "applies_to": ["book"], "synonyms": ["memoir", "memoirs", "autobiography"]},
-    {"dimension": "genre", "slug": "popular-science", "label": "Popular science", "definition": "Explains science or how the world works for general readers.", "applies_to": ["book", "series", "film"], "synonyms": ["popular science", "pop science", "science book"]},
-    {"dimension": "genre", "slug": "graphic-novel", "label": "Graphic novel", "definition": "A story told in comics form, at book length.", "applies_to": ["book"], "synonyms": ["graphic novel", "graphic novels", "comic book", "comics", "manga"]},
-    {"dimension": "genre", "slug": "hip-hop", "label": "Hip-hop", "definition": "Rap and beat-driven music from hip-hop culture.", "applies_to": ["album", "track"], "synonyms": ["hip-hop", "hip hop", "rap", "rapper"]},
-    {"dimension": "genre", "slug": "pop", "label": "Pop", "definition": "Melodic, hook-driven popular music.", "applies_to": ["album", "track"], "synonyms": ["pop music", "pop album", "k-pop", "kpop", "synth-pop", "synthpop"]},
-    {"dimension": "genre", "slug": "classical", "label": "Classical", "definition": "Western art music, orchestral or chamber, of any period.", "applies_to": ["album", "track"], "synonyms": ["classical", "orchestral", "symphony", "piano music"]},
-    {"dimension": "genre", "slug": "soul-rnb", "label": "R&B & soul", "definition": "Rhythm and blues, soul and their descendants.", "applies_to": ["album", "track"], "synonyms": ["r&b", "rnb", "soul", "neo-soul", "motown"]},
-    {"dimension": "genre", "slug": "metal", "label": "Metal", "definition": "Heavy, distorted, amplified guitar music.", "applies_to": ["album", "track"], "synonyms": ["metal", "heavy metal"]},
-    {"dimension": "genre", "slug": "indie-rock", "label": "Indie rock", "definition": "Guitar music from independent or alternative scenes.", "applies_to": ["album", "track"], "synonyms": ["indie rock", "alternative"]},
-    {"dimension": "genre", "slug": "punk", "label": "Punk", "definition": "Fast, raw, anti-establishment rock.", "applies_to": ["album", "track"], "synonyms": ["punk", "punk rock", "post-punk"]},
-    {"dimension": "genre", "slug": "soundtrack", "label": "Soundtrack & film music", "definition": "Music written for or drawn from films, series and games.", "applies_to": ["album", "track"], "synonyms": ["soundtrack", "film score", "film music", "bollywood songs", "filmi"]},
-    {"dimension": "genre", "slug": "singer-songwriter", "label": "Singer-songwriter", "definition": "Personal songs, often sparse, centred on voice and lyric.", "applies_to": ["album", "track"], "synonyms": ["singer-songwriter", "singer songwriter", "acoustic"]},
-    {"dimension": "genre", "slug": "world-music", "label": "Global traditions", "definition": "Music rooted in a regional or traditional idiom outside Anglo-American pop.", "applies_to": ["album", "track"], "synonyms": ["world music", "qawwali", "carnatic", "hindustani", "afrobeat", "bossa nova", "traditional music"]},
-    {"dimension": "genre", "slug": "strategy", "label": "Strategy", "definition": "Winning through planning and resource management.", "applies_to": ["game"], "synonyms": ["strategy", "strategy game", "tactics", "tactical", "4x", "turn-based"]},
-    {"dimension": "genre", "slug": "shooter", "label": "Shooter", "definition": "Combat centred on aiming and shooting.", "applies_to": ["game"], "synonyms": ["shooter", "fps", "first-person shooter", "shooting game"]},
-    {"dimension": "genre", "slug": "platformer", "label": "Platformer", "definition": "Movement and jumping across obstacles is the core challenge.", "applies_to": ["game"], "synonyms": ["platformer", "platforming", "platform game"]},
-    {"dimension": "genre", "slug": "roguelike", "label": "Roguelike", "definition": "Repeated runs through changing levels, with permanent loss on failure.", "applies_to": ["game"], "synonyms": ["roguelike", "roguelite", "rogue-like", "rogue-lite"]},
-    {"dimension": "genre", "slug": "racing", "label": "Racing", "definition": "Competing for speed in vehicles.", "applies_to": ["game"], "synonyms": ["racing", "racing game", "driving game"]},
-    {"dimension": "genre", "slug": "stealth", "label": "Stealth", "definition": "Avoiding detection is the main way through.", "applies_to": ["game"], "synonyms": ["stealth"]},
-    {"dimension": "theme", "slug": "family", "label": "Family", "definition": "Parents, children and siblings, and the ties and strains between them.", "applies_to": ["*"], "synonyms": ["family", "families", "parents", "siblings", "family drama", "fatherhood", "motherhood"]},
-    {"dimension": "theme", "slug": "crime-justice", "label": "Crime & justice", "definition": "What drives crime, and what justice and punishment really mean.", "applies_to": ["*"], "synonyms": ["justice", "crime and punishment", "law", "morality"]},
-    {"dimension": "theme", "slug": "revenge", "label": "Revenge", "definition": "Retribution and its cost.", "applies_to": ["*"], "synonyms": ["revenge", "vengeance", "retribution"]},
-    {"dimension": "theme", "slug": "survival", "label": "Survival", "definition": "Staying alive against nature, enemies or collapse.", "applies_to": ["*"], "synonyms": ["survival", "survive", "surviving", "post-apocalyptic", "apocalypse"]},
-    {"dimension": "theme", "slug": "heroism-sacrifice", "label": "Heroism & sacrifice", "definition": "Courage, duty, and giving something up for others.", "applies_to": ["*"], "synonyms": ["heroism", "hero", "heroes", "sacrifice", "courage"]},
-    {"dimension": "theme", "slug": "migration-diaspora", "label": "Migration & diaspora", "definition": "Leaving home, arriving elsewhere, and living between cultures.", "applies_to": ["*"], "synonyms": ["immigration", "immigrant", "diaspora", "migration", "refugee"]},
-    {"dimension": "theme", "slug": "mental-health", "label": "Mental health", "definition": "Depression, anxiety, trauma and recovery, treated seriously.", "applies_to": ["*"], "synonyms": ["mental health", "depression", "anxiety", "trauma", "therapy"]},
-    {"dimension": "theme", "slug": "ambition-money", "label": "Ambition & money", "definition": "Success, greed, status and what people trade for them.", "applies_to": ["*"], "synonyms": ["ambition", "money", "greed", "wealth", "success", "capitalism"]},
-    {"dimension": "theme", "slug": "holidays-festivals", "label": "Holidays & festivals", "definition": "Set around, or about, a holiday or festival (Christmas, Halloween, Diwali, Lunar New Year, Thanksgiving …) that shapes the story or the mood.", "applies_to": ["*"], "synonyms": ["christmas", "xmas", "christmassy", "festive", "holiday season", "the holidays", "halloween", "diwali", "thanksgiving", "lunar new year", "chinese new year", "hanukkah", "eid", "new year's eve"]},
-    {"dimension": "theme", "slug": "lgbtq-lives", "label": "LGBTQ+ lives", "definition": "Centres the lives, love or identity of lesbian, gay, bisexual, trans or queer people.", "applies_to": ["*"], "synonyms": ["lgbtq", "lgbtq+", "lgbt", "queer", "gay", "lesbian", "bisexual", "transgender", "trans"]},
-    {"dimension": "mood", "slug": "nostalgic", "label": "Nostalgic", "definition": "A warm or aching pull toward the past.", "applies_to": ["*"], "synonyms": ["nostalgic", "bittersweet memories"]},
-    {"dimension": "mood", "slug": "darkly-funny", "label": "Darkly funny", "definition": "Humour found in grim, absurd or taboo places.", "applies_to": ["*"], "synonyms": ["dark comedy", "black comedy", "darkly funny", "dark humour", "dark humor", "gallows humour"]},
-    {"dimension": "mood", "slug": "epic", "label": "Epic", "definition": "Grand in scale and stakes; sweeping.", "applies_to": ["*"], "synonyms": ["epic", "sweeping", "grand", "larger than life"]},
-    {"dimension": "narrative", "slug": "ensemble", "label": "Ensemble cast", "definition": "Many protagonists share the story.", "applies_to": ["film", "series", "book", "game"], "synonyms": ["ensemble", "ensemble cast", "multiple protagonists"]},
-    {"dimension": "narrative", "slug": "anthology", "label": "Anthology", "definition": "Separate stories collected around a theme or format.", "applies_to": ["film", "series", "book", "game", "album"], "synonyms": ["anthology", "short stories", "short story collection", "standalone episodes"]},
-    {"dimension": "world", "slug": "open-world", "label": "Open world", "definition": "A large world you can roam freely, in any order.", "applies_to": ["game"], "synonyms": ["open world", "open-world", "sandbox"]}
+    {
+      "dimension": "genre",
+      "slug": "science-fiction",
+      "label": "Science fiction",
+      "definition": "Speculation grounded in science, technology or plausible-seeming extrapolation.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "science fiction",
+        "sci-fi",
+        "scifi",
+        "sf",
+        "science-fiction"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "fantasy",
+      "label": "Fantasy",
+      "definition": "Worlds or events governed by magic, myth or the impossible, presented without scientific rationale.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "fantasy"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "drama",
+      "label": "Drama",
+      "definition": "Primarily character- and situation-driven, played straight.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "drama"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "horror",
+      "label": "Horror",
+      "definition": "Designed primarily to frighten, disturb or create dread.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "horror",
+        "scary",
+        "frightening"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "thriller",
+      "label": "Thriller",
+      "definition": "Organised around suspense, danger and escalating stakes.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "thriller",
+        "suspense"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "romance",
+      "label": "Romance",
+      "definition": "A romantic relationship is the central narrative concern.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "romance",
+        "romantic story",
+        "love story"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "comedy",
+      "label": "Comedy",
+      "definition": "Primarily intended to amuse.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "comedy",
+        "comedic"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "mystery",
+      "label": "Mystery",
+      "definition": "Structured around uncovering hidden facts: a crime, a puzzle or a secret.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "mystery"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "historical",
+      "label": "Historical",
+      "definition": "Set in, and substantively engaged with, a real historical period.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "historical",
+        "period piece",
+        "history"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "war",
+      "label": "War",
+      "definition": "Armed conflict is the setting and central concern.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "war film",
+        "war movie",
+        "war story"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "animation",
+      "label": "Animation",
+      "definition": "A screen work made wholly or chiefly through animation.",
+      "applies_to": [
+        "film",
+        "series",
+        "online_video"
+      ],
+      "synonyms": [
+        "animated",
+        "animation",
+        "cartoon"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "literary-fiction",
+      "label": "Literary fiction",
+      "definition": "Fiction foregrounding prose, character interiority and theme over genre convention.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "literary fiction",
+        "literary"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "adventure",
+      "label": "Adventure",
+      "definition": "Journeys, exploration and discovery drive the experience.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "adventure"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "action",
+      "label": "Action",
+      "definition": "Physical conflict, pursuit and spectacle drive the experience.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "action"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "puzzle",
+      "label": "Puzzle",
+      "definition": "Progress depends chiefly on solving logical or observational problems.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "puzzle",
+        "puzzles",
+        "puzzle game"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "rpg",
+      "label": "Role-playing game",
+      "definition": "Player shapes a character's abilities and choices over a long arc.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "rpg",
+        "role-playing",
+        "role playing game"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "metroidvania",
+      "label": "Metroidvania",
+      "definition": "Interconnected map gated by abilities acquired over time.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "metroidvania"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "life-sim",
+      "label": "Life / farming sim",
+      "definition": "Everyday routines, cultivation and community as the core loop.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "life sim"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "ambient",
+      "label": "Ambient",
+      "definition": "Music prioritising atmosphere and texture over melody or rhythm.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "ambient"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "jazz",
+      "label": "Jazz",
+      "definition": "Music in the jazz tradition.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "jazz"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "rock",
+      "label": "Rock",
+      "definition": "Music in the rock tradition, including alternative rock.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "rock"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "electronic",
+      "label": "Electronic",
+      "definition": "Music made primarily with electronic instruments and production.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "electronic",
+        "electronica",
+        "dance music"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "post-rock",
+      "label": "Post-rock",
+      "definition": "Rock instrumentation used for texture and long-form dynamics rather than song form.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "post-rock",
+        "post rock"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "folk",
+      "label": "Folk / indie folk",
+      "definition": "Acoustic, song-centred music in folk traditions.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "folk"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "art-pop",
+      "label": "Art pop",
+      "definition": "Pop song forms pursued with experimental ambition.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "art pop",
+        "art-pop"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "language-communication",
+      "label": "Language & communication",
+      "definition": "How meaning is made and shared; translation, misunderstanding, the limits of language.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "language",
+        "linguistics",
+        "communication",
+        "translation"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "time",
+      "label": "Time & causality",
+      "definition": "Time travel, loops, non-linear perception or the nature of time itself.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "time travel",
+        "nature of time",
+        "causality"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "grief-loss",
+      "label": "Grief & loss",
+      "definition": "Mourning, bereavement, and living with absence.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "grief",
+        "loss",
+        "mourning",
+        "bereavement"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "memory",
+      "label": "Memory",
+      "definition": "Remembering, forgetting and the reliability of the past.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "memory",
+        "memories",
+        "nostalgia"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "identity-self",
+      "label": "Identity & selfhood",
+      "definition": "What makes a self: continuity, authenticity, who one is.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "identity",
+        "selfhood",
+        "who am i",
+        "sense of self"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "consciousness-ai",
+      "label": "Consciousness & artificial minds",
+      "definition": "Machine intelligence, synthetic life, or what it means to be conscious.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "artificial intelligence",
+        "ai",
+        "robots",
+        "androids",
+        "consciousness",
+        "what makes us human",
+        "being human"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "isolation",
+      "label": "Isolation & solitude",
+      "definition": "Physical or emotional aloneness as a central condition.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "isolation",
+        "loneliness",
+        "solitude",
+        "alone"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "first-contact",
+      "label": "First contact & the alien",
+      "definition": "Encounter with an intelligence or phenomenon radically unlike us.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "first contact",
+        "aliens",
+        "alien",
+        "the unknowable"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "class-inequality",
+      "label": "Class & inequality",
+      "definition": "Economic and social hierarchy and its consequences.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "class",
+        "inequality",
+        "rich and poor",
+        "wealth gap",
+        "social class"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "surveillance-authoritarianism",
+      "label": "Surveillance & authoritarianism",
+      "definition": "State control, surveillance, censorship and complicity.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "surveillance",
+        "authoritarian",
+        "totalitarian",
+        "dictatorship",
+        "police state",
+        "dystopia",
+        "dystopian"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "war-violence",
+      "label": "War & its human cost",
+      "definition": "The experience and consequences of war for individuals.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "world war",
+        "ww2",
+        "wwii",
+        "the cost of war"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "love-connection",
+      "label": "Love & connection",
+      "definition": "Romantic love, intimacy or deep human connection.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "human connection",
+        "intimacy",
+        "relationships",
+        "falling in love"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "nature-ecology",
+      "label": "Nature & ecology",
+      "definition": "The natural world, ecosystems and humanity's place within them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "nature",
+        "ecology",
+        "environment",
+        "the natural world",
+        "forest"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "coming-of-age",
+      "label": "Coming of age",
+      "definition": "Transition from childhood or youth to maturity.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "coming of age",
+        "growing up",
+        "childhood"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "everyday-life",
+      "label": "Everyday life & routine",
+      "definition": "The texture and meaning of ordinary days.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "everyday life",
+        "routine",
+        "ordinary life",
+        "slice of life",
+        "daily life"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "politics-society",
+      "label": "Politics & social systems",
+      "definition": "Ideologies, political systems and how societies organise themselves.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "politics",
+        "political",
+        "ideology",
+        "anarchism",
+        "utopia",
+        "society"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "mortality-meaning",
+      "label": "Mortality & meaning",
+      "definition": "Death, finitude and the search for meaning or purpose.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "death",
+        "mortality",
+        "meaning of life",
+        "purpose",
+        "existential"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "duty-regret",
+      "label": "Duty, restraint & regret",
+      "definition": "Lives shaped by obligation, repression or missed chances.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "regret",
+        "duty",
+        "repression",
+        "missed chances"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "race-history",
+      "label": "Race & the legacy of slavery",
+      "definition": "Racial injustice and the historical legacy of slavery.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "slavery",
+        "race",
+        "racism"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "gender",
+      "label": "Gender & sexuality",
+      "definition": "Gender roles, gender identity and sexuality as subjects.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "gender",
+        "sexuality"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "power-empire",
+      "label": "Power, empire & religion",
+      "definition": "Imperial power, messianism and the manipulation of belief.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "empire",
+        "colonialism",
+        "religion",
+        "messiah",
+        "power"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "knowledge-curiosity",
+      "label": "Knowledge & curiosity",
+      "definition": "The pursuit of understanding; science, scholarship and the urge to know.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "curiosity",
+        "knowledge",
+        "scientific discovery",
+        "exploration of ideas",
+        "learning"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "kindness-community",
+      "label": "Kindness & community",
+      "definition": "Decency, care and belonging as central forces.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "kindness",
+        "community",
+        "friendship",
+        "found family",
+        "belonging"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "technology-alienation",
+      "label": "Technology & alienation",
+      "definition": "Modern life, technology and consumerism as sources of estrangement.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "technology",
+        "modern life",
+        "alienation",
+        "consumerism"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "decay-impermanence",
+      "label": "Decay & impermanence",
+      "definition": "Erosion, entropy and things passing away.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "decay",
+        "impermanence",
+        "entropy",
+        "erosion"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "contemplative",
+      "label": "Contemplative",
+      "definition": "Invites reflection; leaves room to think.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "contemplative",
+        "reflective",
+        "meditative",
+        "thoughtful"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "melancholic",
+      "label": "Melancholic",
+      "definition": "Wistful sadness that is felt but not crushing.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "melancholic",
+        "melancholy",
+        "wistful",
+        "bittersweet",
+        "tearjerker",
+        "tear-jerker",
+        "weepy",
+        "make me cry",
+        "made me cry",
+        "cry",
+        "crying",
+        "sob",
+        "sad",
+        "heartbreaking",
+        "heart-breaking",
+        "weep",
+        "tissues",
+        "emotional"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "comforting",
+      "label": "Comforting",
+      "definition": "Restorative and safe; leaves you feeling better.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "comforting",
+        "cozy",
+        "cosy",
+        "wholesome",
+        "feel-good",
+        "feel good",
+        "gentle",
+        "soothing",
+        "heartwarming",
+        "difficult day",
+        "rough day",
+        "bad day",
+        "relaxing",
+        "calm",
+        "chill",
+        "unwind",
+        "comfort watch",
+        "comfort show",
+        "comfort read",
+        "comfort food",
+        "happy place",
+        "light watch"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "tense",
+      "label": "Tense",
+      "definition": "Sustained suspense or anxiety.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "tense",
+        "suspenseful",
+        "nail-biting",
+        "gripping",
+        "edge of my seat",
+        "on the edge of my seat",
+        "heart-pounding",
+        "heart pounding",
+        "nerve-wracking"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "eerie",
+      "label": "Eerie",
+      "definition": "Uncanny, strange and quietly unsettling.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "eerie",
+        "uncanny",
+        "strange",
+        "weird",
+        "mysterious atmosphere",
+        "spooky"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "uplifting",
+      "label": "Uplifting",
+      "definition": "Hopeful; leaves the audience with optimism.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "uplifting",
+        "hopeful",
+        "optimistic",
+        "inspiring",
+        "joyful",
+        "motivating",
+        "motivational",
+        "happy",
+        "make me happy",
+        "pick me up",
+        "pick-me-up"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "bleak",
+      "label": "Bleak",
+      "definition": "Dark and largely without consolation.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "bleak",
+        "dark",
+        "grim",
+        "harrowing",
+        "depressing"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "whimsical",
+      "label": "Whimsical",
+      "definition": "Playful, fanciful, lightly magical.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "whimsical",
+        "playful",
+        "magical",
+        "charming"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "romantic",
+      "label": "Romantic",
+      "definition": "Tender and swooning; the feeling of falling for someone.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "romantic"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "exhilarating",
+      "label": "Exhilarating",
+      "definition": "High energy and adrenaline.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "exhilarating",
+        "adrenaline",
+        "thrilling",
+        "high energy",
+        "high-energy",
+        "intense action",
+        "pumped",
+        "action-packed",
+        "action packed",
+        "adrenaline rush",
+        "blockbuster"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "wonder",
+      "label": "Sense of wonder",
+      "definition": "Awe at the scale or strangeness of the world or universe.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "wonder",
+        "awe",
+        "awe-inspiring",
+        "sense of wonder",
+        "mind-blowing",
+        "mind blowing"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "funny",
+      "label": "Funny",
+      "definition": "Reliably makes you laugh.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "funny",
+        "hilarious",
+        "laugh",
+        "die laughing",
+        "dying of laughter",
+        "laughing",
+        "laughs",
+        "make me laugh",
+        "made me laugh",
+        "crack me up",
+        "cracks me up",
+        "laugh out loud",
+        "lol",
+        "in stitches",
+        "witty",
+        "silly",
+        "goofy",
+        "sidesplitting",
+        "side-splitting",
+        "comedy fix"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "unsettling",
+      "label": "Unsettling / disturbing",
+      "definition": "Leaves lasting discomfort or dread.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "unsettling",
+        "disturbing",
+        "dread",
+        "creepy"
+      ]
+    },
+    {
+      "dimension": "pacing",
+      "slug": "slow-burn",
+      "label": "Slow burn",
+      "definition": "Unhurried; rewards patience.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "slow burn",
+        "slow-burn",
+        "slow",
+        "unhurried",
+        "slow paced",
+        "slow-paced"
+      ]
+    },
+    {
+      "dimension": "pacing",
+      "slug": "brisk",
+      "label": "Brisk",
+      "definition": "Moves quickly; little downtime.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "fast paced",
+        "fast-paced",
+        "brisk",
+        "pacey",
+        "quick moving"
+      ]
+    },
+    {
+      "dimension": "complexity",
+      "slug": "intellectually-demanding",
+      "label": "Intellectually demanding",
+      "definition": "Rewards close attention and interpretation; ideas carry weight.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "intelligent",
+        "intellectual",
+        "cerebral",
+        "intellectually stimulating",
+        "smart",
+        "challenging",
+        "philosophical",
+        "big ideas",
+        "makes me think",
+        "thought-provoking",
+        "thought provoking",
+        "makes you think",
+        "mind-bending",
+        "mind bending",
+        "complex"
+      ]
+    },
+    {
+      "dimension": "complexity",
+      "slug": "accessible",
+      "label": "Easy to get into",
+      "definition": "Low barrier to entry; enjoyable without effort.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "easy watch",
+        "easy to get into",
+        "lighthearted",
+        "light-hearted",
+        "undemanding",
+        "switch off",
+        "turn my brain off",
+        "easygoing"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "nonlinear",
+      "label": "Non-linear structure",
+      "definition": "Events presented out of chronological order by design.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "nonlinear",
+        "non-linear",
+        "out of order",
+        "fragmented structure"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "time-loop",
+      "label": "Time loop",
+      "definition": "A repeating span of time is the structural engine.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "time loop",
+        "groundhog day"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "unreliable-narrator",
+      "label": "Unreliable narrator",
+      "definition": "The telling cannot be fully trusted, and this matters to the meaning.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "unreliable narrator"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "puzzle-box",
+      "label": "Puzzle-box narrative",
+      "definition": "The audience must actively piece together what is happening.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "puzzle box",
+        "puzzle-box",
+        "figure it out",
+        "piece together",
+        "deduction"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "environmental-storytelling",
+      "label": "Environmental storytelling",
+      "definition": "Story told through places, objects and traces rather than exposition.",
+      "applies_to": [
+        "game",
+        "film",
+        "book"
+      ],
+      "synonyms": [
+        "environmental storytelling",
+        "story through the world"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "minimal-dialogue",
+      "label": "Minimal or no dialogue",
+      "definition": "Communicates largely without words.",
+      "applies_to": [
+        "film",
+        "game",
+        "online_video"
+      ],
+      "synonyms": [
+        "wordless",
+        "no dialogue",
+        "minimal dialogue",
+        "without words"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "meaningful-choices",
+      "label": "Meaningful choices",
+      "definition": "Player decisions materially shape outcomes.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "choices",
+        "meaningful choices",
+        "choices matter",
+        "branching"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "dialogue-driven",
+      "label": "Dialogue-driven",
+      "definition": "Conversation carries most of the story.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "dialogue-driven",
+        "dialogue driven",
+        "talky",
+        "conversations",
+        "conversation"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "concept-album",
+      "label": "Concept / narrative album",
+      "definition": "An album organised around a unifying story or concept.",
+      "applies_to": [
+        "album"
+      ],
+      "synonyms": [
+        "concept album"
+      ]
+    },
+    {
+      "dimension": "world",
+      "slug": "rich-worldbuilding",
+      "label": "Rich world-building",
+      "definition": "A detailed, internally coherent invented world with history and systems.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "world-building",
+        "worldbuilding",
+        "world building",
+        "lore",
+        "ambitious world",
+        "rich world",
+        "deep lore"
+      ]
+    },
+    {
+      "dimension": "world",
+      "slug": "grounded-realism",
+      "label": "Grounded realism",
+      "definition": "A recognisable real world, closely observed.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "realistic",
+        "grounded",
+        "realism"
+      ]
+    },
+    {
+      "dimension": "world",
+      "slug": "space-setting",
+      "label": "Space & other worlds",
+      "definition": "Set substantially in space or on other planets.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "space",
+        "outer space",
+        "space station",
+        "other planets"
+      ]
+    },
+    {
+      "dimension": "world",
+      "slug": "mythic",
+      "label": "Mythic & folkloric",
+      "definition": "Draws on myth, folklore or spirits as a living framework.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "mythology",
+        "mythological",
+        "folklore",
+        "spirits",
+        "mythic"
+      ]
+    },
+    {
+      "dimension": "style",
+      "slug": "atmospheric",
+      "label": "Atmospheric",
+      "definition": "Mood and sense of place are primary craft achievements.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "atmospheric",
+        "atmosphere",
+        "moody",
+        "immersive atmosphere"
+      ]
+    },
+    {
+      "dimension": "style",
+      "slug": "visually-striking",
+      "label": "Visually striking",
+      "definition": "Distinctive imagery is central to the experience.",
+      "applies_to": [
+        "film",
+        "series",
+        "game",
+        "online_video"
+      ],
+      "synonyms": [
+        "visually stunning",
+        "beautiful visuals",
+        "gorgeous",
+        "striking visuals",
+        "cinematography",
+        "visually striking",
+        "beautiful to look at"
+      ]
+    },
+    {
+      "dimension": "style",
+      "slug": "hand-drawn",
+      "label": "Hand-drawn",
+      "definition": "Hand-drawn animation or art.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "hand-drawn",
+        "hand drawn",
+        "2d animation"
+      ]
+    },
+    {
+      "dimension": "style",
+      "slug": "minimalist",
+      "label": "Minimalist",
+      "definition": "Spare, restrained use of means.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "minimalist",
+        "minimal",
+        "spare",
+        "restrained"
+      ]
+    },
+    {
+      "dimension": "style",
+      "slug": "lyrical-prose",
+      "label": "Lyrical prose",
+      "definition": "Prose valued for its beauty and rhythm.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "beautiful prose",
+        "lyrical",
+        "beautifully written",
+        "poetic"
+      ]
+    },
+    {
+      "dimension": "style",
+      "slug": "lo-fi-indie",
+      "label": "Low-budget ingenuity",
+      "definition": "Made on small means, with inventiveness substituting for budget.",
+      "applies_to": [
+        "film",
+        "game",
+        "album"
+      ],
+      "synonyms": [
+        "low budget",
+        "low-budget",
+        "indie",
+        "independent"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "violence",
+      "slug": "graphic-violence",
+      "label": "Graphic violence",
+      "definition": "On-screen or described violence depicted explicitly.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "graphic violence",
+        "violence",
+        "violent",
+        "gore",
+        "gory",
+        "bloody",
+        "brutal"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "violence",
+      "slug": "body-horror",
+      "label": "Body horror",
+      "definition": "Disturbing transformation or violation of the body.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "body horror"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "sex",
+      "slug": "sexual-content",
+      "label": "Sexual content",
+      "definition": "Depicted or explicitly described sexual activity or nudity.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "sex",
+        "sexual content",
+        "nudity",
+        "sex scenes"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "violence",
+      "slug": "atrocity",
+      "label": "Atrocity & mass death",
+      "definition": "Depiction of massacre, genocide or mass death.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "atrocity",
+        "atrocities",
+        "massacre",
+        "genocide"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "frightening",
+      "slug": "jump-scares",
+      "label": "Jump scares & horror intensity",
+      "definition": "Sudden frights or sustained horror intensity.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "jump scares",
+        "jumpscares",
+        "too scary"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "language",
+      "slug": "strong-language",
+      "label": "Strong language",
+      "definition": "Swearing and crude or offensive language.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "swearing",
+        "profanity",
+        "bad language",
+        "strong language",
+        "cursing",
+        "foul language"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "substances",
+      "slug": "substance-use",
+      "label": "Alcohol, drugs & smoking",
+      "definition": "Depicted or described use of alcohol, drugs or tobacco.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "drug use",
+        "drugs",
+        "drinking",
+        "alcohol",
+        "smoking"
+      ]
+    },
+    {
+      "dimension": "advisory",
+      "group": "sensitive",
+      "slug": "suicide-self-harm",
+      "label": "Suicide & self-harm",
+      "definition": "Depiction, discussion or implication of suicide, suicidal thoughts or self-harm.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "suicide",
+        "self-harm",
+        "self harm",
+        "suicidal"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "crime",
+      "label": "Crime",
+      "definition": "Built around crimes, criminals or those who pursue them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "crime"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "documentary",
+      "label": "Documentary",
+      "definition": "Non-fiction film or television about real people and events.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "documentary",
+        "documentaries",
+        "docuseries",
+        "docu-series"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "family",
+      "label": "Family",
+      "definition": "Made for all ages to enjoy together.",
+      "applies_to": [
+        "film",
+        "series",
+        "game",
+        "book"
+      ],
+      "synonyms": [
+        "family film",
+        "family movie",
+        "for the family",
+        "for kids",
+        "kids movie",
+        "children's",
+        "childrens"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "musical",
+      "label": "Musical",
+      "definition": "Story told substantially through song and dance.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "musical",
+        "musicals",
+        "song and dance"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "biography",
+      "label": "Biography",
+      "definition": "Tells the story of a real person's life.",
+      "applies_to": [
+        "film",
+        "series",
+        "book"
+      ],
+      "synonyms": [
+        "biopic",
+        "biography",
+        "biographical",
+        "true story",
+        "based on a true story"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "superhero",
+      "label": "Superhero",
+      "definition": "Costumed heroes with extraordinary powers.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "superhero",
+        "superheroes",
+        "comic book movie",
+        "marvel",
+        "dc"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "western",
+      "label": "Western",
+      "definition": "Set on a frontier, usually the American West, with its codes and violence.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "western",
+        "westerns",
+        "cowboy",
+        "cowboys"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "sports",
+      "label": "Sports",
+      "definition": "Centred on a sport, its contests and those who play it.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "sports",
+        "sport",
+        "sports drama",
+        "football",
+        "soccer",
+        "cricket",
+        "basketball",
+        "baseball",
+        "boxing",
+        "tennis",
+        "wrestling",
+        "olympics"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "non-fiction",
+      "label": "Non-fiction",
+      "definition": "Factual writing about real events, people or ideas.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "non-fiction",
+        "nonfiction",
+        "non fiction"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "memoir",
+      "label": "Memoir",
+      "definition": "A first-person account of the author's own life.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "memoir",
+        "memoirs",
+        "autobiography"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "popular-science",
+      "label": "Popular science",
+      "definition": "Explains science or how the world works for general readers.",
+      "applies_to": [
+        "book",
+        "series",
+        "film"
+      ],
+      "synonyms": [
+        "popular science",
+        "pop science",
+        "science book"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "graphic-novel",
+      "label": "Graphic novel",
+      "definition": "A story told in comics form, at book length.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "graphic novel",
+        "graphic novels",
+        "comic book",
+        "comics",
+        "manga"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "hip-hop",
+      "label": "Hip-hop",
+      "definition": "Rap and beat-driven music from hip-hop culture.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "hip-hop",
+        "hip hop",
+        "rap",
+        "rapper"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "pop",
+      "label": "Pop",
+      "definition": "Melodic, hook-driven popular music.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "pop music",
+        "pop album"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "classical",
+      "label": "Classical",
+      "definition": "Western art music, orchestral or chamber, of any period.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "classical",
+        "orchestral",
+        "symphony",
+        "piano music"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "soul-rnb",
+      "label": "R&B & soul",
+      "definition": "Rhythm and blues, soul and their descendants.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "r&b",
+        "rnb",
+        "soul"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "metal",
+      "label": "Metal",
+      "definition": "Heavy, distorted, amplified guitar music.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "metal"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "indie-rock",
+      "label": "Indie rock",
+      "definition": "Guitar music from independent or alternative scenes.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "indie rock",
+        "alternative"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "punk",
+      "label": "Punk",
+      "definition": "Fast, raw, anti-establishment rock.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "punk"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "soundtrack",
+      "label": "Soundtrack & film music",
+      "definition": "Music written for or drawn from films, series and games.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "soundtrack",
+        "film music"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "singer-songwriter",
+      "label": "Singer-songwriter",
+      "definition": "Personal songs, often sparse, centred on voice and lyric.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "singer-songwriter",
+        "singer songwriter",
+        "acoustic"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "world-music",
+      "label": "Global traditions",
+      "definition": "Music rooted in a regional or traditional idiom outside Anglo-American pop.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "world music",
+        "carnatic",
+        "hindustani",
+        "bossa nova",
+        "traditional music"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "strategy",
+      "label": "Strategy",
+      "definition": "Winning through planning and resource management.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "strategy",
+        "strategy game"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "shooter",
+      "label": "Shooter",
+      "definition": "Combat centred on aiming and shooting.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "shooter",
+        "shooting game"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "platformer",
+      "label": "Platformer",
+      "definition": "Movement and jumping across obstacles is the core challenge.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "platformer",
+        "platforming",
+        "platform game"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "roguelike",
+      "label": "Roguelike",
+      "definition": "Repeated runs through changing levels, with permanent loss on failure.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "roguelike",
+        "rogue-like"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "racing",
+      "label": "Racing",
+      "definition": "Competing for speed in vehicles.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "racing",
+        "racing game",
+        "driving game"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "stealth",
+      "label": "Stealth",
+      "definition": "Avoiding detection is the main way through.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "stealth"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "family",
+      "label": "Family",
+      "definition": "Parents, children and siblings, and the ties and strains between them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "family",
+        "families",
+        "parents",
+        "siblings",
+        "family drama",
+        "fatherhood",
+        "motherhood"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "crime-justice",
+      "label": "Crime & justice",
+      "definition": "What drives crime, and what justice and punishment really mean.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "justice",
+        "crime and punishment",
+        "law",
+        "morality"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "revenge",
+      "label": "Revenge",
+      "definition": "Retribution and its cost.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "revenge",
+        "vengeance",
+        "retribution"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "survival",
+      "label": "Survival",
+      "definition": "Staying alive against nature, enemies or collapse.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "survival",
+        "survive",
+        "surviving",
+        "post-apocalyptic",
+        "apocalypse"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "heroism-sacrifice",
+      "label": "Heroism & sacrifice",
+      "definition": "Courage, duty, and giving something up for others.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "heroism",
+        "hero",
+        "heroes",
+        "sacrifice",
+        "courage"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "migration-diaspora",
+      "label": "Migration & diaspora",
+      "definition": "Leaving home, arriving elsewhere, and living between cultures.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "immigration",
+        "immigrant",
+        "diaspora",
+        "migration",
+        "refugee"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "mental-health",
+      "label": "Mental health",
+      "definition": "Depression, anxiety, trauma and recovery, treated seriously.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "mental health",
+        "depression",
+        "anxiety",
+        "trauma",
+        "therapy"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "ambition-money",
+      "label": "Ambition & money",
+      "definition": "Success, greed, status and what people trade for them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "ambition",
+        "money",
+        "greed",
+        "wealth",
+        "success",
+        "capitalism"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "holidays-festivals",
+      "label": "Holidays & festivals",
+      "definition": "Set around, or about, a holiday or festival (Christmas, Halloween, Diwali, Lunar New Year, Thanksgiving …) that shapes the story or the mood.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "christmas",
+        "xmas",
+        "christmassy",
+        "festive",
+        "holiday season",
+        "the holidays",
+        "halloween",
+        "diwali",
+        "thanksgiving",
+        "lunar new year",
+        "chinese new year",
+        "hanukkah",
+        "eid",
+        "new year's eve"
+      ]
+    },
+    {
+      "dimension": "theme",
+      "slug": "lgbtq-lives",
+      "label": "LGBTQ+ lives",
+      "definition": "Centres the lives, love or identity of lesbian, gay, bisexual, trans or queer people.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "lgbtq",
+        "lgbtq+",
+        "lgbt",
+        "queer",
+        "gay",
+        "lesbian",
+        "bisexual",
+        "transgender",
+        "trans"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "nostalgic",
+      "label": "Nostalgic",
+      "definition": "A warm or aching pull toward the past.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "nostalgic",
+        "bittersweet memories"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "darkly-funny",
+      "label": "Darkly funny",
+      "definition": "Humour found in grim, absurd or taboo places.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "dark comedy",
+        "black comedy",
+        "darkly funny",
+        "dark humour",
+        "dark humor",
+        "gallows humour"
+      ]
+    },
+    {
+      "dimension": "mood",
+      "slug": "epic",
+      "label": "Epic",
+      "definition": "Grand in scale and stakes; sweeping.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "epic",
+        "sweeping",
+        "grand",
+        "larger than life"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "ensemble",
+      "label": "Ensemble cast",
+      "definition": "Many protagonists share the story.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "ensemble",
+        "ensemble cast",
+        "multiple protagonists"
+      ]
+    },
+    {
+      "dimension": "narrative",
+      "slug": "anthology",
+      "label": "Anthology",
+      "definition": "Separate stories collected around a theme or format.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game",
+        "album"
+      ],
+      "synonyms": [
+        "anthology",
+        "short stories",
+        "short story collection",
+        "standalone episodes"
+      ]
+    },
+    {
+      "dimension": "world",
+      "slug": "open-world",
+      "label": "Open world",
+      "definition": "A large world you can roam freely, in any order.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "open world",
+        "open-world",
+        "sandbox"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "psychological-horror",
+      "label": "Psychological horror",
+      "definition": "Fear that comes from mental instability, paranoia and the breakdown of the mind rather than from physical monsters.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "psychological horror"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "supernatural-horror",
+      "label": "Supernatural horror",
+      "definition": "Ghosts, demons, curses and otherworldly forces that break the laws of nature.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "supernatural horror",
+        "paranormal horror",
+        "ghost story",
+        "ghost stories",
+        "haunted house"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "slasher",
+      "label": "Slasher",
+      "definition": "A human killer stalks and picks off a group of victims, usually with a high body count.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "slasher",
+        "slasher film",
+        "slashers"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "body-horror-genre",
+      "label": "Body horror",
+      "definition": "Fear drawn from the unnatural transformation, mutilation or destruction of the human body.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "body horror film",
+        "body horror story"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "creature-feature",
+      "label": "Monster & creature feature",
+      "definition": "Giant beasts, extraterrestrials, vampires, werewolves or killer animals.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "creature feature",
+        "monster movie",
+        "monster film",
+        "vampires"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "zombie-horror",
+      "label": "Zombie & apocalyptic horror",
+      "definition": "Reanimated or infection-spreading corpses and the collapse of society around them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "zombie",
+        "zombies",
+        "zombie apocalypse"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "found-footage",
+      "label": "Found footage",
+      "definition": "Presented as discovered real-world recordings or amateur video logs.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "found footage",
+        "found-footage"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "gothic-horror",
+      "label": "Gothic horror",
+      "definition": "Horror bound up with romance and tragedy, set in gloomy castles, stormy estates or decaying mansions.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "gothic horror"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "cosmic-horror",
+      "label": "Cosmic horror",
+      "definition": "Ancient, unknowable forces so vast that human existence is rendered insignificant.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "cosmic horror",
+        "lovecraftian",
+        "eldritch"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "comedy-horror",
+      "label": "Comedy horror",
+      "definition": "Genuine scares and tension mixed with dark humour and satire.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "horror comedy",
+        "comedy horror",
+        "scary funny"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "folk-horror",
+      "label": "Folk horror",
+      "definition": "Rural communities, old rituals and pagan belief turned threatening.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "folk horror",
+        "pagan horror",
+        "cult horror"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "survival-horror",
+      "label": "Survival horror",
+      "definition": "Scarce resources and vulnerable protagonists trying to outlast a threat; the defining form of horror games.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "survival horror"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "social-horror",
+      "label": "Social horror",
+      "definition": "Horror that dramatises real social fears: race, class, family and conformity.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "social horror",
+        "social thriller"
+      ],
+      "parent": "horror"
+    },
+    {
+      "dimension": "genre",
+      "slug": "cyberpunk",
+      "label": "Cyberpunk",
+      "definition": "High technology and low life: corporate power, hackers and augmented bodies in neon cities.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "cyberpunk",
+        "tech noir"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "space-opera",
+      "label": "Space opera",
+      "definition": "Sweeping adventure across planets and empires, with war, politics and romance among the stars.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "space opera",
+        "space saga",
+        "galactic empire"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "dystopian",
+      "label": "Dystopian",
+      "definition": "Oppressive future societies and the people who live inside, or resist, them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "dystopian future"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "post-apocalyptic",
+      "label": "Post-apocalyptic",
+      "definition": "Life after civilisation has fallen to war, plague, disaster or worse.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "post apocalyptic",
+        "after the apocalypse",
+        "end of the world"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "time-travel",
+      "label": "Time travel",
+      "definition": "Stories that move through time, and wrestle with paradox and consequence.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "time-travel",
+        "time machine"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "hard-science-fiction",
+      "label": "Hard science fiction",
+      "definition": "Science fiction that takes physics, engineering and plausibility seriously.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "hard sci-fi",
+        "hard science fiction",
+        "hard sf"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "alien-encounter",
+      "label": "Alien encounter",
+      "definition": "Meeting the non-human: contact, communication, invasion or coexistence.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "alien invasion",
+        "extraterrestrial"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "artificial-intelligence",
+      "label": "AI & robots",
+      "definition": "Artificial minds, androids and robots, and what they reveal about being human.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "social-science-fiction",
+      "label": "Social science fiction",
+      "definition": "Speculation about how societies, bodies and relationships might change, more than about gadgets.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "soft sci-fi",
+        "social science fiction",
+        "speculative fiction"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "mecha",
+      "label": "Mecha",
+      "definition": "Giant piloted robots and the people inside them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "mecha",
+        "giant robots"
+      ],
+      "parent": "science-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "high-fantasy",
+      "label": "High fantasy",
+      "definition": "Invented secondary worlds with their own histories, magic systems and world-shaking quests.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "high fantasy"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "dark-fantasy",
+      "label": "Dark fantasy",
+      "definition": "Fantasy steeped in horror, cruelty and moral grey, where magic comes at a cost.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "dark fantasy",
+        "grimdark"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "urban-fantasy",
+      "label": "Urban & contemporary fantasy",
+      "definition": "Magic hidden in the modern, everyday world.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "urban fantasy",
+        "contemporary fantasy",
+        "modern fantasy"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "mythic-fantasy",
+      "label": "Myth retelling",
+      "definition": "Gods, heroes and legends from the world's mythologies, retold or reimagined.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "myth retelling",
+        "mythology retelling",
+        "greek myth",
+        "mahabharata"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "portal-fantasy",
+      "label": "Portal fantasy",
+      "definition": "An ordinary person crosses into another world.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "portal fantasy",
+        "another world",
+        "isekai"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "fairy-tale",
+      "label": "Fairy tale",
+      "definition": "Enchantment, talking creatures and moral fables, old or newly told.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "fairy tale",
+        "fairytale",
+        "fairy tales"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "comic-fantasy",
+      "label": "Comic fantasy",
+      "definition": "Fantasy played for laughs, satire and wit.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "comic fantasy",
+        "funny fantasy",
+        "discworld"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "progression-fantasy",
+      "label": "Progression fantasy",
+      "definition": "A hero grows stronger level by level, often through trials, towers or dungeons.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "progression fantasy",
+        "litrpg",
+        "levelling up"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "cozy-fantasy",
+      "label": "Cosy fantasy",
+      "definition": "Gentle, low-stakes fantasy about kindness, community and small wonders.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "cozy fantasy",
+        "cosy fantasy"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "magical-realism",
+      "label": "Magical realism",
+      "definition": "The marvellous told matter-of-factly inside a realistic world.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "magical realism",
+        "magic realism"
+      ],
+      "parent": "fantasy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "psychological-thriller",
+      "label": "Psychological thriller",
+      "definition": "Suspense built from deception, obsession and minds working against each other.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "psychological thriller",
+        "mind games"
+      ],
+      "parent": "thriller"
+    },
+    {
+      "dimension": "genre",
+      "slug": "political-thriller",
+      "label": "Political & conspiracy thriller",
+      "definition": "Power, cover-ups and conspiracies reaching into institutions and the state.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "political thriller",
+        "conspiracy thriller"
+      ],
+      "parent": "thriller"
+    },
+    {
+      "dimension": "genre",
+      "slug": "spy-thriller",
+      "label": "Spy & espionage",
+      "definition": "Agents, double agents and the secret work of intelligence services.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "espionage",
+        "spy thriller",
+        "secret agent"
+      ],
+      "parent": "thriller"
+    },
+    {
+      "dimension": "genre",
+      "slug": "techno-thriller",
+      "label": "Techno-thriller",
+      "definition": "Suspense driven by technology, hacking, science or surveillance.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "techno-thriller",
+        "techno thriller",
+        "hacker",
+        "hackers"
+      ],
+      "parent": "thriller"
+    },
+    {
+      "dimension": "genre",
+      "slug": "survival-thriller",
+      "label": "Survival thriller",
+      "definition": "Ordinary people fighting to stay alive against the elements, a game or each other.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "survival thriller",
+        "survival game",
+        "battle royale"
+      ],
+      "parent": "thriller"
+    },
+    {
+      "dimension": "genre",
+      "slug": "revenge-thriller",
+      "label": "Revenge thriller",
+      "definition": "A wronged person's pursuit of vengeance, and its cost.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "revenge thriller",
+        "revenge story"
+      ],
+      "parent": "thriller"
+    },
+    {
+      "dimension": "genre",
+      "slug": "erotic-thriller",
+      "label": "Erotic thriller",
+      "definition": "Desire, seduction and danger entwined.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "erotic thriller"
+      ],
+      "parent": "thriller"
+    },
+    {
+      "dimension": "genre",
+      "slug": "heist",
+      "label": "Heist",
+      "definition": "A crew plans and pulls off a robbery, and the plan goes wrong.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "heist",
+        "bank robbery"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "gangster",
+      "label": "Gangster & mob",
+      "definition": "Organised crime families, their codes, rises and falls.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "gangster",
+        "gangsters",
+        "mafia",
+        "mob",
+        "mobster",
+        "gang war"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "police-procedural",
+      "label": "Police procedural",
+      "definition": "Detectives and officers working cases step by step, inside the system.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "police procedural",
+        "cop show",
+        "police drama"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "neo-noir",
+      "label": "Noir & neo-noir",
+      "definition": "Cynical crime stories of moral rot, fatalism and doomed protagonists.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "noir",
+        "neo-noir",
+        "film noir",
+        "neo noir"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "true-crime",
+      "label": "True crime",
+      "definition": "Real crimes, real investigations and the people involved.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "true crime",
+        "true-crime"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "drug-crime",
+      "label": "Drug-trade crime",
+      "definition": "The drug trade from the inside: cooks, cartels, dealers and the people who hunt them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "drug lord",
+        "cartel",
+        "cartels",
+        "narcos"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "dark-comedy-crime",
+      "label": "Crime comedy",
+      "definition": "Criminals, schemes and bungled plans played for dark laughs.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "crime comedy",
+        "comic crime"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "courtroom",
+      "label": "Courtroom & legal",
+      "definition": "Trials, lawyers and the machinery of justice.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "courtroom drama",
+        "legal drama"
+      ],
+      "parent": "crime"
+    },
+    {
+      "dimension": "genre",
+      "slug": "whodunit",
+      "label": "Whodunit",
+      "definition": "A crime, a closed circle of suspects and a puzzle of clues for the reader to solve.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "whodunit",
+        "whodunnit",
+        "murder mystery",
+        "locked room"
+      ],
+      "parent": "mystery"
+    },
+    {
+      "dimension": "genre",
+      "slug": "detective-story",
+      "label": "Detective story",
+      "definition": "A brilliant investigator and the case that tests them.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "detective",
+        "detective story",
+        "sleuth"
+      ],
+      "parent": "mystery"
+    },
+    {
+      "dimension": "genre",
+      "slug": "cozy-mystery",
+      "label": "Cosy mystery",
+      "definition": "Gentle, puzzle-first mysteries with little on-page violence.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "cozy mystery",
+        "cosy mystery"
+      ],
+      "parent": "mystery"
+    },
+    {
+      "dimension": "genre",
+      "slug": "supernatural-mystery",
+      "label": "Supernatural mystery",
+      "definition": "Mysteries whose answers lie partly beyond the natural world.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "supernatural mystery",
+        "weird mystery"
+      ],
+      "parent": "mystery"
+    },
+    {
+      "dimension": "genre",
+      "slug": "psychological-mystery",
+      "label": "Psychological mystery",
+      "definition": "Mysteries of memory, identity and what really happened, as much inside a head as outside it.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "psychological mystery"
+      ],
+      "parent": "mystery"
+    },
+    {
+      "dimension": "genre",
+      "slug": "romantic-comedy",
+      "label": "Romantic comedy",
+      "definition": "Love stories built for laughs, misunderstandings and a happy ending.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "romantic comedy",
+        "rom-com",
+        "romcom",
+        "rom com"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "satire",
+      "label": "Satire",
+      "definition": "Comedy that skewers power, institutions and social habits.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "satirical",
+        "political satire"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "black-comedy",
+      "label": "Black comedy",
+      "definition": "Laughs found in death, crime, despair and taboo.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "darkly comic"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "slapstick",
+      "label": "Slapstick & physical comedy",
+      "definition": "Pratfalls, chases and visual gags.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "slapstick",
+        "physical comedy"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "parody",
+      "label": "Parody & spoof",
+      "definition": "Comedy that imitates and mocks a genre or a famous work.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "parody",
+        "spoof"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "sitcom",
+      "label": "Sitcom",
+      "definition": "Situation comedy built around a recurring cast, a home or a workplace.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "sitcom",
+        "situation comedy",
+        "workplace comedy"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "mockumentary",
+      "label": "Mockumentary",
+      "definition": "Fiction filmed as if it were a documentary.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "mockumentary",
+        "mock documentary"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "dramedy",
+      "label": "Comedy-drama",
+      "definition": "Comedy with real emotional weight; funny and sad by turns.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "dramedy",
+        "comedy-drama",
+        "comedy drama",
+        "dramedies"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "absurdist-comedy",
+      "label": "Absurdist & surreal comedy",
+      "definition": "Humour from the illogical, the surreal and the deadpan.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "surreal comedy"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "comedy-of-manners",
+      "label": "Comedy of manners",
+      "definition": "Wit at the expense of a society's rules, class and courtship.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "comedy of manners",
+        "drawing-room comedy"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "buddy-comedy",
+      "label": "Buddy & friendship comedy",
+      "definition": "Friends, mismatched pairs and the trouble they get into together.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "buddy comedy",
+        "friendship comedy",
+        "road trip comedy"
+      ],
+      "parent": "comedy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "family-drama",
+      "label": "Family drama",
+      "definition": "Families under strain: parents, children, siblings and inheritance.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "family saga"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "coming-of-age",
+      "label": "Coming of age",
+      "definition": "Growing up: first loves, lost innocence and finding out who you are.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "coming-of-age",
+        "teen drama",
+        "bildungsroman"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "melodrama",
+      "label": "Melodrama",
+      "definition": "Heightened emotion, grand sacrifice and big feelings worn openly.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "melodrama",
+        "weepie"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "political-drama",
+      "label": "Political drama",
+      "definition": "Power, office and the people inside government.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "political drama",
+        "politics drama"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "period-drama",
+      "label": "Period drama",
+      "definition": "Drama set in a carefully recreated past, with its manners and costumes.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "period drama",
+        "costume drama"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "social-realism",
+      "label": "Social realism",
+      "definition": "Ordinary lives under economic and social pressure, told plainly.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "social realism",
+        "kitchen sink drama",
+        "neorealism"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "character-study",
+      "label": "Character study",
+      "definition": "A close portrait of one person's inner life.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "character study",
+        "character piece"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "psychological-drama",
+      "label": "Psychological drama",
+      "definition": "Inner turmoil, identity and the mind under pressure.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "psychological drama"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "workplace-drama",
+      "label": "Workplace drama",
+      "definition": "Kitchens, offices, newsrooms and hospitals: drama at work.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "workplace drama",
+        "medical drama",
+        "newsroom"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "music-drama",
+      "label": "Music drama",
+      "definition": "Musicians and music-making at the heart of the story.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "music drama",
+        "band movie",
+        "musician movie"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "romantic-drama",
+      "label": "Romantic drama",
+      "definition": "Love stories played seriously, with obstacles that may not be overcome.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "romantic drama",
+        "love drama"
+      ],
+      "parent": "romance"
+    },
+    {
+      "dimension": "genre",
+      "slug": "period-romance",
+      "label": "Period romance",
+      "definition": "Courtship and love in a historical setting.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "period romance",
+        "historical romance",
+        "regency romance"
+      ],
+      "parent": "romance"
+    },
+    {
+      "dimension": "genre",
+      "slug": "tragic-romance",
+      "label": "Tragic romance",
+      "definition": "Love stories that end in loss.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "tragic romance",
+        "doomed love",
+        "star-crossed"
+      ],
+      "parent": "romance"
+    },
+    {
+      "dimension": "genre",
+      "slug": "queer-romance",
+      "label": "LGBTQ+ romance",
+      "definition": "Love stories between queer characters.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "lgbtq romance",
+        "queer romance",
+        "gay romance",
+        "lesbian romance"
+      ],
+      "parent": "romance"
+    },
+    {
+      "dimension": "genre",
+      "slug": "gothic-romance",
+      "label": "Gothic romance",
+      "definition": "Passion, secrets and brooding houses.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "gothic romance"
+      ],
+      "parent": "romance"
+    },
+    {
+      "dimension": "genre",
+      "slug": "k-drama-romance",
+      "label": "K-drama romance",
+      "definition": "The romantic traditions of Korean television: slow burns, fate and second leads.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "k-drama romance",
+        "kdrama romance"
+      ],
+      "parent": "romance"
+    },
+    {
+      "dimension": "genre",
+      "slug": "martial-arts",
+      "label": "Martial arts",
+      "definition": "Fights choreographed as the main event: kung fu, karate and more.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "martial arts",
+        "kung fu",
+        "karate"
+      ],
+      "parent": "action"
+    },
+    {
+      "dimension": "genre",
+      "slug": "wuxia",
+      "label": "Wuxia",
+      "definition": "Chinese stories of wandering swordsmen, honour and impossible feats.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "wuxia",
+        "swordplay"
+      ],
+      "parent": "action"
+    },
+    {
+      "dimension": "genre",
+      "slug": "masala",
+      "label": "Masala",
+      "definition": "Indian popular cinema mixing action, romance, comedy, drama and song in one film.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "masala",
+        "masala film",
+        "mass entertainer"
+      ],
+      "parent": "action"
+    },
+    {
+      "dimension": "genre",
+      "slug": "revenge-action",
+      "label": "Revenge action",
+      "definition": "A one-person war against the people who wronged them.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "revenge action",
+        "one man army"
+      ],
+      "parent": "action"
+    },
+    {
+      "dimension": "genre",
+      "slug": "disaster",
+      "label": "Disaster",
+      "definition": "Survival against earthquakes, storms, sinking ships and collapsing cities.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "disaster movie",
+        "disaster film"
+      ],
+      "parent": "action"
+    },
+    {
+      "dimension": "genre",
+      "slug": "military-action",
+      "label": "Military action",
+      "definition": "Soldiers, pilots and missions, played for spectacle.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "military action",
+        "fighter pilots"
+      ],
+      "parent": "action"
+    },
+    {
+      "dimension": "genre",
+      "slug": "action-comedy",
+      "label": "Action comedy",
+      "definition": "Action set pieces played with jokes.",
+      "applies_to": [
+        "film",
+        "series",
+        "game"
+      ],
+      "synonyms": [
+        "action comedy"
+      ],
+      "parent": "action"
+    },
+    {
+      "dimension": "genre",
+      "slug": "quest",
+      "label": "Quest",
+      "definition": "A journey toward a goal, with trials and companions along the way.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "journey story"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "survival-adventure",
+      "label": "Survival adventure",
+      "definition": "Stranded, lost or cast away, and finding a way home.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "survival adventure",
+        "stranded",
+        "castaway"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "swashbuckler",
+      "label": "Swashbuckler",
+      "definition": "Swordplay, daring rescues and romance with a wink.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "swashbuckler",
+        "swashbuckling"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "road-trip",
+      "label": "Road trip",
+      "definition": "Stories that happen on the move between places.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "road trip",
+        "road movie"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "exploration",
+      "label": "Exploration",
+      "definition": "The pleasure of discovering places: ruins, planets and mysteries to uncover.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "lost-world",
+      "label": "Lost world",
+      "definition": "A hidden place where the past, or the impossible, survives.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "lost world"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "combat",
+      "label": "Combat",
+      "definition": "Soldiers at the front line, and battle as lived experience.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "battlefield",
+        "front line"
+      ],
+      "parent": "war"
+    },
+    {
+      "dimension": "genre",
+      "slug": "home-front",
+      "label": "Home front",
+      "definition": "What war does to civilians, families and those left behind.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "home front"
+      ],
+      "parent": "war"
+    },
+    {
+      "dimension": "genre",
+      "slug": "anti-war",
+      "label": "Anti-war",
+      "definition": "Stories that indict war, its causes and its cruelty.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "anti-war",
+        "antiwar"
+      ],
+      "parent": "war"
+    },
+    {
+      "dimension": "genre",
+      "slug": "holocaust",
+      "label": "Holocaust & genocide",
+      "definition": "Stories of the Holocaust and other genocides, and those who lived through them.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "holocaust"
+      ],
+      "parent": "war"
+    },
+    {
+      "dimension": "genre",
+      "slug": "historical-epic",
+      "label": "Historical epic",
+      "definition": "Large-scale stories of empires, revolutions and great events.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "historical epic"
+      ],
+      "parent": "historical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "alternate-history",
+      "label": "Alternate history",
+      "definition": "History as it might have gone.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "alternate history",
+        "alternative history"
+      ],
+      "parent": "historical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "colonial-history",
+      "label": "Colonial & partition history",
+      "definition": "Empire, independence, partition and their aftermath.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [],
+      "parent": "historical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "anime",
+      "label": "Anime",
+      "definition": "Japanese animation.",
+      "applies_to": [
+        "film",
+        "series",
+        "online_video"
+      ],
+      "synonyms": [
+        "anime",
+        "japanese animation"
+      ],
+      "parent": "animation"
+    },
+    {
+      "dimension": "genre",
+      "slug": "stop-motion",
+      "label": "Stop-motion",
+      "definition": "Animation made frame by frame with physical models.",
+      "applies_to": [
+        "film",
+        "series",
+        "online_video"
+      ],
+      "synonyms": [
+        "stop motion",
+        "stop-motion",
+        "claymation"
+      ],
+      "parent": "animation"
+    },
+    {
+      "dimension": "genre",
+      "slug": "computer-animation",
+      "label": "Computer animation",
+      "definition": "Animation made in 3D on a computer.",
+      "applies_to": [
+        "film",
+        "series",
+        "online_video"
+      ],
+      "synonyms": [
+        "cgi animation",
+        "3d animation",
+        "pixar"
+      ],
+      "parent": "animation"
+    },
+    {
+      "dimension": "genre",
+      "slug": "adult-animation",
+      "label": "Adult animation",
+      "definition": "Animation made for grown-ups.",
+      "applies_to": [
+        "film",
+        "series",
+        "online_video"
+      ],
+      "synonyms": [
+        "adult animation",
+        "animated for adults"
+      ],
+      "parent": "animation"
+    },
+    {
+      "dimension": "genre",
+      "slug": "nature-documentary",
+      "label": "Nature documentary",
+      "definition": "The natural world, its animals and habitats.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "nature documentary",
+        "wildlife documentary",
+        "nature doc"
+      ],
+      "parent": "documentary"
+    },
+    {
+      "dimension": "genre",
+      "slug": "social-documentary",
+      "label": "Social & political documentary",
+      "definition": "Investigations into society, politics and injustice.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "political documentary",
+        "social documentary"
+      ],
+      "parent": "documentary"
+    },
+    {
+      "dimension": "genre",
+      "slug": "sports-documentary",
+      "label": "Sports documentary",
+      "definition": "Real athletes and real contests.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "sports documentary",
+        "sports doc"
+      ],
+      "parent": "documentary"
+    },
+    {
+      "dimension": "genre",
+      "slug": "portrait-documentary",
+      "label": "Portrait documentary",
+      "definition": "A close look at one remarkable life or community.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "portrait documentary"
+      ],
+      "parent": "documentary"
+    },
+    {
+      "dimension": "genre",
+      "slug": "holiday-movie",
+      "label": "Holiday & Christmas",
+      "definition": "Stories made for the festive season.",
+      "applies_to": [
+        "film",
+        "series",
+        "game",
+        "book"
+      ],
+      "synonyms": [
+        "holiday movie",
+        "christmas movie",
+        "christmas film",
+        "holiday film"
+      ],
+      "parent": "family"
+    },
+    {
+      "dimension": "genre",
+      "slug": "animal-tale",
+      "label": "Animal tale",
+      "definition": "Animals as heroes, friends and families.",
+      "applies_to": [
+        "film",
+        "series",
+        "game",
+        "book"
+      ],
+      "synonyms": [
+        "animal story",
+        "talking animals",
+        "animal tale"
+      ],
+      "parent": "family"
+    },
+    {
+      "dimension": "genre",
+      "slug": "all-ages-adventure",
+      "label": "All-ages adventure",
+      "definition": "Adventures pitched for children and enjoyed by everyone.",
+      "applies_to": [
+        "film",
+        "series",
+        "game",
+        "book"
+      ],
+      "synonyms": [
+        "kids adventure",
+        "all ages"
+      ],
+      "parent": "family"
+    },
+    {
+      "dimension": "genre",
+      "slug": "bollywood-musical",
+      "label": "Bollywood musical",
+      "definition": "Hindi popular cinema in which song and dance carry the story.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "bollywood musical",
+        "song and dance film"
+      ],
+      "parent": "musical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "animated-musical",
+      "label": "Animated musical",
+      "definition": "Animated films built around songs.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "animated musical"
+      ],
+      "parent": "musical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "classic-musical",
+      "label": "Movie musical",
+      "definition": "Musicals made for the screen or carried over from the stage.",
+      "applies_to": [
+        "film",
+        "series"
+      ],
+      "synonyms": [
+        "movie musical",
+        "stage musical",
+        "broadway"
+      ],
+      "parent": "musical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "sports-biography",
+      "label": "Sports biography",
+      "definition": "The life of an athlete.",
+      "applies_to": [
+        "film",
+        "series",
+        "book"
+      ],
+      "synonyms": [
+        "sports biopic",
+        "sports biography"
+      ],
+      "parent": "biography"
+    },
+    {
+      "dimension": "genre",
+      "slug": "political-biography",
+      "label": "Political & activist biography",
+      "definition": "The lives of leaders, activists and public figures.",
+      "applies_to": [
+        "film",
+        "series",
+        "book"
+      ],
+      "synonyms": [
+        "political biopic",
+        "activist biopic"
+      ],
+      "parent": "biography"
+    },
+    {
+      "dimension": "genre",
+      "slug": "science-biography",
+      "label": "Science & invention biography",
+      "definition": "Scientists, engineers and inventors, and how they did it.",
+      "applies_to": [
+        "film",
+        "series",
+        "book"
+      ],
+      "synonyms": [
+        "scientist biopic",
+        "science biography"
+      ],
+      "parent": "biography"
+    },
+    {
+      "dimension": "genre",
+      "slug": "business-biography",
+      "label": "Business biography",
+      "definition": "Founders, tycoons and swindlers.",
+      "applies_to": [
+        "film",
+        "series",
+        "book"
+      ],
+      "synonyms": [
+        "business biopic",
+        "founder story"
+      ],
+      "parent": "biography"
+    },
+    {
+      "dimension": "genre",
+      "slug": "origin-story",
+      "label": "Origin story",
+      "definition": "How a hero gets their powers and becomes who they are.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "origin story",
+        "superhero origin"
+      ],
+      "parent": "superhero"
+    },
+    {
+      "dimension": "genre",
+      "slug": "superhero-deconstruction",
+      "label": "Superhero deconstruction",
+      "definition": "Stories that question what superheroes would really mean.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "superhero deconstruction",
+        "anti-superhero"
+      ],
+      "parent": "superhero"
+    },
+    {
+      "dimension": "genre",
+      "slug": "superhero-ensemble",
+      "label": "Superhero adventure",
+      "definition": "Costumed heroes saving the day, often together.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "superhero team",
+        "team-up"
+      ],
+      "parent": "superhero"
+    },
+    {
+      "dimension": "genre",
+      "slug": "classic-western",
+      "label": "Classic western",
+      "definition": "Frontier tales of lawmen, outlaws and showdowns.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "classic western"
+      ],
+      "parent": "western"
+    },
+    {
+      "dimension": "genre",
+      "slug": "revisionist-western",
+      "label": "Revisionist western",
+      "definition": "Westerns that question the myths of the frontier.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "revisionist western",
+        "anti-western"
+      ],
+      "parent": "western"
+    },
+    {
+      "dimension": "genre",
+      "slug": "neo-western",
+      "label": "Neo-western",
+      "definition": "Western themes in a modern setting.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "neo-western",
+        "modern western"
+      ],
+      "parent": "western"
+    },
+    {
+      "dimension": "genre",
+      "slug": "space-western",
+      "label": "Space western",
+      "definition": "Frontier stories among the stars.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "space western",
+        "space cowboy"
+      ],
+      "parent": "western"
+    },
+    {
+      "dimension": "genre",
+      "slug": "sports-drama",
+      "label": "Sports drama",
+      "definition": "The struggles and stakes behind competition.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "sports film",
+        "sports movie"
+      ],
+      "parent": "sports"
+    },
+    {
+      "dimension": "genre",
+      "slug": "sports-comedy",
+      "label": "Sports comedy",
+      "definition": "Competition played for laughs and heart.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "sports comedy"
+      ],
+      "parent": "sports"
+    },
+    {
+      "dimension": "genre",
+      "slug": "underdog-story",
+      "label": "Underdog story",
+      "definition": "Outsiders against the odds.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "against the odds"
+      ],
+      "parent": "sports"
+    },
+    {
+      "dimension": "genre",
+      "slug": "self-help",
+      "label": "Self-help",
+      "definition": "Practical advice for changing habits, work and life.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "self-help",
+        "self help",
+        "personal development"
+      ],
+      "parent": "non-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "narrative-history",
+      "label": "Narrative history",
+      "definition": "History told as a story, for general readers.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "narrative history",
+        "history book",
+        "history books"
+      ],
+      "parent": "non-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "psychology-and-mind",
+      "label": "Psychology & the mind",
+      "definition": "How minds work, and how they go wrong or heal.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "psychology book"
+      ],
+      "parent": "non-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "philosophy",
+      "label": "Philosophy",
+      "definition": "Ideas about meaning, ethics and how to live.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [],
+      "parent": "non-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "political-memoir",
+      "label": "Political memoir",
+      "definition": "Lives in public office and activism, in their own words.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "political memoir"
+      ],
+      "parent": "memoir"
+    },
+    {
+      "dimension": "genre",
+      "slug": "illness-and-grief-memoir",
+      "label": "Illness & grief memoir",
+      "definition": "Writing through illness, dying and loss.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "grief memoir",
+        "illness memoir"
+      ],
+      "parent": "memoir"
+    },
+    {
+      "dimension": "genre",
+      "slug": "survival-memoir",
+      "label": "Survival memoir",
+      "definition": "Accounts of living through persecution, war or extreme hardship.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "survival memoir",
+        "holocaust memoir"
+      ],
+      "parent": "memoir"
+    },
+    {
+      "dimension": "genre",
+      "slug": "coming-of-age-memoir",
+      "label": "Coming-of-age memoir",
+      "definition": "Growing up, in the writer's own words.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "coming of age memoir",
+        "childhood memoir"
+      ],
+      "parent": "memoir"
+    },
+    {
+      "dimension": "genre",
+      "slug": "cosmology",
+      "label": "Physics & the cosmos",
+      "definition": "The universe, its laws and its origins.",
+      "applies_to": [
+        "book",
+        "series",
+        "film"
+      ],
+      "synonyms": [
+        "cosmology",
+        "astronomy",
+        "physics book"
+      ],
+      "parent": "popular-science"
+    },
+    {
+      "dimension": "genre",
+      "slug": "evolution-and-biology",
+      "label": "Biology & evolution",
+      "definition": "Life, genes, bodies and how they came to be.",
+      "applies_to": [
+        "book",
+        "series",
+        "film"
+      ],
+      "synonyms": [
+        "genetics"
+      ],
+      "parent": "popular-science"
+    },
+    {
+      "dimension": "genre",
+      "slug": "environment",
+      "label": "Environment & ecology",
+      "definition": "The living planet and what we are doing to it.",
+      "applies_to": [
+        "book",
+        "series",
+        "film"
+      ],
+      "synonyms": [],
+      "parent": "popular-science"
+    },
+    {
+      "dimension": "genre",
+      "slug": "shonen",
+      "label": "Shōnen",
+      "definition": "Manga and anime aimed at young readers: battles, rivals, friendship and growth.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "shonen",
+        "shounen",
+        "battle shonen"
+      ],
+      "parent": "graphic-novel"
+    },
+    {
+      "dimension": "genre",
+      "slug": "seinen",
+      "label": "Seinen",
+      "definition": "Manga and anime aimed at adults: darker, slower and more complex.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "seinen"
+      ],
+      "parent": "graphic-novel"
+    },
+    {
+      "dimension": "genre",
+      "slug": "graphic-memoir",
+      "label": "Graphic memoir",
+      "definition": "True stories told in comics.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "graphic memoir"
+      ],
+      "parent": "graphic-novel"
+    },
+    {
+      "dimension": "genre",
+      "slug": "slice-of-life",
+      "label": "Slice of life",
+      "definition": "Everyday life, routines and small moments, told with care.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "slice-of-life",
+        "iyashikei"
+      ],
+      "parent": "graphic-novel"
+    },
+    {
+      "dimension": "genre",
+      "slug": "existentialist-fiction",
+      "label": "Existentialist fiction",
+      "definition": "Alienation, absurdity and the search for meaning.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "existentialist",
+        "existential novel",
+        "absurdism"
+      ],
+      "parent": "literary-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "family-saga",
+      "label": "Family saga",
+      "definition": "Several generations of one family across decades.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "multigenerational",
+        "generational saga"
+      ],
+      "parent": "literary-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "postcolonial-fiction",
+      "label": "Postcolonial fiction",
+      "definition": "Life after empire: identity, migration and inheritance.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "postcolonial",
+        "post-colonial"
+      ],
+      "parent": "literary-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "campus-story",
+      "label": "Campus & school story",
+      "definition": "Schools, colleges and universities, and the people in them.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "campus novel",
+        "dark academia",
+        "boarding school",
+        "school drama"
+      ],
+      "parent": "drama"
+    },
+    {
+      "dimension": "genre",
+      "slug": "classic-literature",
+      "label": "Classic literature",
+      "definition": "Long-established classics that shaped the novel.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "classic novel",
+        "literary classic"
+      ],
+      "parent": "literary-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "short-stories",
+      "label": "Short story collection",
+      "definition": "Collections of short fiction.",
+      "applies_to": [
+        "book"
+      ],
+      "synonyms": [
+        "short story",
+        "story collection"
+      ],
+      "parent": "literary-fiction"
+    },
+    {
+      "dimension": "genre",
+      "slug": "action-rpg",
+      "label": "Action RPG",
+      "definition": "Role-playing with real-time combat.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "action rpg",
+        "arpg"
+      ],
+      "parent": "rpg"
+    },
+    {
+      "dimension": "genre",
+      "slug": "jrpg",
+      "label": "JRPG",
+      "definition": "Japanese role-playing games: parties, turn-based battles and long stories.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "jrpg",
+        "japanese rpg"
+      ],
+      "parent": "rpg"
+    },
+    {
+      "dimension": "genre",
+      "slug": "crpg",
+      "label": "CRPG",
+      "definition": "Computer role-playing in the tabletop tradition: dice, dialogue and choice.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "crpg",
+        "isometric rpg"
+      ],
+      "parent": "rpg"
+    },
+    {
+      "dimension": "genre",
+      "slug": "soulslike",
+      "label": "Soulslike",
+      "definition": "Punishing, deliberate combat and cryptic worlds in the mould of Dark Souls.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "soulslike",
+        "souls-like",
+        "soulsborne"
+      ],
+      "parent": "rpg"
+    },
+    {
+      "dimension": "genre",
+      "slug": "first-person-shooter",
+      "label": "First-person shooter",
+      "definition": "Shooting seen through the player's own eyes.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "fps",
+        "first-person shooter",
+        "first person shooter"
+      ],
+      "parent": "shooter"
+    },
+    {
+      "dimension": "genre",
+      "slug": "third-person-shooter",
+      "label": "Third-person shooter",
+      "definition": "Shooting with the camera behind the character.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "third-person shooter",
+        "tps"
+      ],
+      "parent": "shooter"
+    },
+    {
+      "dimension": "genre",
+      "slug": "4x-strategy",
+      "label": "4X strategy",
+      "definition": "Explore, expand, exploit, exterminate: empire-building over many turns.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "4x",
+        "grand strategy",
+        "empire builder"
+      ],
+      "parent": "strategy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "deckbuilder",
+      "label": "Deck-builder",
+      "definition": "Strategy built around assembling and playing a deck of cards.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "deckbuilder",
+        "deck-builder",
+        "card game"
+      ],
+      "parent": "strategy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "tactics",
+      "label": "Tactics",
+      "definition": "Turn-based battles of positioning and planning.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "tactics",
+        "tactical",
+        "turn-based",
+        "turn based"
+      ],
+      "parent": "strategy"
+    },
+    {
+      "dimension": "genre",
+      "slug": "logic-puzzle",
+      "label": "Logic puzzle",
+      "definition": "Puzzles of rules and deduction.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "logic puzzle",
+        "logic puzzles"
+      ],
+      "parent": "puzzle"
+    },
+    {
+      "dimension": "genre",
+      "slug": "physics-puzzle",
+      "label": "Physics puzzle",
+      "definition": "Puzzles built on physics and spatial reasoning.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "physics puzzle",
+        "portal-like"
+      ],
+      "parent": "puzzle"
+    },
+    {
+      "dimension": "genre",
+      "slug": "deduction-game",
+      "label": "Deduction game",
+      "definition": "Solve a mystery by reasoning from evidence.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "deduction game",
+        "detective game"
+      ],
+      "parent": "puzzle"
+    },
+    {
+      "dimension": "genre",
+      "slug": "falling-block",
+      "label": "Falling-block puzzle",
+      "definition": "Pieces fall; clear them before they stack up.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "falling block",
+        "tetris-like"
+      ],
+      "parent": "puzzle"
+    },
+    {
+      "dimension": "genre",
+      "slug": "precision-platformer",
+      "label": "Precision platformer",
+      "definition": "Demanding jumps, tight controls and frequent retries.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "precision platformer",
+        "hard platformer"
+      ],
+      "parent": "platformer"
+    },
+    {
+      "dimension": "genre",
+      "slug": "3d-platformer",
+      "label": "3D platformer",
+      "definition": "Running and jumping through open three-dimensional levels.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "3d platformer"
+      ],
+      "parent": "platformer"
+    },
+    {
+      "dimension": "genre",
+      "slug": "puzzle-platformer",
+      "label": "Puzzle platformer",
+      "definition": "Platforming where each screen is a puzzle.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "puzzle platformer"
+      ],
+      "parent": "platformer"
+    },
+    {
+      "dimension": "genre",
+      "slug": "narrative-adventure",
+      "label": "Narrative adventure",
+      "definition": "Games about story and place more than challenge.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "walking simulator",
+        "walking sim",
+        "narrative game",
+        "story game"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "action-adventure",
+      "label": "Action adventure",
+      "definition": "Exploration, combat and puzzles in one journey.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "action adventure",
+        "action-adventure"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "sandbox-survival",
+      "label": "Sandbox & crafting",
+      "definition": "Build, gather and survive in an open world of your making.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "crafting",
+        "survival crafting"
+      ],
+      "parent": "adventure"
+    },
+    {
+      "dimension": "genre",
+      "slug": "social-deduction",
+      "label": "Social deduction",
+      "definition": "Find the traitor among your friends.",
+      "applies_to": [
+        "film",
+        "series",
+        "book",
+        "game"
+      ],
+      "synonyms": [
+        "social deduction",
+        "party game"
+      ],
+      "parent": "mystery"
+    },
+    {
+      "dimension": "genre",
+      "slug": "action-roguelite",
+      "label": "Action roguelite",
+      "definition": "Real-time runs that end in death, with progress carried between them.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "roguelite",
+        "rogue-lite",
+        "action roguelite"
+      ],
+      "parent": "roguelike"
+    },
+    {
+      "dimension": "genre",
+      "slug": "farming-sim",
+      "label": "Farming sim",
+      "definition": "Grow crops, raise animals and settle into village life.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "farming sim",
+        "farming game",
+        "farm sim"
+      ],
+      "parent": "life-sim"
+    },
+    {
+      "dimension": "genre",
+      "slug": "cozy-game",
+      "label": "Cosy game",
+      "definition": "Gentle, low-pressure games for winding down.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "cozy game",
+        "cosy game",
+        "wholesome game"
+      ],
+      "parent": "life-sim"
+    },
+    {
+      "dimension": "genre",
+      "slug": "open-world-racing",
+      "label": "Open-world racing",
+      "definition": "Racing across a big open map.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "open world racing",
+        "arcade racing"
+      ],
+      "parent": "racing"
+    },
+    {
+      "dimension": "genre",
+      "slug": "tactical-espionage",
+      "label": "Tactical espionage",
+      "definition": "Sneaking, gadgets and espionage missions.",
+      "applies_to": [
+        "game"
+      ],
+      "synonyms": [
+        "tactical espionage",
+        "sneaking"
+      ],
+      "parent": "stealth"
+    },
+    {
+      "dimension": "genre",
+      "slug": "classic-rock",
+      "label": "Classic rock",
+      "definition": "The guitar rock of the 1960s and 70s.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "classic rock"
+      ],
+      "parent": "rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "progressive-rock",
+      "label": "Progressive rock",
+      "definition": "Ambitious, long-form rock with complex structures.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "progressive rock",
+        "prog rock",
+        "prog"
+      ],
+      "parent": "rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "psychedelic-rock",
+      "label": "Psychedelic rock",
+      "definition": "Mind-bending sounds, studio experiments and altered states.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "psychedelic",
+        "psychedelic rock",
+        "psych rock"
+      ],
+      "parent": "rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "hard-rock",
+      "label": "Hard rock",
+      "definition": "Loud, riff-driven rock.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "hard rock"
+      ],
+      "parent": "rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "alternative-rock",
+      "label": "Alternative rock",
+      "definition": "Rock from outside the mainstream that became the mainstream.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "alternative rock",
+        "alt rock",
+        "alt-rock"
+      ],
+      "parent": "rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "grunge",
+      "label": "Grunge",
+      "definition": "Seattle's heavy, distorted and disaffected 1990s rock.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "grunge"
+      ],
+      "parent": "rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "garage-rock",
+      "label": "Garage rock revival",
+      "definition": "Raw, stripped-back rock and roll.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "garage rock"
+      ],
+      "parent": "rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "heavy-metal",
+      "label": "Heavy metal",
+      "definition": "The original heavy, riff-led metal.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "heavy metal"
+      ],
+      "parent": "metal"
+    },
+    {
+      "dimension": "genre",
+      "slug": "thrash-metal",
+      "label": "Thrash metal",
+      "definition": "Fast, aggressive metal.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "thrash",
+        "thrash metal"
+      ],
+      "parent": "metal"
+    },
+    {
+      "dimension": "genre",
+      "slug": "nu-metal",
+      "label": "Nu metal",
+      "definition": "Metal blended with hip-hop and alternative rock.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "nu metal",
+        "nu-metal"
+      ],
+      "parent": "metal"
+    },
+    {
+      "dimension": "genre",
+      "slug": "punk-rock",
+      "label": "Punk rock",
+      "definition": "Fast, raw and rebellious.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "punk rock"
+      ],
+      "parent": "punk"
+    },
+    {
+      "dimension": "genre",
+      "slug": "post-punk",
+      "label": "Post-punk",
+      "definition": "Punk's restless, experimental successor.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "post-punk",
+        "post punk"
+      ],
+      "parent": "punk"
+    },
+    {
+      "dimension": "genre",
+      "slug": "synth-pop",
+      "label": "Synth-pop",
+      "definition": "Pop built on synthesisers.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "synth-pop",
+        "synthpop",
+        "synth pop"
+      ],
+      "parent": "pop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "dance-pop",
+      "label": "Dance-pop",
+      "definition": "Pop made for the dance floor.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "dance pop",
+        "dance-pop",
+        "disco pop"
+      ],
+      "parent": "pop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "k-pop",
+      "label": "K-pop",
+      "definition": "Korean pop music.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "k-pop",
+        "kpop"
+      ],
+      "parent": "pop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "baroque-pop",
+      "label": "Baroque & chamber pop",
+      "definition": "Pop with orchestral arrangements and elaborate harmonies.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "baroque pop",
+        "chamber pop"
+      ],
+      "parent": "pop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "pop-rock",
+      "label": "Pop rock",
+      "definition": "Rock songs with pop hooks.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "pop rock",
+        "pop-rock"
+      ],
+      "parent": "pop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "indian-pop",
+      "label": "Indian pop",
+      "definition": "Indian pop and independent music outside film.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "indipop",
+        "indian pop",
+        "indie pop india"
+      ],
+      "parent": "pop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "french-house",
+      "label": "House & French house",
+      "definition": "Four-on-the-floor dance music, filtered and looped.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "house music",
+        "french house"
+      ],
+      "parent": "electronic"
+    },
+    {
+      "dimension": "genre",
+      "slug": "idm",
+      "label": "IDM",
+      "definition": "Intricate, experimental electronic music for listening.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "idm",
+        "intelligent dance music",
+        "braindance"
+      ],
+      "parent": "electronic"
+    },
+    {
+      "dimension": "genre",
+      "slug": "trip-hop",
+      "label": "Trip-hop",
+      "definition": "Slow, dark breakbeats with samples and atmosphere.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "trip-hop",
+        "trip hop"
+      ],
+      "parent": "electronic"
+    },
+    {
+      "dimension": "genre",
+      "slug": "uk-bass",
+      "label": "UK garage & dubstep",
+      "definition": "Shuffling, sub-heavy British dance music.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "dubstep",
+        "uk garage",
+        "2-step"
+      ],
+      "parent": "electronic"
+    },
+    {
+      "dimension": "genre",
+      "slug": "electropop",
+      "label": "Electropop",
+      "definition": "Pop built from electronic production.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "electropop",
+        "electro-pop"
+      ],
+      "parent": "electronic"
+    },
+    {
+      "dimension": "genre",
+      "slug": "conscious-hip-hop",
+      "label": "Conscious hip-hop",
+      "definition": "Hip-hop about society, politics and identity.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "conscious rap",
+        "conscious hip-hop",
+        "political rap"
+      ],
+      "parent": "hip-hop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "boom-bap",
+      "label": "East Coast & boom bap",
+      "definition": "Hard drums, samples and lyricism from New York.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "boom bap",
+        "east coast rap"
+      ],
+      "parent": "hip-hop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "west-coast-hip-hop",
+      "label": "West Coast hip-hop",
+      "definition": "The sound of California rap.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "west coast rap",
+        "west coast hip-hop"
+      ],
+      "parent": "hip-hop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "pop-rap",
+      "label": "Pop rap",
+      "definition": "Hip-hop with pop hooks.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "pop rap"
+      ],
+      "parent": "hip-hop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "jazz-rap",
+      "label": "Jazz rap",
+      "definition": "Hip-hop built on jazz.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "jazz rap"
+      ],
+      "parent": "hip-hop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "neo-soul",
+      "label": "Neo-soul",
+      "definition": "Soul music reborn with hip-hop and jazz.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "neo-soul",
+        "neo soul"
+      ],
+      "parent": "soul-rnb"
+    },
+    {
+      "dimension": "genre",
+      "slug": "alternative-rnb",
+      "label": "Alternative R&B",
+      "definition": "Moody, experimental R&B.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "alternative r&b",
+        "alt r&b",
+        "alt-r&b"
+      ],
+      "parent": "soul-rnb"
+    },
+    {
+      "dimension": "genre",
+      "slug": "classic-soul",
+      "label": "Classic soul & Motown",
+      "definition": "The soul and Motown of the 1960s and 70s.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "motown",
+        "classic soul"
+      ],
+      "parent": "soul-rnb"
+    },
+    {
+      "dimension": "genre",
+      "slug": "contemporary-rnb",
+      "label": "Contemporary R&B",
+      "definition": "Modern mainstream R&B.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "contemporary r&b",
+        "modern r&b"
+      ],
+      "parent": "soul-rnb"
+    },
+    {
+      "dimension": "genre",
+      "slug": "modal-jazz",
+      "label": "Modal jazz",
+      "definition": "Improvisation over scales rather than chord changes.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "modal jazz"
+      ],
+      "parent": "jazz"
+    },
+    {
+      "dimension": "genre",
+      "slug": "spiritual-jazz",
+      "label": "Spiritual jazz",
+      "definition": "Jazz as devotion and transcendence.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "spiritual jazz"
+      ],
+      "parent": "jazz"
+    },
+    {
+      "dimension": "genre",
+      "slug": "cool-jazz",
+      "label": "Cool jazz",
+      "definition": "Relaxed, lyrical jazz of the 1950s.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "cool jazz",
+        "west coast jazz"
+      ],
+      "parent": "jazz"
+    },
+    {
+      "dimension": "genre",
+      "slug": "bossa-nova",
+      "label": "Bossa nova",
+      "definition": "Brazil's gentle fusion of samba and jazz.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "bossa"
+      ],
+      "parent": "jazz"
+    },
+    {
+      "dimension": "genre",
+      "slug": "solo-improvisation",
+      "label": "Solo improvisation",
+      "definition": "One musician inventing at the instrument.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "solo piano"
+      ],
+      "parent": "jazz"
+    },
+    {
+      "dimension": "genre",
+      "slug": "baroque",
+      "label": "Baroque",
+      "definition": "Music of the 1600s and early 1700s: Bach, Handel, Vivaldi.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "baroque"
+      ],
+      "parent": "classical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "modern-classical",
+      "label": "Modern & neo-classical",
+      "definition": "Contemporary composition, often minimal and cinematic.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "neo-classical",
+        "neoclassical",
+        "modern classical",
+        "contemporary classical"
+      ],
+      "parent": "classical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "minimalism",
+      "label": "Minimalism",
+      "definition": "Repetition and slow change as the music.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "minimalism",
+        "minimalist music"
+      ],
+      "parent": "classical"
+    },
+    {
+      "dimension": "genre",
+      "slug": "ambient-drone",
+      "label": "Ambient & drone",
+      "definition": "Music as atmosphere: slow, sustained and textural.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "ambient drone",
+        "tape loops"
+      ],
+      "parent": "ambient"
+    },
+    {
+      "dimension": "genre",
+      "slug": "indie-folk",
+      "label": "Indie folk",
+      "definition": "Acoustic songwriting with indie sensibility.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "indie folk",
+        "indie-folk"
+      ],
+      "parent": "folk"
+    },
+    {
+      "dimension": "genre",
+      "slug": "country",
+      "label": "Country",
+      "definition": "American roots music of the South and West.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "country music",
+        "outlaw country"
+      ],
+      "parent": "folk"
+    },
+    {
+      "dimension": "genre",
+      "slug": "folk-rock",
+      "label": "Folk rock",
+      "definition": "Folk songs played with a rock band.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "folk rock",
+        "folk-rock"
+      ],
+      "parent": "folk"
+    },
+    {
+      "dimension": "genre",
+      "slug": "reggae",
+      "label": "Reggae",
+      "definition": "Jamaica's offbeat rhythm and roots message.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "reggae",
+        "roots reggae"
+      ],
+      "parent": "world-music"
+    },
+    {
+      "dimension": "genre",
+      "slug": "afrobeat",
+      "label": "Afrobeat",
+      "definition": "Fela Kuti's fusion of West African music, funk and jazz.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "afrobeat",
+        "afro beat"
+      ],
+      "parent": "world-music"
+    },
+    {
+      "dimension": "genre",
+      "slug": "qawwali",
+      "label": "Qawwali",
+      "definition": "Sufi devotional music of South Asia.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "qawwali",
+        "sufi music"
+      ],
+      "parent": "world-music"
+    },
+    {
+      "dimension": "genre",
+      "slug": "latin",
+      "label": "Latin & Cuban",
+      "definition": "The music of Latin America and the Caribbean.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "son cubano",
+        "latin music",
+        "cuban music"
+      ],
+      "parent": "world-music"
+    },
+    {
+      "dimension": "genre",
+      "slug": "indian-classical-fusion",
+      "label": "Indian fusion",
+      "definition": "Indian traditions blended with rock, jazz or electronics.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "indian fusion",
+        "fusion music"
+      ],
+      "parent": "world-music"
+    },
+    {
+      "dimension": "genre",
+      "slug": "film-score",
+      "label": "Film score",
+      "definition": "Instrumental music composed for film.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "film score",
+        "movie score",
+        "orchestral score"
+      ],
+      "parent": "soundtrack"
+    },
+    {
+      "dimension": "genre",
+      "slug": "filmi",
+      "label": "Filmi",
+      "definition": "Songs from Indian cinema.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "filmi",
+        "bollywood songs",
+        "film songs"
+      ],
+      "parent": "soundtrack"
+    },
+    {
+      "dimension": "genre",
+      "slug": "confessional",
+      "label": "Confessional songwriting",
+      "definition": "Intimate, autobiographical songs.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "confessional"
+      ],
+      "parent": "singer-songwriter"
+    },
+    {
+      "dimension": "genre",
+      "slug": "crescendo-post-rock",
+      "label": "Crescendo post-rock",
+      "definition": "Long instrumental builds to cathartic peaks.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "crescendo core",
+        "instrumental rock"
+      ],
+      "parent": "post-rock"
+    },
+    {
+      "dimension": "genre",
+      "slug": "experimental-pop",
+      "label": "Experimental pop",
+      "definition": "Pop that pushes at form and sound.",
+      "applies_to": [
+        "album",
+        "track"
+      ],
+      "synonyms": [
+        "experimental pop",
+        "avant-pop"
+      ],
+      "parent": "art-pop"
+    }
   ]
 }

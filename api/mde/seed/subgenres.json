@@ -1,0 +1,2580 @@
+{
+ "about": "Subgenres for every work, layered over the seed by catalogue/seedfiles.py and demo/seed.cjs. Each subgenre names its parent genre in the taxonomy; 0.9 is a defining subgenre, 0.6 a secondary one. AI-assisted classification awaiting editorial review, like other tags.",
+ "terms": {
+  "12-angry-men-1957": {
+   "genre:courtroom": 0.9
+  },
+  "12th-fail-2023": {
+   "genre:underdog-story": 0.9,
+   "genre:social-realism": 0.6
+  },
+  "1989-2014": {
+   "genre:synth-pop": 0.9,
+   "genre:dance-pop": 0.9
+  },
+  "2001-a-space-odyssey-1968": {
+   "genre:hard-science-fiction": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:alien-encounter": 0.6
+  },
+  "21-2011": {
+   "genre:confessional": 0.9,
+   "genre:classic-soul": 0.6
+  },
+  "3-idiots-2009": {
+   "genre:campus-story": 0.9,
+   "genre:dramedy": 0.9,
+   "genre:buddy-comedy": 0.6
+  },
+  "a-brief-history-of-time-1988": {
+   "genre:cosmology": 0.9
+  },
+  "a-charlie-brown-christmas-1965": {
+   "genre:cool-jazz": 0.9,
+   "genre:film-score": 0.9,
+   "genre:holiday-movie": 0.6
+  },
+  "a-christmas-carol-1843": {
+   "genre:holiday-movie": 0.9,
+   "genre:supernatural-horror": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "a-circle-of-time-2020": {
+   "genre:high-fantasy": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "a-game-of-thrones-1996": {
+   "genre:high-fantasy": 0.9,
+   "genre:dark-fantasy": 0.9,
+   "genre:political-drama": 0.6
+  },
+  "a-little-life-2015": {
+   "genre:melodrama": 0.9,
+   "genre:character-study": 0.9
+  },
+  "a-love-supreme-1965": {
+   "genre:spiritual-jazz": 0.9,
+   "genre:modal-jazz": 0.9
+  },
+  "a-psalm-for-the-wild-built-2021": {
+   "genre:cozy-fantasy": 0.9,
+   "genre:artificial-intelligence": 0.9
+  },
+  "a-quiet-place-2018": {
+   "genre:creature-feature": 0.9,
+   "genre:survival-horror": 0.9,
+   "genre:alien-encounter": 0.6
+  },
+  "a-rush-of-blood-to-the-head-2002": {
+   "genre:alternative-rock": 0.9,
+   "genre:pop-rock": 0.9
+  },
+  "a-separation-2011": {
+   "genre:family-drama": 0.9,
+   "genre:social-realism": 0.9,
+   "genre:courtroom": 0.6
+  },
+  "a-short-hike-2019": {
+   "genre:cozy-game": 0.9,
+   "genre:exploration": 0.9
+  },
+  "a-silent-voice-2016": {
+   "genre:anime": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "a-suitable-boy-1993": {
+   "genre:family-saga": 0.9,
+   "genre:period-romance": 0.9,
+   "genre:colonial-history": 0.6
+  },
+  "a-wizard-of-earthsea-1968": {
+   "genre:high-fantasy": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "abbey-road-1969": {
+   "genre:classic-rock": 0.9,
+   "genre:pop-rock": 0.9
+  },
+  "agaetis-byrjun-1999": {
+   "genre:crescendo-post-rock": 0.9,
+   "genre:ambient-drone": 0.6
+  },
+  "akira-1982": {
+   "genre:seinen": 0.9,
+   "genre:cyberpunk": 0.9
+  },
+  "akira-1988": {
+   "genre:anime": 0.9,
+   "genre:cyberpunk": 0.9,
+   "genre:dystopian": 0.6
+  },
+  "akshata-the-ledger-of-names-2025": {
+   "genre:folk-horror": 0.9,
+   "genre:supernatural-mystery": 0.9
+  },
+  "alien-1979": {
+   "genre:creature-feature": 0.9,
+   "genre:survival-horror": 0.6
+  },
+  "alien-vs-predator-2004": {
+   "genre:creature-feature": 0.9,
+   "genre:survival-horror": 0.6
+  },
+  "aligarh-2015": {
+   "genre:political-biography": 0.9,
+   "genre:character-study": 0.6
+  },
+  "am-2013": {
+   "genre:alternative-rock": 0.9,
+   "genre:hard-rock": 0.6
+  },
+  "amelie-2001": {
+   "genre:romantic-comedy": 0.9,
+   "genre:absurdist-comedy": 0.6
+  },
+  "american-gods-2001": {
+   "genre:mythic-fantasy": 0.9,
+   "genre:urban-fantasy": 0.9,
+   "genre:road-trip": 0.6
+  },
+  "among-us-2018": {
+   "genre:social-deduction": 0.9
+  },
+  "anatomy-of-a-fall-2023": {
+   "genre:courtroom": 0.9,
+   "genre:psychological-drama": 0.9
+  },
+  "and-then-there-were-none-1939": {
+   "genre:whodunit": 0.9
+  },
+  "andhadhun-2018": {
+   "genre:black-comedy": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "andor-2022": {
+   "genre:space-opera": 0.9,
+   "genre:political-thriller": 0.9,
+   "genre:spy-thriller": 0.6
+  },
+  "animal-crossing-new-horizons-2020": {
+   "genre:cozy-game": 0.9,
+   "genre:farming-sim": 0.6
+  },
+  "annihilation-2014": {
+   "genre:cosmic-horror": 0.9,
+   "genre:alien-encounter": 0.6
+  },
+  "annihilation-2018": {
+   "genre:cosmic-horror": 0.9,
+   "genre:body-horror-genre": 0.9,
+   "genre:alien-encounter": 0.6
+  },
+  "another-round-2020": {
+   "genre:dramedy": 0.9,
+   "genre:character-study": 0.9
+  },
+  "arcane-2021": {
+   "genre:adult-animation": 0.9,
+   "genre:cyberpunk": 0.6,
+   "genre:political-drama": 0.6
+  },
+  "arrival-2016": {
+   "genre:alien-encounter": 0.9,
+   "genre:hard-science-fiction": 0.9,
+   "genre:psychological-drama": 0.6
+  },
+  "arthur-christmas-2011": {
+   "genre:holiday-movie": 0.9,
+   "genre:computer-animation": 0.9
+  },
+  "at-folsom-prison-1968": {
+   "genre:country": 0.9
+  },
+  "atomic-habits-2018": {
+   "genre:self-help": 0.9
+  },
+  "attack-on-titan-2009": {
+   "genre:shonen": 0.9,
+   "genre:dark-fantasy": 0.9,
+   "genre:post-apocalyptic": 0.6
+  },
+  "attack-on-titan-2013": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "avatar-the-last-airbender-2005": {
+   "genre:high-fantasy": 0.9,
+   "genre:quest": 0.9,
+   "genre:martial-arts": 0.6
+  },
+  "baahubali-the-beginning-2015": {
+   "genre:masala": 0.9,
+   "genre:high-fantasy": 0.9,
+   "genre:historical-epic": 0.6
+  },
+  "babylon-berlin-2017": {
+   "genre:neo-noir": 0.9,
+   "genre:police-procedural": 0.9,
+   "genre:period-drama": 0.9
+  },
+  "back-in-black-1980": {
+   "genre:hard-rock": 0.9
+  },
+  "back-to-black-2006": {
+   "genre:classic-soul": 0.9,
+   "genre:neo-soul": 0.6
+  },
+  "back-to-the-future-1985": {
+   "genre:time-travel": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "bajrangi-bhaijaan-2015": {
+   "genre:road-trip": 0.9,
+   "genre:melodrama": 0.9
+  },
+  "baldurs-gate-3-2023": {
+   "genre:crpg": 0.9,
+   "genre:high-fantasy": 0.9,
+   "genre:tactics": 0.9
+  },
+  "band-of-brothers-2001": {
+   "genre:combat": 0.9
+  },
+  "barbie-2023": {
+   "genre:satire": 0.9,
+   "genre:absurdist-comedy": 0.6
+  },
+  "becoming-2018": {
+   "genre:political-memoir": 0.9
+  },
+  "beetlejuice-1988": {
+   "genre:comedy-horror": 0.9,
+   "genre:absurdist-comedy": 0.6
+  },
+  "before-sunrise-1995": {
+   "genre:romantic-drama": 0.9,
+   "genre:character-study": 0.6
+  },
+  "before-the-coffee-gets-cold-2015": {
+   "genre:time-travel": 0.9,
+   "genre:cozy-fantasy": 0.9
+  },
+  "beloved-1987": {
+   "genre:supernatural-horror": 0.9,
+   "genre:family-saga": 0.6,
+   "genre:period-drama": 0.6
+  },
+  "berserk-1989": {
+   "genre:seinen": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "better-call-saul-2015": {
+   "genre:courtroom": 0.9,
+   "genre:character-study": 0.9,
+   "genre:drug-crime": 0.6
+  },
+  "bhool-bhulaiyaa-2007": {
+   "genre:comedy-horror": 0.9,
+   "genre:psychological-mystery": 0.6
+  },
+  "bioshock-2007": {
+   "genre:first-person-shooter": 0.9,
+   "genre:dystopian": 0.9,
+   "genre:survival-horror": 0.6
+  },
+  "black-mirror-2011": {
+   "genre:social-science-fiction": 0.9,
+   "genre:techno-thriller": 0.9,
+   "genre:dystopian": 0.6
+  },
+  "black-panther-2018": {
+   "genre:superhero-ensemble": 0.9,
+   "genre:political-drama": 0.6
+  },
+  "blade-runner-1982": {
+   "genre:cyberpunk": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:neo-noir": 0.9
+  },
+  "blade-runner-2049-2017": {
+   "genre:cyberpunk": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:neo-noir": 0.9
+  },
+  "blonde-2016": {
+   "genre:alternative-rnb": 0.9
+  },
+  "blood-meridian-1985": {
+   "genre:revisionist-western": 0.9
+  },
+  "bloodborne-2015": {
+   "genre:soulslike": 0.9,
+   "genre:gothic-horror": 0.9,
+   "genre:cosmic-horror": 0.9
+  },
+  "blue-1971": {
+   "genre:confessional": 0.9,
+   "genre:indie-folk": 0.6
+  },
+  "bluey-2018": {
+   "genre:family-drama": 0.9,
+   "genre:animal-tale": 0.6,
+   "genre:sitcom": 0.6
+  },
+  "bojack-horseman-2014": {
+   "genre:adult-animation": 0.9,
+   "genre:dramedy": 0.9,
+   "genre:satire": 0.6
+  },
+  "borgen-2010": {
+   "genre:political-drama": 0.9
+  },
+  "born-a-crime-2016": {
+   "genre:coming-of-age-memoir": 0.9,
+   "genre:political-memoir": 0.6
+  },
+  "born-to-run-1975": {
+   "genre:classic-rock": 0.9
+  },
+  "braid-2008": {
+   "genre:puzzle-platformer": 0.9,
+   "genre:time-travel": 0.9
+  },
+  "brave-new-world-1932": {
+   "genre:dystopian": 0.9,
+   "genre:social-science-fiction": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "breaking-bad-2008": {
+   "genre:drug-crime": 0.9,
+   "genre:character-study": 0.9
+  },
+  "brokeback-mountain-2005": {
+   "genre:queer-romance": 0.9,
+   "genre:tragic-romance": 0.9,
+   "genre:neo-western": 0.6
+  },
+  "brooklyn-nine-nine-2013": {
+   "genre:sitcom": 0.9,
+   "genre:police-procedural": 0.9
+  },
+  "buena-vista-social-club-1997": {
+   "genre:latin": 0.9
+  },
+  "burning-2018": {
+   "genre:psychological-mystery": 0.9,
+   "genre:character-study": 0.9
+  },
+  "call-me-by-your-name-2017": {
+   "genre:queer-romance": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "capernaum-2018": {
+   "genre:social-realism": 0.9,
+   "genre:courtroom": 0.6
+  },
+  "carol-2015": {
+   "genre:queer-romance": 0.9,
+   "genre:period-romance": 0.9
+  },
+  "carrie-and-lowell-2015": {
+   "genre:confessional": 0.9,
+   "genre:indie-folk": 0.9
+  },
+  "casablanca-1942": {
+   "genre:romantic-drama": 0.9,
+   "genre:home-front": 0.6,
+   "genre:spy-thriller": 0.6
+  },
+  "celeste-2018": {
+   "genre:precision-platformer": 0.9,
+   "genre:psychological-drama": 0.6
+  },
+  "chainsaw-man-2018": {
+   "genre:shonen": 0.9,
+   "genre:dark-fantasy": 0.9,
+   "genre:black-comedy": 0.6
+  },
+  "channel-orange-2012": {
+   "genre:alternative-rnb": 0.9,
+   "genre:neo-soul": 0.9
+  },
+  "chernobyl-2019": {
+   "genre:disaster": 0.9,
+   "genre:political-drama": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "children-of-men-2006": {
+   "genre:dystopian": 0.9,
+   "genre:survival-thriller": 0.6
+  },
+  "chrono-trigger-1995": {
+   "genre:jrpg": 0.9,
+   "genre:time-travel": 0.9
+  },
+  "cinema-paradiso-1988": {
+   "genre:coming-of-age": 0.9,
+   "genre:melodrama": 0.6
+  },
+  "circe-2018": {
+   "genre:mythic-fantasy": 0.9
+  },
+  "city-of-god-2002": {
+   "genre:gangster": 0.9,
+   "genre:coming-of-age": 0.6,
+   "genre:social-realism": 0.6
+  },
+  "civilization-vi-2016": {
+   "genre:4x-strategy": 0.9,
+   "genre:historical-epic": 0.6
+  },
+  "coco-2017": {
+   "genre:computer-animation": 0.9,
+   "genre:animated-musical": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "coherence-2013": {
+   "genre:psychological-mystery": 0.9,
+   "genre:social-science-fiction": 0.6
+  },
+  "cold-mess-2018": {
+   "genre:indian-pop": 0.9,
+   "genre:indie-folk": 0.9
+  },
+  "columbus-2017": {
+   "genre:character-study": 0.9,
+   "genre:romantic-drama": 0.6
+  },
+  "come-and-see-1985": {
+   "genre:anti-war": 0.9,
+   "genre:combat": 0.9,
+   "genre:holocaust": 0.9
+  },
+  "control-2019": {
+   "genre:supernatural-mystery": 0.9,
+   "genre:third-person-shooter": 0.6,
+   "genre:cosmic-horror": 0.6
+  },
+  "convenience-store-woman-2016": {
+   "genre:character-study": 0.9,
+   "genre:satire": 0.6
+  },
+  "coraline-2009": {
+   "genre:stop-motion": 0.9,
+   "genre:dark-fantasy": 0.9,
+   "genre:portal-fantasy": 0.9
+  },
+  "cosmos-1980": {
+   "genre:cosmology": 0.9
+  },
+  "cowboy-bebop-1998": {
+   "genre:anime": 0.9,
+   "genre:space-western": 0.9,
+   "genre:neo-noir": 0.6
+  },
+  "crash-landing-on-you-2019": {
+   "genre:k-drama-romance": 0.9,
+   "genre:romantic-comedy": 0.9
+  },
+  "crime-and-punishment-1866": {
+   "genre:psychological-drama": 0.9,
+   "genre:classic-literature": 0.9,
+   "genre:existentialist-fiction": 0.6
+  },
+  "crouching-tiger-hidden-dragon-2000": {
+   "genre:wuxia": 0.9,
+   "genre:tragic-romance": 0.6
+  },
+  "ctrl-2017": {
+   "genre:alternative-rnb": 0.9,
+   "genre:contemporary-rnb": 0.9
+  },
+  "cuphead-2017": {
+   "genre:precision-platformer": 0.9,
+   "genre:slapstick": 0.6
+  },
+  "currents-2015": {
+   "genre:synth-pop": 0.9,
+   "genre:psychedelic-rock": 0.9
+  },
+  "dangal-2016": {
+   "genre:sports-biography": 0.9,
+   "genre:sports-drama": 0.9,
+   "genre:underdog-story": 0.6
+  },
+  "dark-2017": {
+   "genre:time-travel": 0.9,
+   "genre:supernatural-mystery": 0.9,
+   "genre:family-saga": 0.9
+  },
+  "dark-souls-2011": {
+   "genre:soulslike": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "death-note-2003": {
+   "genre:shonen": 0.9,
+   "genre:psychological-thriller": 0.9,
+   "genre:supernatural-mystery": 0.6
+  },
+  "death-note-2006": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "death-note-2017": {
+   "genre:supernatural-horror": 0.9,
+   "genre:psychological-thriller": 0.6
+  },
+  "death-stranding-2019": {
+   "genre:post-apocalyptic": 0.9,
+   "genre:exploration": 0.6
+  },
+  "decision-to-leave-2022": {
+   "genre:neo-noir": 0.9,
+   "genre:police-procedural": 0.9,
+   "genre:romantic-drama": 0.6
+  },
+  "demon-days-2005": {
+   "genre:experimental-pop": 0.9,
+   "genre:pop-rap": 0.6,
+   "genre:trip-hop": 0.6
+  },
+  "demon-slayer-2019": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "die-hard-1988": {
+   "genre:holiday-movie": 0.6,
+   "genre:revenge-action": 0.6,
+   "genre:heist": 0.6
+  },
+  "dil-chahta-hai-2001": {
+   "genre:buddy-comedy": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:romantic-comedy": 0.6
+  },
+  "dil-se-1998": {
+   "genre:filmi": 0.9,
+   "genre:qawwali": 0.6
+  },
+  "dilwale-dulhania-le-jayenge-1995": {
+   "genre:bollywood-musical": 0.9,
+   "genre:romantic-comedy": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "disco-elysium-2019": {
+   "genre:crpg": 0.9,
+   "genre:detective-story": 0.9,
+   "genre:political-drama": 0.6
+  },
+  "discovery-2001": {
+   "genre:french-house": 0.9
+  },
+  "do-androids-dream-1968": {
+   "genre:cyberpunk": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:post-apocalyptic": 0.6
+  },
+  "dracula-1897": {
+   "genre:gothic-horror": 0.9,
+   "genre:creature-feature": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "dragon-ball-1984": {
+   "genre:shonen": 0.9,
+   "genre:martial-arts": 0.9,
+   "genre:quest": 0.6
+  },
+  "dragonball-evolution-2009": {
+   "genre:martial-arts": 0.9,
+   "genre:origin-story": 0.6
+  },
+  "drishyam-2013": {
+   "genre:psychological-thriller": 0.9,
+   "genre:family-drama": 0.9
+  },
+  "drive-my-car-2021": {
+   "genre:character-study": 0.9,
+   "genre:psychological-drama": 0.9
+  },
+  "dune-1965": {
+   "genre:space-opera": 0.9,
+   "genre:political-drama": 0.6
+  },
+  "dune-2021": {
+   "genre:space-opera": 0.9,
+   "genre:high-fantasy": 0.6
+  },
+  "dune-part-two-2024": {
+   "genre:space-opera": 0.9,
+   "genre:combat": 0.6
+  },
+  "educated-2018": {
+   "genre:coming-of-age-memoir": 0.9
+  },
+  "ek-ladki-ko-dekha-toh-aisa-laga-2019": {
+   "genre:queer-romance": 0.9,
+   "genre:romantic-comedy": 0.6,
+   "genre:family-drama": 0.6
+  },
+  "elden-ring-2022": {
+   "genre:soulslike": 0.9,
+   "genre:action-rpg": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "elf-2003": {
+   "genre:holiday-movie": 0.9,
+   "genre:slapstick": 0.6
+  },
+  "endtroducing-1996": {
+   "genre:trip-hop": 0.9
+  },
+  "eternal-sunshine-of-the-spotless-mind-2004": {
+   "genre:romantic-drama": 0.9,
+   "genre:social-science-fiction": 0.6
+  },
+  "everything-everywhere-all-at-once-2022": {
+   "genre:absurdist-comedy": 0.9,
+   "genre:family-drama": 0.9,
+   "genre:martial-arts": 0.6
+  },
+  "ex-machina-2014": {
+   "genre:artificial-intelligence": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "exodus-1977": {
+   "genre:reggae": 0.9
+  },
+  "extraordinary-attorney-woo-2022": {
+   "genre:courtroom": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "fahrenheit-451-1953": {
+   "genre:dystopian": 0.9,
+   "genre:classic-literature": 0.6
+  },
+  "fantastic-beasts-the-secrets-of-dumbledore-2022": {
+   "genre:high-fantasy": 0.9,
+   "genre:political-thriller": 0.6
+  },
+  "fantastic-mr-fox-2009": {
+   "genre:stop-motion": 0.9,
+   "genre:animal-tale": 0.9,
+   "genre:heist": 0.6
+  },
+  "farewell-my-concubine-1993": {
+   "genre:historical-epic": 0.9,
+   "genre:period-drama": 0.9,
+   "genre:tragic-romance": 0.6
+  },
+  "fargo-1996": {
+   "genre:dark-comedy-crime": 0.9,
+   "genre:black-comedy": 0.9
+  },
+  "fight-club-1999": {
+   "genre:psychological-thriller": 0.9,
+   "genre:satire": 0.9
+  },
+  "final-fantasy-vii-1997": {
+   "genre:jrpg": 0.9,
+   "genre:cyberpunk": 0.6
+  },
+  "firewatch-2016": {
+   "genre:narrative-adventure": 0.9,
+   "genre:psychological-mystery": 0.6
+  },
+  "fleabag-2016": {
+   "genre:dramedy": 0.9,
+   "genre:black-comedy": 0.9
+  },
+  "fleet-foxes-2008": {
+   "genre:indie-folk": 0.9
+  },
+  "folklore-2020": {
+   "genre:indie-folk": 0.9,
+   "genre:confessional": 0.9
+  },
+  "for-emma-forever-ago-2007": {
+   "genre:indie-folk": 0.9,
+   "genre:confessional": 0.9
+  },
+  "forza-horizon-5-2021": {
+   "genre:open-world-racing": 0.9
+  },
+  "foundation-1951": {
+   "genre:space-opera": 0.9,
+   "genre:political-drama": 0.6
+  },
+  "frankenstein-1818": {
+   "genre:gothic-horror": 0.9,
+   "genre:classic-literature": 0.9,
+   "genre:artificial-intelligence": 0.6
+  },
+  "free-solo-2018": {
+   "genre:sports-documentary": 0.9,
+   "genre:portrait-documentary": 0.9
+  },
+  "friends-1994": {
+   "genre:sitcom": 0.9,
+   "genre:romantic-comedy": 0.9
+  },
+  "frieren-2020": {
+   "genre:shonen": 0.9,
+   "genre:high-fantasy": 0.9,
+   "genre:slice-of-life": 0.6
+  },
+  "frieren-2023": {
+   "genre:anime": 0.9,
+   "genre:high-fantasy": 0.9,
+   "genre:slice-of-life": 0.9
+  },
+  "frozen-2013": {
+   "genre:animated-musical": 0.9,
+   "genre:fairy-tale": 0.9,
+   "genre:computer-animation": 0.6
+  },
+  "fullmetal-alchemist-2001": {
+   "genre:shonen": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "fullmetal-alchemist-brotherhood-2009": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "fun-home-2006": {
+   "genre:graphic-memoir": 0.9,
+   "genre:coming-of-age-memoir": 0.9
+  },
+  "funeral-2004": {
+   "genre:alternative-rock": 0.9,
+   "genre:baroque-pop": 0.6
+  },
+  "future-nostalgia-2020": {
+   "genre:dance-pop": 0.9,
+   "genre:synth-pop": 0.9
+  },
+  "game-of-thrones-2011": {
+   "genre:high-fantasy": 0.9,
+   "genre:dark-fantasy": 0.9,
+   "genre:political-drama": 0.9
+  },
+  "gattaca-1997": {
+   "genre:dystopian": 0.9,
+   "genre:social-science-fiction": 0.9
+  },
+  "get-out-2017": {
+   "genre:social-horror": 0.9,
+   "genre:psychological-horror": 0.6
+  },
+  "getz-gilberto-1964": {
+   "genre:bossa-nova": 0.9,
+   "genre:cool-jazz": 0.9
+  },
+  "ghost-of-tsushima-2020": {
+   "genre:action-adventure": 0.9,
+   "genre:martial-arts": 0.6,
+   "genre:historical-epic": 0.6
+  },
+  "giovannis-room-1956": {
+   "genre:queer-romance": 0.9,
+   "genre:tragic-romance": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "god-of-war-2018": {
+   "genre:action-adventure": 0.9,
+   "genre:mythic-fantasy": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "gone-girl-2012": {
+   "genre:psychological-thriller": 0.9,
+   "genre:whodunit": 0.6
+  },
+  "gone-girl-2014": {
+   "genre:psychological-thriller": 0.9,
+   "genre:whodunit": 0.6
+  },
+  "gone-home-2013": {
+   "genre:narrative-adventure": 0.9,
+   "genre:queer-romance": 0.6
+  },
+  "good-kid-maad-city-2012": {
+   "genre:west-coast-hip-hop": 0.9,
+   "genre:conscious-hip-hop": 0.9
+  },
+  "good-omens-1990": {
+   "genre:comic-fantasy": 0.9,
+   "genre:buddy-comedy": 0.6
+  },
+  "grand-theft-auto-v-2013": {
+   "genre:satire": 0.9,
+   "genre:heist": 0.9,
+   "genre:gangster": 0.6
+  },
+  "grave-of-the-fireflies-1988": {
+   "genre:anime": 0.9,
+   "genre:home-front": 0.9,
+   "genre:anti-war": 0.9
+  },
+  "gravity-2013": {
+   "genre:survival-thriller": 0.9,
+   "genre:hard-science-fiction": 0.9
+  },
+  "gremlins-1984": {
+   "genre:comedy-horror": 0.9,
+   "genre:creature-feature": 0.9,
+   "genre:holiday-movie": 0.6
+  },
+  "gris-2018": {
+   "genre:puzzle-platformer": 0.9,
+   "genre:illness-and-grief-memoir": 0.6
+  },
+  "groundhog-day-1993": {
+   "genre:romantic-comedy": 0.9,
+   "genre:time-travel": 0.6
+  },
+  "guards-guards-1989": {
+   "genre:comic-fantasy": 0.9,
+   "genre:police-procedural": 0.6
+  },
+  "gullak-2019": {
+   "genre:family-drama": 0.9,
+   "genre:slice-of-life": 0.9
+  },
+  "gully-boy-2019": {
+   "genre:music-drama": 0.9,
+   "genre:social-realism": 0.9
+  },
+  "hades-2020": {
+   "genre:action-roguelite": 0.9,
+   "genre:mythic-fantasy": 0.9
+  },
+  "haikyu-2014": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:sports-comedy": 0.9,
+   "genre:underdog-story": 0.9
+  },
+  "half-life-2-2004": {
+   "genre:first-person-shooter": 0.9,
+   "genre:dystopian": 0.9
+  },
+  "half-of-a-yellow-sun-2006": {
+   "genre:home-front": 0.9,
+   "genre:postcolonial-fiction": 0.6
+  },
+  "halloween-1978": {
+   "genre:slasher": 0.9
+  },
+  "happiest-season-2020": {
+   "genre:romantic-comedy": 0.9,
+   "genre:queer-romance": 0.9,
+   "genre:holiday-movie": 0.6
+  },
+  "happy-together-1997": {
+   "genre:queer-romance": 0.9,
+   "genre:romantic-drama": 0.9
+  },
+  "harry-potter-and-the-philosophers-stone-1997": {
+   "genre:urban-fantasy": 0.9,
+   "genre:campus-story": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "heartstopper-2022": {
+   "genre:queer-romance": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "her-2013": {
+   "genre:artificial-intelligence": 0.9,
+   "genre:romantic-drama": 0.9
+  },
+  "hereditary-2018": {
+   "genre:supernatural-horror": 0.9,
+   "genre:psychological-horror": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "hocus-pocus-1993": {
+   "genre:comedy-horror": 0.9,
+   "genre:holiday-movie": 0.6
+  },
+  "hollow-knight-2017": {
+   "genre:dark-fantasy": 0.9,
+   "genre:precision-platformer": 0.9,
+   "genre:soulslike": 0.6
+  },
+  "home-alone-1990": {
+   "genre:holiday-movie": 0.9,
+   "genre:slapstick": 0.9
+  },
+  "homogenic-1997": {
+   "genre:experimental-pop": 0.9,
+   "genre:electropop": 0.9
+  },
+  "hounds-of-love-1985": {
+   "genre:experimental-pop": 0.9,
+   "genre:baroque-pop": 0.9
+  },
+  "how-the-grinch-stole-christmas-1957": {
+   "genre:holiday-movie": 0.9,
+   "genre:fairy-tale": 0.9
+  },
+  "howls-moving-castle-2004": {
+   "genre:anime": 0.9,
+   "genre:fairy-tale": 0.9,
+   "genre:anti-war": 0.6
+  },
+  "hunter-x-hunter-2011": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:quest": 0.9
+  },
+  "hybrid-theory-2000": {
+   "genre:nu-metal": 0.9
+  },
+  "i-know-why-the-caged-bird-sings-1969": {
+   "genre:coming-of-age-memoir": 0.9
+  },
+  "illmatic-1994": {
+   "genre:boom-bap": 0.9
+  },
+  "in-cold-blood-1966": {
+   "genre:true-crime": 0.9
+  },
+  "in-rainbows-2007": {
+   "genre:alternative-rock": 0.9
+  },
+  "in-the-aeroplane-over-the-sea-1998": {
+   "genre:indie-folk": 0.9,
+   "genre:psychedelic-rock": 0.6
+  },
+  "in-the-mood-for-love-2000": {
+   "genre:romantic-drama": 0.9,
+   "genre:tragic-romance": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "inception-2010": {
+   "genre:heist": 0.9,
+   "genre:psychological-thriller": 0.6
+  },
+  "inside-2016": {
+   "genre:puzzle-platformer": 0.9,
+   "genre:dystopian": 0.9,
+   "genre:body-horror-genre": 0.6
+  },
+  "inside-out-2015": {
+   "genre:computer-animation": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "interpreter-of-maladies-1999": {
+   "genre:short-stories": 0.9,
+   "genre:postcolonial-fiction": 0.9
+  },
+  "interstellar-2014": {
+   "genre:hard-science-fiction": 0.9,
+   "genre:time-travel": 0.6,
+   "genre:family-drama": 0.6
+  },
+  "interstellar-soundtrack-2014": {
+   "genre:film-score": 0.9,
+   "genre:modern-classical": 0.9
+  },
+  "is-this-it-2001": {
+   "genre:garage-rock": 0.9
+  },
+  "it-1986": {
+   "genre:supernatural-horror": 0.9,
+   "genre:coming-of-age": 0.6,
+   "genre:cosmic-horror": 0.6
+  },
+  "it-follows-2014": {
+   "genre:supernatural-horror": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "it-takes-two-2021": {
+   "genre:3d-platformer": 0.9,
+   "genre:buddy-comedy": 0.9,
+   "genre:romantic-comedy": 0.6
+  },
+  "its-a-wonderful-life-1946": {
+   "genre:holiday-movie": 0.9,
+   "genre:melodrama": 0.9
+  },
+  "jai-bhim-2021": {
+   "genre:courtroom": 0.9,
+   "genre:social-realism": 0.9
+  },
+  "jane-eyre-1847": {
+   "genre:gothic-romance": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "jaws-1975": {
+   "genre:creature-feature": 0.9,
+   "genre:survival-thriller": 0.9
+  },
+  "john-wick-2014": {
+   "genre:revenge-action": 0.9,
+   "genre:gangster": 0.6
+  },
+  "journey-2012": {
+   "genre:exploration": 0.9,
+   "genre:narrative-adventure": 0.9
+  },
+  "jujutsu-kaisen-2020": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:supernatural-horror": 0.9
+  },
+  "jurassic-park-1993": {
+   "genre:lost-world": 0.9,
+   "genre:creature-feature": 0.9
+  },
+  "jurassic-world-dominion-2022": {
+   "genre:lost-world": 0.9,
+   "genre:creature-feature": 0.9
+  },
+  "kafka-on-the-shore-2002": {
+   "genre:magical-realism": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "kahaani-2012": {
+   "genre:psychological-thriller": 0.9,
+   "genre:spy-thriller": 0.6
+  },
+  "kandisa-2000": {
+   "genre:indian-classical-fusion": 0.9,
+   "genre:folk-rock": 0.6
+  },
+  "kapoor-and-sons-2016": {
+   "genre:family-drama": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "kentucky-route-zero-2020": {
+   "genre:narrative-adventure": 0.9,
+   "genre:magical-realism": 0.9
+  },
+  "kid-a-2000": {
+   "genre:idm": 0.9,
+   "genre:experimental-pop": 0.9
+  },
+  "kind-of-blue-1959": {
+   "genre:modal-jazz": 0.9,
+   "genre:cool-jazz": 0.9
+  },
+  "kindred-1979": {
+   "genre:time-travel": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "kingdom-2019": {
+   "genre:zombie-horror": 0.9,
+   "genre:period-drama": 0.9,
+   "genre:political-thriller": 0.6
+  },
+  "klara-and-the-sun-2021": {
+   "genre:artificial-intelligence": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "klaus-2019": {
+   "genre:holiday-movie": 0.9,
+   "genre:all-ages-adventure": 0.6
+  },
+  "knives-out-2019": {
+   "genre:whodunit": 0.9,
+   "genre:comedy-of-manners": 0.6
+  },
+  "kota-factory-2019": {
+   "genre:coming-of-age": 0.9,
+   "genre:campus-story": 0.9
+  },
+  "kumbalangi-nights-2019": {
+   "genre:family-drama": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "kwaidan-1964": {
+   "genre:supernatural-horror": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "la-dolce-vita-1960": {
+   "genre:character-study": 0.9,
+   "genre:satire": 0.9
+  },
+  "la-la-land-2016": {
+   "genre:classic-musical": 0.9,
+   "genre:romantic-drama": 0.9
+  },
+  "laapataa-ladies-2024": {
+   "genre:satire": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "lady-bird-2017": {
+   "genre:coming-of-age": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "lagaan-2001": {
+   "genre:underdog-story": 0.9,
+   "genre:historical-epic": 0.9,
+   "genre:bollywood-musical": 0.9,
+   "genre:colonial-history": 0.6
+  },
+  "last-christmas-2019": {
+   "genre:romantic-comedy": 0.9,
+   "genre:holiday-movie": 0.9
+  },
+  "led-zeppelin-iv-1971": {
+   "genre:hard-rock": 0.9,
+   "genre:classic-rock": 0.9,
+   "genre:folk-rock": 0.6
+  },
+  "lemonade-2016": {
+   "genre:contemporary-rnb": 0.9,
+   "genre:experimental-pop": 0.6
+  },
+  "life-is-beautiful-1997": {
+   "genre:holocaust": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "lift-your-skinny-fists-2000": {
+   "genre:crescendo-post-rock": 0.9
+  },
+  "limbo-2010": {
+   "genre:puzzle-platformer": 0.9,
+   "genre:psychological-horror": 0.9
+  },
+  "little-women-2019": {
+   "genre:period-drama": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:family-drama": 0.9
+  },
+  "london-calling-1979": {
+   "genre:punk-rock": 0.9,
+   "genre:reggae": 0.6
+  },
+  "love-actually-2003": {
+   "genre:romantic-comedy": 0.9,
+   "genre:holiday-movie": 0.9
+  },
+  "lupin-2021": {
+   "genre:heist": 0.9,
+   "genre:revenge-thriller": 0.6
+  },
+  "mad-max-fury-road-2015": {
+   "genre:post-apocalyptic": 0.9,
+   "genre:disaster": 0.6,
+   "genre:road-trip": 0.6
+  },
+  "mad-men-2007": {
+   "genre:period-drama": 0.9,
+   "genre:workplace-drama": 0.9,
+   "genre:character-study": 0.9
+  },
+  "made-in-heaven-2019": {
+   "genre:workplace-drama": 0.9,
+   "genre:queer-romance": 0.6
+  },
+  "malgudi-days-1943": {
+   "genre:short-stories": 0.9,
+   "genre:slice-of-life": 0.9
+  },
+  "man-on-wire-2008": {
+   "genre:portrait-documentary": 0.9,
+   "genre:heist": 0.6
+  },
+  "manjummel-boys-2024": {
+   "genre:survival-thriller": 0.9,
+   "genre:buddy-comedy": 0.6
+  },
+  "mans-search-for-meaning-1946": {
+   "genre:survival-memoir": 0.9,
+   "genre:philosophy": 0.9
+  },
+  "map-of-the-soul-7-2020": {
+   "genre:k-pop": 0.9
+  },
+  "marvels-spider-man-2018": {
+   "genre:superhero-ensemble": 0.9,
+   "genre:action-adventure": 0.9
+  },
+  "mass-effect-2-2010": {
+   "genre:space-opera": 0.9,
+   "genre:action-rpg": 0.9,
+   "genre:third-person-shooter": 0.9
+  },
+  "master-of-puppets-1986": {
+   "genre:thrash-metal": 0.9
+  },
+  "maus-1986": {
+   "genre:graphic-memoir": 0.9,
+   "genre:holocaust": 0.9
+  },
+  "melodrama-2017": {
+   "genre:electropop": 0.9,
+   "genre:confessional": 0.9
+  },
+  "memento-2000": {
+   "genre:neo-noir": 0.9,
+   "genre:psychological-mystery": 0.9
+  },
+  "memories-of-murder-2003": {
+   "genre:police-procedural": 0.9,
+   "genre:black-comedy": 0.6
+  },
+  "merry-christmas-1994": {
+   "genre:contemporary-rnb": 0.9,
+   "genre:holiday-movie": 0.6
+  },
+  "metal-gear-solid-1998": {
+   "genre:tactical-espionage": 0.9,
+   "genre:spy-thriller": 0.9
+  },
+  "mezzanine-1998": {
+   "genre:trip-hop": 0.9
+  },
+  "midnight-mass-2021": {
+   "genre:supernatural-horror": 0.9,
+   "genre:creature-feature": 0.9,
+   "genre:folk-horror": 0.6
+  },
+  "midnights-children-1981": {
+   "genre:magical-realism": 0.9,
+   "genre:postcolonial-fiction": 0.9,
+   "genre:colonial-history": 0.6
+  },
+  "midsommar-2019": {
+   "genre:folk-horror": 0.9,
+   "genre:psychological-horror": 0.9
+  },
+  "milk-2008": {
+   "genre:political-biography": 0.9
+  },
+  "minecraft-2011": {
+   "genre:sandbox-survival": 0.9,
+   "genre:exploration": 0.9
+  },
+  "miracle-on-34th-street-1947": {
+   "genre:holiday-movie": 0.9,
+   "genre:courtroom": 0.6
+  },
+  "mistborn-the-final-empire-2006": {
+   "genre:high-fantasy": 0.9,
+   "genre:heist": 0.6
+  },
+  "mob-psycho-100-2016": {
+   "genre:anime": 0.9,
+   "genre:shonen": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:absurdist-comedy": 0.6
+  },
+  "money-heist-2017": {
+   "genre:heist": 0.9
+  },
+  "monster-1994": {
+   "genre:seinen": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "monster-2004": {
+   "genre:anime": 0.9,
+   "genre:seinen": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "moon-2009": {
+   "genre:hard-science-fiction": 0.9,
+   "genre:psychological-drama": 0.9,
+   "genre:character-study": 0.6
+  },
+  "moonlight-2016": {
+   "genre:coming-of-age": 0.9,
+   "genre:character-study": 0.9,
+   "genre:queer-romance": 0.6
+  },
+  "mushishi-1999": {
+   "genre:seinen": 0.9,
+   "genre:slice-of-life": 0.9,
+   "genre:supernatural-mystery": 0.6
+  },
+  "music-for-airports-1978": {
+   "genre:ambient-drone": 0.9,
+   "genre:minimalism": 0.6
+  },
+  "mustt-mustt-1990": {
+   "genre:qawwali": 0.9,
+   "genre:indian-classical-fusion": 0.9
+  },
+  "my-beautiful-dark-twisted-fantasy-2010": {
+   "genre:pop-rap": 0.9,
+   "genre:experimental-pop": 0.9
+  },
+  "my-brilliant-friend-2011": {
+   "genre:coming-of-age": 0.9,
+   "genre:social-realism": 0.6
+  },
+  "my-mister-2018": {
+   "genre:character-study": 0.9,
+   "genre:social-realism": 0.6
+  },
+  "my-neighbor-totoro-1988": {
+   "genre:anime": 0.9,
+   "genre:fairy-tale": 0.9,
+   "genre:slice-of-life": 0.9
+  },
+  "my-octopus-teacher-2020": {
+   "genre:nature-documentary": 0.9
+  },
+  "narcos-2015": {
+   "genre:drug-crime": 0.9,
+   "genre:political-thriller": 0.6
+  },
+  "naruto-1999": {
+   "genre:shonen": 0.9,
+   "genre:martial-arts": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "nausicaa-of-the-valley-of-the-wind-1982": {
+   "genre:post-apocalyptic": 0.9,
+   "genre:environment": 0.6,
+   "genre:high-fantasy": 0.6
+  },
+  "neon-genesis-evangelion-1995": {
+   "genre:anime": 0.9,
+   "genre:mecha": 0.9,
+   "genre:psychological-drama": 0.9
+  },
+  "neuromancer-1984": {
+   "genre:cyberpunk": 0.9,
+   "genre:heist": 0.6
+  },
+  "never-let-me-go-2005": {
+   "genre:social-science-fiction": 0.9,
+   "genre:dystopian": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "nevermind-1991": {
+   "genre:grunge": 0.9,
+   "genre:alternative-rock": 0.9
+  },
+  "night-in-the-woods-2017": {
+   "genre:narrative-adventure": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:cosmic-horror": 0.6
+  },
+  "nineteen-eighty-four-1949": {
+   "genre:dystopian": 0.9,
+   "genre:political-thriller": 0.6
+  },
+  "no-country-for-old-men-2007": {
+   "genre:neo-western": 0.9,
+   "genre:neo-noir": 0.9
+  },
+  "normal-people-2018": {
+   "genre:romantic-drama": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "normal-people-2020": {
+   "genre:romantic-drama": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "norman-fucking-rockwell-2019": {
+   "genre:confessional": 0.9,
+   "genre:baroque-pop": 0.9
+  },
+  "norwegian-wood-1987": {
+   "genre:coming-of-age": 0.9,
+   "genre:tragic-romance": 0.9
+  },
+  "nosferatu-1922": {
+   "genre:gothic-horror": 0.9,
+   "genre:creature-feature": 0.9
+  },
+  "ok-computer-1997": {
+   "genre:alternative-rock": 0.9,
+   "genre:experimental-pop": 0.9
+  },
+  "oldboy-2003": {
+   "genre:revenge-thriller": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "one-hundred-years-of-solitude-1967": {
+   "genre:magical-realism": 0.9,
+   "genre:family-saga": 0.9
+  },
+  "one-piece-1997": {
+   "genre:shonen": 0.9,
+   "genre:quest": 0.9,
+   "genre:swashbuckler": 0.9
+  },
+  "oppenheimer-2023": {
+   "genre:science-biography": 0.9,
+   "genre:political-drama": 0.6
+  },
+  "ori-and-the-blind-forest-2015": {
+   "genre:precision-platformer": 0.9,
+   "genre:fairy-tale": 0.9
+  },
+  "orlando-1928": {
+   "genre:time-travel": 0.9,
+   "genre:satire": 0.6,
+   "genre:classic-literature": 0.9
+  },
+  "outer-wilds-2019": {
+   "genre:exploration": 0.9,
+   "genre:time-travel": 0.9,
+   "genre:cosmic-horror": 0.6
+  },
+  "paatal-lok-2020": {
+   "genre:police-procedural": 0.9,
+   "genre:neo-noir": 0.9,
+   "genre:political-thriller": 0.6
+  },
+  "paddington-2-2017": {
+   "genre:animal-tale": 0.9,
+   "genre:slapstick": 0.9,
+   "genre:all-ages-adventure": 0.6
+  },
+  "panchayat-2020": {
+   "genre:dramedy": 0.9,
+   "genre:slice-of-life": 0.9
+  },
+  "pans-labyrinth-2006": {
+   "genre:dark-fantasy": 0.9,
+   "genre:fairy-tale": 0.9,
+   "genre:home-front": 0.6
+  },
+  "papers-please-2013": {
+   "genre:dystopian": 0.9,
+   "genre:logic-puzzle": 0.9
+  },
+  "paranoid-1970": {
+   "genre:heavy-metal": 0.9
+  },
+  "paranorman-2012": {
+   "genre:stop-motion": 0.9,
+   "genre:comedy-horror": 0.9
+  },
+  "parasite-2019": {
+   "genre:social-horror": 0.9,
+   "genre:black-comedy": 0.9,
+   "genre:social-realism": 0.9
+  },
+  "paris-is-burning-1990": {
+   "genre:portrait-documentary": 0.9,
+   "genre:social-documentary": 0.9
+  },
+  "parks-and-recreation-2009": {
+   "genre:mockumentary": 0.9,
+   "genre:sitcom": 0.9
+  },
+  "past-lives-2023": {
+   "genre:romantic-drama": 0.9,
+   "genre:character-study": 0.6
+  },
+  "paterson-2016": {
+   "genre:character-study": 0.9,
+   "genre:slice-of-life": 0.9
+  },
+  "pather-panchali-1955": {
+   "genre:social-realism": 0.9,
+   "genre:family-drama": 0.9
+  },
+  "pentiment-2022": {
+   "genre:narrative-adventure": 0.9,
+   "genre:whodunit": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "perfect-days-2023": {
+   "genre:character-study": 0.9,
+   "genre:slice-of-life": 0.9
+  },
+  "persepolis-2000": {
+   "genre:graphic-memoir": 0.9,
+   "genre:coming-of-age-memoir": 0.9
+  },
+  "persona-1966": {
+   "genre:psychological-drama": 0.9
+  },
+  "persona-5-royal-2019": {
+   "genre:jrpg": 0.9,
+   "genre:urban-fantasy": 0.6,
+   "genre:coming-of-age": 0.6
+  },
+  "pet-sounds-1966": {
+   "genre:baroque-pop": 0.9
+  },
+  "pink-moon-1972": {
+   "genre:confessional": 0.9,
+   "genre:indie-folk": 0.6
+  },
+  "piranesi-2020": {
+   "genre:portal-fantasy": 0.9,
+   "genre:psychological-mystery": 0.9
+  },
+  "planet-earth-2006": {
+   "genre:nature-documentary": 0.9
+  },
+  "pluto-2003": {
+   "genre:seinen": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:detective-story": 0.6
+  },
+  "pokemon-red-and-blue-1996": {
+   "genre:jrpg": 0.9,
+   "genre:coming-of-age": 0.6,
+   "genre:animal-tale": 0.6
+  },
+  "portal-2-2011": {
+   "genre:physics-puzzle": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:black-comedy": 0.6
+  },
+  "portrait-of-a-lady-on-fire-2019": {
+   "genre:period-romance": 0.9,
+   "genre:queer-romance": 0.9,
+   "genre:tragic-romance": 0.9
+  },
+  "pose-2018": {
+   "genre:period-drama": 0.9,
+   "genre:queer-romance": 0.6,
+   "genre:family-drama": 0.6
+  },
+  "pride-2014": {
+   "genre:political-drama": 0.9,
+   "genre:dramedy": 0.6
+  },
+  "pride-and-prejudice-1813": {
+   "genre:comedy-of-manners": 0.9,
+   "genre:period-romance": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "primer-2004": {
+   "genre:time-travel": 0.9,
+   "genre:hard-science-fiction": 0.9
+  },
+  "princess-mononoke-1997": {
+   "genre:anime": 0.9,
+   "genre:mythic-fantasy": 0.9,
+   "genre:historical-epic": 0.6
+  },
+  "project-hail-mary-2021": {
+   "genre:hard-science-fiction": 0.9,
+   "genre:alien-encounter": 0.9,
+   "genre:survival-adventure": 0.6
+  },
+  "psycho-1960": {
+   "genre:slasher": 0.9,
+   "genre:psychological-horror": 0.9
+  },
+  "pulp-fiction-1994": {
+   "genre:gangster": 0.9,
+   "genre:black-comedy": 0.9,
+   "genre:neo-noir": 0.6
+  },
+  "purple-rain-1984": {
+   "genre:pop-rock": 0.9,
+   "genre:contemporary-rnb": 0.9,
+   "genre:film-score": 0.6
+  },
+  "queen-2013": {
+   "genre:dramedy": 0.9,
+   "genre:road-trip": 0.6,
+   "genre:coming-of-age": 0.6
+  },
+  "raji-an-ancient-epic-2020": {
+   "genre:mythic-fantasy": 0.9,
+   "genre:action-adventure": 0.9
+  },
+  "random-access-memories-2013": {
+   "genre:french-house": 0.9,
+   "genre:dance-pop": 0.6
+  },
+  "rang-de-basanti-2006": {
+   "genre:political-drama": 0.9,
+   "genre:coming-of-age": 0.6,
+   "genre:colonial-history": 0.6
+  },
+  "rashomon-1950": {
+   "genre:psychological-mystery": 0.9,
+   "genre:period-drama": 0.9
+  },
+  "rebecca-1938": {
+   "genre:gothic-romance": 0.9,
+   "genre:psychological-mystery": 0.9
+  },
+  "red-dead-redemption-2-2018": {
+   "genre:revisionist-western": 0.9,
+   "genre:action-adventure": 0.9
+  },
+  "red-white-and-royal-blue-2019": {
+   "genre:romantic-comedy": 0.9,
+   "genre:queer-romance": 0.9
+  },
+  "reply-1988-2015": {
+   "genre:family-drama": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "resident-evil-4-2005": {
+   "genre:survival-horror": 0.9,
+   "genre:third-person-shooter": 0.9,
+   "genre:folk-horror": 0.6
+  },
+  "return-of-the-obra-dinn-2018": {
+   "genre:deduction-game": 0.9,
+   "genre:whodunit": 0.9
+  },
+  "ringu-1998": {
+   "genre:supernatural-horror": 0.9
+  },
+  "roadside-picnic-1972": {
+   "genre:alien-encounter": 0.9,
+   "genre:post-apocalyptic": 0.6
+  },
+  "rocket-boys-2022": {
+   "genre:science-biography": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "roja-1992": {
+   "genre:filmi": 0.9,
+   "genre:film-score": 0.9
+  },
+  "roma-2018": {
+   "genre:social-realism": 0.9,
+   "genre:family-drama": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "rosemarys-baby-1968": {
+   "genre:supernatural-horror": 0.9,
+   "genre:psychological-horror": 0.9,
+   "genre:folk-horror": 0.6
+  },
+  "rrr-2022": {
+   "genre:masala": 0.9,
+   "genre:colonial-history": 0.6,
+   "genre:historical-epic": 0.6
+  },
+  "rumours-1977": {
+   "genre:pop-rock": 0.9,
+   "genre:classic-rock": 0.9
+  },
+  "run-lola-run-1998": {
+   "genre:heist": 0.6,
+   "genre:time-travel": 0.9
+  },
+  "sacred-games-2018": {
+   "genre:gangster": 0.9,
+   "genre:police-procedural": 0.9,
+   "genre:political-thriller": 0.6
+  },
+  "sapiens-2011": {
+   "genre:narrative-history": 0.9,
+   "genre:evolution-and-biology": 0.6
+  },
+  "saving-private-ryan-1998": {
+   "genre:combat": 0.9
+  },
+  "scam-1992-2020": {
+   "genre:business-biography": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "schindlers-list-1993": {
+   "genre:holocaust": 0.9,
+   "genre:political-biography": 0.6
+  },
+  "schitts-creek-2015": {
+   "genre:sitcom": 0.9,
+   "genre:comedy-of-manners": 0.9
+  },
+  "scream-1996": {
+   "genre:slasher": 0.9,
+   "genre:parody": 0.6
+  },
+  "se7en-1995": {
+   "genre:neo-noir": 0.9,
+   "genre:police-procedural": 0.9
+  },
+  "seinfeld-1989": {
+   "genre:sitcom": 0.9,
+   "genre:absurdist-comedy": 0.9
+  },
+  "selected-ambient-works-85-92-1992": {
+   "genre:idm": 0.9,
+   "genre:ambient-drone": 0.6
+  },
+  "seven-samurai-1954": {
+   "genre:historical-epic": 0.9,
+   "genre:martial-arts": 0.6
+  },
+  "severance-2022": {
+   "genre:psychological-thriller": 0.9,
+   "genre:workplace-drama": 0.9,
+   "genre:dystopian": 0.6
+  },
+  "sex-education-2019": {
+   "genre:dramedy": 0.9,
+   "genre:coming-of-age": 0.9
+  },
+  "sgt-peppers-lonely-hearts-club-band-1967": {
+   "genre:psychedelic-rock": 0.9,
+   "genre:baroque-pop": 0.9
+  },
+  "shadow-of-the-colossus-2005": {
+   "genre:action-adventure": 0.9,
+   "genre:mythic-fantasy": 0.9,
+   "genre:tragic-romance": 0.6
+  },
+  "shaun-of-the-dead-2004": {
+   "genre:comedy-horror": 0.9,
+   "genre:zombie-horror": 0.9
+  },
+  "sherlock-2010": {
+   "genre:detective-story": 0.9
+  },
+  "shogun-2024": {
+   "genre:historical-epic": 0.9,
+   "genre:political-drama": 0.9
+  },
+  "sholay-1975": {
+   "genre:masala": 0.9,
+   "genre:classic-western": 0.9,
+   "genre:buddy-comedy": 0.6
+  },
+  "shoplifters-2018": {
+   "genre:family-drama": 0.9,
+   "genre:social-realism": 0.9
+  },
+  "shrek-2001": {
+   "genre:computer-animation": 0.9,
+   "genre:parody": 0.9,
+   "genre:fairy-tale": 0.9
+  },
+  "silent-hill-2-2001": {
+   "genre:survival-horror": 0.9,
+   "genre:psychological-horror": 0.9
+  },
+  "silent-spring-1962": {
+   "genre:environment": 0.9
+  },
+  "slam-dunk-1990": {
+   "genre:shonen": 0.9,
+   "genre:sports-comedy": 0.9,
+   "genre:underdog-story": 0.9
+  },
+  "slay-the-spire-2019": {
+   "genre:deckbuilder": 0.9,
+   "genre:action-roguelite": 0.6
+  },
+  "solaris-1961": {
+   "genre:alien-encounter": 0.9,
+   "genre:psychological-drama": 0.9
+  },
+  "solaris-1972": {
+   "genre:psychological-drama": 0.9,
+   "genre:alien-encounter": 0.9,
+   "genre:hard-science-fiction": 0.6
+  },
+  "solo-leveling-2018": {
+   "genre:progression-fantasy": 0.9
+  },
+  "soma-2015": {
+   "genre:survival-horror": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:cosmic-horror": 0.6
+  },
+  "spider-man-into-the-spider-verse-2018": {
+   "genre:origin-story": 0.9,
+   "genre:superhero-ensemble": 0.9
+  },
+  "spirited-away-2001": {
+   "genre:portal-fantasy": 0.9,
+   "genre:anime": 0.9,
+   "genre:fairy-tale": 0.9
+  },
+  "spiritfarer-2020": {
+   "genre:cozy-game": 0.9,
+   "genre:illness-and-grief-memoir": 0.6
+  },
+  "spy-x-family-2019": {
+   "genre:shonen": 0.9,
+   "genre:spy-thriller": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "squid-game-2021": {
+   "genre:survival-thriller": 0.9,
+   "genre:satire": 0.9
+  },
+  "stalker-1979": {
+   "genre:post-apocalyptic": 0.9,
+   "genre:exploration": 0.6,
+   "genre:psychological-drama": 0.6
+  },
+  "star-wars-1977": {
+   "genre:space-opera": 0.9,
+   "genre:quest": 0.6
+  },
+  "star-wars-the-rise-of-skywalker-2019": {
+   "genre:space-opera": 0.9
+  },
+  "stardew-valley-2016": {
+   "genre:farming-sim": 0.9,
+   "genre:cozy-game": 0.9
+  },
+  "steins-gate-2011": {
+   "genre:anime": 0.9,
+   "genre:time-travel": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "story-of-your-life-1998": {
+   "genre:alien-encounter": 0.9,
+   "genre:hard-science-fiction": 0.9,
+   "genre:short-stories": 0.6
+  },
+  "stranger-things-2016": {
+   "genre:supernatural-horror": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:creature-feature": 0.6
+  },
+  "stree-2018": {
+   "genre:comedy-horror": 0.9,
+   "genre:folk-horror": 0.6
+  },
+  "succession-2018": {
+   "genre:satire": 0.9,
+   "genre:family-drama": 0.9,
+   "genre:black-comedy": 0.6
+  },
+  "sunoh-1996": {
+   "genre:indian-pop": 0.9
+  },
+  "super-deluxe-2019": {
+   "genre:black-comedy": 0.9,
+   "genre:gangster": 0.6
+  },
+  "super-mario-bros-1985": {
+   "genre:precision-platformer": 0.9,
+   "genre:all-ages-adventure": 0.9
+  },
+  "super-mario-odyssey-2017": {
+   "genre:3d-platformer": 0.9,
+   "genre:all-ages-adventure": 0.9
+  },
+  "swades-2004": {
+   "genre:social-realism": 0.9,
+   "genre:melodrama": 0.6
+  },
+  "taare-zameen-par-2007": {
+   "genre:coming-of-age": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "tangerine-2015": {
+   "genre:dramedy": 0.9,
+   "genre:buddy-comedy": 0.6
+  },
+  "ted-lasso-2020": {
+   "genre:sports-comedy": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "tell-me-why-2020": {
+   "genre:narrative-adventure": 0.9,
+   "genre:family-drama": 0.9,
+   "genre:supernatural-mystery": 0.6
+  },
+  "terraria-2011": {
+   "genre:sandbox-survival": 0.9,
+   "genre:action-adventure": 0.6
+  },
+  "tetris-1984": {
+   "genre:falling-block": 0.9
+  },
+  "the-act-of-killing-2012": {
+   "genre:social-documentary": 0.9,
+   "genre:holocaust": 0.9
+  },
+  "the-album-2020": {
+   "genre:k-pop": 0.9,
+   "genre:dance-pop": 0.9
+  },
+  "the-alchemist-1988": {
+   "genre:fairy-tale": 0.9,
+   "genre:quest": 0.9,
+   "genre:philosophy": 0.6
+  },
+  "the-babadook-2014": {
+   "genre:psychological-horror": 0.9,
+   "genre:supernatural-horror": 0.9
+  },
+  "the-bear-2022": {
+   "genre:workplace-drama": 0.9,
+   "genre:family-drama": 0.9
+  },
+  "the-big-lebowski-1998": {
+   "genre:dark-comedy-crime": 0.9,
+   "genre:absurdist-comedy": 0.9,
+   "genre:neo-noir": 0.6
+  },
+  "the-blue-notebooks-2004": {
+   "genre:modern-classical": 0.9,
+   "genre:minimalism": 0.9
+  },
+  "the-blueprint-2001": {
+   "genre:boom-bap": 0.9,
+   "genre:classic-soul": 0.6
+  },
+  "the-body-keeps-the-score-2014": {
+   "genre:psychology-and-mind": 0.9
+  },
+  "the-boy-and-the-heron-2023": {
+   "genre:anime": 0.9,
+   "genre:portal-fantasy": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "the-bureau-2015": {
+   "genre:spy-thriller": 0.9
+  },
+  "the-catcher-in-the-rye-1951": {
+   "genre:coming-of-age": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "the-conjuring-2013": {
+   "genre:supernatural-horror": 0.9
+  },
+  "the-crown-2016": {
+   "genre:political-biography": 0.9,
+   "genre:period-drama": 0.9
+  },
+  "the-dark-knight-2008": {
+   "genre:superhero-ensemble": 0.9,
+   "genre:superhero-deconstruction": 0.6,
+   "genre:neo-noir": 0.6
+  },
+  "the-dark-side-of-the-moon-1973": {
+   "genre:progressive-rock": 0.9,
+   "genre:psychedelic-rock": 0.9
+  },
+  "the-diary-of-a-young-girl-1947": {
+   "genre:survival-memoir": 0.9,
+   "genre:holocaust": 0.9,
+   "genre:coming-of-age-memoir": 0.6
+  },
+  "the-discovery-of-india-1946": {
+   "genre:narrative-history": 0.9,
+   "genre:colonial-history": 0.6
+  },
+  "the-disintegration-loops-2002": {
+   "genre:ambient-drone": 0.9,
+   "genre:minimalism": 0.9
+  },
+  "the-dispossessed-1974": {
+   "genre:social-science-fiction": 0.9,
+   "genre:political-drama": 0.6
+  },
+  "the-exorcist-1973": {
+   "genre:supernatural-horror": 0.9
+  },
+  "the-family-man-2019": {
+   "genre:spy-thriller": 0.9,
+   "genre:action-comedy": 0.6,
+   "genre:family-drama": 0.6
+  },
+  "the-fellowship-of-the-ring-1954": {
+   "genre:high-fantasy": 0.9,
+   "genre:quest": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "the-fellowship-of-the-ring-2001": {
+   "genre:high-fantasy": 0.9,
+   "genre:quest": 0.9
+  },
+  "the-girl-with-the-dragon-tattoo-2005": {
+   "genre:detective-story": 0.9,
+   "genre:techno-thriller": 0.6
+  },
+  "the-god-of-small-things-1997": {
+   "genre:family-saga": 0.9,
+   "genre:postcolonial-fiction": 0.9,
+   "genre:tragic-romance": 0.6
+  },
+  "the-godfather-1972": {
+   "genre:gangster": 0.9,
+   "genre:family-drama": 0.9
+  },
+  "the-goldberg-variations-1955": {
+   "genre:baroque": 0.9
+  },
+  "the-good-place-2016": {
+   "genre:sitcom": 0.9,
+   "genre:philosophy": 0.9,
+   "genre:urban-fantasy": 0.6
+  },
+  "the-grand-budapest-hotel-2014": {
+   "genre:comedy-of-manners": 0.9,
+   "genre:heist": 0.6
+  },
+  "the-great-gatsby-1925": {
+   "genre:tragic-romance": 0.9,
+   "genre:classic-literature": 0.9,
+   "genre:satire": 0.6
+  },
+  "the-handmaiden-2016": {
+   "genre:erotic-thriller": 0.9,
+   "genre:period-romance": 0.9,
+   "genre:psychological-thriller": 0.6
+  },
+  "the-handmaids-tale-1985": {
+   "genre:dystopian": 0.9,
+   "genre:social-science-fiction": 0.9
+  },
+  "the-haunting-of-hill-house-2018": {
+   "genre:supernatural-horror": 0.9,
+   "genre:gothic-horror": 0.9,
+   "genre:family-drama": 0.9
+  },
+  "the-hitchhikers-guide-to-the-galaxy-1979": {
+   "genre:absurdist-comedy": 0.9,
+   "genre:space-opera": 0.9,
+   "genre:parody": 0.6
+  },
+  "the-hobbit-1937": {
+   "genre:high-fantasy": 0.9,
+   "genre:quest": 0.9,
+   "genre:all-ages-adventure": 0.6
+  },
+  "the-hobbit-the-battle-of-the-five-armies-2014": {
+   "genre:high-fantasy": 0.9,
+   "genre:combat": 0.9
+  },
+  "the-holdovers-2023": {
+   "genre:dramedy": 0.9,
+   "genre:holiday-movie": 0.6,
+   "genre:campus-story": 0.6
+  },
+  "the-holiday-2006": {
+   "genre:romantic-comedy": 0.9,
+   "genre:holiday-movie": 0.9
+  },
+  "the-hunger-games-2008": {
+   "genre:dystopian": 0.9,
+   "genre:survival-thriller": 0.9
+  },
+  "the-immortal-life-of-henrietta-lacks-2010": {
+   "genre:science-biography": 0.9,
+   "genre:evolution-and-biology": 0.6
+  },
+  "the-incredibles-2004": {
+   "genre:computer-animation": 0.9,
+   "genre:superhero-ensemble": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "the-intouchables-2011": {
+   "genre:buddy-comedy": 0.9,
+   "genre:dramedy": 0.9
+  },
+  "the-iron-giant-1999": {
+   "genre:artificial-intelligence": 0.9,
+   "genre:animal-tale": 0.6,
+   "genre:all-ages-adventure": 0.6
+  },
+  "the-kite-runner-2003": {
+   "genre:coming-of-age": 0.9,
+   "genre:family-drama": 0.6,
+   "genre:postcolonial-fiction": 0.6
+  },
+  "the-koln-concert-1975": {
+   "genre:solo-improvisation": 0.9
+  },
+  "the-last-airbender-2010": {
+   "genre:high-fantasy": 0.9,
+   "genre:martial-arts": 0.6
+  },
+  "the-last-dance-2020": {
+   "genre:sports-documentary": 0.9
+  },
+  "the-last-of-us-2013": {
+   "genre:survival-horror": 0.9,
+   "genre:zombie-horror": 0.9,
+   "genre:third-person-shooter": 0.6
+  },
+  "the-last-of-us-2023": {
+   "genre:zombie-horror": 0.9,
+   "genre:post-apocalyptic": 0.9,
+   "genre:road-trip": 0.6
+  },
+  "the-left-hand-of-darkness-1969": {
+   "genre:social-science-fiction": 0.9,
+   "genre:alien-encounter": 0.6
+  },
+  "the-leftovers-2014": {
+   "genre:psychological-drama": 0.9,
+   "genre:supernatural-mystery": 0.6
+  },
+  "the-legend-of-zelda-breath-of-the-wild-2017": {
+   "genre:action-adventure": 0.9,
+   "genre:exploration": 0.9,
+   "genre:high-fantasy": 0.9
+  },
+  "the-legend-of-zelda-ocarina-of-time-1998": {
+   "genre:action-adventure": 0.9,
+   "genre:high-fantasy": 0.9,
+   "genre:time-travel": 0.6
+  },
+  "the-lion-king-1994": {
+   "genre:animated-musical": 0.9,
+   "genre:animal-tale": 0.9
+  },
+  "the-little-prince-1943": {
+   "genre:fairy-tale": 0.9,
+   "genre:philosophy": 0.6
+  },
+  "the-lives-of-others-2006": {
+   "genre:political-thriller": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "the-lunchbox-2013": {
+   "genre:romantic-drama": 0.9,
+   "genre:character-study": 0.9
+  },
+  "the-mandalorian-2019": {
+   "genre:space-western": 0.9,
+   "genre:space-opera": 0.9
+  },
+  "the-marshall-mathers-lp-2000": {
+   "genre:pop-rap": 0.9,
+   "genre:boom-bap": 0.6
+  },
+  "the-martian-2011": {
+   "genre:survival-adventure": 0.9,
+   "genre:hard-science-fiction": 0.9
+  },
+  "the-martian-2015": {
+   "genre:survival-adventure": 0.9,
+   "genre:hard-science-fiction": 0.9
+  },
+  "the-matrix-1999": {
+   "genre:cyberpunk": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:martial-arts": 0.6
+  },
+  "the-matrix-resurrections-2021": {
+   "genre:cyberpunk": 0.9,
+   "genre:satire": 0.6
+  },
+  "the-metamorphosis-1915": {
+   "genre:existentialist-fiction": 0.9,
+   "genre:body-horror-genre": 0.9
+  },
+  "the-midnight-library-2020": {
+   "genre:cozy-fantasy": 0.9,
+   "genre:philosophy": 0.6
+  },
+  "the-miseducation-of-lauryn-hill-1998": {
+   "genre:neo-soul": 0.9,
+   "genre:conscious-hip-hop": 0.9
+  },
+  "the-muppet-christmas-carol-1992": {
+   "genre:holiday-movie": 0.9,
+   "genre:classic-musical": 0.9
+  },
+  "the-murder-of-roger-ackroyd-1926": {
+   "genre:whodunit": 0.9,
+   "genre:detective-story": 0.9
+  },
+  "the-name-of-the-rose-1980": {
+   "genre:whodunit": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "the-name-of-the-wind-2007": {
+   "genre:high-fantasy": 0.9,
+   "genre:coming-of-age": 0.9,
+   "genre:campus-story": 0.6
+  },
+  "the-namesake-2003": {
+   "genre:postcolonial-fiction": 0.9,
+   "genre:family-drama": 0.9
+  },
+  "the-night-circus-2011": {
+   "genre:romantic-drama": 0.9,
+   "genre:urban-fantasy": 0.6
+  },
+  "the-nightmare-before-christmas-1993": {
+   "genre:stop-motion": 0.9,
+   "genre:animated-musical": 0.9,
+   "genre:holiday-movie": 0.6
+  },
+  "the-ocean-at-the-end-of-the-lane-2013": {
+   "genre:dark-fantasy": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "the-office-2001": {
+   "genre:mockumentary": 0.9,
+   "genre:sitcom": 0.9,
+   "genre:black-comedy": 0.6
+  },
+  "the-office-2005": {
+   "genre:mockumentary": 0.9,
+   "genre:sitcom": 0.9
+  },
+  "the-others-2001": {
+   "genre:gothic-horror": 0.9,
+   "genre:supernatural-horror": 0.9
+  },
+  "the-palace-of-illusions-2008": {
+   "genre:mythic-fantasy": 0.9
+  },
+  "the-polar-express-2004": {
+   "genre:holiday-movie": 0.9,
+   "genre:computer-animation": 0.9
+  },
+  "the-prestige-2006": {
+   "genre:psychological-thriller": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "the-princess-bride-1987": {
+   "genre:swashbuckler": 0.9,
+   "genre:fairy-tale": 0.9,
+   "genre:parody": 0.6
+  },
+  "the-queens-gambit-2020": {
+   "genre:sports-drama": 0.9,
+   "genre:coming-of-age": 0.6,
+   "genre:period-drama": 0.6
+  },
+  "the-remains-of-the-day-1989": {
+   "genre:character-study": 0.9,
+   "genre:period-drama": 0.9
+  },
+  "the-return-of-the-king-2003": {
+   "genre:high-fantasy": 0.9,
+   "genre:quest": 0.9,
+   "genre:combat": 0.6
+  },
+  "the-road-2006": {
+   "genre:post-apocalyptic": 0.9,
+   "genre:family-drama": 0.6
+  },
+  "the-secret-history-1992": {
+   "genre:campus-story": 0.9,
+   "genre:psychological-thriller": 0.9
+  },
+  "the-secret-in-their-eyes-2009": {
+   "genre:police-procedural": 0.9,
+   "genre:tragic-romance": 0.6
+  },
+  "the-selfish-gene-1976": {
+   "genre:evolution-and-biology": 0.9
+  },
+  "the-seventh-seal-1957": {
+   "genre:existentialist-fiction": 0.9,
+   "genre:period-drama": 0.9
+  },
+  "the-shadow-of-the-wind-2001": {
+   "genre:gothic-romance": 0.9,
+   "genre:whodunit": 0.6
+  },
+  "the-shawshank-redemption-1994": {
+   "genre:courtroom": 0.6,
+   "genre:character-study": 0.9
+  },
+  "the-shining-1977": {
+   "genre:supernatural-horror": 0.9,
+   "genre:psychological-horror": 0.9
+  },
+  "the-shining-1980": {
+   "genre:psychological-horror": 0.9,
+   "genre:supernatural-horror": 0.9
+  },
+  "the-silence-of-the-lambs-1991": {
+   "genre:psychological-thriller": 0.9,
+   "genre:detective-story": 0.9
+  },
+  "the-silent-patient-2019": {
+   "genre:psychological-thriller": 0.9
+  },
+  "the-social-network-2010": {
+   "genre:business-biography": 0.9,
+   "genre:courtroom": 0.6
+  },
+  "the-song-of-achilles-2011": {
+   "genre:mythic-fantasy": 0.9,
+   "genre:queer-romance": 0.9,
+   "genre:tragic-romance": 0.9
+  },
+  "the-sopranos-1999": {
+   "genre:gangster": 0.9,
+   "genre:family-drama": 0.9,
+   "genre:black-comedy": 0.6
+  },
+  "the-stranger-1942": {
+   "genre:existentialist-fiction": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "the-talos-principle-2014": {
+   "genre:logic-puzzle": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:philosophy": 0.6
+  },
+  "the-thing-1982": {
+   "genre:creature-feature": 0.9,
+   "genre:body-horror-genre": 0.9,
+   "genre:survival-horror": 0.6
+  },
+  "the-three-body-problem-2008": {
+   "genre:alien-encounter": 0.9,
+   "genre:hard-science-fiction": 0.9
+  },
+  "the-trial-1925": {
+   "genre:existentialist-fiction": 0.9,
+   "genre:courtroom": 0.6,
+   "genre:absurdist-comedy": 0.6
+  },
+  "the-truman-show-1998": {
+   "genre:satire": 0.9,
+   "genre:social-science-fiction": 0.9
+  },
+  "the-twilight-zone-1959": {
+   "genre:social-science-fiction": 0.9,
+   "genre:supernatural-mystery": 0.9
+  },
+  "the-two-towers-2002": {
+   "genre:high-fantasy": 0.9,
+   "genre:quest": 0.9,
+   "genre:combat": 0.6
+  },
+  "the-vegetarian-2007": {
+   "genre:psychological-drama": 0.9,
+   "genre:body-horror-genre": 0.6
+  },
+  "the-velvet-underground-and-nico-1967": {
+   "genre:experimental-pop": 0.9,
+   "genre:psychedelic-rock": 0.6
+  },
+  "the-wailing-2016": {
+   "genre:folk-horror": 0.9,
+   "genre:supernatural-horror": 0.9
+  },
+  "the-way-of-kings-2010": {
+   "genre:high-fantasy": 0.9,
+   "genre:combat": 0.9
+  },
+  "the-white-tiger-2008": {
+   "genre:satire": 0.9,
+   "genre:social-realism": 0.6
+  },
+  "the-wind-up-bird-chronicle-1994": {
+   "genre:magical-realism": 0.9,
+   "genre:psychological-mystery": 0.9
+  },
+  "the-wire-2002": {
+   "genre:police-procedural": 0.9,
+   "genre:drug-crime": 0.9,
+   "genre:social-realism": 0.9
+  },
+  "the-witch-2015": {
+   "genre:folk-horror": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "the-witcher-3-wild-hunt-2015": {
+   "genre:action-rpg": 0.9,
+   "genre:dark-fantasy": 0.9
+  },
+  "the-witness-2016": {
+   "genre:logic-puzzle": 0.9,
+   "genre:exploration": 0.9
+  },
+  "the-wizard-of-oz-1939": {
+   "genre:portal-fantasy": 0.9,
+   "genre:classic-musical": 0.9
+  },
+  "the-worst-person-in-the-world-2021": {
+   "genre:romantic-drama": 0.9,
+   "genre:dramedy": 0.9,
+   "genre:coming-of-age": 0.6
+  },
+  "the-zone-of-interest-2023": {
+   "genre:holocaust": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "there-will-be-blood-2007": {
+   "genre:character-study": 0.9,
+   "genre:revisionist-western": 0.6
+  },
+  "things-fall-apart-1958": {
+   "genre:postcolonial-fiction": 0.9,
+   "genre:colonial-history": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "thinking-fast-and-slow-2011": {
+   "genre:psychology-and-mind": 0.9
+  },
+  "thriller-1982": {
+   "genre:dance-pop": 0.9,
+   "genre:contemporary-rnb": 0.9
+  },
+  "time-out-1959": {
+   "genre:cool-jazz": 0.9
+  },
+  "to-kill-a-mockingbird-1960": {
+   "genre:coming-of-age": 0.9,
+   "genre:courtroom": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "to-pimp-a-butterfly-2015": {
+   "genre:conscious-hip-hop": 0.9,
+   "genre:jazz-rap": 0.9,
+   "genre:west-coast-hip-hop": 0.9
+  },
+  "tokyo-story-1953": {
+   "genre:family-drama": 0.9,
+   "genre:social-realism": 0.9
+  },
+  "tomorrow-and-tomorrow-and-tomorrow-2022": {
+   "genre:character-study": 0.9,
+   "genre:workplace-drama": 0.6
+  },
+  "top-gun-maverick-2022": {
+   "genre:military-action": 0.9
+  },
+  "tower-of-god-2010": {
+   "genre:progression-fantasy": 0.9,
+   "genre:portal-fantasy": 0.6
+  },
+  "toy-story-1995": {
+   "genre:computer-animation": 0.9,
+   "genre:buddy-comedy": 0.9
+  },
+  "train-to-busan-2016": {
+   "genre:zombie-horror": 0.9,
+   "genre:disaster": 0.9
+  },
+  "train-to-pakistan-1956": {
+   "genre:colonial-history": 0.9,
+   "genre:social-realism": 0.6
+  },
+  "true-detective-2014": {
+   "genre:police-procedural": 0.9,
+   "genre:neo-noir": 0.9,
+   "genre:folk-horror": 0.6
+  },
+  "tumbbad-2018": {
+   "genre:folk-horror": 0.9,
+   "genre:period-drama": 0.6
+  },
+  "twin-peaks-1990": {
+   "genre:supernatural-mystery": 0.9,
+   "genre:police-procedural": 0.6,
+   "genre:absurdist-comedy": 0.6
+  },
+  "undertale-2015": {
+   "genre:jrpg": 0.9,
+   "genre:black-comedy": 0.6,
+   "genre:absurdist-comedy": 0.6
+  },
+  "unpacking-2021": {
+   "genre:cozy-game": 0.9,
+   "genre:logic-puzzle": 0.9,
+   "genre:character-study": 0.6
+  },
+  "untrue-2007": {
+   "genre:uk-bass": 0.9
+  },
+  "up-2009": {
+   "genre:computer-animation": 0.9,
+   "genre:all-ages-adventure": 0.9
+  },
+  "uzumaki-1998": {
+   "genre:cosmic-horror": 0.9,
+   "genre:body-horror-genre": 0.9
+  },
+  "vagabond-1998": {
+   "genre:seinen": 0.9,
+   "genre:martial-arts": 0.9,
+   "genre:historical-epic": 0.6
+  },
+  "vikram-vedha-2017": {
+   "genre:gangster": 0.9,
+   "genre:police-procedural": 0.9
+  },
+  "wall-e-2008": {
+   "genre:computer-animation": 0.9,
+   "genre:artificial-intelligence": 0.9,
+   "genre:post-apocalyptic": 0.6
+  },
+  "watchmen-1987": {
+   "genre:superhero-deconstruction": 0.9,
+   "genre:alternate-history": 0.6
+  },
+  "wednesday-2022": {
+   "genre:comedy-horror": 0.9,
+   "genre:detective-story": 0.9,
+   "genre:campus-story": 0.6
+  },
+  "what-remains-of-edith-finch-2017": {
+   "genre:narrative-adventure": 0.9,
+   "genre:family-saga": 0.9,
+   "genre:magical-realism": 0.6
+  },
+  "what-we-do-in-the-shadows-2014": {
+   "genre:mockumentary": 0.9,
+   "genre:comedy-horror": 0.9,
+   "genre:creature-feature": 0.6
+  },
+  "whats-going-on-1971": {
+   "genre:classic-soul": 0.9
+  },
+  "when-breath-becomes-air-2016": {
+   "genre:illness-and-grief-memoir": 0.9
+  },
+  "when-we-all-fall-asleep-where-do-we-go-2019": {
+   "genre:electropop": 0.9
+  },
+  "where-the-crawdads-sing-2018": {
+   "genre:coming-of-age": 0.9,
+   "genre:courtroom": 0.6
+  },
+  "whiplash-2014": {
+   "genre:music-drama": 0.9,
+   "genre:psychological-drama": 0.9
+  },
+  "wild-tales-2014": {
+   "genre:black-comedy": 0.9,
+   "genre:revenge-thriller": 0.9
+  },
+  "wings-of-desire-1987": {
+   "genre:urban-fantasy": 0.9,
+   "genre:romantic-drama": 0.6
+  },
+  "wings-of-fire-1999": {
+   "genre:political-memoir": 0.9,
+   "genre:science-biography": 0.9
+  },
+  "wish-you-were-here-1975": {
+   "genre:progressive-rock": 0.9
+  },
+  "wont-you-be-my-neighbor-2018": {
+   "genre:portrait-documentary": 0.9
+  },
+  "wuthering-heights-1847": {
+   "genre:gothic-romance": 0.9,
+   "genre:tragic-romance": 0.9,
+   "genre:classic-literature": 0.9
+  },
+  "yi-yi-2000": {
+   "genre:family-drama": 0.9,
+   "genre:character-study": 0.6
+  },
+  "your-lie-in-april-2014": {
+   "genre:anime": 0.9,
+   "genre:music-drama": 0.9,
+   "genre:tragic-romance": 0.9
+  },
+  "your-name-2016": {
+   "genre:anime": 0.9,
+   "genre:romantic-drama": 0.9,
+   "genre:time-travel": 0.6
+  },
+  "zindagi-na-milegi-dobara-2011": {
+   "genre:buddy-comedy": 0.9,
+   "genre:road-trip": 0.9
+  },
+  "zombie-1976": {
+   "genre:afrobeat": 0.9
+  }
+ }
+}

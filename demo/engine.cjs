@@ -98,7 +98,7 @@ const MDE = (() => {
     album: ["album", "albums", "record", "records", "music", "something to listen to", "listen to", "listening"],
     series: ["tv show", "tv shows", "tv series", "series", "show to watch", "miniseries", "mini-series", "limited series",
       "web series", "k-drama", "k-dramas", "kdrama", "kdramas", "to binge", "binge-watch", "binge watch",
-      "something to binge"],
+      "something to binge", "a show", "the show", "shows", "a tv", "on tv", "an anime", "anime series", "a sitcom", "a drama series", "episodes"],
   };
   const WATCH_WORDS = ["to watch", "watch tonight", "something to watch", "watch"];
   const LANGUAGE_WORDS = {
@@ -1161,7 +1161,7 @@ finish finished binge binged through will watching reading playing listening sta
         image: img ? { url: img.url, kind: img.kind, licence: img.licence, attribution: img.attribution, source: img.source } : null,
         time: timeInvestment(w),
         continuity: { kind: c.kind, group: c.group, position: c.position, count: c.members.length },
-        scores: w.scores.slice(0, 2).map((s) => ({ publisher: s.publisher, metric: s.metric, value: s.value, scale_max: s.scale_max })) };
+        scores: w.scores.map((s) => ({ publisher: s.publisher, metric: s.metric, value: s.value, scale_max: s.scale_max })) };
     }
 
     function shelfMatch(w, rule, ctx) {

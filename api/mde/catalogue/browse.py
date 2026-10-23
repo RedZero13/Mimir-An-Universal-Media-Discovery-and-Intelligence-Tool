@@ -415,7 +415,7 @@ def _rich_card(w: WorkProfile, tax: Taxonomy, ctx: dict[str, dict]) -> dict:
             "time": time_investment(w),
             "continuity": {"kind": c["kind"], "group": c["group"], "position": c["position"], "count": len(c["members"])},
             "scores": [{"publisher": s.publisher, "metric": s.metric, "value": s.value, "scale_max": s.scale_max}
-                       for s in w.scores[:2]]}
+                       for s in w.scores]}
 
 
 def _shelf_match(w: WorkProfile, rule: dict, ctx: dict[str, dict]) -> bool:
