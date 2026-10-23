@@ -1890,7 +1890,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
       ["Seoul Searching", "#shelf-seoul-searching"], ["Desi Delights", "#shelf-desi-delights"]]],
-    ["Books", [["All books", "#books"], ["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Book series", "#series"]]],
+    ["Books", [["All books", "#books"], ["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Audiobooks", "#audiobooks"], ["Book series", "#series"]]],
     ["Games", [["All games", "#games"], ["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
     ["YouTube", [["Channels & videos", "#youtube"], ["Comedy", "#youtube?f=comedy"], ["Food", "#youtube?f=food"], ["Gaming & horror", "#youtube?f=horror"], ["VFX & film", "#youtube?f=documentary"], ["Mysteries", "#youtube?f=mystery"]]],
     ["Music", [["All music", "#albums"], ["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
@@ -2066,7 +2066,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <header class="shelf-head"><div><h2>${c.kind === "series" ? `The ${esc(c.group.name)} series` : `The ${esc(c.group.name)} family`}</h2><p>${c.kind === "series" ? "In series order." : "In release order, found through sequel, spin-off and remake links."}</p></div><a class="see-all" href="#group-${esc(c.group.slug)}">Open</a></header>
           <ol class="run">${c.members.map((m, i) => `<li class="${m.slug === w.slug ? "here" : ""}"><a href="#work-${esc(m.slug)}">${(() => { const mw = cat.work(m.slug); return poster(coverOf({ ...m, creators: [], images: mw.images }, moodFromPage(mw))); })()}<span class="run-n">${m.position ? `No. ${esc(m.position)}` : i + 1}</span><span class="run-t">${esc(m.title)}</span><span class="pmeta">${esc([mediumLabel(m.medium), m.year].filter(Boolean).join(" · "))}${m.slug === w.slug ? " · this one" : ""}</span></a></li>`).join("")}</ol>
         </section>` : ""}
-        ${whereBlock(where)}
+        ${whereBlock(where)}${w.medium === "book" ? audiobookBlock(w) : ""}
         ${CONFIG.api ? `<section class="block" id="reviews"><h2>Reviews</h2><div id="reviews-box"><p class="muted small">Loading reviews…</p></div></section>` : ""}
         <section class="block" id="journal">${journalPanel(w)}</section>
         ${w.tracks.length ? `<section class="block" id="tracks"><h2>Tracks</h2>${trackList(w.tracks, false)}</section>` : ""}
@@ -2342,10 +2342,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function saveLibrary() { store("mimir-library", library); refreshCounts(); queueSync(); setTimeout(checkBadges, 0); }
 
   // What progress is counted in, and how much there is, where the catalogue knows.
+  // Audiobooks: about 155 spoken words a minute over roughly 300 words a page. An estimate, and labelled as one.
+  const listenMinutes = (w) => (w && w.page_count ? Math.round(w.page_count * 1.95) : null);
   function progressUnit(w) {
     const a = w.attributes || {};
     if (w.medium === "series") return { unit: "episodes", total: a.episodes || null, step: 1 };
     if (w.medium === "book" && ["manga", "manhwa", "manhua"].includes(a.form)) return { unit: "chapters", total: a.chapters || null, step: 1 };
+    if (w.medium === "book" && library[w.slug] && library[w.slug].format === "audiobook") { const m = listenMinutes(w); return { unit: "hours", total: m ? Math.ceil(m / 60) : null, step: 1 }; }
     if (w.medium === "book") return { unit: "pages", total: w.page_count || null, step: 10 };
     if (w.medium === "game") return { unit: "hours", total: w.playtime_hours || null, step: 1 };
     return null;
@@ -2356,6 +2359,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (!w) return;
     const before = library[slug] ? { ...library[slug] } : null;
     const e = { added: today(), ...(library[slug] || {}), ...patch, updated: today() };
+    if (patch.format !== undefined && before && before.format !== patch.format && e.status !== "completed") e.progress = 0;
+    library[slug] = e;   // so progressUnit sees the new format
     const pu = progressUnit(w);
     if (patch.status === "active" && !e.started) e.started = today();
     if (patch.status === "completed") {
@@ -2369,9 +2374,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       else if (e.progress > 0 && (!e.status || e.status === "planned")) { e.status = "active"; e.started = e.started || today(); }
     }
     if (!e.status) e.status = "planned";
-    const was = (library[slug] || {}).status;
+    const was = (before || {}).status;
     library[slug] = e;
-    logMinutes(w.medium, minutesFor(w, before, e, patch.progress !== undefined), slug);
+    logMinutes(w.medium === "book" && e.format === "audiobook" ? "audiobook" : w.medium, minutesFor(w, before, e, patch.progress !== undefined), slug);
     saveLibrary();
     if (e.status !== was) shareActivity(slug, e.status);
   }
@@ -2444,6 +2449,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <div class="tr-grid">
           <label><span>Status</span>${statusSel(w, e)}</label>
           <label><span>Your score</span>${scoreSel(w, e)}</label>
+          ${w.medium === "book" && !["manga", "manhwa", "manhua"].includes((w.attributes || {}).form) ? `<label><span>Format</span><select data-track="format" data-slug="${esc(w.slug)}"><option value="">Print or ebook</option><option value="audiobook" ${e && e.format === "audiobook" ? "selected" : ""}>Audiobook</option></select></label>` : ""}
           ${pu ? `<label><span>Progress</span>${progressCtl(w, e)}</label>` : ""}
           <label><span>Started</span><input type="date" data-track="started" data-slug="${esc(w.slug)}" value="${esc((e && e.started) || "")}"></label>
           <label><span>Finished</span><input type="date" data-track="finished" data-slug="${esc(w.slug)}" value="${esc((e && e.finished) || "")}"></label>
@@ -2511,7 +2517,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // plus anything you log by hand. Kept in this browser like the rest of the library.
   let activity = stored("mimir-activity", []);   // [{ d: "YYYY-MM-DD", m: medium, min, s?: slug }]
   const saveActivity = () => { store("mimir-activity", activity); queueSync(); setTimeout(checkBadges, 0); };
-  const RINGS = [["watch", "Watch", ["film", "series"]], ["read", "Read", ["book"]], ["play", "Play", ["game"]], ["listen", "Listen", ["album"]]];
+  const RINGS = [["watch", "Watch", ["film", "series", "online_video", "channel"]], ["read", "Read", ["book"]], ["play", "Play", ["game"]], ["listen", "Listen", ["album", "audiobook"]]];
   let ringGoals = stored("mimir-ring-goals", { watch: 60, read: 30, play: 30, listen: 30 });
   const ringOf = (medium) => (RINGS.find((r) => r[2].includes(medium)) || RINGS[0])[0];
   function minutesFor(w, before, after, viaProgress) {
@@ -2883,6 +2889,26 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <p class="yt-about">${esc(c.summary || "")}</p>
           ${vids.length ? row(vids) : ""}
         </section>`; }).join("") || `<p class="empty">No channels in this group yet.</p>`}`;
+  }
+
+  // ------------------------------------------------------------------ audiobooks
+  function audiobookBlock(w) {
+    if (["manga", "manhwa", "manhua"].includes((w.attributes || {}).form)) return "";
+    const ab = cat.whereFor({ medium: "audiobook", title: w.title, creator: (w.creators || [])[0] || "", year: w.year }, prefs.region);
+    if (!ab) return "";
+    const m = listenMinutes(w);
+    const free = w.year && w.year <= 1929;   // public domain in the US, where LibriVox records
+    return `<section class="block" id="listen"><h2>Prefer to listen?</h2>
+      <p class="muted">${m ? `As an audiobook, about <strong>${esc(hm(m))}</strong> of listening (estimated from the page count; editions and narrators vary). ` : ""}Set the format to <em>Audiobook</em> in your library to track it in hours and fill your Listen ring.</p>
+      <ul class="linkouts where-all">${ab.providers.map((p) => `<li>${ext(p.url, p.name)}</li>`).join("")}${free ? `<li>${ext(`https://librivox.org/search?q=${encodeURIComponent(w.title)}&search_form=advanced`, "LibriVox (free, public domain)")}</li>` : ""}</ul></section>`;
+  }
+  function renderAudiobooks() {
+    const books = allWorks().filter((x) => x.medium === "book" && !["manga", "manhwa", "manhua"].includes((ATTRS[x.slug] || {}).form)).map((x) => ({ x, m: listenMinutes(cat.work(x.slug)) })).filter((b) => b.m);
+    const bands = [["Short listens", "Under five hours: a few commutes or one long drive.", 0, 300], ["A week of commutes", "Five to twelve hours.", 300, 720], ["Long listens", "Twelve hours and more, to live with for a while.", 720, 1e9]];
+    app.innerHTML = `
+      <header class="page-band hub-band"><p class="eyebrow">Books</p><h1>Audiobooks</h1>
+        <p class="muted">Books to listen to, grouped by how long they take. Times are estimated from page counts (about 155 spoken words a minute); real editions vary with the narrator. Every book page links to Audible, Spotify, Google Play, Kobo and your library, and to LibriVox for free public-domain recordings.</p></header>
+      ${bands.map(([t, d, lo, hi]) => { const hits = books.filter((b) => b.m >= lo && b.m < hi).sort((a, b) => a.m - b.m); return hits.length ? `<section class="shelf"><header class="shelf-head"><div><h2>${esc(t)}</h2><p>${esc(d)} ${hits.length} books.</p></div></header>${row(hits.map((b) => b.x))}</section>` : ""; }).join("")}`;
   }
 
   // ------------------------------------------------------------------ the library page, diary and "up next"
@@ -3866,6 +3892,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h.startsWith("plist-")) { setNav("Community"); renderPublicList(h.slice(6)); }
     else if (h === "library" || h === "mine") { setNav("Library"); renderLibrary(p); }
     else if (h === "lists") { setNav("Library"); renderLists(); }
+    else if (h === "audiobooks") { setNav("Books"); renderAudiobooks(); }
     else if (h === "youtube") { setNav("YouTube"); renderYouTube(p.get("f") || ""); }
     else if (h === "achievements") { setNav("Library"); renderAchievements(); }
     else if (h === "trackers") { setNav("Library"); renderTrackers(); }
