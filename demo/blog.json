@@ -1,0 +1,53 @@
+{
+  "about": "Mimir's blog: short posts about what Mimir does and how to use it. Each post is shown in the app at #blog-<slug> and published as a static page at /blog/<slug>/ for search engines and sharing. Body text uses a small markdown subset: paragraphs, ## headings, - lists and [links](#route).",
+  "posts": [
+    {
+      "slug": "spend-less-time-browsing",
+      "title": "Spend less time browsing and more time watching",
+      "date": "2026-10-23",
+      "summary": "Three ways Mimir cuts the endless scroll down to a single good pick: say how you feel, let it decide, or follow a calendar.",
+      "tags": ["Discover", "Decide for me"],
+      "body": "Most of us know the feeling: forty minutes into scrolling a streaming app, and nothing has started. Mimir is built to shorten that gap.\n\n## Say what you're in the mood for\n\nType a feeling, a favourite or a time limit, the way you'd ask a friend: \"something comforting after a difficult day, no violence\" or \"a TV series I can finish in a weekend\". Mimir reads the mood, the themes, the length and the content limits, and explains why each pick fits. [Try it on the home page](#).\n\n## Or let it decide\n\n[Decide for me](#decide) asks three quick questions (what kind of story, how much time, how you want to feel) and gives you one pick with its reasons. Not feeling it? Tell it why (too long, seen it, not in the mood) and it picks again.\n\n## Or follow a programme\n\nThe [social calendar](#calendar) plans the picking for you: Spooktober's 31 nights from cosy to terrifying, twelve days of Christmas films, Pride Month, Noirvember and more. Join one and tick off each day.\n\nEvery pick shows its runtime, parents' guide and where to watch, read, play or listen, so the next step is pressing play."
+    },
+    {
+      "slug": "one-library-for-every-story",
+      "title": "One library for films, TV, books, manga, games and music",
+      "date": "2026-10-20",
+      "summary": "Track everything you watch, read, play and listen to in one place, with progress by episode, page, chapter or hour, and bring your history with you.",
+      "tags": ["Library", "Import"],
+      "body": "Your stories don't live in one medium, so your list shouldn't either. Mimir's [library](#library) keeps films, TV, books, manga, games and albums together.\n\n## Track it your way\n\n- Statuses: planned, in progress, completed, paused and dropped.\n- Scores from 1 to 10, start and finish dates, rewatches and private notes.\n- Progress in the unit that fits: episodes for TV, pages for books, chapters for manga, hours for games. It shows on the cover too.\n- Lists you can share by link, a diary, and [stats](#stats) on where your time goes.\n\n## Bring your history\n\n[Import](#transfer) your exports from MyAnimeList, IMDb, Letterboxd or Goodreads. Titles are matched to the catalogue, and nothing leaves your browser. You can export everything as JSON or CSV at any time.\n\n## Your year, summed up\n\n[Year in review](#year) turns what you finished into a shareable summary: your favourite, the month you binged, the moods your year leaned towards and every title, in order."
+    },
+    {
+      "slug": "why-every-pick-has-a-reason",
+      "title": "Why every Mimir pick comes with a reason",
+      "date": "2026-10-16",
+      "summary": "Mimir reads stories by mood, theme, pacing and world, not just genre, and tells you which of those matched what you asked for.",
+      "tags": ["How it works"],
+      "body": "Most recommendations say \"because you watched X\". Mimir tries to say why a story fits what you asked for.\n\n## Reading stories, not just genres\n\nEvery work in the catalogue is read along a few dimensions: genre, themes (grief, memory, power, coming of age), moods (eerie, comforting, tense), pacing, complexity, narrative shape and world. Each reading has a strength, so \"a little melancholic\" and \"devastating\" are different things.\n\n## Matching across media\n\nBecause the readings are shared across films, books, games and music, Mimir can find \"something like Blade Runner, but a book\" or a game that feels like a favourite album. Open any work and choose [in other media](#search-all) to try it.\n\n## Honest about where facts come from\n\nRelease years, runtimes, scores and covers come from open data such as Wikidata, Open Library and MusicBrainz, with the source shown. The readings and parents' guides are AI-assisted and marked as awaiting editorial review. Spot something wrong? [Send beta feedback](#about)."
+    },
+    {
+      "slug": "parents-guide-for-every-medium",
+      "title": "A parents' guide for every film, show, book and game",
+      "date": "2026-10-12",
+      "summary": "Check violence, language, frightening scenes and more before you press play, and filter whole searches by what you'd rather avoid.",
+      "tags": ["Families", "Parents' guide"],
+      "body": "Choosing for a family night, or for yourself on a fragile day, is easier when you know what's inside.\n\n## What the guide covers\n\nEach work has levels for violence and gore, sexual content, frightening scenes, language, substances and sensitive topics such as self-harm, with a short note where it helps. Official ratings (PG-13, TV-MA and others) are shown alongside.\n\n## Filter, don't just warn\n\nIn any search you can set content limits, for example no graphic violence and no strong language, and Mimir leaves out what crosses them. The [family-friendly films](#films) link in the Films menu is a ready-made starting point.\n\nThe guide is an AI-assisted reading awaiting editorial review, so treat it as a careful first look rather than the final word."
+    },
+    {
+      "slug": "manga-manhwa-and-anime-on-mimir",
+      "title": "Manga, manhwa and anime arrive on Mimir",
+      "date": "2026-10-08",
+      "summary": "Track manga by chapter, find where an anime came from, and browse the new Panels & Pages and Anime Essentials shelves.",
+      "tags": ["Manga", "Anime"],
+      "body": "Mimir now carries manga and manhwa as books with chapters, volumes and publication status, alongside the anime made from them.\n\n## What's new\n\n- Chapter progress in your library, shown on the cover.\n- Links between a manga and its anime adaptation, so you can read on from where a season ends.\n- Two new shelves: [Panels & Pages](#shelf-panels-and-pages) and [Anime Essentials](#shelf-anime-essentials).\n- MyAnimeList imports now match manga as well as anime.\n\nThe catalogue starts with classics and current favourites, from Monster and Vagabond to Frieren and Solo Leveling. Tell us what's missing and we'll add it."
+    },
+    {
+      "slug": "a-calendar-of-stories",
+      "title": "Spooktober, Christmas and more: a calendar of stories",
+      "date": "2026-10-01",
+      "summary": "Mimir's social calendar turns the year's seasons and festivals into day-by-day programmes you can join and tick off.",
+      "tags": ["Calendar", "Community"],
+      "body": "Some months come with their own mood. The [social calendar](#calendar) builds a pick for each day from the catalogue, in an order that makes sense.\n\n## A few of the programmes\n\n- Spooktober: 31 spooky films that build from cosy to terrifying and end with Halloween on Halloween night.\n- Twelve days of Christmas films, finishing with It's a Wonderful Life.\n- Diwali and Lunar New Year weeks, Pride Month, Black History Month, Noirvember and Nonfiction November.\n\n## Join in\n\nJoin a programme to get a checklist for each day. With an account you'll also see who else is taking part in the [community](#community). Every pick links to where you can watch, read or listen."
+    }
+  ]
+}
