@@ -104,6 +104,34 @@ p { margin: 0; }
 /* Small gold and grey text in light mode, darkened to meet WCAG AA contrast on the parchment background. */
 :root[data-theme="light"] .steps .num, :root[data-theme="light"] .foot-cols h2 { color: var(--gold-bright); }
 :root[data-theme="light"] .foot .legal { color: var(--muted); }
+/* Phones: one clean column. Menu groups and their lists run the full width, left-aligned; the bar is a rounded
+   panel rather than a pill; the ask box and its button stack at full width. */
+@media (max-width: 760px) {
+  header.top { flex-wrap: wrap; row-gap: 10px; }
+  .top-right { width: 100%; margin-left: 0; justify-content: space-between; gap: 10px; }
+  nav.menubar.menubar { border-radius: 20px; padding: 6px 12px; }
+  .menus { align-items: stretch; gap: 2px; }
+  .menus > li, .menu { width: 100%; }
+  .menu-btn { width: 100%; text-align: left; padding: 10px 6px; justify-content: flex-start; }
+  .drop { width: 100%; box-sizing: border-box; margin: 2px 0 10px; padding: 6px; border: 1px solid var(--line); border-radius: 14px; }
+  .drop a { padding: 9px 12px; }
+  .scope-search select { min-width: 118px; max-width: 132px; }
+  .hero .examples { flex-direction: column; align-items: stretch; }
+  .hero .examples button { border-radius: 14px; text-align: left; width: 100%; }
+  /* Three sample prompts on a phone (the first is already in the box). */
+  .hero .examples button:first-child, .hero .examples button:nth-child(n+5) { display: none; }
+}
+@media (max-width: 540px) {
+  .hero form.ask { align-items: stretch; }
+  .hero form.ask textarea { flex: none; width: 100%; }
+  .hero form.ask .btn { width: 100%; }
+}
+/* Fans of covers spread side by side when the card has room, and only overlap when it doesn't. */
+.family { container-type: inline-size; }
+@container (min-width: 300px) {
+  .fan.wide { gap: 10px; }
+  .fan.wide .poster, .fan.wide .poster:first-child, .fan.wide .poster:nth-child(3) { margin-left: 0; transform: none; flex: 0 0 74px; }
+}
 /* The menu bar is drawn by the app; until then it holds about the height it will take, so the hero doesn't jump. */
 #menubar:empty { min-height: 54px; }
 @media (max-width: 1199px) { #menubar:empty { min-height: 94px; } }
@@ -1075,7 +1103,6 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const EXAMPLES = [
     "An intelligent sci-fi film with a strong atmosphere and very little violence, ideally under two hours, not something obvious",
     "Something comforting after a difficult day, no violence",
-    "A book like Outer Wilds",
     "Something like Blade Runner but in a different medium",
     "A game I can finish in one evening, wordless and beautiful",
     "Stories about surveillance and complicity, any medium",
@@ -1083,6 +1110,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     "A Korean drama that will make me cry",
     "A short, funny Hindi film for the family",
     "A TV series I can finish in a weekend",
+    "A book like Outer Wilds",
   ];
   const MEDIUM = { film: "Film", series: "TV series", book: "Book", game: "Game", album: "Album", track: "Track", online_video: "YouTube video", channel: "YouTube channel" };
   const MEDAL = {
@@ -2954,7 +2982,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ YouTube: channels and notable videos
   const videosOf = (channel) => allWorks().filter((x) => CHANNEL_OF[x.slug] === channel);
-  const YT_FILTERS = { comedy: "genre:comedy", food: "genre:food", horror: "genre:horror", documentary: "genre:documentary", mystery: "genre:mystery" };
+  const YT_FILTERS = { comedy: "genre:comedy", food: "genre:food", horror: "genre:horror", documentary: "genre:documentary", mystery: "genre:mystery", music: "genre:world-music" };
   function youtubeRow() {
     const vids = allWorks().filter((x) => x.medium === "online_video");
     if (!vids.length) return "";
@@ -2967,7 +2995,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     app.innerHTML = `
       <header class="page-band hub-band"><p class="eyebrow">Directory</p><h1>YouTube</h1>
         <p class="muted">Creators worth following, what they make, and some of their best-known videos. Every link opens on YouTube.</p></header>
-      <nav class="medium-tabs" aria-label="Kind of channel"><a href="#youtube" class="${filter ? "" : "on"}">Everything</a>${Object.keys(YT_FILTERS).map((f) => `<a href="#youtube?f=${f}" class="${filter === f ? "on" : ""}">${esc({ comedy: "Comedy", food: "Food", horror: "Gaming & horror", documentary: "VFX & film", mystery: "Mysteries" }[f])}</a>`).join("")}</nav>
+      <nav class="medium-tabs" aria-label="Kind of channel"><a href="#youtube" class="${filter ? "" : "on"}">Everything</a>${Object.keys(YT_FILTERS).map((f) => `<a href="#youtube?f=${f}" class="${filter === f ? "on" : ""}">${esc({ comedy: "Comedy", food: "Food", horror: "Gaming & horror", documentary: "VFX & film", mystery: "Mysteries", music: "Music" }[f])}</a>`).join("")}</nav>
       ${channels.map((c) => { const a = ATTRS[c.slug] || {}; const vids = videosOf(c.slug).filter(has); return `
         <section class="yt-channel">
           <a class="yt-chan-head" href="#work-${esc(c.slug)}">${poster(cardCover(c))}<span><strong>${esc(c.title)}</strong><span class="muted small">${esc([a.handle, a.subscribers].filter(Boolean).join(" · "))}</span></span></a>
