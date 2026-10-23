@@ -578,6 +578,35 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .video-facade:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
 .video-embed figcaption { margin-top: 6px; }
 .share-n { display: inline-block; min-width: 1.5em; margin-left: 6px; padding: 1px 6px; border-radius: 99px; background: var(--gold); color: var(--black); font-size: .72rem; line-height: 1.4; }
+.dna { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
+.dna-fig { margin: 0; color: var(--cream); text-align: center; }
+.dna-key { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 6px 12px; justify-content: center; max-width: 240px; font-size: .78rem; color: var(--muted); }
+.dna-key i, .dna-l i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.dna-terms { list-style: none; padding: 0; margin: 8px 0 12px; display: grid; gap: 6px; }
+.dna-terms li { display: grid; grid-template-columns: minmax(120px, 1.2fr) 1fr auto auto; gap: 8px; align-items: center; }
+.dna-terms li.drop .dna-l { text-decoration: line-through; opacity: .6; }
+.dna-terms li.keep .dna-l { color: var(--gold-bright); font-weight: 600; }
+.dna-terms .bar, .taste-list .bar { display: block; height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.dna-terms .bar span, .taste-list .bar span { display: block; height: 100%; background: var(--gold); }
+.taste-list .bar.neg span { background: #B5603A; }
+@media (max-width: 720px) { .dna { grid-template-columns: 1fr; } .dna-fig { justify-self: center; } .dna-terms li { grid-template-columns: 1fr 70px auto auto; } }
+details.why { font-size: .82rem; margin: 4px 0; }
+details.why summary { cursor: pointer; color: var(--gold); }
+details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
+.taste-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 0 28px; }
+.taste-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.taste-list li { display: grid; grid-template-columns: minmax(110px, 1fr) 1fr auto; gap: 10px; align-items: center; }
+.te-btns { display: inline-flex; gap: 4px; }
+.ctx-list { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 8px; }
+.ctx-list li { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.taste-time { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+.taste-time li { display: grid; gap: 4px; border-left: 2px solid var(--gold); padding-left: 12px; }
+.taste-time .pchips { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 0; }
+.tchip.mix-avoid.on { background: #B5603A; border-color: #B5603A; color: #fff; }
+.mix-go { position: sticky; bottom: 12px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 14px 18px; border-radius: 16px; background: var(--glass); backdrop-filter: blur(12px); box-shadow: var(--shadow-1); margin: 18px 0; }
+.mix-go q { font-family: var(--f-body); color: var(--bone); }
+.mix-go .btn[disabled] { opacity: .5; cursor: default; }
+@media (max-width: 560px) { .taste-list li { grid-template-columns: 1fr 60px; } .taste-list .te-btns { grid-column: 1 / -1; } }
 .fy-ctl { display: grid; gap: 8px; margin: 0 0 18px; }
 .fy-ctl p { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
 .fy-ctl .eyebrow { min-width: 86px; }
@@ -1546,7 +1575,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${chips.length ? `<ul class="chips">${chips.map(([t, l]) => `<li class="chip ${t}">${esc(l)}</li>`).join("")}</ul>`
           : `<p class="muted small" style="margin-top:10px">No specific qualities stood out, so these are broad matches.</p>`}
         ${i.notes.length ? `<ul class="notes">${i.notes.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
-        <p class="stats">Searched ${r.considered} works${excluded ? ` · set aside ${esc(excluded)}` : ""}${r.weak_matches_hidden ? ` · ${r.weak_matches_hidden} weak matches hidden` : ""}</p>
+        <p class="stats"><a href="#mix">Mix moods in the mood mixer</a> · Searched ${r.considered} works${excluded ? ` · set aside ${esc(excluded)}` : ""}${r.weak_matches_hidden ? ` · ${r.weak_matches_hidden} weak matches hidden` : ""}</p>
       </section>`;
   }
 
@@ -2027,7 +2056,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
-    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
@@ -2038,7 +2067,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["Music", [["All music", "#albums"], ["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
-      ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
+      ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Taste profile", "#taste"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
@@ -2165,7 +2194,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const reactions = links.filter((l) => l.kind.startsWith("reactions:"));
     const elsewhere = links.filter((l) => !l.kind.startsWith("reactions:"));
     const jumps = [["overview", "Overview"], ["where", `Where to ${where ? where.verb.toLowerCase() : "find"}`], ...(CONFIG.api ? [["reviews", "Reviews"]] : []), ["journal", "Journal"], ...(c.members.length > 1 ? [["run", c.kind === "series" ? "Series" : "Family"]] : []),
-      ...(w.tracks.length ? [["tracks", "Tracks"]] : []), ["tags", "Tags"], ["guide", "Parents' guide"], ["reactions", "Reactions"],
+      ...(w.tracks.length ? [["tracks", "Tracks"]] : []), ...(dnaTerms(w.slug).length >= 3 ? [["dna", "Experience DNA"]] : []), ["tags", "Tags"], ["guide", "Parents' guide"], ["reactions", "Reactions"],
       ["credits", "Credits"], ...(w.relationships.length ? [["connected", "Connected stories"]] : [])];
     app.innerHTML = `
       <article>
@@ -2213,11 +2242,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${CONFIG.api ? `<section class="block" id="reviews"><h2>Reviews</h2><div id="reviews-box"><p class="muted small">Loading reviews…</p></div></section>` : ""}
         <section class="block" id="journal">${journalPanel(w)}</section>
         ${w.tracks.length ? `<section class="block" id="tracks"><h2>Tracks</h2>${trackList(w.tracks, false)}</section>` : ""}
+        ${dnaTerms(w.slug).length >= 3 ? `<section class="block" id="dna"><h2>Experience DNA</h2><div id="dna-panel">${dnaPanel(w.slug)}</div></section>` : ""}
         <section class="block" id="tags">
           <h2>Tags</h2>
           <p class="muted small" style="margin-bottom:12px">Bars show how strongly each quality applies. Open a tag to see every work that has it.</p>
           ${w.tags.map((d) => `<div class="dim"><h3>${esc(d.label)}</h3><ul class="terms">${d.terms.map((t) => `
-            <li title="${esc(t.definition)}"><a href="#${tagToken(t.key)}">${esc(t.label)}</a>
+            <li title="${esc(`${t.definition} (${termWhy(t)})`)}"><a href="#${tagToken(t.key)}">${esc(t.label)}</a>
               <span class="bar" role="img" aria-label="${intensity(t.strength)}, ${Math.round(t.strength * 100)}%"><span style="width:${Math.round(t.strength * 100)}%"></span></span>
               ${basisTag(t.basis)}</li>`).join("")}</ul></div>`).join("")}
         </section>
@@ -3565,7 +3595,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const tm = termMap().get(w.slug);
       let score = 0;
       const why = [];
-      if (decide.mood) { const s = tm.get(decide.mood) || 0; if (s < 0.5) continue; score += 2 * s; why.push(DECIDE_MOOD.find((m) => m[0] === decide.mood)[1]); }
+      if (avoided(w.slug)) continue;
+      if (decide.mood) {   // one mood or a mix ("comforting" and "a good cry"): each must clearly apply
+        const ms = decide.mood.split("|"), ss = ms.map((k) => tm.get(k) || 0);
+        if (ss.some((x) => x < (ms.length > 1 ? 0.4 : 0.5))) continue;
+        score += (2 * ss.reduce((a, b) => a + b, 0)) / ms.length;
+        why.push(ms.map((k) => DECIDE_MOOD.find((m) => m[0] === k)[1]).join(" and "));
+      }
       if (decide.who === "date") { const s = Math.max(tm.get("mood:romantic") || 0, tm.get("genre:romance") || 0); score += s; if (s >= 0.6) why.push("Romantic"); }
       if (decide.who === "friends") { const s = Math.max(tm.get("mood:funny") || 0, tm.get("mood:exhilarating") || 0); score += 0.6 * s; }
       if (decide.who === "family") { score += 0.6 * Math.max(tm.get("genre:family") || 0, tm.get("genre:animation") || 0); why.push("Family-friendly"); }
@@ -3583,14 +3619,15 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function renderDecide() {
     const ranked = decideRanked();
     const pick = ranked[0];
-    const chips = (field, opts) => `<div class="d-chips" role="radiogroup" aria-label="${field}">${opts.map(([v, l]) => `<button type="button" class="tchip${String(decide[field]) === v ? " on" : ""}" data-decide="${field}" data-value="${esc(v)}" aria-pressed="${String(decide[field]) === v}">${esc(l)}</button>`).join("")}</div>`;
+    const isOn = (field, v) => (field === "mood" && v ? decide.mood.split("|").includes(v) : String(decide[field]) === v);
+    const chips = (field, opts) => `<div class="d-chips" role="${field === "mood" ? "group" : "radiogroup"}" aria-label="${field}">${opts.map(([v, l]) => `<button type="button" class="tchip${isOn(field, v) ? " on" : ""}" data-decide="${field}" data-value="${esc(v)}" aria-pressed="${isOn(field, v)}">${esc(l)}</button>`).join("")}</div>`;
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">Decide for me</p><h1>One pick, not a hundred</h1>
         <p class="muted">Answer three quick questions and Mimir picks one thing for right now, with its reasons. Not feeling it? Say why and it picks again.</p></header>
       <section class="decide-q">
         <div><h2>What are you in the mood for?</h2>${chips("medium", [["film", "A film"], ["series", "A series"], ["book", "A book"], ["game", "A game"], ["album", "An album"], ["any", "Anything"]])}</div>
         <div><h2>How much time do you have?</h2>${chips("time", DECIDE_TIME)}</div>
-        <div><h2>How do you want to feel?</h2>${chips("mood", DECIDE_MOOD)}</div>
+        <div><h2>How do you want to feel? <span class="muted small">(pick up to three to mix them)</span></h2>${chips("mood", DECIDE_MOOD)}</div>
         <div><h2>Who's it for?</h2>${chips("who", DECIDE_WHO)}</div>
         <div><h2>From</h2>${chips("source", [["all", "The whole catalogue"], ["planned", "My planned list"]])}</div>
       </section>
@@ -3618,7 +3655,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     decideState.skipped.push(pick.w.slug);
     if (kind === "seen") updateEntry(pick.w.slug, { status: "completed" });
     if (kind === "mood") {   // steer away from what this pick was strongest in
-      const top = [...termMap().get(pick.w.slug)].filter(([k]) => /^(mood|theme|genre):/.test(k) && k !== decide.mood).sort((a, b) => b[1] - a[1]).slice(0, 3);
+      const top = [...termMap().get(pick.w.slug)].filter(([k]) => /^(mood|theme|genre):/.test(k) && !decide.mood.split("|").includes(k)).sort((a, b) => b[1] - a[1]).slice(0, 3);
       for (const [k] of top) decideState.penalties[k] = (decideState.penalties[k] || 0) + 0.6;
     }
     if (kind === "long" && pick.w.time) {
@@ -3986,7 +4023,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   // Recommendation controls: how well known, how long, and whether one series may fill the list.
-  const forYouOpts = stored("mimir-foryou-opts", { pop: "any", len: "any", vary: "no" });
+  const forYouOpts = { pop: "any", len: "any", vary: "no", fam: "any", ctx: "", ...stored("mimir-foryou-opts", {}) };
   const FY_POP = [["any", "Any"], ["gems", "Hidden gems"], ["known", "Well known"]], FY_LEN = [["any", "Any length"], ["130", "Two hours or less"], ["600", "Ten hours or less"], ["long", "Long hauls"]];
   function forYouFilter(results) {
     const seen = new Set(), o = forYouOpts;
@@ -4003,7 +4040,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function renderForYou(medium = "all") {
     const m = MEDIA.includes(medium) ? medium : null;
     const taste = tasteRatings();
-    const rec0 = cat.recommend(taste, 300, m), rec = { ...rec0, results: forYouFilter(rec0.results) };
+    const rec0 = cat.recommend(taste, 300, m), rec = { ...rec0, results: forYouFilter(personalise(rec0.results)) };
     const fyChips = (field, opts) => opts.map(([v, l]) => `<button type="button" class="tchip${forYouOpts[field] === v ? " on" : ""}" data-for-you="${field}" data-value="${v}" aria-pressed="${forYouOpts[field] === v}">${esc(l)}</button>`).join("");
     const rated = allWorks().filter((w) => taste[w.slug]);
     app.innerHTML = `
@@ -4011,10 +4048,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <p class="muted" style="margin:14px 0">Mimir builds a taste profile from the works you rate: what they're about and how they feel, counted more than genre. Loved counts twice as much as liked; "not for me" steers away. Scores in your <a href="#library">library</a> count too: 8 and up as loved, 6–7 as liked, 4 and below as not for me. It all stays in this browser.</p>
       ${rec.profile.length ? `<p class="pchips">Your taste leans ${rec.profile.map((t) => tagChip(t)).join("")}</p>` : ""}
       <nav class="medium-tabs" aria-label="Medium">${["all", ...MEDIA].map((x) => `<a href="#for-you?m=${x}" class="${(m || "all") === x ? "on" : ""}">${esc(PLURAL[x])}</a>`).join("")}</nav>
-      ${rated.length ? `<div class="fy-ctl"><p><span class="eyebrow">Popularity</span>${fyChips("pop", FY_POP)}</p><p><span class="eyebrow">Length</span>${fyChips("len", FY_LEN)}</p><p><span class="eyebrow">Variety</span>${fyChips("vary", [["no", "Any"], ["yes", "One per series"]])}</p></div>` : ""}
+      ${rated.length ? `<div class="fy-ctl"><p><span class="eyebrow">Popularity</span>${fyChips("pop", FY_POP)}</p><p><span class="eyebrow">Length</span>${fyChips("len", FY_LEN)}</p><p><span class="eyebrow">Variety</span>${fyChips("vary", [["no", "Any"], ["yes", "One per series"]])}</p><p><span class="eyebrow">Familiarity</span>${fyChips("fam", [["any", "Balanced"], ["familiar", "More of what I know"], ["stretch", "Stretch me"]])}</p>
+        <p><span class="eyebrow">Context</span>${fyChips("ctx", [["", "None"], ...allContexts().map((c) => [c.id, c.name])])}<a class="small" href="#taste">Edit your taste</a></p></div>` : ""}
       ${rated.length ? (rec.results.length ? `
         <section class="results-sec"><header class="sec-head"><h2>Picks for you <span class="count">(${rec.results.length})</span></h2></header>
-          ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${taste[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${rateButtons(w.slug, true)}`)}
+          ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${taste[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${whyDetails(w)}${rateButtons(w.slug, true)}`)}
         </section>` : `<p class="empty">${Object.values(taste).some((v) => v === "loved" || v === "liked") ? "Nothing new matches your taste with these settings. Try another tab, or loosen popularity or length." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
       ${starterPicker()}
       ${rated.length ? `<section class="block"><header class="sec-head"><h2>Your ratings <span class="count">(${rated.length})</span></h2>
@@ -4139,6 +4177,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const PLAN_BUDGET = [["180", "An evening (3h)"], ["720", "A weekend (12h)"], ["1800", "A week off (30h)"], ["3600", "A month of evenings (60h)"]];
   const PLAN_DAYS = { 180: 1, 720: 2, 1800: 7, 3600: 30 };
   const plan = stored("mimir-plan", { budget: "720", media: [], mood: "", backlog: "yes" });
+  const nextUp = () => new Map(unfinishedSeries().map((x) => [x.next.slug, x.name]));
   function planRanked() {
     const taste = tasteRatings();
     const rec = new Map(Object.values(taste).some((v) => v === "loved" || v === "liked") ? cat.recommend(taste, 300).results.map((w, i) => [w.slug, { i, because: w.because }]) : []);
@@ -4149,6 +4188,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       if (plan.media.length && !plan.media.includes(w.medium)) continue;
       const tm = termMap().get(w.slug), why = [];
       let score = 0;
+      if (avoided(w.slug)) continue;
+      if (nextUp().has(w.slug) && plan.backlog === "yes") { score += 2.5; why.push(`Next in ${nextUp().get(w.slug)}, which you've started`); }
       if (plan.mood) { const s = tm.get(plan.mood) || 0; if (s < 0.5) continue; score += 2 * s; why.push(DECIDE_MOOD.find((m) => m[0] === plan.mood)[1]); }
       if (e && plan.backlog === "yes") {
         if (e.status === "active") { score += 4; why.push("Already started"); }
@@ -4204,8 +4245,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         }).join("")}</ol>
         <p class="muted small">${P.left >= 20 ? `${esc(hm(P.left))} left over: room for a break, or a short one.` : "That fills it."} Want a different mix? Change a choice above, or <a href="#decide">let Mimir pick just one</a>.</p></section>`
         : `<p class="empty">Nothing fits that yet. Try another mood or more media${plan.backlog === "no" ? "" : ", or add things to your planned list"}.</p>`}
-      ${planned.length ? `<section class="block"><header class="sec-head"><h2>Your backlog <span class="count">(${planned.length} · about ${hours}h)</span></h2></header>
+      ${planned.length || unfinishedSeries().length ? `<section class="block"><header class="sec-head"><h2>Your backlog <span class="count">(${planned.length} · about ${hours}h)</span></h2></header>
         ${quick.length ? `<h3 class="sub-h">Quick finishes, two hours or less</h3>${row(quick.slice(0, 18).map((x) => x.w))}` : ""}
+        ${unfinishedSeries().length ? `<h3 class="sub-h">Unfinished series: what's next</h3>${row(unfinishedSeries().map((x) => x.next), (w) => { const x = unfinishedSeries().find((u) => u.next.slug === w.slug); return `<p class="pmeta">${esc(x.name)} · ${x.done} of ${x.total} done</p>`; })}` : ""}
         ${planned.some((x) => x.e.status === "active") ? `<h3 class="sub-h">Already started</h3>${row(planned.filter((x) => x.e.status === "active").map((x) => x.w))}` : ""}
         </section>` : `<p class="muted">Add things to your <a href="#library?tab=planned">planned list</a> and Mimir will fit them in first.</p>`}`;
   }
@@ -4277,7 +4319,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       else plan[d.plan] = d.value;
       store("mimir-plan", plan); const y = window.scrollY; renderPlan(); window.scrollTo(0, y); return;
     }
-    if (d.forYou) { forYouOpts[d.forYou] = d.value; store("mimir-foryou-opts", forYouOpts); const y = window.scrollY; route(); window.scrollTo(0, y); return; }
+    if (d.forYou) { forYouOpts[d.forYou] = d.value; if (d.forYou === "ctx" && activeContext()) Object.assign(forYouOpts, activeContext().opts); store("mimir-foryou-opts", forYouOpts); const y = window.scrollY; route(); window.scrollTo(0, y); return; }
     let changed = true;
     if (d.togetherMedium) together.medium = d.togetherMedium;
     else if (d.togetherAdd !== undefined) together.people.push({ name: `Person ${together.people.length + 1}`, loves: [], avoid: [] });
@@ -4287,6 +4329,287 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else changed = false;
     if (changed) { saveTogether(); const y = window.scrollY; renderTogether(); window.scrollTo(0, y); }
   });
+
+  // ------------------------------------------------------------------ phase 1: experience DNA, taste profile, mood mixer
+  // Every tag a work carries, with its strength, basis and confidence, for the DNA view and the "why" drill-downs.
+  // Parents' guide items join them (their level as the strength) so "never" works for violence, language and the rest.
+  const termInfo = once(() => new Map([...fullWork()].map(([s, w]) => [s, new Map([
+    ...w.tags.flatMap((d) => d.terms.map((t) => [t.key, { ...t, dimension: d.dimension, dimLabel: d.label }])),
+    ...w.parents_guide.groups.flatMap((g) => g.items.filter((i) => i.assessed).map((i) => [i.key, { key: i.key, label: i.label, definition: i.definition, strength: i.level, basis: i.basis, dimension: "advisory", dimLabel: "Parents' guide" }])),
+  ])])));
+  // Anything you said "never" to: a quality that clearly applies, or a guide item at moderate or above.
+  const avoided = (slug) => tasteEdits.avoid.some((k) => { const t = termInfo().get(slug).get(k); return t && t.strength >= (k.startsWith("advisory:") ? 0.45 : 0.5); });
+  // A tag's display label ("Hand-drawn", "Identity & selfhood"), from any work that carries it.
+  const labelIndex = once(() => { const m = new Map(); for (const ts of termInfo().values()) for (const t of ts.values()) if (!m.has(t.key)) m.set(t.key, t.label); return m; });
+  const labelOf = (k) => labelIndex().get(k) || termLabel(k);
+  const DNA_DIMS = ["mood", "theme", "pacing", "complexity", "narrative", "world", "style"];
+  const DNA_TINT = { mood: "#C0902F", theme: "#B5603A", pacing: "#7C6BB0", complexity: "#3E8C8C", narrative: "#9C7A3C", world: "#5E8A4E", style: "#B0577C" };
+  const basisText = (t) => (t.basis === "catalogue" ? "Recorded fact from the catalogue" : "AI-assisted reading, awaiting editorial review");
+  const termWhy = (t) => `${Math.round(t.strength * 100)}% · ${intensity(t.strength)} · ${basisText(t)}${t.confidence != null ? ` · confidence ${Math.round(t.confidence * 100)}%` : ""}`;
+
+  // #1 + #6 Experience DNA: a fingerprint of the work's qualities, and a search that keeps some and drops others.
+  const dna = { slug: null, keep: [], drop: [], medium: "any" };
+  function dnaTerms(slug) {
+    return [...termInfo().get(slug).values()].filter((t) => DNA_DIMS.includes(t.dimension) && t.strength >= 0.3).sort((a, b) => DNA_DIMS.indexOf(a.dimension) - DNA_DIMS.indexOf(b.dimension) || b.strength - a.strength);
+  }
+  function dnaSvg(slug, size = 220) {
+    const ts = dnaTerms(slug).slice(0, 16), c = size / 2, r0 = size * 0.12, r1 = size * 0.46;
+    if (ts.length < 3) return "";
+    return `<svg class="dna-svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" role="img" aria-label="Experience DNA: ${esc(ts.map((t) => `${t.label} ${Math.round(t.strength * 100)}%`).join(", "))}">
+      ${[0.33, 0.66, 1].map((k) => `<circle cx="${c}" cy="${c}" r="${(r0 + (r1 - r0) * k).toFixed(1)}" fill="none" stroke="currentColor" stroke-opacity=".12"/>`).join("")}
+      ${ts.map((t, i) => {
+        const a = (i / ts.length) * Math.PI * 2 - Math.PI / 2, r = r0 + (r1 - r0) * t.strength;
+        const x1 = c + Math.cos(a) * r0, y1 = c + Math.sin(a) * r0, x2 = c + Math.cos(a) * r, y2 = c + Math.sin(a) * r;
+        return `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${DNA_TINT[t.dimension]}" stroke-width="${(size * 0.035).toFixed(1)}" stroke-linecap="round"><title>${esc(t.label)}: ${Math.round(t.strength * 100)}%</title></line>`;
+      }).join("")}
+      <circle cx="${c}" cy="${c}" r="${(r0 * 0.55).toFixed(1)}" fill="currentColor" fill-opacity=".15"/></svg>`;
+  }
+  function dnaMatches(slug) {
+    const own = termInfo().get(slug), keep = dna.keep.length ? dna.keep : dnaTerms(slug).map((t) => t.key);
+    const weight = keep.reduce((a, k) => a + (own.get(k) ? own.get(k).strength : 0), 0) || 1;
+    const out = [];
+    for (const w of allWorks()) {
+      if (w.slug === slug || (dna.medium === "same" && w.medium !== fullWork().get(slug).medium) || (dna.medium === "other" && w.medium === fullWork().get(slug).medium)) continue;
+      const tm = termMap().get(w.slug);
+      if (dna.drop.some((k) => (tm.get(k) || 0) >= 0.4)) continue;
+      const hits = keep.filter((k) => (tm.get(k) || 0) >= 0.4);
+      if (dna.keep.length && hits.length < Math.min(dna.keep.length, Math.max(1, Math.ceil(dna.keep.length * 0.6)))) continue;
+      const score = keep.reduce((a, k) => a + Math.min(own.get(k) ? own.get(k).strength : 0, tm.get(k) || 0), 0) / weight;
+      if (score > 0.15) out.push({ w, score, hits });
+    }
+    return out.sort((a, b) => b.score - a.score).slice(0, 12);
+  }
+  function dnaPanel(slug) {
+    if (dna.slug !== slug) Object.assign(dna, { slug, keep: [], drop: [], medium: "any" });
+    const ts = dnaTerms(slug), res = dnaMatches(slug);
+    const state = (k) => (dna.keep.includes(k) ? "keep" : dna.drop.includes(k) ? "drop" : "");
+    return `
+      <div class="dna">
+        <figure class="dna-fig">${dnaSvg(slug)}<figcaption><ul class="dna-key">${DNA_DIMS.filter((d) => ts.some((t) => t.dimension === d)).map((d) => `<li><i style="background:${DNA_TINT[d]}"></i>${esc(ts.find((t) => t.dimension === d).dimLabel)}</li>`).join("")}</ul></figcaption></figure>
+        <div class="dna-side">
+          <p class="muted small">Keep the qualities you want more of and drop the ones you don't; Mimir finds works with that mix. With nothing chosen, it matches the whole fingerprint.</p>
+          <ul class="dna-terms">${ts.map((t) => `<li class="${state(t.key)}"><span class="dna-l" title="${esc(t.definition || "")}"><i style="background:${DNA_TINT[t.dimension]}"></i>${esc(t.label)}</span>
+            <span class="bar" role="img" aria-label="${intensity(t.strength)}, ${Math.round(t.strength * 100)}%"><span style="width:${Math.round(t.strength * 100)}%"></span></span>
+            <button type="button" class="tchip${state(t.key) === "keep" ? " on" : ""}" data-dna-keep="${esc(t.key)}" aria-pressed="${state(t.key) === "keep"}">Keep</button><button type="button" class="tchip${state(t.key) === "drop" ? " on" : ""}" data-dna-drop="${esc(t.key)}" aria-pressed="${state(t.key) === "drop"}">Drop</button></li>`).join("")}</ul>
+          <p class="pchips"><span class="eyebrow">In</span>${[["any", "Any medium"], ["same", `${PLURAL[fullWork().get(slug).medium] || "Same medium"} only`], ["other", "Other media"]].map(([v, l]) => `<button type="button" class="tchip${dna.medium === v ? " on" : ""}" data-dna-medium="${v}" aria-pressed="${dna.medium === v}">${esc(l)}</button>`).join("")}
+            ${dna.keep.length || dna.drop.length ? `<button type="button" class="linkish small" data-dna-reset>Clear</button>` : ""}</p>
+        </div>
+      </div>
+      ${res.length ? `<h3 class="sub-h">Works with this DNA${dna.keep.length || dna.drop.length ? ` <span class="muted small">(keeping ${dna.keep.length}, dropping ${dna.drop.length})</span>` : ""}</h3>
+        ${row(res.map((x) => x.w), (w) => { const x = res.find((r) => r.w === w); return `<p class="pmeta">${Math.round(x.score * 100)}% match${x.hits.length ? ` · ${esc(x.hits.slice(0, 3).map((k) => labelOf(k).toLowerCase()).join(", "))}` : ""}</p>`; })}`
+        : `<p class="empty">Nothing in the catalogue has that mix yet. Keep fewer qualities or drop fewer.</p>`}`;
+  }
+  const redrawDna = () => { const el = document.getElementById("dna-panel"); if (el && dna.slug) el.innerHTML = dnaPanel(dna.slug); };
+
+  // #13 + #15 + #16 Taste profile: what you lean towards and away from, edits you make to it, and saved contexts.
+  const tasteEdits = { boost: [], mute: [], avoid: [], ...stored("mimir-taste-edits", {}) };
+  const saveEdits = () => store("mimir-taste-edits", tasteEdits);
+  const CONTEXTS = [
+    { id: "unwind", name: "Winding down", boost: ["mood:comforting", "mood:funny", "mood:uplifting"], opts: { len: "130" } },
+    { id: "learn", name: "Learning something", boost: ["complexity:intellectually-demanding", "mood:contemplative"], opts: {} },
+    { id: "immerse", name: "Deep immersion", boost: ["world:rich-worldbuilding", "style:atmospheric", "mood:epic", "mood:wonder"], opts: { len: "any" } },
+    { id: "social", name: "With friends", boost: ["mood:funny", "mood:exhilarating", "pacing:brisk"], opts: { len: "130" } },
+  ];
+  const myContexts = stored("mimir-contexts", []);
+  const allContexts = () => [...CONTEXTS, ...myContexts];
+  const activeContext = () => allContexts().find((c) => c.id === forYouOpts.ctx) || null;
+  function tasteProfile() {
+    const taste = tasteRatings(), sum = new Map();
+    for (const [slug, v] of Object.entries(taste)) {
+      const tm = termMap().get(slug);
+      if (!tm) continue;
+      const k = v === "loved" ? 2 : v === "liked" ? 1 : -1.5;
+      for (const [key, s] of tm) if (!key.startsWith("advisory:")) sum.set(key, (sum.get(key) || 0) + k * s);
+    }
+    const all = [...sum].sort((a, b) => b[1] - a[1]);
+    return { towards: all.filter(([, v]) => v > 0.3).slice(0, 14), away: all.filter(([, v]) => v < -0.3).reverse().slice(0, 8), n: Object.keys(taste).length };
+  }
+  // Re-rank picks with your edits, the active context and the familiarity setting; anything you avoid is removed.
+  function personalise(results) {
+    const taste = tasteRatings(), rated = Object.keys(taste).filter((s) => taste[s] !== "disliked" && fullWork().has(s));
+    const ratedMedia = new Set(rated.map((s) => fullWork().get(s).medium));
+    const ratedGenres = new Set(rated.flatMap((s) => [...termMap().get(s)].filter(([k, v]) => k.startsWith("genre:") && v >= 0.5).map(([k]) => k)));
+    const ratedGroups = new Set(rated.map((s) => (fullWork().get(s).continuity.group || {}).slug).filter(Boolean));
+    const ratedPeople = new Set(rated.flatMap((s) => fullWork().get(s).credits.slice(0, 3).map((c) => c.name)));
+    const ctx = activeContext(), boost = [...tasteEdits.boost, ...(ctx ? ctx.boost : [])], N = results.length || 1;
+    return results.filter((w) => !avoided(w.slug)).map((w, i) => {
+      const tm = termMap().get(w.slug), full = fullWork().get(w.slug);
+      let s = 1 - i / N;
+      for (const k of boost) s += 0.35 * (tm.get(k) || 0);
+      for (const k of tasteEdits.mute) s -= 0.35 * (tm.get(k) || 0);
+      const known = (full.continuity.group && ratedGroups.has(full.continuity.group.slug)) || full.credits.slice(0, 3).some((c) => ratedPeople.has(c.name));
+      const newGround = !ratedMedia.has(w.medium) || ![...tm].some(([k, v]) => k.startsWith("genre:") && v >= 0.5 && ratedGenres.has(k));
+      if (forYouOpts.fam === "familiar") s += (known ? 0.4 : 0) + (ratedMedia.has(w.medium) ? 0.1 : 0);
+      if (forYouOpts.fam === "stretch") s += (newGround ? 0.4 : 0) - (known ? 0.3 : 0);
+      return { w, s };
+    }).sort((a, b) => b.s - a.s).map((x) => x.w);
+  }
+  // #5 + #12 Why a pick fits: each shared quality, how strongly it applies to the pick and to what you rated, and where it comes from.
+  function whyDetails(w) {
+    if (!w.because || !w.shared || !w.shared.length) return "";
+    const mine = termInfo().get(w.because.slug), theirs = termInfo().get(w.slug);
+    return `<details class="why"><summary>Why?</summary><ul>${w.shared.map((t) => {
+      const a = theirs.get(t.key), b = mine.get(t.key);
+      return `<li><a href="#${tagToken(t.key)}">${esc(t.label)}</a>: ${a ? Math.round(a.strength * 100) : 0}% here, ${b ? Math.round(b.strength * 100) : 0}% in ${esc(w.because.title)}
+        <span class="muted small">${a ? esc(basisText(a)) : ""}${a && a.confidence != null ? ` · confidence ${Math.round(a.confidence * 100)}%` : ""}</span></li>`;
+    }).join("")}</ul>${tasteEdits.boost.length || tasteEdits.mute.length || activeContext() || forYouOpts.fam !== "any" ? `<p class="muted small">Order also reflects your <a href="#taste">taste settings</a>.</p>` : ""}</details>`;
+  }
+
+  // #14 Taste over time, from what you finished and when.
+  function tasteTimeline() {
+    const taste = tasteRatings();
+    const done = Object.entries(library).filter(([s, e]) => e.status === "completed" && e.finished && termMap().has(s));
+    if (done.length < 2) return null;
+    const years = new Set(done.map(([, e]) => e.finished.slice(0, 4)));
+    const period = (d) => (years.size > 1 ? d.slice(0, 4) : `${["Jan–Mar", "Apr–Jun", "Jul–Sep", "Oct–Dec"][Math.floor((Number(d.slice(5, 7)) - 1) / 3)]} ${d.slice(0, 4)}`);
+    const groups = new Map();
+    for (const [s, e] of done.sort((a, b) => a[1].finished.localeCompare(b[1].finished))) {
+      const p = period(e.finished);
+      if (!groups.has(p)) groups.set(p, { n: 0, sum: new Map(), media: new Map() });
+      const g = groups.get(p), k = taste[s] === "loved" ? 2 : taste[s] === "disliked" ? -1 : 1;
+      g.n++; g.media.set(fullWork().get(s).medium, (g.media.get(fullWork().get(s).medium) || 0) + 1);
+      for (const [key, v] of termMap().get(s)) if (/^(mood|theme|genre|style|world):/.test(key) && !isSub(key)) g.sum.set(key, (g.sum.get(key) || 0) + k * v);
+    }
+    return [...groups].map(([p, g]) => ({ p, n: g.n, top: [...g.sum].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => k), media: [...g.media].sort((a, b) => b[1] - a[1]).map(([m, n]) => `${n} ${n === 1 ? mediumLabel(m).toLowerCase() : (PLURAL[m] || m).toLowerCase()}`) }));
+  }
+
+  const termOptions = once(() => `<datalist id="mimir-terms">${[...new Set([...termInfo().values()].flatMap((m) => [...m.values()]).map((t) => `${t.label}|${t.key}`))].map((x) => { const [l, k] = x.split("|"); return `<option value="${esc(l)} (${esc(k.split(":")[0])})"></option>`; }).join("")}</datalist>`);
+  const termFromLabel = (v) => {
+    const m = v.trim().toLowerCase().match(/^(.*?)\s*(?:\((\w+)\))?$/);
+    for (const map of termInfo().values()) for (const t of map.values()) if (t.label.toLowerCase() === m[1] && (!m[2] || t.key.startsWith(m[2] + ":"))) return t.key;
+    return null;
+  };
+  function renderTaste() {
+    const P = tasteProfile(), T = tasteTimeline();
+    const edit = (k) => `<span class="te-btns"><button type="button" class="tchip${tasteEdits.boost.includes(k) ? " on" : ""}" data-taste-edit="boost" data-key="${esc(k)}" aria-pressed="${tasteEdits.boost.includes(k)}">More</button><button type="button" class="tchip${tasteEdits.mute.includes(k) ? " on" : ""}" data-taste-edit="mute" data-key="${esc(k)}" aria-pressed="${tasteEdits.mute.includes(k)}">Less</button><button type="button" class="tchip${tasteEdits.avoid.includes(k) ? " on" : ""}" data-taste-edit="avoid" data-key="${esc(k)}" aria-pressed="${tasteEdits.avoid.includes(k)}">Never</button></span>`;
+    const max = Math.max(1, ...P.towards.map(([, v]) => v), ...P.away.map(([, v]) => -v));
+    const line = ([k, v]) => `<li><a href="#${tagToken(k)}">${esc(labelOf(k))}</a><span class="bar ${v < 0 ? "neg" : ""}"><span style="width:${Math.round((Math.abs(v) / max) * 100)}%"></span></span>${edit(k)}</li>`;
+    const chosen = (list, kind, label) => (list.length ? `<p class="pchips"><span class="eyebrow">${label}</span>${list.map((k) => `<button type="button" class="tchip on" data-taste-edit="${kind}" data-key="${esc(k)}" title="Remove">${esc(labelOf(k))} ×</button>`).join("")}</p>` : "");
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Your taste</p><h1>Your taste profile</h1>
+        <p class="muted">Worked out from the ${P.n} work${P.n === 1 ? "" : "s"} you've rated or scored, and editable: ask for more or less of any quality, or never see it again. Contexts tune your picks for the moment. It all stays in this browser and shapes <a href="#for-you">For you</a>, Decide for me and Plan my time.</p></header>
+      ${termOptions()}
+      ${P.n ? `<div class="taste-cols">
+        <section class="block"><header class="sec-head"><h2>You lean towards</h2></header><ul class="taste-list">${P.towards.map(line).join("") || `<li class="muted">Love or like a few works to see this.</li>`}</ul></section>
+        <section class="block"><header class="sec-head"><h2>You lean away from</h2></header><ul class="taste-list">${P.away.map(line).join("") || `<li class="muted">Nothing yet. Mark works "Not for me" to teach Mimir what to steer away from.</li>`}</ul></section>
+      </div>` : `<p class="empty">Rate a few works on <a href="#for-you">For you</a> and your profile appears here.</p>`}
+      <section class="block"><header class="sec-head"><h2>Your edits</h2></header>
+        ${chosen(tasteEdits.boost, "boost", "More of") + chosen(tasteEdits.mute, "mute", "Less of") + chosen(tasteEdits.avoid, "avoid", "Never")}
+        <form class="lib-form" data-taste-add><input name="term" list="mimir-terms" placeholder="Any quality, theme or advisory, e.g. Graphic violence" aria-label="Quality" class="grow" required autocomplete="off">
+          <select name="kind" aria-label="What to do"><option value="avoid">Never</option><option value="mute">Less</option><option value="boost">More</option></select><button class="btn" type="submit">Add</button></form>
+        ${tasteEdits.boost.length + tasteEdits.mute.length + tasteEdits.avoid.length ? `<button type="button" class="linkish small" data-taste-clear>Clear all edits</button>` : ""}</section>
+      <section class="block"><header class="sec-head"><h2>Contexts</h2></header>
+        <p class="muted small">A context tilts your picks towards a moment. Choose one here or on For you; save your own from the current For you settings and edits.</p>
+        <ul class="ctx-list">${allContexts().map((c) => `<li class="${forYouOpts.ctx === c.id ? "on" : ""}"><button type="button" class="tchip${forYouOpts.ctx === c.id ? " on" : ""}" data-for-you="ctx" data-value="${forYouOpts.ctx === c.id ? "" : esc(c.id)}" aria-pressed="${forYouOpts.ctx === c.id}">${esc(c.name)}</button>
+          <span class="muted small">${esc(c.boost.map((k) => labelOf(k).toLowerCase()).join(", ") || "your settings")}${c.opts.len && c.opts.len !== "any" ? ` · ${esc((FY_LEN.find((x) => x[0] === c.opts.len) || [, ""])[1].toLowerCase())}` : ""}</span>
+          ${c.mine ? `<button type="button" class="linkish small" data-ctx-delete="${esc(c.id)}">Delete</button>` : ""}</li>`).join("")}</ul>
+        <form class="lib-form" data-ctx-save><input name="name" placeholder="Name a context, e.g. Sunday mornings" maxlength="40" aria-label="Context name" class="grow" required><button class="btn ghost" type="submit">Save current settings</button></form></section>
+      <section class="block"><header class="sec-head"><h2>How your taste has changed</h2></header>
+        ${T ? `<ol class="taste-time">${T.map((g) => `<li><strong>${esc(g.p)}</strong><span class="muted small">${g.n} finished · ${esc(g.media.join(", "))}</span><p class="pchips">${g.top.map((k) => tagChip({ key: k, label: labelOf(k) })).join("")}</p></li>`).join("")}</ol>`
+          : `<p class="muted">Finish a few works with dates in your <a href="#library">library</a> and Mimir shows how what you enjoy shifts over time.</p>`}</section>`;
+  }
+
+  // #2 Mood mixer: combine moods, qualities to avoid, a medium and a time limit into one request for Ask.
+  const MIX_TERMS = ["mood", "pacing", "complexity", "style", "world"];
+  const mix = { want: [], avoid: [], medium: "", len: "" };
+  const MIX_LEN = [["", "Any length"], ["45", "Under 45 minutes"], ["120", "Under two hours"], ["weekend", "A weekend"]];
+  const mixPhrase = (k) => (k === "complexity:intellectually-demanding" ? "challenging" : labelOf(k).toLowerCase());
+  function mixQuery() {
+    const m = { film: "A film", series: "A TV series", book: "A book", game: "A game", album: "An album" }[mix.medium] || "Something";
+    const parts = [`${m} that is ${mix.want.map(mixPhrase).join(" and ") || "good"}`];
+    if (mix.avoid.length) parts.push(mix.avoid.map((k) => `no ${mixPhrase(k)}`).join(", "));
+    if (mix.len === "weekend") parts.push("I can finish in a weekend");
+    else if (mix.len) parts.push(`ideally under ${mix.len === "45" ? "45 minutes" : "two hours"}`);
+    return parts.join(", ");
+  }
+  function renderMix() {
+    const terms = [...new Map([...termInfo().values()].flatMap((m) => [...m.values()]).filter((t) => MIX_TERMS.includes(t.dimension)).map((t) => [t.key, t])).values()]
+      .sort((a, b) => MIX_TERMS.indexOf(a.dimension) - MIX_TERMS.indexOf(b.dimension) || a.label.localeCompare(b.label));
+    const st = (k) => (mix.want.includes(k) ? "want" : mix.avoid.includes(k) ? "avoid" : "");
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Mood mixer</p><h1>Mix the feeling you're after</h1>
+        <p class="muted">Tap a quality once to want it, twice to avoid it. "Melancholic but comforting", "challenging without being bleak": Mimir looks for works that hold every part of the mix.</p></header>
+      <section class="decide-q">
+        ${MIX_TERMS.map((d) => { const xs = terms.filter((t) => t.dimension === d); return xs.length ? `<div><h3 class="sub-h">${esc(xs[0].dimLabel)}</h3><div class="d-chips">${xs.map((t) => `<button type="button" class="tchip mix-${st(t.key) || "off"}${st(t.key) ? " on" : ""}" data-mix="${esc(t.key)}" title="${esc(t.definition || "")}" aria-pressed="${!!st(t.key)}">${st(t.key) === "avoid" ? "No " : ""}${esc(t.label)}</button>`).join("")}</div></div>` : ""; }).join("")}
+        <div><h3 class="sub-h">Medium</h3><div class="d-chips">${[["", "Anything"], ["film", "A film"], ["series", "A series"], ["book", "A book"], ["game", "A game"], ["album", "An album"]].map(([v, l]) => `<button type="button" class="tchip${mix.medium === v ? " on" : ""}" data-mix-medium="${v}" aria-pressed="${mix.medium === v}">${esc(l)}</button>`).join("")}</div></div>
+        <div><h3 class="sub-h">Time</h3><div class="d-chips">${MIX_LEN.map(([v, l]) => `<button type="button" class="tchip${mix.len === v ? " on" : ""}" data-mix-len="${v}" aria-pressed="${mix.len === v}">${esc(l)}</button>`).join("")}</div></div>
+      </section>
+      <div class="mix-go"><p><span class="eyebrow">Your request</span><br><q>${esc(mixQuery())}</q></p>
+        <button type="button" class="btn" data-mix-seek ${mix.want.length ? "" : "disabled"}>Seek this mix</button>${mix.want.length || mix.avoid.length ? `<button type="button" class="linkish small" data-mix-reset>Start over</button>` : ""}</div>`;
+  }
+
+  // #23 Series you've started and not finished, with the next one to pick up.
+  const seriesGroups = once(() => {
+    const g = new Map();
+    for (const w of allWorks()) if (w.continuity && w.continuity.kind === "series" && w.continuity.group) {
+      if (!g.has(w.continuity.group.slug)) g.set(w.continuity.group.slug, { name: w.continuity.group.name, members: [] });
+      g.get(w.continuity.group.slug).members.push(w);
+    }
+    const num = (p) => (p !== null && p !== undefined && !isNaN(Number(p)) ? Number(p) : 1e9);
+    for (const x of g.values()) x.members.sort((a, b) => num(a.continuity.position) - num(b.continuity.position) || (a.year || 0) - (b.year || 0));
+    return g;
+  });
+  function unfinishedSeries() {
+    const out = [];
+    for (const [slug, g] of seriesGroups()) {
+      const st = (w) => (library[w.slug] || {}).status;
+      const done = g.members.filter((w) => st(w) === "completed").length;
+      if (!done && !g.members.some((w) => st(w) === "active")) continue;
+      const next = g.members.find((w) => !["completed", "dropped"].includes(st(w)));
+      if (next) out.push({ slug, name: g.name, done, total: g.members.length, next });
+    }
+    return out;
+  }
+
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    const d = b.dataset;
+    const toggle = (list, k) => (list.includes(k) ? list.filter((x) => x !== k) : [...list, k]);
+    if (d.dnaKeep || d.dnaDrop) {
+      const k = d.dnaKeep || d.dnaDrop, mine = d.dnaKeep ? "keep" : "drop", other = d.dnaKeep ? "drop" : "keep";
+      dna[mine] = toggle(dna[mine], k); dna[other] = dna[other].filter((x) => x !== k); redrawDna(); return;
+    }
+    if (d.dnaMedium) { dna.medium = d.dnaMedium; redrawDna(); return; }
+    if (d.dnaReset !== undefined) { dna.keep = []; dna.drop = []; redrawDna(); return; }
+    if (d.tasteEdit) {
+      const k = d.key, kind = d.tasteEdit;
+      tasteEdits[kind] = toggle(tasteEdits[kind], k);
+      for (const o of ["boost", "mute", "avoid"]) if (o !== kind) tasteEdits[o] = tasteEdits[o].filter((x) => x !== k);
+      saveEdits(); const y = window.scrollY; renderTaste(); window.scrollTo(0, y); return;
+    }
+    if (d.tasteClear !== undefined) { if (confirm("Clear every edit to your taste profile?")) { tasteEdits.boost = []; tasteEdits.mute = []; tasteEdits.avoid = []; saveEdits(); renderTaste(); } return; }
+    if (d.ctxDelete) { const i = myContexts.findIndex((c) => c.id === d.ctxDelete); if (i >= 0) myContexts.splice(i, 1); store("mimir-contexts", myContexts); if (forYouOpts.ctx === d.ctxDelete) { forYouOpts.ctx = ""; store("mimir-foryou-opts", forYouOpts); } renderTaste(); return; }
+    let mixed = true;
+    if (d.mix) {
+      const k = d.mix;
+      if (mix.want.includes(k)) { mix.want = mix.want.filter((x) => x !== k); mix.avoid.push(k); }
+      else if (mix.avoid.includes(k)) mix.avoid = mix.avoid.filter((x) => x !== k);
+      else mix.want.push(k);
+    } else if (d.mixMedium !== undefined) mix.medium = d.mixMedium;
+    else if (d.mixLen !== undefined) mix.len = d.mixLen;
+    else if (d.mixReset !== undefined) Object.assign(mix, { want: [], avoid: [], medium: "", len: "" });
+    else if (d.mixSeek !== undefined) { seek(mixQuery()); return; }
+    else mixed = false;
+    if (mixed) { const y = window.scrollY; renderMix(); window.scrollTo(0, y); }
+  });
+  app.addEventListener("submit", (e) => {
+    const f = e.target;
+    if (f.dataset.tasteAdd !== undefined) {
+      const k = termFromLabel(f.elements.term.value), kind = f.elements.kind.value;
+      if (!k) { f.elements.term.setCustomValidity("Pick a quality from the list"); f.reportValidity(); return; }
+      for (const o of ["boost", "mute", "avoid"]) tasteEdits[o] = tasteEdits[o].filter((x) => x !== k);
+      tasteEdits[kind].push(k); saveEdits(); renderTaste();
+    }
+    if (f.dataset.ctxSave !== undefined) {
+      const name = f.elements.name.value.trim();
+      if (!name) return;
+      const id = `my-${Date.now().toString(36)}`;
+      myContexts.push({ id, name, mine: true, boost: [...tasteEdits.boost], opts: { pop: forYouOpts.pop, len: forYouOpts.len, vary: forYouOpts.vary, fam: forYouOpts.fam } });
+      store("mimir-contexts", myContexts); forYouOpts.ctx = id; store("mimir-foryou-opts", forYouOpts); renderTaste();
+    }
+  });
+  app.addEventListener("input", (e) => { if (e.target.name === "term") e.target.setCustomValidity(""); });
 
   // ------------------------------------------------------------------ routing & events
   function setNav(group) {
@@ -4325,6 +4648,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h.startsWith("compare-")) { setNav("Discover"); renderCompare(h.slice(8)); }
     else if (h === "plan") { setNav("Discover"); renderPlan(); }
     else if (h === "together") { setNav("Discover"); renderTogether(); }
+    else if (h === "taste") { setNav("Discover"); renderTaste(); }
+    else if (h === "mix") { setNav("Discover"); renderMix(); }
     else if (h === "journal") { setNav("Library"); renderJournal(); }
     else if (h === "calendar") { setNav("Community"); renderCalendar(p); }
     else if (h.startsWith("programme-")) { setNav("Community"); renderProgramme(h.slice(10), p); }
@@ -4534,7 +4859,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       saveLists();
       location.hash = `#list-${l.id}`;
     }
-    else if (d.decide) { decide[d.decide] = d.value; store("mimir-decide", decide); decideState = { skipped: [], penalties: {}, index: 0 }; renderDecide(); }
+    else if (d.decide) {
+      if (d.decide === "mood" && d.value) { const ms = decide.mood ? decide.mood.split("|") : []; decide.mood = (ms.includes(d.value) ? ms.filter((x) => x !== d.value) : [...ms, d.value].slice(-3)).join("|"); }
+      else decide[d.decide] = d.value; store("mimir-decide", decide); decideState = { skipped: [], penalties: {}, index: 0 }; renderDecide(); }
     else if (d.decideNot) decideNot(d.decideNot);
     else if (d.decideReset !== undefined) { decideState = { skipped: [], penalties: {}, index: 0 }; renderDecide(); }
     else if (d.decideStart) { updateEntry(d.decideStart, { status: "active" }); location.hash = `#work-${d.decideStart}`; }
