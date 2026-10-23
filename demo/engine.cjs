@@ -1161,7 +1161,7 @@ finish finished binge binged through will watching reading playing listening sta
         image: img ? { url: img.url, kind: img.kind, licence: img.licence, attribution: img.attribution, source: img.source } : null,
         time: timeInvestment(w),
         continuity: { kind: c.kind, group: c.group, position: c.position, count: c.members.length },
-        scores: w.scores.slice(0, 2).map((s) => ({ publisher: s.publisher, metric: s.metric, value: s.value, scale_max: s.scale_max })) };
+        scores: w.scores.map((s) => ({ publisher: s.publisher, metric: s.metric, value: s.value, scale_max: s.scale_max })) };
     }
 
     function shelfMatch(w, rule, ctx) {

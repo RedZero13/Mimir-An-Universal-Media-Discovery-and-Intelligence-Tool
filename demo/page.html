@@ -847,6 +847,17 @@ a.tchip:hover, button.tchip:hover { background: color-mix(in srgb, var(--gold) 2
 .foot .legal { font-family: var(--f-body); letter-spacing: .04em; font-size: 11px; }
 @media (prefers-reduced-motion: reduce) { .pcard-art, .pcard-art:hover { transition: none; transform: none; } }
 
+/* Work page section tabs: pinned under the menubar, smooth to jump, highlighting where you are. */
+.jump { position: sticky; top: 76px; z-index: 15; width: fit-content; max-width: 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 2px; margin-top: 22px; padding: 5px; border: 1px solid var(--line); border-radius: 999px; background: var(--menu-bg); box-shadow: var(--shadow-1); }
+.jump::-webkit-scrollbar { display: none; }
+.jump .linkish { flex: none; padding: 7px 14px; border-radius: 999px; text-decoration: none; color: var(--muted); font-size: .86rem; transition: background .2s, color .2s; }
+.jump .linkish:hover { color: var(--bone); }
+.jump .linkish.on { background: var(--surface-2); color: var(--bone); }
+article [id] { scroll-margin-top: 140px; }
+@media (max-width: 800px) { .jump { top: 8px; } article [id] { scroll-margin-top: 72px; } }
+/* Menus are solid so text stays readable over any section beneath them. */
+:root { --menu-bg: rgb(26, 24, 19); } :root[data-theme="light"] { --menu-bg: rgb(248, 243, 231); }
+.menubar, :root[data-theme="light"] .menubar, .drop { background: var(--menu-bg); }
 /* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
 .row { padding-bottom: 20px; }
 .row .pchips { height: 62px; }
@@ -1201,18 +1212,24 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const TIME_VERB = { runtime: "to watch", playtime: "to play", pages: "to read", form: "to read", episodes: "to watch everything" };
   const timeText = (t, album) => `${t.estimate ? "about " : ""}${hm(t.minutes)} ${album ? "to listen" : TIME_VERB[t.basis]}`;
   const timeChip = (t, album = false) => (t ? `<span class="tchip t-${t.bucket}" title="${esc(timeText(t, album))}">${esc(t.label)}</span>` : "");
+  // A work's number in its series only means something next to the rest of the series, so it shows on that series' page only.
+  const onGroupPage = () => location.hash.startsWith("#group-");
   const contText = (c) => (c.kind === "standalone" ? "Standalone"
-    : c.kind === "series" ? `${c.group.name}${c.position ? ` · #${c.position}` : ""}` : `${c.group.name} family`);
+    : c.kind === "series" ? `${c.group.name}${c.position && onGroupPage() ? ` · #${c.position}` : ""}` : `${c.group.name} family`);
   const contChip = (c, medium) => (c && !(medium === "album" && c.kind === "standalone") ? `<span class="cchip k-${c.kind}" title="${esc(contText(c))}">${esc(contText(c))}</span>` : "");
   const fmtNum = (v) => (Number.isInteger(v) ? String(v) : v.toFixed(1));
   const scoreText = (s) => (s.scale_max === 100 && /tomato|%|percent|audience/i.test(`${s.publisher} ${s.metric}`) ? `${fmtNum(s.value)}%` : `${fmtNum(s.value)}/${fmtNum(s.scale_max)}`);
+  // One scale everywhere a work is summarised: the mean of every score we hold, out of 100. Each source stays on the work's page.
+  const allScores = (w) => w.scores || [];
+  const unifiedScore = (w) => { const xs = allScores(w); return xs.length ? Math.round((xs.reduce((a, x) => a + x.value / x.scale_max, 0) / xs.length) * 100) : null; };
+  const scoreTitle = (w) => { const xs = allScores(w); return `Average of ${xs.length === 1 ? "1 score" : `${xs.length} scores`}: ${xs.map((x) => `${x.publisher} ${scoreText(x)}`).join(", ")}`; };
   const money = (b) => { try { return new Intl.NumberFormat("en", { style: "currency", currency: b.currency, notation: "compact", maximumFractionDigits: 1 }).format(b.amount); } catch { return `${b.amount} ${b.currency}`; } };
 
   // ------------------------------------------------------------------ cards and rows
   function posterCard(w, extra = "") {
     const flag = w.ratings && w.ratings[0] ? `<span class="badge rate" title="${esc(w.ratings[0].system)} rating">${esc(w.ratings[0].rating)}</span>` : "";
-    const score = w.scores && w.scores[0] ? `<span class="badge score" title="${esc(w.scores[0].publisher)} ${esc(w.scores[0].metric)}">${esc(scoreText(w.scores[0]))}</span>` : "";
-    const ord = w.continuity && w.continuity.kind === "series" && w.continuity.position ? `<span class="badge ord">#${esc(w.continuity.position)}</span>` : "";
+    const score = unifiedScore(w) !== null ? `<span class="badge score" title="${esc(scoreTitle(w))}">${unifiedScore(w)}/100</span>` : "";
+    const ord = onGroupPage() && w.continuity && w.continuity.kind === "series" && w.continuity.position ? `<span class="badge ord">#${esc(w.continuity.position)}</span>` : "";
     return `
       <li class="pcard">
         <a class="pcard-art" href="#work-${esc(w.slug)}" aria-label="${esc(w.title)}">${poster(cardCover(w))}${flag || score || ord ? `<span class="badges">${flag}${score}${ord}</span>` : ""}${progressBadge(w.slug)}</a>
@@ -1236,7 +1253,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     <section class="shelf" aria-labelledby="sh-${esc(s.slug)}">
       <header class="shelf-head">
         <div><h2 id="sh-${esc(s.slug)}">${esc(s.name)}</h2><p>${esc(s.tagline)}</p></div>
-        <a class="see-all" href="#shelf-${esc(s.slug)}">See all ${s.total}</a>
+        <a class="see-all" href="#shelf-${esc(s.slug)}${s.medium ? `?m=${s.medium}` : ""}">See all ${s.total}</a>
       </header>
       ${row(s.works)}
     </section>`;
@@ -1620,7 +1637,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           </div>
         </div>
         <footer class="dt-foot">
-          <span title="${s0 ? esc(`${s0.publisher} ${s0.metric}`) : "No published score on file"}">★ ${s0 ? esc(scoreText(s0)) : "N/A"}</span>
+          <span title="${s0 ? esc(scoreTitle(w)) : "No published score on file"}">★ ${s0 ? `${unifiedScore(w)}/100` : "N/A"}</span>
           <span title="${w.time ? esc(timeText(w.time, w.medium === "album")) : "Length not recorded"}">◷ ${w.time ? esc(hm(w.time.minutes)) : "N/A"}</span>
           ${rateButtons(w.slug, true)}
           ${mineBtn(w.slug, true)}
@@ -1666,7 +1683,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${dirSection(MAKER[s.medium], d.makers.slice(0, 20).map((m) => [`#person-${m.slug}`, m.name, m.n]), "#people")}
         ${dirSection("Rankings", [[`#top-${s.medium}`, `Top ${plural.toLowerCase()}`], [hrefSearch(s.medium, { list: true }), `All ${plural.toLowerCase()}`, d.works.length],
           [hrefSearch(s.medium, { sort: "newest", list: true }), "Newest"], [hrefSearch(s.medium, { sort: "shortest", list: true }), "Shortest first"],
-          ...allShelves().filter((sh) => s.medium === "all" || sh.works.some((w) => w.medium === s.medium)).slice(0, 8).map((sh) => [`#shelf-${sh.slug}`, sh.name, sh.total])])}
+          ...allShelves().filter((sh) => s.medium === "all" || sh.works.some((w) => w.medium === s.medium)).slice(0, 8).map((sh) => [`#shelf-${sh.slug}${s.medium === "all" ? "" : `?m=${s.medium}`}`, sh.name, s.medium === "all" ? sh.total : sh.works.filter((w) => w.medium === s.medium).length])])}
         ${dirSection("Decades", d.decades.map(([dec, n]) => [hrefSearch(s.medium, { year_min: dec, year_max: dec + 9, sort: "oldest" }), `${dec}s`, n]))}
         ${dirSection("Time", TIME_TILES.map(([slug, label]) => [`#time-${slug}`, label, d.works.filter((w) => w.time && w.time.bucket === slug).length]).filter((x) => x[2]))}`}`;
   }
@@ -1682,7 +1699,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <a class="rank-art" href="#work-${esc(w.slug)}" tabindex="-1" aria-hidden="true">${poster(cardCover(w))}${progressBadge(w.slug)}</a>
       <div class="rank-body"><a class="rank-t" href="#work-${esc(w.slug)}">${esc(w.title)}</a>
         <span class="rank-m">${esc([mediumLabel(w.medium), w.year, w.time ? hm(w.time.minutes) : null].filter(Boolean).join(", "))}</span>
-        <span class="rank-m">${s0 ? `scored ${esc(scoreText(s0))} · ${esc(s0.publisher)}` : esc(w.creators.slice(0, 2).join(", "))}</span></div>
+        <span class="rank-m"${s0 ? ` title="${esc(scoreTitle(w))}"` : ""}>${s0 ? `scored ${unifiedScore(w)}/100 · ${allScores(w).length === 1 ? esc(s0.publisher) : `average of ${allScores(w).length} scores`}` : esc(w.creators.slice(0, 2).join(", "))}</span></div>
       ${compact ? `<button type="button" class="add-mini${library[w.slug] ? " on" : ""}" data-mine="${esc(w.slug)}" aria-pressed="${!!library[w.slug]}" aria-label="Add ${esc(w.title)} to my library">${library[w.slug] ? "✓" : "add"}</button>` : mineBtn(w.slug, true)}
     </li>`;
   }
@@ -1769,11 +1786,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <section class="stat-box"><h2>By genre</h2><p class="pchips">${[...genres.values()].sort((a, b) => b.n - a.n).map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></section>
           ${["film", "series"].includes(medium) ? `<section class="stat-box"><h2>By industry</h2><p class="pchips">${INDUSTRIES.map(([k, l]) => [k, l, works.filter((w) => inIndustry(w, k)).length]).filter(([, , n]) => n).map(([k, l, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { industry: k, list: true }))}">${esc(l)} · ${n}</a>`).join("")}</p></section>` : ""}
           <section class="stat-box"><h2>By decade</h2><p class="pchips">${[...decades].sort((a, b) => b[0] - a[0]).map(([d, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { year_min: d, year_max: d + 9 }))}">${d}s · ${n}</a>`).join("")}</p></section>
-          <section class="stat-box"><h2>By time you have</h2><p class="pchips">${TIME_TILES.map(([slug, label]) => [slug, label, works.filter((w) => w.time && w.time.bucket === slug).length]).filter(([, , n]) => n).map(([slug, label, n]) => `<a class="tchip" href="#time-${slug}">${esc(label)} · ${n}</a>`).join("")}</p></section>
+          <section class="stat-box"><h2>By time you have</h2><p class="pchips">${TIME_TILES.map(([slug, label]) => [slug, label, works.filter((w) => w.time && w.time.bucket === slug).length]).filter(([, , n]) => n).map(([slug, label, n]) => `<a class="tchip" href="#time-${slug}?m=${medium}">${esc(label)} · ${n}</a>`).join("")}</p></section>
         </div>
       </div>
       ${newest.length ? `<section class="shelf"><header class="shelf-head"><div><h2>Newest in the catalogue</h2><p>The most recent ${esc(PLURAL[medium].toLowerCase())} we hold.</p></div><a class="see-all" href="${esc(hrefSearch(medium, { sort: "newest" }))}">See all ${works.length}</a></header>${row(newest)}</section>` : ""}
-      ${shelves.map((s) => shelfRow({ ...s, total: s.works.length, works: s.works.slice(0, 12) })).join("")}`;
+      ${shelves.map((s) => shelfRow({ ...s, medium, total: s.works.length, works: s.works.slice(0, 12) })).join("")}`;
   }
 
   function renderShelves() {
@@ -1811,6 +1828,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <button type="submit" aria-label="Search">⌕</button>
       </form>`;
   }
+  const MENU_MEDIUM = { Films: "film", TV: "series", Books: "book", Games: "game" };
+  MENU.forEach(([label, items]) => { if (MENU_MEDIUM[label]) items.forEach((it) => { if (it[1].startsWith("#shelf-")) it[1] += `?m=${MENU_MEDIUM[label]}`; }); });
   const closeMenus = () => document.querySelectorAll(".menu.open").forEach((m) => { m.classList.remove("open"); m.querySelector(".menu-btn").setAttribute("aria-expanded", "false"); });
 
   // ------------------------------------------------------------------ tags & people
@@ -2102,7 +2121,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${rules.length ? `<h2>How Mimir picks these</h2><ul class="about-rules">${rules.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>` : ""}</div>
       <div class="about-stats">
         <div class="stat-tile"><span class="stat-n">${works.length}</span><span class="stat-l">${works.length === 1 ? "Work" : "Works"}</span></div>
-        <div class="stat-tile"><span class="stat-n">${years.length ? (years[0] === years[years.length - 1] ? years[0] : `${years[0]}–${String(years[years.length - 1]).slice(2)}`) : "–"}</span><span class="stat-l">Years</span></div>
+        <div class="stat-tile"><span class="stat-n">${years.length ? (years[0] === years[years.length - 1] ? years[0] : `${years[0]}–${Math.floor(years[0] / 100) === Math.floor(years[years.length - 1] / 100) ? String(years[years.length - 1]).slice(2) : years[years.length - 1]}`) : "–"}</span><span class="stat-l">Years</span></div>
         ${median ? `<div class="stat-tile wide"><span class="stat-n">${esc(hm(median))}</span><span class="stat-l">Typical time to finish</span></div>` : ""}
         ${mix.length ? `<div class="stat-tile wide"><span class="stat-l">Media</span><div class="mix-bar">${mix.map(([m, n]) => `<span style="width:${(n / full.length) * 100}%;background:${MEDIUM_TINT[m]}"></span>`).join("")}</div>
           <div class="mix-legend">${mix.map(([m, n]) => `<span><i style="background:${MEDIUM_TINT[m]}"></i>${esc(PLURAL[m])} ${n}</span>`).join("")}</div></div>` : ""}
@@ -2110,24 +2129,32 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       </div></section>`;
   }
 
-  function renderShelf(slug) {
+  function renderShelf(slug, medium) {
     const s = cat.shelf(slug);
     if (!s) { app.innerHTML = `<p class="empty">There's no shelf by that name. <a href="#">Back to the shelves</a></p>`; return; }
+    const counts = {};
+    s.works.forEach((w) => { counts[w.medium] = (counts[w.medium] || 0) + 1; });
+    if (medium && !counts[medium]) medium = null;
+    const works = medium ? s.works.filter((w) => w.medium === medium) : s.works;
+    const rules = ruleLines(s.rule || {});
+    if (medium && Object.keys(counts).length > 1) rules.splice(rules.length - 1, 0, `Showing ${PLURAL[medium].toLowerCase()} only.`);
     app.innerHTML = `
-      <header class="page-head"><p class="crumbs"><a href="#shelves">Shelves</a></p><h1>${esc(s.name)}</h1><p>${esc(s.tagline)}</p></header>
-      ${aboutCard(s.description || s.tagline, ruleLines(s.rule || {}), s.works)}
-      <section class="block">${pgrid(s.works)}</section>`;
+      <header class="page-head"><p class="crumbs">${medium ? `<a href="#${HUB_OF[medium]}">${esc(PLURAL[medium])}</a> / ` : ""}<a href="#shelves">Shelves</a></p><h1>${esc(s.name)}</h1><p>${esc(s.tagline)}</p>
+        ${Object.keys(counts).length > 1 ? `<nav class="medium-tabs" aria-label="Medium"><a href="#shelf-${esc(slug)}" class="${medium ? "" : "on"}">Everything · ${s.works.length}</a>${MEDIA.filter((m) => counts[m]).map((m) => `<a href="#shelf-${esc(slug)}?m=${m}" class="${medium === m ? "on" : ""}">${esc(PLURAL[m])} · ${counts[m]}</a>`).join("")}</nav>` : ""}</header>
+      ${aboutCard(s.description || s.tagline, rules, works)}
+      <section class="block">${pgrid(works)}</section>`;
   }
 
-  function renderTime(slug) {
+  function renderTime(slug, medium) {
     const tile = TIME_TILES.find((t) => t[0] === slug);
     if (!tile) { app.innerHTML = `<p class="empty">Unknown time range. <a href="#">Back</a></p>`; return; }
-    const hits = allWorks().filter((w) => w.time && w.time.bucket === slug).sort((a, b) => a.time.minutes - b.time.minutes);
-    const unknown = allWorks().filter((w) => !w.time).length;
+    const pool = allWorks().filter((w) => !medium || w.medium === medium);
+    const hits = pool.filter((w) => w.time && w.time.bucket === slug).sort((a, b) => a.time.minutes - b.time.minutes);
+    const unknown = pool.filter((w) => !w.time).length;
     app.innerHTML = `
-      <header class="page-head"><p class="crumbs"><a href="#">Time</a></p><h1>${esc(tile[1])}</h1>
-        <p>${esc(tile[2])}, shortest first.${unknown ? ` ${unknown} works have no recorded length yet and aren't listed.` : ""}</p>
-        <p class="pchips">${TIME_TILES.map(([s2, l]) => `<a class="tchip t-${s2}${s2 === slug ? " on" : ""}" href="#time-${s2}">${esc(l)}</a>`).join("")}</p></header>
+      <header class="page-head"><p class="crumbs">${medium ? `<a href="#${HUB_OF[medium]}">${esc(PLURAL[medium])}</a> / ` : ""}<a href="#">Time</a></p><h1>${esc(tile[1])}${medium ? `: ${esc(PLURAL[medium].toLowerCase())}` : ""}</h1>
+        <p>${esc(tile[2])}, shortest first.${unknown ? ` ${unknown} ${medium ? esc(PLURAL[medium].toLowerCase()) : "works"} have no recorded length yet and aren't listed.` : ""}${medium ? ` <a href="#time-${slug}">Show every medium</a>.` : ""}</p>
+        <p class="pchips">${TIME_TILES.map(([s2, l]) => `<a class="tchip t-${s2}${s2 === slug ? " on" : ""}" href="#time-${s2}${medium ? `?m=${medium}` : ""}">${esc(l)}</a>`).join("")}</p></header>
       <section class="block">${hits.length ? pgrid(hits, (w) => `<p class="pmeta">${esc(timeText(w.time, w.medium === "album"))}</p>`) : `<p class="empty">Nothing in this range yet.</p>`}</section>`;
   }
 
@@ -3337,8 +3364,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h.startsWith("top-")) { setNav(MEDIUM_MENU[h.slice(4)] || "Catalogue"); renderTop(h.slice(4)); }
     else if (h.startsWith("tag-")) { setNav("Catalogue"); renderTag(h.slice(4).replace(".", ":")); }
     else if (h.startsWith("person-")) { setNav("Catalogue"); renderPerson(h.slice(7)); }
-    else if (h.startsWith("shelf-")) { setNav("Discover"); renderShelf(h.slice(6)); }
-    else if (h.startsWith("time-")) { setNav("Discover"); renderTime(h.slice(5)); }
+    else if (h.startsWith("shelf-")) { setNav(MEDIUM_MENU[p.get("m")] || "Discover"); renderShelf(h.slice(6), p.get("m")); }
+    else if (h.startsWith("time-")) { setNav(MEDIUM_MENU[p.get("m")] || "Discover"); renderTime(h.slice(5), p.get("m")); }
     else if (h.startsWith("group-")) { setNav("Sagas"); renderGroup(h.slice(6)); }
     else if (h === "music" || h.startsWith("music-")) { setNav("Music"); renderMusic(h.slice(6)); }
     else if (h === "series") { setNav("Sagas"); renderSeries(); }
@@ -3505,7 +3532,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (d.example !== undefined) seek(EXAMPLES[Number(d.example)]);
     else if (d.similar) seek(`something like "${d.similar}"`);
     else if (d.similarOther) seek(`something like "${d.similarOther}" in a different medium`);
-    else if (d.jump) document.getElementById(d.jump)?.scrollIntoView({ block: "start" });
+    else if (d.jump) document.getElementById(d.jump)?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     else if (d.scroll) { const r = t.parentElement.querySelector(".row"); r.scrollBy({ left: Number(d.scroll) * r.clientWidth * 0.85, behavior: "smooth" }); }
     else if (d.mine) toggleMine(d.mine);
     else if (d.trackPlus) { const cur = (library[d.slug] || {}).progress || 0; updateEntry(d.slug, { progress: cur + Number(d.trackPlus) }); afterTrack(); }
@@ -3749,6 +3776,14 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       });
     }).observe(document.getElementById("app"), { childList: true, subtree: true });
     addEventListener("scroll", update, { passive: true });
+    // Section tabs on work pages follow the reader.
+    addEventListener("scroll", () => {
+      const tabs = [...document.querySelectorAll(".jump [data-jump]")];
+      if (!tabs.length) return;
+      let on = tabs[0];
+      tabs.forEach((t) => { const el = document.getElementById(t.dataset.jump); if (el && el.getBoundingClientRect().top < 160) on = t; });
+      tabs.forEach((t) => t.classList.toggle("on", t === on));
+    }, { passive: true });
     addEventListener("resize", build);
   })();
   window.addEventListener("hashchange", route);
