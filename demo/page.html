@@ -3594,7 +3594,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <div><h2>Who's it for?</h2>${chips("who", DECIDE_WHO)}</div>
         <div><h2>From</h2>${chips("source", [["all", "The whole catalogue"], ["planned", "My planned list"]])}</div>
       </section>
-      ${pick ? `<section class="decide-pick" aria-live="polite">
+      ${pick ? `<section class="decide-pick" aria-live="polite" aria-label="Your pick">
         <a class="dp-art" href="#work-${esc(pick.w.slug)}">${poster(cardCover(pick.w), "big")}</a>
         <div class="dp-text">
           <p class="eyebrow">Tonight: ${esc(mediumLabel(pick.w.medium))}</p>
@@ -4702,9 +4702,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }, { passive: true });
     const depth = document.getElementById("depth"), fill = document.getElementById("depth-fill"), now = document.getElementById("depth-now");
     const track = depth.querySelector(".track");
-    let heads = [], ticks = [], moving = 0;
+    let heads = [], labels = [], ticks = [], moving = 0, sig = "";
     const docTop = (el) => el.getBoundingClientRect().top + window.scrollY;
-    const update = () => {
+    const update = (scrolled) => {
       let on = 0;
       heads.forEach((h, i) => { if (docTop(h) < scrollY + innerHeight * 0.45) on = i; });
       // The fill reaches the current tick, plus the share of the way to the next one.
@@ -4712,24 +4712,45 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const part = Math.max(0, Math.min(1, (scrollY + innerHeight * 0.45 - a) / Math.max(1, b - a)));
       fill.style.height = (heads.length > 1 ? Math.min(100, ((on + (on < heads.length - 1 ? part : 0)) / (heads.length - 1)) * 100) : 0) + "%";
       ticks.forEach((t, i) => t.classList.toggle("on", i === on));
-      now.textContent = heads[on] ? heads[on].textContent.replace(/\s*\(\d+\)\s*$/, "") : "";
+      now.textContent = labels[on] || "";
       if (ticks[on]) depth.style.setProperty("--now-y", ticks[on].style.top);
+      // The label shows while you scroll (or hover the rail), never just because the page changed.
+      if (scrolled !== true) return;
       depth.classList.add("moving");
       clearTimeout(moving);
       moving = setTimeout(() => depth.classList.remove("moving"), 1200);
     };
+    // A page's sections: its "On this page" links where it has them, otherwise its section headings,
+    // leaving out headings of forms, panels and cards.
+    const SKIP = ".pcard, .post-card, .rank-row, .rail-box, .stat-box, .foot, form, .decide-q, .tracker, .rings-side, .tg-person, .eyebrow, [hidden]";
+    const clean = (t) => t.replace(/\s+/g, " ").trim().replace(/\s*\([^)]*\)\s*$/, "");
+    const sections = () => {
+      const h1 = document.querySelector("#app h1");
+      const jump = document.querySelector("#app nav.jump");
+      let out = [];
+      if (jump) out = [...jump.querySelectorAll("[data-jump]")].map((b) => [document.getElementById(b.dataset.jump), clean(b.textContent)]).filter(([el]) => el && el.offsetParent);
+      // A heading that names a feature's content (the day's pick, say) rather than a section: use its section's label.
+      else out = [...document.querySelectorAll("#app h2")].filter((h) => h.offsetParent && !h.matches(SKIP) && !h.closest(SKIP))
+        .map((h) => { const sec = !h.closest("header") && h.closest("section[aria-label]"); return [h, clean(sec ? sec.getAttribute("aria-label") : h.textContent)]; });
+      if (h1 && h1.offsetParent) out.unshift([h1, clean(h1.textContent)]);
+      out = out.filter(([, l]) => l);
+      if (out.length > 16) out = Array.from({ length: 16 }, (_, i) => out[Math.round((i * (out.length - 1)) / 15)]);
+      return out;
+    };
     const build = () => {
       const max = document.documentElement.scrollHeight - innerHeight;
-      // One tick per section, evenly spaced; long pages keep twelve sections spread across the page.
-      let all = [...document.querySelectorAll("#app h1, #app h2")].filter((h) => h.offsetParent && !h.closest(".pcard, .post-card, .rank-row, .rail-box, .stat-box, .foot"));
-      if (all.length > 12) all = Array.from({ length: 12 }, (_, i) => all[Math.round((i * (all.length - 1)) / 11)]);
-      heads = all;
-      depth.classList.toggle("short", max < innerHeight * 0.6 || heads.length < 2);
+      // One tick per section, evenly spaced; long pages keep sixteen sections spread across the page.
+      const all = sections();
+      depth.classList.toggle("short", max < innerHeight * 0.6 || all.length < 2);
+      // Rebuild the ticks only when the sections change; other page updates just move the fill.
+      const next = all.map(([, l]) => l).join("|") + location.hash;
+      if (next === sig && all.every(([el], i) => el === heads[i])) { update(); return; }
+      sig = next; heads = all.map(([el]) => el); labels = all.map(([, l]) => l);
       ticks.forEach((t) => t.remove());
-      ticks = heads.map((h) => {
+      ticks = heads.map((h, i) => {
         const b = document.createElement("button");
         b.type = "button"; b.className = "tick"; b.tabIndex = -1;
-        b.title = h.textContent.trim(); b.setAttribute("aria-label", "Go to " + b.title);
+        b.title = labels[i]; b.setAttribute("aria-label", "Go to " + b.title);
         b.style.top = (heads.length > 1 ? (heads.indexOf(h) / (heads.length - 1)) * 100 : 0) + "%";
         b.addEventListener("click", () => scrollTo({ top: docTop(h) - 90, behavior: still ? "auto" : "smooth" }));
         track.appendChild(b);
@@ -4758,7 +4779,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         build();
       });
     }).observe(document.getElementById("app"), { childList: true, subtree: true });
-    addEventListener("scroll", update, { passive: true });
+    addEventListener("scroll", () => update(true), { passive: true });
     // Section tabs on work pages follow the reader.
     addEventListener("scroll", () => {
       const tabs = [...document.querySelectorAll(".jump [data-jump]")];
