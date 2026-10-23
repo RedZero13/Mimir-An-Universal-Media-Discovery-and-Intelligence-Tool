@@ -762,9 +762,9 @@ finish finished binge binged through will watching reading playing listening sta
   }
 
   // ------------------------------------------------------------------ enrichment merge (mirrors enrich.py)
-  const SOURCE_ORDER = ["wikidata", "openlibrary", "musicbrainz", "tmdb"];
+  const SOURCE_ORDER = ["wikidata", "openlibrary", "musicbrainz", "tmdb", "publisher"];
   const IMAGE_PREFERENCE = { poster: 0, cover: 1, still: 2, logo: 3 };
-  const LINK_ORDER = ["listen:spotify", "listen:youtube-music", "watch:justwatch", "buy:steam", "reactions:letterboxd",
+  const LINK_ORDER = ["listen:spotify", "listen:youtube-music", "watch:justwatch", "buy:steam", "buy:amazon", "info:publisher", "reactions:letterboxd",
     "reactions:rotten-tomatoes", "reactions:metacritic", "reactions:goodreads", "reactions:storygraph",
     "reactions:reddit", "reactions:youtube", "info:imdb", "info:openlibrary", "info:musicbrainz", "info:wikipedia"];
   const rankIn = (order, item) => (order.includes(item) ? order.indexOf(item) : order.length);
@@ -1154,7 +1154,8 @@ finish finished binge binged through will watching reading playing listening sta
     };
 
     function richCard(w, ctx) {
-      const img = w.images.length ? w.images[0] : null;
+      // Only real artwork becomes a cover (mirrors browse.py COVER_KINDS).
+      const img = w.images.find((i) => i.kind === "cover" || i.kind === "poster") || null;
       const c = ctx.get(w.slug);
       return { ...card(w),
         image: img ? { url: img.url, kind: img.kind, licence: img.licence, attribution: img.attribution, source: img.source } : null,
@@ -1167,6 +1168,7 @@ finish finished binge binged through will watching reading playing listening sta
       if (rule.media && rule.media.length && !rule.media.includes(w.medium)) return false;
       if (rule.languages && rule.languages.length && !rule.languages.includes(w.language)) return false;
       if (rule.not_languages && rule.not_languages.length && rule.not_languages.includes(w.language)) return false;
+      if (rule.forms && rule.forms.length && !rule.forms.includes((w.attributes || {}).form)) return false;
       const floor = has(rule, "min_strength") ? rule.min_strength : 0.5;
       if (rule.all_tags && rule.all_tags.length && rule.all_tags.some((t) => strengthOf(w, t) < floor)) return false;
       if (rule.any_tags && rule.any_tags.length && rule.any_tags.every((t) => strengthOf(w, t) < floor)) return false;

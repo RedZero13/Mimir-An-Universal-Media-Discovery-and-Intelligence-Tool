@@ -283,6 +283,8 @@ class Wikidata:
         if work["medium"] == "film" and (rt := runtime_minutes(entity)) is not None:
             facts["runtime_minutes"] = rt
         images = []
+        for c in claim_values(entity, "P3383")[:1]:   # film poster: real cover art when Commons holds one
+            images.append({"kind": "poster", "commons_file": value(c)})
         for c in claim_values(entity, "P18")[:1]:
             images.append({"kind": "still", "commons_file": value(c)})
         enwiki = entity.get("sitelinks", {}).get("enwiki", {}).get("title")

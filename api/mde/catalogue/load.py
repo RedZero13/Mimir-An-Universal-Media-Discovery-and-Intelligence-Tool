@@ -57,6 +57,9 @@ OPEN_SOURCES = {
              "may_store": "restricted", "may_display": "yes", "ai_use": "unknown",
              "attribution": "This product uses the TMDB API but is not endorsed or certified by TMDB.",
              "notes": "Film posters; commercial use needs a TMDB agreement"},
+    "publisher": {"name": "Publisher-supplied", "kind": "licensed_dataset", "licence": "Supplied by the rights holder",
+                  "commercial_use": "yes", "may_store": "yes", "may_display": "yes", "ai_use": "yes",
+                  "attribution": "Courtesy of the publisher", "notes": "Covers, page counts and store links for Terratales titles"},
 }
 
 VALID_MEDIA = {"film", "series", "episode", "book", "comic", "game", "album", "track", "podcast", "online_video", "channel"}
@@ -342,9 +345,12 @@ def _import_enrichment(conn: psycopg.Connection, profiles: dict[str, WorkProfile
                 "%(ai_use)s, %(attribution)s, %(notes)s) ON CONFLICT (slug) DO UPDATE SET licence = EXCLUDED.licence, "
                 "attribution = EXCLUDED.attribution, notes = EXCLUDED.notes RETURNING id", {"slug": slug, **meta},
             ).fetchone()["id"]
-    if not src_ids:
+    # Every enrichment source is replaced, including one no longer in the import, so a dropped source leaves nothing behind.
+    ids = [r["id"] for r in conn.execute("SELECT id FROM source WHERE slug = ANY(%s)", (list(OPEN_SOURCES),)).fetchall()]
+    if not ids:
         return
-    ids = list(src_ids.values())
+    conn.execute("DELETE FROM source_record WHERE source_id = ANY(%s) AND NOT source_id = ANY(%s)",
+                 (ids, list(src_ids.values())))
     for table in ("work_image", "work_score", "box_office", "work_link"):
         if table == "work_link":
             conn.execute("DELETE FROM work_link")

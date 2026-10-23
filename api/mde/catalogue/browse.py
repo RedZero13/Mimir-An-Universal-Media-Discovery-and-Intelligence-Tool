@@ -398,12 +398,16 @@ def continuity(w: WorkProfile, works: list[WorkProfile]) -> dict:
     return out
 
 
+COVER_KINDS = ("cover", "poster")
+
+
 def _context(works: list[WorkProfile]) -> dict[str, dict]:
     return {w.slug: continuity(w, works) for w in works}
 
 
 def _rich_card(w: WorkProfile, tax: Taxonomy, ctx: dict[str, dict]) -> dict:
-    img = w.images[0] if w.images else None
+    # Only real artwork becomes a cover; a Wikidata "still" may be a logo or a photo of something else.
+    img = next((i for i in w.images if i.kind in COVER_KINDS), None)
     c = ctx[w.slug]
     return {**card(w, tax),
             "image": {"url": img.url, "kind": img.kind, "licence": img.licence, "attribution": img.attribution,
@@ -420,6 +424,8 @@ def _shelf_match(w: WorkProfile, rule: dict, ctx: dict[str, dict]) -> bool:
     if rule.get("languages") and w.language not in rule["languages"]:
         return False
     if rule.get("not_languages") and w.language in rule["not_languages"]:
+        return False
+    if rule.get("forms") and w.attributes.get("form") not in rule["forms"]:
         return False
     floor = rule.get("min_strength", 0.5)
     if rule.get("all_tags") and any(w.strength(t) < floor for t in rule["all_tags"]):
