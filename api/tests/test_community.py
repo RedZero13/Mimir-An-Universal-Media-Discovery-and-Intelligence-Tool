@@ -156,3 +156,37 @@ def test_community_trending_lists_challenges_reports_and_delete(client):
 
 def test_calendar_slugs_match_the_programmes_file():
     assert {"spooktober", "twelve-days-of-christmas", "pride-month", "diwali"} <= community.challenge_slugs()
+
+
+def test_watch_alongs_timeline_privacy_and_closing(client):
+    host, hh = signup(client)
+    guest, gh = signup(client)
+    r = client.post("/api/watch-alongs", json={"work_slug": "arrival-2016", "note": "Friday night, bring tissues"}, headers=hh)
+    assert r.status_code == 201, r.text
+    wa = r.json()["id"]
+    assert client.post("/api/watch-alongs", json={"work_slug": "no-such-work"}, headers=hh).status_code == 404
+    assert client.post("/api/watch-alongs", json={"work_slug": "arrival-2016"}).status_code == 401
+    # Comments are pinned to playback time and come back in that order, whoever wrote them and whenever.
+    for headers, at, text in ((gh, 1800, "the heptapods!"), (hh, 300, "that opening"), (gh, 300, "already crying")):
+        assert client.post(f"/api/watch-alongs/{wa}/comments", json={"at_seconds": at, "body": text}, headers=headers).status_code == 201
+    assert client.post(f"/api/watch-alongs/{wa}/comments", json={"at_seconds": -1, "body": "x"}, headers=gh).status_code == 422
+    got = client.get(f"/api/watch-alongs/{wa}").json()
+    assert [c["at_seconds"] for c in got["timeline"]] == [300, 300, 1800]
+    assert got["comments"] == 3 and got["people"] == 2 and got["host"]["username"] == host
+    assert any(x["id"] == wa for x in client.get("/api/watch-alongs?work=arrival-2016").json())
+    assert any(x["id"] == wa for x in client.get("/api/community").json()["watch_alongs"])
+    # Only the host closes it; a closed one leaves the listings and takes no more comments.
+    assert client.post(f"/api/watch-alongs/{wa}/close", headers=gh).status_code == 403
+    assert client.post(f"/api/watch-alongs/{wa}/close", headers=hh).status_code == 200
+    assert not any(x["id"] == wa for x in client.get("/api/watch-alongs").json())
+    assert client.post(f"/api/watch-alongs/{wa}/comments", json={"at_seconds": 5, "body": "late"}, headers=gh).status_code == 409
+    # A private host's watch-along is visible to followers only.
+    _, ph = signup(client)
+    me = client.get("/api/me", headers=ph).json()
+    client.patch("/api/me", json={"is_private": True}, headers=ph)
+    private = client.post("/api/watch-alongs", json={"work_slug": "arrival-2016"}, headers=ph).json()["id"]
+    assert client.get(f"/api/watch-alongs/{private}").status_code == 404
+    assert client.get(f"/api/watch-alongs/{private}", headers=ph).status_code == 200
+    client.post(f"/api/users/{me['username']}/follow", headers=gh)
+    assert client.get(f"/api/watch-alongs/{private}", headers=gh).status_code == 200
+    assert client.get("/api/watch-alongs/not-a-uuid").status_code == 404

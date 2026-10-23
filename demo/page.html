@@ -901,6 +901,19 @@ body.is-home.deep .runes { opacity: 1; } body.is-home.deep .well-fx .caustic { o
 .toast { position: fixed; left: 50%; bottom: 24px; z-index: 70; transform: translate(-50%, 20px); opacity: 0; display: flex; gap: 10px; align-items: center; padding: 12px 18px; border-radius: 999px; background: var(--menu-bg); color: var(--ink); border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); box-shadow: var(--shadow-2); text-decoration: none; transition: opacity .3s, transform .3s; }
 .toast.in { opacity: 1; transform: translate(-50%, 0); } .toast-icon { color: var(--gold); font-size: 1.2rem; }
 @media (max-width: 800px) { .rings-panel { grid-template-columns: 1fr; padding: 20px; } }
+/* Watch-alongs. */
+.wa-panel { display: grid; gap: 16px; margin: 20px 0 28px; padding: 24px 26px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.wa-clock { display: grid; gap: 12px; }
+.wa-time { font: 650 clamp(2.4rem, 6vw, 3.6rem)/1 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; color: var(--bone); }
+.wa-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.wa-jump { display: flex; gap: 6px; align-items: center; } .wa-jump input, .wa-say input { height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2); color: var(--bone); font: inherit; }
+.wa-scrub { width: 100%; accent-color: var(--gold); }
+.wa-say { display: flex; gap: 8px; } .wa-say .grow { flex: 1; } .wa-name { width: 140px; }
+.wa-share { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; } .wa-open { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: .9rem; }
+.wa-timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.wa-timeline li { display: grid; grid-template-columns: auto auto 1fr; gap: 12px; align-items: baseline; padding: 10px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+.wa-timeline li.fresh { border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent); }
+.wa-at { border: 0; background: none; padding: 0; font: 600 .82rem var(--f-mono); color: var(--gold); cursor: pointer; } .wa-by { font-weight: 600; font-size: .9rem; } .wa-body { color: var(--ink); }
 /* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
 .row { padding-bottom: 20px; }
 .row .pchips { height: 62px; }
@@ -2017,6 +2030,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
               <button class="btn ghost" type="button" data-similar="${esc(w.title)}">Find similar</button>
               <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
               ${mineBtn(w.slug)}
+              ${["film", "series"].includes(w.medium) ? `<a class="btn ghost" href="#watch-${esc(w.slug)}">Watch along</a>` : ""}
               ${shareButton(`${location.origin}${location.pathname}#work-${w.slug}`, w.title, `${w.title} (${[mediumLabel(w.medium), w.year].filter(Boolean).join(", ")}) on Mimir`)}
             </div>
             <p class="rate-row"><span class="eyebrow">Your rating</span>${rateButtons(w.slug)}<span class="muted small">Ratings tune your <a href="#for-you">picks for you</a>.</span></p>
@@ -2692,6 +2706,144 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // List types, so a watchlist, a reading list and a playlist each look the part.
   const LIST_KINDS = [["list", "List", "☰"], ["watchlist", "Watchlist", "🎞"], ["reading", "Reading list", "📖"], ["playlist", "Playlist", "🎧"], ["backlog", "Game backlog", "🎮"], ["bookmarks", "Bookmarks", "🔖"]];
   const kindOf = (l) => LIST_KINDS.find((k) => k[0] === (l.kind || "list")) || LIST_KINDS[0];
+
+  // ------------------------------------------------------------------ watch-alongs
+  // Everyone watches on their own screen and starts a timer when they press play. Comments are pinned to the timer,
+  // and stay hidden until your own timer reaches them, so nobody gets spoiled and late-comers still get the jokes.
+  // Without the community server a watch-along lives in this browser and travels as a link (comments included);
+  // with it, it's public, listed in Community and refreshes while you watch.
+  let watchAlongs = stored("mimir-watch-alongs", {});   // slug → { open, note, created, comments: [{ id, at, body, by }] }
+  const saveWatchAlongs = () => store("mimir-watch-alongs", watchAlongs);
+  const waName = () => prefs.waName || (session ? session.user.display_name : "");
+  const clock = (sec) => { sec = Math.max(0, Math.floor(sec)); const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60; return `${h ? h + ":" : ""}${String(m).padStart(h ? 2 : 1, "0")}:${String(s).padStart(2, "0")}`; };
+  const parseClock = (t) => { const p = String(t).trim().split(":").map(Number); if (p.some(isNaN)) return null; return p.reduce((a, x) => a * 60 + x, 0); };
+  const b64 = (o) => btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const unb64 = (s) => { try { return JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g, "+").replace(/_/g, "/"))))); } catch { return null; } };
+  let waTimer = { base: 0, startedAt: null, tick: null, ctx: null };
+  const waNow = () => waTimer.base + (waTimer.startedAt ? (performance.now() - waTimer.startedAt) / 1000 : 0);
+  function waLocalShareUrl(slug) {
+    const wa = watchAlongs[slug];
+    const c = wa.comments.slice(-200).map((x) => [x.at, x.body.slice(0, 280), x.by || ""]);
+    return `${location.origin}${location.pathname}#watch-${slug}?d=${b64({ n: wa.note || "", h: waName(), c })}`;
+  }
+  function renderWatchAlong(slug, p, remoteId) {
+    const w = cat.work(slug);
+    if (!w && !remoteId) { app.innerHTML = `<p class="empty">That work isn't in the catalogue. <a href="#community">Community</a></p>`; return; }
+    // A shared link carries the host's comments; fold them into this browser's copy.
+    if (!remoteId) {
+      const shared = p.get("d") ? unb64(p.get("d")) : null;
+      if (!watchAlongs[slug]) watchAlongs[slug] = { open: false, note: "", created: today(), comments: [] };
+      if (shared) {
+        const have = new Set(watchAlongs[slug].comments.map((x) => `${x.at}|${x.body}|${x.by}`));
+        for (const [at, body, by] of shared.c || []) if (!have.has(`${at}|${body}|${by}`)) watchAlongs[slug].comments.push({ id: newId(), at, body, by: by || shared.h || "Guest" });
+        if (shared.n && !watchAlongs[slug].note) watchAlongs[slug].note = shared.n;
+        watchAlongs[slug].open = true;
+        saveWatchAlongs();
+        history.replaceState(null, "", `#watch-${slug}`);
+      }
+    }
+    if (waTimer.ctx !== (remoteId || slug)) { clearInterval(waTimer.tick); waTimer = { base: 0, startedAt: null, tick: null, ctx: remoteId || slug }; }
+    const runtime = w ? (w.medium === "series" ? (w.attributes.episode_minutes || 45) * 60 : (w.runtime_minutes || 120) * 60) : 7200;
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Watch along</p><h1>${w ? esc(w.title) : "Watch-along"}</h1>
+        <p class="muted">Press play on your own screen and start the timer at the same moment. Comments are pinned to the time they were written and appear as your timer reaches them; nothing ahead of you is shown.</p></header>
+      <section class="wa-panel">
+        <div class="wa-clock"><span class="wa-time" id="wa-time">${clock(waNow())}</span>
+          <div class="wa-controls"><button type="button" class="btn" data-wa="toggle" id="wa-toggle">${waTimer.startedAt ? "Pause" : "Start timer"}</button>
+            <button type="button" class="btn ghost" data-wa="back">−10s</button><button type="button" class="btn ghost" data-wa="fwd">+10s</button>
+            <form class="wa-jump" data-wa-jump><input name="t" placeholder="Jump to 1:05:30" aria-label="Jump to time"><button class="linkish" type="submit">Go</button></form></div>
+          <input type="range" class="wa-scrub" id="wa-scrub" min="0" max="${runtime}" step="1" value="${Math.floor(waNow())}" aria-label="Playback position"></div>
+        <form class="wa-say" data-wa-say="${esc(remoteId || slug)}">
+          ${!remoteId && !waName() ? `<input name="by" placeholder="Your name" maxlength="30" aria-label="Your name" class="wa-name">` : ""}
+          <input name="body" placeholder="Say something at ${clock(waNow())}…" maxlength="280" required aria-label="Comment" class="grow" autocomplete="off">
+          <button class="btn" type="submit">Post</button></form>
+        <div class="wa-share" id="wa-share"></div>
+      </section>
+      <section class="block"><header class="shelf-head"><div><h2>Timeline</h2><p id="wa-ahead"></p></div></header><ol class="wa-timeline" id="wa-timeline"></ol></section>`;
+    let timeline = [];
+    const paint = () => {
+      const now = waNow();
+      document.getElementById("wa-time").textContent = clock(now);
+      const scrub = document.getElementById("wa-scrub"); if (scrub && document.activeElement !== scrub) scrub.value = Math.floor(now);
+      const say = document.querySelector("[data-wa-say] input[name=body]"); if (say) say.placeholder = `Say something at ${clock(now)}…`;
+      const shown = timeline.filter((c) => c.at <= now), ahead = timeline.length - shown.length;
+      document.getElementById("wa-ahead").textContent = ahead ? `${ahead} comment${ahead === 1 ? "" : "s"} further on, hidden until you get there.` : timeline.length ? "You're caught up." : "No comments yet. Start the timer and say something.";
+      const list = document.getElementById("wa-timeline");
+      const html = shown.map((c) => `<li class="${c.at > now - 4 ? "fresh" : ""}"><button type="button" class="wa-at" data-wa-seek="${c.at}">${clock(c.at)}</button><span class="wa-by">${esc(c.by)}</span><span class="wa-body">${esc(c.body)}</span></li>`).join("");
+      if (list.dataset.sig !== `${shown.length}|${Math.floor(now / 4)}`) { list.innerHTML = html; list.dataset.sig = `${shown.length}|${Math.floor(now / 4)}`; }
+    };
+    const load = async () => {
+      if (remoteId) {
+        try {
+          const r = await api(`/api/watch-alongs/${remoteId}`);
+          timeline = r.timeline.map((c) => ({ at: c.at_seconds, body: c.body, by: c.user.display_name }));
+          document.querySelector(".page-band h1").textContent = r.work.title;
+          document.getElementById("wa-share").innerHTML = `<p class="muted small">Hosted by ${esc(r.host.display_name)}${r.starts_at ? ` · starts ${esc(new Date(r.starts_at).toLocaleString())}` : ""}${r.note ? ` · ${esc(r.note)}` : ""} · ${r.people} watching along</p>${shareButton(location.href, `Watch ${r.work.title} along with me`, `Watch-along on Mimir: ${r.work.title}`)}`;
+        } catch (err) { document.getElementById("wa-ahead").textContent = `The community server didn't answer: ${err.message}`; }
+      } else {
+        const wa = watchAlongs[slug];
+        timeline = wa.comments.slice().sort((a, b) => a.at - b.at).map((c) => ({ ...c, by: c.by || "You" }));
+        document.getElementById("wa-share").innerHTML = `
+          <label class="wa-open"><input type="checkbox" data-wa-open ${wa.open ? "checked" : ""}> List this watch-along in Community${CONFIG.api ? " (this browser)" : ""}</label>
+          ${shareButton(waLocalShareUrl(slug), `Watch ${w.title} along with me`, `Watch ${w.title} with me on Mimir: start your timer when you press play and my comments pop up as you go.`)}
+          ${CONFIG.api && session ? `<button type="button" class="btn ghost" data-wa-host="${esc(slug)}">Host it publicly</button>` : ""}`;
+      }
+      paint();
+    };
+    clearInterval(waTimer.tick);
+    waTimer.tick = setInterval(() => { if (!document.getElementById("wa-time")) { clearInterval(waTimer.tick); return; } paint(); }, 500);
+    if (remoteId) { let n = 0; const poll = setInterval(() => { if (!document.getElementById("wa-time")) { clearInterval(poll); return; } if (++n % 20 === 0) load(); }, 500); }
+    load();
+    waTimer.reload = load;
+  }
+  function waControl(action, value) {
+    const now = waNow();
+    if (action === "toggle") { if (waTimer.startedAt) { waTimer.base = now; waTimer.startedAt = null; } else { waTimer.base = now; waTimer.startedAt = performance.now(); } }
+    else if (action === "back" || action === "fwd" || action === "seek") { waTimer.base = action === "seek" ? value : Math.max(0, now + (action === "fwd" ? 10 : -10)); if (waTimer.startedAt) waTimer.startedAt = performance.now(); }
+    const t = document.getElementById("wa-toggle"); if (t) t.textContent = waTimer.startedAt ? "Pause" : "Start timer";
+    const tm = document.getElementById("wa-time"); if (tm) tm.textContent = clock(waNow());
+  }
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-wa], [data-wa-seek], [data-wa-host]");
+    if (!b) return;
+    if (b.dataset.wa) waControl(b.dataset.wa);
+    else if (b.dataset.waSeek) waControl("seek", Number(b.dataset.waSeek));
+    else if (b.dataset.waHost) {
+      api("/api/watch-alongs", { method: "POST", body: { work_slug: b.dataset.waHost, note: (watchAlongs[b.dataset.waHost] || {}).note || "" } })
+        .then((r) => { location.hash = `#wa-${r.id}`; }, (err) => alert(`Couldn't host it: ${err.message}`));
+    }
+  });
+  app.addEventListener("input", (e) => { if (e.target.id === "wa-scrub") waControl("seek", Number(e.target.value)); });
+  app.addEventListener("change", (e) => {
+    if (e.target.matches("[data-wa-open]")) { const slug = location.hash.slice(7).split("?")[0]; if (watchAlongs[slug]) { watchAlongs[slug].open = e.target.checked; saveWatchAlongs(); } }
+  });
+  app.addEventListener("submit", (e) => {
+    const f = e.target;
+    if (f.dataset.waJump !== undefined) { e.preventDefault(); const s = parseClock(f.elements.t.value); if (s !== null) waControl("seek", s); f.reset(); }
+    else if (f.dataset.waSay) {
+      e.preventDefault(); e.stopImmediatePropagation();
+      const body = f.elements.body.value.trim(); if (!body) return;
+      const at = Math.floor(waNow()), key = f.dataset.waSay;
+      if (f.elements.by && f.elements.by.value.trim()) { prefs.waName = f.elements.by.value.trim().slice(0, 30); savePrefs(); }
+      if (watchAlongs[key]) {
+        watchAlongs[key].comments.push({ id: newId(), at, body: body.slice(0, 280), by: waName() || "You" });
+        watchAlongs[key].open = true; saveWatchAlongs();
+        f.elements.body.value = ""; renderWatchAlong(key, new URLSearchParams());
+      } else {
+        api(`/api/watch-alongs/${key}/comments`, { method: "POST", body: { at_seconds: at, body } })
+          .then(() => { f.elements.body.value = ""; waTimer.reload && waTimer.reload(); }, (err) => alert(`Couldn't post: ${err.message}`));
+      }
+    }
+  }, true);
+  const localWatchAlongs = () => Object.entries(watchAlongs).filter(([, wa]) => wa.open).map(([slug, wa]) => ({ slug, wa, w: workOf(slug) })).filter((x) => x.w);
+  function watchAlongBox(remote) {
+    const local = localWatchAlongs();
+    const items = [
+      ...(remote || []).map((x) => `<li><a href="#wa-${esc(x.id)}">${esc(x.work.title)}</a> <span class="muted small">with ${esc(x.host.display_name)}${x.starts_at ? ` · ${esc(new Date(x.starts_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }))}` : " · any time"} · ${x.comments} comments</span></li>`),
+      ...local.map(({ slug, wa, w }) => `<li><a href="#watch-${esc(slug)}">${esc(w.title)}</a> <span class="muted small">${wa.comments.length} comments · in this browser</span></li>`),
+    ];
+    return `<section class="stat-box"><h2>Watch-alongs</h2>${items.length ? `<ul class="plain">${items.join("")}</ul>` : `<p class="muted">None open. Open any film or series and choose <em>Watch along</em>: start a timer when you press play, comment as you go, and share the link so friends can watch on their own screens and see your comments at the same moments.</p>`}</section>`;
+  }
 
   // ------------------------------------------------------------------ the library page, diary and "up next"
   const libState = { tab: "all", medium: "all", sort: "updated", fits: "" };
@@ -3479,6 +3631,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       app.innerHTML = `
         <header class="page-head"><p class="eyebrow">Community</p><h1>Find your next story through people</h1>
           <p class="muted">Reviews, a feed of what friends are finishing, shared lists, trending picks and calendar challenges together. Accounts are built and switch on here as soon as the community server goes live.</p></header>
+        <div class="comm-grid">${watchAlongBox(null)}</div>
         <div class="prose block"><p>Until then, everything personal already works in this browser: your <a href="#library">library</a>, <a href="#journal">journal</a>, <a href="#lists">lists</a> (shareable by link), <a href="#calendar">calendar challenges</a> and <a href="#decide">Decide for me</a>. When accounts open, all of it moves into your account in one step.</p></div>
         ${calendarBand()}`;
       return;
@@ -3494,6 +3647,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${trending.length ? `<section class="shelf" aria-label="Trending"><header class="shelf-head"><div><h2>Trending this fortnight</h2><p>What people are finishing, starting and reviewing.</p></div></header>${row(trending)}</section>` : ""}
         <div class="comm-grid">
           ${feed ? `<section class="stat-box"><h2>Your feed</h2>${feed.length ? `<ol class="acts">${feed.map(activityItem).join("")}</ol>` : `<p class="muted">Follow people (open their name anywhere) to see what they're finishing and reviewing here.</p>`}</section>` : ""}
+          ${watchAlongBox(c.watch_alongs || [])}
           <section class="stat-box"><h2>Latest reviews</h2>${c.reviews.length ? `<ol class="reviews">${c.reviews.map((r) => reviewItem(r, true)).join("")}</ol>` : `<p class="muted">No reviews yet.</p>`}</section>
           <section class="stat-box"><h2>Everyone, lately</h2>${c.activity.length ? `<ol class="acts">${c.activity.map(activityItem).join("")}</ol>` : `<p class="muted">Quiet so far.</p>`}</section>
           <section class="stat-box"><h2>Challenges</h2><ul class="plain">${cat.calendar(y).slice(0, 30).map((p) => { const m = c.challenges.find((x) => x.slug === p.slug && x.year === y); return `<li><a href="#programme-${esc(p.slug)}?y=${y}">${esc(p.name)}</a> <span class="muted small">${esc(fmtDay(p.start))} · ${m ? `${m.members} joined` : "be the first"}</span></li>`; }).join("")}</ul></section>
@@ -3644,6 +3798,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const [h, qs = ""] = location.hash.slice(1).split("?");
     const p = new URLSearchParams(qs);
     const MEDIUM_MENU = { film: "Films", series: "TV", book: "Books", game: "Games", album: "Music", all: "Catalogue" };
+    if (h.startsWith("watch-")) { setNav("Community"); renderWatchAlong(h.slice(6), p); return; }
+    if (h.startsWith("wa-")) { setNav("Community"); renderWatchAlong(null, p, h.slice(3)); return; }
     if (h.startsWith("work-")) {
       const w = cat.work(h.slice(5)); setNav(w ? MEDIUM_MENU[w.medium] : ""); renderWork(h.slice(5));
       if (w) loadWorkReviews(w);
