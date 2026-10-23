@@ -2,21 +2,25 @@
 
 # Mimir
 
-**Drawn from the well of every story.** Mimir is a catalogue and discovery engine for films, TV series, books,
-games and music, built as *A Terratales Venture* for [terratalesmedia.world](https://terratalesmedia.world/).
-The beta catalogue holds 503 works from 28 original languages.
+**Find what to watch, read, play or listen to next.** Mimir is a free catalogue and discovery engine for films,
+TV series, books and manga, games, music and YouTube, built by
+[Terratales Media Entertainment](https://terratalesmedia.world/). Live at
+**[mimir.terratalesmedia.world](https://mimir.terratalesmedia.world/)**.
 
 Describe what you want to experience: a mood, an idea, a favourite work, a time limit. Mimir returns a few
-well-chosen picks, each with the reasons it fits.
+well-chosen picks, each with the reasons it fits. The catalogue holds 681 works from 42 countries in 29 original
+languages, classified against 372 controlled terms, including 233 subgenres.
 
 Under the hood, a request in plain language is interpreted into inspectable constraints and preferences, a
 classified catalogue is ranked against them, and every result is explained from recorded evidence. Facts are
-labelled separately from interpretations.
+labelled separately from interpretations. There is no LLM and no API key.
 
-It is also a browsable catalogue, in the spirit of IMDb: filter by medium, tag, decade, language, length and
-parents'-guide category; open tag pages and people pages; and read full work pages with tags, credits,
-connected works and a parents' guide that tells "none" apart from "not assessed".
+It is also a browsable catalogue, in the spirit of IMDb, MyAnimeList and Goodreads in one place: directories per
+medium, 36 shelves, subgenres, tag and people pages, a parents' guide for every medium, "where to watch" links,
+a personal library with activity rings and badges, shareable lists, watch-alongs and a community.
 
+- **Everything Mimir does:** [`docs/FEATURES.md`](docs/FEATURES.md)
+- **Press kit and press release:** [`docs/press/`](docs/press/)
 - **Beta testers start here:** [`docs/BETA.md`](docs/BETA.md)
 - **Where Mimir stands against MAL, MangaUpdates, IMDb, Letterboxd, Goodreads and Spotify:** [`docs/COMPETITIVE.md`](docs/COMPETITIVE.md) · **What comes next:** [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - **Brand guide (name, mark, colour, type, voice):** [`docs/BRAND.md`](docs/BRAND.md)
@@ -31,8 +35,8 @@ connected works and a parents' guide that tells "none" apart from "not assessed"
 api/                    Python 3.11+, FastAPI, PostgreSQL (modular monolith)
   mde/migrations/       SQL migrations, applied in order, additive only
   mde/taxonomy/         Controlled taxonomy (taxonomy.json) + loader/validator
-  mde/seed/             Editorial seed: catalogue.json (the 56-work pilot) plus films, films-world, series,
-                        books, games and albums (*.json), merged by catalogue/seedfiles.py
+  mde/seed/             Editorial seed: catalogue.json (the pilot, with defaults) plus films, series, books, games,
+                        albums, food, YouTube and more (*.json), merged by catalogue/seedfiles.py
   mde/data/enrichment/  Open-data enrichment written by `python -m mde ingest` (Wikidata, Open Library, MusicBrainz)
   mde/ingest/           Connectors, matching rules and the HTTP cache
   mde/catalogue/        Import (load.py) and read-side queries (repository.py)
@@ -95,7 +99,7 @@ python -m mde benchmark
 | `API_URL` | web | `http://localhost:8000` | Where the web server reaches the API |
 | `TEST_DATABASE_ADMIN_URL` | tests | `postgresql://postgres:postgres@localhost:5432/postgres` | Tests create and drop their own database through this connection |
 
-No API keys are needed. The slice uses no external providers and no LLM.
+No API keys are needed. Discovery uses no external providers and no LLM.
 
 ## Checks
 
@@ -159,4 +163,10 @@ CI (`.github/workflows/ci.yml`) runs the same checks against a PostgreSQL 16 ser
   An LLM-backed parser can implement the same `IntentParser` interface.
 - Ranking, browse and recommendations run in memory over the whole catalogue: fine for thousands of works;
   retrieval needs to move into SQL/pgvector before tens of thousands.
-- Ratings, shelves and feedback on the public site stay in the viewer's browser. There are no accounts yet.
+- Ratings, shelves and feedback on the public site stay in the viewer's browser unless the API is hosted and the
+  viewer signs in (set `MIMIR_API_URL` for the Pages build; see `docs/DEPLOY.md`).
+
+## Licence
+
+Copyright © 2026 Terratales Media Entertainment Private Limited. All rights reserved; see [`LICENSE`](LICENSE).
+Third-party fonts and open data keep their own licences, listed in [`NOTICE.md`](NOTICE.md).
