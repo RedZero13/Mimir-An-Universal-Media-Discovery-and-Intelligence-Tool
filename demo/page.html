@@ -571,6 +571,40 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .decide-q h2 { font-size: 1.05rem; margin: 0 0 8px; color: var(--cream); }
 .d-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .d-chips .tchip { font-size: .8rem; padding: 6px 12px; }
+.video-embed { margin: 14px 0 24px; }
+.video-facade, .video-embed iframe { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; background: #000; padding: 0; cursor: pointer; }
+.video-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; border-radius: 50%; background: var(--gold-bright); color: #131315; font-size: 28px; line-height: 72px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, .5); }
+.video-facade:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
+.video-embed figcaption { margin-top: 6px; }
+.share-n { display: inline-block; min-width: 1.5em; margin-left: 6px; padding: 1px 6px; border-radius: 99px; background: var(--gold); color: var(--black); font-size: .72rem; line-height: 1.4; }
+.fy-ctl { display: grid; gap: 8px; margin: 0 0 18px; }
+.fy-ctl p { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
+.fy-ctl .eyebrow { min-width: 86px; }
+.cmp-heads { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 18px 0; }
+.cmp-heads a { width: min(160px, 36vw); text-align: center; text-decoration: none; color: var(--bone); font-weight: 600; }
+.cmp-heads a span { display: block; margin-top: 8px; }
+.cmp-vs { font: 600 1.6rem/1 var(--f-display, serif); color: var(--gold-bright); text-align: center; }
+.cmp-vs small { font-size: .7rem; color: var(--cream); }
+.cmp-scroll { overflow-x: auto; }
+.cmp-table { width: 100%; min-width: 520px; }
+.cmp-table th, .cmp-table td { text-align: left; vertical-align: top; padding: 8px 10px; }
+.cmp-table td .tag-chip { margin: 0 4px 4px 0; }
+.cmp-both { background: rgba(216, 178, 74, .06); }
+.plan-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.plan-day { font: 600 1rem/1.2 var(--f-body); color: var(--gold-bright); margin-top: 8px; }
+.plan-item { display: grid; grid-template-columns: 72px 1fr; gap: 14px; align-items: start; }
+.plan-item h3 { margin: 0 0 4px; font-size: 1.02rem; }
+.plan-item h3 a { color: var(--bone); text-decoration: none; }
+.sub-h { font-size: .95rem; color: var(--cream); margin: 14px 0 6px; }
+.tg-people { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; margin: 16px 0; align-items: start; }
+.tg-person { border: 1px solid var(--line-strong); border-radius: 14px; padding: 14px; }
+.tg-person header { display: flex; justify-content: space-between; gap: 8px; }
+.tg-person header input { font: 600 1.05rem/1.2 var(--f-body); background: transparent; border: 0; border-bottom: 1px solid var(--line-strong); color: var(--bone); padding: 4px 0; min-width: 0; flex: 1; }
+.tg-person .lib-form { margin: 10px 0; }
+.tg-person .pchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.tg-add { align-self: center; justify-self: start; }
+.tg-why { margin: 6px 0 0; padding-left: 18px; font-size: .88rem; }
 .decide-pick { display: grid; grid-template-columns: minmax(160px, 260px) minmax(0, 1fr); gap: 28px; align-items: start; margin-top: 18px; padding: 22px; border: 1px solid var(--gold-deep); border-radius: 10px;
   background: linear-gradient(160deg, rgba(192, 144, 47, .08), transparent 60%); }
 .decide-pick h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 6px 0; } .decide-pick h2 a { color: var(--bone); text-decoration: none; }
@@ -1993,7 +2027,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
-    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
@@ -2004,7 +2038,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["Music", [["All music", "#albums"], ["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
-      ["Journal", "#journal"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
+      ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
@@ -2151,6 +2185,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
               ${prefLink(where, "btn")}
               <button class="btn ghost" type="button" data-similar="${esc(w.title)}">Find similar</button>
               <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
+              <a class="btn ghost" href="#compare-${esc(w.slug)}">Compare</a>
               ${mineBtn(w.slug)}
               ${["film", "series"].includes(w.medium) ? `<a class="btn ghost" href="#watch-${esc(w.slug)}">Watch along</a>` : ""}
               ${shareButton(`${location.origin}${location.pathname}#work-${w.slug}`, w.title, `${w.title} (${[mediumLabel(w.medium), w.year].filter(Boolean).join(", ")}) on Mimir`)}
@@ -2676,6 +2711,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }).join("")}</svg>`;
   }
 
+  // Days Mimir was opened, for the visit badges and streak (one date per day, in this browser only).
+  const visits = stored("mimir-visits", []);
+  if (!visits.includes(today())) { visits.push(today()); store("mimir-visits", visits.slice(-800)); }
+  const visitSet = new Set(visits), opened = (date) => visitSet.has(date);
+
   // Badges are worked out from what you've logged; nothing is stored but the ones you've already been told about.
   const MILESTONES = [1, 5, 10, 25, 50, 100, 250, 500, 1000];
   function badges() {
@@ -2711,6 +2751,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     tier("hours", "◷", (n) => `${n} hour${n === 1 ? "" : "s"} in`, (n) => `Log ${n} hours of watching, reading, playing or listening.`, Math.floor(totalMin / 60), [1, 10, 50, 100, 500]);
     tier("rings", "◉", (n) => (n === 1 ? "Full circle" : `${n}-day streak`), (n) => (n === 1 ? "Close every ring in one day." : `Close every ring ${n} days in a row.`), streak(closedAll), [1, 7, 30]);
     tier("daily", "☀", (n) => `${n} days of stories`, (n) => `Close at least one ring ${n} days in a row.`, streak(closedAny), [3, 14, 60]);
+    tier("visits", "⌂", (n) => (n === 1 ? "Welcome in" : `Regular ${n}`), (n) => (n === 1 ? "Open Mimir for the first time." : `Open Mimir on ${n} different days.`), visits.length, [1, 7, 30, 100, 365]);
+    tier("visit-streak", "🔥", (n) => `${n}-day visit streak`, (n) => `Open Mimir ${n} days in a row.`, streak(opened), [3, 7, 30, 100]);
+    tier("shares", "↗", (n) => (n === 1 ? "Spread the word" : `Word of mouth ${n}`), (n) => `Share from Mimir ${n === 1 ? "once" : `${n} times`}: works, lists or pages.`, shares.total, [1, 10, 50, 100]);
+    tier("share-work", "✉", (n) => `Recommender ${n}`, (n) => `Share ${n} individual works with someone.`, shares.work, [5, 25]);
+    tier("share-list", "🎧", (n) => (n === 1 ? "Mixtape" : `Mixtape maker ${n}`), (n) => `Share ${n === 1 ? "a list or playlist" : `${n} lists or playlists`}.`, shares.list, [1, 10]);
+    tier("share-page", "🗺", (n) => (n === 1 ? "Guide" : `Tour guide ${n}`), (n) => `Share ${n === 1 ? "a shelf, directory or page" : `${n} shelves, directories or pages`}.`, shares.page, [1, 10]);
     return out.map((b) => ({ ...b, earned: b.have >= b.need }));
   }
   let badgesSeen = new Set(stored("mimir-badges-seen", null) || []);
@@ -2757,6 +2803,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <form class="ring-goals" data-ring-goals><h2>Daily goals</h2>${RINGS.map(([k, l]) => `<label><span>${l}</span><input name="${k}" type="number" min="0" max="600" step="5" value="${ringGoals[k]}"> min</label>`).join("")}
             <button class="btn ghost" type="submit">Save goals</button></form>
           <p class="streaks"><strong>${streak(closedAll)}</strong> day streak closing every ring · <strong>${streak(closedAny)}</strong> days with at least one</p>
+          <p class="streaks"><strong>${streak(opened)}</strong> day visit streak · opened on <strong>${visits.length}</strong> day${visits.length === 1 ? "" : "s"} · shared <strong>${shares.total}</strong> time${shares.total === 1 ? "" : "s"} (${shares.work} works, ${shares.list} lists, ${shares.page} pages)</p>
         </div>
         <ol class="week-rings">${week.map((d) => `<li>${ringsSvg(d, 54)}<span>${new Date(d + "T12:00").toLocaleDateString("en", { weekday: "short" })}</span></li>`).join("")}</ol>
       </section>
@@ -2805,7 +2852,18 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   // One share sheet for lists, works, trackers and badges: the device's own sheet where there is one, plus direct links.
-  const shareButton = (url, title, text = "") => `<button type="button" class="btn ghost share-btn" data-share-url="${esc(url)}" data-share-title="${esc(title)}" data-share-text="${esc(text)}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share</button>`;
+  // How often you've shared, in total, by kind, and per link; each share button shows its own count.
+  const shares = { total: 0, work: 0, list: 0, page: 0, byUrl: {}, ...stored("mimir-shares", {}) };
+  const shareKind = (url) => (/#work-/.test(url) ? "work" : /#(list-|plist-|shared)/.test(url) ? "list" : "page");
+  const shareKey = (url) => url.replace(/^.*?#/, "#").replace(/^(#shared\?n=[^&]*).*$/, "$1");   // a list keeps its count as its contents change
+  function countShare(url) {
+    shares.total++; shares[shareKind(url)]++; shares.byUrl[shareKey(url)] = (shares.byUrl[shareKey(url)] || 0) + 1;
+    store("mimir-shares", shares);
+    document.querySelectorAll(".share-btn").forEach((b) => { if (shareKey(b.dataset.shareUrl) === shareKey(url)) { const c = b.querySelector(".share-n") || b.appendChild(Object.assign(document.createElement("span"), { className: "share-n" })); c.textContent = shares.byUrl[shareKey(url)]; c.title = `You've shared this ${c.textContent} time${c.textContent === "1" ? "" : "s"}`; } });
+    checkBadges();
+  }
+  const shareCount = (url) => { const n = shares.byUrl[shareKey(url)]; return n ? `<span class="share-n" title="You've shared this ${n} time${n === 1 ? "" : "s"}">${n}</span>` : ""; };
+  const shareButton = (url, title, text = "") => `<button type="button" class="btn ghost share-btn" data-share-url="${esc(url)}" data-share-title="${esc(title)}" data-share-text="${esc(text)}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share${shareCount(url)}</button>`;
   function openShare(btn) {
     document.querySelector(".share-sheet")?.remove();
     const { shareUrl: url, shareTitle: title, shareText: text } = btn.dataset;
@@ -2829,10 +2887,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     sheet.style.left = `${Math.max(10, Math.min(innerWidth - sheet.offsetWidth - 10, r.left))}px`;
     sheet.addEventListener("click", async (e) => {
       const b = e.target.closest("button");
-      if (b && b.dataset.shareNative !== undefined) { try { await navigator.share({ title, text, url }); } catch { /* dismissed */ } sheet.remove(); }
+      if (b && b.dataset.shareNative !== undefined) { try { await navigator.share({ title, text, url }); countShare(url); } catch { /* dismissed */ } sheet.remove(); }
       else if (b && b.dataset.shareCopy !== undefined) {
+        countShare(url);
         (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { b.textContent = "Link copied ✓"; setTimeout(() => sheet.remove(), 900); }, () => prompt("Copy this link:", url));
-      } else if (e.target.closest("a")) setTimeout(() => sheet.remove(), 100);
+      } else if (e.target.closest("a")) { countShare(url); setTimeout(() => sheet.remove(), 100); }
     });
     setTimeout(() => document.addEventListener("click", function off(e) { if (!sheet.contains(e.target)) { sheet.remove(); document.removeEventListener("click", off); } }), 0);
   }
@@ -3514,7 +3573,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       if (rec) { score += 1.5 * (1 - rec.i / 200); why.push(`Close to ${rec.because.title}, which you rated`); }
       if (e && e.status === "planned") { score += 0.4; why.push("On your planned list"); }
       for (const [k, p] of Object.entries(decideState.penalties)) score -= p * (tm.get(k) || 0);
-      score -= 0.08 * ((w.popularity_tier || 5) - 1);
+      score -= 0.08 * ((tierOf(w.slug) || 5) - 1);
       if (w.time && maxMin < Infinity) why.push(`${hm(w.time.minutes)}, fits your time`);
       out.push({ w, score, why });
     }
@@ -3926,20 +3985,37 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       </section>`).join("");
   }
 
+  // Recommendation controls: how well known, how long, and whether one series may fill the list.
+  const forYouOpts = stored("mimir-foryou-opts", { pop: "any", len: "any", vary: "no" });
+  const FY_POP = [["any", "Any"], ["gems", "Hidden gems"], ["known", "Well known"]], FY_LEN = [["any", "Any length"], ["130", "Two hours or less"], ["600", "Ten hours or less"], ["long", "Long hauls"]];
+  function forYouFilter(results) {
+    const seen = new Set(), o = forYouOpts;
+    return results.filter((w) => {
+      const tier = tierOf(w.slug), min = w.time ? w.time.minutes : null;
+      if (o.pop === "gems" && !(tier >= 3)) return false;
+      if (o.pop === "known" && !(tier && tier <= 2)) return false;
+      if (o.len === "long" ? !(min > 600) : o.len !== "any" && !(min !== null && min <= Number(o.len))) return false;
+      const g = w.continuity && w.continuity.group ? w.continuity.group.slug : null;
+      if (o.vary === "yes" && g) { if (seen.has(g)) return false; seen.add(g); }
+      return true;
+    }).slice(0, 60);
+  }
   function renderForYou(medium = "all") {
     const m = MEDIA.includes(medium) ? medium : null;
     const taste = tasteRatings();
-    const rec = cat.recommend(taste, 60, m);
+    const rec0 = cat.recommend(taste, 300, m), rec = { ...rec0, results: forYouFilter(rec0.results) };
+    const fyChips = (field, opts) => opts.map(([v, l]) => `<button type="button" class="tchip${forYouOpts[field] === v ? " on" : ""}" data-for-you="${field}" data-value="${v}" aria-pressed="${forYouOpts[field] === v}">${esc(l)}</button>`).join("");
     const rated = allWorks().filter((w) => taste[w.slug]);
     app.innerHTML = `
       <header class="page-band"><h1>For you</h1></header>
       <p class="muted" style="margin:14px 0">Mimir builds a taste profile from the works you rate: what they're about and how they feel, counted more than genre. Loved counts twice as much as liked; "not for me" steers away. Scores in your <a href="#library">library</a> count too: 8 and up as loved, 6–7 as liked, 4 and below as not for me. It all stays in this browser.</p>
       ${rec.profile.length ? `<p class="pchips">Your taste leans ${rec.profile.map((t) => tagChip(t)).join("")}</p>` : ""}
       <nav class="medium-tabs" aria-label="Medium">${["all", ...MEDIA].map((x) => `<a href="#for-you?m=${x}" class="${(m || "all") === x ? "on" : ""}">${esc(PLURAL[x])}</a>`).join("")}</nav>
+      ${rated.length ? `<div class="fy-ctl"><p><span class="eyebrow">Popularity</span>${fyChips("pop", FY_POP)}</p><p><span class="eyebrow">Length</span>${fyChips("len", FY_LEN)}</p><p><span class="eyebrow">Variety</span>${fyChips("vary", [["no", "Any"], ["yes", "One per series"]])}</p></div>` : ""}
       ${rated.length ? (rec.results.length ? `
         <section class="results-sec"><header class="sec-head"><h2>Picks for you <span class="count">(${rec.results.length})</span></h2></header>
           ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${taste[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${rateButtons(w.slug, true)}`)}
-        </section>` : `<p class="empty">${Object.values(taste).some((v) => v === "loved" || v === "liked") ? "Nothing new in this medium matches your taste yet. Try another tab." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
+        </section>` : `<p class="empty">${Object.values(taste).some((v) => v === "loved" || v === "liked") ? "Nothing new matches your taste with these settings. Try another tab, or loosen popularity or length." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
       ${starterPicker()}
       ${rated.length ? `<section class="block"><header class="sec-head"><h2>Your ratings <span class="count">(${rated.length})</span></h2>
         <button type="button" class="linkish" data-clear-ratings>Clear all ratings</button></header>
@@ -3951,6 +4027,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <header class="page-head"><p class="eyebrow">About Mimir</p><h1>The well beneath the tree</h1></header>
       <div class="prose block">
         <p class="pull">In the old story, Mímir kept a well among the roots of the world tree, and whoever drank from it understood.</p>
+        <h2>See it in action</h2>
+        <p>A 75-second walkthrough of Mimir on a computer: asking in your own words, work pages, shelves, sagas, YouTube creators, audiobooks, rings and the calendar.</p>
+        <figure class="video-embed"><button type="button" class="video-facade" data-yt="dpaix_g6aB8" aria-label="Play the Mimir walkthrough video">
+          <img src="https://i.ytimg.com/vi/dpaix_g6aB8/hqdefault.jpg" alt="Mimir walkthrough video" loading="lazy" width="480" height="360"><span class="video-play" aria-hidden="true">▶</span></button>
+          <figcaption class="muted small">The Mimir walkthrough. <a href="https://youtu.be/dpaix_g6aB8" target="_blank" rel="noopener">Watch on YouTube</a></figcaption></figure>
         <p>Terratales grows from Yggdrasil: roots of story, a trunk that carries them, seven realms on its branches. Mimir is the well at those roots. It is a catalogue of films, books, games and music, and a guide that helps you draw out the one that fits tonight.</p>
         <h2>What it does</h2>
         <ul>
@@ -3969,6 +4050,243 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <p>Mimir is built by Terratales Media Entertainment, a media, entertainment and story-technology house: stories rooted in the earth, branched out to every realm of the world. <a href="https://terratalesmedia.world/">Visit Terratales</a>.</p>
       </div>`;
   }
+
+  // Videos load from YouTube only once someone presses play: no third-party requests on page load beyond the thumbnail.
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-yt]");
+    if (!b) return;
+    b.outerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&rel=0" title="Mimir walkthrough" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>`;
+  });
+
+  // ------------------------------------------------------------------ compare, plan my time, pick together
+  const fullWork = once(() => new Map(allWorks().map((w) => [w.slug, cat.work(w.slug)])));
+  const tierOf = (slug) => (fullWork().get(slug) || {}).popularity_tier || null;
+  const TIER = { 1: "Widely known", 2: "Well known", 3: "Lesser known", 4: "Niche" };
+  // One title box for every picker on these pages: "Title (Medium, year)" resolves back to a slug.
+  const titleKey = (w) => `${w.title} (${[mediumLabel(w.medium), w.year].filter(Boolean).join(", ")})`;
+  const titlePickIndex = once(() => new Map(allWorks().map((w) => [titleKey(w).toLowerCase(), w.slug])));
+  const titleList = () => `<datalist id="mimir-titles">${allWorks().map((w) => `<option value="${esc(titleKey(w))}"></option>`).join("")}</datalist>`;
+  function slugFromTitle(v) {
+    const s = v.trim().toLowerCase();
+    if (!s) return null;
+    if (titlePickIndex().has(s)) return titlePickIndex().get(s);
+    const hit = allWorks().find((w) => w.title.toLowerCase() === s) || allWorks().find((w) => w.title.toLowerCase().startsWith(s));
+    return hit ? hit.slug : null;
+  }
+  const titlePicker = (attrs, placeholder, button) => `<form class="lib-form" ${attrs}><input name="title" list="mimir-titles" placeholder="${esc(placeholder)}" aria-label="${esc(placeholder)}" class="grow" autocomplete="off" required><button class="btn" type="submit">${esc(button)}</button></form>`;
+  // Severity of a parents' guide group as a number, so "avoid" can mean "moderate or worse".
+  const SEV = { None: 0, Mild: 1, Moderate: 2, Severe: 3 };
+  const guideSev = (slug, group) => { const g = fullWork().get(slug).parents_guide.groups.find((x) => x.slug === group); return g ? SEV[g.severity] ?? null : null; };
+  const GUIDE_GROUPS = once(() => fullWork().values().next().value.parents_guide.groups.map((g) => [g.slug, g.label]));
+
+  // #11 Comparison: two works side by side, with what they share and where they differ.
+  function similarity(a, b) {
+    const A = termMap().get(a), B = termMap().get(b);
+    let dot = 0, na = 0, nb = 0;
+    for (const [k, v] of A) { na += v * v; if (B.has(k)) dot += v * B.get(k); }
+    for (const v of B.values()) nb += v * v;
+    return na && nb ? Math.round((dot / Math.sqrt(na * nb)) * 100) : 0;
+  }
+  function renderCompare(arg) {
+    const [a, b] = arg.split("~").map((s) => fullWork().get(s) ? s : null);
+    if (!a) { app.innerHTML = `<p class="empty">That work isn't in the catalogue. <a href="#">Back to Mimir</a></p>`; return; }
+    const A = fullWork().get(a);
+    if (!b) {
+      const near = cat.recommend({ [a]: "loved" }, 8, null).results;
+      app.innerHTML = `
+        <header class="page-head"><p class="eyebrow">Compare</p><h1>Compare ${esc(A.title)} with…</h1>
+          <p class="muted">Pick any work, in any medium. Mimir lines them up by length, scores, popularity, mood, themes, style and the parents' guide.</p></header>
+        ${titlePicker(`data-compare-with="${esc(a)}"`, "Type a title", "Compare")}${titleList()}
+        ${near.length ? `<section class="block"><header class="sec-head"><h2>Or try one of its closest matches</h2></header>${pgrid(near, (w) => `<p><a class="tchip" href="#compare-${esc(a)}~${esc(w.slug)}">Compare</a></p>`)}</section>` : ""}`;
+      return;
+    }
+    const B = fullWork().get(b), cards = [a, b].map((s) => allWorks().find((w) => w.slug === s));
+    const terms = (w, dim) => new Map((w.tags.find((d) => d.dimension === dim) || { terms: [] }).terms.filter((t) => t.strength >= 0.5).map((t) => [t.key, t]));
+    const DIMS = [["genre", "Genre"], ["mood", "Mood"], ["theme", "Themes"], ["style", "Style"], ["world", "World & setting"], ["pacing", "Pacing"], ["complexity", "Complexity"], ["narrative", "Storytelling"]];
+    const tagRows = DIMS.map(([dim, label]) => {
+      const ta = terms(A, dim), tb = terms(B, dim);
+      if (!ta.size && !tb.size) return "";
+      const both = [...ta.values()].filter((t) => tb.has(t.key)), onlyA = [...ta.values()].filter((t) => !tb.has(t.key)), onlyB = [...tb.values()].filter((t) => !ta.has(t.key));
+      const chips = (xs) => xs.map((t) => tagChip(t)).join("") || `<span class="muted">—</span>`;
+      return `<tr><th>${esc(label)}</th><td>${chips(onlyA)}</td><td class="cmp-both">${chips(both)}</td><td>${chips(onlyB)}</td></tr>`;
+    }).join("");
+    const fact = (label, f) => `<tr><th>${esc(label)}</th><td>${f(A, cards[0])}</td><td>${f(B, cards[1])}</td></tr>`;
+    const sc = (c) => (unifiedScore(c) === null ? `<span class="muted">No scores</span>` : `${unifiedScore(c)}/100 <span class="muted small">(${esc(scoreTitle(c))})</span>`);
+    const sim = similarity(a, b);
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Compare</p><h1>${esc(A.title)} <span class="muted">vs</span> ${esc(B.title)}</h1>
+        <p class="muted">They share ${sim}% of their tagged character: moods, themes, style and more, weighted by strength. Tags and guide levels are AI-assisted readings awaiting editorial review; scores and lengths come from the sources named on each work's page.</p></header>
+      <div class="cmp-heads">${cards.map((c) => `<a href="#work-${esc(c.slug)}">${poster(cardCover(c))}<span>${esc(c.title)}</span></a>`).join(`<span class="cmp-vs">${sim}%<br><small>alike</small></span>`)}</div>
+      <section class="block"><div class="cmp-scroll"><table class="stat-table cmp-table">
+        <thead><tr><th></th><th>${esc(A.title)}</th><th>${esc(B.title)}</th></tr></thead><tbody>
+        ${fact("Medium", (w) => esc(mediumLabel(w.medium)))}
+        ${fact("Year", (w) => esc(w.year || "—"))}
+        ${fact("By", (w) => esc(w.credits.slice(0, 2).map((c) => c.name).join(", ") || "—"))}
+        ${fact("Time", (w) => (w.time ? esc(timeText(w.time, w.medium === "album")) : `<span class="muted">Not recorded</span>`))}
+        ${fact("Series", (w) => esc(contText(w.continuity)))}
+        ${fact("Scores", (w, c) => sc(c))}
+        ${fact("Popularity", (w) => esc(TIER[w.popularity_tier] || "Not rated"))}
+        ${fact("Age ratings", (w) => esc(w.parents_guide.ratings.map((r) => `${r.system} ${r.rating}`).join(", ") || "—"))}
+        ${GUIDE_GROUPS().map(([g, label]) => fact(label, (w) => esc((w.parents_guide.groups.find((x) => x.slug === g) || {}).severity || "—"))).join("")}
+        </tbody></table></div></section>
+      <section class="block"><header class="sec-head"><h2>What they share, and what sets them apart</h2></header>
+        <div class="cmp-scroll"><table class="stat-table cmp-table cmp-tags"><thead><tr><th></th><th>Only ${esc(A.title)}</th><th>Both</th><th>Only ${esc(B.title)}</th></tr></thead><tbody>${tagRows}</tbody></table></div></section>
+      <p class="actions"><a class="btn ghost" href="#compare-${esc(b)}~${esc(a)}">Swap sides</a><a class="btn ghost" href="#compare-${esc(a)}">Compare ${esc(A.title)} with another</a>
+        ${shareButton(`${location.origin}${location.pathname}#compare-${a}~${b}`, `${A.title} vs ${B.title}`, `${A.title} vs ${B.title} on Mimir`)}</p>`;
+  }
+
+  // #20 + #23 Plan my time: fill a time budget from your backlog first, then from picks for you.
+  const PLAN_BUDGET = [["180", "An evening (3h)"], ["720", "A weekend (12h)"], ["1800", "A week off (30h)"], ["3600", "A month of evenings (60h)"]];
+  const PLAN_DAYS = { 180: 1, 720: 2, 1800: 7, 3600: 30 };
+  const plan = stored("mimir-plan", { budget: "720", media: [], mood: "", backlog: "yes" });
+  function planRanked() {
+    const taste = tasteRatings();
+    const rec = new Map(Object.values(taste).some((v) => v === "loved" || v === "liked") ? cat.recommend(taste, 300).results.map((w, i) => [w.slug, { i, because: w.because }]) : []);
+    const out = [];
+    for (const w of allWorks()) {
+      const e = library[w.slug];
+      if (!w.time || (e && ["completed", "dropped"].includes(e.status)) || taste[w.slug] === "disliked") continue;
+      if (plan.media.length && !plan.media.includes(w.medium)) continue;
+      const tm = termMap().get(w.slug), why = [];
+      let score = 0;
+      if (plan.mood) { const s = tm.get(plan.mood) || 0; if (s < 0.5) continue; score += 2 * s; why.push(DECIDE_MOOD.find((m) => m[0] === plan.mood)[1]); }
+      if (e && plan.backlog === "yes") {
+        if (e.status === "active") { score += 4; why.push("Already started"); }
+        else if (e.status === "planned") { score += 3; why.push("On your planned list"); }
+        else if (e.status === "paused") { score += 2; why.push("On hold: pick it back up"); }
+      } else if (e && plan.backlog !== "yes") continue;
+      const r = rec.get(w.slug);
+      if (r) { score += 2 * (1 - r.i / 300); why.push(`Close to ${r.because.title}, which you rated`); }
+      if (!e && !r) score += 0.4 * ((unifiedScore(w) || 60) / 100) + 0.1 * (tierOf(w.slug) || 2);
+      out.push({ w, score, why });
+    }
+    return out.sort((a, b) => b.score - a.score || a.w.title.localeCompare(b.w.title));
+  }
+  function buildPlan() {
+    const budget = Number(plan.budget), days = PLAN_DAYS[budget] || 1, perDay = budget / days;
+    const picked = [], groups = new Set();
+    let left = budget;
+    for (const x of planRanked()) {
+      const m = x.w.time.minutes, g = x.w.continuity && x.w.continuity.group ? x.w.continuity.group.slug : null;
+      if (m > left || m < 20 || (g && groups.has(g))) continue;
+      if (m > budget * 0.6 && !(library[x.w.slug] && plan.backlog === "yes")) continue;   // one long haul shouldn't swallow the plan unless you chose it
+      picked.push(x); left -= m; if (g) groups.add(g);
+      if (left < 20 || picked.length >= 14) break;
+    }
+    // Lay the picks out day by day, longest first so each day starts with its main event.
+    let t = 0;
+    return { budget, left, days, items: picked.map((x) => { const day = Math.min(days, Math.floor(t / perDay) + 1); t += x.w.time.minutes; return { ...x, day }; }) };
+  }
+  function renderPlan() {
+    const P = buildPlan();
+    const chips = (field, opts, multi = false) => `<div class="d-chips">${opts.map(([v, l]) => { const on = multi ? plan[field].includes(v) : plan[field] === v; return `<button type="button" class="tchip${on ? " on" : ""}" data-plan="${field}" data-value="${esc(v)}" aria-pressed="${on}">${esc(l)}</button>`; }).join("")}</div>`;
+    const planned = Object.entries(library).filter(([s, e]) => ["planned", "paused", "active"].includes(e.status) && fullWork().has(s)).map(([s, e]) => ({ w: allWorks().find((x) => x.slug === s), e }));
+    const quick = planned.filter((x) => x.w.time && x.w.time.minutes <= 130).sort((a, b) => a.w.time.minutes - b.w.time.minutes);
+    const hours = Math.round(planned.reduce((a, x) => a + (x.w.time ? x.w.time.minutes : 0), 0) / 60);
+    const dayName = (d) => (P.days === 1 ? "Tonight" : P.days === 2 ? ["Saturday", "Sunday"][d - 1] : `Day ${d}`);
+    let lastDay = 0;
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Plan my time</p><h1>A plan that fits the time you have</h1>
+        <p class="muted">Pick a time budget. Mimir fills it from what you've started and planned first, then from picks for you, and lays it out day by day. It all stays in this browser.</p></header>
+      <section class="decide-q">
+        <div><h2>How much time?</h2>${chips("budget", PLAN_BUDGET)}</div>
+        <div><h2>Which media? <span class="muted small">(none picked means all)</span></h2>${chips("media", MEDIA.map((m) => [m, PLURAL[m]]), true)}</div>
+        <div><h2>A mood to keep to</h2>${chips("mood", DECIDE_MOOD)}</div>
+        <div><h2>Start with my backlog</h2>${chips("backlog", [["yes", "Yes, backlog first"], ["no", "No, only new things"]])}</div>
+      </section>
+      ${P.items.length ? `<section class="block plan" aria-live="polite"><header class="sec-head"><h2>Your plan <span class="count">(${esc(hm(P.budget - P.left))} of ${esc(hm(P.budget))})</span></h2></header>
+        <ol class="plan-list">${P.items.map((x) => {
+          const head = x.day !== lastDay && P.days > 1 ? `<li class="plan-day">${esc(dayName(x.day))}</li>` : (lastDay === 0 ? `<li class="plan-day">${esc(dayName(1))}</li>` : "");
+          lastDay = x.day;
+          return `${head}<li class="plan-item"><a href="#work-${esc(x.w.slug)}">${poster(cardCover(x.w))}</a><div><h3><a href="#work-${esc(x.w.slug)}">${esc(x.w.title)}</a></h3>
+            <p class="pmeta">${esc([mediumLabel(x.w.medium), x.w.year, timeText(x.w.time, x.w.medium === "album")].filter(Boolean).join(" · "))}</p>
+            ${x.why.length ? `<p class="small muted">${esc([...new Set(x.why)].join(" · "))}</p>` : ""}</div></li>`;
+        }).join("")}</ol>
+        <p class="muted small">${P.left >= 20 ? `${esc(hm(P.left))} left over: room for a break, or a short one.` : "That fills it."} Want a different mix? Change a choice above, or <a href="#decide">let Mimir pick just one</a>.</p></section>`
+        : `<p class="empty">Nothing fits that yet. Try another mood or more media${plan.backlog === "no" ? "" : ", or add things to your planned list"}.</p>`}
+      ${planned.length ? `<section class="block"><header class="sec-head"><h2>Your backlog <span class="count">(${planned.length} · about ${hours}h)</span></h2></header>
+        ${quick.length ? `<h3 class="sub-h">Quick finishes, two hours or less</h3>${row(quick.slice(0, 18).map((x) => x.w))}` : ""}
+        ${planned.some((x) => x.e.status === "active") ? `<h3 class="sub-h">Already started</h3>${row(planned.filter((x) => x.e.status === "active").map((x) => x.w))}` : ""}
+        </section>` : `<p class="muted">Add things to your <a href="#library?tab=planned">planned list</a> and Mimir will fit them in first.</p>`}`;
+  }
+
+  // #22 Pick together: each person names a few favourites and what to avoid; Mimir looks for picks fair to everyone.
+  const together = stored("mimir-together", { medium: "film", people: [{ name: "You", loves: [], avoid: [] }, { name: "Friend", loves: [], avoid: [] }] });
+  const saveTogether = () => store("mimir-together", together);
+  function togetherRanked() {
+    const people = together.people.filter((p) => p.loves.length);
+    if (!people.length) return [];
+    const m = MEDIA.includes(together.medium) ? together.medium : null, N = 300;
+    const recs = people.map((p) => new Map(cat.recommend(Object.fromEntries(p.loves.map((s) => [s, "loved"])), N, m).results.map((w, i) => [w.slug, { fit: 1 - i / N, because: w.because, shared: w.shared }])));
+    const loved = new Set(together.people.flatMap((p) => p.loves));
+    const avoid = [...new Set(together.people.flatMap((p) => p.avoid))];
+    const pool = new Set(recs.flatMap((r) => [...r.keys()]));
+    const out = [];
+    for (const slug of pool) {
+      if (loved.has(slug) || avoid.some((g) => (guideSev(slug, g) ?? 9) >= 2)) continue;   // unassessed counts as a risk when someone asked to avoid it
+      const fits = recs.map((r) => r.get(slug)), vals = fits.map((f) => (f ? f.fit : 0));
+      const score = 0.6 * Math.min(...vals) + 0.4 * (vals.reduce((a, b) => a + b, 0) / vals.length);
+      out.push({ w: allWorks().find((w) => w.slug === slug), score, fits, people });
+    }
+    return out.sort((a, b) => b.score - a.score).slice(0, 12);
+  }
+  function renderTogether() {
+    const ranked = togetherRanked();
+    const fitWord = (f) => (!f ? "a stretch" : f.fit >= 0.85 ? "a strong fit" : f.fit >= 0.6 ? "a good fit" : "a fair fit");
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Pick together</p><h1>Something everyone will enjoy</h1>
+        <p class="muted">Add each person and a few things they love, and tick what they'd rather avoid. Mimir favours picks that suit everyone over picks one person adores, and says where the compromise is. Nothing leaves this browser.</p></header>
+      ${titleList()}
+      <section class="decide-q"><div><h2>What are you picking?</h2><div class="d-chips">${[["film", "A film"], ["series", "A series"], ["book", "A book"], ["game", "A game"], ["album", "An album"], ["all", "Anything"]].map(([v, l]) => `<button type="button" class="tchip${together.medium === v ? " on" : ""}" data-together-medium="${v}" aria-pressed="${together.medium === v}">${esc(l)}</button>`).join("")}</div></div></section>
+      <div class="tg-people">${together.people.map((p, i) => `
+        <section class="tg-person"><header><input value="${esc(p.name)}" maxlength="24" aria-label="Name" data-together-name="${i}">${together.people.length > 2 ? `<button type="button" class="linkish small" data-together-remove="${i}">Remove</button>` : ""}</header>
+          <p class="pchips">${p.loves.map((s) => { const w = allWorks().find((x) => x.slug === s); return w ? `<button type="button" class="tchip on" data-together-unlove="${i}" data-slug="${esc(s)}" title="Remove">${esc(w.title)} ×</button>` : ""; }).join("") || `<span class="muted small">No favourites yet</span>`}</p>
+          ${titlePicker(`data-together-love="${i}"`, "Add something they love", "Add")}
+          <p class="small muted">Avoid (moderate or stronger):</p><p class="pchips">${GUIDE_GROUPS().map(([g, l]) => `<button type="button" class="tchip${p.avoid.includes(g) ? " on" : ""}" data-together-avoid="${i}" data-group="${g}" aria-pressed="${p.avoid.includes(g)}">${esc(l)}</button>`).join("")}</p>
+        </section>`).join("")}
+        ${together.people.length < 6 ? `<button type="button" class="btn ghost tg-add" data-together-add>Add a person</button>` : ""}</div>
+      ${ranked.length ? `<section class="block"><header class="sec-head"><h2>Picks for the group</h2></header><ol class="plan-list">${ranked.map((x) => `
+        <li class="plan-item"><a href="#work-${esc(x.w.slug)}">${poster(cardCover(x.w))}</a><div><h3><a href="#work-${esc(x.w.slug)}">${esc(x.w.title)}</a></h3>
+          <p class="pmeta">${esc([mediumLabel(x.w.medium), x.w.year, x.w.time && timeText(x.w.time, x.w.medium === "album")].filter(Boolean).join(" · "))}</p>
+          <ul class="tg-why">${x.people.map((p, i) => `<li><b>${esc(p.name)}</b>: ${fitWord(x.fits[i])}${x.fits[i] ? `, close to ${esc(x.fits[i].because.title)} (${esc(x.fits[i].shared.map((t) => t.label.toLowerCase()).slice(0, 3).join(", "))})` : ""}</li>`).join("")}</ul>
+          ${x.fits.some((f) => !f || f.fit < 0.5) ? `<p class="small muted">The compromise: ${esc(x.people.filter((p, i) => !x.fits[i] || x.fits[i].fit < 0.5).map((p) => p.name).join(" and "))} may enjoy it less than the others.</p>` : ""}</div></li>`).join("")}</ol></section>`
+        : `<p class="empty">${together.people.some((p) => p.loves.length) ? "Nothing fits everyone's limits in this medium. Try another medium or fewer things to avoid." : "Add at least one favourite for someone to get picks."}</p>`}`;
+  }
+
+  app.addEventListener("submit", (e) => {
+    const f = e.target, slug = f.elements.title ? slugFromTitle(f.elements.title.value) : null;
+    if (f.dataset.compareWith !== undefined) { if (slug) location.hash = `#compare-${f.dataset.compareWith}~${slug}`; else f.elements.title.setCustomValidity("Pick a title from the list"), f.reportValidity(); }
+    if (f.dataset.togetherLove !== undefined) {
+      if (!slug) { f.elements.title.setCustomValidity("Pick a title from the list"); f.reportValidity(); return; }
+      const p = together.people[Number(f.dataset.togetherLove)];
+      if (!p.loves.includes(slug)) p.loves.push(slug);
+      saveTogether(); renderTogether();
+    }
+  });
+  app.addEventListener("input", (e) => { if (e.target.name === "title") e.target.setCustomValidity(""); });
+  app.addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.dataset.togetherName !== undefined) { together.people[Number(t.dataset.togetherName)].name = t.value.trim() || "Someone"; saveTogether(); renderTogether(); }
+  });
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    const d = b.dataset;
+    if (d.plan) {
+      if (d.plan === "media") plan.media = plan.media.includes(d.value) ? plan.media.filter((x) => x !== d.value) : [...plan.media, d.value];
+      else plan[d.plan] = d.value;
+      store("mimir-plan", plan); const y = window.scrollY; renderPlan(); window.scrollTo(0, y); return;
+    }
+    if (d.forYou) { forYouOpts[d.forYou] = d.value; store("mimir-foryou-opts", forYouOpts); const y = window.scrollY; route(); window.scrollTo(0, y); return; }
+    let changed = true;
+    if (d.togetherMedium) together.medium = d.togetherMedium;
+    else if (d.togetherAdd !== undefined) together.people.push({ name: `Person ${together.people.length + 1}`, loves: [], avoid: [] });
+    else if (d.togetherRemove !== undefined) together.people.splice(Number(d.togetherRemove), 1);
+    else if (d.togetherUnlove !== undefined) { const p = together.people[Number(d.togetherUnlove)]; p.loves = p.loves.filter((s) => s !== d.slug); }
+    else if (d.togetherAvoid !== undefined) { const p = together.people[Number(d.togetherAvoid)]; p.avoid = p.avoid.includes(d.group) ? p.avoid.filter((g) => g !== d.group) : [...p.avoid, d.group]; }
+    else changed = false;
+    if (changed) { saveTogether(); const y = window.scrollY; renderTogether(); window.scrollTo(0, y); }
+  });
 
   // ------------------------------------------------------------------ routing & events
   function setNav(group) {
@@ -4004,6 +4322,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h === "for-you") { setNav("Discover"); renderForYou(p.get("m") || "all"); }
     else if (h === "shelves") { setNav("Discover"); renderShelves(); }
     else if (h === "decide") { setNav("Discover"); renderDecide(); }
+    else if (h.startsWith("compare-")) { setNav("Discover"); renderCompare(h.slice(8)); }
+    else if (h === "plan") { setNav("Discover"); renderPlan(); }
+    else if (h === "together") { setNav("Discover"); renderTogether(); }
     else if (h === "journal") { setNav("Library"); renderJournal(); }
     else if (h === "calendar") { setNav("Community"); renderCalendar(p); }
     else if (h.startsWith("programme-")) { setNav("Community"); renderProgramme(h.slice(10), p); }
@@ -4199,6 +4520,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }
     else if (d.listShare) {
       const url = shareUrl(lists.find((x) => x.id === d.listShare));
+      countShare(url);
       (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { t.textContent = "Link copied ✓"; }, () => prompt("Copy this link to share the list:", url));
     }
     else if (d.trackerDelete) { trackers = trackers.filter((x) => x.id !== d.trackerDelete); saveTrackers(); renderTrackers(); }

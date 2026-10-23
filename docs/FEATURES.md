@@ -17,7 +17,14 @@ of 372 terms (233 of them subgenres).
 - **Cross-medium.** "Something like Blade Runner but in a different medium" works; so does any medium on its own.
 - **Decide for me.** Three taps, one pick, with its reasons.
 - **For you.** Rate a few works you know (loved, liked, disliked) and Mimir builds a taste profile in your browser
-  and recommends from it, naming the work each pick resembles.
+  and recommends from it, naming the work each pick resembles. Controls steer it: hidden gems or well-known
+  works, how long, and one pick per series.
+- **Compare any two works** side by side: length, scores, popularity, age ratings, parents' guide, and the moods,
+  themes and style they share or don't.
+- **Plan my time.** Pick an evening, a weekend, a week off or a month; Mimir fills it from what you've started and
+  planned first, then from picks for you, day by day.
+- **Pick together.** Add each person, a few things they love and what they'd rather avoid; Mimir finds picks that
+  suit everyone and says where the compromise is.
 - **By the time you have.** Quick bite, one sitting, an evening or two, a weekend, a season, a long haul: from
   runtime, main-story playtime, or reading time from page count.
 - **Search** titles, people and studios from the menu bar, scoped to a medium.
@@ -60,8 +67,9 @@ of 372 terms (233 of them subgenres).
 - Statuses, scores, progress (episodes, pages, hours for audiobooks, playtime) and a diary.
 - **Lists:** playlists, reading lists, watch lists and bookmarks, each with a share link and social sharing.
 - **Custom trackers** for any goal you set.
-- **Activity rings** (watch, read, play, listen) with daily goals, and **about 60 badges** for milestones
-  (1st, 5th, 10th, 50th…).
+- **Activity rings** (watch, read, play, listen) with daily goals, and **about 80 badges** for milestones
+  (1st, 5th, 10th, 50th…), visit streaks, days you've opened Mimir, and how often you share works, lists and pages.
+  Each share button shows how many times you've shared that link.
 - **Journal**, **stats** and a **year in review**.
 - **Import and export** your whole library as a file.
 - Everything lives in your browser unless you sign in.
