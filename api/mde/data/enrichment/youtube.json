@@ -1095,6 +1095,168 @@
     }
    ],
    "conflicts": []
+  },
+  "partha-banerjee-music-2023": {
+   "match": {
+    "key": "UCB-TLG6OKhy4QEXhJbBzHTQ",
+    "reason": "channel page youtube.com/@parthabanerjeemusic6"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCB-TLG6OKhy4QEXhJbBzHTQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/yj-ZohIVjog/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Partha Banerjee Music"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/VXEZwcy3F_pr0O4ahjNKp0RImWVc3YKN8zuiRrXcfeEgXNeO6SaTOsIhgJrK8bW3Uh5vUI53=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Partha Banerjee Music"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@parthabanerjeemusic6"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-yj-zohivjog-2026": {
+   "match": {
+    "key": "yj-ZohIVjog",
+    "reason": "video on youtube.com/@parthabanerjeemusic6"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "yj-ZohIVjog"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/yj-ZohIVjog/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Partha Banerjee Music"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=yj-ZohIVjog"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-7zoamqhagfk-2024": {
+   "match": {
+    "key": "7ZoAmqHagfk",
+    "reason": "video on youtube.com/@parthabanerjeemusic6"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "7ZoAmqHagfk"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/7ZoAmqHagfk/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Partha Banerjee Music"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=7ZoAmqHagfk"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-149c2dllody-2024": {
+   "match": {
+    "key": "149c2dLLODY",
+    "reason": "video on youtube.com/@parthabanerjeemusic6"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "149c2dLLODY"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/149c2dLLODY/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Partha Banerjee Music"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=149c2dLLODY"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-udvudm1gtia-2024": {
+   "match": {
+    "key": "udvUDm1GTiA",
+    "reason": "video on youtube.com/@parthabanerjeemusic6"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "udvUDm1GTiA"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/udvUDm1GTiA/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Partha Banerjee Music"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=udvUDm1GTiA"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-x5bd606xla8-2024": {
+   "match": {
+    "key": "x5Bd606Xla8",
+    "reason": "video on youtube.com/@parthabanerjeemusic6"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "x5Bd606Xla8"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/x5Bd606Xla8/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Partha Banerjee Music"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=x5Bd606Xla8"
+    }
+   ],
+   "conflicts": []
   }
  }
 }

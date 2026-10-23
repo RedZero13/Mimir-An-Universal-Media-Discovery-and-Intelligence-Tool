@@ -4,6 +4,18 @@
   "generated_at": "2026-10-23T00:00:00Z",
   "unmatched": [],
   "works": {
+    "jab-laad-chalega-banjaara-2026": {
+      "match": {"key": "OLAK5uy_mFFCIuCtnTLG-3MiA53gVLL5N4Zifm_EI", "reason": "the label's own release"},
+      "facts": {},
+      "images": [{"kind": "cover", "url": "https://i.ytimg.com/vi/yj-ZohIVjog/hqdefault.jpg", "licence": "Supplied by the rights holder", "attribution": "Terratales Media Entertainment"}],
+      "ids": {},
+      "links": [
+        {"kind": "listen:youtube-music", "label": "YouTube Music", "url": "https://music.youtube.com/playlist?list=OLAK5uy_mFFCIuCtnTLG-3MiA53gVLL5N4Zifm_EI"},
+        {"kind": "watch:youtube", "label": "Official video", "url": "https://www.youtube.com/watch?v=yj-ZohIVjog"},
+        {"kind": "info:publisher", "label": "Terratales", "url": "https://terratalesmedia.world/"}
+      ],
+      "conflicts": []
+    },
     "a-circle-of-time-2020": {
       "match": {"key": "B085GHDLNT", "reason": "the author's own title"},
       "facts": {"page_count": 229},

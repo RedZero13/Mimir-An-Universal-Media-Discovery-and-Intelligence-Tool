@@ -1,0 +1,267 @@
+{
+ "about": "Terratales music releases and the Partha Banerjee Music channel, supplied by the rights holder. Dates from the channel's public feed.",
+ "works": [
+  {
+   "slug": "partha-banerjee-music-2023",
+   "medium": "channel",
+   "title": "Partha Banerjee Music",
+   "year": 2023,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "host",
+     "Partha Banerjee"
+    ]
+   ],
+   "summary": "Partha Banerjee's channel for experimental music that keeps to the grammar and essence of its forms: Sufi rock, Rabindra Sangeet, bhajans, romantic songs and tributes to the great playback singers, with official videos of his releases.",
+   "terms": {
+    "genre:world-music": 1,
+    "genre:indian-pop": 0.8,
+    "genre:folk-rock": 0.6,
+    "mood:romantic": 0.6,
+    "mood:nostalgic": 0.6
+   },
+   "advisories": {
+    "strong-language": 0,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "handle": "@parthabanerjeemusic6",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "jab-laad-chalega-banjaara-2026",
+   "medium": "album",
+   "title": "Jab Laad Chalega Banjaara",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Partha Banerjee"
+    ],
+    [
+     "label",
+     "Terratales Media Entertainment",
+     "organisation"
+    ]
+   ],
+   "summary": "Partha Banerjee's Sufi rock album, released by Terratales on 13 August 2026. Its title song takes the old refrain about the wandering trader, 'when the banjara loads up and leaves', and sets it to rock.",
+   "terms": {
+    "genre:qawwali": 0.6,
+    "genre:folk-rock": 0.9,
+    "genre:rock": 0.8,
+    "genre:world-music": 0.9,
+    "mood:contemplative": 0.7,
+    "mood:uplifting": 0.6
+   },
+   "advisories": {
+    "strong-language": 0,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {}
+  },
+  {
+   "slug": "yt-yj-zohivjog-2026",
+   "medium": "online_video",
+   "title": "Jab Laad Chalega Banjaara (Official Video)",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Partha Banerjee Music",
+     "organisation"
+    ],
+    [
+     "artist",
+     "Partha Banerjee"
+    ]
+   ],
+   "summary": "The official video for the title song of Partha Banerjee's Sufi rock album, released on 13 August 2026.",
+   "terms": {
+    "genre:folk-rock": 0.9,
+    "genre:qawwali": 0.6,
+    "genre:world-music": 0.9,
+    "mood:contemplative": 0.7
+   },
+   "advisories": {
+    "strong-language": 0,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "channel": "partha-banerjee-music-2023",
+    "youtube_id": "yj-ZohIVjog"
+   }
+  },
+  {
+   "slug": "yt-7zoamqhagfk-2024",
+   "medium": "online_video",
+   "title": "Chunari Mori Bhige",
+   "year": 2024,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Partha Banerjee Music",
+     "organisation"
+    ],
+    [
+     "artist",
+     "Partha Banerjee"
+    ]
+   ],
+   "summary": "Partha Banerjee sings Chunari Mori Bhige, released on 22 March 2024.",
+   "terms": {
+    "genre:world-music": 0.9,
+    "genre:indian-pop": 0.7,
+    "mood:romantic": 0.7
+   },
+   "advisories": {
+    "strong-language": 0,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "channel": "partha-banerjee-music-2023",
+    "youtube_id": "7ZoAmqHagfk"
+   }
+  },
+  {
+   "slug": "yt-149c2dllody-2024",
+   "medium": "online_video",
+   "title": "Mere Upar Rang Jo Dala",
+   "year": 2024,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Partha Banerjee Music",
+     "organisation"
+    ],
+    [
+     "artist",
+     "Partha Banerjee"
+    ],
+    [
+     "artist",
+     "Nirbhay Sankhwar"
+    ]
+   ],
+   "summary": "Partha Banerjee with Nirbhay Sankhwar, released on 22 March 2024 alongside Chunari Mori Bhige.",
+   "terms": {
+    "genre:world-music": 0.9,
+    "genre:indian-pop": 0.8,
+    "mood:uplifting": 0.7
+   },
+   "advisories": {
+    "strong-language": 0,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "channel": "partha-banerjee-music-2023",
+    "youtube_id": "149c2dLLODY"
+   }
+  },
+  {
+   "slug": "yt-udvudm1gtia-2024",
+   "medium": "online_video",
+   "title": "Aaj Ki Shaam (Phenil Banerjee)",
+   "year": 2024,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Partha Banerjee Music",
+     "organisation"
+    ],
+    [
+     "artist",
+     "Phenil Banerjee"
+    ]
+   ],
+   "summary": "Aaj Ki Shaam sung by Phenil Banerjee, released on 26 December 2024.",
+   "terms": {
+    "genre:indian-pop": 0.9,
+    "mood:romantic": 0.7,
+    "mood:nostalgic": 0.6
+   },
+   "advisories": {
+    "strong-language": 0,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "channel": "partha-banerjee-music-2023",
+    "youtube_id": "udvUDm1GTiA"
+   }
+  },
+  {
+   "slug": "yt-x5bd606xla8-2024",
+   "medium": "online_video",
+   "title": "Aaj Ki Shaam (Payoja)",
+   "year": 2024,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Partha Banerjee Music",
+     "organisation"
+    ],
+    [
+     "artist",
+     "Payoja"
+    ]
+   ],
+   "summary": "Aaj Ki Shaam sung by Payoja, released on 20 October 2024.",
+   "terms": {
+    "genre:indian-pop": 0.9,
+    "mood:romantic": 0.7,
+    "mood:nostalgic": 0.6
+   },
+   "advisories": {
+    "strong-language": 0,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "channel": "partha-banerjee-music-2023",
+    "youtube_id": "x5Bd606Xla8"
+   }
+  }
+ ],
+ "relationships": []
+}
