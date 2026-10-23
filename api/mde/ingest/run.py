@@ -23,6 +23,7 @@ from mde.ingest.musicbrainz import MusicBrainz
 from mde.ingest.openlibrary import LICENCE as OL_LICENCE
 from mde.ingest.openlibrary import OpenLibrary
 from mde.ingest.wikidata import LICENCE as WD_LICENCE
+from mde.ingest.wikidata import TYPES as WD_TYPES
 from mde.ingest.wikidata import Wikidata
 
 OUT_DIR = Path(__file__).parent.parent / "data" / "enrichment"
@@ -89,6 +90,7 @@ def _write(source: str, licence: str, works: dict, extra: dict | None = None) ->
 def run_wikidata(client: Client, seed: list[dict]) -> dict:
     wd = Wikidata(client)
     works: dict[str, dict] = {}
+    seed = [w for w in seed if w["medium"] in WD_TYPES]   # YouTube channels and videos come from the youtube source
     for w in seed:
         try:
             rec = wd.enrich(w)
