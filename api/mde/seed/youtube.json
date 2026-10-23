@@ -1,0 +1,1292 @@
+{
+ "about": "YouTube channels and some of their notable videos, indexed as their own section. Channel facts (joined year, video and subscriber counts), titles and video descriptions come from the channels' public YouTube pages and RSS feeds; years marked year_is_estimate come from YouTube's 'n years ago'. Summaries, terms and advisories are AI-assisted readings awaiting editorial review.",
+ "works": [
+  {
+   "slug": "good-mythical-morning-2008",
+   "medium": "channel",
+   "title": "Good Mythical Morning",
+   "year": 2008,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "host",
+     "Rhett McLaughlin"
+    ],
+    [
+     "host",
+     "Link Neal"
+    ]
+   ],
+   "summary": "Rhett and Link's daily comedy talk show, Monday to Friday: they eat unbelievable things, test new products and trends, play original games with celebrity guests and run serious experiments in silly ways. Taste tests and food rankings are the backbone.",
+   "terms": {
+    "genre:comedy": 1,
+    "genre:food": 0.8,
+    "mood:funny": 0.9,
+    "mood:comforting": 0.7,
+    "complexity:accessible": 1
+   },
+   "advisories": {
+    "strong-language": 0.1,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "handle": "@GoodMythicalMorning",
+    "videos": "4,703 videos",
+    "subscribers": "19.8M subscribers"
+   }
+  },
+  {
+   "slug": "yt-odukppdj78w-2026",
+   "medium": "online_video",
+   "title": "We Tried EVERY Food At McDonald's",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Good Mythical Morning",
+     "organisation"
+    ]
+   ],
+   "summary": "Rhett and Link work their way through the whole McDonald's menu, tasting and ranking everything.",
+   "terms": {
+    "genre:comedy": 1,
+    "genre:food": 1,
+    "mood:funny": 0.9,
+    "genre:taste-test": 0.9
+   },
+   "advisories": {
+    "strong-language": 0
+   },
+   "attributes": {
+    "channel": "good-mythical-morning-2008",
+    "views": "4.1M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-xiccxrezjtw-2026",
+   "medium": "online_video",
+   "title": "What’s The Best Dr. Pepper Knockoff?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Good Mythical Morning",
+     "organisation"
+    ]
+   ],
+   "summary": "A blind taste test to find the best alternative to Dr. Pepper soda.",
+   "terms": {
+    "genre:comedy": 1,
+    "genre:food": 1,
+    "mood:funny": 0.9,
+    "genre:taste-test": 0.9
+   },
+   "advisories": {
+    "strong-language": 0
+   },
+   "attributes": {
+    "channel": "good-mythical-morning-2008",
+    "views": "2.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "good-mythical-more-2013",
+   "medium": "channel",
+   "title": "Good Mythical MORE",
+   "year": 2013,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "host",
+     "Rhett McLaughlin"
+    ],
+    [
+     "host",
+     "Link Neal"
+    ]
+   ],
+   "summary": "The show after the show: Rhett and Link keep going after Good Mythical Morning, a little more relaxed, with more taste tests, challenges and games.",
+   "terms": {
+    "genre:comedy": 1,
+    "genre:food": 0.7,
+    "mood:funny": 0.9,
+    "mood:comforting": 0.7,
+    "complexity:accessible": 1
+   },
+   "advisories": {
+    "strong-language": 0.1,
+    "graphic-violence": 0,
+    "sexual-content": 0
+   },
+   "attributes": {
+    "handle": "@GoodMythicalMORE",
+    "videos": "3,038 videos",
+    "subscribers": "4.46M subscribers"
+   }
+  },
+  {
+   "slug": "yt-qs2mrtxjttc-2026",
+   "medium": "online_video",
+   "title": "Ice Cream That Looks EXACTLY Like Food? (Taste Test)",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Good Mythical MORE",
+     "organisation"
+    ]
+   ],
+   "summary": "A Good Mythical MORE taste test of ice creams made to look exactly like other foods.",
+   "terms": {
+    "genre:comedy": 1,
+    "genre:food": 1,
+    "mood:funny": 0.9,
+    "genre:taste-test": 0.9
+   },
+   "advisories": {
+    "strong-language": 0
+   },
+   "attributes": {
+    "channel": "good-mythical-more-2013",
+    "views": "573K",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-4duvzsdzicw-2026",
+   "medium": "online_video",
+   "title": "We Try The New McDonald's & Burger King Nuggets",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Good Mythical MORE",
+     "organisation"
+    ]
+   ],
+   "summary": "Rhett and Link taste and compare the new chicken nuggets from McDonald's and Burger King.",
+   "terms": {
+    "genre:comedy": 1,
+    "genre:food": 1,
+    "mood:funny": 0.9,
+    "genre:taste-test": 0.9
+   },
+   "advisories": {
+    "strong-language": 0
+   },
+   "attributes": {
+    "channel": "good-mythical-more-2013",
+    "views": "558K",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "markiplier-2012",
+   "medium": "channel",
+   "title": "Markiplier",
+   "year": 2012,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "creator",
+     "Mark Fischbach"
+    ]
+   ],
+   "summary": "Mark Fischbach's channel of more than 5,000 videos: horror and indie game playthroughs, comedy sketches, challenges and full interactive movies, from \"quality content to meme-able garbage\", in his own words.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:horror": 0.6,
+    "mood:funny": 0.8,
+    "mood:tense": 0.4,
+    "complexity:accessible": 1
+   },
+   "advisories": {
+    "strong-language": 0.7,
+    "jump-scares": 0.6,
+    "graphic-violence": 0.4
+   },
+   "attributes": {
+    "handle": "@markiplier",
+    "videos": "5,944 videos",
+    "subscribers": "39M subscribers"
+   }
+  },
+  {
+   "slug": "yt-vksvcrltdio-2026",
+   "medium": "online_video",
+   "title": "2002 WAYS TO DIE | House 2",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Markiplier",
+     "organisation"
+    ]
+   ],
+   "summary": "Markiplier plays House 2, a horror game built around dying in as many ways as possible.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:comedy": 0.6,
+    "mood:funny": 0.6,
+    "mood:tense": 0.6
+   },
+   "advisories": {
+    "jump-scares": 0.7,
+    "graphic-violence": 0.5,
+    "strong-language": 0.7
+   },
+   "attributes": {
+    "channel": "markiplier-2012",
+    "views": "6.3M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-rmvqiiwgz5g-2026",
+   "medium": "online_video",
+   "title": "ROAM0120.exe",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Markiplier",
+     "organisation"
+    ]
+   ],
+   "summary": "Markiplier plays ROAM0120.exe, an unsettling indie horror game that might be a game, an ARG or a true-crime confession.",
+   "terms": {
+    "genre:horror": 1,
+    "mood:unsettling": 0.8,
+    "mood:eerie": 0.8
+   },
+   "advisories": {
+    "jump-scares": 0.6,
+    "graphic-violence": 0.4,
+    "strong-language": 0.6
+   },
+   "attributes": {
+    "channel": "markiplier-2012",
+    "views": "3.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "elvis-the-alien-2015",
+   "medium": "channel",
+   "title": "Elvis The Alien",
+   "year": 2015,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "creator",
+     "Elvis J.S. Phillips"
+    ]
+   ],
+   "summary": "Elvis J.S. Phillips, a comedy-focused media critic, takes apart films, shows and games, often the ones that disappointed, in long-form, written review videos.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:documentary": 0.4,
+    "mood:funny": 0.8,
+    "mood:darkly-funny": 0.5,
+    "complexity:accessible": 0.9
+   },
+   "advisories": {
+    "strong-language": 0.6,
+    "graphic-violence": 0.3
+   },
+   "attributes": {
+    "handle": "@ElvistheAlien",
+    "videos": "230 videos",
+    "subscribers": "1.78M subscribers"
+   }
+  },
+  {
+   "slug": "yt-4urfbp8fzbk-2026",
+   "medium": "online_video",
+   "title": "RETURN TO SILENT HILL is An Abomination",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Elvis The Alien",
+     "organisation"
+    ]
+   ],
+   "summary": "Elvis reviews Return to Silent Hill, the third Silent Hill film, after revisiting the first two.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:horror": 0.4,
+    "mood:darkly-funny": 0.6
+   },
+   "advisories": {
+    "strong-language": 0.6,
+    "graphic-violence": 0.4
+   },
+   "attributes": {
+    "channel": "elvis-the-alien-2015",
+    "views": "754K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-nhqargw-syq-2026",
+   "medium": "online_video",
+   "title": "GREEN LANTERN - Somehow Worse Than I Remember",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Elvis The Alien",
+     "organisation"
+    ]
+   ],
+   "summary": "Elvis rewatches the 2011 Green Lantern film and explains why it is somehow worse than he remembered.",
+   "terms": {
+    "genre:comedy": 0.9,
+    "genre:superhero": 0.6,
+    "mood:funny": 0.8
+   },
+   "advisories": {
+    "strong-language": 0.6
+   },
+   "attributes": {
+    "channel": "elvis-the-alien-2015",
+    "views": "706K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "dropout-2006",
+   "medium": "channel",
+   "title": "Dropout",
+   "year": 2006,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "studio",
+     "Dropout",
+     "organisation"
+    ]
+   ],
+   "summary": "The YouTube home of Dropout, the comedy streaming service: clips, trailers and full episodes from Game Changer, Dimension 20, Um, Actually, Make Some Noise, Very Important People and its other improv, game show and animated series.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1,
+    "complexity:accessible": 0.9
+   },
+   "advisories": {
+    "strong-language": 0.6,
+    "sexual-content": 0.2
+   },
+   "attributes": {
+    "handle": "@dropout",
+    "videos": "5,487 videos",
+    "subscribers": "15.3M subscribers"
+   }
+  },
+  {
+   "slug": "yt-qeaxw0rercu-2026",
+   "medium": "online_video",
+   "title": "The First 11 Minutes of Game Changer's Season 8 Finale Episode",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Dropout",
+     "organisation"
+    ]
+   ],
+   "summary": "The opening of Game Changer's season 8 finale, Last Talent Standing: host Sam Reich gathers 23 Dropout players for a talent show judged by Gianmarco Soresi, Maria Bamford and Kumail Nanjiani.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "channel": "dropout-2006",
+    "views": "331K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-ezermyru26i-2026",
+   "medium": "online_video",
+   "title": "My Husband | Toonout [Animated Shorts]",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Dropout",
+     "organisation"
+    ]
+   ],
+   "summary": "An animated short from Dropout's Toonout: Otto bemoans the strife of loving (and loathing) his handsome spouse.",
+   "terms": {
+    "genre:comedy": 1,
+    "genre:animation": 1,
+    "mood:darkly-funny": 0.7
+   },
+   "advisories": {
+    "graphic-violence": 0.5,
+    "sexual-content": 0.3
+   },
+   "attributes": {
+    "channel": "dropout-2006",
+    "views": "953K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "game-changer-shorts-2021",
+   "medium": "channel",
+   "title": "Game Changer Shorts",
+   "year": 2021,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "host",
+     "Sam Reich"
+    ]
+   ],
+   "summary": "Short clips from Dropout's Game Changer, the game show where the game changes every show and the players only find out the rules by playing.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1,
+    "complexity:accessible": 1
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "handle": "@GameChangerShorts",
+    "videos": "1,070 videos",
+    "subscribers": "2.53M subscribers"
+   }
+  },
+  {
+   "slug": "yt-gdfkfjcrnzi-2022",
+   "medium": "online_video",
+   "title": "The Angel and Devil on Zac's Shoulders",
+   "year": 2022,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Game Changer Shorts",
+     "organisation"
+    ]
+   ],
+   "summary": "A Game Changer clip in which an angel and a devil sit on Zac's shoulders.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.4
+   },
+   "attributes": {
+    "channel": "game-changer-shorts-2021",
+    "views": "2.5M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-p4ydp5r6hvk-2021",
+   "medium": "online_video",
+   "title": "The James Spader Toaster",
+   "year": 2021,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Game Changer Shorts",
+     "organisation"
+    ]
+   ],
+   "summary": "A Game Changer clip built around the James Spader toaster.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.4
+   },
+   "attributes": {
+    "channel": "game-changer-shorts-2021",
+    "views": "879K",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "dimension-20-2019",
+   "medium": "channel",
+   "title": "Dimension 20",
+   "year": 2019,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "host",
+     "Brennan Lee Mulligan"
+    ]
+   ],
+   "summary": "The official channel of Dimension 20, Dropout's tabletop role-playing show: comedians and improvisers play through original campaigns with a game master, with trailers, premieres and highlights here.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:fantasy": 0.8,
+    "genre:adventure": 0.6,
+    "mood:funny": 0.8,
+    "world:rich-worldbuilding": 0.6
+   },
+   "advisories": {
+    "strong-language": 0.5,
+    "graphic-violence": 0.2
+   },
+   "attributes": {
+    "handle": "@dimension20show",
+    "videos": "1,856 videos",
+    "subscribers": "1.14M subscribers"
+   }
+  },
+  {
+   "slug": "yt-arwqsfweo6c-2026",
+   "medium": "online_video",
+   "title": "Sing A Song of Six | Dimension 20: Toylight [Full Season Premiere]",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Dimension 20",
+     "organisation"
+    ]
+   ],
+   "summary": "The full premiere episode of Dimension 20: Toylight, Sing A Song of Six: a tabletop campaign about toys.",
+   "terms": {
+    "genre:comedy": 0.7,
+    "genre:fantasy": 0.8,
+    "genre:adventure": 0.7,
+    "mood:funny": 0.7
+   },
+   "advisories": {
+    "strong-language": 0.4
+   },
+   "attributes": {
+    "channel": "dimension-20-2019",
+    "views": "378K",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-plgnmsegcjc-2025",
+   "medium": "online_video",
+   "title": "Dimension 20: On a Bus (Extended Cut)",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Dimension 20",
+     "organisation"
+    ]
+   ],
+   "summary": "The extended cut of Dimension 20: On a Bus, a tabletop role-playing episode set on a bus.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:adventure": 0.5,
+    "mood:funny": 0.8
+   },
+   "advisories": {
+    "strong-language": 0.4
+   },
+   "attributes": {
+    "channel": "dimension-20-2019",
+    "views": "891K",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "dirty-laundry-shorts-2019",
+   "medium": "channel",
+   "title": "Dirty Laundry Shorts",
+   "year": 2019,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "host",
+     "Lily Du"
+    ]
+   ],
+   "summary": "Clips and episodes from Dropout's Dirty Laundry, hosted by Lily Du: comedians spill secrets (and drinks) and try to work out who did the embarrassing thing.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1,
+    "complexity:accessible": 1
+   },
+   "advisories": {
+    "strong-language": 0.6,
+    "substance-use": 0.3,
+    "sexual-content": 0.3
+   },
+   "attributes": {
+    "handle": "@dirtylaundryshorts",
+    "videos": "540 videos",
+    "subscribers": "358K subscribers"
+   }
+  },
+  {
+   "slug": "yt-xzhhbvuiwes-2022",
+   "medium": "online_video",
+   "title": "Dirty Laundry Ep. 1 [Full Episode] - Sam Reich, Katie Marovitch, Raphael Chestang, and Jacob Wysocki",
+   "year": 2022,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Dirty Laundry Shorts",
+     "organisation"
+    ]
+   ],
+   "summary": "The first full episode of Dirty Laundry, with Sam Reich, Katie Marovitch, Raphael Chestang and Jacob Wysocki.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.6,
+    "substance-use": 0.3
+   },
+   "attributes": {
+    "channel": "dirty-laundry-shorts-2019",
+    "views": "1.9M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-bvhay-rkoei-2024",
+   "medium": "online_video",
+   "title": "Who Wrote a Short Story That Seriously Disturbed a Teacher? | Dirty Laundry x Smosh [Full Episode]",
+   "year": 2024,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Dirty Laundry Shorts",
+     "organisation"
+    ]
+   ],
+   "summary": "A full Dirty Laundry crossover episode with Smosh: who wrote a short story that seriously disturbed a teacher?",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.6
+   },
+   "attributes": {
+    "channel": "dirty-laundry-shorts-2019",
+    "views": "2M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "very-important-people-2014",
+   "medium": "channel",
+   "title": "Very Important People",
+   "year": 2014,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "host",
+     "Vic Michaelis"
+    ]
+   ],
+   "summary": "Comedians are given full makeovers into someone completely new, then sit for a fully improvised interview with host Vic Michaelis.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1,
+    "complexity:accessible": 1
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "handle": "@veryimportantpeopleshow",
+    "videos": "566 videos",
+    "subscribers": "752K subscribers"
+   }
+  },
+  {
+   "slug": "yt-ttuf6dseaxu-2025",
+   "medium": "online_video",
+   "title": "An Interview with a Very Important Motivational Speaker [Very Important People - Full Episode]",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Very Important People",
+     "organisation"
+    ]
+   ],
+   "summary": "A full episode of Very Important People: an improvised interview with a very important motivational speaker.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "channel": "very-important-people-2014",
+    "views": "1.8M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-l5uw76dmdbe-2024",
+   "medium": "online_video",
+   "title": "An Interview with a Very Popular European Popstar [Very Important People - Full Episode]",
+   "year": 2024,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Very Important People",
+     "organisation"
+    ]
+   ],
+   "summary": "A full episode of Very Important People: an improvised interview with a very popular European popstar.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "channel": "very-important-people-2014",
+    "views": "1.3M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "smartypants-2014",
+   "medium": "channel",
+   "title": "Smartypants",
+   "year": 2014,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "host",
+     "Rekha Shankar"
+    ]
+   ],
+   "summary": "Get smart, the dumb way: comedians give slideshow presentations on ridiculous topics, hosted by Rekha Shankar, on Dropout.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1,
+    "complexity:accessible": 1
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "handle": "@smartypantsdropout",
+    "videos": "413 videos",
+    "subscribers": "208K subscribers"
+   }
+  },
+  {
+   "slug": "yt-64sofwjhsd8-2024",
+   "medium": "online_video",
+   "title": "Which Cartoons Characters Are Invited To \"The Cookout?\" | Smartypants Presentation, Demi Adejuyigbe",
+   "year": 2024,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Smartypants",
+     "organisation"
+    ]
+   ],
+   "summary": "A Smartypants presentation by Demi Adejuyigbe on which cartoon characters are invited to the cookout.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "channel": "smartypants-2014",
+    "views": "1.9M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-rxmr1tmec04-2025",
+   "medium": "online_video",
+   "title": "How to Fix Grocery Stores | Smartypants Presentation",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Smartypants",
+     "organisation"
+    ]
+   ],
+   "summary": "A Smartypants presentation on how to fix grocery stores.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 1,
+    "genre:food": 0.4
+   },
+   "advisories": {
+    "strong-language": 0.5
+   },
+   "attributes": {
+    "channel": "smartypants-2014",
+    "views": "1M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "corridor-digital-2010",
+   "medium": "channel",
+   "title": "Corridor Digital",
+   "year": 2010,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "studio",
+     "Corridor",
+     "organisation"
+    ]
+   ],
+   "summary": "The Corridor team's viral short films: action, animation and visual-effects-heavy shorts and parodies made by the same crew as Corridor Crew.",
+   "terms": {
+    "genre:action": 0.7,
+    "genre:comedy": 0.6,
+    "genre:animation": 0.4,
+    "style:visually-striking": 0.8,
+    "mood:exhilarating": 0.6
+   },
+   "advisories": {
+    "graphic-violence": 0.4,
+    "strong-language": 0.3
+   },
+   "attributes": {
+    "handle": "@Corridor",
+    "videos": "262 videos",
+    "subscribers": "10.1M subscribers"
+   }
+  },
+  {
+   "slug": "yt-gvt3wua-48y-2023",
+   "medium": "online_video",
+   "title": "ANIME ROCK, PAPER, SCISSORS",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Corridor Digital",
+     "organisation"
+    ]
+   ],
+   "summary": "Corridor's short film that turns a game of rock, paper, scissors into an over-the-top anime battle.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:animation": 0.8,
+    "genre:comedy": 0.7,
+    "style:visually-striking": 0.9,
+    "mood:exhilarating": 0.7
+   },
+   "advisories": {
+    "graphic-violence": 0.3
+   },
+   "attributes": {
+    "channel": "corridor-digital-2010",
+    "views": "5.1M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "yt-cm-95l5vm2g-2023",
+   "medium": "online_video",
+   "title": "Spider-Man: EVERYONE’S HOME!",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Corridor Digital",
+     "organisation"
+    ]
+   ],
+   "summary": "Corridor's Spider-Man short, Everyone's Home!",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:superhero": 0.8,
+    "genre:comedy": 0.6,
+    "style:visually-striking": 0.8
+   },
+   "advisories": {
+    "graphic-violence": 0.3
+   },
+   "attributes": {
+    "channel": "corridor-digital-2010",
+    "views": "5.2M",
+    "year_is_estimate": true
+   }
+  },
+  {
+   "slug": "corridor-crew-2011",
+   "medium": "channel",
+   "title": "Corridor Crew",
+   "year": 2011,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "studio",
+     "Corridor",
+     "organisation"
+    ]
+   ],
+   "summary": "Visual-effects artists break down the craft: the long-running VFX Artists React series on bad and great CGI, behind-the-scenes builds, experiments and tools they make.",
+   "terms": {
+    "genre:documentary": 0.8,
+    "genre:comedy": 0.5,
+    "mood:funny": 0.5,
+    "complexity:accessible": 0.8,
+    "theme:knowledge-curiosity": 0.8
+   },
+   "advisories": {
+    "strong-language": 0.4,
+    "graphic-violence": 0.2
+   },
+   "attributes": {
+    "handle": "@CorridorCrew",
+    "videos": "1,729 videos",
+    "subscribers": "7.18M subscribers"
+   }
+  },
+  {
+   "slug": "yt-hn1pw5jptjy-2026",
+   "medium": "online_video",
+   "title": "VFX Artists React to Bad & Great CGi 245",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Corridor Crew",
+     "organisation"
+    ]
+   ],
+   "summary": "Wren, Niko and Jordan break down old and new visual effects in episode 245 of VFX Artists React, including a look at Ramayana.",
+   "terms": {
+    "genre:documentary": 0.8,
+    "genre:comedy": 0.5,
+    "theme:knowledge-curiosity": 0.8
+   },
+   "advisories": {
+    "strong-language": 0.3
+   },
+   "attributes": {
+    "channel": "corridor-crew-2011",
+    "views": "2.2M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-svrdraoilxm-2026",
+   "medium": "online_video",
+   "title": "I Solved Green Screen, and I'm Giving it to YOU!",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Corridor Crew",
+     "organisation"
+    ]
+   ],
+   "summary": "Corridor Crew present CorridorKey, their tool for solving green-screen keying, and give it away, with a free version and a plugin.",
+   "terms": {
+    "genre:documentary": 0.8,
+    "theme:knowledge-curiosity": 0.9,
+    "theme:technology-alienation": 0.2
+   },
+   "advisories": {
+    "strong-language": 0.2
+   },
+   "attributes": {
+    "channel": "corridor-crew-2011",
+    "views": "2.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "matthias-2017",
+   "medium": "channel",
+   "title": "Matthias",
+   "year": 2017,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "creator",
+     "Matthias"
+    ]
+   ],
+   "summary": "\"Nothing is ever as it seems\": Matthias makes story-driven mystery videos, most famously Project 863, an investigation told across many videos about hidden rooms, strange packages and a murder.",
+   "terms": {
+    "genre:mystery": 1,
+    "genre:horror": 0.5,
+    "mood:eerie": 0.8,
+    "mood:tense": 0.7,
+    "narrative:puzzle-box": 0.6
+   },
+   "advisories": {
+    "jump-scares": 0.3,
+    "graphic-violence": 0.2
+   },
+   "attributes": {
+    "handle": "@StoriesbyMatthias",
+    "videos": "257 videos",
+    "subscribers": "1.35M subscribers"
+   }
+  },
+  {
+   "slug": "yt-1eil4zxsouq-2022",
+   "medium": "online_video",
+   "title": "I Found A Hidden Door Behind My Wall... (Project: 863 Answered)",
+   "year": 2022,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Matthias",
+     "organisation"
+    ]
+   ],
+   "summary": "Project 863 answered: the team finally reveals the identity of Deb's murderer, behind a hidden door in a wall.",
+   "terms": {
+    "genre:mystery": 1,
+    "mood:tense": 0.8,
+    "mood:eerie": 0.7,
+    "narrative:puzzle-box": 0.7
+   },
+   "advisories": {
+    "graphic-violence": 0.2,
+    "jump-scares": 0.3
+   },
+   "attributes": {
+    "channel": "matthias-2017",
+    "views": "798K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-bnvcmke3obm-2022",
+   "medium": "online_video",
+   "title": "We Figured Out How He Haunted Us for 7 Months!",
+   "year": 2022,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Matthias",
+     "organisation"
+    ]
+   ],
+   "summary": "A Matthias video in the Project 863 story: the team works out how someone haunted them for seven months.",
+   "terms": {
+    "genre:mystery": 1,
+    "mood:eerie": 0.8,
+    "mood:tense": 0.7
+   },
+   "advisories": {
+    "jump-scares": 0.3
+   },
+   "attributes": {
+    "channel": "matthias-2017",
+    "views": "687K",
+    "year_is_estimate": true
+   }
+  }
+ ],
+ "relationships": []
+}

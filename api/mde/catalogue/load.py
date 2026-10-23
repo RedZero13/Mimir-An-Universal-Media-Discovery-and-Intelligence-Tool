@@ -60,6 +60,10 @@ OPEN_SOURCES = {
     "publisher": {"name": "Publisher-supplied", "kind": "licensed_dataset", "licence": "Supplied by the rights holder",
                   "commercial_use": "yes", "may_store": "yes", "may_display": "yes", "ai_use": "yes",
                   "attribution": "Courtesy of the publisher", "notes": "Covers, page counts and store links for Terratales titles"},
+    "youtube": {"name": "YouTube channel pages and RSS feeds", "kind": "official_api",
+                "licence": "Public channel pages and feeds; avatars and thumbnails remain the creators'", "commercial_use": "restricted",
+                "may_store": "restricted", "may_display": "yes", "ai_use": "unknown", "attribution": "Via YouTube",
+                "notes": "Channel and video titles, dates, IDs, thumbnails and links for the YouTube section"},
 }
 
 VALID_MEDIA = {"film", "series", "episode", "book", "comic", "game", "album", "track", "podcast", "online_video", "channel"}

@@ -1,0 +1,1100 @@
+{
+ "source": "youtube",
+ "licence": "Public channel pages and RSS feeds; avatars and thumbnails remain the creators'",
+ "generated_at": "2026-10-23T00:00:00Z",
+ "unmatched": [],
+ "works": {
+  "good-mythical-morning-2008": {
+   "match": {
+    "key": "UC4PooiX37Pld1T8J5SYT-SQ",
+    "reason": "channel page youtube.com/@GoodMythicalMorning"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UC4PooiX37Pld1T8J5SYT-SQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/OdukppDj78w/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Good Mythical Morning"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/wgE-FDE-6LkWcVtmWpUipGSttE3CI-hYTJ0ICSatwVUbvJPJQQ32x0iEdLP5UOeD03wH6UlV=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Good Mythical Morning"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@GoodMythicalMorning"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-odukppdj78w-2026": {
+   "match": {
+    "key": "OdukppDj78w",
+    "reason": "video on youtube.com/@GoodMythicalMorning"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "OdukppDj78w"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/OdukppDj78w/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Good Mythical Morning"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=OdukppDj78w"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-xiccxrezjtw-2026": {
+   "match": {
+    "key": "xiCcxrEZjTw",
+    "reason": "video on youtube.com/@GoodMythicalMorning"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "xiCcxrEZjTw"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/xiCcxrEZjTw/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Good Mythical Morning"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=xiCcxrEZjTw"
+    }
+   ],
+   "conflicts": []
+  },
+  "good-mythical-more-2013": {
+   "match": {
+    "key": "UCzpCc5n9hqiVC7HhPwcIKEg",
+    "reason": "channel page youtube.com/@GoodMythicalMORE"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCzpCc5n9hqiVC7HhPwcIKEg"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/qs2mRTxJTTc/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Good Mythical MORE"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/pzkJbqA0Z36UUn8wHZH5HM6gOHUDBt6O4gQnxxMfIp920h9DGSyVLj4mzRVCDJ5DoUOog2N8PQ=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Good Mythical MORE"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@GoodMythicalMORE"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-qs2mrtxjttc-2026": {
+   "match": {
+    "key": "qs2mRTxJTTc",
+    "reason": "video on youtube.com/@GoodMythicalMORE"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "qs2mRTxJTTc"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/qs2mRTxJTTc/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Good Mythical MORE"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=qs2mRTxJTTc"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-4duvzsdzicw-2026": {
+   "match": {
+    "key": "4DuVzSDzIcw",
+    "reason": "video on youtube.com/@GoodMythicalMORE"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "4DuVzSDzIcw"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/4DuVzSDzIcw/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Good Mythical MORE"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=4DuVzSDzIcw"
+    }
+   ],
+   "conflicts": []
+  },
+  "markiplier-2012": {
+   "match": {
+    "key": "UC7_YxT-KID8kRbqZo7MyscQ",
+    "reason": "channel page youtube.com/@markiplier"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UC7_YxT-KID8kRbqZo7MyscQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/vKSvcrLTdIo/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Markiplier"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/ytc/AIdro_nfDvwu14-iN5YZcaLIomwno1_3oFcYTmG5_kn7SMj_nec=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Markiplier"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@markiplier"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-vksvcrltdio-2026": {
+   "match": {
+    "key": "vKSvcrLTdIo",
+    "reason": "video on youtube.com/@markiplier"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "vKSvcrLTdIo"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/vKSvcrLTdIo/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Markiplier"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=vKSvcrLTdIo"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-rmvqiiwgz5g-2026": {
+   "match": {
+    "key": "rMvqiIWGZ5g",
+    "reason": "video on youtube.com/@markiplier"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "rMvqiIWGZ5g"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/rMvqiIWGZ5g/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Markiplier"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=rMvqiIWGZ5g"
+    }
+   ],
+   "conflicts": []
+  },
+  "elvis-the-alien-2015": {
+   "match": {
+    "key": "UChc-m3saf8K2oJHDSsnsj_A",
+    "reason": "channel page youtube.com/@ElvistheAlien"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UChc-m3saf8K2oJHDSsnsj_A"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/4URfBp8FZBk/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Elvis The Alien"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/IPt0-CKpdO59kSEKJ-IgKUmg8CvYnfIdnxpNppe8aY_6fThJEcYvnNP2NDgD-r4KNdqqEITnvg=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Elvis The Alien"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@ElvistheAlien"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-4urfbp8fzbk-2026": {
+   "match": {
+    "key": "4URfBp8FZBk",
+    "reason": "video on youtube.com/@ElvistheAlien"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "4URfBp8FZBk"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/4URfBp8FZBk/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Elvis The Alien"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=4URfBp8FZBk"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-nhqargw-syq-2026": {
+   "match": {
+    "key": "nhqArGW_SYQ",
+    "reason": "video on youtube.com/@ElvistheAlien"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "nhqArGW_SYQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/nhqArGW_SYQ/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Elvis The Alien"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=nhqArGW_SYQ"
+    }
+   ],
+   "conflicts": []
+  },
+  "dropout-2006": {
+   "match": {
+    "key": "UCPDXXXJj9nax0fr0Wfc048g",
+    "reason": "channel page youtube.com/@dropout"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCPDXXXJj9nax0fr0Wfc048g"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/QeaxW0reRCU/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Dropout"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/TqJSwfiu1KBMDnN72-qD9GNwMjpQaRdPboTAstcxPmwsUpEggPzS7Uq7ytEfb4-9Ha5YXEyGMQ=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Dropout"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@dropout"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-qeaxw0rercu-2026": {
+   "match": {
+    "key": "QeaxW0reRCU",
+    "reason": "video on youtube.com/@dropout"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "QeaxW0reRCU"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/QeaxW0reRCU/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Dropout"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=QeaxW0reRCU"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-ezermyru26i-2026": {
+   "match": {
+    "key": "EzeRMyRU26I",
+    "reason": "video on youtube.com/@dropout"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "EzeRMyRU26I"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/EzeRMyRU26I/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Dropout"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=EzeRMyRU26I"
+    }
+   ],
+   "conflicts": []
+  },
+  "game-changer-shorts-2021": {
+   "match": {
+    "key": "UCTcw8GqWQlFcc6ioeJQOMAQ",
+    "reason": "channel page youtube.com/@GameChangerShorts"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCTcw8GqWQlFcc6ioeJQOMAQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/GdfKfjcrNZI/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Game Changer Shorts"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/ZCdD7Q1zxEzX7SRXN6he8PazCW69PaweP_PdxRRJosvTsfuZ9u9Uq0o-a3VwMPA7Nl1qluUmrw=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Game Changer Shorts"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@GameChangerShorts"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-gdfkfjcrnzi-2022": {
+   "match": {
+    "key": "GdfKfjcrNZI",
+    "reason": "video on youtube.com/@GameChangerShorts"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "GdfKfjcrNZI"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/GdfKfjcrNZI/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Game Changer Shorts"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=GdfKfjcrNZI"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-p4ydp5r6hvk-2021": {
+   "match": {
+    "key": "p4Ydp5r6HVk",
+    "reason": "video on youtube.com/@GameChangerShorts"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "p4Ydp5r6HVk"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/p4Ydp5r6HVk/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Game Changer Shorts"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=p4Ydp5r6HVk"
+    }
+   ],
+   "conflicts": []
+  },
+  "dimension-20-2019": {
+   "match": {
+    "key": "UCC8zWIx8aBQme-x1nX9iZ0A",
+    "reason": "channel page youtube.com/@dimension20show"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCC8zWIx8aBQme-x1nX9iZ0A"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/aRwqsFWEO6c/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Dimension 20"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/o6zvu9Mhufa73XtxGqXRP6j9keWKT0yGSkHfGbHQSwz_Iyqi4bMb4vcTZVgLw7ssDOlEOe4j3Q=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Dimension 20"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@dimension20show"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-arwqsfweo6c-2026": {
+   "match": {
+    "key": "aRwqsFWEO6c",
+    "reason": "video on youtube.com/@dimension20show"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "aRwqsFWEO6c"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/aRwqsFWEO6c/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Dimension 20"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=aRwqsFWEO6c"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-plgnmsegcjc-2025": {
+   "match": {
+    "key": "plGNmsegcJc",
+    "reason": "video on youtube.com/@dimension20show"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "plGNmsegcJc"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/plGNmsegcJc/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Dimension 20"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=plGNmsegcJc"
+    }
+   ],
+   "conflicts": []
+  },
+  "dirty-laundry-shorts-2019": {
+   "match": {
+    "key": "UCkrs_sMZE6IUM-AKm2_TDHg",
+    "reason": "channel page youtube.com/@dirtylaundryshorts"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCkrs_sMZE6IUM-AKm2_TDHg"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/xzhhbvUIWEs/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Dirty Laundry Shorts"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/ktRAAVepi5V_gsTi10IpEuiItmMKBYvTstUJuzFM00jS9mImVBxb4euF_ZAcEu2m5k4IjnFZ=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Dirty Laundry Shorts"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@dirtylaundryshorts"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-xzhhbvuiwes-2022": {
+   "match": {
+    "key": "xzhhbvUIWEs",
+    "reason": "video on youtube.com/@dirtylaundryshorts"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "xzhhbvUIWEs"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/xzhhbvUIWEs/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Dirty Laundry Shorts"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=xzhhbvUIWEs"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-bvhay-rkoei-2024": {
+   "match": {
+    "key": "bvHAy_rKoEI",
+    "reason": "video on youtube.com/@dirtylaundryshorts"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "bvHAy_rKoEI"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/bvHAy_rKoEI/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Dirty Laundry Shorts"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=bvHAy_rKoEI"
+    }
+   ],
+   "conflicts": []
+  },
+  "very-important-people-2014": {
+   "match": {
+    "key": "UCcZUN2YuzVzj15X2HW8QOlQ",
+    "reason": "channel page youtube.com/@veryimportantpeopleshow"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCcZUN2YuzVzj15X2HW8QOlQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/TTuf6dseaXU/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Very Important People"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/8pHjkz2fY30teLe53CgCRdkijRniMri2shiaSKs66kD3EUJ_Uu3q25AldJw4kh9UiVgMxhXOFA=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Very Important People"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@veryimportantpeopleshow"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-ttuf6dseaxu-2025": {
+   "match": {
+    "key": "TTuf6dseaXU",
+    "reason": "video on youtube.com/@veryimportantpeopleshow"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "TTuf6dseaXU"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/TTuf6dseaXU/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Very Important People"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=TTuf6dseaXU"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-l5uw76dmdbe-2024": {
+   "match": {
+    "key": "l5UW76dMdbE",
+    "reason": "video on youtube.com/@veryimportantpeopleshow"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "l5UW76dMdbE"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/l5UW76dMdbE/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Very Important People"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=l5UW76dMdbE"
+    }
+   ],
+   "conflicts": []
+  },
+  "smartypants-2014": {
+   "match": {
+    "key": "UCpIUcvK7fZMbhFOU13AtVqQ",
+    "reason": "channel page youtube.com/@smartypantsdropout"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCpIUcvK7fZMbhFOU13AtVqQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/64SoFWJHSd8/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Smartypants"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/tJIVTRB5qIKbP5x9Jwv5dW0M5xNL3AJj1N3FzRuCKljnAFibKCULQGMPwRIjaJ2CU0vCiiWjnk8=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Smartypants"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@smartypantsdropout"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-64sofwjhsd8-2024": {
+   "match": {
+    "key": "64SoFWJHSd8",
+    "reason": "video on youtube.com/@smartypantsdropout"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "64SoFWJHSd8"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/64SoFWJHSd8/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Smartypants"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=64SoFWJHSd8"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-rxmr1tmec04-2025": {
+   "match": {
+    "key": "RxMR1TMec04",
+    "reason": "video on youtube.com/@smartypantsdropout"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "RxMR1TMec04"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/RxMR1TMec04/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Smartypants"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=RxMR1TMec04"
+    }
+   ],
+   "conflicts": []
+  },
+  "corridor-digital-2010": {
+   "match": {
+    "key": "UCsn6cjffsvyOZCZxvGoJxGg",
+    "reason": "channel page youtube.com/@Corridor"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCsn6cjffsvyOZCZxvGoJxGg"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/GVT3WUa-48Y/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Corridor Digital"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/VSKAVOePHjconr8LVJcC2XEBZXaE-jCKUsuD-yBROvRsaa9m9ttwIW7vILa4GPljoDW2QyyiQA=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Corridor Digital"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@Corridor"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-gvt3wua-48y-2023": {
+   "match": {
+    "key": "GVT3WUa-48Y",
+    "reason": "video on youtube.com/@Corridor"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "GVT3WUa-48Y"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/GVT3WUa-48Y/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Corridor Digital"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=GVT3WUa-48Y"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-cm-95l5vm2g-2023": {
+   "match": {
+    "key": "Cm_95L5vm2g",
+    "reason": "video on youtube.com/@Corridor"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "Cm_95L5vm2g"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/Cm_95L5vm2g/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Corridor Digital"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=Cm_95L5vm2g"
+    }
+   ],
+   "conflicts": []
+  },
+  "corridor-crew-2011": {
+   "match": {
+    "key": "UCSpFnDQr88xCZ80N-X7t0nQ",
+    "reason": "channel page youtube.com/@CorridorCrew"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCSpFnDQr88xCZ80N-X7t0nQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/HN1PW5JpTJY/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Corridor Crew"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/z0myIPI-E3Dd-4pQmTD-rsJ7GfiyQsu3z4G6BQsKjdBqn8lk_Wq887bW1NVuJDGFGJsQcCJE8-I=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Corridor Crew"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@CorridorCrew"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-hn1pw5jptjy-2026": {
+   "match": {
+    "key": "HN1PW5JpTJY",
+    "reason": "video on youtube.com/@CorridorCrew"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "HN1PW5JpTJY"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/HN1PW5JpTJY/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Corridor Crew"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=HN1PW5JpTJY"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-svrdraoilxm-2026": {
+   "match": {
+    "key": "svrdRAoIlxM",
+    "reason": "video on youtube.com/@CorridorCrew"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "svrdRAoIlxM"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/svrdRAoIlxM/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Corridor Crew"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=svrdRAoIlxM"
+    }
+   ],
+   "conflicts": []
+  },
+  "matthias-2017": {
+   "match": {
+    "key": "UCluqnG4yYHGsfRuV-_wjHNw",
+    "reason": "channel page youtube.com/@StoriesbyMatthias"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_channel": "UCluqnG4yYHGsfRuV-_wjHNw"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/1eil4ZXSoUQ/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the channel",
+     "attribution": "Matthias"
+    },
+    {
+     "kind": "logo",
+     "url": "https://yt3.googleusercontent.com/X4sWxMXQMFbcJyzoK8r-UDCB1c3TN7ebT9ldROhefqoiw4LSyhtX04V0Az8qV5y3bt2ijXZp=s900-c-k-c0x00ffffff-no-rj",
+     "licence": "Channel avatar, shown to identify the channel",
+     "attribution": "Matthias"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/@StoriesbyMatthias"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-1eil4zxsouq-2022": {
+   "match": {
+    "key": "1eil4ZXSoUQ",
+    "reason": "video on youtube.com/@StoriesbyMatthias"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "1eil4ZXSoUQ"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/1eil4ZXSoUQ/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Matthias"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=1eil4ZXSoUQ"
+    }
+   ],
+   "conflicts": []
+  },
+  "yt-bnvcmke3obm-2022": {
+   "match": {
+    "key": "BnVCmKE3oBM",
+    "reason": "video on youtube.com/@StoriesbyMatthias"
+   },
+   "facts": {},
+   "ids": {
+    "youtube_video": "BnVCmKE3oBM"
+   },
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://i.ytimg.com/vi/BnVCmKE3oBM/hqdefault.jpg",
+     "licence": "Video thumbnail, shown to identify the video",
+     "attribution": "Matthias"
+    }
+   ],
+   "links": [
+    {
+     "kind": "watch:youtube",
+     "label": "YouTube",
+     "url": "https://www.youtube.com/watch?v=BnVCmKE3oBM"
+    }
+   ],
+   "conflicts": []
+  }
+ }
+}

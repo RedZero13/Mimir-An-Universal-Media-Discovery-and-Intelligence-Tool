@@ -479,6 +479,103 @@ def feed(user: User, before: int | None = Query(default=None, ge=1)) -> list[dic
                          {"me": user["id"]}, 50, before)
 
 
+# ---------------------------------------------------------------- watch-alongs
+class WatchAlongIn(BaseModel):
+    work_slug: str = Field(max_length=200)
+    starts_at: datetime | None = None
+    note: str = Field(default="", max_length=300)
+
+
+class TimedCommentIn(BaseModel):
+    at_seconds: int = Field(ge=0, le=172800)
+    body: str = Field(min_length=1, max_length=1000)
+
+
+def _watch_alongs(conn, viewer: dict | None, where: str, params: dict, limit: int) -> list[dict]:
+    rows = conn.execute(
+        f"SELECT wa.id, wa.starts_at, wa.note, wa.is_open, wa.created_at, u.username, u.display_name, w.slug, w.title, w.medium, "
+        f"(SELECT count(*) FROM watch_along_comment c WHERE c.watch_along_id = wa.id) AS comments, "
+        f"(SELECT count(DISTINCT c.user_id) FROM watch_along_comment c WHERE c.watch_along_id = wa.id) AS people "
+        f"FROM watch_along wa JOIN app_user u ON u.id = wa.user_id JOIN work w ON w.id = wa.work_id "
+        f"WHERE {where} AND {VISIBLE} ORDER BY coalesce(wa.starts_at, wa.created_at) DESC LIMIT %(limit)s",
+        {**params, "viewer": viewer["id"] if viewer else None, "limit": limit}).fetchall()
+    return [{"id": str(r["id"]), "starts_at": r["starts_at"].isoformat() if r["starts_at"] else None, "note": r["note"],
+             "open": r["is_open"], "created_at": r["created_at"].isoformat(),
+             "host": {"username": r["username"], "display_name": r["display_name"]},
+             "work": {"slug": r["slug"], "title": r["title"], "medium": r["medium"]},
+             "comments": r["comments"], "people": r["people"]} for r in rows]
+
+
+def _visible_watch_along(conn, wa_id: str, viewer: dict | None) -> dict:
+    try:
+        row = conn.execute("SELECT wa.*, u.is_private, u.id AS owner_id FROM watch_along wa JOIN app_user u ON u.id = wa.user_id "
+                           "WHERE wa.id = %s", (wa_id,)).fetchone()
+    except Exception:
+        conn.rollback()
+        row = None
+    if row is None or not _can_see(conn, viewer, {"id": row["owner_id"], "is_private": row["is_private"]}):
+        raise HTTPException(404, "watch-along not found")
+    return row
+
+
+@router.post("/watch-alongs", status_code=201)
+def create_watch_along(body: WatchAlongIn, user: User) -> dict:
+    with db.connect() as conn:
+        wid = _work_id(conn, body.work_slug)
+        row = conn.execute("INSERT INTO watch_along (user_id, work_id, starts_at, note) VALUES (%s, %s, %s, %s) RETURNING id",
+                           (user["id"], wid, body.starts_at, body.note.strip())).fetchone()
+        conn.commit()
+    return {"id": str(row["id"])}
+
+
+@router.get("/watch-alongs")
+def list_watch_alongs(viewer: MaybeUser, work: str | None = Query(default=None, max_length=200)) -> list[dict]:
+    """Open watch-alongs, for one work or for everyone."""
+    with db.connect() as conn:
+        if work:
+            return _watch_alongs(conn, viewer, "wa.is_open AND w.slug = %(work)s", {"work": work}, 50)
+        return _watch_alongs(conn, viewer, "wa.is_open", {}, 50)
+
+
+@router.get("/watch-alongs/{wa_id}")
+def get_watch_along(wa_id: str, viewer: MaybeUser) -> dict:
+    with db.connect() as conn:
+        _visible_watch_along(conn, wa_id, viewer)
+        wa = _watch_alongs(conn, viewer, "wa.id = %(id)s", {"id": wa_id}, 1)[0]
+        rows = conn.execute("SELECT c.id, c.at_seconds, c.body, c.created_at, u.username, u.display_name "
+                            "FROM watch_along_comment c JOIN app_user u ON u.id = c.user_id "
+                            "WHERE c.watch_along_id = %s ORDER BY c.at_seconds, c.created_at", (wa_id,)).fetchall()
+    wa["timeline"] = [{"id": str(r["id"]), "at_seconds": r["at_seconds"], "body": r["body"], "created_at": r["created_at"].isoformat(),
+                       "user": {"username": r["username"], "display_name": r["display_name"]},
+                       "mine": bool(viewer and viewer["username"] == r["username"])} for r in rows]
+    return wa
+
+
+@router.post("/watch-alongs/{wa_id}/comments", status_code=201)
+def add_timed_comment(wa_id: str, body: TimedCommentIn, user: User) -> dict:
+    if not body.body.strip():
+        raise HTTPException(422, "a comment needs some words")
+    with db.connect() as conn:
+        wa = _visible_watch_along(conn, wa_id, user)
+        if not wa["is_open"]:
+            raise HTTPException(409, "this watch-along is closed")
+        row = conn.execute("INSERT INTO watch_along_comment (watch_along_id, user_id, at_seconds, body) VALUES (%s, %s, %s, %s) "
+                           "RETURNING id", (wa_id, user["id"], body.at_seconds, body.body.strip())).fetchone()
+        conn.commit()
+    return {"id": str(row["id"])}
+
+
+@router.post("/watch-alongs/{wa_id}/close")
+def close_watch_along(wa_id: str, user: User) -> dict:
+    with db.connect() as conn:
+        wa = _visible_watch_along(conn, wa_id, user)
+        if wa["user_id"] != user["id"]:
+            raise HTTPException(403, "only the host can close a watch-along")
+        conn.execute("UPDATE watch_along SET is_open = false WHERE id = %s", (wa_id,))
+        conn.commit()
+    return {"ok": True}
+
+
 @router.get("/community")
 def community(viewer: MaybeUser, days: int = Query(14, ge=1, le=90)) -> dict:
     """What everyone is reviewing, finishing and joining: the shared front page."""
@@ -495,6 +592,7 @@ def community(viewer: MaybeUser, days: int = Query(14, ge=1, le=90)) -> dict:
                 "reviews": _reviews(conn, viewer, "true", {}, 20),
                 "activity": _activity(conn, viewer, "true", {}, 30),
                 "challenges": [{"slug": c["challenge_slug"], "year": c["year"], "members": c["members"]} for c in challenges],
+                "watch_alongs": _watch_alongs(conn, viewer, "wa.is_open", {}, 12),
                 "members": members}
 
 

@@ -867,6 +867,59 @@ body.is-home.deep .runes { opacity: 1; } body.is-home.deep .well-fx .caustic { o
 .rune { position: absolute; bottom: -6vh; fill: none; stroke: color-mix(in srgb, var(--gold) 70%, transparent); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; animation: rune-rise linear infinite; }
 :root[data-theme="light"] .rune { stroke: color-mix(in srgb, var(--gold-deep) 55%, transparent); }
 @keyframes rune-rise { 0% { opacity: 0; transform: translateY(0) rotate(-6deg); } 12% { opacity: .55; } 50% { transform: translateY(-55vh) rotate(5deg); } 85% { opacity: .35; } 100% { opacity: 0; transform: translateY(-112vh) rotate(-4deg); } }
+/* Rings, badges, trackers, share sheet and toasts. */
+.rings-panel { display: grid; grid-template-columns: auto 1fr; gap: 28px 40px; align-items: center; margin: 22px 0 30px; padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.rings-today { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.ring-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: .95rem; }
+.ring-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+.rings-side { display: grid; gap: 16px; }
+.rings-side h2 { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin: 0 0 8px; width: 100%; }
+.log-time, .ring-goals, .tracker-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
+.log-time label, .ring-goals label, .tracker-form label { display: grid; gap: 4px; font-size: .8rem; color: var(--muted); }
+.log-time input, .log-time select, .ring-goals input, .tracker-form input, .tracker-form select { height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); color: var(--bone); font: inherit; }
+.ring-goals input { width: 74px; } .log-time input { width: 90px; }
+.tracker-form { margin: 18px 0 26px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.tracker-form .grow { flex: 1 1 220px; } .tracker-form .grow input { width: 100%; }
+.streaks { margin: 0; color: var(--muted); }
+.week-rings { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: flex; gap: 14px; flex-wrap: wrap; }
+.week-rings li { display: grid; justify-items: center; gap: 4px; font-size: .74rem; color: var(--muted); }
+.badge-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.badge-card { display: grid; gap: 6px; align-content: start; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); opacity: .72; }
+.badge-card.got { opacity: 1; border-color: color-mix(in srgb, var(--gold) 55%, transparent); box-shadow: var(--shadow-1); }
+.badge-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; font-size: 1.3rem; background: var(--surface-2); color: var(--muted); filter: grayscale(1); }
+.badge-card.got .badge-icon { background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: var(--black); filter: none; }
+.badge-bar { display: block; height: 6px; border-radius: 6px; background: var(--line); overflow: hidden; } .badge-bar span { display: block; height: 100%; background: var(--gold); }
+.badge-state { font-size: .74rem; color: var(--gold); font-weight: 600; }
+.tracker-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+.tracker-card { display: flex; gap: 16px; align-items: flex-start; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-1); }
+.tracker-card h2 { font-size: 1.05rem; margin: 2px 0 4px; } .tracker-pct { font: 650 15px var(--f-body); fill: var(--bone); }
+.lc-kind { font-size: .74rem; color: var(--gold); letter-spacing: .04em; }
+.share-btn { display: inline-flex; align-items: center; gap: 6px; }
+.share-sheet { position: fixed; z-index: 60; display: grid; min-width: 200px; padding: 6px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--menu-bg); box-shadow: var(--shadow-2); }
+.share-sheet a, .share-sheet button { padding: 9px 14px; border: 0; border-radius: 10px; background: none; color: var(--ink); font: 400 .92rem var(--f-body); text-align: left; text-decoration: none; cursor: pointer; }
+.share-sheet a:hover, .share-sheet button:hover { background: var(--surface-2); color: var(--gold-bright); }
+.toast { position: fixed; left: 50%; bottom: 24px; z-index: 70; transform: translate(-50%, 20px); opacity: 0; display: flex; gap: 10px; align-items: center; padding: 12px 18px; border-radius: 999px; background: var(--menu-bg); color: var(--ink); border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent); box-shadow: var(--shadow-2); text-decoration: none; transition: opacity .3s, transform .3s; }
+.toast.in { opacity: 1; transform: translate(-50%, 0); } .toast-icon { color: var(--gold); font-size: 1.2rem; }
+@media (max-width: 800px) { .rings-panel { grid-template-columns: 1fr; padding: 20px; } }
+/* Watch-alongs. */
+.wa-panel { display: grid; gap: 16px; margin: 20px 0 28px; padding: 24px 26px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.wa-clock { display: grid; gap: 12px; }
+.wa-time { font: 650 clamp(2.4rem, 6vw, 3.6rem)/1 var(--f-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; color: var(--bone); }
+.wa-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.wa-jump { display: flex; gap: 6px; align-items: center; } .wa-jump input, .wa-say input { height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface-2); color: var(--bone); font: inherit; }
+.wa-scrub { width: 100%; accent-color: var(--gold); }
+.wa-say { display: flex; gap: 8px; } .wa-say .grow { flex: 1; } .wa-name { width: 140px; }
+.wa-share { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; } .wa-open { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: .9rem; }
+.wa-timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.wa-timeline li { display: grid; grid-template-columns: auto auto 1fr; gap: 12px; align-items: baseline; padding: 10px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+.wa-timeline li.fresh { border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent); }
+.wa-at { border: 0; background: none; padding: 0; font: 600 .82rem var(--f-mono); color: var(--gold); cursor: pointer; } .wa-by { font-weight: 600; font-size: .9rem; } .wa-body { color: var(--ink); }
+/* YouTube directory. */
+.yt-channel { margin: 26px 0; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); }
+.yt-chan-head { display: flex; gap: 14px; align-items: center; text-decoration: none; color: var(--bone); }
+.yt-chan-head .poster { width: 64px; flex: none; border-radius: 50%; overflow: hidden; }
+.yt-chan-head strong { display: block; font-size: 1.2rem; } .yt-about { margin: 12px 0 14px; color: var(--ink); max-width: 80ch; }
+.yt-from { margin: 0 0 14px; color: var(--muted); }
 /* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
 .row { padding-bottom: 20px; }
 .row .pchips { height: 62px; }
@@ -949,7 +1002,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   <main id="app"></main>
   <footer class="foot">
     <nav class="foot-cols" aria-label="Footer">
-      <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
+      <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
       <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
       <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
       <div><h2>Mimir</h2><ul><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
@@ -990,6 +1043,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const PARENT_OF = Object.fromEntries(JSON.parse(document.getElementById("taxonomy-data").textContent).terms
     .filter((t) => t.dimension === "genre" && t.parent).map((t) => [`genre:${t.slug}`, `genre:${t.parent}`]));
   const isSub = (key) => key in PARENT_OF;
+  // YouTube: videos name their channel in the seed.
+  const RAW_WORKS = JSON.parse(document.getElementById("catalogue-data").textContent).works;
+  const CHANNEL_OF = Object.fromEntries(RAW_WORKS.filter((w) => w.medium === "online_video" && w.attributes && w.attributes.channel).map((w) => [w.slug, w.attributes.channel]));
+  const ATTRS = Object.fromEntries(RAW_WORKS.filter((w) => w.attributes).map((w) => [w.slug, w.attributes]));
   const BLOG = JSON.parse(document.getElementById("blog-data").textContent).posts;
   const app = document.getElementById("app");
   const EXAMPLES = [
@@ -1004,13 +1061,15 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     "A short, funny Hindi film for the family",
     "A TV series I can finish in a weekend",
   ];
-  const MEDIUM = { film: "Film", series: "TV series", book: "Book", game: "Game", album: "Album", track: "Track" };
+  const MEDIUM = { film: "Film", series: "TV series", book: "Book", game: "Game", album: "Album", track: "Track", online_video: "YouTube video", channel: "YouTube channel" };
   const MEDAL = {
     film: '<rect x="7" y="8.6" width="10" height="7.6" rx="1.2"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
     book: '<path d="M12 8.4v8.4M12 8.4c-1.6-1-3.5-1-5 0v8c1.5-1 3.4-1 5 0M12 8.4c1.6-1 3.5-1 5 0v8c-1.5-1-3.4-1-5 0"/>',
     game: '<path d="M9 10h6a2.6 2.6 0 0 1 2.6 2.6v1.2a1.6 1.6 0 0 1-2.9.9l-.7-1h-4l-.7 1a1.6 1.6 0 0 1-2.9-.9v-1.2A2.6 2.6 0 0 1 9 10z"/><path d="M9.4 11.6v2M8.4 12.6h2"/>',
     album: '<circle cx="12" cy="12.4" r="4.6"/><circle cx="12" cy="12.4" r="1.2"/>',
     series: '<rect x="6.6" y="8.4" width="10.8" height="7.6" rx="1.2"/><path d="M10 6.4l2 2 2-2M9.6 17.6h4.8"/>',
+    online_video: '<rect x="6" y="8.4" width="12" height="8" rx="2.4"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
+    channel: '<rect x="6" y="8.4" width="12" height="8" rx="2.4"/><path d="M10.6 10.6v3.6l3-1.8z"/>',
   };
   const medal = (m) => `<svg class="medal" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12.4" r="10.6"/>${MEDAL[m] || ""}</svg>`;
   const BASIS = {
@@ -1097,7 +1156,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const cardCover = (w) => coverOf(w, moodFromCard(w));
 
   function coverSvg(c) {
-    const sq = c.medium === "album";
+    const sq = ["album", "online_video", "channel"].includes(c.medium);
     const W = 200, H = sq ? 200 : 300;
     const [bg0, bg1, ac] = PALETTES[c.mood] || PALETTES.default;
     const h = hashOf(c.slug);
@@ -1213,7 +1272,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   // Licensed artwork sits over the generated cover; if it fails to load it's removed and the cover shows through.
-  const poster = (c, cls = "") => `<div class="poster${c.medium === "album" ? " sq" : ""}${cls ? " " + cls : ""}">${coverSvg(c)}${c.image ? `<img src="${esc(c.image.url)}" alt="${esc(c.title)}: ${esc(c.image.kind)}" loading="lazy" decoding="async">` : ""}</div>`;
+  const poster = (c, cls = "") => `<div class="poster${["album", "online_video", "channel"].includes(c.medium) ? " sq" : ""}${cls ? " " + cls : ""}">${coverSvg(c)}${c.image ? `<img src="${esc(c.image.url)}" alt="${esc(c.title)}: ${esc(c.image.kind)}" loading="lazy" decoding="async">` : ""}</div>`;
   document.addEventListener("error", (e) => { if (e.target.tagName === "IMG" && e.target.closest(".poster")) e.target.remove(); }, true);
 
   // ------------------------------------------------------------------ time, continuity, scores
@@ -1225,7 +1284,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const onGroupPage = () => location.hash.startsWith("#group-");
   const contText = (c) => (c.kind === "standalone" ? "Standalone"
     : c.kind === "series" ? `${c.group.name}${c.position && onGroupPage() ? ` · #${c.position}` : ""}` : `${c.group.name} family`);
-  const contChip = (c, medium) => (c && !(medium === "album" && c.kind === "standalone") ? `<span class="cchip k-${c.kind}" title="${esc(contText(c))}">${esc(contText(c))}</span>` : "");
+  const contChip = (c, medium) => (c && !(["album", "online_video", "channel"].includes(medium) && c.kind === "standalone") ? `<span class="cchip k-${c.kind}" title="${esc(contText(c))}">${esc(contText(c))}</span>` : "");
   const fmtNum = (v) => (Number.isInteger(v) ? String(v) : v.toFixed(1));
   const scoreText = (s) => (s.scale_max === 100 && /tomato|%|percent|audience/i.test(`${s.publisher} ${s.metric}`) ? `${fmtNum(s.value)}%` : `${fmtNum(s.value)}/${fmtNum(s.scale_max)}`);
   // One scale everywhere a work is summarised: the mean of every score we hold, out of 100. Each source stays on the work's page.
@@ -1436,6 +1495,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           ${hasAsked || Object.keys(ratings).length >= 3 ? "" : starterPicker(true)}
           ${timeTiles()}
           ${allShelves().slice(0, 2).map(shelfRow).join("")}
+          ${youtubeRow()}
         </div>
         ${sideRail()}
       </div>
@@ -1518,7 +1578,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ search pages (one per medium) and rankings
   const MEDIA = ["film", "series", "book", "game", "album"];
-  const PLURAL = { all: "Everything", film: "Films", series: "TV series", book: "Books", game: "Games", album: "Albums" };
+  const PLURAL = { all: "Everything", film: "Films", series: "TV series", book: "Books", game: "Games", album: "Albums", online_video: "YouTube videos", channel: "YouTube channels" };
   const MAKER = { film: "Directors", series: "Creators", book: "Authors", game: "Developers & studios", album: "Artists", all: "People & studios" };
   const CREATOR_ROLE = { film: "Director", series: "Created by", book: "Author", game: "Developer", album: "Artist" };
   const SORTS = [["popular", "Best known"], ["score", "Highest scored"], ["title", "Title A–Z"], ["newest", "Newest"], ["oldest", "Oldest"], ["shortest", "Shortest"]];
@@ -1830,12 +1890,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
       ["Seoul Searching", "#shelf-seoul-searching"], ["Desi Delights", "#shelf-desi-delights"]]],
-    ["Books", [["All books", "#books"], ["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Book series", "#series"]]],
+    ["Books", [["All books", "#books"], ["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Audiobooks", "#audiobooks"], ["Book series", "#series"]]],
     ["Games", [["All games", "#games"], ["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
+    ["YouTube", [["Channels & videos", "#youtube"], ["Comedy", "#youtube?f=comedy"], ["Food", "#youtube?f=food"], ["Gaming & horror", "#youtube?f=horror"], ["VFX & film", "#youtube?f=documentary"], ["Mysteries", "#youtube?f=mystery"]]],
     ["Music", [["All music", "#albums"], ["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
-      ["Journal", "#journal"], ["Lists", "#lists"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
+      ["Journal", "#journal"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
@@ -1983,6 +2044,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
               <button class="btn ghost" type="button" data-similar="${esc(w.title)}">Find similar</button>
               <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
               ${mineBtn(w.slug)}
+              ${["film", "series"].includes(w.medium) ? `<a class="btn ghost" href="#watch-${esc(w.slug)}">Watch along</a>` : ""}
+              ${shareButton(`${location.origin}${location.pathname}#work-${w.slug}`, w.title, `${w.title} (${[mediumLabel(w.medium), w.year].filter(Boolean).join(", ")}) on Mimir`)}
             </div>
             <p class="rate-row"><span class="eyebrow">Your rating</span>${rateButtons(w.slug)}<span class="muted small">Ratings tune your <a href="#for-you">picks for you</a>.</span></p>
             ${trackerPanel(w)}
@@ -1993,6 +2056,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <nav class="jump" aria-label="On this page">${jumps.map(([id, l]) => `<button type="button" class="linkish" data-jump="${id}">${l}</button>`).join("")}</nav>
         <section class="block" id="overview">
           ${w.summary ? `<p class="lead-summary">${esc(w.summary)}</p>` : ""}
+          ${CHANNEL_OF[w.slug] && workOf(CHANNEL_OF[w.slug]) ? `<p class="yt-from">From <a href="#work-${esc(CHANNEL_OF[w.slug])}">${esc(workOf(CHANNEL_OF[w.slug]).title)}</a>${ATTRS[w.slug] && ATTRS[w.slug].views ? ` · ${esc(ATTRS[w.slug].views)} views on YouTube` : ""}</p>` : ""}
+          ${w.medium === "channel" && ATTRS[w.slug] ? `<p class="yt-from">${esc(ATTRS[w.slug].handle || "")}${ATTRS[w.slug].subscribers ? ` · ${esc(ATTRS[w.slug].subscribers)}` : ""}${ATTRS[w.slug].videos ? ` · ${esc(ATTRS[w.slug].videos)}` : ""}</p>${row(videosOf(w.slug))}` : ""}
           ${still ? `<figure class="still"><img src="${esc(still.url)}" alt="${esc(w.title)}: image from Wikimedia Commons" loading="lazy" decoding="async"><figcaption class="muted small">${esc(still.licence)}${still.attribution ? ` · ${esc(still.attribution)}` : ""} · via ${esc(still.source)}</figcaption></figure>` : ""}
           <dl class="facts">${facts.map(([k, v]) => { const fs = w.fact_sources[factSource(k)]; return `<div><dt>${esc(k)}</dt><dd>${esc(v)}${fs ? `<br><span class="muted small">from ${esc(fs.source)}; pilot seed said ${esc(fs.seed ?? "nothing")}</span>` : ""}</dd></div>`; }).join("")}</dl>
           ${c.adapted_from.length || c.adapted_as.length ? `<p class="small" style="margin-top:16px">${c.adapted_from.map((a) => `Adapted from <a href="#work-${esc(a.slug)}">${esc(a.title)}</a> (${esc(mediumLabel(a.medium).toLowerCase())}). `).join("")}${c.adapted_as.map((a) => `Adapted as <a href="#work-${esc(a.slug)}">${esc(a.title)}</a> (${esc(mediumLabel(a.medium).toLowerCase())}). `).join("")}</p>` : ""}
@@ -2001,7 +2066,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <header class="shelf-head"><div><h2>${c.kind === "series" ? `The ${esc(c.group.name)} series` : `The ${esc(c.group.name)} family`}</h2><p>${c.kind === "series" ? "In series order." : "In release order, found through sequel, spin-off and remake links."}</p></div><a class="see-all" href="#group-${esc(c.group.slug)}">Open</a></header>
           <ol class="run">${c.members.map((m, i) => `<li class="${m.slug === w.slug ? "here" : ""}"><a href="#work-${esc(m.slug)}">${(() => { const mw = cat.work(m.slug); return poster(coverOf({ ...m, creators: [], images: mw.images }, moodFromPage(mw))); })()}<span class="run-n">${m.position ? `No. ${esc(m.position)}` : i + 1}</span><span class="run-t">${esc(m.title)}</span><span class="pmeta">${esc([mediumLabel(m.medium), m.year].filter(Boolean).join(" · "))}${m.slug === w.slug ? " · this one" : ""}</span></a></li>`).join("")}</ol>
         </section>` : ""}
-        ${whereBlock(where)}
+        ${whereBlock(where)}${w.medium === "book" ? audiobookBlock(w) : ""}
         ${CONFIG.api ? `<section class="block" id="reviews"><h2>Reviews</h2><div id="reviews-box"><p class="muted small">Loading reviews…</p></div></section>` : ""}
         <section class="block" id="journal">${journalPanel(w)}</section>
         ${w.tracks.length ? `<section class="block" id="tracks"><h2>Tracks</h2>${trackList(w.tracks, false)}</section>` : ""}
@@ -2274,13 +2339,16 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     return lib;
   }
   let library = loadLibrary();
-  function saveLibrary() { store("mimir-library", library); refreshCounts(); queueSync(); }
+  function saveLibrary() { store("mimir-library", library); refreshCounts(); queueSync(); setTimeout(checkBadges, 0); }
 
   // What progress is counted in, and how much there is, where the catalogue knows.
+  // Audiobooks: about 155 spoken words a minute over roughly 300 words a page. An estimate, and labelled as one.
+  const listenMinutes = (w) => (w && w.page_count ? Math.round(w.page_count * 1.95) : null);
   function progressUnit(w) {
     const a = w.attributes || {};
     if (w.medium === "series") return { unit: "episodes", total: a.episodes || null, step: 1 };
     if (w.medium === "book" && ["manga", "manhwa", "manhua"].includes(a.form)) return { unit: "chapters", total: a.chapters || null, step: 1 };
+    if (w.medium === "book" && library[w.slug] && library[w.slug].format === "audiobook") { const m = listenMinutes(w); return { unit: "hours", total: m ? Math.ceil(m / 60) : null, step: 1 }; }
     if (w.medium === "book") return { unit: "pages", total: w.page_count || null, step: 10 };
     if (w.medium === "game") return { unit: "hours", total: w.playtime_hours || null, step: 1 };
     return null;
@@ -2289,7 +2357,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function updateEntry(slug, patch) {
     const w = cat.work(slug);
     if (!w) return;
+    const before = library[slug] ? { ...library[slug] } : null;
     const e = { added: today(), ...(library[slug] || {}), ...patch, updated: today() };
+    if (patch.format !== undefined && before && before.format !== patch.format && e.status !== "completed") e.progress = 0;
+    library[slug] = e;   // so progressUnit sees the new format
     const pu = progressUnit(w);
     if (patch.status === "active" && !e.started) e.started = today();
     if (patch.status === "completed") {
@@ -2303,8 +2374,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       else if (e.progress > 0 && (!e.status || e.status === "planned")) { e.status = "active"; e.started = e.started || today(); }
     }
     if (!e.status) e.status = "planned";
-    const was = (library[slug] || {}).status;
+    const was = (before || {}).status;
     library[slug] = e;
+    logMinutes(w.medium === "book" && e.format === "audiobook" ? "audiobook" : w.medium, minutesFor(w, before, e, patch.progress !== undefined), slug);
     saveLibrary();
     if (e.status !== was) shareActivity(slug, e.status);
   }
@@ -2377,6 +2449,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <div class="tr-grid">
           <label><span>Status</span>${statusSel(w, e)}</label>
           <label><span>Your score</span>${scoreSel(w, e)}</label>
+          ${w.medium === "book" && !["manga", "manhwa", "manhua"].includes((w.attributes || {}).form) ? `<label><span>Format</span><select data-track="format" data-slug="${esc(w.slug)}"><option value="">Print or ebook</option><option value="audiobook" ${e && e.format === "audiobook" ? "selected" : ""}>Audiobook</option></select></label>` : ""}
           ${pu ? `<label><span>Progress</span>${progressCtl(w, e)}</label>` : ""}
           <label><span>Started</span><input type="date" data-track="started" data-slug="${esc(w.slug)}" value="${esc((e && e.started) || "")}"></label>
           <label><span>Finished</span><input type="date" data-track="finished" data-slug="${esc(w.slug)}" value="${esc((e && e.finished) || "")}"></label>
@@ -2390,22 +2463,22 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ custom lists, shareable by link
   let lists = stored("mimir-lists", []);
-  const saveLists = () => { store("mimir-lists", lists); queueSync(); };
+  const saveLists = () => { store("mimir-lists", lists); queueSync(); setTimeout(checkBadges, 0); };
   const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   function listPicker(slug) {
     return `<div class="tr-lists"><span>Lists</span>
       ${lists.map((l) => `<button type="button" class="tchip${l.slugs.includes(slug) ? " on" : ""}" data-list-toggle="${esc(l.id)}" data-slug="${esc(slug)}" aria-pressed="${l.slugs.includes(slug)}">${esc(l.name)}</button>`).join("")}
       <form class="tr-newlist" data-newlist="${esc(slug)}"><input name="name" placeholder="New list…" aria-label="New list name" maxlength="60"><button type="submit" class="linkish">Create</button></form></div>`;
   }
-  const shareUrl = (l) => `${location.origin}${location.pathname}#shared?n=${encodeURIComponent(l.name)}&w=${encodeURIComponent(l.slugs.join(","))}${l.note ? `&d=${encodeURIComponent(l.note)}` : ""}`;
+  const shareUrl = (l) => `${location.origin}${location.pathname}#shared?n=${encodeURIComponent(l.name)}&w=${encodeURIComponent(l.slugs.join(","))}${l.note ? `&d=${encodeURIComponent(l.note)}` : ""}${l.kind && l.kind !== "list" ? `&k=${l.kind}` : ""}`;
   const worksOf = (slugs) => slugs.map((s) => allWorks().find((w) => w.slug === s)).filter(Boolean);
 
   function renderLists() {
     app.innerHTML = `
       <header class="page-band"><h1>Your lists</h1></header>
       <p class="muted" style="margin:14px 0">Make lists across any medium: a reading order, a weekend marathon, the best of a year. Share one with a link; whoever opens it can save a copy.</p>
-      <form class="lib-form" data-newlist=""><input name="name" placeholder="Name a new list" maxlength="60" aria-label="List name" required><button class="btn" type="submit">Create list</button></form>
-      ${lists.length ? `<ul class="list-cards">${lists.map((l) => `<li><a href="#list-${esc(l.id)}"><span class="lc-name">${esc(l.name)}</span><span class="count">${l.slugs.length} works · updated ${esc(l.updated || l.created)}</span>
+      <form class="lib-form" data-newlist=""><select name="kind" aria-label="List type">${LIST_KINDS.map(([k, l, i]) => `<option value="${k}">${i} ${l}</option>`).join("")}</select><input name="name" placeholder="Name a new list" maxlength="60" aria-label="List name" required class="grow"><button class="btn" type="submit">Create list</button></form>
+      ${lists.length ? `<ul class="list-cards">${lists.map((l) => `<li><a href="#list-${esc(l.id)}"><span class="lc-kind">${kindOf(l)[2]} ${esc(kindOf(l)[1])}</span><span class="lc-name">${esc(l.name)}</span><span class="count">${l.slugs.length} works · updated ${esc(l.updated || l.created)}</span>
         <span class="lc-fan">${worksOf(l.slugs).slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span></a></li>`).join("")}</ul>`
         : `<p class="empty">No lists yet. Create one here, or add works to a list from any work page.</p>`}`;
   }
@@ -2414,14 +2487,14 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const l = lists.find((x) => x.id === id);
     if (!l) { app.innerHTML = `<p class="empty">That list isn't in this browser. <a href="#lists">Your lists</a></p>`; return; }
     app.innerHTML = `
-      <header class="page-band"><h1>${esc(l.name)}</h1></header>
+      <header class="page-band"><p class="eyebrow">${kindOf(l)[2]} ${esc(kindOf(l)[1])}</p><h1>${esc(l.name)}</h1></header>
       <p class="crumbs" style="margin-top:12px"><a href="#lists">Your lists</a></p>
       <form class="lib-form" data-list-meta="${esc(l.id)}">
         <input name="name" value="${esc(l.name)}" maxlength="60" aria-label="List name">
         <input name="note" value="${esc(l.note || "")}" maxlength="200" placeholder="A line about this list" aria-label="Description" class="grow">
         <button class="btn ghost" type="submit">Save</button>
       </form>
-      <p class="lib-actions"><button type="button" class="btn" data-list-share="${esc(l.id)}">Copy share link</button>
+      <p class="lib-actions">${shareButton(shareUrl(l), l.name, `${kindOf(l)[1]} on Mimir: ${l.name}${l.note ? ` — ${l.note}` : ""}`)}<button type="button" class="btn ghost" data-list-share="${esc(l.id)}">Copy link</button>
         ${session ? `<button type="button" class="btn ghost" data-list-publish="${esc(l.id)}">Publish to my profile</button>` : ""}
         <button type="button" class="linkish" data-list-delete="${esc(l.id)}">Delete list</button></p>
       ${l.slugs.length ? pgrid(worksOf(l.slugs), (w) => `<p class="lib-row-actions"><button type="button" class="linkish" data-list-move="${esc(l.id)}" data-slug="${esc(w.slug)}" data-dir="-1" aria-label="Move up">↑</button><button type="button" class="linkish" data-list-move="${esc(l.id)}" data-slug="${esc(w.slug)}" data-dir="1" aria-label="Move down">↓</button><button type="button" class="linkish" data-list-toggle="${esc(l.id)}" data-slug="${esc(w.slug)}">Remove</button></p>`)
@@ -2433,10 +2506,409 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const slugs = (p.get("w") || "").split(",").filter(Boolean);
     const works = worksOf(slugs);
     app.innerHTML = `
-      <header class="page-band"><h1>${esc(name)}</h1></header>
+      <header class="page-band"><p class="eyebrow">${kindOf({ kind: p.get("k") })[2]} ${esc(kindOf({ kind: p.get("k") })[1])}</p><h1>${esc(name)}</h1></header>
       <p class="muted" style="margin:14px 0">${p.get("d") ? esc(p.get("d")) + " · " : ""}A list shared with you: ${works.length} works${works.length < slugs.length ? ` (${slugs.length - works.length} not in this catalogue)` : ""}.</p>
-      <p class="lib-actions"><button type="button" class="btn" data-shared-save>Save a copy to my lists</button></p>
+      <p class="lib-actions"><button type="button" class="btn" data-shared-save>Save a copy to my lists</button>${shareButton(location.href, name)}</p>
       ${pgrid(works, (w) => mineBtn(w.slug, true))}`;
+  }
+
+  // ------------------------------------------------------------------ activity log, rings, badges, trackers, share sheet
+  // Minutes spent, estimated from progress you log (episodes, pages, chapters, hours) or from a finished film or album,
+  // plus anything you log by hand. Kept in this browser like the rest of the library.
+  let activity = stored("mimir-activity", []);   // [{ d: "YYYY-MM-DD", m: medium, min, s?: slug }]
+  const saveActivity = () => { store("mimir-activity", activity); queueSync(); setTimeout(checkBadges, 0); };
+  const RINGS = [["watch", "Watch", ["film", "series", "online_video", "channel"]], ["read", "Read", ["book"]], ["play", "Play", ["game"]], ["listen", "Listen", ["album", "audiobook"]]];
+  let ringGoals = stored("mimir-ring-goals", { watch: 60, read: 30, play: 30, listen: 30 });
+  const ringOf = (medium) => (RINGS.find((r) => r[2].includes(medium)) || RINGS[0])[0];
+  function minutesFor(w, before, after, viaProgress) {
+    const a = w.attributes || {};
+    const pu = progressUnit(w);
+    if (pu && viaProgress) {
+      const delta = Math.max(0, (after.progress || 0) - ((before && before.progress) || 0));
+      if (!delta) return 0;
+      if (pu.unit === "episodes") return delta * (a.episode_minutes || 40);
+      if (pu.unit === "chapters") return delta * 6;
+      if (pu.unit === "pages") return Math.round(delta * 1.5);
+      if (pu.unit === "hours") return delta * 60;
+    }
+    if (!pu && after.status === "completed" && (!before || before.status !== "completed")) return w.runtime_minutes || (w.time && w.time.minutes) || 0;
+    return 0;
+  }
+  function logMinutes(medium, min, slug) {
+    if (!min || min < 1) return;
+    activity.push({ id: newId(), d: today(), m: medium, min: Math.round(min), ...(slug ? { s: slug } : {}) });
+    saveActivity();
+  }
+  const dayMinutes = (date) => {
+    const out = Object.fromEntries(RINGS.map(([k]) => [k, 0]));
+    for (const a of activity) if (a.d === date) out[ringOf(a.m)] += a.min;
+    return out;
+  };
+  const isoDay = (offset) => { const d = new Date(); d.setDate(d.getDate() - offset); return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); };
+  const closedAll = (date) => { const m = dayMinutes(date); return RINGS.every(([k]) => !ringGoals[k] || m[k] >= ringGoals[k]); };
+  const closedAny = (date) => { const m = dayMinutes(date); return RINGS.some(([k]) => ringGoals[k] && m[k] >= ringGoals[k]); };
+  function streak(test) {
+    let n = 0;
+    for (let i = test(isoDay(0)) ? 0 : 1; i < 400 && test(isoDay(i)); i++) n++;
+    return n;
+  }
+  const RING_TINT = { watch: "#C0902F", read: "#B5603A", play: "#7C6BB0", listen: "#3E8C8C" };
+  function ringsSvg(date, size = 168) {
+    const m = dayMinutes(date);
+    const c = size / 2, w = size * 0.085, gap = w * 1.25;
+    return `<svg class="rings-svg" viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" role="img" aria-label="${RINGS.map(([k, l]) => `${l} ${m[k]} of ${ringGoals[k]} minutes`).join(", ")}">${RINGS.map(([k], i) => {
+      const r = c - w / 2 - i * gap, len = 2 * Math.PI * r, frac = ringGoals[k] ? Math.min(1, m[k] / ringGoals[k]) : 0;
+      return `<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${RING_TINT[k]}" stroke-opacity=".18" stroke-width="${w}"/>
+        ${frac > 0 ? `<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${RING_TINT[k]}" stroke-width="${w}" stroke-linecap="round" stroke-dasharray="${(len * frac).toFixed(1)} ${len.toFixed(1)}" transform="rotate(-90 ${c} ${c})"/>` : ""}`;
+    }).join("")}</svg>`;
+  }
+
+  // Badges are worked out from what you've logged; nothing is stored but the ones you've already been told about.
+  const MILESTONES = [1, 5, 10, 25, 50, 100, 250, 500, 1000];
+  function badges() {
+    const entries = Object.entries(library);
+    const done = entries.filter(([, e]) => e.status === "completed").map(([s]) => allWorks().find((w) => w.slug === s)).filter(Boolean);
+    const doneBy = (m) => done.filter((w) => w.medium === m).length;
+    const genres = new Set(done.flatMap((w) => (w.genres || []).filter((g) => !isSub(g.key)).map((g) => g.key)));
+    const countries = new Set(done.flatMap((w) => w.countries || []));
+    const decades = new Set(done.filter((w) => w.year).map((w) => Math.floor(w.year / 10)));
+    const media = new Set(done.map((w) => w.medium));
+    const rated = Object.keys(ratings).length + entries.filter(([, e]) => e.score).length;
+    const totalMin = activity.reduce((a, x) => a + x.min, 0);
+    const series = new Map();
+    done.forEach((w) => { if (w.continuity && w.continuity.kind === "series") series.set(w.continuity.group.slug, (series.get(w.continuity.group.slug) || 0) + 1); });
+    const sagaMax = Math.max(0, ...series.values());
+    const out = [];
+    const tier = (id, icon, name, desc, have, steps) => steps.forEach((n) => out.push({ id: `${id}-${n}`, icon, name: name(n), desc: desc(n), have, need: n }));
+    tier("logged", "✦", (n) => (n === 1 ? "First entry" : `${n} logged`), (n) => (n === 1 ? "Add your first work to the library." : `Log ${n} works in your library.`), entries.length, MILESTONES);
+    tier("finished", "✓", (n) => (n === 1 ? "First finish" : `${n} finished`), (n) => `Finish ${n === 1 ? "a work" : `${n} works`}, any medium.`, done.length, [1, 10, 25, 50, 100, 250]);
+    tier("film", "🎞", (n) => (n === 1 ? "Opening night" : `Film buff ${n}`), (n) => `Finish ${n === 1 ? "a film" : `${n} films`}.`, doneBy("film"), [1, 10, 50, 100]);
+    tier("series", "📺", (n) => (n === 1 ? "Pilot" : `Binger ${n}`), (n) => `Finish ${n === 1 ? "a series" : `${n} series`}.`, doneBy("series"), [1, 5, 25]);
+    tier("book", "📖", (n) => (n === 1 ? "First chapter" : `Bookworm ${n}`), (n) => `Finish ${n === 1 ? "a book" : `${n} books`}.`, doneBy("book"), [1, 10, 50, 100]);
+    tier("game", "🎮", (n) => (n === 1 ? "Player one" : `Completionist ${n}`), (n) => `Finish ${n === 1 ? "a game" : `${n} games`}.`, doneBy("game"), [1, 5, 25]);
+    tier("album", "🎧", (n) => (n === 1 ? "Needle drop" : `Audiophile ${n}`), (n) => `Listen through ${n === 1 ? "an album" : `${n} albums`}.`, doneBy("album"), [1, 10, 50]);
+    tier("omni", "◎", () => "Omnivore", () => "Finish something in every medium: film, TV, book, game and album.", media.size, [5]);
+    tier("genres", "⟡", (n) => `Genre explorer ${n}`, (n) => `Finish works across ${n} different genres.`, genres.size, [5, 10, 20]);
+    tier("world", "🜨", (n) => `World tour ${n}`, (n) => `Finish works from ${n} countries.`, countries.size, [5, 10, 25]);
+    tier("ages", "⌛", (n) => `Across the ages ${n}`, (n) => `Finish works from ${n} different decades.`, decades.size, [5, 10]);
+    tier("saga", "∞", (n) => `Saga keeper ${n}`, (n) => `Finish ${n} works from the same series.`, sagaMax, [3, 5]);
+    tier("critic", "★", (n) => `Critic ${n}`, (n) => `Rate ${n} works.`, rated, [10, 50, 100]);
+    tier("journal", "✎", (n) => (n === 1 ? "Dear diary" : `Chronicler ${n}`), (n) => `Write ${n === 1 ? "a journal entry" : `${n} journal entries`}.`, journal.length, [1, 10, 50]);
+    tier("lists", "☰", (n) => (n === 1 ? "Curator" : `Master curator ${n}`), (n) => `Make ${n === 1 ? "a list" : `${n} lists`}.`, lists.length, [1, 5]);
+    tier("hours", "◷", (n) => `${n} hour${n === 1 ? "" : "s"} in`, (n) => `Log ${n} hours of watching, reading, playing or listening.`, Math.floor(totalMin / 60), [1, 10, 50, 100, 500]);
+    tier("rings", "◉", (n) => (n === 1 ? "Full circle" : `${n}-day streak`), (n) => (n === 1 ? "Close every ring in one day." : `Close every ring ${n} days in a row.`), streak(closedAll), [1, 7, 30]);
+    tier("daily", "☀", (n) => `${n} days of stories`, (n) => `Close at least one ring ${n} days in a row.`, streak(closedAny), [3, 14, 60]);
+    return out.map((b) => ({ ...b, earned: b.have >= b.need }));
+  }
+  let badgesSeen = new Set(stored("mimir-badges-seen", null) || []);
+  let badgesPrimed = stored("mimir-badges-seen", null) !== null;
+  function checkBadges() {
+    const earned = badges().filter((b) => b.earned);
+    // The first time this runs, existing progress counts as already seen, so nobody gets forty toasts at once.
+    const fresh = badgesPrimed ? earned.filter((b) => !badgesSeen.has(b.id)) : [];
+    earned.forEach((b) => badgesSeen.add(b.id));
+    badgesPrimed = true;
+    store("mimir-badges-seen", [...badgesSeen]);
+    fresh.slice(0, 3).forEach((b, i) => setTimeout(() => toast(`<span class="toast-icon">${b.icon}</span> Badge unlocked: <strong>${esc(b.name)}</strong>`, "#achievements"), i * 900));
+  }
+  // Prime once at start-up (after every store has loaded), so the very first badge someone earns gets its toast.
+  setTimeout(() => { if (!badgesPrimed) { badges().filter((b) => b.earned).forEach((b) => badgesSeen.add(b.id)); badgesPrimed = true; store("mimir-badges-seen", [...badgesSeen]); } }, 0);
+  function toast(html, href) {
+    const t = document.createElement(href ? "a" : "div");
+    t.className = "toast"; t.innerHTML = html; if (href) t.href = href;
+    t.style.bottom = `${24 + document.querySelectorAll(".toast").length * 58}px`;
+    document.body.appendChild(t);
+    requestAnimationFrame(() => t.classList.add("in"));
+    setTimeout(() => { t.classList.remove("in"); setTimeout(() => t.remove(), 400); }, 4200);
+  }
+
+  function renderAchievements() {
+    const all = badges();
+    const earned = all.filter((b) => b.earned);
+    // Show each ladder's earned steps and the next one to aim for.
+    const next = new Map();
+    all.filter((b) => !b.earned).forEach((b) => { const k = b.id.replace(/-\d+$/, ""); if (!next.has(k)) next.set(k, b); });
+    const m = dayMinutes(today());
+    const week = Array.from({ length: 7 }, (_, i) => isoDay(6 - i));
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Library</p><h1>Rings & badges</h1>
+        <p class="muted">Close a ring by spending time with stories each day. Time is estimated from the episodes, pages, chapters and hours you log, plus anything you add here. Kept in this browser.</p></header>
+      <section class="rings-panel">
+        <div class="rings-today">${ringsSvg(today(), 196)}
+          <ul class="ring-legend">${RINGS.map(([k, l]) => `<li><i style="background:${RING_TINT[k]}"></i><strong>${l}</strong> ${m[k]}/${ringGoals[k]} min</li>`).join("")}</ul></div>
+        <div class="rings-side">
+          <form class="log-time" data-log-time><h2>Log time</h2>
+            <label><span>What</span><select name="ring">${RINGS.map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select></label>
+            <label><span>Minutes</span><input name="min" type="number" min="1" max="1440" value="30" required></label>
+            <button class="btn" type="submit">Add</button></form>
+          <form class="ring-goals" data-ring-goals><h2>Daily goals</h2>${RINGS.map(([k, l]) => `<label><span>${l}</span><input name="${k}" type="number" min="0" max="600" step="5" value="${ringGoals[k]}"> min</label>`).join("")}
+            <button class="btn ghost" type="submit">Save goals</button></form>
+          <p class="streaks"><strong>${streak(closedAll)}</strong> day streak closing every ring · <strong>${streak(closedAny)}</strong> days with at least one</p>
+        </div>
+        <ol class="week-rings">${week.map((d) => `<li>${ringsSvg(d, 54)}<span>${new Date(d + "T12:00").toLocaleDateString("en", { weekday: "short" })}</span></li>`).join("")}</ol>
+      </section>
+      <section class="block"><header class="shelf-head"><div><h2>Badges</h2><p>${earned.length} of ${all.length} earned.</p></div>
+        ${earned.length ? shareButton(`${location.origin}${location.pathname}#achievements`, "My Mimir badges", `I've earned ${earned.length} badges on Mimir, including ${earned.slice(-3).map((b) => b.name).join(", ")}.`) : ""}</header>
+        <ul class="badge-grid">${[...earned.slice().reverse(), ...next.values()].map((b) => `
+          <li class="badge-card${b.earned ? " got" : ""}"><span class="badge-icon" aria-hidden="true">${b.icon}</span><strong>${esc(b.name)}</strong><span class="muted small">${esc(b.desc)}</span>
+            ${b.earned ? `<span class="badge-state">Earned</span>` : `<span class="badge-bar"><span style="width:${Math.min(100, (b.have / b.need) * 100)}%"></span></span><span class="badge-state">${Math.min(b.have, b.need)} / ${b.need}</span>`}</li>`).join("")}</ul></section>`;
+  }
+
+  // Custom trackers: a goal over the works you finish or the time you spend, filtered however you like.
+  let trackers = stored("mimir-trackers", []);
+  const saveTrackers = () => { store("mimir-trackers", trackers); queueSync(); };
+  function trackerProgress(t) {
+    const inPeriod = (d) => !!d && (!t.from || d >= t.from) && (!t.to || d <= t.to);
+    const okWork = (w) => w && (!t.medium || w.medium === t.medium) && (!t.tag || (w.genres || []).concat(w.tags || []).some((g) => g.key === t.tag) || (cat.work(w.slug) || { tags: [] }).tags.some((dd) => dd.terms.some((x) => x.key === t.tag)))
+      && (!t.list || ((lists.find((l) => l.id === t.list) || { slugs: [] }).slugs.includes(w.slug)));
+    if (t.kind === "minutes") {
+      const mins = activity.filter((a) => inPeriod(a.d) && (!t.medium || a.m === t.medium) && (!t.list && !t.tag || (a.s && okWork(allWorks().find((w) => w.slug === a.s))))).reduce((n, a) => n + a.min, 0);
+      return { have: Math.round(mins / 60), unit: "hours", works: [] };
+    }
+    const works = Object.entries(library).filter(([, e]) => e.status === "completed" && inPeriod(e.finished)).map(([s]) => allWorks().find((w) => w.slug === s)).filter(okWork);
+    return { have: works.length, unit: t.medium ? PLURAL[t.medium].toLowerCase() : "works", works };
+  }
+  const yearStart = () => `${new Date().getFullYear()}-01-01`, yearEnd = () => `${new Date().getFullYear()}-12-31`;
+  function renderTrackers() {
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Library</p><h1>Trackers</h1>
+        <p class="muted">Set your own goal: 24 books this year, every Studio Ghibli film, 100 hours of games, a list worked through by summer. Progress fills in as you log.</p></header>
+      <form class="tracker-form" data-new-tracker>
+        <label class="grow"><span>Name</span><input name="name" required maxlength="60" placeholder="e.g. 24 books in ${new Date().getFullYear()}"></label>
+        <label><span>Count</span><select name="kind"><option value="works">Works finished</option><option value="minutes">Hours spent</option></select></label>
+        <label><span>Target</span><input name="target" type="number" min="1" max="10000" value="12" required></label>
+        <label><span>Medium</span><select name="medium"><option value="">Any</option>${MEDIA.map((m) => `<option value="${m}">${esc(PLURAL[m])}</option>`).join("")}</select></label>
+        <label><span>Genre or tag</span><select name="tag"><option value="">Any</option>${cat.tags().flatMap((g) => g.terms).filter((x) => x.key.startsWith("genre:")).sort((a, b) => a.label.localeCompare(b.label)).map((x) => `<option value="${esc(x.key)}">${esc(x.label)}</option>`).join("")}</select></label>
+        <label><span>From list</span><select name="list"><option value="">Any</option>${lists.map((l) => `<option value="${esc(l.id)}">${esc(l.name)}</option>`).join("")}</select></label>
+        <label><span>From</span><input name="from" type="date" value="${yearStart()}"></label>
+        <label><span>To</span><input name="to" type="date" value="${yearEnd()}"></label>
+        <button class="btn" type="submit">Add tracker</button></form>
+      ${trackers.length ? `<ul class="tracker-cards">${trackers.map((t) => { const p = trackerProgress(t); const frac = Math.min(1, p.have / t.target); const r = 34, len = 2 * Math.PI * r; return `
+        <li class="tracker-card"><svg viewBox="0 0 84 84" width="84" height="84" aria-hidden="true"><circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--line)" stroke-width="8"/>${frac > 0 ? `<circle cx="42" cy="42" r="${r}" fill="none" stroke="var(--gold)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${(len * frac).toFixed(1)} ${len.toFixed(1)}" transform="rotate(-90 42 42)"/>` : ""}<text x="42" y="47" text-anchor="middle" class="tracker-pct">${Math.round(frac * 100)}%</text></svg>
+          <div><h2>${esc(t.name)}</h2><p class="muted small">${p.have} of ${t.target} ${esc(p.unit)}${t.from || t.to ? ` · ${esc(t.from || "…")} to ${esc(t.to || "…")}` : ""}</p>
+            ${p.works.length ? `<span class="lc-fan">${p.works.slice(-5).map((w) => poster(cardCover(w))).join("")}</span>` : ""}
+            <p class="lib-actions">${shareButton(`${location.origin}${location.pathname}#trackers`, t.name, `${t.name}: ${p.have} of ${t.target} ${p.unit} so far, tracked on Mimir.`)}<button type="button" class="linkish" data-tracker-delete="${esc(t.id)}">Delete</button></p></div></li>`; }).join("")}</ul>`
+        : `<p class="empty">No trackers yet. Add one above.</p>`}`;
+  }
+
+  // One share sheet for lists, works, trackers and badges: the device's own sheet where there is one, plus direct links.
+  const shareButton = (url, title, text = "") => `<button type="button" class="btn ghost share-btn" data-share-url="${esc(url)}" data-share-title="${esc(title)}" data-share-text="${esc(text)}"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Share</button>`;
+  function openShare(btn) {
+    document.querySelector(".share-sheet")?.remove();
+    const { shareUrl: url, shareTitle: title, shareText: text } = btn.dataset;
+    const u = encodeURIComponent(url), tt = encodeURIComponent(text || title);
+    const targets = [
+      ["WhatsApp", `https://wa.me/?text=${encodeURIComponent(`${text || title} ${url}`)}`],
+      ["X", `https://twitter.com/intent/tweet?text=${tt}&url=${u}`],
+      ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${u}`],
+      ["LinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${u}`],
+      ["Reddit", `https://www.reddit.com/submit?url=${u}&title=${encodeURIComponent(title)}`],
+      ["Telegram", `https://t.me/share/url?url=${u}&text=${tt}`],
+      ["Email", `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${text ? text + "\n\n" : ""}${url}`)}`],
+    ];
+    const sheet = document.createElement("div");
+    sheet.className = "share-sheet"; sheet.setAttribute("role", "dialog"); sheet.setAttribute("aria-label", "Share");
+    sheet.innerHTML = `${navigator.share ? `<button type="button" data-share-native>Share via…</button>` : ""}<button type="button" data-share-copy>Copy link</button>
+      ${targets.map(([l, h]) => `<a href="${esc(h)}" target="_blank" rel="noopener">${l}</a>`).join("")}`;
+    document.body.appendChild(sheet);
+    const r = btn.getBoundingClientRect();
+    sheet.style.top = `${Math.min(innerHeight - sheet.offsetHeight - 10, r.bottom + 6)}px`;
+    sheet.style.left = `${Math.max(10, Math.min(innerWidth - sheet.offsetWidth - 10, r.left))}px`;
+    sheet.addEventListener("click", async (e) => {
+      const b = e.target.closest("button");
+      if (b && b.dataset.shareNative !== undefined) { try { await navigator.share({ title, text, url }); } catch { /* dismissed */ } sheet.remove(); }
+      else if (b && b.dataset.shareCopy !== undefined) {
+        (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { b.textContent = "Link copied ✓"; setTimeout(() => sheet.remove(), 900); }, () => prompt("Copy this link:", url));
+      } else if (e.target.closest("a")) setTimeout(() => sheet.remove(), 100);
+    });
+    setTimeout(() => document.addEventListener("click", function off(e) { if (!sheet.contains(e.target)) { sheet.remove(); document.removeEventListener("click", off); } }), 0);
+  }
+  document.addEventListener("click", (e) => { const b = e.target.closest("[data-share-url]"); if (b) { e.preventDefault(); openShare(b); } });
+
+  // List types, so a watchlist, a reading list and a playlist each look the part.
+  const LIST_KINDS = [["list", "List", "☰"], ["watchlist", "Watchlist", "🎞"], ["reading", "Reading list", "📖"], ["playlist", "Playlist", "🎧"], ["backlog", "Game backlog", "🎮"], ["bookmarks", "Bookmarks", "🔖"]];
+  const kindOf = (l) => LIST_KINDS.find((k) => k[0] === (l.kind || "list")) || LIST_KINDS[0];
+
+  // ------------------------------------------------------------------ watch-alongs
+  // Everyone watches on their own screen and starts a timer when they press play. Comments are pinned to the timer,
+  // and stay hidden until your own timer reaches them, so nobody gets spoiled and late-comers still get the jokes.
+  // Without the community server a watch-along lives in this browser and travels as a link (comments included);
+  // with it, it's public, listed in Community and refreshes while you watch.
+  let watchAlongs = stored("mimir-watch-alongs", {});   // slug → { open, note, created, comments: [{ id, at, body, by }] }
+  const saveWatchAlongs = () => store("mimir-watch-alongs", watchAlongs);
+  const waName = () => prefs.waName || (session ? session.user.display_name : "");
+  const clock = (sec) => { sec = Math.max(0, Math.floor(sec)); const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60; return `${h ? h + ":" : ""}${String(m).padStart(h ? 2 : 1, "0")}:${String(s).padStart(2, "0")}`; };
+  const parseClock = (t) => { const p = String(t).trim().split(":").map(Number); if (p.some(isNaN)) return null; return p.reduce((a, x) => a * 60 + x, 0); };
+  const b64 = (o) => btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  const unb64 = (s) => { try { return JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g, "+").replace(/_/g, "/"))))); } catch { return null; } };
+  let waTimer = { base: 0, startedAt: null, tick: null, ctx: null };
+  const waNow = () => waTimer.base + (waTimer.startedAt ? (performance.now() - waTimer.startedAt) / 1000 : 0);
+  function waLocalShareUrl(slug) {
+    const wa = watchAlongs[slug];
+    const c = wa.comments.slice(-200).map((x) => [x.at, x.body.slice(0, 280), x.by || ""]);
+    return `${location.origin}${location.pathname}#watch-${slug}?d=${b64({ n: wa.note || "", h: waName(), c })}`;
+  }
+  function renderWatchAlong(slug, p, remoteId) {
+    const w = cat.work(slug);
+    if (!w && !remoteId) { app.innerHTML = `<p class="empty">That work isn't in the catalogue. <a href="#community">Community</a></p>`; return; }
+    // A shared link carries the host's comments; fold them into this browser's copy.
+    if (!remoteId) {
+      const shared = p.get("d") ? unb64(p.get("d")) : null;
+      if (!watchAlongs[slug]) watchAlongs[slug] = { open: false, note: "", created: today(), comments: [] };
+      if (shared) {
+        const have = new Set(watchAlongs[slug].comments.map((x) => `${x.at}|${x.body}|${x.by}`));
+        for (const [at, body, by] of shared.c || []) if (!have.has(`${at}|${body}|${by}`)) watchAlongs[slug].comments.push({ id: newId(), at, body, by: by || shared.h || "Guest" });
+        if (shared.n && !watchAlongs[slug].note) watchAlongs[slug].note = shared.n;
+        watchAlongs[slug].open = true;
+        saveWatchAlongs();
+        history.replaceState(null, "", `#watch-${slug}`);
+      }
+    }
+    if (waTimer.ctx !== (remoteId || slug)) { clearInterval(waTimer.tick); waTimer = { base: 0, startedAt: null, tick: null, ctx: remoteId || slug }; }
+    const runtime = w ? (w.medium === "series" ? (w.attributes.episode_minutes || 45) * 60 : (w.runtime_minutes || 120) * 60) : 7200;
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Watch along</p><h1>${w ? esc(w.title) : "Watch-along"}</h1>
+        <p class="muted">Press play on your own screen and start the timer at the same moment. Comments are pinned to the time they were written and appear as your timer reaches them; nothing ahead of you is shown.</p></header>
+      <section class="wa-panel">
+        <div class="wa-clock"><span class="wa-time" id="wa-time">${clock(waNow())}</span>
+          <div class="wa-controls"><button type="button" class="btn" data-wa="toggle" id="wa-toggle">${waTimer.startedAt ? "Pause" : "Start timer"}</button>
+            <button type="button" class="btn ghost" data-wa="back">−10s</button><button type="button" class="btn ghost" data-wa="fwd">+10s</button>
+            <form class="wa-jump" data-wa-jump><input name="t" placeholder="Jump to 1:05:30" aria-label="Jump to time"><button class="linkish" type="submit">Go</button></form></div>
+          <input type="range" class="wa-scrub" id="wa-scrub" min="0" max="${runtime}" step="1" value="${Math.floor(waNow())}" aria-label="Playback position"></div>
+        <form class="wa-say" data-wa-say="${esc(remoteId || slug)}">
+          ${!remoteId && !waName() ? `<input name="by" placeholder="Your name" maxlength="30" aria-label="Your name" class="wa-name">` : ""}
+          <input name="body" placeholder="Say something at ${clock(waNow())}…" maxlength="280" required aria-label="Comment" class="grow" autocomplete="off">
+          <button class="btn" type="submit">Post</button></form>
+        <div class="wa-share" id="wa-share"></div>
+      </section>
+      <section class="block"><header class="shelf-head"><div><h2>Timeline</h2><p id="wa-ahead"></p></div></header><ol class="wa-timeline" id="wa-timeline"></ol></section>`;
+    let timeline = [];
+    const paint = () => {
+      const now = waNow();
+      document.getElementById("wa-time").textContent = clock(now);
+      const scrub = document.getElementById("wa-scrub"); if (scrub && document.activeElement !== scrub) scrub.value = Math.floor(now);
+      const say = document.querySelector("[data-wa-say] input[name=body]"); if (say) say.placeholder = `Say something at ${clock(now)}…`;
+      const shown = timeline.filter((c) => c.at <= now), ahead = timeline.length - shown.length;
+      document.getElementById("wa-ahead").textContent = ahead ? `${ahead} comment${ahead === 1 ? "" : "s"} further on, hidden until you get there.` : timeline.length ? "You're caught up." : "No comments yet. Start the timer and say something.";
+      const list = document.getElementById("wa-timeline");
+      const html = shown.map((c) => `<li class="${c.at > now - 4 ? "fresh" : ""}"><button type="button" class="wa-at" data-wa-seek="${c.at}">${clock(c.at)}</button><span class="wa-by">${esc(c.by)}</span><span class="wa-body">${esc(c.body)}</span></li>`).join("");
+      if (list.dataset.sig !== `${shown.length}|${Math.floor(now / 4)}`) { list.innerHTML = html; list.dataset.sig = `${shown.length}|${Math.floor(now / 4)}`; }
+    };
+    const load = async () => {
+      if (remoteId) {
+        try {
+          const r = await api(`/api/watch-alongs/${remoteId}`);
+          timeline = r.timeline.map((c) => ({ at: c.at_seconds, body: c.body, by: c.user.display_name }));
+          document.querySelector(".page-band h1").textContent = r.work.title;
+          document.getElementById("wa-share").innerHTML = `<p class="muted small">Hosted by ${esc(r.host.display_name)}${r.starts_at ? ` · starts ${esc(new Date(r.starts_at).toLocaleString())}` : ""}${r.note ? ` · ${esc(r.note)}` : ""} · ${r.people} watching along</p>${shareButton(location.href, `Watch ${r.work.title} along with me`, `Watch-along on Mimir: ${r.work.title}`)}`;
+        } catch (err) { document.getElementById("wa-ahead").textContent = `The community server didn't answer: ${err.message}`; }
+      } else {
+        const wa = watchAlongs[slug];
+        timeline = wa.comments.slice().sort((a, b) => a.at - b.at).map((c) => ({ ...c, by: c.by || "You" }));
+        document.getElementById("wa-share").innerHTML = `
+          <label class="wa-open"><input type="checkbox" data-wa-open ${wa.open ? "checked" : ""}> List this watch-along in Community${CONFIG.api ? " (this browser)" : ""}</label>
+          ${shareButton(waLocalShareUrl(slug), `Watch ${w.title} along with me`, `Watch ${w.title} with me on Mimir: start your timer when you press play and my comments pop up as you go.`)}
+          ${CONFIG.api && session ? `<button type="button" class="btn ghost" data-wa-host="${esc(slug)}">Host it publicly</button>` : ""}`;
+      }
+      paint();
+    };
+    clearInterval(waTimer.tick);
+    waTimer.tick = setInterval(() => { if (!document.getElementById("wa-time")) { clearInterval(waTimer.tick); return; } paint(); }, 500);
+    if (remoteId) { let n = 0; const poll = setInterval(() => { if (!document.getElementById("wa-time")) { clearInterval(poll); return; } if (++n % 20 === 0) load(); }, 500); }
+    load();
+    waTimer.reload = load;
+  }
+  function waControl(action, value) {
+    const now = waNow();
+    if (action === "toggle") { if (waTimer.startedAt) { waTimer.base = now; waTimer.startedAt = null; } else { waTimer.base = now; waTimer.startedAt = performance.now(); } }
+    else if (action === "back" || action === "fwd" || action === "seek") { waTimer.base = action === "seek" ? value : Math.max(0, now + (action === "fwd" ? 10 : -10)); if (waTimer.startedAt) waTimer.startedAt = performance.now(); }
+    const t = document.getElementById("wa-toggle"); if (t) t.textContent = waTimer.startedAt ? "Pause" : "Start timer";
+    const tm = document.getElementById("wa-time"); if (tm) tm.textContent = clock(waNow());
+  }
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-wa], [data-wa-seek], [data-wa-host]");
+    if (!b) return;
+    if (b.dataset.wa) waControl(b.dataset.wa);
+    else if (b.dataset.waSeek) waControl("seek", Number(b.dataset.waSeek));
+    else if (b.dataset.waHost) {
+      api("/api/watch-alongs", { method: "POST", body: { work_slug: b.dataset.waHost, note: (watchAlongs[b.dataset.waHost] || {}).note || "" } })
+        .then((r) => { location.hash = `#wa-${r.id}`; }, (err) => alert(`Couldn't host it: ${err.message}`));
+    }
+  });
+  app.addEventListener("input", (e) => { if (e.target.id === "wa-scrub") waControl("seek", Number(e.target.value)); });
+  app.addEventListener("change", (e) => {
+    if (e.target.matches("[data-wa-open]")) { const slug = location.hash.slice(7).split("?")[0]; if (watchAlongs[slug]) { watchAlongs[slug].open = e.target.checked; saveWatchAlongs(); } }
+  });
+  app.addEventListener("submit", (e) => {
+    const f = e.target;
+    if (f.dataset.waJump !== undefined) { e.preventDefault(); const s = parseClock(f.elements.t.value); if (s !== null) waControl("seek", s); f.reset(); }
+    else if (f.dataset.waSay) {
+      e.preventDefault(); e.stopImmediatePropagation();
+      const body = f.elements.body.value.trim(); if (!body) return;
+      const at = Math.floor(waNow()), key = f.dataset.waSay;
+      if (f.elements.by && f.elements.by.value.trim()) { prefs.waName = f.elements.by.value.trim().slice(0, 30); savePrefs(); }
+      if (watchAlongs[key]) {
+        watchAlongs[key].comments.push({ id: newId(), at, body: body.slice(0, 280), by: waName() || "You" });
+        watchAlongs[key].open = true; saveWatchAlongs();
+        f.elements.body.value = ""; renderWatchAlong(key, new URLSearchParams());
+      } else {
+        api(`/api/watch-alongs/${key}/comments`, { method: "POST", body: { at_seconds: at, body } })
+          .then(() => { f.elements.body.value = ""; waTimer.reload && waTimer.reload(); }, (err) => alert(`Couldn't post: ${err.message}`));
+      }
+    }
+  }, true);
+  const localWatchAlongs = () => Object.entries(watchAlongs).filter(([, wa]) => wa.open).map(([slug, wa]) => ({ slug, wa, w: workOf(slug) })).filter((x) => x.w);
+  function watchAlongBox(remote) {
+    const local = localWatchAlongs();
+    const items = [
+      ...(remote || []).map((x) => `<li><a href="#wa-${esc(x.id)}">${esc(x.work.title)}</a> <span class="muted small">with ${esc(x.host.display_name)}${x.starts_at ? ` · ${esc(new Date(x.starts_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }))}` : " · any time"} · ${x.comments} comments</span></li>`),
+      ...local.map(({ slug, wa, w }) => `<li><a href="#watch-${esc(slug)}">${esc(w.title)}</a> <span class="muted small">${wa.comments.length} comments · in this browser</span></li>`),
+    ];
+    return `<section class="stat-box"><h2>Watch-alongs</h2>${items.length ? `<ul class="plain">${items.join("")}</ul>` : `<p class="muted">None open. Open any film or series and choose <em>Watch along</em>: start a timer when you press play, comment as you go, and share the link so friends can watch on their own screens and see your comments at the same moments.</p>`}</section>`;
+  }
+
+  // ------------------------------------------------------------------ YouTube: channels and notable videos
+  const videosOf = (channel) => allWorks().filter((x) => CHANNEL_OF[x.slug] === channel);
+  const YT_FILTERS = { comedy: "genre:comedy", food: "genre:food", horror: "genre:horror", documentary: "genre:documentary", mystery: "genre:mystery" };
+  function youtubeRow() {
+    const vids = allWorks().filter((x) => x.medium === "online_video");
+    if (!vids.length) return "";
+    return `<section class="shelf" aria-labelledby="sh-youtube"><header class="shelf-head"><div><h2 id="sh-youtube">From YouTube</h2><p>Channels worth following and some of their best-known videos.</p></div><a class="see-all" href="#youtube">All channels</a></header>${row(vids.slice(0, 16))}</section>`;
+  }
+  function renderYouTube(filter) {
+    const key = YT_FILTERS[filter];
+    const has = (x) => !key || (x.genres || []).some((g) => g.key === key) || (cat.work(x.slug) || { tags: [] }).tags.some((dd) => dd.terms.some((t) => t.key === key));
+    const channels = allWorks().filter((x) => x.medium === "channel").filter((c) => has(c) || videosOf(c.slug).some(has));
+    app.innerHTML = `
+      <header class="page-band hub-band"><p class="eyebrow">Directory</p><h1>YouTube</h1>
+        <p class="muted">Creators worth following, what they make, and some of their best-known videos. Every link opens on YouTube.</p></header>
+      <nav class="medium-tabs" aria-label="Kind of channel"><a href="#youtube" class="${filter ? "" : "on"}">Everything</a>${Object.keys(YT_FILTERS).map((f) => `<a href="#youtube?f=${f}" class="${filter === f ? "on" : ""}">${esc({ comedy: "Comedy", food: "Food", horror: "Gaming & horror", documentary: "VFX & film", mystery: "Mysteries" }[f])}</a>`).join("")}</nav>
+      ${channels.map((c) => { const a = ATTRS[c.slug] || {}; const vids = videosOf(c.slug).filter(has); return `
+        <section class="yt-channel">
+          <a class="yt-chan-head" href="#work-${esc(c.slug)}">${poster(cardCover(c))}<span><strong>${esc(c.title)}</strong><span class="muted small">${esc([a.handle, a.subscribers].filter(Boolean).join(" · "))}</span></span></a>
+          <p class="yt-about">${esc(c.summary || "")}</p>
+          ${vids.length ? row(vids) : ""}
+        </section>`; }).join("") || `<p class="empty">No channels in this group yet.</p>`}`;
+  }
+
+  // ------------------------------------------------------------------ audiobooks
+  function audiobookBlock(w) {
+    if (["manga", "manhwa", "manhua"].includes((w.attributes || {}).form)) return "";
+    const ab = cat.whereFor({ medium: "audiobook", title: w.title, creator: (w.creators || [])[0] || "", year: w.year }, prefs.region);
+    if (!ab) return "";
+    const m = listenMinutes(w);
+    const free = w.year && w.year <= 1929;   // public domain in the US, where LibriVox records
+    return `<section class="block" id="listen"><h2>Prefer to listen?</h2>
+      <p class="muted">${m ? `As an audiobook, about <strong>${esc(hm(m))}</strong> of listening (estimated from the page count; editions and narrators vary). ` : ""}Set the format to <em>Audiobook</em> in your library to track it in hours and fill your Listen ring.</p>
+      <ul class="linkouts where-all">${ab.providers.map((p) => `<li>${ext(p.url, p.name)}</li>`).join("")}${free ? `<li>${ext(`https://librivox.org/search?q=${encodeURIComponent(w.title)}&search_form=advanced`, "LibriVox (free, public domain)")}</li>` : ""}</ul></section>`;
+  }
+  function renderAudiobooks() {
+    const books = allWorks().filter((x) => x.medium === "book" && !["manga", "manhwa", "manhua"].includes((ATTRS[x.slug] || {}).form)).map((x) => ({ x, m: listenMinutes(cat.work(x.slug)) })).filter((b) => b.m);
+    const bands = [["Short listens", "Under five hours: a few commutes or one long drive.", 0, 300], ["A week of commutes", "Five to twelve hours.", 300, 720], ["Long listens", "Twelve hours and more, to live with for a while.", 720, 1e9]];
+    app.innerHTML = `
+      <header class="page-band hub-band"><p class="eyebrow">Books</p><h1>Audiobooks</h1>
+        <p class="muted">Books to listen to, grouped by how long they take. Times are estimated from page counts (about 155 spoken words a minute); real editions vary with the narrator. Every book page links to Audible, Spotify, Google Play, Kobo and your library, and to LibriVox for free public-domain recordings.</p></header>
+      ${bands.map(([t, d, lo, hi]) => { const hits = books.filter((b) => b.m >= lo && b.m < hi).sort((a, b) => a.m - b.m); return hits.length ? `<section class="shelf"><header class="shelf-head"><div><h2>${esc(t)}</h2><p>${esc(d)} ${hits.length} books.</p></div></header>${row(hits.map((b) => b.x))}</section>` : ""; }).join("")}`;
   }
 
   // ------------------------------------------------------------------ the library page, diary and "up next"
@@ -2774,7 +3246,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     location.hash = "#library?tab=all";
   }
   function exportBackup() {
-    const data = { app: "Mimir", version: 1, exported: new Date().toISOString(), library, ratings, lists, journal, challenges, prefs };
+    const data = { app: "Mimir", version: 1, exported: new Date().toISOString(), library, ratings, lists, journal, challenges, prefs, activity, trackers, ringGoals };
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
     a.download = `mimir-library-${today()}.json`;
@@ -2830,7 +3302,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     album: ["Which track did you replay, and why?", "Where were you while you listened?", "What does it sound like, in three words?"],
   };
   let journal = stored("mimir-journal", []);
-  function saveJournal() { store("mimir-journal", journal); queueSync(); }
+  function saveJournal() { store("mimir-journal", journal); queueSync(); setTimeout(checkBadges, 0); }
   const promptFor = (m) => { const ps = PROMPTS[m] || PROMPTS.film; return ps[(journal.length + new Date().getDate()) % ps.length]; };
 
   function journalForm(w) {
@@ -3091,7 +3563,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   // The whole private library syncs as one document; the newer copy of each entry wins.
-  const stateNow = () => ({ v: 1, library, lists, ratings, journal, challenges, prefs });
+  const stateNow = () => ({ v: 1, library, lists, ratings, journal, challenges, prefs, activity, trackers, ringGoals });
   function mergeState(remote) {
     if (!remote) return;
     const newer = (a, b, key = "updated") => ((a && a[key]) || "") >= ((b && b[key]) || "") ? a : b;
@@ -3105,7 +3577,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     for (const [k, v] of Object.entries(remote.challenges || {})) {
       challenges[k] = challenges[k] ? { ...challenges[k], done: [...new Set([...challenges[k].done, ...v.done])].sort((a, b) => a - b) } : v;
     }
+    const aIds = new Set(activity.map((a) => a.id));
+    activity = [...activity, ...(remote.activity || []).filter((a) => a.id && !aIds.has(a.id))];
+    const tIds = new Set(trackers.map((t) => t.id));
+    trackers = [...trackers, ...(remote.trackers || []).filter((t) => !tIds.has(t.id))];
+    if (remote.ringGoals && !localStorage.getItem("mimir-ring-goals")) ringGoals = { ...ringGoals, ...remote.ringGoals };
     store("mimir-library", library); store("mimir-lists", lists); store("mimir-journal", journal); store("mimir-ratings", ratings); store("mimir-challenges", challenges);
+    store("mimir-activity", activity); store("mimir-trackers", trackers); store("mimir-ring-goals", ringGoals);
     refreshCounts();
   }
   let syncTimer = null;
@@ -3219,6 +3697,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       app.innerHTML = `
         <header class="page-head"><p class="eyebrow">Community</p><h1>Find your next story through people</h1>
           <p class="muted">Reviews, a feed of what friends are finishing, shared lists, trending picks and calendar challenges together. Accounts are built and switch on here as soon as the community server goes live.</p></header>
+        <div class="comm-grid">${watchAlongBox(null)}</div>
         <div class="prose block"><p>Until then, everything personal already works in this browser: your <a href="#library">library</a>, <a href="#journal">journal</a>, <a href="#lists">lists</a> (shareable by link), <a href="#calendar">calendar challenges</a> and <a href="#decide">Decide for me</a>. When accounts open, all of it moves into your account in one step.</p></div>
         ${calendarBand()}`;
       return;
@@ -3234,6 +3713,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${trending.length ? `<section class="shelf" aria-label="Trending"><header class="shelf-head"><div><h2>Trending this fortnight</h2><p>What people are finishing, starting and reviewing.</p></div></header>${row(trending)}</section>` : ""}
         <div class="comm-grid">
           ${feed ? `<section class="stat-box"><h2>Your feed</h2>${feed.length ? `<ol class="acts">${feed.map(activityItem).join("")}</ol>` : `<p class="muted">Follow people (open their name anywhere) to see what they're finishing and reviewing here.</p>`}</section>` : ""}
+          ${watchAlongBox(c.watch_alongs || [])}
           <section class="stat-box"><h2>Latest reviews</h2>${c.reviews.length ? `<ol class="reviews">${c.reviews.map((r) => reviewItem(r, true)).join("")}</ol>` : `<p class="muted">No reviews yet.</p>`}</section>
           <section class="stat-box"><h2>Everyone, lately</h2>${c.activity.length ? `<ol class="acts">${c.activity.map(activityItem).join("")}</ol>` : `<p class="muted">Quiet so far.</p>`}</section>
           <section class="stat-box"><h2>Challenges</h2><ul class="plain">${cat.calendar(y).slice(0, 30).map((p) => { const m = c.challenges.find((x) => x.slug === p.slug && x.year === y); return `<li><a href="#programme-${esc(p.slug)}?y=${y}">${esc(p.name)}</a> <span class="muted small">${esc(fmtDay(p.start))} · ${m ? `${m.members} joined` : "be the first"}</span></li>`; }).join("")}</ul></section>
@@ -3384,6 +3864,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const [h, qs = ""] = location.hash.slice(1).split("?");
     const p = new URLSearchParams(qs);
     const MEDIUM_MENU = { film: "Films", series: "TV", book: "Books", game: "Games", album: "Music", all: "Catalogue" };
+    if (h.startsWith("watch-")) { setNav("Community"); renderWatchAlong(h.slice(6), p); return; }
+    if (h.startsWith("wa-")) { setNav("Community"); renderWatchAlong(null, p, h.slice(3)); return; }
     if (h.startsWith("work-")) {
       const w = cat.work(h.slice(5)); setNav(w ? MEDIUM_MENU[w.medium] : ""); renderWork(h.slice(5));
       if (w) loadWorkReviews(w);
@@ -3410,6 +3892,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h.startsWith("plist-")) { setNav("Community"); renderPublicList(h.slice(6)); }
     else if (h === "library" || h === "mine") { setNav("Library"); renderLibrary(p); }
     else if (h === "lists") { setNav("Library"); renderLists(); }
+    else if (h === "audiobooks") { setNav("Books"); renderAudiobooks(); }
+    else if (h === "youtube") { setNav("YouTube"); renderYouTube(p.get("f") || ""); }
+    else if (h === "achievements") { setNav("Library"); renderAchievements(); }
+    else if (h === "trackers") { setNav("Library"); renderTrackers(); }
     else if (h.startsWith("list-")) { setNav("Library"); renderList(h.slice(5)); }
     else if (h === "shared") { setNav("Library"); renderShared(p); }
     else if (h === "stats") { setNav("Library"); renderStats(); }
@@ -3444,8 +3930,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     route();
     window.scrollTo(0, y);
   }
-  function makeList(name, slug) {
-    const l = { id: newId(), name: name.trim().slice(0, 60), note: "", slugs: slug ? [slug] : [], created: today(), updated: today() };
+  function makeList(name, slug, kind) {
+    const l = { id: newId(), name: name.trim().slice(0, 60), note: "", kind: kind || "list", slugs: slug ? [slug] : [], created: today(), updated: today() };
     lists.push(l);
     saveLists();
     return l;
@@ -3457,8 +3943,25 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (f.dataset.newlist !== undefined) {
       const name = f.elements.name.value.trim();
       if (!name) return;
-      const l = makeList(name, f.dataset.newlist);
+      const l = makeList(name, f.dataset.newlist, f.elements.kind ? f.elements.kind.value : "list");
       if (f.dataset.newlist) afterTrack(); else location.hash = `#list-${l.id}`;
+      return;
+    }
+    if (f.dataset.logTime !== undefined) {
+      const ring = f.elements.ring.value, min = Number(f.elements.min.value);
+      logMinutes((RINGS.find((r) => r[0] === ring) || RINGS[0])[2][0], min);
+      renderAchievements();
+      return;
+    }
+    if (f.dataset.ringGoals !== undefined) {
+      RINGS.forEach(([k]) => { ringGoals[k] = Math.max(0, Number(f.elements[k].value) || 0); });
+      store("mimir-ring-goals", ringGoals); renderAchievements();
+      return;
+    }
+    if (f.dataset.newTracker !== undefined) {
+      const v = Object.fromEntries(new FormData(f).entries());
+      trackers.push({ id: newId(), name: v.name.trim().slice(0, 60), kind: v.kind, target: Math.max(1, Number(v.target) || 1), medium: v.medium, tag: v.tag, list: v.list, from: v.from, to: v.to });
+      saveTrackers(); renderTrackers();
       return;
     }
     if (f.dataset.listMeta) {
@@ -3577,12 +4080,14 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const url = shareUrl(lists.find((x) => x.id === d.listShare));
       (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(() => { t.textContent = "Link copied ✓"; }, () => prompt("Copy this link to share the list:", url));
     }
+    else if (d.trackerDelete) { trackers = trackers.filter((x) => x.id !== d.trackerDelete); saveTrackers(); renderTrackers(); }
     else if (d.listDelete) { if (confirm("Delete this list? The works stay in your library.")) { lists = lists.filter((x) => x.id !== d.listDelete); saveLists(); location.hash = "#lists"; } }
     else if (d.sharedSave !== undefined) {
       const p = new URLSearchParams(location.hash.split("?")[1] || "");
       const l = makeList(p.get("n") || "Shared list");
       l.slugs = worksOf((p.get("w") || "").split(",").filter(Boolean)).map((w) => w.slug);
       l.note = p.get("d") || "";
+      l.kind = kindOf({ kind: p.get("k") })[0];
       saveLists();
       location.hash = `#list-${l.id}`;
     }
@@ -3678,7 +4183,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const li = b.parentElement;
       // With a mouse the menu is already open on hover, so the label opens the section's own page (a directory).
       const first = li.querySelector(".drop a");
-      if (window.matchMedia("(hover: hover)").matches && first && /^#(films|tv|books|games|albums)$/.test(first.getAttribute("href"))) { closeMenus(); location.hash = first.getAttribute("href"); return; }
+      if (window.matchMedia("(hover: hover)").matches && first && /^#(films|tv|books|games|albums|youtube)$/.test(first.getAttribute("href"))) { closeMenus(); location.hash = first.getAttribute("href"); return; }
       const was = li.classList.contains("open");
       closeMenus();
       if (!was) { li.classList.add("open"); b.setAttribute("aria-expanded", "true"); }

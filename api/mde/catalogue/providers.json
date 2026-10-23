@@ -78,6 +78,28 @@
         {"id": "epic", "name": "Epic Games Store", "url": "https://store.epicgames.com/en-US/browse?q={q}", "enc": "query", "q": "{title}", "platforms": ["PC"]},
         {"id": "google-play-games", "name": "Google Play", "url": "https://play.google.com/store/search?q={q}&c=apps", "enc": "query", "q": "{title}", "platforms": ["Android"]}
       ]
+    },
+    "audiobook": {
+      "verb": "Listen", "default": "audible",
+      "providers": [
+        {"id": "audible", "name": "Audible", "url": "https://www.audible.{tld}/search?keywords={q}", "enc": "query", "q": "{title} {creator}"},
+        {"id": "spotify-audiobooks", "name": "Spotify", "url": "https://open.spotify.com/search/{q}/audiobooks", "enc": "path", "q": "{title} {creator}"},
+        {"id": "google-play-audiobooks", "name": "Google Play Books", "url": "https://play.google.com/store/search?q={q}&c=audiobooks", "enc": "query", "q": "{title} {creator}"},
+        {"id": "kobo-audiobooks", "name": "Kobo", "url": "https://www.kobo.com/{cc}/en/search?query={q}&fcmedia=AudioBook", "enc": "query", "q": "{title} {creator}"},
+        {"id": "overdrive-audiobooks", "name": "Libby / OverDrive (library)", "url": "https://www.overdrive.com/search?q={q}&f-formatClassification=Audiobook", "enc": "query", "q": "{title} {creator}"}
+      ]
+    },
+    "online_video": {
+      "verb": "Watch", "default": "youtube",
+      "providers": [
+        {"id": "youtube", "name": "YouTube", "url": "https://www.youtube.com/results?search_query={q}", "enc": "query", "q": "{creator} {title}", "exact": {"id": "youtube_video", "url": "https://www.youtube.com/watch?v={id}"}}
+      ]
+    },
+    "channel": {
+      "verb": "Watch", "default": "youtube",
+      "providers": [
+        {"id": "youtube", "name": "YouTube", "url": "https://www.youtube.com/results?search_query={q}", "enc": "query", "q": "{title}", "exact": {"id": "youtube_channel", "url": "https://www.youtube.com/channel/{id}"}}
+      ]
     }
   }
 }

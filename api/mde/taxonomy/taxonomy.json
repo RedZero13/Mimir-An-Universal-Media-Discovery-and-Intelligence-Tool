@@ -5747,6 +5747,102 @@
         "avant-pop"
       ],
       "parent": "art-pop"
+    },
+    {
+      "dimension": "genre",
+      "slug": "food",
+      "label": "Food & cooking",
+      "definition": "Stories, shows and videos centred on food: cooking, eating, kitchens, restaurants and the people behind them.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "food",
+        "cooking",
+        "food show",
+        "cooking show",
+        "foodie",
+        "culinary",
+        "chef",
+        "chefs",
+        "restaurant",
+        "recipes"
+      ]
+    },
+    {
+      "dimension": "genre",
+      "slug": "cooking-competition",
+      "label": "Cooking competition",
+      "definition": "Cooks compete against the clock and the judges.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "cooking competition",
+        "baking show",
+        "bake off",
+        "bake-off"
+      ],
+      "parent": "food"
+    },
+    {
+      "dimension": "genre",
+      "slug": "food-travel",
+      "label": "Food & travel",
+      "definition": "Travelling the world through what people eat.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "food travel",
+        "street food",
+        "food tour"
+      ],
+      "parent": "food"
+    },
+    {
+      "dimension": "genre",
+      "slug": "food-documentary",
+      "label": "Food documentary",
+      "definition": "Documentaries about chefs, cuisines and where food comes from.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "food documentary",
+        "chef documentary"
+      ],
+      "parent": "food"
+    },
+    {
+      "dimension": "genre",
+      "slug": "taste-test",
+      "label": "Taste tests & food comedy",
+      "definition": "Tasting, ranking and joking about food.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "taste test",
+        "taste tests",
+        "food challenge"
+      ],
+      "parent": "food"
+    },
+    {
+      "dimension": "genre",
+      "slug": "food-drama",
+      "label": "Food drama",
+      "definition": "Fiction where kitchens, cooks and meals drive the story.",
+      "applies_to": [
+        "*"
+      ],
+      "synonyms": [
+        "food movie",
+        "food film",
+        "kitchen drama"
+      ],
+      "parent": "food"
     }
   ]
 }
