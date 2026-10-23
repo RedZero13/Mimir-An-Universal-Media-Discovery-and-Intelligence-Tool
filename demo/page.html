@@ -78,6 +78,11 @@ p { margin: 0; }
 .endorse { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
 .endorse img { width: 32px; height: 32px; display: block; }
 .endorse span { font: 600 10px/1 var(--f-display); letter-spacing: .28em; color: var(--cream); }
+.foot-cols { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.foot-cols h2 { font: 600 .7rem var(--f-display); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin: 0 0 10px; }
+.foot-cols ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+.foot-cols a { color: var(--ink); text-decoration: none; font-size: .86rem; } .foot-cols a:hover { color: var(--gold-bright); }
+@media (max-width: 860px) { .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .foot-row { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; }
 .foot p { color: var(--faint); font-size: .82rem; max-width: 70ch; }
 .foot .legal { font: 500 10px var(--f-display); letter-spacing: .22em; color: var(--faint); }
@@ -621,6 +626,18 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .yir-records { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .yir-records li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; } .yir-records li > span:first-child { min-width: 64px; font: 600 .7rem var(--f-display); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 @media (max-width: 640px) { .yir-hero { grid-template-columns: 1fr; } .yir-hero > div:first-child { max-width: 140px; } }
+.hub-links { list-style: none; margin: 18px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.hub-links a { display: inline-block; padding: 9px 14px; border: 1px solid var(--line-strong); border-radius: 99px; color: var(--ink); text-decoration: none; font-size: .86rem; background: var(--surface); }
+.hub-links a:hover { border-color: var(--gold); color: var(--gold-bright); }
+.hub-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start; margin-bottom: 10px; }
+.hub-side { display: grid; gap: 16px; }
+@media (max-width: 860px) { .hub-grid { grid-template-columns: 1fr; } }
+.post-grid { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.post-card a { display: grid; gap: 8px; height: 100%; padding: 20px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.post-card a:hover { border-color: var(--gold); }
+.post-card h2 { font-size: 1.35rem; margin: 0; color: var(--bone); } .post-card p { margin: 0; }
+.post { margin: 28px auto 0; } .post h1 { font-size: clamp(2rem, 4.6vw, 3rem); margin: 4px 0 0; }
+.post-lede { font: italic 500 1.3rem/1.45 var(--f-head); color: var(--cream); }
 .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
 .stat-box { padding: 16px 18px; border: 1px solid var(--line-strong); border-radius: 8px; display: grid; gap: 10px; align-content: start; }
 .stat-box h2 { font-size: 1.25rem; margin: 0; } .stat-box h3 { font-size: 1rem; margin: 6px 0 0; color: var(--cream); }
@@ -759,6 +776,13 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   <nav class="menubar" id="menubar" aria-label="Main"></nav>
   <main id="app"></main>
   <footer class="foot">
+    <nav class="foot-cols" aria-label="Footer">
+      <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
+      <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
+      <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
+      <div><h2>Mimir</h2><ul><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
+      <div><h2>Terratales</h2><ul><li><a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></li><li><a href="https://terratalesmedia.world/publishing/" target="_blank" rel="noopener">Publishing</a></li><li><a href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener">The Akashic Records</a></li><li><a href="https://terratalesmedia.world/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
+    </nav>
     <div class="foot-row">
       <a class="endorse" href="https://terratalesmedia.world/" aria-label="A Terratales venture: visit Terratales">
         <img src="/*__SEAL__*/" alt="Terratales seal" width="32" height="32"><span>A TERRATALES VENTURE</span>
@@ -776,6 +800,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 <script id="providers-data" type="application/json">/*__PROVIDERS__*/</script>
 <script id="calendar-data" type="application/json">/*__CALENDAR__*/</script>
 <script id="config-data" type="application/json">/*__CONFIG__*/</script>
+<script id="blog-data" type="application/json">/*__BLOG__*/</script>
 <script>/*__ENGINE__*/</script>
 <script>
 (() => {
@@ -789,6 +814,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     JSON.parse(document.getElementById("calendar-data").textContent),
   );
   const CONFIG = JSON.parse(document.getElementById("config-data").textContent);
+  const BLOG = JSON.parse(document.getElementById("blog-data").textContent).posts;
   const app = document.getElementById("app");
   const EXAMPLES = [
     "An intelligent sci-fi film with a strong atmosphere and very little violence, ideally under two hours, not something obvious",
@@ -1509,6 +1535,77 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     return `<aside class="rail" aria-label="Rankings">${box("Top films", "film")}${box("Top TV", "series")}${box("Top books", "book")}${box("Top games", "game")}${box("Top albums", "album")}</aside>`;
   }
 
+  // ------------------------------------------------------------------ blog: posts about what Mimir does (demo/blog.json)
+  const fmtDate = (d) => new Date(`${d}T12:00:00`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  function miniMarkdown(src) {
+    const inline = (s) => esc(s).replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text, href) => `<a href="${href}">${text}</a>`);
+    return src.split(/\n\n+/).map((block) => {
+      if (block.startsWith("## ")) return `<h2>${inline(block.slice(3))}</h2>`;
+      if (block.startsWith("- ")) return `<ul>${block.split("\n").map((l) => `<li>${inline(l.replace(/^- /, ""))}</li>`).join("")}</ul>`;
+      return `<p>${inline(block)}</p>`;
+    }).join("");
+  }
+  const postCard = (b) => `<li class="post-card"><a href="#blog-${esc(b.slug)}">
+      <p class="eyebrow">${esc(b.tags.join(" · "))}</p><h2>${esc(b.title)}</h2><p>${esc(b.summary)}</p><p class="pmeta">${esc(fmtDate(b.date))}</p></a></li>`;
+  function renderBlog() {
+    const posts = [...BLOG].sort((a, b) => b.date.localeCompare(a.date));
+    app.innerHTML = `<header class="page-band"><p class="eyebrow">The Mimir blog</p><h1>Notes from the well</h1>
+      <p class="muted">What Mimir can do, how it works, and what's new.</p></header>
+      <ul class="post-grid">${posts.map(postCard).join("")}</ul>`;
+  }
+  function renderPost(slug) {
+    const b = BLOG.find((x) => x.slug === slug);
+    if (!b) { renderBlog(); return; }
+    const more = BLOG.filter((x) => x.slug !== slug).sort((x, y) => y.date.localeCompare(x.date)).slice(0, 3);
+    app.innerHTML = `<article class="post prose">
+        <p class="eyebrow"><a href="#blog">Blog</a> · ${esc(b.tags.join(" · "))}</p>
+        <h1>${esc(b.title)}</h1><p class="pmeta">${esc(fmtDate(b.date))} · The Mimir team</p>
+        <p class="post-lede">${esc(b.summary)}</p>${miniMarkdown(b.body)}
+        <p class="pchips"><a class="btn" href="#">Ask Mimir</a><a class="btn ghost" href="#decide">Decide for me</a></p>
+      </article>
+      <section class="block"><header class="shelf-head"><div><h2>More from the blog</h2></div><a class="see-all" href="#blog">All posts</a></header>
+        <ul class="post-grid">${more.map(postCard).join("")}</ul></section>`;
+  }
+
+  // ------------------------------------------------------------------ medium hubs: a directory page per medium
+  const HUBS = { films: "film", tv: "series", books: "book", games: "game", albums: "album" };
+  const MENU_LABEL = { film: "Films", series: "TV", book: "Books", game: "Games", album: "Music" };
+  const HUB_OF = Object.fromEntries(Object.entries(HUBS).map(([h, m]) => [m, h]));
+  const HUB_INTRO = {
+    film: "Features from every decade and language, with runtimes, parents' guides and where to watch.",
+    series: "Series to binge or savour, with episode counts, seasons and how long the whole run takes.",
+    book: "Novels, non-fiction, manga and manhwa, with page and chapter counts and an estimate of reading time.",
+    game: "Games short and long, with main-story playtime and the platforms they're on.",
+    album: "Albums by mood, with tracklists, lengths and remixes, and where to listen.",
+  };
+  function renderHub(medium) {
+    const works = allWorks().filter((w) => w.medium === medium);
+    const menu = (MENU.find(([l]) => l === MENU_LABEL[medium]) || [null, []])[1];
+    const genres = new Map();
+    for (const w of works) for (const g of w.genres || []) { const c = genres.get(g.key) || { ...g, n: 0 }; c.n++; genres.set(g.key, c); }
+    const decades = new Map();
+    for (const w of works) if (w.year) { const d = Math.floor(w.year / 10) * 10; decades.set(d, (decades.get(d) || 0) + 1); }
+    const shelves = allShelves().map((s) => ({ ...s, works: worksOf(cat.shelf(s.slug).works.filter((x) => x.medium === medium).map((x) => x.slug)) }))
+      .filter((s) => s.works.length >= 4).sort((a, b) => b.works.length - a.works.length).slice(0, 6);
+    const newest = [...works].filter((w) => w.year).sort((a, b) => b.year - a.year).slice(0, 12);
+    app.innerHTML = `
+      <header class="page-band hub-band"><p class="eyebrow">Directory</p><h1>${esc(PLURAL[medium])}</h1>
+        <p class="muted">${esc(HUB_INTRO[medium])} ${works.length} in the catalogue.</p></header>
+      <nav class="medium-tabs" aria-label="Medium">${MEDIA.map((m) => `<a href="#${HUB_OF[m]}" class="${medium === m ? "on" : ""}">${esc(PLURAL[m])}</a>`).join("")}</nav>
+      <ul class="hub-links">${menu.map(([l, h]) => `<li><a href="${esc(h)}">${esc(l)} <span aria-hidden="true">→</span></a></li>`).join("")}</ul>
+      <div class="hub-grid">
+        <section class="stat-box"><h2>Top ${esc(PLURAL[medium].toLowerCase())}</h2><ol class="ranks">${topList(medium, 10).map((w, i) => rankRow(w, i, true)).join("")}</ol>
+          <a class="see-all" href="#top-${medium}">The full top 100</a></section>
+        <div class="hub-side">
+          <section class="stat-box"><h2>By genre</h2><p class="pchips">${[...genres.values()].sort((a, b) => b.n - a.n).map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></section>
+          <section class="stat-box"><h2>By decade</h2><p class="pchips">${[...decades].sort((a, b) => b[0] - a[0]).map(([d, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { year_min: d, year_max: d + 9 }))}">${d}s · ${n}</a>`).join("")}</p></section>
+          <section class="stat-box"><h2>By time you have</h2><p class="pchips">${TIME_TILES.map(([slug, label]) => [slug, label, works.filter((w) => w.time && w.time.bucket === slug).length]).filter(([, , n]) => n).map(([slug, label, n]) => `<a class="tchip" href="#time-${slug}">${esc(label)} · ${n}</a>`).join("")}</p></section>
+        </div>
+      </div>
+      ${newest.length ? `<section class="shelf"><header class="shelf-head"><div><h2>Newest in the catalogue</h2><p>The most recent ${esc(PLURAL[medium].toLowerCase())} we hold.</p></div><a class="see-all" href="${esc(hrefSearch(medium, { sort: "newest" }))}">See all ${works.length}</a></header>${row(newest)}</section>` : ""}
+      ${shelves.map((s) => shelfRow({ ...s, total: s.works.length, works: s.works.slice(0, 12) })).join("")}`;
+  }
+
   function renderShelves() {
     app.innerHTML = `<header class="page-band"><h1>All shelves</h1></header>${timeTiles()}${allShelves().map(shelfRow).join("")}`;
   }
@@ -1516,18 +1613,18 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
     ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
-    ["Films", [["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
+    ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
-    ["TV", [["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
+    ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
       ["Seoul Searching", "#shelf-seoul-searching"], ["Desi Delights", "#shelf-desi-delights"]]],
-    ["Books", [["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Book series", "#series"]]],
-    ["Games", [["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
-    ["Music", [["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
+    ["Books", [["All books", "#books"], ["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Book series", "#series"]]],
+    ["Games", [["All games", "#games"], ["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
+    ["Music", [["All music", "#albums"], ["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
       ["Journal", "#journal"], ["Lists", "#lists"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
-    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Send beta feedback", feedbackHref()]]],
+    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
   const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
   function renderMenubar() {
@@ -3040,6 +3137,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
     else if (h.startsWith("list-")) { setNav("Library"); renderList(h.slice(5)); }
     else if (h === "shared") { setNav("Library"); renderShared(p); }
     else if (h === "stats") { setNav("Library"); renderStats(); }
+    else if (HUBS[h]) { setNav(MENU_LABEL[HUBS[h]]); renderHub(HUBS[h]); }
+    else if (h === "blog") { setNav("Catalogue"); renderBlog(); }
+    else if (h.startsWith("blog-")) { setNav("Catalogue"); renderPost(h.slice(5)); }
     else if (h === "year") { setNav("Library"); renderYear(p.get("y")); }
     else if (h === "transfer") { setNav("Library"); renderTransfer(); }
     else if (h === "tags") { setNav("Catalogue"); renderTags(p.get("q") || ""); }
@@ -3300,6 +3400,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
       b.setAttribute("aria-expanded", String(open));
     } else if (b.dataset.menu !== undefined) {
       const li = b.parentElement;
+      // With a mouse the menu is already open on hover, so the label opens the section's own page (a directory).
+      const first = li.querySelector(".drop a");
+      if (window.matchMedia("(hover: hover)").matches && first && /^#(films|tv|books|games|albums)$/.test(first.getAttribute("href"))) { closeMenus(); location.hash = first.getAttribute("href"); return; }
       const was = li.classList.contains("open");
       closeMenus();
       if (!was) { li.classList.add("open"); b.setAttribute("aria-expanded", "true"); }

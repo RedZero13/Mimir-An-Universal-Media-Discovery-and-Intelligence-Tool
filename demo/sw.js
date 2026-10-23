@@ -19,11 +19,11 @@ self.addEventListener("fetch", (event) => {
   if (req.method !== "GET") return;
   const url = new URL(req.url);
   if (req.mode === "navigate") {
+    // Each page is cached under its own path (the app at "/", blog posts at /blog/...), and the app is the fallback.
     event.respondWith(fetch(req).then((res) => {
-      const copy = res.clone();
-      caches.open(CACHE).then((c) => c.put("/", copy));
+      if (res.ok) { const copy = res.clone(); caches.open(CACHE).then((c) => c.put(url.pathname, copy)); }
       return res;
-    }).catch(() => caches.match("/")));
+    }).catch(() => caches.match(url.pathname).then((hit) => hit || caches.match("/"))));
     return;
   }
   const sameOrigin = url.origin === self.location.origin;
