@@ -7,6 +7,7 @@
   "bojack-horseman-2014",
   "cold-mess-2018",
   "columbus-2017",
+  "delicious-in-dungeon-2014",
   "dil-se-1998",
   "queen-2013"
  ],
@@ -49059,6 +49060,1771 @@
      "kind": "info:wikipedia",
      "label": "Wikipedia",
      "url": "https://en.wikipedia.org/wiki/Death_Note_(2017_film)"
+    }
+   ]
+  },
+  "chefs-table-2015": {
+   "match": {
+    "qid": "Q20164367",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt4295140",
+    "tmdb_tv": "62391",
+    "rotten_tomatoes": "tv/chef_s_table"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Chef's_Table",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Chef%27s+Table%22+2015"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Chef%27s+Table+2015+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Chef's_Table"
+    }
+   ]
+  },
+  "salt-fat-acid-heat-2018": {
+   "match": {
+    "qid": "Q57262935",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt8772088",
+    "tmdb_tv": "83039",
+    "rotten_tomatoes": "tv/salt_fat_acid_heat"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q107564108",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Salt_Fat_Acid_Heat",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Salt+Fat+Acid+Heat%22+2018"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Salt+Fat+Acid+Heat+2018+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Salt_Fat_Acid_Heat"
+    }
+   ]
+  },
+  "street-food-asia-2019": {
+   "match": {
+    "qid": "Q63688389",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt10050778",
+    "tmdb_tv": "87832",
+    "rotten_tomatoes": "tv/street_food"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Street_Food_(TV_series)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Street+Food%3A+Asia%22+2019"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Street+Food%3A+Asia+2019+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Street_Food_(TV_series)"
+    }
+   ]
+  },
+  "the-great-british-bake-off-2010": {
+   "match": {
+    "qid": "Q7737672",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt1877368",
+    "tmdb_tv": "34549",
+    "rotten_tomatoes": "tv/the_great_british_bake_off",
+    "twitter": "BritishBakeOff"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Great_British_Bake_Off",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Great+British+Bake+Off%22+2010"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Great+British+Bake+Off+2010+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Great_British_Bake_Off"
+    }
+   ]
+  },
+  "ugly-delicious-2018": {
+   "match": {
+    "qid": "Q50280921",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt7907916",
+    "tmdb_tv": "77416",
+    "rotten_tomatoes": "tv/ugly_delicious",
+    "metacritic": "tv/ugly-delicious",
+    "twitter": "uglydelicious"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Ugly_Delicious",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Ugly+Delicious%22+2018"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Ugly+Delicious+2018+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Ugly_Delicious"
+    }
+   ]
+  },
+  "somebody-feed-phil-2018": {
+   "match": {
+    "qid": "Q52430343",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt7752034",
+    "tmdb_tv": "76305",
+    "rotten_tomatoes": "tv/somebody_feed_phil",
+    "twitter": "philrosenthal"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Somebody_Feed_Phil",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Somebody+Feed+Phil%22+2018"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Somebody+Feed+Phil+2018+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Somebody_Feed_Phil"
+    }
+   ]
+  },
+  "anthony-bourdain-parts-unknown-2013": {
+   "match": {
+    "qid": "Q15994894",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt2845786",
+    "tmdb_tv": "56305",
+    "rotten_tomatoes": "tv/anthony_bourdain_parts_unknown"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Anthony_Bourdain:_Parts_Unknown",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Anthony+Bourdain%3A+Parts+Unknown%22+2013"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Anthony+Bourdain%3A+Parts+Unknown+2013+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Anthony_Bourdain:_Parts_Unknown"
+    }
+   ]
+  },
+  "midnight-diner-2009": {
+   "match": {
+    "qid": "Q16163507",
+    "confidence": 1.0,
+    "reason": "type ok, year 2009, exact title"
+   },
+   "facts": {
+    "release_year": 2009
+   },
+   "ids": {
+    "imdb": "tt1882928",
+    "tmdb_tv": "47008"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q850626",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Midnight_Diner_(Japanese_TV_series)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Midnight+Diner%22+2009"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Midnight+Diner+2009+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Midnight_Diner_(Japanese_TV_series)"
+    }
+   ]
+  },
+  "delicious-in-dungeon-2024": {
+   "match": {
+    "qid": "Q118692115",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt21621494",
+    "tmdb_tv": "207784",
+    "rotten_tomatoes": "tv/delicious_in_dungeon",
+    "twitter": "dun_meshi_anime"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q20016948",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": null,
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Delicious+in+Dungeon%22+2024"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Delicious+in+Dungeon+2024+review"
+    }
+   ]
+  },
+  "food-wars-2015": {
+   "match": {
+    "qid": "Q79310969",
+    "confidence": 0.8,
+    "reason": "type ok, year None, exact title"
+   },
+   "facts": {},
+   "ids": {
+    "imdb": "tt4731072",
+    "tmdb_tv": "62273",
+    "rotten_tomatoes": "tv/shokugeki_no_soma",
+    "twitter": "shokugeki_anime"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q8376373",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": null,
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Food+Wars%21%22+2015"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Food+Wars%21+2015+review"
+    }
+   ]
+  },
+  "ratatouille-2007": {
+   "match": {
+    "qid": "Q170035",
+    "confidence": 1.0,
+    "reason": "type ok, year 2007, exact title"
+   },
+   "facts": {
+    "release_year": 2007,
+    "runtime_minutes": 110
+   },
+   "ids": {
+    "imdb": "tt0382932",
+    "tmdb_movie": "2062",
+    "rotten_tomatoes": "m/ratatouille",
+    "letterboxd": "ratatouille",
+    "metacritic": "movie/ratatouille"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 8.1,
+     "scale_max": 10.0,
+     "votes": 934000,
+     "as_of": "2026-03-11"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 96.0,
+     "scale_max": 100.0,
+     "votes": 37,
+     "as_of": "2025-06-16"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 96.0,
+     "scale_max": 100.0,
+     "votes": 251,
+     "as_of": "2026-03-04"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 623722818.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 206445654.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q2732470",
+     "name": "list of Pixar films",
+     "position": "8"
+    },
+    {
+     "qid": "Q26705935",
+     "name": "BBC's 100 Greatest Films of the 21st Century",
+     "position": "93"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Ratatouille_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/ratatouille/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/ratatouille"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0382932/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/ratatouille"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Ratatouille"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Ratatouille%22+2007"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Ratatouille+2007+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Ratatouille_(film)"
+    }
+   ]
+  },
+  "jiro-dreams-of-sushi-2011": {
+   "match": {
+    "qid": "Q1279290",
+    "confidence": 1.0,
+    "reason": "type ok, year 2011, exact title"
+   },
+   "facts": {
+    "release_year": 2011,
+    "runtime_minutes": 81
+   },
+   "ids": {
+    "imdb": "tt1772925",
+    "tmdb_movie": "80767",
+    "rotten_tomatoes": "m/jiro_dreams_of_sushi",
+    "letterboxd": "jiro-dreams-of-sushi",
+    "metacritic": "movie/jiro-dreams-of-sushi",
+    "twitter": "Jiro_Movie"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 77.0,
+     "scale_max": 100.0,
+     "votes": 27,
+     "as_of": "2024-05-15"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 7.8,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 99.0,
+     "scale_max": 100.0,
+     "votes": 95,
+     "as_of": "2021-10-06"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 2692864.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 2552478.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Jiro_Dreams_of_Sushi",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/jiro-dreams-of-sushi/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/jiro_dreams_of_sushi"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt1772925/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/jiro-dreams-of-sushi"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Jiro+Dreams+of+Sushi"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Jiro+Dreams+of+Sushi%22+2011"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Jiro+Dreams+of+Sushi+2011+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Jiro_Dreams_of_Sushi"
+    }
+   ]
+  },
+  "chef-2014": {
+   "match": {
+    "qid": "Q15046490",
+    "confidence": 1.0,
+    "reason": "type ok, year 2014, exact title"
+   },
+   "facts": {
+    "release_year": 2014,
+    "runtime_minutes": 114
+   },
+   "ids": {
+    "imdb": "tt2883512",
+    "tmdb_movie": "212778",
+    "rotten_tomatoes": "m/chef_2014",
+    "letterboxd": "chef",
+    "metacritic": "movie/chef"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 68.0,
+     "scale_max": 100.0,
+     "votes": 36,
+     "as_of": "2026-01-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 6.8,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-09"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 87.0,
+     "scale_max": 100.0,
+     "votes": 186,
+     "as_of": "2024-11-25"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "unspecified",
+     "amount": 45967935.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Chef_(2014_film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/chef/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/chef_2014"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2883512/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/chef"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Chef"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Chef%22+2014"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Chef+2014+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Chef_(2014_film)"
+    }
+   ]
+  },
+  "tampopo-1985": {
+   "match": {
+    "qid": "Q2142996",
+    "confidence": 1.0,
+    "reason": "type ok, year 1985, exact title"
+   },
+   "facts": {
+    "release_year": 1985,
+    "runtime_minutes": 114
+   },
+   "ids": {
+    "imdb": "tt0092048",
+    "tmdb_movie": "11830",
+    "rotten_tomatoes": "m/tampopo",
+    "letterboxd": "tampopo",
+    "metacritic": "movie/tampopo"
+   },
+   "scores": [
+    {
+     "publisher": "IMDb",
+     "metric": "weighted average",
+     "value": 7.9,
+     "scale_max": 10.0,
+     "votes": 27000,
+     "as_of": "2026-06-15"
+    },
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 87.0,
+     "scale_max": 100.0,
+     "votes": 18,
+     "as_of": "2024-01-23"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-07"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 100.0,
+     "scale_max": 100.0,
+     "votes": 55,
+     "as_of": "2021-10-07"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "United States",
+     "amount": 224097.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Tampopo",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/tampopo/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/tampopo"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0092048/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/tampopo"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Tampopo"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Tampopo%22+1985"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Tampopo+1985+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Tampopo"
+    }
+   ]
+  },
+  "julie-and-julia-2009": {
+   "match": {
+    "qid": "Q380848",
+    "confidence": 1.0,
+    "reason": "type ok, year 2009, exact title"
+   },
+   "facts": {
+    "release_year": 2009,
+    "runtime_minutes": 123
+   },
+   "ids": {
+    "imdb": "tt1135503",
+    "tmdb_movie": "24803",
+    "rotten_tomatoes": "m/julie_and_julia",
+    "letterboxd": "julie-julia",
+    "metacritic": "movie/julie-julia"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 66.0,
+     "scale_max": 100.0,
+     "votes": 34,
+     "as_of": "2025-08-30"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 6.7,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-05"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 77.0,
+     "scale_max": 100.0,
+     "votes": 225,
+     "as_of": "2024-10-27"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q4216302",
+     "slug": null
+    },
+    {
+     "qid": "Q21587116",
+     "slug": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "logo",
+     "commons_file": "Julie&Julia logo.png",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Julie%26Julia_logo.png/960px-Julie%26Julia_logo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Julie%26Julia_logo.png",
+     "licence": "Public domain",
+     "attribution": "Movie graphic designers"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Julie_&_Julia",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/julie-julia/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/julie_and_julia"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt1135503/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/julie-julia"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Julie+%26+Julia"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Julie+%26+Julia%22+2009"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Julie+%26+Julia+2009+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Julie_&_Julia"
+    }
+   ]
+  },
+  "eat-drink-man-woman-1994": {
+   "match": {
+    "qid": "Q696905",
+    "confidence": 1.0,
+    "reason": "type ok, year 1994, exact title"
+   },
+   "facts": {
+    "release_year": 1994,
+    "runtime_minutes": 123
+   },
+   "ids": {
+    "imdb": "tt0111797",
+    "tmdb_movie": "10451",
+    "rotten_tomatoes": "m/eat_drink_man_woman",
+    "letterboxd": "eat-drink-man-woman",
+    "metacritic": "movie/eat-drink-man-woman"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 80.0,
+     "scale_max": 100.0,
+     "votes": 29,
+     "as_of": "2024-02-01"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 7.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 88.0,
+     "scale_max": 100.0,
+     "votes": 49,
+     "as_of": "2021-10-06"
+    }
+   ],
+   "box_office": [
+    {
+     "scope": "worldwide",
+     "amount": 24200000.0,
+     "currency": "USD"
+    },
+    {
+     "scope": "United States",
+     "amount": 7294403.0,
+     "currency": "USD"
+    }
+   ],
+   "series": [
+    {
+     "qid": "Q96095963",
+     "name": "Father Knows Best trilogy",
+     "position": "3"
+    }
+   ],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Eat_Drink_Man_Woman",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/eat-drink-man-woman/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/eat_drink_man_woman"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0111797/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/eat-drink-man-woman"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Eat+Drink+Man+Woman"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Eat+Drink+Man+Woman%22+1994"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Eat+Drink+Man+Woman+1994+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Eat_Drink_Man_Woman"
+    }
+   ]
+  },
+  "babettes-feast-1987": {
+   "match": {
+    "qid": "Q797679",
+    "confidence": 1.0,
+    "reason": "type ok, year 1987, exact title"
+   },
+   "facts": {
+    "release_year": 1987,
+    "runtime_minutes": 103
+   },
+   "ids": {
+    "imdb": "tt0092603",
+    "tmdb_movie": "11832",
+    "rotten_tomatoes": "m/babettes_feast",
+    "letterboxd": "babettes-feast"
+   },
+   "scores": [
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 8.5,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-06"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 97.0,
+     "scale_max": 100.0,
+     "votes": 34,
+     "as_of": "2024-10-31"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q1762979",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Babette's_Feast",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/babettes-feast/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/babettes_feast"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt0092603/"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Babette%27s+Feast"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Babette%27s+Feast%22+1987"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Babette%27s+Feast+1987+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Babette's_Feast"
+    }
+   ]
+  },
+  "the-taste-of-things-2023": {
+   "match": {
+    "qid": "Q110953025",
+    "confidence": 1.0,
+    "reason": "type ok, year 2023, exact title"
+   },
+   "facts": {
+    "release_year": 2023,
+    "runtime_minutes": 134
+   },
+   "ids": {
+    "imdb": "tt19760052",
+    "tmdb_movie": "964960",
+    "rotten_tomatoes": "m/the_taste_of_things",
+    "letterboxd": "the-taste-of-things",
+    "metacritic": "movie/the-taste-of-things"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 85.0,
+     "scale_max": 100.0,
+     "votes": 43,
+     "as_of": "2024-10-08"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 97.0,
+     "scale_max": 100.0,
+     "votes": 192,
+     "as_of": "2024-10-08"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q110953016",
+     "slug": null
+    }
+   ],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Taste_of_Things",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/the-taste-of-things/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/the_taste_of_things"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt19760052/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/the-taste-of-things"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=The+Taste+of+Things"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Taste+of+Things%22+2023"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Taste+of+Things+2023+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Taste_of_Things"
+    }
+   ]
+  },
+  "the-hundred-foot-journey-2014": {
+   "match": {
+    "qid": "Q15220568",
+    "confidence": 1.0,
+    "reason": "type ok, year 2014, exact title"
+   },
+   "facts": {
+    "release_year": 2014,
+    "runtime_minutes": 122
+   },
+   "ids": {
+    "imdb": "tt2980648",
+    "tmdb_movie": "228194",
+    "rotten_tomatoes": "m/the_hundred_foot_journey",
+    "letterboxd": "the-hundred-foot-journey",
+    "metacritic": "movie/the-hundred-foot-journey"
+   },
+   "scores": [
+    {
+     "publisher": "Metacritic",
+     "metric": "Metascore",
+     "value": 55.0,
+     "scale_max": 100.0,
+     "votes": 36,
+     "as_of": "2024-05-20"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Rotten Tomatoes average of rated reviews",
+     "value": 6.2,
+     "scale_max": 10.0,
+     "votes": null,
+     "as_of": "2021-10-09"
+    },
+    {
+     "publisher": "Rotten Tomatoes",
+     "metric": "Tomatometer score",
+     "value": 68.0,
+     "scale_max": 100.0,
+     "votes": 148,
+     "as_of": "2021-10-09"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [
+    {
+     "qid": "Q17079318",
+     "slug": null
+    }
+   ],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "3650 Berlin.JPG",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/3650_Berlin.JPG/960px-3650_Berlin.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:3650_Berlin.JPG",
+     "licence": "CC BY-SA 4.0",
+     "attribution": "Spyrosdrakopoulos"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Hundred-Foot_Journey_(film)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/the-hundred-foot-journey/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/the_hundred_foot_journey"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2980648/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/movie/the-hundred-foot-journey"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=The+Hundred-Foot+Journey"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22The+Hundred-Foot+Journey%22+2014"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=The+Hundred-Foot+Journey+2014+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/The_Hundred-Foot_Journey_(film)"
+    }
+   ]
+  },
+  "ustad-hotel-2012": {
+   "match": {
+    "qid": "Q7902166",
+    "confidence": 1.0,
+    "reason": "type ok, year 2012, exact title"
+   },
+   "facts": {
+    "release_year": 2012,
+    "runtime_minutes": 150
+   },
+   "ids": {
+    "imdb": "tt2218988",
+    "tmdb_movie": "117751",
+    "rotten_tomatoes": "m/ustad_hotel",
+    "letterboxd": "ustad-hotel"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Ustad_Hotel",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "reactions:letterboxd",
+     "label": "Letterboxd",
+     "url": "https://letterboxd.com/film/ustad-hotel/"
+    },
+    {
+     "kind": "reactions:rotten-tomatoes",
+     "label": "Rotten Tomatoes",
+     "url": "https://www.rottentomatoes.com/m/ustad_hotel"
+    },
+    {
+     "kind": "info:imdb",
+     "label": "IMDb",
+     "url": "https://www.imdb.com/title/tt2218988/"
+    },
+    {
+     "kind": "watch:justwatch",
+     "label": "Where to watch (JustWatch)",
+     "url": "https://www.justwatch.com/us/search?q=Ustad+Hotel"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Ustad+Hotel%22+2012"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Ustad+Hotel+2012+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Ustad_Hotel"
+    }
+   ]
+  },
+  "kitchen-confidential-2000": {
+   "match": {
+    "qid": "Q6417969",
+    "confidence": 1.0,
+    "reason": "type ok, year 2000, exact title"
+   },
+   "facts": {
+    "release_year": 2000
+   },
+   "ids": {
+    "openlibrary": "OL3348011W",
+    "musicbrainz_release_group": "e86e0b0c-f83d-320e-bb55-4333a6e4bdb3"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [
+    {
+     "qid": "Q4656100",
+     "slug": null
+    }
+   ],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Kitchen_Confidential_(book)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL3348011W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Kitchen+Confidential+Anthony+Bourdain"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Kitchen+Confidential"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Kitchen+Confidential%22+2000"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Kitchen+Confidential+2000+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Kitchen_Confidential_(book)"
+    }
+   ]
+  },
+  "like-water-for-chocolate-1989": {
+   "match": {
+    "qid": "Q1777072",
+    "confidence": 1.0,
+    "reason": "type ok, year 1989, exact title"
+   },
+   "facts": {
+    "release_year": 1989
+   },
+   "ids": {
+    "openlibrary": "OL17684880W"
+   },
+   "scores": [],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Like_Water_for_Chocolate_(novel)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "info:openlibrary",
+     "label": "Open Library",
+     "url": "https://openlibrary.org/works/OL17684880W"
+    },
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Like+Water+for+Chocolate+Laura+Esquivel"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Like+Water+for+Chocolate"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Like+Water+for+Chocolate%22+1989"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Like+Water+for+Chocolate+1989+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Like_Water_for_Chocolate_(novel)"
+    }
+   ]
+  },
+  "delicious-in-dungeon-2014": {
+   "match": null,
+   "reason": "ambiguous: two equally good candidates",
+   "candidates": [
+    {
+     "qid": "Q139619114",
+     "label": "Delicious in Dungeon, Volume 1",
+     "description": "2015 manga volume by Ryoko Kui",
+     "confidence": 0.6,
+     "reason": "type ok, year 2015, partial title"
+    },
+    {
+     "qid": "Q140044909",
+     "label": "Delicious in Dungeon, Volume 2",
+     "description": "2015 manga volume by Ryoko Kui",
+     "confidence": 0.6,
+     "reason": "type ok, year 2015, partial title"
+    },
+    {
+     "qid": "Q20016948",
+     "label": "Delicious in Dungeon",
+     "description": "Japanese manga series",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q118692115",
+     "label": "Delicious in Dungeon",
+     "description": "Japanese anime television series",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    },
+    {
+     "qid": "Q126598644",
+     "label": "Delicious in Dungeon, season 1",
+     "description": "season of Delicious in Dungeon",
+     "confidence": 0.0,
+     "reason": "wrong type"
+    }
+   ],
+   "links": [
+    {
+     "kind": "reactions:goodreads",
+     "label": "Goodreads",
+     "url": "https://www.goodreads.com/search?q=Delicious+in+Dungeon+Ryoko+Kui"
+    },
+    {
+     "kind": "reactions:storygraph",
+     "label": "The StoryGraph",
+     "url": "https://app.thestorygraph.com/browse?search_term=Delicious+in+Dungeon"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Delicious+in+Dungeon%22+2014"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Delicious+in+Dungeon+2014+review"
+    }
+   ]
+  },
+  "overcooked-2-2018": {
+   "match": {
+    "qid": "Q55713667",
+    "confidence": 1.0,
+    "reason": "type ok, year 2018, exact title"
+   },
+   "facts": {
+    "release_year": 2018
+   },
+   "ids": {
+    "imdb": "tt10324592",
+    "igdb": "overcooked-2",
+    "steam": "728880"
+   },
+   "scores": [
+    {
+     "publisher": "CriticDB",
+     "metric": "CriticDB Rating",
+     "value": 82.0,
+     "scale_max": 100.0,
+     "votes": 22,
+     "as_of": null
+    },
+    {
+     "publisher": "OpenCritic",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 85.0,
+     "scale_max": 100.0,
+     "votes": 109,
+     "as_of": "2026-01-26"
+    },
+    {
+     "publisher": "OpenCritic",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 82.0,
+     "scale_max": 100.0,
+     "votes": 104,
+     "as_of": "2021-05-06"
+    }
+   ],
+   "box_office": [],
+   "series": [
+    {
+     "qid": "Q109832343",
+     "name": "Overcooked!",
+     "position": "2"
+    }
+   ],
+   "follows": [
+    {
+     "qid": "Q26252727",
+     "slug": null
+    }
+   ],
+   "followed_by": [],
+   "based_on": [],
+   "images": [
+    {
+     "kind": "still",
+     "commons_file": "Overcooked 2 screenshot.jpg",
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Overcooked_2_screenshot.jpg/960px-Overcooked_2_screenshot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+     "page": "https://commons.wikimedia.org/wiki/File:Overcooked_2_screenshot.jpg",
+     "licence": "Copyrighted free use",
+     "attribution": "Team17 Digital Ltd"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Overcooked_2",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/728880/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Overcooked%21%202/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Overcooked%21+2%22+2018"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Overcooked%21+2+2018+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Overcooked_2"
+    }
+   ]
+  },
+  "venba-2023": {
+   "match": {
+    "qid": "Q115153436",
+    "confidence": 1.0,
+    "reason": "type ok, year 2023, exact title"
+   },
+   "facts": {
+    "release_year": 2023
+   },
+   "ids": {
+    "imdb": "tt18394974",
+    "igdb": "venba",
+    "steam": "1491670",
+    "twitter": "venbaGame"
+   },
+   "scores": [
+    {
+     "publisher": "CriticDB",
+     "metric": "CriticDB Rating",
+     "value": 82.0,
+     "scale_max": 100.0,
+     "votes": 23,
+     "as_of": null
+    },
+    {
+     "publisher": "OpenCritic",
+     "metric": "OpenCritic Critics Recommend",
+     "value": 83.0,
+     "scale_max": 100.0,
+     "votes": 57,
+     "as_of": "2024-07-24"
+    },
+    {
+     "publisher": "OpenCritic",
+     "metric": "OpenCritic Top Critic Average",
+     "value": 81.0,
+     "scale_max": 100.0,
+     "votes": 52,
+     "as_of": "2023-09-09"
+    }
+   ],
+   "box_office": [],
+   "series": [],
+   "follows": [],
+   "followed_by": [],
+   "based_on": [],
+   "images": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Venba_(video_game)",
+   "conflicts": [],
+   "links": [
+    {
+     "kind": "buy:steam",
+     "label": "Steam",
+     "url": "https://store.steampowered.com/app/1491670/"
+    },
+    {
+     "kind": "reactions:metacritic",
+     "label": "Metacritic",
+     "url": "https://www.metacritic.com/search/Venba/"
+    },
+    {
+     "kind": "reactions:reddit",
+     "label": "Reddit discussions",
+     "url": "https://www.reddit.com/search/?q=%22Venba%22+2023"
+    },
+    {
+     "kind": "reactions:youtube",
+     "label": "Video reviews on YouTube",
+     "url": "https://www.youtube.com/results?search_query=Venba+2023+review"
+    },
+    {
+     "kind": "info:wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Venba_(video_game)"
     }
    ]
   }
