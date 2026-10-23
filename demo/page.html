@@ -858,6 +858,8 @@ article [id] { scroll-margin-top: 140px; }
 /* Menus are solid so text stays readable over any section beneath them. */
 :root { --menu-bg: rgb(26, 24, 19); } :root[data-theme="light"] { --menu-bg: rgb(248, 243, 231); }
 .menubar, :root[data-theme="light"] .menubar, .drop { background: var(--menu-bg); }
+.sub-group + .sub-group { margin-top: 12px; }
+.sub-group h3 { margin: 0 0 4px; font: 600 .74rem var(--f-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 /* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
 .row { padding-bottom: 20px; }
 .row .pchips { height: 62px; }
@@ -981,6 +983,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     JSON.parse(document.getElementById("calendar-data").textContent),
   );
   const CONFIG = JSON.parse(document.getElementById("config-data").textContent);
+  // Subgenres are genre terms that name a parent genre.
+  const PARENT_OF = Object.fromEntries(JSON.parse(document.getElementById("taxonomy-data").textContent).terms
+    .filter((t) => t.dimension === "genre" && t.parent).map((t) => [`genre:${t.slug}`, `genre:${t.parent}`]));
+  const isSub = (key) => key in PARENT_OF;
   const BLOG = JSON.parse(document.getElementById("blog-data").textContent).posts;
   const app = document.getElementById("app");
   const EXAMPLES = [
@@ -1783,7 +1789,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <section class="stat-box"><h2>Top ${esc(PLURAL[medium].toLowerCase())}</h2><ol class="ranks">${topList(medium, 10).map((w, i) => rankRow(w, i, true)).join("")}</ol>
           <a class="see-all" href="#top-${medium}">The full top 100</a></section>
         <div class="hub-side">
-          <section class="stat-box"><h2>By genre</h2><p class="pchips">${[...genres.values()].sort((a, b) => b.n - a.n).map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></section>
+          <section class="stat-box"><h2>By genre</h2><p class="pchips">${[...genres.values()].filter((g) => !isSub(g.key)).sort((a, b) => b.n - a.n).map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></section>
+          ${(() => { const groups = new Map();
+            [...genres.values()].filter((g) => isSub(g.key)).sort((a, b) => b.n - a.n).forEach((g) => { const p = PARENT_OF[g.key]; if (!groups.has(p)) groups.set(p, []); groups.get(p).push(g); });
+            return groups.size ? `<section class="stat-box sub-box"><h2>By subgenre</h2>${[...groups].sort((a, b) => b[1].reduce((n, g) => n + g.n, 0) - a[1].reduce((n, g) => n + g.n, 0)).map(([p, gs]) => `<div class="sub-group"><h3>${esc(cat.tag(p) ? cat.tag(p).label : p.split(":")[1])}</h3><p class="pchips">${gs.map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></div>`).join("")}</section>` : ""; })()}
           ${["film", "series"].includes(medium) ? `<section class="stat-box"><h2>By industry</h2><p class="pchips">${INDUSTRIES.map(([k, l]) => [k, l, works.filter((w) => inIndustry(w, k)).length]).filter(([, , n]) => n).map(([k, l, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { industry: k, list: true }))}">${esc(l)} · ${n}</a>`).join("")}</p></section>` : ""}
           <section class="stat-box"><h2>By decade</h2><p class="pchips">${[...decades].sort((a, b) => b[0] - a[0]).map(([d, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { year_min: d, year_max: d + 9 }))}">${d}s · ${n}</a>`).join("")}</p></section>
           <section class="stat-box"><h2>By time you have</h2><p class="pchips">${TIME_TILES.map(([slug, label]) => [slug, label, works.filter((w) => w.time && w.time.bucket === slug).length]).filter(([, , n]) => n).map(([slug, label, n]) => `<a class="tchip" href="#time-${slug}?m=${medium}">${esc(label)} · ${n}</a>`).join("")}</p></section>
@@ -2114,7 +2123,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const median = mins.length ? mins[Math.floor(mins.length / 2)] : null;
     const genres = {};
     full.forEach((w) => (w.genres || []).forEach((g) => { genres[g.key] = genres[g.key] || { ...g, n: 0 }; genres[g.key].n += 1; }));
-    const topGenres = Object.values(genres).sort((a, b) => b.n - a.n).slice(0, 5);
+    const ranked = Object.values(genres).sort((a, b) => b.n - a.n);
+    const subs = ranked.filter((g) => isSub(g.key)).slice(0, 8);
+    const topGenres = subs.length >= 3 ? subs : ranked.slice(0, 6);
     const paras = String(description || "").split(/\n\n+/).filter(Boolean);
     return `<section class="about-card" aria-label="About this collection">
       <div class="about-desc"><h2>About</h2>${paras.map((t) => `<p>${esc(t)}</p>`).join("")}
@@ -2125,7 +2136,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${median ? `<div class="stat-tile wide"><span class="stat-n">${esc(hm(median))}</span><span class="stat-l">Typical time to finish</span></div>` : ""}
         ${mix.length ? `<div class="stat-tile wide"><span class="stat-l">Media</span><div class="mix-bar">${mix.map(([m, n]) => `<span style="width:${(n / full.length) * 100}%;background:${MEDIUM_TINT[m]}"></span>`).join("")}</div>
           <div class="mix-legend">${mix.map(([m, n]) => `<span><i style="background:${MEDIUM_TINT[m]}"></i>${esc(PLURAL[m])} ${n}</span>`).join("")}</div></div>` : ""}
-        ${topGenres.length ? `<div class="stat-tile wide"><span class="stat-l">Most common genres</span><div class="about-tags">${topGenres.map((g) => `<a class="tchip" href="#${esc(tagToken(g.key))}">${esc(g.label)} · ${g.n}</a>`).join("")}</div></div>` : ""}
+        ${topGenres.length ? `<div class="stat-tile wide"><span class="stat-l">${subs.length >= 3 ? "Most common subgenres" : "Most common genres"}</span><div class="about-tags">${topGenres.map((g) => `<a class="tchip" href="#${esc(tagToken(g.key))}">${esc(g.label)} · ${g.n}</a>`).join("")}</div></div>` : ""}
       </div></section>`;
   }
 
