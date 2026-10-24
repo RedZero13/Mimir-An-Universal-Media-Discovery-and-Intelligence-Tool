@@ -22,6 +22,9 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   works, how long, one pick per series, and familiar picks or a stretch.
 - **Experience DNA.** Every work page shows a fingerprint of its moods, themes, pacing, complexity, storytelling,
   world and style. Keep the qualities you want and drop the rest, and Mimir finds works with that mix, in any medium.
+- **Help centre (#help).** A search box over 20 guides in six topics (getting started, finding something, your
+  library, taste and picks, days and community, privacy and your data), ten frequently asked questions, and the
+  walkthrough video. Guides open at #help-<name>; the search filters guides and questions as you type.
 - **Swipe to teach Mimir.** A deck of cards, one work at a time: right to like, up to love, left for not for me,
   down to skip what you haven't seen (arrow keys, buttons or a drag; Z undoes). Each swipe is a rating, so picks
   everywhere improve, and the next card is chosen to learn something new about you.
