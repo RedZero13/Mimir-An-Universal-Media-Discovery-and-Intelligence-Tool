@@ -1298,18 +1298,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q104830727",
-     "name": "Studio Ghibli Feature Films",
-     "position": null
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "4"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -1439,13 +1428,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q104830727",
-     "name": "Studio Ghibli Feature Films",
-     "position": "4"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -2096,13 +2079,7 @@
     }
    ],
    "box_office": [],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "32"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -2318,7 +2295,7 @@
    "series": [
     {
      "qid": "Q28956556",
-     "name": "The Before Trilogy",
+     "name": "The Before",
      "position": "1"
     }
    ],
@@ -2451,11 +2428,6 @@
      "qid": "Q3275141",
      "name": "Mad Max",
      "position": "4"
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "19"
     }
    ],
    "follows": [
@@ -2775,7 +2747,7 @@
    "series": [
     {
      "qid": "Q15964658",
-     "name": "Southern Reach Series",
+     "name": "Southern Reach",
      "position": "1"
     }
    ],
@@ -2840,7 +2812,7 @@
    "series": [
     {
      "qid": "Q2328396",
-     "name": "Hainish Cycle",
+     "name": "Hainish",
      "position": "4"
     }
    ],
@@ -2910,7 +2882,7 @@
    "series": [
     {
      "qid": "Q2328396",
-     "name": "Hainish Cycle",
+     "name": "Hainish",
      "position": "5"
     }
    ],
@@ -12556,7 +12528,7 @@
    "series": [
     {
      "qid": "Q2610590",
-     "name": "Sprawl trilogy",
+     "name": "Sprawl",
      "position": "1"
     }
    ],
@@ -12621,12 +12593,12 @@
    "series": [
     {
      "qid": "Q1564644",
-     "name": "Foundation series",
+     "name": "Foundation",
      "position": "3"
     },
     {
      "qid": "Q20899148",
-     "name": "Foundation Trilogy",
+     "name": "Foundation",
      "position": "1"
     }
    ],
@@ -12817,7 +12789,7 @@
    "series": [
     {
      "qid": "Q116546",
-     "name": "Earthsea series",
+     "name": "Earthsea",
      "position": "1"
     }
    ],
@@ -13162,7 +13134,7 @@
     },
     {
      "qid": "Q122929150",
-     "name": "Ankh-Morpork City Watch series",
+     "name": "Ankh-Morpork City Watch",
      "position": "1"
     }
    ],
@@ -13735,13 +13707,7 @@
    },
    "scores": [],
    "box_office": [],
-   "series": [
-    {
-     "qid": "Q122441953",
-     "name": "canon of Hercule Poirot",
-     "position": null
-    }
-   ],
+   "series": [],
    "follows": [
     {
      "qid": "Q174654",
@@ -16030,13 +15996,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q104830727",
-     "name": "Studio Ghibli Feature Films",
-     "position": null
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -16160,13 +16120,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q104830727",
-     "name": "Studio Ghibli Feature Films",
-     "position": null
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -16266,13 +16220,7 @@
     }
    ],
    "box_office": [],
-   "series": [
-    {
-     "qid": "Q104830727",
-     "name": "Studio Ghibli Feature Films",
-     "position": null
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -16649,13 +16597,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q104830727",
-     "name": "Studio Ghibli Feature Films",
-     "position": "3"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -16771,7 +16713,7 @@
    "series": [
     {
      "qid": "Q96146434",
-     "name": "Noriko Trilogy",
+     "name": "Noriko",
      "position": "3"
     }
    ],
@@ -17260,13 +17202,8 @@
    "series": [
     {
      "qid": "Q483605",
-     "name": "The Vengeance Trilogy",
+     "name": "The Vengeance",
      "position": null
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "30"
     }
    ],
    "follows": [],
@@ -18072,13 +18009,8 @@
    "series": [
     {
      "qid": "Q18124780",
-     "name": "Love trilogy",
+     "name": "Love",
      "position": null
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "2"
     }
    ],
    "follows": [],
@@ -18188,13 +18120,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "35"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [
     {
@@ -18433,13 +18359,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "8"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -18549,13 +18469,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "87"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -20097,13 +20011,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "38"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -20221,13 +20129,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "9"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -20546,13 +20448,7 @@
     }
    ],
    "box_office": [],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "91"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -20648,7 +20544,7 @@
    "series": [
     {
      "qid": "Q622284",
-     "name": "The Apu Trilogy",
+     "name": "The Apu",
      "position": null
     }
    ],
@@ -23275,13 +23171,7 @@
     }
    ],
    "box_office": [],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "14"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [
     {
@@ -23889,18 +23779,13 @@
    "series": [
     {
      "qid": "Q12859908",
-     "name": "The Dark Knight trilogy",
+     "name": "Batman",
      "position": "2"
     },
     {
      "qid": "Q2111133",
-     "name": "Batman in film",
+     "name": "Batman",
      "position": null
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "33"
     }
    ],
    "follows": [
@@ -24030,13 +23915,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "51"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -24283,7 +24162,7 @@
    "series": [
     {
      "qid": "Q1210827",
-     "name": "The Matrix series",
+     "name": "The Matrix",
      "position": "1"
     }
    ],
@@ -24531,13 +24410,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "27"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -25151,7 +25024,7 @@
     },
     {
      "qid": "Q26214973",
-     "name": "Peter Jackson's Middle-earth film series",
+     "name": "Peter Jackson's Middle-earth",
      "position": "1"
     }
    ],
@@ -25285,7 +25158,7 @@
     },
     {
      "qid": "Q26214973",
-     "name": "Peter Jackson's Middle-earth film series",
+     "name": "Peter Jackson's Middle-earth",
      "position": "2"
     }
    ],
@@ -25424,7 +25297,7 @@
     },
     {
      "qid": "Q26214973",
-     "name": "Peter Jackson's Middle-earth film series",
+     "name": "Peter Jackson's Middle-earth",
      "position": "3"
     }
    ],
@@ -25563,7 +25436,7 @@
     },
     {
      "qid": "Q25540859",
-     "name": "Star Wars original trilogy",
+     "name": "Star Wars",
      "position": "1"
     }
    ],
@@ -26410,13 +26283,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "6"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -26530,13 +26397,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "84"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -27228,13 +27089,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "21"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -27460,11 +27315,6 @@
    ],
    "series": [
     {
-     "qid": "Q2732470",
-     "name": "list of Pixar films",
-     "position": "1"
-    },
-    {
      "qid": "Q2316015",
      "name": "Toy Story",
      "position": "1"
@@ -27587,18 +27437,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q2732470",
-     "name": "list of Pixar films",
-     "position": "9"
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "29"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [
     {
@@ -27708,13 +27547,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q2732470",
-     "name": "list of Pixar films",
-     "position": "10"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -27833,16 +27666,6 @@
      "qid": "Q113956747",
      "name": "Inside Out",
      "position": "1"
-    },
-    {
-     "qid": "Q2732470",
-     "name": "list of Pixar films",
-     "position": "15"
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "41"
     }
    ],
    "follows": [],
@@ -27964,13 +27787,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q2732470",
-     "name": "list of Pixar films",
-     "position": "19"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [
     {
@@ -28111,13 +27928,8 @@
     },
     {
      "qid": "Q2307877",
-     "name": "Spider-Man in film",
+     "name": "Spider-Man",
      "position": "11"
-    },
-    {
-     "qid": "Q65071834",
-     "name": "list of Sony Pictures Animation productions",
-     "position": "22"
     }
    ],
    "follows": [],
@@ -28245,18 +28057,13 @@
      "position": "18"
     },
     {
-     "qid": "Q51963836",
-     "name": "Marvel Cinematic Universe Phase Three",
-     "position": "6"
-    },
-    {
      "qid": "Q76127371",
      "name": "Black Panther",
      "position": "1"
     },
     {
      "qid": "Q63405798",
-     "name": "The Infinity Saga",
+     "name": "The Infinity",
      "position": "18"
     }
    ],
@@ -29051,13 +28858,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "10"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -29405,13 +29206,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "3"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -29529,13 +29324,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "13"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -29903,13 +29692,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "17"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -30864,7 +30647,7 @@
    "series": [
     {
      "qid": "Q3998812",
-     "name": "Apocalypse Trilogy",
+     "name": "Apocalypse",
      "position": "1"
     }
    ],
@@ -31240,13 +31023,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "25"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -32099,11 +31876,6 @@
    ],
    "series": [
     {
-     "qid": "Q2732470",
-     "name": "list of Pixar films",
-     "position": "6"
-    },
-    {
      "qid": "Q55360232",
      "name": "The Incredibles",
      "position": "1"
@@ -32238,11 +32010,6 @@
      "qid": "Q61946928",
      "name": "Shrek",
      "position": "1"
-    },
-    {
-     "qid": "Q26196748",
-     "name": "DreamWorks Animation feature films",
-     "position": "5"
     }
    ],
    "follows": [],
@@ -32376,13 +32143,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q56070713",
-     "name": "Walt Disney Animation Studios feature film",
-     "position": "32"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [
     {
@@ -32502,11 +32263,6 @@
     }
    ],
    "series": [
-    {
-     "qid": "Q56070713",
-     "name": "Walt Disney Animation Studios feature film",
-     "position": "53"
-    },
     {
      "qid": "Q18148065",
      "name": "Frozen",
@@ -32948,7 +32704,7 @@
     },
     {
      "qid": "Q4803535",
-     "name": "Mario",
+     "name": "Super Mario",
      "position": null
     }
    ],
@@ -35359,7 +35115,7 @@
     },
     {
      "qid": "Q119857452",
-     "name": "Persona 5",
+     "name": "Persona",
      "position": null
     }
    ],
@@ -39916,7 +39672,7 @@
    "series": [
     {
      "qid": "Q169604",
-     "name": "Three Flavours Cornetto trilogy",
+     "name": "Three Flavours Cornetto",
      "position": "1"
     }
    ],
@@ -41832,13 +41588,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q65071834",
-     "name": "list of Sony Pictures Animation productions",
-     "position": "7"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -42508,13 +42258,7 @@
     }
    ],
    "box_office": [],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "69"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -43301,13 +43045,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "40"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [
@@ -48061,7 +47799,7 @@
     },
     {
      "qid": "Q6586871",
-     "name": "Star Wars sequel trilogy",
+     "name": "Star Wars",
      "position": "3"
     }
    ],
@@ -48185,12 +47923,12 @@
    "series": [
     {
      "qid": "Q74331",
-     "name": "The Hobbit trilogy",
+     "name": "The Hobbit",
      "position": "3"
     },
     {
      "qid": "Q26214973",
-     "name": "Peter Jackson's Middle-earth film series",
+     "name": "Peter Jackson's Middle-earth",
      "position": "6"
     }
    ],
@@ -48553,7 +48291,7 @@
    "series": [
     {
      "qid": "Q1210827",
-     "name": "The Matrix series",
+     "name": "The Matrix",
      "position": "4"
     }
    ],
@@ -49533,18 +49271,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q2732470",
-     "name": "list of Pixar films",
-     "position": "8"
-    },
-    {
-     "qid": "Q26705935",
-     "name": "BBC's 100 Greatest Films of the 21st Century",
-     "position": "93"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],
@@ -50075,13 +49802,7 @@
      "currency": "USD"
     }
    ],
-   "series": [
-    {
-     "qid": "Q96095963",
-     "name": "Father Knows Best trilogy",
-     "position": "3"
-    }
-   ],
+   "series": [],
    "follows": [],
    "followed_by": [],
    "based_on": [],

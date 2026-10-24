@@ -91,8 +91,9 @@ ${related.length ? `<h2>Connected stories</h2><ul>${related.map((r) => `<li>${es
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, "index.html"), staticPage(title, desc, url, body,
       ld(schema) + crumbs([["Mimir", `${SITE_URL}/`], [hub.name, `${SITE_URL}/${hub.slug}/`], [w.title, url]]),
-      { type: "website", image: cover ? cover.url : undefined }));
-    urls.push([url, null, "0.6"]);
+      { type: "website", image: cover ? cover.url : undefined, index: !!w.summary }));
+    // A work with no summary yet is a thin page: kept out of search until a batch fills it in.
+    if (w.summary) urls.push([url, null, "0.6"]);
   }
 
   // ------------------------------------------------------------------ one page per medium, listing every work

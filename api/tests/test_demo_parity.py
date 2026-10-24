@@ -94,6 +94,13 @@ BROWSE_CASES = [
 
 
 SEED = read_seed()
+# Works imported from Wikidata (seed/reference-*.json) number in the thousands: every hand-made work is compared, plus
+# every tenth imported one and every tenth person, which covers each kind of record without an hours-long run.
+_IMPORTED = {w["slug"] for p in sorted((ROOT / "api/mde/seed").glob("reference-*.json")) for w in json.loads(p.read_text())["works"]}
+
+
+def _sample(slugs):
+    return [s for i, s in enumerate(slugs) if s not in _IMPORTED or i % 10 == 0]
 
 
 def _catalogue(enrichment):
@@ -113,14 +120,14 @@ RECOMMEND_CASES = [
 
 def _views(cat):
     tag_keys = [t["key"] for d in cat.tags() for t in d["terms"]] + ["theme:not-a-tag", "advisory:strong-language"]
-    people = [p["slug"] for p in cat.people()] + ["nobody"]
+    people = [p["slug"] for i, p in enumerate(cat.people()) if i % 10 == 0] + ["nobody"]
     shelves = [s["slug"] for s in load_shelves()["shelves"]] + ["no-such-shelf"]
     groups = [g["slug"] for g in cat.groups()] + ["no-such-group"]
     return ([["browse", b] for b in BROWSE_CASES] + [["tag", k] for k in tag_keys] + [["tags", None]]
             + [["person", s] for s in people] + [["people", None]]
             + [["shelves", None]] + [["shelf", s] for s in shelves] + [["groups", None]] + [["group", g] for g in groups]
             + [["mood_rings", None], ["remix_rack", None]]
-            + [["where", [w.slug, region]] for w in cat.works for region in ("US", "IN", "GB", "XX", None)]
+            + [["where", [slug, region]] for slug in _sample([w.slug for w in cat.works]) for region in ("US", "IN", "GB", "XX", None)]
             + [["recommend", case] for case in RECOMMEND_CASES])
 
 
@@ -143,7 +150,7 @@ def js_output(request):
     enrichment = {} if request.param == "seed-only" else FIXTURE
     cat = _catalogue(enrichment)
     queries = [q["query"] for q in BENCHMARK["queries"]] + EXTRA_QUERIES
-    slugs = [w.slug for w in cat.works]
+    slugs = _sample([w.slug for w in cat.works])
     views = _views(cat)
     payload = {"queries": queries, "slugs": slugs, "views": views, "enrichment": enrichment}
     proc = subprocess.run([node, str(ROOT / "demo/parity.cjs")], input=json.dumps(payload),

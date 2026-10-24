@@ -111,7 +111,7 @@ def _matches(w: WorkProfile, f: BrowseFilters) -> bool:
             return False
     if f.q:
         needle = f.q.strip().lower()
-        haystack = [w.title, w.original_title or "", *(c.name for c in w.credits)]
+        haystack = [w.title, w.original_title or "", *(c.name for c in w.credits), *(g.name for g in w.groups)]
         if not any(needle in h.lower() for h in haystack):
             return False
     return True
@@ -457,19 +457,24 @@ def _shelf_match(w: WorkProfile, rule: dict, ctx: dict[str, dict]) -> bool:
     return True
 
 
+def _unclassified(w: WorkProfile) -> int:
+    """1 for a work read only for genre (an imported entry awaiting moods and themes), else 0: shelves show classified works first."""
+    return 0 if any(k.split(":")[0] not in ("genre", "advisory") and ev.strength > 0 for k, ev in w.terms.items()) else 1
+
+
 def _shelf_key(w: WorkProfile, rule: dict):
     title = normalise_title(w.title)
     sort = rule.get("sort", "popular")
     if sort == "strength":
         tags = list(rule.get("any_tags", [])) + list(rule.get("all_tags", []))
-        return (-max([w.strength(t) for t in tags] or [0]), w.popularity_tier or 5, title)
+        return (-max([w.strength(t) for t in tags] or [0]), _unclassified(w), w.popularity_tier or 5, title)
     if sort == "obscure":
-        return (-(w.popularity_tier or 0), title)
+        return (_unclassified(w), -(w.popularity_tier or 0), title)
     if sort in ("shortest", "longest"):
         t = time_investment(w)
         m = t["minutes"] if t else 10**9
         return (m if sort == "shortest" else -m, title)
-    return (w.popularity_tier or 5, title)
+    return (_unclassified(w), w.popularity_tier or 5, title)
 
 
 def shelves(works: list[WorkProfile], tax: Taxonomy, spec: dict | None = None, limit: int = 12) -> list[dict]:

@@ -11,14 +11,28 @@ function readSeed(seedDir) {
     const part = JSON.parse(fs.readFileSync(path.join(seedDir, name), "utf8"));
     base.works.push(...(part.works || []));
     base.relationships.push(...(part.relationships || []));
-    overlays.push(part.terms || {});
+    overlays.push({ terms: part.terms || {}, attributes: part.attributes || {}, credits: part.credits || {} });
   }
-  // Term overlays (seed/subgenres.json) add tags to works defined in any file.
+  // Overlays add to works defined in any file: tags (seed/subgenres.json), attributes such as franchises, and
+  // extra credits such as lead cast (seed/people-and-franchises.json). Existing values win over overlay attributes.
   const bySlug = new Map(base.works.map((w) => [w.slug, w]));
+  const target = (slug) => {
+    if (!bySlug.has(slug)) throw new Error(`overlay names unknown work ${slug}`);
+    return bySlug.get(slug);
+  };
   for (const overlay of overlays) {
-    for (const [slug, terms] of Object.entries(overlay)) {
-      if (!bySlug.has(slug)) throw new Error(`term overlay names unknown work ${slug}`);
-      bySlug.get(slug).terms = { ...(bySlug.get(slug).terms || {}), ...terms };
+    for (const [slug, terms] of Object.entries(overlay.terms)) {
+      const w = target(slug);
+      w.terms = { ...(w.terms || {}), ...terms };
+    }
+    for (const [slug, attrs] of Object.entries(overlay.attributes)) {
+      const w = target(slug);
+      w.attributes = { ...attrs, ...(w.attributes || {}) };
+    }
+    for (const [slug, credits] of Object.entries(overlay.credits)) {
+      const w = target(slug);
+      const have = new Set((w.credits || []).map((c) => `${c[0]}|${c[1]}`));
+      w.credits = [...(w.credits || []), ...credits.filter((c) => !have.has(`${c[0]}|${c[1]}`))];
     }
   }
   return base;

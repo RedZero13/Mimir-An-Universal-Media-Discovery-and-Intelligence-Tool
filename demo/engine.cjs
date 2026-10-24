@@ -787,10 +787,17 @@ finish finished binge binged through will watching reading playing listening sta
   const FACT_ATTR = { release_year: "year", runtime_minutes: "runtime_minutes", page_count: "page_count" };
 
   function editorialGroups(w) {
+    const out = [];
     const series = w.attributes.series;
-    if (!series) return [];
-    const pos = w.attributes.series_position;
-    return [{ slug: slugify(series), name: series, kind: "series", position: pos !== undefined && pos !== null ? String(pos) : null, source: "editorial" }];
+    if (series) {
+      const pos = w.attributes.series_position;
+      out.push({ slug: slugify(series), name: series, kind: "series", position: pos !== undefined && pos !== null ? String(pos) : null, source: "editorial" });
+    }
+    // Franchises (James Bond, Middle-earth, the MCU…): umbrella groups a work belongs to alongside its series.
+    for (const name of w.attributes.franchises || []) {
+      if (!out.some((g) => g.slug === slugify(name))) out.push({ slug: slugify(name), name, kind: "franchise", position: null, source: "editorial" });
+    }
+    return out;
   }
 
   function setFact(w, field, value, source) {
@@ -924,7 +931,7 @@ finish finished binge binged through will watching reading playing listening sta
       }
       if (f.q) {
         const needle = f.q.trim().toLowerCase();
-        const haystack = [w.title, w.original_title || "", ...w.credits.map((c) => c.name)];
+        const haystack = [w.title, w.original_title || "", ...w.credits.map((c) => c.name), ...w.groups.map((g) => g.name)];
         if (!haystack.some((h) => h.toLowerCase().includes(needle))) return false;
       }
       return true;
@@ -952,7 +959,8 @@ finish finished binge binged through will watching reading playing listening sta
     function browse(works, filters) {
       const f = { media: [], tags: [], decade: null, language: null, country: null, max_minutes: null, avoid: [], q: "",
         exclude: [], year_min: null, year_max: null, sort: "popular", ...filters };
-      const hits = works.filter((w) => matches(w, f)).sort((a, b) => cmp(sortKey(a, f), sortKey(b, f)));
+      // Each key once, then sort (stable, so the order is exactly that of sorting on the keys directly).
+      const hits = works.filter((w) => matches(w, f)).map((w) => [sortKey(w, f), w]).sort((a, b) => cmp(a[0], b[0])).map((x) => x[1]);
       const media = new Map(), decades = new Map(), languages = new Map();
       const byDim = { genre: new Map(), theme: new Map(), mood: new Map() };
       for (const w of hits) {
@@ -1070,7 +1078,7 @@ finish finished binge binged through will watching reading playing listening sta
     }
 
     function workPage(w, works) {
-      const bySlug = new Map(works.map((x) => [x.slug, x]));
+      const bySlug = slugIndex(works);   // cached per list: building it per page made a full pass O(n²)
       const tags = [];
       for (const d of TAG_DIMENSIONS) {
         const terms = [...w.terms].filter(([k, ev]) => k.split(":")[0] === d && ev.strength > 0)
@@ -1184,7 +1192,16 @@ finish finished binge binged through will watching reading playing listening sta
       return contextCache.get(works);
     };
 
+    // Cards depend only on the work and its list's continuity context, so each is built once per context;
+    // callers get a shallow copy, so adding fields to one never leaks into another view.
+    const cardCache = new WeakMap();
     function richCard(w, ctx) {
+      if (!cardCache.has(ctx)) cardCache.set(ctx, new Map());
+      const cache = cardCache.get(ctx);
+      if (!cache.has(w.slug)) cache.set(w.slug, buildRichCard(w, ctx));
+      return { ...cache.get(w.slug) };
+    }
+    function buildRichCard(w, ctx) {
       // Only real artwork becomes a cover (mirrors browse.py COVER_KINDS).
       const img = w.images.find((i) => i.kind === "cover" || i.kind === "poster") || null;
       const c = ctx.get(w.slug);
@@ -1222,24 +1239,26 @@ finish finished binge binged through will watching reading playing listening sta
       return true;
     }
 
+    // 1 for a work read only for genre (an imported entry awaiting moods and themes), else 0 (mirrors browse.py _unclassified).
+    const unclassified = (w) => ([...w.terms].some(([k, ev]) => !["genre", "advisory"].includes(k.split(":")[0]) && ev.strength > 0) ? 0 : 1);
     function shelfKey(w, rule) {
       const title = normaliseTitle(w.title);
       const sort = has(rule, "sort") ? rule.sort : "popular";
       if (sort === "strength") {
         const tags = [...(rule.any_tags || []), ...(rule.all_tags || [])];
-        return [-Math.max(...(tags.length ? tags.map((t) => strengthOf(w, t)) : [0])), w.popularity_tier || 5, title];
+        return [-Math.max(...(tags.length ? tags.map((t) => strengthOf(w, t)) : [0])), unclassified(w), w.popularity_tier || 5, title];
       }
-      if (sort === "obscure") return [-(w.popularity_tier || 0), title];
+      if (sort === "obscure") return [unclassified(w), -(w.popularity_tier || 0), title];
       if (sort === "shortest" || sort === "longest") {
         const t = timeInvestment(w);
         const m = t ? t.minutes : 1e9;
         return [sort === "shortest" ? m : -m, title];
       }
-      return [w.popularity_tier || 5, title];
+      return [unclassified(w), w.popularity_tier || 5, title];
     }
 
     function shelfHits(works, rule, ctx) {
-      return works.filter((w) => shelfMatch(w, rule, ctx)).sort((a, b) => cmp(shelfKey(a, rule), shelfKey(b, rule)));
+      return works.filter((w) => shelfMatch(w, rule, ctx)).map((w) => [shelfKey(w, rule), w]).sort((a, b) => cmp(a[0], b[0])).map((x) => x[1]);
     }
 
     function shelves(works, spec, limit = 12) {

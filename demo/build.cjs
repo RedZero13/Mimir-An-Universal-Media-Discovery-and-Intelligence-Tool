@@ -165,9 +165,9 @@ function standalone(html) {
 // app shows the same posts at #blog. A sitemap lists the home page and every post.
 // Static pages (blog, works, hubs, shelves) share one light shell: readable without the app, linked into it.
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png` } = {}) => `<!doctype html>
+const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png`, index = true } = {}) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="index, follow, max-image-preview:large"><link rel="canonical" href="${canonical}">
+<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${index ? "index, follow, max-image-preview:large" : "noindex, follow"}"><link rel="canonical" href="${canonical}">
 <meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}"><meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Mimir · A Terratales Venture">
 <meta name="theme-color" content="#EDE3CC"><link rel="icon" href="/favicon.svg" type="image/svg+xml">${extraHead}

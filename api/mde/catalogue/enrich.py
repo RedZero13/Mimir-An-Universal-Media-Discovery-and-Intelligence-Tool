@@ -6,7 +6,7 @@ all apply the same rules.
 - Facts (year, runtime, page count) from a source replace the unverified seed value. The seed value is kept in
   `fact_sources` so the work page can show the disagreement.
 - Everything else (images, scores, box office, series, IDs, links, tracks) is added with its source.
-- Seed attributes `series` / `series_position` become editorial series groups.
+- Seed attributes `series` / `series_position` become editorial series groups, and `franchises` editorial franchise groups.
 """
 
 from __future__ import annotations
@@ -55,11 +55,16 @@ def _set_fact(w: WorkProfile, field: str, value, source: str) -> None:
 
 
 def editorial_groups(w: WorkProfile) -> list[GroupRef]:
+    out: list[GroupRef] = []
     series = w.attributes.get("series")
-    if not series:
-        return []
-    pos = w.attributes.get("series_position")
-    return [GroupRef(slugify(series), series, "series", str(pos) if pos is not None else None, "editorial")]
+    if series:
+        pos = w.attributes.get("series_position")
+        out.append(GroupRef(slugify(series), series, "series", str(pos) if pos is not None else None, "editorial"))
+    # Franchises (James Bond, Middle-earth, the MCU…): umbrella groups a work belongs to alongside its series.
+    for name in w.attributes.get("franchises") or []:
+        if not any(g.slug == slugify(name) for g in out):
+            out.append(GroupRef(slugify(name), name, "franchise", None, "editorial"))
+    return out
 
 
 def normalise_order(w: WorkProfile) -> None:

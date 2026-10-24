@@ -3,9 +3,10 @@
 Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube,
 built by Terratales Media Entertainment. Live at [mimir.terratalesmedia.world](https://mimir.terratalesmedia.world/).
 
-The catalogue holds 681 works: 240 films, 93 TV series, 146 books and manga, 70 games, 87 albums, 14 YouTube
-channels and 31 videos, from 42 countries in 29 original languages, classified against a controlled vocabulary
-of 372 terms (233 of them subgenres).
+The catalogue holds about 7,500 works: 3,212 films, 1,439 TV series, 701 books and manga, 1,263 games, 852 albums,
+14 YouTube channels and 31 videos, from 99 countries in 68 original languages. The original 681 are fully classified
+against a controlled vocabulary of 372 terms (233 of them subgenres); the rest were imported from Wikidata with their
+facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.md](CATALOGUE-EXPANSION.md)).
 
 ## Find something
 
@@ -49,7 +50,11 @@ of 372 terms (233 of them subgenres).
   under their parent on each shelf.
 - **Industry filter** for film and TV: Hollywood, India, Japan, Korea, China, France, the UK and more.
 - **Top rated** per medium, from a single 0–100 critics' average across the published scores Mimir holds.
-- **Sagas and series:** franchise families in order, with total time; series numbers appear only on the series page.
+- **Sagas and series:** one page per IP (James Bond, Middle-earth, the Marvel Cinematic Universe, the Wizarding
+  World, Star Wars …) with a row each for its films, shows, books and games, in order, the time the whole run takes,
+  and links to the series inside it. Work pages show every franchise and series a work belongs to.
+- **Lead cast** on films and series, from Wikidata, in billing order where recorded; search finds works by actor or
+  by franchise.
 - **Tag pages** and **people and studio pages** with recurring qualities.
 - **Social calendar:** seasonal programmes with a pick for each day (Spooktober, Noirvember, Nonfiction November…).
 - **Music:** mood rings and a remix rack.
@@ -96,8 +101,8 @@ of 372 terms (233 of them subgenres).
 
 - The home page is about 120 KB and paints its headline with the first bytes; data and code load after it and are
   cached for repeat visits and offline use (installable as an app on Android, iOS, Mac and Windows).
-- Plain pages for all 681 works, every medium and every shelf, with structured data and a sitemap, so search
-  engines can index the catalogue.
+- Plain pages for every work, medium and shelf, with structured data and a sitemap, so search engines can index
+  the catalogue; works still awaiting a summary are kept out of the index until they have one.
 - Light and dark modes, keyboard navigation, reduced-motion support and WCAG AA contrast.
 - Labels everywhere say what is verified and what is an AI-assisted reading awaiting review.
 

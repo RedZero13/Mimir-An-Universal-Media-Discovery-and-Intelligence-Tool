@@ -21,12 +21,25 @@ def read_seed(seed_dir: Path = SEED_DIR) -> dict:
         part = json.loads(path.read_text())
         base["works"] += part.get("works", [])
         base["relationships"] += part.get("relationships", [])
-        overlays.append(part.get("terms", {}))
-    # Term overlays (seed/subgenres.json) add tags to works defined in any file.
+        overlays.append({"terms": part.get("terms", {}), "attributes": part.get("attributes", {}), "credits": part.get("credits", {})})
+    # Overlays add to works defined in any file: tags (seed/subgenres.json), attributes such as franchises, and
+    # extra credits such as lead cast (seed/people-and-franchises.json). Existing values win over overlay attributes.
     by_slug = {w["slug"]: w for w in base["works"]}
+
+    def target(slug: str) -> dict:
+        if slug not in by_slug:
+            raise ValueError(f"overlay names unknown work {slug!r}")
+        return by_slug[slug]
+
     for overlay in overlays:
-        for slug, terms in overlay.items():
-            if slug not in by_slug:
-                raise ValueError(f"term overlay names unknown work {slug!r}")
-            by_slug[slug]["terms"] = {**by_slug[slug].get("terms", {}), **terms}
+        for slug, terms in overlay["terms"].items():
+            w = target(slug)
+            w["terms"] = {**w.get("terms", {}), **terms}
+        for slug, attrs in overlay["attributes"].items():
+            w = target(slug)
+            w["attributes"] = {**attrs, **w.get("attributes", {})}
+        for slug, credits in overlay["credits"].items():
+            w = target(slug)
+            have = {(c[0], c[1]) for c in w.get("credits", [])}
+            w["credits"] = [*w.get("credits", []), *(c for c in credits if (c[0], c[1]) not in have)]
     return base
