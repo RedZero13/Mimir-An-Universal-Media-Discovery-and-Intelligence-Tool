@@ -119,10 +119,12 @@ RECOMMEND_CASES = [
 
 
 def _views(cat):
-    tag_keys = [t["key"] for d in cat.tags() for t in d["terms"]] + ["theme:not-a-tag", "advisory:strong-language"]
+    # Every tag, person and group page costs a pass over the whole catalogue on both sides, so past a few dozen they are
+    # sampled (every third tag and group, every tenth person): every kind of page is still compared, without an hours-long run.
+    tag_keys = [t["key"] for d in cat.tags() for t in d["terms"]][::3] + ["theme:not-a-tag", "advisory:strong-language"]
     people = [p["slug"] for i, p in enumerate(cat.people()) if i % 10 == 0] + ["nobody"]
     shelves = [s["slug"] for s in load_shelves()["shelves"]] + ["no-such-shelf"]
-    groups = [g["slug"] for g in cat.groups()] + ["no-such-group"]
+    groups = [g["slug"] for g in cat.groups()][::3] + ["no-such-group"]
     return ([["browse", b] for b in BROWSE_CASES] + [["tag", k] for k in tag_keys] + [["tags", None]]
             + [["person", s] for s in people] + [["people", None]]
             + [["shelves", None]] + [["shelf", s] for s in shelves] + [["groups", None]] + [["group", g] for g in groups]

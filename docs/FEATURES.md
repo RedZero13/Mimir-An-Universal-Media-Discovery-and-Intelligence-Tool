@@ -31,6 +31,12 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   pick and to the work you rated, whether it's a recorded fact or a reading, and its confidence.
 - **Compare any two works** side by side: length, scores, popularity, age ratings, parents' guide, and the moods,
   themes and style they share or don't.
+- **Days of the year.** A calendar of 50 international and widely observed days (World Laughter Day, International
+  Music Day, International Podcast Day, World Mental Health Day, International Jazz Day, World Television Day …),
+  dates from the UN and UNESCO lists. Each day has two sets of picks: *something new*, chosen from review scores
+  across platforms and leaning towards the lesser known, with a different handful each time and each year; and
+  *picked for you*, from your own taste profile. Without a profile, you react to a few well-known fits and the
+  section fills in. Every rating feeds the profile used across Mimir. Days of remembrance are framed gently.
 - **Plan my time.** Pick an evening, a weekend, a week off or a month; Mimir fills it from what you've started and
   planned first, then from picks for you, day by day, and shows the next work in every series you've started.
 - **Pick together.** Add each person, a few things they love and what they'd rather avoid; Mimir finds picks that

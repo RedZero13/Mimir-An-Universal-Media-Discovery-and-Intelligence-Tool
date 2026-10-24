@@ -358,9 +358,26 @@ def _position_key(position: str | None) -> float:
         return 1e9
 
 
+_INDEX_CACHE: tuple | None = None   # (works list, its length, by_slug, by_group): one list at a time, enough for a page's views
+
+
+def _indexes(works: list[WorkProfile]) -> tuple[dict, dict]:
+    """Lookups by slug and by group, built once per list instead of once per work (continuity() used to rescan the catalogue)."""
+    global _INDEX_CACHE
+    if _INDEX_CACHE is not None and _INDEX_CACHE[0] is works and _INDEX_CACHE[1] == len(works):
+        return _INDEX_CACHE[2], _INDEX_CACHE[3]
+    by_slug = {x.slug: x for x in works}
+    by_group: dict[str, list[WorkProfile]] = {}
+    for x in works:
+        for slug in {xg.slug for xg in x.groups}:
+            by_group.setdefault(slug, []).append(x)
+    _INDEX_CACHE = (works, len(works), by_slug, by_group)
+    return by_slug, by_group
+
+
 def continuity(w: WorkProfile, works: list[WorkProfile]) -> dict:
     """Standalone, part of a series, or part of a franchise; plus adaptation links either way."""
-    by_slug = {x.slug: x for x in works}
+    by_slug, by_group = _indexes(works)
     adapted_from = [r for r in w.relations if r.type == "adaptation_of" and _is_forward(r)]
     adapted_as = [r for r in w.relations if r.type == "adaptation_of" and not _is_forward(r)]
     out = {"kind": "standalone", "group": None, "position": None, "members": [],
@@ -371,7 +388,7 @@ def continuity(w: WorkProfile, works: list[WorkProfile]) -> dict:
     series = None
     if w.groups:
         g = w.groups[0]
-        members = [x for x in works if any(xg.slug == g.slug for xg in x.groups)]
+        members = list(by_group.get(g.slug, []))
         pos = {x.slug: next(xg.position for xg in x.groups if xg.slug == g.slug) for x in members}
         members.sort(key=lambda x: (_position_key(pos[x.slug]), x.year or 9999, normalise_title(x.title)))
         series = {"kind": g.kind, "group": {"slug": g.slug, "name": g.name}, "position": g.position,

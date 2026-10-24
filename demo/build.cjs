@@ -63,6 +63,7 @@ function dataTexts(slim) {
     providers: read(path.join(api, "catalogue", "providers.json")),
     calendar: read(path.join(api, "catalogue", "calendar.json")),
     audiobooks: read(path.join(api, "catalogue", "audiobooks.json")),
+    observances: read(path.join(api, "catalogue", "observances.json")),
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     config: JSON.stringify({ api: (process.env.MIMIR_API_URL || "").replace(/\/$/, "") }),
     blog: read(path.join(here, "blog.json")),
@@ -77,6 +78,7 @@ function page() {
     .replace("/*__SHELVES__*/", () => json(path.join(api, "catalogue", "shelves.json")))
     .replace("/*__CALENDAR__*/", () => json(path.join(api, "catalogue", "calendar.json")))
     .replace("/*__AUDIOBOOKS__*/", () => json(path.join(api, "catalogue", "audiobooks.json")))
+    .replace("/*__OBSERVANCES__*/", () => json(path.join(api, "catalogue", "observances.json")))
     .replace("/*__BLOG__*/", () => json(path.join(here, "blog.json")))
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify({ api: (process.env.MIMIR_API_URL || "").replace(/\/$/, "") })))
@@ -270,7 +272,9 @@ if (args[0] === "--site") {
   fs.writeFileSync(path.join(out, "robots.txt"), `# Mimir · ${SITE_URL}\nUser-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
   fs.writeFileSync(path.join(out, "404.html"), staticPage("Page not found · Mimir", "This page isn't here. Search Mimir's catalogue of films, TV, books, games and music instead.", `${SITE_URL}/`,
     `<p class="eyebrow">Not found</p><h1>This page isn't in the well</h1><p class="lede">The link may be old, or the page may have moved.</p>
-<p><a class="cta" href="/">Ask Mimir</a><a class="cta ghost" href="/films/">Browse the catalogue</a></p>`).replace('<meta name="robots" content="index, follow, max-image-preview:large">', '<meta name="robots" content="noindex">'));
+<p><a class="cta" href="/">Ask Mimir</a><a class="cta ghost" href="/films/">Browse the catalogue</a></p>
+<script>/* The app's pages live after a #; send a path like /signin to /#signin */
+(function(){var r=location.pathname.split("/").join("");if(/^(signin|community|library|calendar|days|decide|for-you|taste|mix|plan|together|achievements|lists|journal|stats|year|transfer|about|shelves|series|youtube|audiobooks|trackers|tags|people|top-all)$/.test(r))location.replace("/#"+r+location.search+location.hash)})();</script>`).replace('<meta name="robots" content="index, follow, max-image-preview:large">', '<meta name="robots" content="noindex">'));
   fs.writeFileSync(path.join(out, "CNAME"), `${HOST}\n`);
   console.log(`wrote site to ${out}`);
 } else {

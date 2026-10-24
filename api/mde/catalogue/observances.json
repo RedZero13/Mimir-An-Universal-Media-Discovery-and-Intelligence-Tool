@@ -1,0 +1,824 @@
+{
+ "version": 1,
+ "notes": "Days with an international observance (UN, UNESCO, WHO and other bodies) or wide popular observance, with the kind of work to recommend on each. kind: un | unesco | observed (widely marked, set by another body) | informal (popular, unofficial). A date is MM-DD, or nth is [month, weekday (0 = Sunday), which one]. rule uses any_tags, min_strength (default 0.6), media, not_languages and year_max. tone 'reflective' days are framed gently. programme links a seasonal programme in calendar.json. Page-only data: the browser reads it, the Python engine does not.",
+ "days": [
+  {
+   "slug": "education-day",
+   "name": "International Day of Education",
+   "date": "01-24",
+   "kind": "un",
+   "about": "A UN day for the right to learn.",
+   "why": "Stories about learning, curiosity and growing up.",
+   "rule": {
+    "any_tags": [
+     "theme:knowledge-curiosity",
+     "theme:coming-of-age",
+     "genre:campus-story"
+    ]
+   }
+  },
+  {
+   "slug": "holocaust-remembrance",
+   "name": "International Holocaust Remembrance Day",
+   "date": "01-27",
+   "kind": "un",
+   "about": "A UN day to remember the victims of the Holocaust.",
+   "why": "Films and books that bear witness.",
+   "rule": {
+    "any_tags": [
+     "genre:holocaust"
+    ]
+   },
+   "tone": "reflective"
+  },
+  {
+   "slug": "women-in-science",
+   "name": "International Day of Women and Girls in Science",
+   "date": "02-11",
+   "kind": "un",
+   "about": "A UN day for women's place in science.",
+   "why": "Stories of science and the people who do it.",
+   "rule": {
+    "any_tags": [
+     "genre:science-biography",
+     "genre:popular-science",
+     "theme:gender"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "world-radio-day",
+   "name": "World Radio Day",
+   "date": "02-13",
+   "kind": "unesco",
+   "about": "A UNESCO day for radio, and the music that rides it.",
+   "why": "Albums that sound like the radio at its best.",
+   "rule": {
+    "media": [
+     "album"
+    ],
+    "any_tags": [
+     "genre:pop",
+     "genre:rock",
+     "genre:soul-rnb",
+     "genre:pop-rock"
+    ]
+   }
+  },
+  {
+   "slug": "valentines-day",
+   "name": "Valentine's Day",
+   "date": "02-14",
+   "kind": "observed",
+   "about": "The day of romance.",
+   "why": "Love stories, tender and otherwise.",
+   "rule": {
+    "any_tags": [
+     "genre:romance",
+     "genre:romantic-comedy",
+     "mood:romantic"
+    ],
+    "min_strength": 0.7
+   },
+   "programme": "valentines-week"
+  },
+  {
+   "slug": "social-justice-day",
+   "name": "World Day of Social Justice",
+   "date": "02-20",
+   "kind": "un",
+   "about": "A UN day for fairness within and between nations.",
+   "why": "Stories about inequality and the fight against it.",
+   "rule": {
+    "any_tags": [
+     "theme:class-inequality",
+     "theme:politics-society",
+     "genre:social-realism"
+    ]
+   }
+  },
+  {
+   "slug": "mother-language-day",
+   "name": "International Mother Language Day",
+   "date": "02-21",
+   "kind": "un",
+   "about": "A UNESCO day for the world's languages.",
+   "why": "Works in languages other than English.",
+   "rule": {
+    "not_languages": [
+     "en"
+    ],
+    "min_strength": 0.0
+   }
+  },
+  {
+   "slug": "wildlife-day",
+   "name": "World Wildlife Day",
+   "date": "03-03",
+   "kind": "un",
+   "about": "A UN day for wild animals and plants.",
+   "why": "The natural world, on screen and on the page.",
+   "rule": {
+    "any_tags": [
+     "genre:nature-documentary",
+     "genre:animal-tale",
+     "theme:nature-ecology"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "womens-day",
+   "name": "International Women's Day",
+   "date": "03-08",
+   "kind": "un",
+   "about": "A UN day for women's achievements and equality.",
+   "why": "Stories led by and about women.",
+   "rule": {
+    "any_tags": [
+     "theme:gender"
+    ],
+    "min_strength": 0.6
+   },
+   "programme": "womens-history-month"
+  },
+  {
+   "slug": "maths-day",
+   "name": "International Day of Mathematics (Pi Day)",
+   "date": "03-14",
+   "kind": "unesco",
+   "about": "UNESCO's day for mathematics, on 3/14.",
+   "why": "Puzzles, patterns and minds at work.",
+   "rule": {
+    "any_tags": [
+     "genre:logic-puzzle",
+     "genre:puzzle",
+     "narrative:puzzle-box",
+     "complexity:intellectually-demanding"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "happiness-day",
+   "name": "International Day of Happiness",
+   "date": "03-20",
+   "kind": "un",
+   "about": "A UN day for the pursuit of happiness.",
+   "why": "Warm, bright and uplifting.",
+   "rule": {
+    "any_tags": [
+     "mood:uplifting",
+     "mood:comforting"
+    ],
+    "min_strength": 0.8
+   }
+  },
+  {
+   "slug": "poetry-day",
+   "name": "World Poetry Day",
+   "date": "03-21",
+   "kind": "unesco",
+   "about": "A UNESCO day for poetry.",
+   "why": "Lyrical, image-rich storytelling.",
+   "rule": {
+    "any_tags": [
+     "style:lyrical-prose",
+     "genre:magical-realism"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "theatre-day",
+   "name": "World Theatre Day",
+   "date": "03-27",
+   "kind": "unesco",
+   "about": "An ITI day for the stage.",
+   "why": "Dialogue-driven drama and musicals.",
+   "rule": {
+    "any_tags": [
+     "narrative:dialogue-driven",
+     "genre:musical",
+     "genre:music-drama"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "april-fools",
+   "name": "April Fools' Day",
+   "date": "04-01",
+   "kind": "informal",
+   "about": "The day for pranks, hoaxes and nonsense.",
+   "why": "Satire, parody and the gloriously absurd.",
+   "rule": {
+    "any_tags": [
+     "genre:parody",
+     "genre:satire",
+     "genre:absurdist-comedy",
+     "genre:mockumentary",
+     "genre:black-comedy"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "space-flight-day",
+   "name": "International Day of Human Space Flight",
+   "date": "04-12",
+   "kind": "un",
+   "about": "A UN day marking Gagarin's flight in 1961.",
+   "why": "Stories set among the stars.",
+   "rule": {
+    "any_tags": [
+     "genre:space-opera",
+     "genre:hard-science-fiction",
+     "world:space-setting"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "earth-day",
+   "name": "International Mother Earth Day",
+   "date": "04-22",
+   "kind": "un",
+   "about": "A UN day for the planet.",
+   "why": "Stories about nature and what we do to it.",
+   "rule": {
+    "any_tags": [
+     "theme:nature-ecology",
+     "genre:environment"
+    ],
+    "min_strength": 0.6
+   },
+   "programme": "earth-week"
+  },
+  {
+   "slug": "book-day",
+   "name": "World Book and Copyright Day",
+   "date": "04-23",
+   "kind": "unesco",
+   "about": "A UNESCO day for books and authors.",
+   "why": "Books worth picking up today.",
+   "rule": {
+    "media": [
+     "book"
+    ],
+    "min_strength": 0.0
+   },
+   "programme": "world-book-week"
+  },
+  {
+   "slug": "dance-day",
+   "name": "International Dance Day",
+   "date": "04-29",
+   "kind": "unesco",
+   "about": "A UNESCO day for dance.",
+   "why": "Music to move to.",
+   "rule": {
+    "any_tags": [
+     "genre:musical",
+     "genre:bollywood-musical",
+     "genre:dance-pop",
+     "genre:electronic",
+     "genre:k-pop",
+     "genre:latin",
+     "genre:afrobeat"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "jazz-day",
+   "name": "International Jazz Day",
+   "date": "04-30",
+   "kind": "unesco",
+   "about": "A UNESCO day for jazz.",
+   "why": "Jazz, in every corner of it.",
+   "rule": {
+    "any_tags": [
+     "genre:jazz",
+     "genre:modal-jazz",
+     "genre:spiritual-jazz",
+     "genre:cool-jazz",
+     "genre:bossa-nova",
+     "genre:jazz-rap"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "press-freedom-day",
+   "name": "World Press Freedom Day",
+   "date": "05-03",
+   "kind": "un",
+   "about": "A UN day for a free press.",
+   "why": "Power, truth and the people who hold it to account.",
+   "rule": {
+    "any_tags": [
+     "theme:surveillance-authoritarianism",
+     "genre:political-thriller",
+     "genre:political-drama"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "star-wars-day",
+   "name": "Star Wars Day",
+   "date": "05-04",
+   "kind": "informal",
+   "about": "May the Fourth be with you.",
+   "why": "Epic space adventure beyond the usual.",
+   "rule": {
+    "any_tags": [
+     "genre:space-opera",
+     "mood:epic"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "laughter-day",
+   "name": "World Laughter Day",
+   "nth": [
+    5,
+    0,
+    1
+   ],
+   "kind": "observed",
+   "about": "Observed on the first Sunday of May.",
+   "why": "Works that make people laugh out loud.",
+   "rule": {
+    "any_tags": [
+     "mood:funny",
+     "genre:comedy"
+    ],
+    "min_strength": 0.8
+   }
+  },
+  {
+   "slug": "cultural-diversity-day",
+   "name": "World Day for Cultural Diversity",
+   "date": "05-21",
+   "kind": "un",
+   "about": "A UN day for dialogue between cultures.",
+   "why": "Stories from outside the English-speaking mainstream.",
+   "rule": {
+    "not_languages": [
+     "en"
+    ],
+    "min_strength": 0.0
+   }
+  },
+  {
+   "slug": "environment-day",
+   "name": "World Environment Day",
+   "date": "06-05",
+   "kind": "un",
+   "about": "A UN day for protecting the environment.",
+   "why": "Our planet and our place on it.",
+   "rule": {
+    "any_tags": [
+     "theme:nature-ecology",
+     "genre:environment",
+     "genre:nature-documentary"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "refugee-day",
+   "name": "World Refugee Day",
+   "date": "06-20",
+   "kind": "un",
+   "about": "A UN day for people forced to flee.",
+   "why": "Stories of migration and belonging.",
+   "rule": {
+    "any_tags": [
+     "theme:migration-diaspora"
+    ],
+    "min_strength": 0.6
+   },
+   "tone": "reflective"
+  },
+  {
+   "slug": "world-music-day",
+   "name": "World Music Day",
+   "date": "06-21",
+   "kind": "observed",
+   "about": "Fête de la Musique, the longest day of the year.",
+   "why": "Albums from everywhere.",
+   "rule": {
+    "media": [
+     "album"
+    ],
+    "min_strength": 0.0
+   }
+  },
+  {
+   "slug": "chess-day",
+   "name": "International Chess Day",
+   "date": "07-20",
+   "kind": "un",
+   "about": "A day for chess, recognised by the UN.",
+   "why": "Strategy and tactics games.",
+   "rule": {
+    "media": [
+     "game"
+    ],
+    "any_tags": [
+     "genre:strategy",
+     "genre:tactics",
+     "genre:4x-strategy",
+     "genre:logic-puzzle",
+     "genre:deduction-game"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "friendship-day",
+   "name": "International Day of Friendship",
+   "date": "07-30",
+   "kind": "un",
+   "about": "A UN day for friendship between people and peoples.",
+   "why": "Stories of friends and found families.",
+   "rule": {
+    "any_tags": [
+     "theme:kindness-community",
+     "genre:buddy-comedy",
+     "genre:coming-of-age",
+     "narrative:ensemble"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "youth-day",
+   "name": "International Youth Day",
+   "date": "08-12",
+   "kind": "un",
+   "about": "A UN day for young people.",
+   "why": "Coming-of-age stories.",
+   "rule": {
+    "any_tags": [
+     "theme:coming-of-age",
+     "genre:coming-of-age"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "literacy-day",
+   "name": "International Literacy Day",
+   "date": "09-08",
+   "kind": "unesco",
+   "about": "A UNESCO day for reading and writing.",
+   "why": "Books that show what reading can do.",
+   "rule": {
+    "media": [
+     "book"
+    ],
+    "min_strength": 0.0
+   }
+  },
+  {
+   "slug": "peace-day",
+   "name": "International Day of Peace",
+   "date": "09-21",
+   "kind": "un",
+   "about": "A UN day for peace.",
+   "why": "Anti-war stories and works about getting along.",
+   "rule": {
+    "any_tags": [
+     "genre:anti-war",
+     "theme:kindness-community"
+    ],
+    "min_strength": 0.7
+   },
+   "tone": "reflective"
+  },
+  {
+   "slug": "tourism-day",
+   "name": "World Tourism Day",
+   "date": "09-27",
+   "kind": "un",
+   "about": "A UN day for travel.",
+   "why": "Journeys and far-off places.",
+   "rule": {
+    "any_tags": [
+     "genre:road-trip",
+     "genre:exploration",
+     "genre:adventure",
+     "genre:food-travel"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "podcast-day",
+   "name": "International Podcast Day",
+   "date": "09-30",
+   "kind": "informal",
+   "about": "A day for podcasts. Mimir doesn't list podcasts yet.",
+   "why": "Conversation-driven stories and spoken-word company.",
+   "rule": {
+    "any_tags": [
+     "narrative:dialogue-driven",
+     "genre:true-crime",
+     "genre:documentary",
+     "genre:popular-science",
+     "genre:psychology-and-mind",
+     "genre:philosophy"
+    ],
+    "min_strength": 0.7,
+    "media": [
+     "book",
+     "series",
+     "film",
+     "online_video"
+    ]
+   }
+  },
+  {
+   "slug": "music-day",
+   "name": "International Music Day",
+   "date": "10-01",
+   "kind": "unesco",
+   "about": "A day for music, set by the International Music Council.",
+   "why": "Albums across the whole map.",
+   "rule": {
+    "media": [
+     "album"
+    ],
+    "min_strength": 0.0
+   }
+  },
+  {
+   "slug": "non-violence-day",
+   "name": "International Day of Non-Violence",
+   "date": "10-02",
+   "kind": "un",
+   "about": "A UN day on Gandhi's birthday.",
+   "why": "Stories of peaceful courage.",
+   "rule": {
+    "any_tags": [
+     "genre:anti-war",
+     "genre:political-biography",
+     "theme:heroism-sacrifice"
+    ],
+    "min_strength": 0.7
+   },
+   "tone": "reflective"
+  },
+  {
+   "slug": "animal-day",
+   "name": "World Animal Day",
+   "date": "10-04",
+   "kind": "observed",
+   "about": "A day for animal welfare.",
+   "why": "Animals at the heart of the story.",
+   "rule": {
+    "any_tags": [
+     "genre:animal-tale",
+     "genre:nature-documentary"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "teachers-day",
+   "name": "World Teachers' Day",
+   "date": "10-05",
+   "kind": "unesco",
+   "about": "A UNESCO day for teachers.",
+   "why": "Classrooms, mentors and the people who shape us.",
+   "rule": {
+    "any_tags": [
+     "genre:campus-story",
+     "theme:knowledge-curiosity"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "mental-health-day",
+   "name": "World Mental Health Day",
+   "date": "10-10",
+   "kind": "observed",
+   "about": "A WHO-backed day for mental health.",
+   "why": "Gentle, honest and comforting works.",
+   "rule": {
+    "any_tags": [
+     "theme:mental-health",
+     "mood:comforting"
+    ],
+    "min_strength": 0.7
+   },
+   "tone": "reflective",
+   "programme": "mental-health-month"
+  },
+  {
+   "slug": "food-day",
+   "name": "World Food Day",
+   "date": "10-16",
+   "kind": "un",
+   "about": "A UN day for food and hunger.",
+   "why": "Food on screen and on the page.",
+   "rule": {
+    "any_tags": [
+     "genre:food",
+     "genre:cooking-competition",
+     "genre:food-travel",
+     "genre:food-documentary",
+     "genre:taste-test",
+     "genre:food-drama"
+    ],
+    "min_strength": 0.6
+   }
+  },
+  {
+   "slug": "audiovisual-heritage-day",
+   "name": "World Day for Audiovisual Heritage",
+   "date": "10-27",
+   "kind": "unesco",
+   "about": "A UNESCO day for preserving film, radio and television.",
+   "why": "Classics from before 1970.",
+   "rule": {
+    "media": [
+     "film",
+     "series"
+    ],
+    "year_max": 1970,
+    "min_strength": 0.0
+   }
+  },
+  {
+   "slug": "animation-day",
+   "name": "World Animation Day",
+   "date": "10-28",
+   "kind": "observed",
+   "about": "An ASIFA day for animation.",
+   "why": "Animation of every kind.",
+   "rule": {
+    "any_tags": [
+     "genre:animation",
+     "genre:anime",
+     "genre:stop-motion"
+    ],
+    "min_strength": 0.8
+   }
+  },
+  {
+   "slug": "halloween",
+   "name": "Halloween",
+   "date": "10-31",
+   "kind": "observed",
+   "about": "The night of costumes and frights.",
+   "why": "Horror, from cosy to terrifying.",
+   "rule": {
+    "any_tags": [
+     "genre:horror"
+    ],
+    "min_strength": 0.8
+   },
+   "programme": "spooktober"
+  },
+  {
+   "slug": "science-day",
+   "name": "World Science Day for Peace and Development",
+   "date": "11-10",
+   "kind": "unesco",
+   "about": "A UNESCO day for science in society.",
+   "why": "Science, real and imagined.",
+   "rule": {
+    "any_tags": [
+     "genre:popular-science",
+     "genre:hard-science-fiction",
+     "genre:science-biography",
+     "genre:cosmology"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "kindness-day",
+   "name": "World Kindness Day",
+   "date": "11-13",
+   "kind": "observed",
+   "about": "A day for acts of kindness.",
+   "why": "Warm stories about people being good to each other.",
+   "rule": {
+    "any_tags": [
+     "theme:kindness-community",
+     "mood:comforting"
+    ],
+    "min_strength": 0.8
+   }
+  },
+  {
+   "slug": "tolerance-day",
+   "name": "International Day for Tolerance",
+   "date": "11-16",
+   "kind": "un",
+   "about": "A UN day for tolerance and respect.",
+   "why": "Stories that widen the circle.",
+   "rule": {
+    "any_tags": [
+     "theme:race-history",
+     "theme:lgbtq-lives",
+     "theme:migration-diaspora"
+    ],
+    "min_strength": 0.6
+   },
+   "tone": "reflective"
+  },
+  {
+   "slug": "philosophy-day",
+   "name": "World Philosophy Day",
+   "nth": [
+    11,
+    4,
+    3
+   ],
+   "kind": "unesco",
+   "about": "Observed on the third Thursday of November.",
+   "why": "Big questions, asked well.",
+   "rule": {
+    "any_tags": [
+     "genre:philosophy",
+     "genre:existentialist-fiction",
+     "mood:contemplative",
+     "complexity:intellectually-demanding"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "children-day",
+   "name": "Universal Children's Day",
+   "date": "11-20",
+   "kind": "un",
+   "about": "A UN day for children's rights and welfare.",
+   "why": "Family-friendly favourites.",
+   "rule": {
+    "any_tags": [
+     "genre:family",
+     "genre:all-ages-adventure"
+    ],
+    "min_strength": 0.7
+   }
+  },
+  {
+   "slug": "television-day",
+   "name": "World Television Day",
+   "date": "11-21",
+   "kind": "un",
+   "about": "A UN day for television's role in the world.",
+   "why": "TV series worth settling in with.",
+   "rule": {
+    "media": [
+     "series"
+    ],
+    "min_strength": 0.0
+   }
+  },
+  {
+   "slug": "human-rights-day",
+   "name": "Human Rights Day",
+   "date": "12-10",
+   "kind": "un",
+   "about": "A UN day marking the Universal Declaration of Human Rights in 1948.",
+   "why": "Justice, dignity and the fight for both.",
+   "rule": {
+    "any_tags": [
+     "theme:crime-justice",
+     "theme:politics-society",
+     "genre:courtroom",
+     "genre:political-drama"
+    ],
+    "min_strength": 0.7
+   },
+   "tone": "reflective"
+  },
+  {
+   "slug": "migrants-day",
+   "name": "International Migrants Day",
+   "date": "12-18",
+   "kind": "un",
+   "about": "A UN day for migrants' rights.",
+   "why": "Journeys to new homes.",
+   "rule": {
+    "any_tags": [
+     "theme:migration-diaspora"
+    ],
+    "min_strength": 0.6
+   },
+   "tone": "reflective"
+  }
+ ]
+}

@@ -611,6 +611,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .mix-go q { font-family: var(--f-body); color: var(--bone); }
 .mix-go .btn[disabled] { opacity: .5; cursor: default; }
 @media (max-width: 560px) { .taste-list li { grid-template-columns: 1fr 60px; } .taste-list .te-btns { grid-column: 1 / -1; } }
+.obs-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 0; }
 .fy-ctl { display: grid; gap: 8px; margin: 0 0 18px; }
 .fy-ctl p { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
 .fy-ctl .eyebrow { min-width: 86px; }
@@ -1141,6 +1142,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script id="providers-data" type="application/json">/*__PROVIDERS__*/</script>
 <script id="calendar-data" type="application/json">/*__CALENDAR__*/</script>
 <script id="audiobooks-data" type="application/json">/*__AUDIOBOOKS__*/</script>
+<script id="observances-data" type="application/json">/*__OBSERVANCES__*/</script>
 <script id="config-data" type="application/json">/*__CONFIG__*/</script>
 <script id="blog-data" type="application/json">/*__BLOG__*/</script>
 <script>/*__ENGINE__*/</script>
@@ -2063,7 +2065,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
-    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["Days of the year", "#days"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
@@ -2075,7 +2077,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
       ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Taste profile", "#taste"], ["Import & export", "#transfer"]]],
-    ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
+    ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Days of the year", "#days"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
   const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
@@ -3761,7 +3763,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <ul class="cal-cards">${items.map(({ p, now }) => { const tp = now && todayPick(p); return `<li><a class="cal-card${now ? " now" : ""}" href="${progHref(p)}">
         <span class="eyebrow">${now ? "On now" : `In ${daysBetween(today(), p.start)} days`} · ${esc(fmtDay(p.start))}–${esc(fmtDay(p.end))}</span>
         <span class="cal-name">${esc(p.name)}</span><span class="cal-tag">${esc(p.tagline)}</span>
-        ${tp ? `<span class="cal-today">Today: <strong>${esc(tp.work.title)}</strong></span>` : ""}</a></li>`; }).join("")}</ul></section>`;
+        ${tp ? `<span class="cal-today">Today: <strong>${esc(tp.work.title)}</strong></span>` : ""}</a></li>`; }).join("")}</ul>
+      ${(() => { const n = obsUpcoming(2); return n.length ? `<p class="obs-line"><span class="eyebrow">Days of the year</span>${n.map((o) => `<a class="tchip" href="${obsHref(o)}">${esc(o.name)} · ${esc(whenText(o.on).toLowerCase())}</a>`).join("")}<a class="see-all" href="#days">All days</a></p>` : ""; })()}</section>`;
   }
 
   function renderCalendar(p) {
@@ -3887,8 +3890,28 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }
   }
 
+  // Accounts need the community server (docs/DEPLOY.md). Until it is switched on, say so plainly rather than sending
+  // people to the Community page, and show what already works without an account.
+  function renderAccountsSoon() {
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>Accounts open soon</h1>
+        <p class="muted">Sign-in isn't switched on yet: the server that keeps accounts, reviews and follows is still being set up. Nothing is lost by waiting.</p></header>
+      <div class="prose block">
+        <h2>What works today, without an account</h2>
+        <ul>
+          <li>Your <a href="#library">library</a>, <a href="#lists">lists</a>, <a href="#journal">journal</a>, <a href="#trackers">trackers</a> and <a href="#achievements">rings and badges</a>, kept in this browser.</li>
+          <li>Picks that learn from what you rate: <a href="#for-you">For you</a>, your <a href="#taste">taste profile</a> and the <a href="#days">days of the year</a>.</li>
+          <li><a href="#decide">Decide for me</a>, <a href="#plan">Plan my time</a>, <a href="#together">Pick together</a> and watch-alongs.</li>
+          <li><a href="#transfer">Import and export</a>: back your library up now and it moves into your account in one step when accounts open.</li>
+        </ul>
+        <h2>What an account will add</h2>
+        <p>Your library in step across your devices, reviews and comments, following friends and a shared feed, published lists and challenge leaderboards.</p>
+        <p><a class="btn" href="${esc(feedbackHref())}">Tell us you want accounts</a> <a class="btn ghost" href="#community">See the community plans</a></p>
+      </div>`;
+  }
+
   function renderSignin(p) {
-    if (!CONFIG.api) { renderCommunity(); return; }
+    if (!CONFIG.api) { renderAccountsSoon(); return; }
     if (session) { location.hash = `#u-${session.user.username}`; return; }
     const mode = p.get("mode") === "signup" ? "signup" : "signin";
     app.innerHTML = `
@@ -4721,6 +4744,115 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   });
   app.addEventListener("input", (e) => { if (e.target.name === "term") e.target.setCustomValidity(""); });
 
+  // ------------------------------------------------------------------ days of the year
+  // A calendar of international and widely observed days. Each day offers two sets of picks: something new and
+  // unusual chosen from review scores across platforms, and picks from your own taste profile. Rating either set
+  // teaches Mimir your taste, which is also what the rest of the site recommends from.
+  const OBS = once(() => DATA("observances").days);
+  const OBS_KIND = { un: "UN day", unesco: "UNESCO day", observed: "Widely observed", informal: "Popular, unofficial" };
+  const isoOf = (d) => d.toISOString().slice(0, 10);
+  const nthWeekday = (y, month, weekday, n) => { const first = new Date(Date.UTC(y, month - 1, 1)); return new Date(Date.UTC(y, month - 1, 1 + ((weekday - first.getUTCDay() + 7) % 7) + 7 * (n - 1))); };
+  const obsDate = (o, y) => (o.nth ? isoOf(nthWeekday(y, ...o.nth)) : `${y}-${o.date}`);
+  const obsYear = (y) => OBS().map((o) => ({ ...o, on: obsDate(o, y), year: y })).sort((a, b) => a.on.localeCompare(b.on) || a.name.localeCompare(b.name));
+  const obsHref = (o) => `#day-${esc(o.slug)}?y=${o.year}`;
+  function obsUpcoming(limit) {
+    const t = today(), y = thisYear();
+    return [...obsYear(y), ...obsYear(y + 1)].filter((o) => o.on >= t).slice(0, limit);
+  }
+  const whenText = (on) => { const n = daysBetween(today(), on); return n === 0 ? "Today" : n === 1 ? "Tomorrow" : n > 1 ? `In ${n} days` : n === -1 ? "Yesterday" : `${-n} days ago`; };
+
+  // Does a work fit a day's rule? Tags are read at the day's strength (default 0.6), so imported works carrying only a genre count too.
+  function obsMatch(w, r) {
+    if (r.media ? !r.media.includes(w.medium) : ["channel", "online_video"].includes(w.medium)) return false;
+    const raw = RAW_BY.get(w.slug);
+    if (r.not_languages && (!raw.language || r.not_languages.includes(raw.language))) return false;
+    if (r.year_max && !(w.year && w.year <= r.year_max)) return false;
+    if (r.any_tags) { const tm = termMap().get(w.slug), floor = has0(r.min_strength) ? r.min_strength : 0.6; if (!r.any_tags.some((k) => (tm.get(k) || 0) >= floor)) return false; }
+    return true;
+  }
+  const has0 = (v) => v !== undefined && v !== null;
+  const obsPool = (o) => allWorks().filter((w) => obsMatch(w, o.rule));
+  const unitHash = (str) => hashOf(str) / 4294967296;   // 0 to 1, from the page's own string hash
+  let dayNonce = 0;
+
+  // 1. Something new: not already in your library or ratings, well reviewed across the platforms we hold scores from,
+  //    leaning towards the lesser known; a different handful each time you ask, and each year.
+  function newPicks(o) {
+    const mine = tasteRatings();
+    const pool = obsPool(o).filter((w) => !mine[w.slug] && !library[w.slug] && !avoided(w.slug));
+    const fit = (w) => { const tm = termMap().get(w.slug); return o.rule.any_tags ? Math.max(0, ...o.rule.any_tags.map((k) => tm.get(k) || 0)) : 0.6; };
+    const tier = (w) => w.popularity_tier || RAW_BY.get(w.slug).popularity_tier || 3;
+    const quality = (w) => { const u = unifiedScore(w); return u === null ? 55 : u; };
+    const rank = (w) => quality(w) + (tier(w) - 1) * 6 + 10 * fit(w);
+    const scored = pool.filter((w) => unifiedScore(w) !== null && unifiedScore(w) >= 70);
+    const top = (scored.length >= 8 ? scored : pool).sort((a, b) => rank(b) - rank(a)).slice(0, 30);
+    const order = top.map((w) => [unitHash(`${o.slug}|${o.year}|${dayNonce}|${w.slug}`), w]).sort((a, b) => a[0] - b[0]).map((x) => x[1]);
+    const out = [], perMedium = {};
+    for (const w of order) {
+      if ((perMedium[w.medium] || 0) >= (o.rule.media && o.rule.media.length === 1 ? 6 : 2)) continue;
+      out.push(w); perMedium[w.medium] = (perMedium[w.medium] || 0) + 1;
+      if (out.length >= 6) break;
+    }
+    return out;
+  }
+  function newWhy(w) {
+    const u = unifiedScore(w), pubs = [...new Set((w.scores || []).map((x) => x.publisher))];
+    const t = w.popularity_tier || RAW_BY.get(w.slug).popularity_tier;
+    return `<p class="pmeta">${u !== null ? `Rated ${u}/100 across ${esc(pubs.slice(0, 3).join(", "))}${pubs.length > 3 ? ` and ${pubs.length - 3} more` : ""}` : "No published scores yet, chosen for how well it fits"}${t >= 3 ? " · lesser known" : ""}</p>`;
+  }
+
+  // 2. For you: your own profile (ratings, scores, edits, context), kept to what fits the day.
+  function dayForYou(o) {
+    const taste = tasteRatings();
+    if (!Object.values(taste).some((v) => v === "loved" || v === "liked")) return { empty: true };
+    const picks = forYouFilter(personalise(cat.recommend(taste, 300, null).results)).filter((w) => obsMatch(w, o.rule) && !["completed", "dropped"].includes((library[w.slug] || {}).status)).slice(0, 6);
+    return { picks };
+  }
+  // No profile yet: well-known works that fit the day, to react to. Those reactions are the profile.
+  function dayStarter(o) {
+    return obsPool(o).filter((w) => (w.popularity_tier || RAW_BY.get(w.slug).popularity_tier) <= 2).sort((a, b) => (unifiedScore(b) || 0) - (unifiedScore(a) || 0)).slice(0, 8);
+  }
+
+  function renderDays(p) {
+    const y = Number(p.get("y")) || thisYear(), days = obsYear(y), next = obsUpcoming(4);
+    const byMonth = new Map(); for (const o of days) { const m = Number(o.on.slice(5, 7)) - 1; if (!byMonth.has(m)) byMonth.set(m, []); byMonth.get(m).push(o); }
+    const card = (o) => `<li><a class="cal-card${o.on === today() ? " now" : ""}" href="${obsHref(o)}"><span class="eyebrow">${esc(fmtDay(o.on))} · ${esc(OBS_KIND[o.kind])}</span><span class="cal-name">${esc(o.name)}</span><span class="cal-tag">${esc(o.why)}</span></a></li>`;
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Calendar</p><h1>Days of the year · ${y}</h1></header>
+      <p class="muted" style="margin:14px 0">World Laughter Day, International Music Day, World Mental Health Day and ${days.length - 3} more. Open a day for two sets of picks: <strong>something new</strong>, chosen from reviews and ratings across platforms and leaning towards the lesser known, and <strong>picks for you</strong>, from your own taste profile. Rate what you see and your profile gets sharper everywhere in Mimir. Looking for seasonal programmes instead? See the <a href="#calendar">social calendar</a>.</p>
+      <nav class="medium-tabs" aria-label="Year">${[y - 1, y, y + 1].map((yy) => `<a href="#days?y=${yy}" class="${yy === y ? "on" : ""}">${yy}</a>`).join("")}</nav>
+      ${y === thisYear() && next.length ? `<section class="block"><header class="sec-head"><h2>Coming up</h2></header><ul class="cal-cards">${next.map((o) => `<li><a class="cal-card${o.on === today() ? " now" : ""}" href="${obsHref(o)}"><span class="eyebrow">${esc(whenText(o.on))} · ${esc(fmtDay(o.on))}</span><span class="cal-name">${esc(o.name)}</span><span class="cal-tag">${esc(o.why)}</span></a></li>`).join("")}</ul></section>` : ""}
+      ${[...byMonth].sort((a, b) => a[0] - b[0]).map(([m, xs]) => `<section class="cal-month"><h2>${progMonths[m]}</h2><ul class="cal-cards">${xs.map(card).join("")}</ul></section>`).join("")}
+      <p class="muted small">Dates follow the lists kept by the UN, UNESCO and the bodies that set each day; popular but unofficial days are marked. Recommendations come from the catalogue's own tags and the review scores it holds; tags are AI-assisted readings awaiting editorial review.</p>`;
+  }
+
+  function renderDay(slug, p) {
+    const base = OBS().find((x) => x.slug === slug), y = Number(p.get("y")) || thisYear();
+    if (!base) { app.innerHTML = `<p class="empty">That day isn't on the calendar. <a href="#days">Days of the year</a></p>`; return; }
+    const o = { ...base, on: obsDate(base, y), year: y };
+    const pool = obsPool(o).length, fresh = pool ? newPicks(o) : [], you = dayForYou(o), starter = you.empty ? dayStarter(o) : [];
+    const prog = o.programme && cat.programme(o.programme, y);
+    const same = obsYear(y).filter((x) => x.on === o.on && x.slug !== o.slug);
+    app.innerHTML = `
+      <header class="page-head"><p class="crumbs"><a href="#days?y=${y}">Days of the year</a></p><p class="eyebrow">${esc(fmtDay(o.on))} ${y} · ${esc(OBS_KIND[o.kind])} · ${esc(whenText(o.on))}</p>
+        <h1>${esc(o.name)}</h1><p class="muted">${esc(o.about)} ${esc(o.why)}</p>
+        ${prog || same.length ? `<p class="pchips">${prog ? `<a class="tchip" href="#programme-${esc(o.programme)}?y=${y}">The ${esc(prog.name)} programme</a>` : ""}${same.map((x) => `<a class="tchip" href="#day-${esc(x.slug)}?y=${y}">Also today: ${esc(x.name)}</a>`).join("")}</p>` : ""}</header>
+      ${o.tone === "reflective" ? `<p class="muted small">A day of reflection: these picks are chosen with care, and some deal with difficult subjects. Each work's parents' guide says what to expect.</p>` : ""}
+      <section class="block" id="day-new"><header class="sec-head"><h2>Something new to discover</h2>${fresh.length ? `<button type="button" class="linkish" data-day-more>Show me others</button>` : ""}</header>
+        <p class="muted small">Works you haven't rated or logged, well reviewed across the platforms we hold scores from, leaning towards the lesser known. A different handful each time.</p>
+        ${fresh.length ? pgrid(fresh, (w) => `${newWhy(w)}${rateButtons(w.slug, true)}`) : `<p class="empty">Nothing in the catalogue fits this day yet beyond what you've already seen. The catalogue grows every week.</p>`}</section>
+      <section class="block" id="day-you"><header class="sec-head"><h2>Picked for you</h2></header>
+        ${you.empty ? `<p class="muted small">Mimir doesn't know your taste yet. React to a few of these (loved it, liked it, not for me) and this section fills in with picks drawn from your profile, here and on every other page.</p>
+          ${starter.length ? pgrid(starter, (w) => rateButtons(w.slug, true)) : `<p class="empty">Start from <a href="#for-you">For you</a> to tell Mimir what you love.</p>`}`
+          : you.picks.length ? `<p class="muted small">Drawn from your ratings, scores and taste edits, kept to what fits ${esc(o.name)}.</p>${pgrid(you.picks, (w) => `<p class="pmeta">Because you ${(tasteRatings()[w.because.slug]) === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${whyDetails(w)}${rateButtons(w.slug, true)}`)}`
+          : `<p class="empty">Nothing in your taste profile fits this day yet. Rate a few more works on <a href="#for-you">For you</a>, or try the picks above.</p>`}</section>
+      <p class="muted small">Every rating you give here is saved in this browser and sharpens your picks across Mimir. <a href="#taste">See your taste profile</a>.</p>`;
+  }
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-day-more]");
+    if (b) { dayNonce++; const y = window.scrollY; route(); window.scrollTo(0, y); }
+  });
+
   // ------------------------------------------------------------------ routing & events
   function setNav(group) {
     document.querySelectorAll(".menu-btn").forEach((b) => b.classList.toggle("here", b.textContent === group));
@@ -4762,6 +4894,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h === "mix") { setNav("Discover"); renderMix(); }
     else if (h === "journal") { setNav("Library"); renderJournal(); }
     else if (h === "calendar") { setNav("Community"); renderCalendar(p); }
+    else if (h === "days") { setNav("Community"); renderDays(p); }
+    else if (h.startsWith("day-")) { setNav("Community"); renderDay(h.slice(4), p); }
     else if (h.startsWith("programme-")) { setNav("Community"); renderProgramme(h.slice(10), p); }
     else if (h === "community") { setNav("Community"); renderCommunity(); }
     else if (h === "signin") { setNav("Community"); renderSignin(p); }
