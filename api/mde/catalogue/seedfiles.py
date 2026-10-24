@@ -41,5 +41,10 @@ def read_seed(seed_dir: Path = SEED_DIR) -> dict:
         for slug, credits in overlay["credits"].items():
             w = target(slug)
             have = {(c[0], c[1]) for c in w.get("credits", [])}
-            w["credits"] = [*w.get("credits", []), *(c for c in credits if (c[0], c[1]) not in have)]
+            added = []
+            for c in credits:   # a credit already present (or repeated in the overlay) is skipped
+                if (c[0], c[1]) not in have:
+                    have.add((c[0], c[1]))
+                    added.append(c)
+            w["credits"] = [*w.get("credits", []), *added]
     return base

@@ -32,7 +32,12 @@ function readSeed(seedDir) {
     for (const [slug, credits] of Object.entries(overlay.credits)) {
       const w = target(slug);
       const have = new Set((w.credits || []).map((c) => `${c[0]}|${c[1]}`));
-      w.credits = [...(w.credits || []), ...credits.filter((c) => !have.has(`${c[0]}|${c[1]}`))];
+      const added = [];
+      for (const c of credits) {   // a credit already present (or repeated in the overlay) is skipped
+        const key = `${c[0]}|${c[1]}`;
+        if (!have.has(key)) { have.add(key); added.push(c); }
+      }
+      w.credits = [...(w.credits || []), ...added];
     }
   }
   return base;
