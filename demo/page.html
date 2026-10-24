@@ -534,7 +534,10 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .fan.wide { height: 120px; } .fan.wide .poster { width: 74px; } .fan.wide .poster.sq { height: 74px; }
 .tile-label { font: 600 1.2rem/1.15 var(--f-head); color: var(--bone); overflow-wrap: anywhere; }
 .tile-range { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; }
+.families > li[hidden] { display: none; }
+.fold-more { display: flex; justify-content: center; margin-top: 16px; }
 .families { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+@media (max-width: 560px) { .families { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
 .rings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
 .rings > li { display: flex; }
 .ring-chip { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; min-height: 132px; border-radius: 8px; text-decoration: none;
@@ -2476,7 +2479,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     return `
       <section class="block" aria-labelledby="series-h">
         <header class="shelf-head"><div><h2 id="series-h">Series &amp; franchise families</h2><p>Start at the beginning, or see what you'd be signing up for.</p></div><a class="see-all" href="#series">All series</a></header>
-        <ul class="families">${groups.map(familyCard).join("")}</ul>
+        <ul class="families" data-fold="6" data-name="home-series">${groups.map(familyCard).join("")}</ul>
       </section>`;
   }
 
@@ -2638,7 +2641,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">Series or standalone</p><h1>Series &amp; families</h1>
         <p>Every franchise and series as one page: its films, shows, books and games, each in order, with the time it takes to see the whole run. Franchises and series come from the catalogue and Wikidata; a family is found by following sequel, spin-off and remake links.</p></header>
-      <section class="block"><ul class="families">${groups.map(familyCard).join("")}</ul></section>
+      <section class="block"><ul class="families" data-fold="9" data-name="sagas">${groups.map(familyCard).join("")}</ul></section>
       ${lone ? `<section class="block"><header class="shelf-head"><div><h2>${esc(lone.name)}</h2><p>${esc(lone.tagline)}</p></div><a class="see-all" href="#shelf-lone-wolves">See all ${lone.total}</a></header>${row(lone.works.slice(0, 16))}</section>` : ""}`;
   }
 
@@ -4454,6 +4457,35 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       : `<p class="help-empty">Nothing matches "${esc(inp.value.trim())}". Try a shorter word, or <a href="${esc(feedbackHref())}">tell us what you were looking for</a>.</p>`;
   });
   app.addEventListener("submit", (e) => { if (e.target.closest("[data-help-form]")) e.preventDefault(); });
+
+
+  // Long card grids show a few rows and keep the rest behind a button: [data-fold="rows"] on the list.
+  const foldOpen = new Set();
+  function foldGrids() {
+    for (const ul of app.querySelectorAll("[data-fold]")) {
+      const rows = +ul.dataset.fold || 6, name = ul.dataset.name || "", items = [...ul.children];
+      const cols = Math.max(1, getComputedStyle(ul).gridTemplateColumns.split(" ").filter(Boolean).length);
+      const limit = cols * (cols <= 2 ? Math.min(rows, 4) : rows), open = foldOpen.has(name);
+      let more = ul.nextElementSibling && ul.nextElementSibling.classList.contains("fold-more") ? ul.nextElementSibling : null;
+      if (items.length <= limit) { items.forEach((li) => { li.hidden = false; }); if (more) more.remove(); continue; }
+      items.forEach((li, i) => { li.hidden = !open && i >= limit; });
+      if (!more) { more = document.createElement("div"); more.className = "fold-more"; ul.after(more); }
+      const html = `<button type="button" class="btn ghost" data-fold-toggle="${esc(name)}" aria-expanded="${open}">${open ? "Show fewer" : `Show all ${items.length}`}</button>`;
+      if (more.innerHTML !== html) more.innerHTML = html;
+    }
+  }
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-fold-toggle]");
+    if (!b) return;
+    const n = b.dataset.foldToggle;
+    foldOpen.has(n) ? foldOpen.delete(n) : foldOpen.add(n);
+    foldGrids();
+    if (!foldOpen.has(n)) b.scrollIntoView({ block: "nearest" });
+  });
+  let foldTimer = 0;
+  const foldSoon = () => { clearTimeout(foldTimer); foldTimer = setTimeout(foldGrids, 30); };
+  new MutationObserver((muts) => { if (muts.some((m) => [...m.addedNodes].some((n) => n.nodeType === 1 && !n.classList.contains("fold-more") && !n.closest(".fold-more")))) foldSoon(); }).observe(app, { childList: true, subtree: true });
+  window.addEventListener("resize", foldSoon);
 
   // Videos load from YouTube only once someone presses play: no third-party requests on page load beyond the thumbnail.
   app.addEventListener("click", (e) => {
