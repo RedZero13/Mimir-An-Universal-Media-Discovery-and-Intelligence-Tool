@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"light";}catch(e){document.documentElement.dataset.theme="light";}</script>
 <script>if (location.protocol === "http:" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) location.replace("https:" + location.href.slice(5));</script>
-<title>Mimir · Find what to watch, read, play or listen to next</title>
+<title>Find what to watch, read, play or listen to next · Mimir</title>
 <meta name="description" content="Tell Mimir a mood, a favourite or how long you have, and it finds films, TV shows, books, manga, games and music that fit, with the reason for every pick. Free, from Terratales.">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -577,6 +577,10 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; border-radius: 50%; background: var(--gold-bright); color: #131315; font-size: 28px; line-height: 72px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, .5); }
 .video-facade:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
 .video-embed figcaption { margin-top: 6px; }
+.btn.danger { background: #8E3A22; border-color: #8E3A22; color: #fff; }
+.btn.danger:hover { background: #A8452A; }
+.btn[disabled] { opacity: .5; cursor: default; }
+.reset-box { margin-top: 28px; }
 .share-n { display: inline-block; min-width: 1.5em; margin-left: 6px; padding: 1px 6px; border-radius: 99px; background: var(--gold); color: var(--black); font-size: .72rem; line-height: 1.4; }
 .dna { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
 .dna-fig { margin: 0; color: var(--cream); text-align: center; }
@@ -607,6 +611,16 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .mix-go q { font-family: var(--f-body); color: var(--bone); }
 .mix-go .btn[disabled] { opacity: .5; cursor: default; }
 @media (max-width: 560px) { .taste-list li { grid-template-columns: 1fr 60px; } .taste-list .te-btns { grid-column: 1 / -1; } }
+.obs-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 0; }
+.crawl { max-width: 1040px; margin: 0 auto 28px; padding-bottom: 22px; border-bottom: 1px solid var(--line); color: var(--cream); font-size: .88rem; line-height: 1.6; }
+.crawl[hidden] { display: none; }
+.crawl h2 { font-size: 1.05rem; margin: 0 0 8px; }
+.crawl h3 { font: 600 .72rem/1.3 var(--f-display); letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 16px 0 6px; }
+.crawl p { margin: 0 0 8px; max-width: 70ch; }
+.crawl ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; }
+.crawl a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.crawl a:hover { color: var(--gold-bright); }
+.crawl-hubs { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .fy-ctl { display: grid; gap: 8px; margin: 0 0 18px; }
 .fy-ctl p { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
 .fy-ctl .eyebrow { min-width: 86px; }
@@ -1113,6 +1127,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     <div class="ask-shell" aria-hidden="true"></div>
   </section></main>
   <footer class="foot">
+    <!--__CRAWL__-->
     <nav class="foot-cols" aria-label="Footer">
       <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
       <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
@@ -1137,6 +1152,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script id="providers-data" type="application/json">/*__PROVIDERS__*/</script>
 <script id="calendar-data" type="application/json">/*__CALENDAR__*/</script>
 <script id="audiobooks-data" type="application/json">/*__AUDIOBOOKS__*/</script>
+<script id="observances-data" type="application/json">/*__OBSERVANCES__*/</script>
 <script id="config-data" type="application/json">/*__CONFIG__*/</script>
 <script id="blog-data" type="application/json">/*__BLOG__*/</script>
 <script>/*__ENGINE__*/</script>
@@ -1213,6 +1229,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const mediumLabel = (m) => MEDIUM[m] || m;
   const langLabel = (c) => LANG[c] || c;
   const termLabel = (key) => (key.split(":")[1] || key).replace(/-/g, " ");
+  const TERM_LABEL = new Map(DATA("taxonomy").terms.map((t) => [`${t.dimension}:${t.slug}`, t.label]));
   const tagToken = (key) => `tag-${key.replace(":", ".")}`;
   const basisTag = (b) => `<span class="basis ${b === "catalogue" ? "catalogue" : "interpretation"}" title="${esc(BASIS[b][1])}">${BASIS[b][0]}</span>`;
   const sevPill = (s) => `<span class="sev sev-${s === "Not assessed" ? "unknown" : s.toLowerCase()}">${esc(s)}</span>`;
@@ -1761,7 +1778,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["latam", "Latin America", ["MX", "AR", "BR", "CO", "CL", "PE", "CU"]], ["oceania", "Australia & New Zealand", ["AU", "NZ"]],
     ["mena-africa", "Middle East & Africa", ["IR", "LB", "IL", "TR", "EG", "NG", "ZA", "SA", "AE", "KE", "MA", "SN"]],
   ];
-  const inIndustry = (w, key) => { const ind = INDUSTRIES.find(([k]) => k === key); const wk = ind && cat.work(w.slug); return !!(wk && (wk.countries || []).some((c) => ind[2].includes(c))); };
+  // Countries straight from the catalogue data: building a full work page per film just to read them is far too slow at scale.
+  const COUNTRIES_OF = Object.fromEntries(RAW_WORKS.map((w) => [w.slug, w.countries || []]));
+  const inIndustry = (w, key) => { const ind = INDUSTRIES.find(([k]) => k === key); return !!(ind && (COUNTRIES_OF[w.slug] || []).some((c) => ind[2].includes(c))); };
   const blankSearch = (medium = "all") => ({ medium, q: "", letter: "", tags: [], exclude: [], avoid: [], sort: "popular", industry: "",
     year_min: null, year_max: null, max_minutes: null, rating: "", view: "tiles", adv: false, list: false, shown: 48 });
   let search = blankSearch();
@@ -2025,7 +2044,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     for (const w of works) for (const g of w.genres || []) { const c = genres.get(g.key) || { ...g, n: 0 }; c.n++; genres.set(g.key, c); }
     const decades = new Map();
     for (const w of works) if (w.year) { const d = Math.floor(w.year / 10) * 10; decades.set(d, (decades.get(d) || 0) + 1); }
-    const shelves = allShelves().map((s) => ({ ...s, works: worksOf(cat.shelf(s.slug).works.filter((x) => x.medium === medium).map((x) => x.slug)) }))
+    const shelves = allShelves().map((s) => ({ ...s, works: worksOf(shelfOf(s.slug).works.filter((x) => x.medium === medium).map((x) => x.slug)) }))
       .filter((s) => s.works.length >= 4).sort((a, b) => b.works.length - a.works.length).slice(0, 6);
     const newest = [...works].filter((w) => w.year).sort((a, b) => b.year - a.year).slice(0, 12);
     app.innerHTML = `
@@ -2040,7 +2059,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <section class="stat-box"><h2>By genre</h2><p class="pchips">${[...genres.values()].filter((g) => !isSub(g.key)).sort((a, b) => b.n - a.n).map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></section>
           ${(() => { const groups = new Map();
             [...genres.values()].filter((g) => isSub(g.key)).sort((a, b) => b.n - a.n).forEach((g) => { const p = PARENT_OF[g.key]; if (!groups.has(p)) groups.set(p, []); groups.get(p).push(g); });
-            return groups.size ? `<section class="stat-box sub-box"><h2>By subgenre</h2>${[...groups].sort((a, b) => b[1].reduce((n, g) => n + g.n, 0) - a[1].reduce((n, g) => n + g.n, 0)).map(([p, gs]) => `<div class="sub-group"><h3>${esc(cat.tag(p) ? cat.tag(p).label : p.split(":")[1])}</h3><p class="pchips">${gs.map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></div>`).join("")}</section>` : ""; })()}
+            return groups.size ? `<section class="stat-box sub-box"><h2>By subgenre</h2>${[...groups].sort((a, b) => b[1].reduce((n, g) => n + g.n, 0) - a[1].reduce((n, g) => n + g.n, 0)).map(([p, gs]) => `<div class="sub-group"><h3>${esc(TERM_LABEL.get(p) || termLabel(p))}</h3><p class="pchips">${gs.map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></div>`).join("")}</section>` : ""; })()}
           ${["film", "series"].includes(medium) ? `<section class="stat-box"><h2>By industry</h2><p class="pchips">${INDUSTRIES.map(([k, l]) => [k, l, works.filter((w) => inIndustry(w, k)).length]).filter(([, , n]) => n).map(([k, l, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { industry: k, list: true }))}">${esc(l)} · ${n}</a>`).join("")}</p></section>` : ""}
           <section class="stat-box"><h2>By decade</h2><p class="pchips">${[...decades].sort((a, b) => b[0] - a[0]).map(([d, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { year_min: d, year_max: d + 9 }))}">${d}s · ${n}</a>`).join("")}</p></section>
           <section class="stat-box"><h2>By time you have</h2><p class="pchips">${TIME_TILES.map(([slug, label]) => [slug, label, works.filter((w) => w.time && w.time.bucket === slug).length]).filter(([, , n]) => n).map(([slug, label, n]) => `<a class="tchip" href="#time-${slug}?m=${medium}">${esc(label)} · ${n}</a>`).join("")}</p></section>
@@ -2056,7 +2075,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
-    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["Days of the year", "#days"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
@@ -2068,7 +2087,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
       ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Taste profile", "#taste"], ["Import & export", "#transfer"]]],
-    ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Your profile", "#signin"]]],
+    ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Days of the year", "#days"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
   const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
@@ -2207,6 +2226,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
             ${w.original_title ? `<p class="orig">${esc(w.original_title)}</p>` : ""}
             <p class="meta">${medal(w.medium)}<span>${esc([mediumLabel(w.medium), w.year, w.creators.slice(0, 2).join(", ")].filter(Boolean).join(" · "))}</span>
               ${w.parents_guide.ratings.map((r) => `<span class="rating" title="${esc(r.system)} rating">${esc(r.rating)}</span>`).join("")}</p>
+            ${(() => { const gs = (RAW_BY.get(w.slug) || { groups: [] }).groups.filter((x) => ipIndex().get(x.slug) && ipIndex().get(x.slug).members.length >= 2);
+              return gs.length ? `<p class="pchips"><span class="eyebrow">Part of</span>${gs.map((x) => `<a class="tchip" href="#group-${esc(x.slug)}">${esc(x.name)}</a>`).join("")}</p>` : ""; })()}
             <p class="pchips big">${w.time ? `${timeChip(w.time, album)}<span class="muted small">${esc(timeText(w.time, album))}</span>` : ""}${contChip(c, w.medium)}</p>
             ${w.scores.length ? `<ul class="scores">${w.scores.map((s) => `<li><span class="score-v">${esc(scoreText(s))}</span><span class="score-p">${esc(s.publisher)}<br><span class="muted">${esc(s.metric)}${s.votes ? ` · ${s.votes.toLocaleString("en")} votes` : ""}${s.as_of ? ` · ${esc(s.as_of)}` : ""}</span></span></li>`).join("")}</ul>` : ""}
             ${w.box_office.length ? `<p class="small muted">Box office: ${w.box_office.map((b) => `${esc(money(b))} ${esc(b.scope)}`).join(" · ")}</p>` : ""}
@@ -2273,6 +2294,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // ------------------------------------------------------------------ shelves, time, music, series
   const once = (f) => { let v; return () => (v === undefined ? (v = f()) : v); };
   const allWorks = once(() => cat.browse({ media: [], tags: [], avoid: [], decade: null, language: null, max_minutes: null, q: "", sort: "popular" }).results);
+  // Look-ups by slug and cached shelves: with thousands of works, scanning the list or rebuilding a shelf per call adds up fast.
+  const cardIndex = once(() => new Map(allWorks().map((w) => [w.slug, w])));
+  const cardOf = (slug) => cardIndex().get(slug);
+  const shelfCache = new Map();
+  const shelfOf = (slug) => { if (!shelfCache.has(slug)) shelfCache.set(slug, cat.shelf(slug)); return shelfCache.get(slug); };
   const allShelves = once(() => cat.shelves());
   const TIME_TILES = [["quick-bite", "Quick bite", "Under 45 minutes"], ["one-sitting", "One sitting", "Up to 2½ hours"],
     ["evening-or-two", "An evening or two", "Up to 6 hours"], ["weekend", "A weekend", "Up to 15 hours"],
@@ -2330,12 +2356,39 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       </section>`;
   }
 
+  // Sagas: one page per IP. A franchise (or a series outside any franchise) gathers every work that carries it, a row
+  // per medium; families found only by following sequel and remake links stay as the engine builds them.
+  const KIND_LABEL = { franchise: "Franchise", series: "Series", family: "Family" };
+  const ipIndex = once(() => {
+    const idx = new Map();
+    for (const w of cat.works) for (const g of w.groups) {
+      if (!idx.has(g.slug)) idx.set(g.slug, { slug: g.slug, name: g.name, kind: g.kind, members: [] });
+      if (!idx.get(g.slug).members.some((m) => m.slug === w.slug)) idx.get(g.slug).members.push({ slug: w.slug, position: g.position });
+    }
+    return idx;
+  });
+  const posNum = (p) => (p !== null && p !== undefined && !isNaN(Number(p)) ? Number(p) : 1e9);
+  function ipWorks(slug) {
+    const g = ipIndex().get(slug);
+    return g ? g.members.map((m) => ({ ...cardOf(m.slug), position: m.position })).filter((w) => w.slug)
+      .sort((a, b) => posNum(a.position) - posNum(b.position) || (a.year || 9999) - (b.year || 9999) || a.title.localeCompare(b.title)) : [];
+  }
+  const ipList = once(() => {
+    const all = [...ipIndex().values()].filter((g) => g.members.length >= 2);
+    const franchises = all.filter((g) => g.kind === "franchise");
+    const covered = new Set(franchises.flatMap((g) => g.members.map((m) => m.slug)));
+    const series = all.filter((g) => g.kind !== "franchise" && !g.members.every((m) => covered.has(m.slug)));
+    const families = cat.groups().filter((g) => !ipIndex().has(g.slug) && g.count >= 2).map((g) => ({ slug: g.slug, name: g.name, kind: "family", members: [] }));
+    return [...franchises, ...series, ...families];
+  });
   function familyCard(g) {
-    const page = cat.group(g.slug);
+    const works = ipIndex().has(g.slug) ? ipWorks(g.slug) : cat.group(g.slug).works;
+    const media = [...new Set(works.map((w) => w.medium))];
+    const mins = works.reduce((a, w) => a + (w.time ? w.time.minutes : 0), 0);
     return `<li><a class="family" href="#group-${esc(g.slug)}">
-      <span class="fan wide n${Math.min(page.works.length, 4)}">${page.works.slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span>
-      <span class="tile-label">${esc(page.name)}</span>
-      <span class="tile-range">${g.kind === "series" ? "Series" : "Franchise family"} · ${page.works.length} in the catalogue${page.total_minutes ? ` · ${hm(page.total_minutes)} in all` : ""}</span></a></li>`;
+      <span class="fan wide n${Math.min(works.length, 4)}">${works.slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span>
+      <span class="tile-label">${esc(g.name)}</span>
+      <span class="tile-range">${esc(KIND_LABEL[g.kind] || "Series")} · ${works.length} ${media.length > 1 ? `across ${media.length} media` : "in the catalogue"}${mins ? ` · ${hm(mins)} in all` : ""}</span></a></li>`;
   }
 
   function homeShelves() {
@@ -2347,7 +2400,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // ------------------------------------------------------------------ about panels (shelf and tag pages)
   const MEDIUM_TINT = { film: "var(--gold)", series: "#3E7C8C", book: "#8C5A3E", game: "#6B5A8C", album: "#5E7A3E" };
   const listText = (xs, joiner = "or") => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} ${joiner} ${xs[xs.length - 1]}`);
-  const tagLabel = (k) => { const t = cat.tag(k); return t ? t.label.toLowerCase() : k.split(":")[1].replace(/-/g, " "); };
+  const tagLabel = (k) => (TERM_LABEL.get(k) || termLabel(k)).toLowerCase();
   const hrs = (m) => (m < 60 ? `${m} minutes` : `${Math.round(m / 60)} hours`);
   function ruleLines(rule) {
     const out = [];
@@ -2396,7 +2449,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   function renderShelf(slug, medium) {
-    const s = cat.shelf(slug);
+    const s = shelfOf(slug);
     if (!s) { app.innerHTML = `<p class="empty">There's no shelf by that name. <a href="#">Back to the shelves</a></p>`; return; }
     const counts = {};
     s.works.forEach((w) => { counts[w.medium] = (counts[w.medium] || 0) + 1; });
@@ -2454,16 +2507,19 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   function renderSeries() {
-    const groups = cat.groups();
-    const lone = cat.shelf("lone-wolves");
+    // Largest IPs first.
+    const groups = ipList().map((g) => ({ ...g, n: g.members.length || (cat.group(g.slug) || { works: [] }).works.length }))
+      .sort((a, b) => b.n - a.n || a.name.localeCompare(b.name));
+    const lone = shelfOf("lone-wolves");
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">Series or standalone</p><h1>Series &amp; families</h1>
-        <p>Works that belong together, in order, with the time it takes to see the whole run. Named series come from the catalogue; a family is found by following sequel, spin-off and remake links.</p></header>
+        <p>Every franchise and series as one page: its films, shows, books and games, each in order, with the time it takes to see the whole run. Franchises and series come from the catalogue and Wikidata; a family is found by following sequel, spin-off and remake links.</p></header>
       <section class="block"><ul class="families">${groups.map(familyCard).join("")}</ul></section>
       ${lone ? `<section class="block"><header class="shelf-head"><div><h2>${esc(lone.name)}</h2><p>${esc(lone.tagline)}</p></div><a class="see-all" href="#shelf-lone-wolves">See all ${lone.total}</a></header>${row(lone.works.slice(0, 16))}</section>` : ""}`;
   }
 
   function renderGroup(slug) {
+    if (ipIndex().has(slug)) { renderIp(slug); return; }
     const g = cat.group(slug);
     if (!g) { app.innerHTML = `<p class="empty">No series by that name. <a href="#series">See all series</a></p>`; return; }
     const ordinal = (w, i) => (g.kind === "series" && w.position ? `No. ${w.position}` : `${i + 1}${["st", "nd", "rd"][i] || "th"} released`);
@@ -2471,6 +2527,29 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <header class="page-head"><p class="crumbs"><a href="#series">Series &amp; families</a></p><h1>${esc(g.name)}</h1>
         <p>${g.kind === "series" ? "Series" : "Franchise family"} · ${g.works.length} in the catalogue${g.total_minutes ? ` · ${hm(g.total_minutes)} to experience everything listed` : ""}${g.unknown_length ? ` (${g.unknown_length} without a recorded length)` : ""}.</p></header>
       <section class="block">${pgrid(g.works, (w) => `<p class="pmeta">${esc(ordinal(w, g.works.indexOf(w)))}</p>`)}</section>`;
+  }
+
+  const by0 = (works) => new Set(works.map((w) => w.medium)).size;
+  function renderIp(slug) {
+    const g = ipIndex().get(slug), works = ipWorks(slug);
+    const mins = works.reduce((a, w) => a + (w.time ? w.time.minutes : 0), 0), unknown = works.filter((w) => !w.time).length;
+    // Series within this franchise (Harry Potter and Fantastic Beasts inside the Wizarding World), and franchises it sits in.
+    const inside = new Set(works.map((w) => w.slug));
+    const related = [...ipIndex().values()].filter((x) => x.slug !== slug && x.members.length >= 2 && x.members.some((m) => inside.has(m.slug)))
+      .map((x) => ({ ...x, within: x.members.every((m) => inside.has(m.slug)), around: works.every((w) => x.members.some((m) => m.slug === w.slug)) }))
+      .sort((a, b) => b.members.length - a.members.length).slice(0, 16);
+    const count = (n, m) => `${n} ${(n === 1 ? mediumLabel(m) : PLURAL[m] || m).replace(/^(?!TV)./, (c) => c.toLowerCase())}`;
+    const kind = g.kind === "franchise" || related.some((x) => x.within) || by0(works) > 1 ? "Franchise" : KIND_LABEL[g.kind] || "Series";
+    const order = [...MEDIA, ...new Set(works.map((w) => w.medium))].filter((m, i, a) => a.indexOf(m) === i);
+    const by = order.map((m) => [m, works.filter((w) => w.medium === m)]).filter(([, ws]) => ws.length);
+    const label = (w, i) => (w.position && g.kind === "series" ? `No. ${w.position}` : `${w.year || ""}`);
+    app.innerHTML = `
+      <header class="page-head"><p class="crumbs"><a href="#series">Series &amp; families</a></p><h1>${esc(g.name)}</h1>
+        <p>${esc(kind)} · ${works.length} in the catalogue${by.length > 1 ? ` across ${by.map(([m, ws]) => count(ws.length, m)).join(", ")}` : ""}${mins ? ` · ${hm(mins)} to experience everything listed` : ""}${unknown ? ` (${unknown} without a recorded length)` : ""}.</p>
+        ${related.length ? `<p class="pchips">${related.map((x) => `<a class="tchip" href="#group-${esc(x.slug)}">${x.within ? "" : x.around ? "Part of " : "See also "}${esc(x.name)} · ${x.members.length}</a>`).join("")}</p>` : ""}</header>
+      ${by.map(([m, ws]) => `<section class="shelf" aria-label="${esc(g.name)}: ${esc(PLURAL[m] || m)}"><header class="shelf-head"><div><h2>${esc(PLURAL[m] || mediumLabel(m))} <span class="count">(${ws.length})</span></h2>
+        <p>${ws.length > 1 ? (g.kind === "series" && ws.some((w) => w.position) ? "In series order." : "In release order.") : ""}</p></div></header>
+        ${ws.length > 6 ? row(ws, (w) => `<p class="pmeta">${esc(label(w))}</p>`) : pgrid(ws, (w) => `<p class="pmeta">${esc(label(w))}</p>`)}</section>`).join("")}`;
   }
 
   // ------------------------------------------------------------------ about
@@ -2649,7 +2728,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <form class="tr-newlist" data-newlist="${esc(slug)}"><input name="name" placeholder="New list…" aria-label="New list name" maxlength="60"><button type="submit" class="linkish">Create</button></form></div>`;
   }
   const shareUrl = (l) => `${location.origin}${location.pathname}#shared?n=${encodeURIComponent(l.name)}&w=${encodeURIComponent(l.slugs.join(","))}${l.note ? `&d=${encodeURIComponent(l.note)}` : ""}${l.kind && l.kind !== "list" ? `&k=${l.kind}` : ""}`;
-  const worksOf = (slugs) => slugs.map((s) => allWorks().find((w) => w.slug === s)).filter(Boolean);
+  const worksOf = (slugs) => slugs.map((s) => cardOf(s)).filter(Boolean);
 
   function renderLists() {
     app.innerHTML = `
@@ -2750,7 +2829,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const MILESTONES = [1, 5, 10, 25, 50, 100, 250, 500, 1000];
   function badges() {
     const entries = Object.entries(library);
-    const done = entries.filter(([, e]) => e.status === "completed").map(([s]) => allWorks().find((w) => w.slug === s)).filter(Boolean);
+    const done = entries.filter(([, e]) => e.status === "completed").map(([s]) => cardOf(s)).filter(Boolean);
     const doneBy = (m) => done.filter((w) => w.medium === m).length;
     const genres = new Set(done.flatMap((w) => (w.genres || []).filter((g) => !isSub(g.key)).map((g) => g.key)));
     const countries = new Set(done.flatMap((w) => w.countries || []));
@@ -2852,10 +2931,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const okWork = (w) => w && (!t.medium || w.medium === t.medium) && (!t.tag || (w.genres || []).concat(w.tags || []).some((g) => g.key === t.tag) || (cat.work(w.slug) || { tags: [] }).tags.some((dd) => dd.terms.some((x) => x.key === t.tag)))
       && (!t.list || ((lists.find((l) => l.id === t.list) || { slugs: [] }).slugs.includes(w.slug)));
     if (t.kind === "minutes") {
-      const mins = activity.filter((a) => inPeriod(a.d) && (!t.medium || a.m === t.medium) && (!t.list && !t.tag || (a.s && okWork(allWorks().find((w) => w.slug === a.s))))).reduce((n, a) => n + a.min, 0);
+      const mins = activity.filter((a) => inPeriod(a.d) && (!t.medium || a.m === t.medium) && (!t.list && !t.tag || (a.s && okWork(cardOf(a.s))))).reduce((n, a) => n + a.min, 0);
       return { have: Math.round(mins / 60), unit: "hours", works: [] };
     }
-    const works = Object.entries(library).filter(([, e]) => e.status === "completed" && inPeriod(e.finished)).map(([s]) => allWorks().find((w) => w.slug === s)).filter(okWork);
+    const works = Object.entries(library).filter(([, e]) => e.status === "completed" && inPeriod(e.finished)).map(([s]) => cardOf(s)).filter(okWork);
     return { have: works.length, unit: t.medium ? PLURAL[t.medium].toLowerCase() : "works", works };
   }
   const yearStart = () => `${new Date().getFullYear()}-01-01`, yearEnd = () => `${new Date().getFullYear()}-12-31`;
@@ -3141,7 +3220,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     for (const { pos, c, medium } of furthest.values()) {
       const next = c.members.filter((m) => m.medium === medium && Number(m.position) > pos).sort((a, b) => Number(a.position) - Number(b.position))[0];
       const e = next && library[next.slug];
-      const w = next && allWorks().find((x) => x.slug === next.slug);
+      const w = next && cardOf(next.slug);
       if (w && !(e && ["completed", "dropped", "active"].includes(e.status))) out.push({ w, group: c.group.name });
     }
     return out;
@@ -3417,7 +3496,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const parsed = parseImport(text, fileName);
       const matched = [], missed = [];
       for (const it of parsed.items) {
-        const w = it.slug ? allWorks().find((x) => x.slug === it.slug) : matchTitle(it.title, it.year, it.media);
+        const w = it.slug ? cardOf(it.slug) : matchTitle(it.title, it.year, it.media);
         (w ? matched : missed).push({ ...it, w });
       }
       pendingImport = { parsed, matched };
@@ -3465,7 +3544,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function exportCsv() {
     const q = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
     const rows = [["Title", "Year", "Medium", "Status", "Score", "Progress", "Started", "Finished", "Times through", "Notes"]];
-    for (const [slug, e] of Object.entries(library)) { const w = allWorks().find((x) => x.slug === slug); if (w) rows.push([w.title, w.year, mediumLabel(w.medium), STATUS_TAB[e.status], e.score, e.progress, e.started, e.finished, e.rewatches, e.notes]); }
+    for (const [slug, e] of Object.entries(library)) { const w = cardOf(slug); if (w) rows.push([w.title, w.year, mediumLabel(w.medium), STATUS_TAB[e.status], e.score, e.progress, e.started, e.finished, e.rewatches, e.notes]); }
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([rows.map((r) => r.map(q).join(",")).join("\n")], { type: "text/csv" }));
     a.download = `mimir-library-${today()}.csv`;
@@ -3497,7 +3576,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <header class="sec-head"><h2>Export</h2></header>
         <p class="muted">Your library lives only in this browser. Save a backup now and then, or move it to another device.</p>
         <p class="lib-actions"><button type="button" class="btn" data-export="json">Download backup (.json)</button><button type="button" class="btn ghost" data-export="csv">Download as spreadsheet (.csv)</button></p>
-      </section>`;
+      </section>
+      ${resetPanel()}`;
   }
 
   // ------------------------------------------------------------------ journal (kept in this browser; synced with an account)
@@ -3526,7 +3606,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     </form>`;
   }
   const jEntry = (j, showWork = false) => {
-    const w = showWork && allWorks().find((x) => x.slug === j.slug);
+    const w = showWork && cardOf(j.slug);
     return `<li class="j-entry" id="j-${esc(j.id)}">
       <p class="j-meta"><span class="j-date">${esc(j.date)}</span>${j.feel ? `<span class="tchip">${esc(j.feel)}</span>` : ""}${j.at ? `<span class="muted small">${esc(j.at)}</span>` : ""}
         ${w ? `<a href="#work-${esc(w.slug)}">${esc(w.title)}</a> <span class="muted small">${esc(mediumLabel(w.medium))}</span>` : ""}</p>
@@ -3544,7 +3624,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   const journalState = { q: "", medium: "all" };
   function renderJournal() {
-    const byMedium = journal.filter((j) => { const w = allWorks().find((x) => x.slug === j.slug); return w && (journalState.medium === "all" || w.medium === journalState.medium); });
+    const byMedium = journal.filter((j) => { const w = cardOf(j.slug); return w && (journalState.medium === "all" || w.medium === journalState.medium); });
     const shown = byMedium.filter((j) => !journalState.q || `${j.text} ${j.at || ""} ${j.feel || ""}`.toLowerCase().includes(journalState.q.toLowerCase()))
       .sort((a, b) => b.date.localeCompare(a.date) || b.created.localeCompare(a.created));
     const months = new Map();
@@ -3575,10 +3655,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const DECIDE_WHO = [["me", "Just me"], ["family", "With the family"], ["date", "Date night"], ["friends", "With friends"]];
   const decide = stored("mimir-decide", { time: "130", mood: "", medium: "film", who: "me", source: "all" });
   let decideState = { skipped: [], penalties: {}, index: 0 };
-  const termMap = once(() => new Map(allWorks().map((w) => {
-    const full = cat.work(w.slug);
-    return [w.slug, new Map(full.tags.flatMap((d) => d.terms.map((t) => [t.key, t.strength])))];
-  })));
+  // Tag strengths straight from the catalogue's own records: building a full work page per work is far too slow at scale.
+  const termMap = once(() => new Map(cat.works.map((w) => [w.slug, new Map([...w.terms].filter(([k, ev]) => !k.startsWith("advisory:") && ev.strength > 0).map(([k, ev]) => [k, ev.strength]))])));
 
   function decideRanked() {
     const taste = tasteRatings();
@@ -3695,7 +3773,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <ul class="cal-cards">${items.map(({ p, now }) => { const tp = now && todayPick(p); return `<li><a class="cal-card${now ? " now" : ""}" href="${progHref(p)}">
         <span class="eyebrow">${now ? "On now" : `In ${daysBetween(today(), p.start)} days`} · ${esc(fmtDay(p.start))}–${esc(fmtDay(p.end))}</span>
         <span class="cal-name">${esc(p.name)}</span><span class="cal-tag">${esc(p.tagline)}</span>
-        ${tp ? `<span class="cal-today">Today: <strong>${esc(tp.work.title)}</strong></span>` : ""}</a></li>`; }).join("")}</ul></section>`;
+        ${tp ? `<span class="cal-today">Today: <strong>${esc(tp.work.title)}</strong></span>` : ""}</a></li>`; }).join("")}</ul>
+      ${(() => { const n = obsUpcoming(2); return n.length ? `<p class="obs-line"><span class="eyebrow">Days of the year</span>${n.map((o) => `<a class="tchip" href="${obsHref(o)}">${esc(o.name)} · ${esc(whenText(o.on).toLowerCase())}</a>`).join("")}<a class="see-all" href="#days">All days</a></p>` : ""; })()}</section>`;
   }
 
   function renderCalendar(p) {
@@ -3821,8 +3900,28 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }
   }
 
+  // Accounts need the community server (docs/DEPLOY.md). Until it is switched on, say so plainly rather than sending
+  // people to the Community page, and show what already works without an account.
+  function renderAccountsSoon() {
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>Accounts open soon</h1>
+        <p class="muted">Sign-in isn't switched on yet: the server that keeps accounts, reviews and follows is still being set up. Nothing is lost by waiting.</p></header>
+      <div class="prose block">
+        <h2>What works today, without an account</h2>
+        <ul>
+          <li>Your <a href="#library">library</a>, <a href="#lists">lists</a>, <a href="#journal">journal</a>, <a href="#trackers">trackers</a> and <a href="#achievements">rings and badges</a>, kept in this browser.</li>
+          <li>Picks that learn from what you rate: <a href="#for-you">For you</a>, your <a href="#taste">taste profile</a> and the <a href="#days">days of the year</a>.</li>
+          <li><a href="#decide">Decide for me</a>, <a href="#plan">Plan my time</a>, <a href="#together">Pick together</a> and watch-alongs.</li>
+          <li><a href="#transfer">Import and export</a>: back your library up now and it moves into your account in one step when accounts open.</li>
+        </ul>
+        <h2>What an account will add</h2>
+        <p>Your library in step across your devices, reviews and comments, following friends and a shared feed, published lists and challenge leaderboards.</p>
+        <p><a class="btn" href="${esc(feedbackHref())}">Tell us you want accounts</a> <a class="btn ghost" href="#community">See the community plans</a></p>
+      </div>`;
+  }
+
   function renderSignin(p) {
-    if (!CONFIG.api) { renderCommunity(); return; }
+    if (!CONFIG.api) { renderAccountsSoon(); return; }
     if (session) { location.hash = `#u-${session.user.username}`; return; }
     const mode = p.get("mode") === "signup" ? "signup" : "signin";
     app.innerHTML = `
@@ -3857,7 +3956,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   // ------------------------------------------------------------------ community: the shared front page, profiles, reviews
-  const workOf = (slug) => allWorks().find((w) => w.slug === slug);
+  const workOf = (slug) => cardOf(slug);
   const userLink = (u) => `<a class="u-link" href="#u-${esc(u.username)}">${esc(u.display_name)} <span class="muted">@${esc(u.username)}</span></a>`;
   const ago = (iso) => { const s = (Date.now() - Date.parse(iso)) / 1000; return s < 3600 ? `${Math.max(1, Math.round(s / 60))}m` : s < 86400 ? `${Math.round(s / 3600)}h` : `${Math.round(s / 86400)}d`; };
   const progName = (ref) => { const [slug, y] = (ref || "").split("/"); const p = cat.programme(slug, Number(y)); return p ? `<a href="#programme-${esc(slug)}?y=${esc(y)}">${esc(p.name)} ${esc(y)}</a>` : esc(ref); };
@@ -3947,7 +4046,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <header class="page-head"><p class="eyebrow">@${esc(u.username)} · joined ${esc(u.joined)}${u.is_private ? " · private" : ""}</p><h1>${esc(u.display_name)}</h1>${u.bio ? `<p class="muted">${esc(u.bio)}</p>` : ""}
           <p class="pchips"><span class="tchip">${u.followers} follower${u.followers === 1 ? "" : "s"}</span><span class="tchip">${u.following_count} following</span><span class="tchip">${u.reviews} review${u.reviews === 1 ? "" : "s"}</span></p>
           ${u.is_me ? "" : session ? `<button type="button" class="btn${u.following ? " ghost" : ""}" data-follow="${esc(u.username)}" data-on="${u.following ? 1 : 0}">${u.following ? "Following ✓" : "Follow"}</button> <button type="button" class="linkish small" data-report="user" data-id="${esc(u.username)}">Report</button>` : `<a class="btn ghost" href="#signin">Sign in to follow</a>`}</header>
-        ${u.is_me ? profileSettings() : ""}
+        ${u.is_me ? profileSettings() + resetPanel() : ""}
         ${!u.visible ? `<p class="empty">This profile is private. Follow to see reviews and activity.</p>` : `
           ${u.lists.length ? `<section class="block"><header class="sec-head"><h2>Lists</h2></header><ul class="list-cards">${u.lists.map((l) => `<li><a href="#plist-${esc(l.id)}"><span class="lc-name">${esc(l.name)}</span><span class="count">${l.slugs.length} works</span><span class="lc-fan">${l.slugs.map(workOf).filter(Boolean).slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span></a></li>`).join("")}</ul></section>` : ""}
           <div class="comm-grid">
@@ -4097,8 +4196,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   });
 
   // ------------------------------------------------------------------ compare, plan my time, pick together
-  const fullWork = once(() => new Map(allWorks().map((w) => [w.slug, cat.work(w.slug)])));
-  const tierOf = (slug) => (fullWork().get(slug) || {}).popularity_tier || null;
+  // Full work pages, built on first use and kept: most features need a handful, not the whole catalogue.
+  const RAW_BY = new Map(cat.works.map((w) => [w.slug, w]));
+  const lazyMap = (make) => { const c = new Map(); return { has: (k) => RAW_BY.has(k), get: (k) => { if (!RAW_BY.has(k)) return undefined; if (!c.has(k)) c.set(k, make(k)); return c.get(k); } }; };
+  const fullWorks = lazyMap((s) => cat.work(s));
+  const fullWork = () => fullWorks;
+  const tierOf = (slug) => (RAW_BY.get(slug) || {}).popularity_tier || null;
   const TIER = { 1: "Widely known", 2: "Well known", 3: "Lesser known", 4: "Niche" };
   // One title box for every picker on these pages: "Title (Medium, year)" resolves back to a slug.
   const titleKey = (w) => `${w.title} (${[mediumLabel(w.medium), w.year].filter(Boolean).join(", ")})`;
@@ -4115,7 +4218,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // Severity of a parents' guide group as a number, so "avoid" can mean "moderate or worse".
   const SEV = { None: 0, Mild: 1, Moderate: 2, Severe: 3 };
   const guideSev = (slug, group) => { const g = fullWork().get(slug).parents_guide.groups.find((x) => x.slug === group); return g ? SEV[g.severity] ?? null : null; };
-  const GUIDE_GROUPS = once(() => fullWork().values().next().value.parents_guide.groups.map((g) => [g.slug, g.label]));
+  const GUIDE_GROUPS = once(() => DATA("taxonomy").guide_groups.map((g) => [g.slug, g.label]));
 
   // #11 Comparison: two works side by side, with what they share and where they differ.
   function similarity(a, b) {
@@ -4138,7 +4241,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${near.length ? `<section class="block"><header class="sec-head"><h2>Or try one of its closest matches</h2></header>${pgrid(near, (w) => `<p><a class="tchip" href="#compare-${esc(a)}~${esc(w.slug)}">Compare</a></p>`)}</section>` : ""}`;
       return;
     }
-    const B = fullWork().get(b), cards = [a, b].map((s) => allWorks().find((w) => w.slug === s));
+    const B = fullWork().get(b), cards = [a, b].map((s) => cardOf(s));
     const terms = (w, dim) => new Map((w.tags.find((d) => d.dimension === dim) || { terms: [] }).terms.filter((t) => t.strength >= 0.5).map((t) => [t.key, t]));
     const DIMS = [["genre", "Genre"], ["mood", "Mood"], ["theme", "Themes"], ["style", "Style"], ["world", "World & setting"], ["pacing", "Pacing"], ["complexity", "Complexity"], ["narrative", "Storytelling"]];
     const tagRows = DIMS.map(([dim, label]) => {
@@ -4221,7 +4324,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function renderPlan() {
     const P = buildPlan();
     const chips = (field, opts, multi = false) => `<div class="d-chips">${opts.map(([v, l]) => { const on = multi ? plan[field].includes(v) : plan[field] === v; return `<button type="button" class="tchip${on ? " on" : ""}" data-plan="${field}" data-value="${esc(v)}" aria-pressed="${on}">${esc(l)}</button>`; }).join("")}</div>`;
-    const planned = Object.entries(library).filter(([s, e]) => ["planned", "paused", "active"].includes(e.status) && fullWork().has(s)).map(([s, e]) => ({ w: allWorks().find((x) => x.slug === s), e }));
+    const planned = Object.entries(library).filter(([s, e]) => ["planned", "paused", "active"].includes(e.status) && fullWork().has(s)).map(([s, e]) => ({ w: cardOf(s), e }));
     const quick = planned.filter((x) => x.w.time && x.w.time.minutes <= 130).sort((a, b) => a.w.time.minutes - b.w.time.minutes);
     const hours = Math.round(planned.reduce((a, x) => a + (x.w.time ? x.w.time.minutes : 0), 0) / 60);
     const dayName = (d) => (P.days === 1 ? "Tonight" : P.days === 2 ? ["Saturday", "Sunday"][d - 1] : `Day ${d}`);
@@ -4268,7 +4371,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       if (loved.has(slug) || avoid.some((g) => (guideSev(slug, g) ?? 9) >= 2)) continue;   // unassessed counts as a risk when someone asked to avoid it
       const fits = recs.map((r) => r.get(slug)), vals = fits.map((f) => (f ? f.fit : 0));
       const score = 0.6 * Math.min(...vals) + 0.4 * (vals.reduce((a, b) => a + b, 0) / vals.length);
-      out.push({ w: allWorks().find((w) => w.slug === slug), score, fits, people });
+      out.push({ w: cardOf(slug), score, fits, people });
     }
     return out.sort((a, b) => b.score - a.score).slice(0, 12);
   }
@@ -4282,7 +4385,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <section class="decide-q"><div><h2>What are you picking?</h2><div class="d-chips">${[["film", "A film"], ["series", "A series"], ["book", "A book"], ["game", "A game"], ["album", "An album"], ["all", "Anything"]].map(([v, l]) => `<button type="button" class="tchip${together.medium === v ? " on" : ""}" data-together-medium="${v}" aria-pressed="${together.medium === v}">${esc(l)}</button>`).join("")}</div></div></section>
       <div class="tg-people">${together.people.map((p, i) => `
         <section class="tg-person"><header><input value="${esc(p.name)}" maxlength="24" aria-label="Name" data-together-name="${i}">${together.people.length > 2 ? `<button type="button" class="linkish small" data-together-remove="${i}">Remove</button>` : ""}</header>
-          <p class="pchips">${p.loves.map((s) => { const w = allWorks().find((x) => x.slug === s); return w ? `<button type="button" class="tchip on" data-together-unlove="${i}" data-slug="${esc(s)}" title="Remove">${esc(w.title)} ×</button>` : ""; }).join("") || `<span class="muted small">No favourites yet</span>`}</p>
+          <p class="pchips">${p.loves.map((s) => { const w = cardOf(s); return w ? `<button type="button" class="tchip on" data-together-unlove="${i}" data-slug="${esc(s)}" title="Remove">${esc(w.title)} ×</button>` : ""; }).join("") || `<span class="muted small">No favourites yet</span>`}</p>
           ${titlePicker(`data-together-love="${i}"`, "Add something they love", "Add")}
           <p class="small muted">Avoid (moderate or stronger):</p><p class="pchips">${GUIDE_GROUPS().map(([g, l]) => `<button type="button" class="tchip${p.avoid.includes(g) ? " on" : ""}" data-together-avoid="${i}" data-group="${g}" aria-pressed="${p.avoid.includes(g)}">${esc(l)}</button>`).join("")}</p>
         </section>`).join("")}
@@ -4330,18 +4433,56 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (changed) { saveTogether(); const y = window.scrollY; renderTogether(); window.scrollTo(0, y); }
   });
 
+  // ------------------------------------------------------------------ reset my recommendations
+  // One click (after a confirmation) empties what recommendations are built from: the library, quick ratings, "not for me",
+  // feedback on picks and edits to the taste profile. Lists, journal, trackers and rings are kept.
+  const resetCounts = () => ({ entries: Object.keys(library).length, rated: Object.keys(ratings).length,
+    edits: tasteEdits.boost.length + tasteEdits.mute.length + tasteEdits.avoid.length });
+  function resetPanel() {
+    const c = resetCounts();
+    return `<section class="block reset-box"><header class="sec-head"><h2>Reset my recommendations</h2></header>
+      <p class="muted">Start your picks again from nothing. This deletes the ${c.entries} work${c.entries === 1 ? "" : "s"} in your library (statuses, scores, progress and notes on them),
+        your ${c.rated} quick rating${c.rated === 1 ? "" : "s"} and "not for me" marks, your feedback on picks and your taste edits.
+        Your lists, journal, trackers and rings stay. ${session ? "Your synced library is cleared too. " : ""}It can't be undone, so <a href="#transfer">download a backup</a> first if you might want it back.</p>
+      <p class="lib-actions"><button type="button" class="btn danger" data-reset-recs${c.entries + c.rated + c.edits ? "" : " disabled"}>Delete my library and reset recommendations</button><span class="muted small" id="reset-msg" role="status"></span></p>
+    </section>`;
+  }
+  async function resetRecommendations(btn) {
+    const c = resetCounts();
+    if (!confirm(`Delete ${c.entries} work${c.entries === 1 ? "" : "s"} from your library, ${c.rated} rating${c.rated === 1 ? "" : "s"} and your taste edits, and reset your recommendations?\n\nLists, journal, trackers and rings are kept. This can't be undone.`)) return;
+    for (const k of Object.keys(library)) delete library[k];
+    ratings = {};
+    tasteEdits.boost = []; tasteEdits.mute = []; tasteEdits.avoid = [];
+    Object.assign(forYouOpts, { pop: "any", len: "any", vary: "no", fam: "any", ctx: "" });
+    decideState = { skipped: [], penalties: {}, index: 0 };
+    try {
+      for (const k of ["mimir-library", "mimir-ratings", "mimir-feedback", "mimir-shelf", "mimir-taste-edits", "mimir-foryou-opts"]) localStorage.removeItem(k);
+    } catch { /* storage unavailable: the reset still holds for this visit */ }
+    refreshCounts();
+    let note = "Done. Your recommendations have been reset.";
+    if (session && CONFIG.api) {
+      clearTimeout(syncTimer);
+      try { await api("/api/me/state", { method: "PUT", body: stateNow() }); note += " Your synced library is cleared; other devices keep theirs until you reset them too."; }
+      catch { note = "Cleared on this device, but we couldn't reach your account to clear the synced copy. Try again when you're online, or it will come back at the next sync."; }
+    }
+    const msg = document.getElementById("reset-msg");
+    if (msg) msg.textContent = note;
+    if (btn) btn.disabled = true;
+    toast(note);
+  }
+
   // ------------------------------------------------------------------ phase 1: experience DNA, taste profile, mood mixer
   // Every tag a work carries, with its strength, basis and confidence, for the DNA view and the "why" drill-downs.
   // Parents' guide items join them (their level as the strength) so "never" works for violence, language and the rest.
-  const termInfo = once(() => new Map([...fullWork()].map(([s, w]) => [s, new Map([
+  const termInfoMap = lazyMap((s) => { const w = fullWork().get(s); return new Map([
     ...w.tags.flatMap((d) => d.terms.map((t) => [t.key, { ...t, dimension: d.dimension, dimLabel: d.label }])),
     ...w.parents_guide.groups.flatMap((g) => g.items.filter((i) => i.assessed).map((i) => [i.key, { key: i.key, label: i.label, definition: i.definition, strength: i.level, basis: i.basis, dimension: "advisory", dimLabel: "Parents' guide" }])),
-  ])])));
+  ]); });
+  const termInfo = () => termInfoMap;
   // Anything you said "never" to: a quality that clearly applies, or a guide item at moderate or above.
-  const avoided = (slug) => tasteEdits.avoid.some((k) => { const t = termInfo().get(slug).get(k); return t && t.strength >= (k.startsWith("advisory:") ? 0.45 : 0.5); });
+  const avoided = (slug) => tasteEdits.avoid.length > 0 && tasteEdits.avoid.some((k) => { const ev = RAW_BY.get(slug).terms.get(k); return ev && ev.strength >= (k.startsWith("advisory:") ? 0.45 : 0.5); });
   // A tag's display label ("Hand-drawn", "Identity & selfhood"), from any work that carries it.
-  const labelIndex = once(() => { const m = new Map(); for (const ts of termInfo().values()) for (const t of ts.values()) if (!m.has(t.key)) m.set(t.key, t.label); return m; });
-  const labelOf = (k) => labelIndex().get(k) || termLabel(k);
+  const labelOf = (k) => TERM_LABEL.get(k) || termLabel(k);
   const DNA_DIMS = ["mood", "theme", "pacing", "complexity", "narrative", "world", "style"];
   const DNA_TINT = { mood: "#C0902F", theme: "#B5603A", pacing: "#7C6BB0", complexity: "#3E8C8C", narrative: "#9C7A3C", world: "#5E8A4E", style: "#B0577C" };
   const basisText = (t) => (t.basis === "catalogue" ? "Recorded fact from the catalogue" : "AI-assisted reading, awaiting editorial review");
@@ -4427,17 +4568,17 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // Re-rank picks with your edits, the active context and the familiarity setting; anything you avoid is removed.
   function personalise(results) {
     const taste = tasteRatings(), rated = Object.keys(taste).filter((s) => taste[s] !== "disliked" && fullWork().has(s));
-    const ratedMedia = new Set(rated.map((s) => fullWork().get(s).medium));
+    const ratedMedia = new Set(rated.map((s) => cardOf(s).medium));
     const ratedGenres = new Set(rated.flatMap((s) => [...termMap().get(s)].filter(([k, v]) => k.startsWith("genre:") && v >= 0.5).map(([k]) => k)));
-    const ratedGroups = new Set(rated.map((s) => (fullWork().get(s).continuity.group || {}).slug).filter(Boolean));
-    const ratedPeople = new Set(rated.flatMap((s) => fullWork().get(s).credits.slice(0, 3).map((c) => c.name)));
+    const ratedGroups = new Set(rated.map((s) => ((cardOf(s).continuity || {}).group || {}).slug).filter(Boolean));
+    const ratedPeople = new Set(rated.flatMap((s) => (cardOf(s).creators || []).slice(0, 3)));
     const ctx = activeContext(), boost = [...tasteEdits.boost, ...(ctx ? ctx.boost : [])], N = results.length || 1;
     return results.filter((w) => !avoided(w.slug)).map((w, i) => {
-      const tm = termMap().get(w.slug), full = fullWork().get(w.slug);
+      const tm = termMap().get(w.slug);
       let s = 1 - i / N;
       for (const k of boost) s += 0.35 * (tm.get(k) || 0);
       for (const k of tasteEdits.mute) s -= 0.35 * (tm.get(k) || 0);
-      const known = (full.continuity.group && ratedGroups.has(full.continuity.group.slug)) || full.credits.slice(0, 3).some((c) => ratedPeople.has(c.name));
+      const known = (w.continuity && w.continuity.group && ratedGroups.has(w.continuity.group.slug)) || (w.creators || []).slice(0, 3).some((c) => ratedPeople.has(c));
       const newGround = !ratedMedia.has(w.medium) || ![...tm].some(([k, v]) => k.startsWith("genre:") && v >= 0.5 && ratedGenres.has(k));
       if (forYouOpts.fam === "familiar") s += (known ? 0.4 : 0) + (ratedMedia.has(w.medium) ? 0.1 : 0);
       if (forYouOpts.fam === "stretch") s += (newGround ? 0.4 : 0) - (known ? 0.3 : 0);
@@ -4467,16 +4608,18 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const p = period(e.finished);
       if (!groups.has(p)) groups.set(p, { n: 0, sum: new Map(), media: new Map() });
       const g = groups.get(p), k = taste[s] === "loved" ? 2 : taste[s] === "disliked" ? -1 : 1;
-      g.n++; g.media.set(fullWork().get(s).medium, (g.media.get(fullWork().get(s).medium) || 0) + 1);
+      const med = cardOf(s).medium;
+      g.n++; g.media.set(med, (g.media.get(med) || 0) + 1);
       for (const [key, v] of termMap().get(s)) if (/^(mood|theme|genre|style|world):/.test(key) && !isSub(key)) g.sum.set(key, (g.sum.get(key) || 0) + k * v);
     }
     return [...groups].map(([p, g]) => ({ p, n: g.n, top: [...g.sum].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => k), media: [...g.media].sort((a, b) => b[1] - a[1]).map(([m, n]) => `${n} ${n === 1 ? mediumLabel(m).toLowerCase() : (PLURAL[m] || m).toLowerCase()}`) }));
   }
 
-  const termOptions = once(() => `<datalist id="mimir-terms">${[...new Set([...termInfo().values()].flatMap((m) => [...m.values()]).map((t) => `${t.label}|${t.key}`))].map((x) => { const [l, k] = x.split("|"); return `<option value="${esc(l)} (${esc(k.split(":")[0])})"></option>`; }).join("")}</datalist>`);
+  const TAX_TERMS = once(() => { const dims = Object.fromEntries(DATA("taxonomy").dimensions.map((d) => [d.slug, d.label])); return DATA("taxonomy").terms.map((t) => ({ key: `${t.dimension}:${t.slug}`, label: t.label, definition: t.definition, dimension: t.dimension, dimLabel: dims[t.dimension] })); });
+  const termOptions = once(() => `<datalist id="mimir-terms">${TAX_TERMS().map((t) => `<option value="${esc(t.label)} (${esc(t.dimension)})"></option>`).join("")}</datalist>`);
   const termFromLabel = (v) => {
     const m = v.trim().toLowerCase().match(/^(.*?)\s*(?:\((\w+)\))?$/);
-    for (const map of termInfo().values()) for (const t of map.values()) if (t.label.toLowerCase() === m[1] && (!m[2] || t.key.startsWith(m[2] + ":"))) return t.key;
+    for (const t of TAX_TERMS()) if (t.label.toLowerCase() === m[1] && (!m[2] || t.key.startsWith(m[2] + ":"))) return t.key;
     return null;
   };
   function renderTaste() {
@@ -4523,7 +4666,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     return parts.join(", ");
   }
   function renderMix() {
-    const terms = [...new Map([...termInfo().values()].flatMap((m) => [...m.values()]).filter((t) => MIX_TERMS.includes(t.dimension)).map((t) => [t.key, t])).values()]
+    const terms = TAX_TERMS().filter((t) => MIX_TERMS.includes(t.dimension))
       .sort((a, b) => MIX_TERMS.indexOf(a.dimension) - MIX_TERMS.indexOf(b.dimension) || a.label.localeCompare(b.label));
     const st = (k) => (mix.want.includes(k) ? "want" : mix.avoid.includes(k) ? "avoid" : "");
     app.innerHTML = `
@@ -4611,6 +4754,115 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   });
   app.addEventListener("input", (e) => { if (e.target.name === "term") e.target.setCustomValidity(""); });
 
+  // ------------------------------------------------------------------ days of the year
+  // A calendar of international and widely observed days. Each day offers two sets of picks: something new and
+  // unusual chosen from review scores across platforms, and picks from your own taste profile. Rating either set
+  // teaches Mimir your taste, which is also what the rest of the site recommends from.
+  const OBS = once(() => DATA("observances").days);
+  const OBS_KIND = { un: "UN day", unesco: "UNESCO day", observed: "Widely observed", informal: "Popular, unofficial" };
+  const isoOf = (d) => d.toISOString().slice(0, 10);
+  const nthWeekday = (y, month, weekday, n) => { const first = new Date(Date.UTC(y, month - 1, 1)); return new Date(Date.UTC(y, month - 1, 1 + ((weekday - first.getUTCDay() + 7) % 7) + 7 * (n - 1))); };
+  const obsDate = (o, y) => (o.nth ? isoOf(nthWeekday(y, ...o.nth)) : `${y}-${o.date}`);
+  const obsYear = (y) => OBS().map((o) => ({ ...o, on: obsDate(o, y), year: y })).sort((a, b) => a.on.localeCompare(b.on) || a.name.localeCompare(b.name));
+  const obsHref = (o) => `#day-${esc(o.slug)}?y=${o.year}`;
+  function obsUpcoming(limit) {
+    const t = today(), y = thisYear();
+    return [...obsYear(y), ...obsYear(y + 1)].filter((o) => o.on >= t).slice(0, limit);
+  }
+  const whenText = (on) => { const n = daysBetween(today(), on); return n === 0 ? "Today" : n === 1 ? "Tomorrow" : n > 1 ? `In ${n} days` : n === -1 ? "Yesterday" : `${-n} days ago`; };
+
+  // Does a work fit a day's rule? Tags are read at the day's strength (default 0.6), so imported works carrying only a genre count too.
+  function obsMatch(w, r) {
+    if (r.media ? !r.media.includes(w.medium) : ["channel", "online_video"].includes(w.medium)) return false;
+    const raw = RAW_BY.get(w.slug);
+    if (r.not_languages && (!raw.language || r.not_languages.includes(raw.language))) return false;
+    if (r.year_max && !(w.year && w.year <= r.year_max)) return false;
+    if (r.any_tags) { const tm = termMap().get(w.slug), floor = has0(r.min_strength) ? r.min_strength : 0.6; if (!r.any_tags.some((k) => (tm.get(k) || 0) >= floor)) return false; }
+    return true;
+  }
+  const has0 = (v) => v !== undefined && v !== null;
+  const obsPool = (o) => allWorks().filter((w) => obsMatch(w, o.rule));
+  const unitHash = (str) => hashOf(str) / 4294967296;   // 0 to 1, from the page's own string hash
+  let dayNonce = 0;
+
+  // 1. Something new: not already in your library or ratings, well reviewed across the platforms we hold scores from,
+  //    leaning towards the lesser known; a different handful each time you ask, and each year.
+  function newPicks(o) {
+    const mine = tasteRatings();
+    const pool = obsPool(o).filter((w) => !mine[w.slug] && !library[w.slug] && !avoided(w.slug));
+    const fit = (w) => { const tm = termMap().get(w.slug); return o.rule.any_tags ? Math.max(0, ...o.rule.any_tags.map((k) => tm.get(k) || 0)) : 0.6; };
+    const tier = (w) => w.popularity_tier || RAW_BY.get(w.slug).popularity_tier || 3;
+    const quality = (w) => { const u = unifiedScore(w); return u === null ? 55 : u; };
+    const rank = (w) => quality(w) + (tier(w) - 1) * 6 + 10 * fit(w);
+    const scored = pool.filter((w) => unifiedScore(w) !== null && unifiedScore(w) >= 70);
+    const top = (scored.length >= 8 ? scored : pool).sort((a, b) => rank(b) - rank(a)).slice(0, 30);
+    const order = top.map((w) => [unitHash(`${o.slug}|${o.year}|${dayNonce}|${w.slug}`), w]).sort((a, b) => a[0] - b[0]).map((x) => x[1]);
+    const out = [], perMedium = {};
+    for (const w of order) {
+      if ((perMedium[w.medium] || 0) >= (o.rule.media && o.rule.media.length === 1 ? 6 : 2)) continue;
+      out.push(w); perMedium[w.medium] = (perMedium[w.medium] || 0) + 1;
+      if (out.length >= 6) break;
+    }
+    return out;
+  }
+  function newWhy(w) {
+    const u = unifiedScore(w), pubs = [...new Set((w.scores || []).map((x) => x.publisher))];
+    const t = w.popularity_tier || RAW_BY.get(w.slug).popularity_tier;
+    return `<p class="pmeta">${u !== null ? `Rated ${u}/100 across ${esc(pubs.slice(0, 3).join(", "))}${pubs.length > 3 ? ` and ${pubs.length - 3} more` : ""}` : "No published scores yet, chosen for how well it fits"}${t >= 3 ? " · lesser known" : ""}</p>`;
+  }
+
+  // 2. For you: your own profile (ratings, scores, edits, context), kept to what fits the day.
+  function dayForYou(o) {
+    const taste = tasteRatings();
+    if (!Object.values(taste).some((v) => v === "loved" || v === "liked")) return { empty: true };
+    const picks = forYouFilter(personalise(cat.recommend(taste, 300, null).results)).filter((w) => obsMatch(w, o.rule) && !["completed", "dropped"].includes((library[w.slug] || {}).status)).slice(0, 6);
+    return { picks };
+  }
+  // No profile yet: well-known works that fit the day, to react to. Those reactions are the profile.
+  function dayStarter(o) {
+    return obsPool(o).filter((w) => (w.popularity_tier || RAW_BY.get(w.slug).popularity_tier) <= 2).sort((a, b) => (unifiedScore(b) || 0) - (unifiedScore(a) || 0)).slice(0, 8);
+  }
+
+  function renderDays(p) {
+    const y = Number(p.get("y")) || thisYear(), days = obsYear(y), next = obsUpcoming(4);
+    const byMonth = new Map(); for (const o of days) { const m = Number(o.on.slice(5, 7)) - 1; if (!byMonth.has(m)) byMonth.set(m, []); byMonth.get(m).push(o); }
+    const card = (o) => `<li><a class="cal-card${o.on === today() ? " now" : ""}" href="${obsHref(o)}"><span class="eyebrow">${esc(fmtDay(o.on))} · ${esc(OBS_KIND[o.kind])}</span><span class="cal-name">${esc(o.name)}</span><span class="cal-tag">${esc(o.why)}</span></a></li>`;
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Calendar</p><h1>Days of the year · ${y}</h1></header>
+      <p class="muted" style="margin:14px 0">World Laughter Day, International Music Day, World Mental Health Day and ${days.length - 3} more. Open a day for two sets of picks: <strong>something new</strong>, chosen from reviews and ratings across platforms and leaning towards the lesser known, and <strong>picks for you</strong>, from your own taste profile. Rate what you see and your profile gets sharper everywhere in Mimir. Looking for seasonal programmes instead? See the <a href="#calendar">social calendar</a>.</p>
+      <nav class="medium-tabs" aria-label="Year">${[y - 1, y, y + 1].map((yy) => `<a href="#days?y=${yy}" class="${yy === y ? "on" : ""}">${yy}</a>`).join("")}</nav>
+      ${y === thisYear() && next.length ? `<section class="block"><header class="sec-head"><h2>Coming up</h2></header><ul class="cal-cards">${next.map((o) => `<li><a class="cal-card${o.on === today() ? " now" : ""}" href="${obsHref(o)}"><span class="eyebrow">${esc(whenText(o.on))} · ${esc(fmtDay(o.on))}</span><span class="cal-name">${esc(o.name)}</span><span class="cal-tag">${esc(o.why)}</span></a></li>`).join("")}</ul></section>` : ""}
+      ${[...byMonth].sort((a, b) => a[0] - b[0]).map(([m, xs]) => `<section class="cal-month"><h2>${progMonths[m]}</h2><ul class="cal-cards">${xs.map(card).join("")}</ul></section>`).join("")}
+      <p class="muted small">Dates follow the lists kept by the UN, UNESCO and the bodies that set each day; popular but unofficial days are marked. Recommendations come from the catalogue's own tags and the review scores it holds; tags are AI-assisted readings awaiting editorial review.</p>`;
+  }
+
+  function renderDay(slug, p) {
+    const base = OBS().find((x) => x.slug === slug), y = Number(p.get("y")) || thisYear();
+    if (!base) { app.innerHTML = `<p class="empty">That day isn't on the calendar. <a href="#days">Days of the year</a></p>`; return; }
+    const o = { ...base, on: obsDate(base, y), year: y };
+    const pool = obsPool(o).length, fresh = pool ? newPicks(o) : [], you = dayForYou(o), starter = you.empty ? dayStarter(o) : [];
+    const prog = o.programme && cat.programme(o.programme, y);
+    const same = obsYear(y).filter((x) => x.on === o.on && x.slug !== o.slug);
+    app.innerHTML = `
+      <header class="page-head"><p class="crumbs"><a href="#days?y=${y}">Days of the year</a></p><p class="eyebrow">${esc(fmtDay(o.on))} ${y} · ${esc(OBS_KIND[o.kind])} · ${esc(whenText(o.on))}</p>
+        <h1>${esc(o.name)}</h1><p class="muted">${esc(o.about)} ${esc(o.why)}</p>
+        ${prog || same.length ? `<p class="pchips">${prog ? `<a class="tchip" href="#programme-${esc(o.programme)}?y=${y}">The ${esc(prog.name)} programme</a>` : ""}${same.map((x) => `<a class="tchip" href="#day-${esc(x.slug)}?y=${y}">Also today: ${esc(x.name)}</a>`).join("")}</p>` : ""}</header>
+      ${o.tone === "reflective" ? `<p class="muted small">A day of reflection: these picks are chosen with care, and some deal with difficult subjects. Each work's parents' guide says what to expect.</p>` : ""}
+      <section class="block" id="day-new"><header class="sec-head"><h2>Something new to discover</h2>${fresh.length ? `<button type="button" class="linkish" data-day-more>Show me others</button>` : ""}</header>
+        <p class="muted small">Works you haven't rated or logged, well reviewed across the platforms we hold scores from, leaning towards the lesser known. A different handful each time.</p>
+        ${fresh.length ? pgrid(fresh, (w) => `${newWhy(w)}${rateButtons(w.slug, true)}`) : `<p class="empty">Nothing in the catalogue fits this day yet beyond what you've already seen. The catalogue grows every week.</p>`}</section>
+      <section class="block" id="day-you"><header class="sec-head"><h2>Picked for you</h2></header>
+        ${you.empty ? `<p class="muted small">Mimir doesn't know your taste yet. React to a few of these (loved it, liked it, not for me) and this section fills in with picks drawn from your profile, here and on every other page.</p>
+          ${starter.length ? pgrid(starter, (w) => rateButtons(w.slug, true)) : `<p class="empty">Start from <a href="#for-you">For you</a> to tell Mimir what you love.</p>`}`
+          : you.picks.length ? `<p class="muted small">Drawn from your ratings, scores and taste edits, kept to what fits ${esc(o.name)}.</p>${pgrid(you.picks, (w) => `<p class="pmeta">Because you ${(tasteRatings()[w.because.slug]) === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${whyDetails(w)}${rateButtons(w.slug, true)}`)}`
+          : `<p class="empty">Nothing in your taste profile fits this day yet. Rate a few more works on <a href="#for-you">For you</a>, or try the picks above.</p>`}</section>
+      <p class="muted small">Every rating you give here is saved in this browser and sharpens your picks across Mimir. <a href="#taste">See your taste profile</a>.</p>`;
+  }
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-day-more]");
+    if (b) { dayNonce++; const y = window.scrollY; route(); window.scrollTo(0, y); }
+  });
+
   // ------------------------------------------------------------------ routing & events
   function setNav(group) {
     document.querySelectorAll(".menu-btn").forEach((b) => b.classList.toggle("here", b.textContent === group));
@@ -4619,6 +4871,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function route() {
     stopRipples();
     document.body.classList.remove("is-home");
+    { const crawl = document.getElementById("crawl"); if (crawl) crawl.hidden = location.hash.length > 1; }
     closeMenus();
     if (document.activeElement && document.activeElement.closest("#menubar")) document.activeElement.blur();
     document.getElementById("menubar").classList.add("settle");
@@ -4652,6 +4905,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h === "mix") { setNav("Discover"); renderMix(); }
     else if (h === "journal") { setNav("Library"); renderJournal(); }
     else if (h === "calendar") { setNav("Community"); renderCalendar(p); }
+    else if (h === "days") { setNav("Community"); renderDays(p); }
+    else if (h.startsWith("day-")) { setNav("Community"); renderDay(h.slice(4), p); }
     else if (h.startsWith("programme-")) { setNav("Community"); renderProgramme(h.slice(10), p); }
     else if (h === "community") { setNav("Community"); renderCommunity(); }
     else if (h === "signin") { setNav("Community"); renderSignin(p); }
@@ -4906,6 +5161,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       api("/api/lists", { method: "POST", body: { name: l.name, note: l.note || "", slugs: l.slugs } }).then((pl) => { location.hash = `#plist-${pl.id}`; }).catch((err) => alert(err.message));
     }
     else if (d.plistDelete) { if (confirm("Unpublish this list? Your own copy stays in Lists.")) api(`/api/lists/${d.plistDelete}`, { method: "DELETE" }).then(() => { location.hash = "#lists"; }); }
+    else if (d.resetRecs !== undefined) resetRecommendations(t);
     else if (d.importRead !== undefined) previewImport(document.getElementById("imp-text").value);
     else if (d.importApply !== undefined) applyImport();
     else if (d.export === "json") exportBackup();

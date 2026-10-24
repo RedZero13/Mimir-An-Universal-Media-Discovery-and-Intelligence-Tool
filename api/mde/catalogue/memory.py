@@ -101,7 +101,8 @@ class MemoryCatalogue:
     def resolve_title(self, phrase: str) -> str | None:
         target = normalise_title(phrase)
         hits = [w for w in self.works if target and target in self._titles[w.slug]]
-        return min(hits, key=lambda w: w.popularity_tier or 5).slug if hits else None
+        # Ambiguity picks the best-known work; then the one with a written summary; then the slug, so the answer never depends on load order.
+        return min(hits, key=lambda w: (w.popularity_tier or 5, 0 if w.summary else 1, w.slug)).slug if hits else None
 
     def discover(self, query: str, limit: int = 8) -> DiscoveryResponse:
         return run_pipeline(query, self.works, self.keyword_scores, self.resolve_title, limit=limit)

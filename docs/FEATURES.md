@@ -3,9 +3,10 @@
 Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube,
 built by Terratales Media Entertainment. Live at [mimir.terratalesmedia.world](https://mimir.terratalesmedia.world/).
 
-The catalogue holds 681 works: 240 films, 93 TV series, 146 books and manga, 70 games, 87 albums, 14 YouTube
-channels and 31 videos, from 42 countries in 29 original languages, classified against a controlled vocabulary
-of 372 terms (233 of them subgenres).
+The catalogue holds about 7,500 works: 3,212 films, 1,439 TV series, 701 books and manga, 1,263 games, 852 albums,
+14 YouTube channels and 31 videos, from 99 countries in 68 original languages. The original 681 are fully classified
+against a controlled vocabulary of 372 terms (233 of them subgenres); the rest were imported from Wikidata with their
+facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.md](CATALOGUE-EXPANSION.md)).
 
 ## Find something
 
@@ -30,6 +31,12 @@ of 372 terms (233 of them subgenres).
   pick and to the work you rated, whether it's a recorded fact or a reading, and its confidence.
 - **Compare any two works** side by side: length, scores, popularity, age ratings, parents' guide, and the moods,
   themes and style they share or don't.
+- **Days of the year.** A calendar of 50 international and widely observed days (World Laughter Day, International
+  Music Day, International Podcast Day, World Mental Health Day, International Jazz Day, World Television Day …),
+  dates from the UN and UNESCO lists. Each day has two sets of picks: *something new*, chosen from review scores
+  across platforms and leaning towards the lesser known, with a different handful each time and each year; and
+  *picked for you*, from your own taste profile. Without a profile, you react to a few well-known fits and the
+  section fills in. Every rating feeds the profile used across Mimir. Days of remembrance are framed gently.
 - **Plan my time.** Pick an evening, a weekend, a week off or a month; Mimir fills it from what you've started and
   planned first, then from picks for you, day by day, and shows the next work in every series you've started.
 - **Pick together.** Add each person, a few things they love and what they'd rather avoid; Mimir finds picks that
@@ -49,7 +56,11 @@ of 372 terms (233 of them subgenres).
   under their parent on each shelf.
 - **Industry filter** for film and TV: Hollywood, India, Japan, Korea, China, France, the UK and more.
 - **Top rated** per medium, from a single 0–100 critics' average across the published scores Mimir holds.
-- **Sagas and series:** franchise families in order, with total time; series numbers appear only on the series page.
+- **Sagas and series:** one page per IP (James Bond, Middle-earth, the Marvel Cinematic Universe, the Wizarding
+  World, Star Wars …) with a row each for its films, shows, books and games, in order, the time the whole run takes,
+  and links to the series inside it. Work pages show every franchise and series a work belongs to.
+- **Lead cast** on films and series, from Wikidata, in billing order where recorded; search finds works by actor or
+  by franchise.
 - **Tag pages** and **people and studio pages** with recurring qualities.
 - **Social calendar:** seasonal programmes with a pick for each day (Spooktober, Noirvember, Nonfiction November…).
 - **Music:** mood rings and a remix rack.
@@ -80,6 +91,9 @@ of 372 terms (233 of them subgenres).
   (1st, 5th, 10th, 50th…), visit streaks, days you've opened Mimir, and how often you share works, lists and pages.
   Each share button shows how many times you've shared that link.
 - **Journal**, **stats** and a **year in review**.
+- **Reset my recommendations:** in your profile (and under Import & export), one confirmed click deletes your library,
+  ratings, "not for me" marks, feedback on picks and taste edits so recommendations start again from nothing.
+  Lists, journal, trackers and rings are kept, and a signed-in account's synced library is cleared too.
 - **Import and export** your whole library as a file.
 - Everything lives in your browser unless you sign in.
 
@@ -96,8 +110,8 @@ of 372 terms (233 of them subgenres).
 
 - The home page is about 120 KB and paints its headline with the first bytes; data and code load after it and are
   cached for repeat visits and offline use (installable as an app on Android, iOS, Mac and Windows).
-- Plain pages for all 681 works, every medium and every shelf, with structured data and a sitemap, so search
-  engines can index the catalogue.
+- Plain pages for every work, medium and shelf, with structured data and a sitemap, so search engines can index
+  the catalogue; works still awaiting a summary are kept out of the index until they have one.
 - Light and dark modes, keyboard navigation, reduced-motion support and WCAG AA contrast.
 - Labels everywhere say what is verified and what is an AI-assisted reading awaiting review.
 
