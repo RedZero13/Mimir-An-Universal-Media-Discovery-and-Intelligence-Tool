@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"light";}catch(e){document.documentElement.dataset.theme="light";}</script>
 <script>if (location.protocol === "http:" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) location.replace("https:" + location.href.slice(5));</script>
-<title>Mimir · Find what to watch, read, play or listen to next</title>
+<title>Find what to watch, read, play or listen to next · Mimir</title>
 <meta name="description" content="Tell Mimir a mood, a favourite or how long you have, and it finds films, TV shows, books, manga, games and music that fit, with the reason for every pick. Free, from Terratales.">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -612,6 +612,15 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .mix-go .btn[disabled] { opacity: .5; cursor: default; }
 @media (max-width: 560px) { .taste-list li { grid-template-columns: 1fr 60px; } .taste-list .te-btns { grid-column: 1 / -1; } }
 .obs-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 14px 0 0; }
+.crawl { max-width: 1040px; margin: 0 auto 28px; padding-bottom: 22px; border-bottom: 1px solid var(--line); color: var(--cream); font-size: .88rem; line-height: 1.6; }
+.crawl[hidden] { display: none; }
+.crawl h2 { font-size: 1.05rem; margin: 0 0 8px; }
+.crawl h3 { font: 600 .72rem/1.3 var(--f-display); letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin: 16px 0 6px; }
+.crawl p { margin: 0 0 8px; max-width: 70ch; }
+.crawl ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; }
+.crawl a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+.crawl a:hover { color: var(--gold-bright); }
+.crawl-hubs { display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .fy-ctl { display: grid; gap: 8px; margin: 0 0 18px; }
 .fy-ctl p { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
 .fy-ctl .eyebrow { min-width: 86px; }
@@ -1118,6 +1127,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     <div class="ask-shell" aria-hidden="true"></div>
   </section></main>
   <footer class="foot">
+    <!--__CRAWL__-->
     <nav class="foot-cols" aria-label="Footer">
       <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
       <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
@@ -4861,6 +4871,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function route() {
     stopRipples();
     document.body.classList.remove("is-home");
+    { const crawl = document.getElementById("crawl"); if (crawl) crawl.hidden = location.hash.length > 1; }
     closeMenus();
     if (document.activeElement && document.activeElement.closest("#menubar")) document.activeElement.blur();
     document.getElementById("menubar").classList.add("settle");

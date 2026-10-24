@@ -88,11 +88,39 @@ function page() {
 }
 
 // Inter sets the hero's lead paragraph, usually the largest text on a phone: fetch it first.
+// Google picks the favicon from the home page: a stable .ico plus a PNG and the SVG, all at multiples of 48 px.
+const ICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
 const FONT_HEAD = `<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin fetchpriority="high">
 <style>${fs.readFileSync(path.join(here, "fonts", "fonts.css"), "utf8")}</style>`;
 
 // The deployed page: data and code move to content-hashed files loaded after the first paint, so the HTML (styles and
 // the static hero) paints at once, and a returning visitor's browser or service worker reuses the files until they change.
+// Real links for crawlers on the home page: the app navigates with #links, which a search engine can't follow as
+// pages, so the directories, shelves and best-known works are linked here as ordinary URLs.
+function crawlBlock(texts, works) {
+  const MDE = require("./engine.cjs");
+  const P = (n) => JSON.parse(texts[n]);
+  const cat = MDE.createCatalogue(P("catalogue"), P("taxonomy"), P("enrichment"), P("shelves"), P("providers"), P("calendar"));
+  const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  const score = (w) => (w.scores.length ? w.scores.reduce((a, x) => a + x.value / x.scale_max, 0) / w.scores.length : 0);
+  const all = cat.browse({ media: [], tags: [], avoid: [], decade: null, language: null, max_minutes: null, q: "", sort: "popular" }).results;
+  const withSummary = new Set(P("catalogue").works.filter((w) => w.summary).map((w) => w.slug));
+  const groups = [["film", "Films", "/films/"], ["series", "TV shows", "/tv/"], ["book", "Books and manga", "/books/"], ["game", "Games", "/games/"], ["album", "Albums", "/music/"]];
+  const top = (m) => all.filter((w) => w.medium === m && withSummary.has(w.slug) && w.scores.length).sort((a, b) => score(b) - score(a) || a.title.localeCompare(b.title)).slice(0, 8);
+  const shelves = cat.shelves().filter((x) => x.total >= 5).slice(0, 14);
+  const countries = new Set(P("catalogue").works.flatMap((w) => w.countries || [])).size;
+  return `<section class="crawl" id="crawl" aria-labelledby="crawl-h">
+      <h2 id="crawl-h">Browse the Mimir catalogue</h2>
+      <p>Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube. It holds ${works.toLocaleString("en")} works from ${countries} countries. Describe a mood, a favourite or how much time you have and it finds what fits, with the reason for every pick, a parents' guide for each work and where to watch, read, play or listen.</p>
+      <p class="crawl-hubs">${groups.map(([, l, u]) => `<a href="${u}">${l}</a>`).join("")}<a href="/youtube/">YouTube</a><a href="/shelves/">Shelves</a><a href="/blog/">Blog</a></p>
+      ${groups.map(([m, l]) => `<h3>Well-reviewed ${l.toLowerCase()}</h3><ul>${top(m).map((w) => `<li><a href="/works/${esc(w.slug)}/">${esc(w.title)}${w.year ? ` (${w.year})` : ""}</a></li>`).join("")}</ul>`).join("")}
+      <h3>Shelves</h3><ul>${shelves.map((x) => `<li><a href="/shelves/${esc(x.slug)}/">${esc(x.name)}</a></li>`).join("")}</ul>
+    </section>`;
+}
+
 function sitePage(out) {
   const hash = (s) => require("crypto").createHash("sha256").update(s).digest("hex").slice(0, 10);
   const texts = dataTexts(true);
@@ -101,7 +129,8 @@ function sitePage(out) {
     .replace(/<script id="[a-z]+-data" type="application\/json">\/\*__[A-Z]+__\*\/<\/script>\n/g, "")
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"))
     .replace('<span class="pilot" id="beta-pill">Beta</span>', `<span class="pilot" id="beta-pill">Beta · ${works} works</span>`)
-    .replace('<span id="cat-count">hundreds of</span>', `<span id="cat-count">${works}</span>`);
+    .replace('<span id="cat-count">hundreds of</span>', `<span id="cat-count">${works}</span>`)
+    .replace("<!--__CRAWL__-->", () => crawlBlock(texts, works));
   // Self-hosted fonts in place of Google Fonts: no third-party connections before the first paint.
   html = html.replace(/<link rel="preconnect" href="https:\/\/fonts\.(googleapis|gstatic)\.com"( crossorigin)?>\n/g, "")
     .replace(/<link rel="preload" as="style" href="https:\/\/fonts\.googleapis\.com[^\n]*\n<noscript>[^\n]*<\/noscript>/, FONT_HEAD);
@@ -129,9 +158,7 @@ function standalone(html) {
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#131315">
 <link rel="canonical" href="${SITE_URL}/">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+${ICON_LINKS}
 <link rel="manifest" href="/site.webmanifest">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="keywords" content="what to watch, what to read, what to play, movie recommendations, TV show recommendations, book recommendations, game recommendations, music recommendations, anime and manga, mood-based recommendations, parents guide, watchlist, reading list, Mimir, Terratales">
@@ -139,24 +166,27 @@ function standalone(html) {
 <meta name="application-name" content="Mimir">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Mimir · A Terratales Venture">
-<meta property="og:title" content="Mimir · Find what to watch, read, play or listen to next">
+<meta property="og:site_name" content="Mimir">
+<meta property="og:title" content="Find what to watch, read, play or listen to next · Mimir">
 <meta property="og:description" content="Describe a mood, a favourite or a time limit; Mimir finds films, TV, books, games and music that fit, with the reason for every pick.">
 <meta property="og:url" content="${SITE_URL}/">
 <meta property="og:image" content="${SITE_URL}/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mimir · Find what to watch, read, play or listen to next">
+<meta name="twitter:title" content="Find what to watch, read, play or listen to next · Mimir">
 <meta name="twitter:description" content="Films, TV, books, games and music, found by how they feel, with the reason for every pick.">
 <meta name="twitter:image" content="${SITE_URL}/og-image.png">
 <link rel="alternate" type="application/rss+xml" title="The Mimir blog" href="${SITE_URL}/blog/feed.xml">
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": [
-    { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: "Mimir", alternateName: "Mimir · A Terratales Venture",
+    { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: "Mimir", alternateName: "Mimir",
       description: "Discover and track films, TV, books, manga, games and music by how they feel, with the reason for every pick.",
       publisher: { "@id": "https://terratalesmedia.world/#org" }, inLanguage: "en" },
     { "@type": "WebApplication", name: "Mimir", url: `${SITE_URL}/`, applicationCategory: "EntertainmentApplication", operatingSystem: "Any",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
+    { "@type": "Organization", "@id": `${SITE_URL}/#brand`, name: "Mimir", url: `${SITE_URL}/`,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-512.png`, width: 512, height: 512 },
+      parentOrganization: { "@id": "https://terratalesmedia.world/#org" } },
     { "@type": "Organization", "@id": "https://terratalesmedia.world/#org", name: "Terratales Media Entertainment", url: "https://terratalesmedia.world/",
       logo: `${SITE_URL}/icon-512.png`, email: "hello@terratalesmedia.world" },
   ] }).replace(/</g, "\\u003c")}</script>`;
@@ -171,8 +201,8 @@ const staticPage = (title, desc, canonical, body, extraHead = "", { type = "arti
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${index ? "index, follow, max-image-preview:large" : "noindex, follow"}"><link rel="canonical" href="${canonical}">
 <meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${canonical}"><meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Mimir · A Terratales Venture">
-<meta name="theme-color" content="#EDE3CC"><link rel="icon" href="/favicon.svg" type="image/svg+xml">${extraHead}
+<meta property="og:url" content="${canonical}"><meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Mimir">
+<meta name="theme-color" content="#EDE3CC">${ICON_LINKS}${extraHead}
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 :root{--bg:#EDE3CC;--surface:#F6F0E2;--ink:#23211C;--head:#131315;--muted:#5F5A4F;--gold:#8A6A18;--line:rgba(110,104,92,.24)}
@@ -207,14 +237,14 @@ function writeBlog(out) {
     : b.startsWith("- ") ? `<ul>${b.split("\n").map((l) => `<li>${inline(l.replace(/^- /, ""))}</li>`).join("")}</ul>` : `<p>${inline(b)}</p>`)).join("\n");
   const date = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   fs.mkdirSync(path.join(out, "blog"), { recursive: true });
-  fs.writeFileSync(path.join(out, "blog", "index.html"), staticPage("The Mimir blog · Notes from the well",
+  fs.writeFileSync(path.join(out, "blog", "index.html"), staticPage("Notes from the well · Mimir",
     "What Mimir can do, how it works, and what's new: discover and track films, TV, books, manga, games and music.", `${SITE_URL}/blog/`,
     `<p class="eyebrow">The Mimir blog</p><h1>Notes from the well</h1><p class="meta">What Mimir can do, how it works, and what's new.</p>
 <ul class="cards">${posts.map((b) => `<li><a href="/blog/${b.slug}/"><p class="meta">${esc(b.tags.join(" · "))} · ${date(b.date)}</p><h2>${esc(b.title)}</h2><p>${esc(b.summary)}</p></a></li>`).join("")}</ul>`));
   for (const b of posts) {
     const url = `${SITE_URL}/blog/${b.slug}/`;
     const ld = { "@context": "https://schema.org", "@type": "BlogPosting", headline: b.title, description: b.summary, datePublished: b.date,
-      url, image: `${SITE_URL}/og-image.png`, author: { "@type": "Organization", name: "Mimir · Terratales" },
+      url, image: `${SITE_URL}/og-image.png`, author: { "@type": "Organization", name: "Mimir" },
       publisher: { "@type": "Organization", name: "Terratales Media Entertainment", url: "https://terratalesmedia.world/" } };
     fs.mkdirSync(path.join(out, "blog", b.slug), { recursive: true });
     fs.writeFileSync(path.join(out, "blog", b.slug, "index.html"), staticPage(`${b.title} · Mimir`, b.summary, url,
@@ -241,13 +271,13 @@ if (args[0] === "--site") {
   fs.mkdirSync(out, { recursive: true });
   const site = sitePage(out);
   fs.writeFileSync(path.join(out, "index.html"), site.html);
-  for (const f of ["favicon.svg", "favicon-32.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable-192.png", "icon-maskable-512.png", "app-icon.svg", "og-image.png"]) {
+  for (const f of ["favicon.ico", "favicon-48.png", "favicon.svg", "favicon-32.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable-192.png", "icon-maskable-512.png", "app-icon.svg", "og-image.png"]) {
     fs.copyFileSync(path.join(brand, f), path.join(out, f));
   }
   fs.rmSync(path.join(out, "fonts"), { recursive: true, force: true });
   fs.cpSync(path.join(here, "fonts"), path.join(out, "fonts"), { recursive: true, filter: (f) => !f.endsWith(".md") });
   fs.writeFileSync(path.join(out, "site.webmanifest"), JSON.stringify({
-    name: "Mimir · A Terratales Venture", short_name: "Mimir", start_url: "/", scope: "/", display: "standalone",
+    name: "Mimir", short_name: "Mimir", start_url: "/", scope: "/", display: "standalone",
     description: "Discover and track films, TV, books, manga, games and music, with the reason behind every pick.",
     categories: ["entertainment", "books", "music"],
     background_color: "#EDE3CC", theme_color: "#EDE3CC",

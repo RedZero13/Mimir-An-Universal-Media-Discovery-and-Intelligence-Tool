@@ -44,6 +44,23 @@ Suggested placements, in keeping with how Akashic Records is presented:
 </a>
 ```
 
+## Getting found on Google
+
+What the site does for search engines is automatic: every page has a title ending in "· Mimir", a canonical URL and a
+description; the home page carries real links to every directory, the shelves and the best-reviewed works (the app
+itself navigates with `#` links, which crawlers don't treat as pages); works still awaiting a summary are marked
+`noindex` and left out of the sitemap; `favicon.ico`, a 192 px PNG and the SVG are linked from the head, which is
+what Google reads to choose the icon beside a result.
+
+What only the site's owner can do, in [Google Search Console](https://search.google.com/search-console):
+
+1. Add `https://mimir.terratalesmedia.world/` as a URL-prefix property and verify it (the HTML-tag or DNS method).
+2. Under Sitemaps, submit `sitemap.xml`.
+3. Under URL inspection, enter the home page, run "Test live URL", check that "Page is indexable" appears, then
+   choose "Request indexing". Repeat for `/films/`, `/tv/`, `/books/`, `/games/`, `/music/` and `/shelves/`.
+4. Re-inspect the home page after a few days. Indexing can take days to weeks, and Google decides how many of the
+   thousands of work pages to keep; the favicon updates a few days after the home page is recrawled.
+
 ## Accounts and community (the API)
 
 The site works on its own: library, journal, lists, calendar and Decide for me live in each browser. Accounts,
