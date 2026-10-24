@@ -148,13 +148,14 @@ def resolve_title(conn: psycopg.Connection, phrase: str) -> str | None:
     if not target:
         return None
     rows = conn.execute(
-        "SELECT w.slug, w.title, w.popularity_tier, array_remove(array_agg(wt.title), NULL) AS alts "
+        "SELECT w.slug, w.title, w.popularity_tier, w.summary, array_remove(array_agg(wt.title), NULL) AS alts "
         "FROM work w LEFT JOIN work_title wt ON wt.work_id = w.id GROUP BY w.id"
     ).fetchall()
     hits = [r for r in rows if target in {normalise_title(t) for t in [r["title"], *r["alts"]]}]
     if not hits:
         return None
-    hits.sort(key=lambda r: (r["popularity_tier"] or 5))
+    # Best-known first; then the work with a written summary; then the slug, so the answer never depends on row order.
+    hits.sort(key=lambda r: (r["popularity_tier"] or 5, 0 if r["summary"] else 1, r["slug"]))
     return hits[0]["slug"]
 
 

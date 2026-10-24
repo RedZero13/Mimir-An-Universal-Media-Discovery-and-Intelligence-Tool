@@ -1594,8 +1594,9 @@ finish finished binge binged through will watching reading playing listening sta
       const target = normaliseTitle(phrase);
       const hits = list.filter((w) => target && titles.get(w.slug).has(target));
       if (!hits.length) return null;
-      let best = hits[0];
-      for (const h of hits) if ((h.popularity_tier || 5) < (best.popularity_tier || 5)) best = h;
+      // Best-known first; then the work with a written summary; then the slug (mirrors memory.py and repository.py).
+      const rank = (w) => [w.popularity_tier || 5, w.summary ? 0 : 1, w.slug];
+      const best = hits.reduce((a, h) => (cmp(rank(h), rank(a)) < 0 ? h : a));
       return best.slug;
     }
 
