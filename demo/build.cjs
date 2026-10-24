@@ -116,7 +116,7 @@ function crawlBlock(texts, works) {
       <h2 id="crawl-h">Browse the Mimir catalogue</h2>
       <p>Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube. It holds ${works.toLocaleString("en")} works from ${countries} countries. Describe a mood, a favourite or how much time you have and it finds what fits, with the reason for every pick, a parents' guide for each work and where to watch, read, play or listen.</p>
       <p class="crawl-hubs">${groups.map(([, l, u]) => `<a href="${u}">${l}</a>`).join("")}<a href="/youtube/">YouTube</a><a href="/shelves/">Shelves</a><a href="/blog/">Blog</a></p>
-      ${groups.map(([m, l]) => `<h3>Well-reviewed ${l.toLowerCase()}</h3><ul>${top(m).map((w) => `<li><a href="/works/${esc(w.slug)}/">${esc(w.title)}${w.year ? ` (${w.year})` : ""}</a></li>`).join("")}</ul>`).join("")}
+      ${groups.map(([m, l]) => `<h3>Well-reviewed ${l.replace(/^(?!TV)./, (c) => c.toLowerCase())}</h3><ul>${top(m).map((w) => `<li><a href="/works/${esc(w.slug)}/">${esc(w.title)}${w.year ? ` (${w.year})` : ""}</a></li>`).join("")}</ul>`).join("")}
       <h3>Shelves</h3><ul>${shelves.map((x) => `<li><a href="/shelves/${esc(x.slug)}/">${esc(x.name)}</a></li>`).join("")}</ul>
     </section>`;
 }
@@ -304,7 +304,7 @@ if (args[0] === "--site") {
     `<p class="eyebrow">Not found</p><h1>This page isn't in the well</h1><p class="lede">The link may be old, or the page may have moved.</p>
 <p><a class="cta" href="/">Ask Mimir</a><a class="cta ghost" href="/films/">Browse the catalogue</a></p>
 <script>/* The app's pages live after a #; send a path like /signin to /#signin */
-(function(){var r=location.pathname.split("/").join("");if(/^(signin|community|library|calendar|days|decide|for-you|taste|mix|plan|together|achievements|lists|journal|stats|year|transfer|about|shelves|series|youtube|audiobooks|trackers|tags|people|top-all)$/.test(r))location.replace("/#"+r+location.search+location.hash)})();</script>`).replace('<meta name="robots" content="index, follow, max-image-preview:large">', '<meta name="robots" content="noindex">'));
+(function(){var r=location.pathname.split("/").join("");if(/^(signin|community|library|calendar|days|decide|for-you|taste|mix|plan|together|achievements|lists|journal|stats|year|transfer|about|help|shelves|series|youtube|audiobooks|trackers|tags|people|top-all)$/.test(r))location.replace("/#"+r+location.search+location.hash)})();</script>`).replace('<meta name="robots" content="index, follow, max-image-preview:large">', '<meta name="robots" content="noindex">'));
   fs.writeFileSync(path.join(out, "CNAME"), `${HOST}\n`);
   console.log(`wrote site to ${out}`);
 } else {

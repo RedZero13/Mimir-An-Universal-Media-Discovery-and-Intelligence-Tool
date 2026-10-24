@@ -20,8 +20,17 @@ It is also a browsable catalogue, in the spirit of IMDb, MyAnimeList and Goodrea
 medium, 36 shelves, subgenres, tag and people pages, a parents' guide for every medium, "where to watch" links,
 a personal library with activity rings and badges, shareable lists, watch-alongs and a community.
 
+Ways to tell Mimir your taste, besides rating works: **swipe** through a deck (right like, up love, left not for me),
+spin a **mood** when you have no time to browse, **craft** hybrids by combining works, moods and genres, and open
+**Days of the year** (World Laughter Day, International Music Day and about 50 more) for something new and picks from
+your own profile. Franchise pages gather a whole IP (James Bond, Middle-earth, the Marvel Cinematic Universe, the
+Wizarding World) with a row per medium, and films and series list their lead cast. One click in your profile resets
+your recommendations.
+
 - **Everything Mimir does:** [`docs/FEATURES.md`](docs/FEATURES.md)
 - **Press kit and press release:** [`docs/press/`](docs/press/)
+- **How the catalogue grew to about 7,500 works, and what is still being filled in:** [`docs/CATALOGUE-EXPANSION.md`](docs/CATALOGUE-EXPANSION.md) · **Planned features:** [`docs/FUTURE-FEATURES.md`](docs/FUTURE-FEATURES.md)
+- **Help centre:** the site's own guides, FAQs and walkthrough video at [mimir.terratalesmedia.world/#help](https://mimir.terratalesmedia.world/#help)
 - **Beta testers start here:** [`docs/BETA.md`](docs/BETA.md)
 - **Where Mimir stands against MAL, MangaUpdates, IMDb, Letterboxd, Goodreads and Spotify:** [`docs/COMPETITIVE.md`](docs/COMPETITIVE.md) · **What comes next:** [`docs/ROADMAP.md`](docs/ROADMAP.md)
 - **Brand guide (name, mark, colour, type, voice):** [`docs/BRAND.md`](docs/BRAND.md)

@@ -22,6 +22,20 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   works, how long, one pick per series, and familiar picks or a stretch.
 - **Experience DNA.** Every work page shows a fingerprint of its moods, themes, pacing, complexity, storytelling,
   world and style. Keep the qualities you want and drop the rest, and Mimir finds works with that mix, in any medium.
+- **Help centre (#help).** A search box over 20 guides in six topics (getting started, finding something, your
+  library, taste and picks, days and community, privacy and your data), ten frequently asked questions, and the
+  walkthrough video. Guides open at #help-<name>; the search filters guides and questions as you type.
+- **Swipe to teach Mimir.** A deck of cards, one work at a time: right to like, up to love, left for not for me,
+  down to skip what you haven't seen (arrow keys, buttons or a drag; Z undoes). Each swipe is a rating, so picks
+  everywhere improve, and the next card is chosen to learn something new about you.
+- **Don't have time to browse?** Mood cards (Comfort, Laugh out loud, Edge of the seat, After dark, Mind games …).
+  Left tries another mood; right spins that mood's posters like a slot machine, lands on one title and opens it after
+  a three-second countdown (Enter opens now, right spins again). The moods you spin for nudge your picks.
+- **Craft.** Drag one piece onto another, or tap two and combine: works, moods, genres and mediums blend into a new
+  hybrid ("Comforting science fiction"), and Mimir finds the works that carry the most of it, in any medium or one you
+  choose. Blends are kept and can be combined again.
+- **Easter eggs.** Some well-known covers react when you click them (a burst of spider-sense, falling code, a crawl
+  …). Finding them earns badges; the count is shown without saying which.
 - **Mood mixer.** Combine moods and things to avoid ("melancholic but comforting, no bleak") with a medium and a
   time limit, then send it to Ask. Decide for me also takes up to three moods at once.
 - **Your taste profile.** See what you lean towards and away from, ask for more or less of any quality, say
