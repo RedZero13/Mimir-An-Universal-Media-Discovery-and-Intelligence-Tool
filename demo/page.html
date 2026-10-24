@@ -621,6 +621,92 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .crawl a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .crawl a:hover { color: var(--gold-bright); }
 .crawl-hubs { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+/* swipe */
+.sw-wrap { max-width: 420px; margin: 18px auto 8px; }
+.sw-stage { position: relative; height: min(560px, 74vh); touch-action: pan-y; user-select: none; }
+.sw-card { position: absolute; inset: 0; display: flex; flex-direction: column; border-radius: 22px; border: 1px solid var(--line-strong); background: var(--glass, rgba(24, 22, 18, .9)); box-shadow: var(--shadow-1); overflow: hidden; cursor: grab; will-change: transform; }
+.sw-card:not(.top) { transform: scale(.95) translateY(14px); opacity: .6; pointer-events: none; }
+.sw-card.top:active { cursor: grabbing; }
+.sw-art { flex: 1; min-height: 0; display: block; overflow: hidden; }
+.sw-art .poster { height: 100%; width: 100%; border-radius: 0; }
+.sw-art .poster img, .sw-art .poster svg { height: 100%; width: 100%; object-fit: cover; pointer-events: none; -webkit-user-drag: none; user-drag: none; }
+.sw-body { padding: 14px 18px 18px; }
+.sw-body h2 { margin: 2px 0 6px; font-size: 1.35rem; } .sw-body h2 a { color: inherit; text-decoration: none; }
+.sw-line { margin: 0 0 8px; font-size: .88rem; color: var(--cream); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.sw-stamp { position: absolute; z-index: 2; top: 22px; padding: 4px 12px; border: 3px solid; border-radius: 10px; font: 700 1.3rem/1 var(--f-display); letter-spacing: .1em; text-transform: uppercase; opacity: 0; pointer-events: none; background: rgba(0, 0, 0, .35); }
+.sw-yes { right: 18px; color: #4CC38A; transform: rotate(10deg); } .sw-no { left: 18px; color: #E5484D; transform: rotate(-10deg); }
+.sw-love { left: 50%; margin-left: -40px; color: #F2B84B; } .sw-skip { left: 50%; margin-left: -40px; top: auto; bottom: 150px; color: #8C96A8; }
+.sw-btns[hidden] { display: none; }
+.sw-btns { display: flex; justify-content: center; gap: 14px; margin: 14px 0; }
+.sw-b { width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid var(--line-strong); background: transparent; color: var(--bone); font-size: 1.35rem; cursor: pointer; transition: transform .15s, background .15s; }
+.sw-b:hover { transform: scale(1.08); background: rgba(216, 178, 74, .1); } .sw-b[disabled] { opacity: .35; cursor: default; transform: none; }
+.sw-b.no { color: #E5484D; border-color: #E5484D; } .sw-b.like { color: #4CC38A; border-color: #4CC38A; } .sw-b.love { color: #F2B84B; border-color: #F2B84B; }
+.sw-learn { text-align: center; min-height: 1.4em; margin: 10px 0 0; }
+/* spin */
+.spin { position: relative; isolation: isolate; }
+.spin-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: radial-gradient(60% 50% at 50% 55%, color-mix(in srgb, var(--mc) 22%, transparent), transparent 70%); }
+.spin-bg img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) blur(6px) brightness(.35); opacity: .35; }
+.spin-stage { position: relative; height: 380px; max-width: 420px; margin: 8px auto; }
+.spin-card { position: absolute; inset: 0 24px; padding: 22px; border-radius: 22px; text-align: center; display: flex; flex-direction: column; justify-content: flex-end; border: 1px solid color-mix(in srgb, var(--mc) 55%, transparent); background: linear-gradient(170deg, color-mix(in srgb, var(--mc) 70%, #000) 0%, #0c0b0a 78%); box-shadow: 0 18px 50px rgba(0, 0, 0, .45); color: #fff; }
+.spin-card h2 { margin: 6px 0 2px; font-size: 1.5rem; } .spin-card .muted { color: rgba(255, 255, 255, .7); }
+.spin-card.peek.d1 { transform: translateY(14px) scale(.95); opacity: .7; } .spin-card.peek.d2 { transform: translateY(28px) scale(.9); opacity: .45; }
+.spin-fan { position: absolute; top: 22px; left: 0; right: 0; height: 190px; }
+.spin-p { position: absolute; top: 0; left: 50%; width: 100px; margin-left: -50px; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .5)); }
+.spin-p.p0 { transform: translateX(-62px) rotate(-10deg); } .spin-p.p1 { transform: translateY(-10px); z-index: 1; } .spin-p.p2 { transform: translateX(62px) rotate(10deg); }
+.reel { position: relative; height: 230px; overflow: hidden; margin-top: 40px; mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent); }
+.reel-strip { display: flex; gap: 12px; position: absolute; left: 0; top: 14px; }
+.reel-p { flex: 0 0 120px; } .reel-mark { position: absolute; left: 50%; top: 8px; bottom: 8px; width: 132px; margin-left: -66px; border: 2px solid var(--mc); border-radius: 14px; box-shadow: 0 0 24px color-mix(in srgb, var(--mc) 60%, transparent); pointer-events: none; }
+.spin-land { text-align: center; margin-top: 12px; } .spin-land h2 { margin: 0 0 2px; }
+.spin-count { font: 600 1.1rem var(--f-body); color: var(--mc); margin: 10px 0 6px; }
+.spin-bar { display: block; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, .12); max-width: 260px; margin: 0 auto 10px; overflow: hidden; }
+.spin-bar span { display: block; height: 100%; width: 0; background: var(--mc); }
+/* craft */
+.cr { display: grid; grid-template-columns: 260px 1fr; gap: 20px; align-items: start; }
+.cr-tray { border: 1px solid var(--line-strong); border-radius: 16px; padding: 12px; display: grid; gap: 10px; position: sticky; top: 90px; max-height: 78vh; }
+.cr-tray input { width: 100%; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line-strong); background: transparent; color: var(--bone); font: inherit; }
+.cr-add { display: flex; gap: 6px; } .cr-add input { flex: 1; min-width: 0; }
+.cr-list { display: flex; flex-wrap: wrap; gap: 6px; overflow-y: auto; max-height: 46vh; align-content: flex-start; }
+.cr-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 10px; border: 1px solid var(--line-strong); background: var(--surface, rgba(255, 255, 255, .05)); color: var(--bone); font-size: .85rem; white-space: nowrap; user-select: none; }
+.cr-chip.tray { cursor: grab; touch-action: none; } .cr-chip.tray:hover { border-color: var(--gold); }
+.cr-canvas { position: relative; min-height: 340px; border: 1px dashed var(--line-strong); border-radius: 16px; background: radial-gradient(circle at 20% 20%, rgba(216, 178, 74, .06), transparent 50%); overflow: hidden; }
+.cr-hint { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; pointer-events: none; }
+.cr-item { position: absolute; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface, #1c1a16); color: var(--bone); font-size: .88rem; white-space: nowrap; cursor: grab; touch-action: none; user-select: none; box-shadow: var(--shadow-1); }
+.cr-item.sel { outline: 2px solid var(--gold-bright); } .cr-item.over { outline: 2px dashed var(--gold-bright); transform: scale(1.05); } .cr-item.drag { z-index: 5; cursor: grabbing; }
+.cr-x { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 1rem; padding: 0 0 0 4px; }
+.cr-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+.cr-res { margin-top: 8px; padding: 14px 16px; border: 1px solid var(--line-strong); border-radius: 16px; } .cr-res h2 { margin: 2px 0 8px; }
+@media (max-width: 760px) { .cr { grid-template-columns: 1fr; } .cr-tray { position: static; max-height: none; } .cr-list { max-height: 26vh; } }
+/* easter eggs */
+.egg-fx { position: fixed; inset: 0; z-index: 90; pointer-events: none; overflow: hidden; animation: egg-out .5s ease 3.1s forwards; }
+@keyframes egg-out { to { opacity: 0; } }
+.egg-say { position: absolute; left: 0; right: 0; bottom: 14%; text-align: center; margin: 0; font: 600 clamp(1.1rem, 3vw, 1.7rem) var(--f-display); color: var(--ec); text-shadow: 0 2px 12px #000; animation: egg-in .6s ease both; }
+.egg-n { display: block; font: 500 .75rem var(--f-body); letter-spacing: .1em; color: var(--cream); margin-top: 6px; }
+@keyframes egg-in { from { opacity: 0; transform: translateY(12px); } }
+.egg-shake { animation: egg-shake .7s ease; } @keyframes egg-shake { 10%, 50%, 90% { transform: translateX(-5px); } 30%, 70% { transform: translateX(5px); } }
+.egg-spin { animation: egg-spin 1.6s cubic-bezier(.4, 0, .2, 1); } @keyframes egg-spin { to { transform: rotate(360deg) scale(1); } }
+.eb-line { position: absolute; left: 50%; top: 45%; width: 3px; height: 28vmin; margin-left: -1px; background: linear-gradient(var(--ec), transparent); transform-origin: top center; transform: rotate(var(--a)) translateY(8vmin); opacity: 0; animation: eb .9s ease-out forwards; }
+@keyframes eb { 20% { opacity: 1; } to { opacity: 0; transform: rotate(var(--a)) translateY(26vmin); } }
+.es-streak { position: absolute; left: -30%; width: 60%; height: 3px; background: linear-gradient(90deg, transparent, var(--ec)); opacity: 0; animation: es .7s linear forwards; } @keyframes es { 30% { opacity: .9; } to { opacity: 0; transform: translateX(260%); } }
+.er-g { position: absolute; font-style: normal; color: var(--ec); font-family: ui-monospace, monospace; opacity: 0; animation: er linear forwards; } @keyframes er { 10% { opacity: .9; } to { opacity: 0; transform: translateY(100vh); } }
+.er-g.side { animation-name: er-side; } @keyframes er-side { 10% { opacity: .8; } to { opacity: 0; transform: translateX(60vw) translateY(20vh); } }
+.ec-crawl { position: absolute; inset: 0; perspective: 300px; display: grid; place-items: end center; background: radial-gradient(#0008, #000c); }
+.ec-crawl p { color: #F2D04B; font: 700 clamp(1.1rem, 3vw, 1.8rem) var(--f-body); max-width: 22ch; text-align: center; transform-origin: bottom; animation: crawl 3.6s linear forwards; } @keyframes crawl { from { transform: rotateX(48deg) translateY(30vh); opacity: 1; } to { transform: rotateX(48deg) translateY(-70vh); opacity: 0; } }
+.eg-glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--ec) 55%, transparent), transparent 55%); animation: eg 3s ease both; } @keyframes eg { 0% { opacity: 0; } 25%, 70% { opacity: 1; } 100% { opacity: 0; } }
+.eg-glow.flicker { animation: eg-f 3s steps(1) both; } @keyframes eg-f { 0% { opacity: 0; } 10% { opacity: 1; } 18% { opacity: .2; } 28% { opacity: 1; } 40% { opacity: .35; } 55%, 80% { opacity: 1; } 100% { opacity: 0; } }
+.eg-tri { position: absolute; left: 50%; top: 32%; transform: translateX(-50%); text-align: center; font-size: 3rem; line-height: 1; color: var(--ec); text-shadow: 0 0 20px var(--ec); animation: eg 3s ease both; }
+.ef-g { position: absolute; bottom: -8%; font-style: normal; color: var(--ec); opacity: 0; animation: ef linear forwards; } @keyframes ef { 15% { opacity: .95; } to { opacity: 0; transform: translateY(-105vh) rotate(40deg); } }
+.ef-g.pulse { bottom: auto; top: 40%; animation: ef-p 1.2s ease-in-out 2; } @keyframes ef-p { 0%, 100% { opacity: 0; transform: scale(.6); } 50% { opacity: 1; transform: scale(1.2); } }
+.ef-g.bounce { bottom: auto; top: 20%; animation: ef-b 1.4s ease-in 2; } @keyframes ef-b { 0% { opacity: 1; transform: translateY(0); } 50% { opacity: 1; transform: translateY(60vh); } 100% { opacity: 0; transform: translateY(0) rotate(180deg); } }
+.et-row { position: absolute; left: 0; right: 0; top: 30%; display: flex; justify-content: center; gap: 12px; animation: eg 3s ease both; }
+.et-tile { width: 96px; height: 110px; display: grid; place-items: center; background: #0E7A4B; color: #fff; border: 3px solid #fff; border-radius: 6px; font: 700 2.6rem/1 var(--f-body); text-align: center; position: relative; } .et-tile small { position: absolute; font-size: .62rem; font-weight: 500; left: 6px; top: 4px; } .et-tile small:last-child { left: 0; right: 0; top: auto; bottom: 4px; text-align: center; } .et-tile b { font-weight: 700; }
+.esp-half { position: absolute; top: 0; bottom: 0; width: 50%; display: grid; place-items: center; background: rgba(5, 8, 20, .88); color: #cfe3ff; font: 600 1.6rem var(--f-display); } .esp-half.l { left: 0; animation: esp-l 3s ease both; } .esp-half.r { right: 0; animation: esp-r 3s ease both; } @keyframes esp-l { 0% { transform: translateX(0); } 30%, 70% { transform: translateX(-4%); } 100% { transform: translateX(-100%); } } @keyframes esp-r { 0% { transform: translateX(0); } 30%, 70% { transform: translateX(4%); } 100% { transform: translateX(100%); } }
+.esn-ring { position: absolute; left: 50%; top: 42%; width: 40vmin; height: 40vmin; margin: -20vmin 0 0 -20vmin; border-radius: 50%; border: 2px solid #cfe3ff55; box-shadow: inset 0 0 60px #6aa9ff55, 0 0 60px #6aa9ff55; animation: esn 3s ease-in-out both; } .esn-ring.fast { animation-duration: 1.4s; animation-iteration-count: 2; } @keyframes esn { 0% { opacity: 0; transform: rotate(0) scale(.3); } 40% { opacity: 1; } 100% { opacity: 0; transform: rotate(540deg) scale(1.4); } }
+.erp-c { position: absolute; left: 50%; top: 50%; width: 12vmin; height: 12vmin; margin: -6vmin 0 0 -6vmin; border: 2px solid #9ec7ff; border-radius: 50%; opacity: 0; animation: erp 2s ease-out forwards; } @keyframes erp { 10% { opacity: .9; } to { opacity: 0; transform: scale(5); } }
+.ebt { position: absolute; left: 50%; top: 36%; transform: translateX(-50%); text-align: center; font: 700 7rem/1 ui-monospace, monospace; color: #FF8A3D; text-shadow: 0 0 24px #FF8A3D; animation: eg 3s ease both; } .ebt small { display: block; font-size: 1.1rem; letter-spacing: .3em; } .ebt-t { position: absolute; top: 50%; height: 4px; width: 40%; background: linear-gradient(90deg, transparent, #FF8A3D); opacity: .8; animation: es 1s linear 2 forwards; } .ebt-t.t1 { left: 0; } .ebt-t.t2 { left: 0; top: 56%; animation-delay: .3s; }
+.etd { position: absolute; left: 50%; top: 30%; width: 90px; height: 150px; margin-left: -45px; background: #0A3A8C; border: 3px solid #fff3; border-radius: 4px; color: #fff; font: 700 .55rem/1.2 var(--f-body); text-align: center; padding-top: 8px; box-shadow: 0 0 40px #3b7bff; animation: etd 3s ease both; } .etd i { position: absolute; top: -12px; left: 50%; margin-left: -6px; width: 12px; height: 10px; background: #9ec7ff; border-radius: 3px 3px 0 0; } @keyframes etd { 0%, 100% { opacity: 0; transform: scale(.6); } 25%, 70% { opacity: 1; transform: scale(1); } 50% { opacity: .3; } }
+.epo { position: absolute; top: 38%; width: 12vmin; height: 22vmin; border-radius: 50%; animation: epo 3s ease both; } .epo.a { left: 25%; border: 5px solid #FF9A1F; box-shadow: 0 0 40px #FF9A1F; } .epo.b { right: 25%; border: 5px solid #1F9AFF; box-shadow: 0 0 40px #1F9AFF; } @keyframes epo { 0% { transform: scaleY(0); opacity: 0; } 25%, 75% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0); opacity: 0; } }
+.egg-fx.still { animation: egg-out .5s ease 2.2s forwards; background: rgba(0, 0, 0, .55); }
+@media (prefers-reduced-motion: reduce) { .sw-card, .sw-b, .cr-item { transition: none !important; } }
 .fy-ctl { display: grid; gap: 8px; margin: 0 0 18px; }
 .fy-ctl p { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
 .fy-ctl .eyebrow { min-width: 86px; }
@@ -1130,7 +1216,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     <!--__CRAWL__-->
     <nav class="foot-cols" aria-label="Footer">
       <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
-      <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
+      <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#swipe">Swipe</a></li><li><a href="#craft">Craft</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
       <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
       <div><h2>Mimir</h2><ul><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="/films/">Catalogue A–Z</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
       <div><h2>Terratales</h2><ul><li><a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></li><li><a href="https://terratalesmedia.world/publishing/" target="_blank" rel="noopener">Publishing</a></li><li><a href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener">The Akashic Records</a></li><li><a href="https://terratalesmedia.world/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
@@ -2075,7 +2161,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
-    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["Days of the year", "#days"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
+    ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Swipe to teach Mimir", "#swipe"], ["Don't have time to browse?", "#spin"], ["Craft a recommendation", "#craft"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["Days of the year", "#days"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
@@ -2218,7 +2304,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     app.innerHTML = `
       <article>
         <header class="work-hero" style="--s0:${bg0};--s1:${bg1};--sa:${ac}">
-          <div class="work-art"><div class="work-art-frame">${poster(coverOf(w, mood), "big")}<span id="work-prog">${progressBadge(w.slug)}</span></div>
+          <div class="work-art"><div class="work-art-frame${eggFor(w.slug) ? " has-egg" : ""}">${poster(coverOf(w, mood), "big")}<span id="work-prog">${progressBadge(w.slug)}</span></div>
             <p class="art-credit">${img ? `${esc(img.kind[0].toUpperCase() + img.kind.slice(1))}: ${esc(img.licence)}${img.attribution ? ` · ${esc(img.attribution)}` : ""} · via ${esc(img.source)}` : "Generated cover. No licensed artwork on file yet."}</p></div>
           <div class="work-id">
             <p class="crumbs"><a href="#search-${esc(w.medium)}">${esc(PLURAL[w.medium] || mediumLabel(w.medium))}</a>${c.group ? ` / <a href="#group-${esc(c.group.slug)}">${esc(c.group.name)}</a>` : ""}</p>
@@ -2825,6 +2911,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   if (!visits.includes(today())) { visits.push(today()); store("mimir-visits", visits.slice(-800)); }
   const visitSet = new Set(visits), opened = (date) => visitSet.has(date);
 
+  // Saved by the swipe, spin, craft and easter-egg pages, and counted by the badges below.
+  let swipeStat = stored("mimir-swipe-count", 0), craftBook = stored("mimir-craft", {}), eggsFound = stored("mimir-eggs", []), moodPicks = stored("mimir-moodpicks", { picks: {}, skips: {} });
+
   // Badges are worked out from what you've logged; nothing is stored but the ones you've already been told about.
   const MILESTONES = [1, 5, 10, 25, 50, 100, 250, 500, 1000];
   function badges() {
@@ -2862,6 +2951,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     tier("daily", "☀", (n) => `${n} days of stories`, (n) => `Close at least one ring ${n} days in a row.`, streak(closedAny), [3, 14, 60]);
     tier("visits", "⌂", (n) => (n === 1 ? "Welcome in" : `Regular ${n}`), (n) => (n === 1 ? "Open Mimir for the first time." : `Open Mimir on ${n} different days.`), visits.length, [1, 7, 30, 100, 365]);
     tier("visit-streak", "🔥", (n) => `${n}-day visit streak`, (n) => `Open Mimir ${n} days in a row.`, streak(opened), [3, 7, 30, 100]);
+    tier("swipes", "↔", (n) => `Swiper ${n}`, (n) => `Swipe ${n} cards to teach Mimir your taste.`, Number(swipeStat) || 0, [10, 50, 200]);
+    tier("crafts", "⚗", (n) => (n === 1 ? "Alchemist" : `Master alchemist ${n}`), (n) => `Discover ${n === 1 ? "a blend" : `${n} blends`} in Craft.`, Object.keys(craftBook).length, [1, 10, 40]);
+    tier("spins", "🎰", (n) => (n === 1 ? "Feeling lucky" : `High roller ${n}`), (n) => `Spin ${n === 1 ? "a mood" : `${n} moods`} in "Don't have time to browse?".`, Object.values(moodPicks.picks).reduce((a, b) => a + b, 0), [1, 10, 30]);
+    tier("eggs", "🥚", (n) => (n === 1 ? "Egg hunter" : `Eagle eye ${n}`), (n) => `Find ${n === 1 ? "an easter egg" : `${n} easter eggs`}. Hint: some covers react when you click them.`, eggsFound.length, [1, 5, 12]);
     tier("shares", "↗", (n) => (n === 1 ? "Spread the word" : `Word of mouth ${n}`), (n) => `Share from Mimir ${n === 1 ? "once" : `${n} times`}: works, lists or pages.`, shares.total, [1, 10, 50, 100]);
     tier("share-work", "✉", (n) => `Recommender ${n}`, (n) => `Share ${n} individual works with someone.`, shares.work, [5, 25]);
     tier("share-list", "🎧", (n) => (n === 1 ? "Mixtape" : `Mixtape maker ${n}`), (n) => `Share ${n === 1 ? "a list or playlist" : `${n} lists or playlists`}.`, shares.list, [1, 10]);
@@ -2912,6 +3005,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <form class="ring-goals" data-ring-goals><h2>Daily goals</h2>${RINGS.map(([k, l]) => `<label><span>${l}</span><input name="${k}" type="number" min="0" max="600" step="5" value="${ringGoals[k]}"> min</label>`).join("")}
             <button class="btn ghost" type="submit">Save goals</button></form>
           <p class="streaks"><strong>${streak(closedAll)}</strong> day streak closing every ring · <strong>${streak(closedAny)}</strong> days with at least one</p>
+          <p class="streaks"><strong>${eggsFound.length}</strong> of ${EGGS.length} easter eggs found · <strong>${Object.keys(craftBook).length}</strong> blends crafted · <strong>${Number(swipeStat) || 0}</strong> cards swiped</p>
           <p class="streaks"><strong>${streak(opened)}</strong> day visit streak · opened on <strong>${visits.length}</strong> day${visits.length === 1 ? "" : "s"} · shared <strong>${shares.total}</strong> time${shares.total === 1 ? "" : "s"} (${shares.work} works, ${shares.list} lists, ${shares.page} pages)</p>
         </div>
         <ol class="week-rings">${week.map((d) => `<li>${ringsSvg(d, 54)}<span>${new Date(d + "T12:00").toLocaleDateString("en", { weekday: "short" })}</span></li>`).join("")}</ol>
@@ -4153,6 +4247,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <section class="results-sec"><header class="sec-head"><h2>Picks for you <span class="count">(${rec.results.length})</span></h2></header>
           ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${taste[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${whyDetails(w)}${rateButtons(w.slug, true)}`)}
         </section>` : `<p class="empty">${Object.values(taste).some((v) => v === "loved" || v === "liked") ? "Nothing new matches your taste with these settings. Try another tab, or loosen popularity or length." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
+      <p class="muted small">Faster than rating one by one: <a href="#swipe">swipe through cards</a>, or <a href="#craft">craft a recommendation</a>.</p>
       ${starterPicker()}
       ${rated.length ? `<section class="block"><header class="sec-head"><h2>Your ratings <span class="count">(${rated.length})</span></h2>
         <button type="button" class="linkish" data-clear-ratings>Clear all ratings</button></header>
@@ -4454,9 +4549,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ratings = {};
     tasteEdits.boost = []; tasteEdits.mute = []; tasteEdits.avoid = [];
     Object.assign(forYouOpts, { pop: "any", len: "any", vary: "no", fam: "any", ctx: "" });
+    moodPicks = { picks: {}, skips: {} }; swipe.skipped = new Set(); swipe.undo = [];
     decideState = { skipped: [], penalties: {}, index: 0 };
     try {
-      for (const k of ["mimir-library", "mimir-ratings", "mimir-feedback", "mimir-shelf", "mimir-taste-edits", "mimir-foryou-opts"]) localStorage.removeItem(k);
+      for (const k of ["mimir-library", "mimir-ratings", "mimir-feedback", "mimir-shelf", "mimir-taste-edits", "mimir-foryou-opts", "mimir-moodpicks"]) localStorage.removeItem(k);
     } catch { /* storage unavailable: the reset still holds for this visit */ }
     refreshCounts();
     let note = "Done. Your recommendations have been reset.";
@@ -4573,10 +4669,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const ratedGroups = new Set(rated.map((s) => ((cardOf(s).continuity || {}).group || {}).slug).filter(Boolean));
     const ratedPeople = new Set(rated.flatMap((s) => (cardOf(s).creators || []).slice(0, 3)));
     const ctx = activeContext(), boost = [...tasteEdits.boost, ...(ctx ? ctx.boost : [])], N = results.length || 1;
+    // Moods you spin for count a little: each pick adds up to 0.3 to the works that carry the mood's qualities.
+    const moodBoost = SPIN_MOODS.filter((m) => moodPicks.picks[m.name] && m.rule.any_tags).map((m) => [m.rule.any_tags, Math.min(0.3, 0.1 * moodPicks.picks[m.name])]);
     return results.filter((w) => !avoided(w.slug)).map((w, i) => {
       const tm = termMap().get(w.slug);
       let s = 1 - i / N;
       for (const k of boost) s += 0.35 * (tm.get(k) || 0);
+      for (const [keys, wt] of moodBoost) s += wt * Math.max(0, ...keys.map((k) => tm.get(k) || 0));
       for (const k of tasteEdits.mute) s -= 0.35 * (tm.get(k) || 0);
       const known = (w.continuity && w.continuity.group && ratedGroups.has(w.continuity.group.slug)) || (w.creators || []).slice(0, 3).some((c) => ratedPeople.has(c));
       const newGround = !ratedMedia.has(w.medium) || ![...tm].some(([k, v]) => k.startsWith("genre:") && v >= 0.5 && ratedGenres.has(k));
@@ -4863,6 +4962,446 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (b) { dayNonce++; const y = window.scrollY; route(); window.scrollTo(0, y); }
   });
 
+  // ------------------------------------------------------------------ swipe, spin, craft and easter eggs
+  // Three ways to teach Mimir your taste without filling in a form. Swipe: cards of works, right to like, left to pass.
+  // Spin ("Don't have time to browse?"): mood cards that spin their posters like a slot machine and land on one pick.
+  // Craft: combine two pieces (works, moods, genres, a medium) into a hybrid and get the pick that fits it best.
+  // Everything they learn lands in the same ratings every other page recommends from.
+  const wTier = (w) => w.popularity_tier || RAW_BY.get(w.slug).popularity_tier || 3;
+  const firstGenre = (w) => ((w.genres || [])[0] || {}).key || null;
+  const NOT_MEDIA = ["channel", "online_video"];
+  const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function putRating(slug, v) {
+    if (v) ratings[slug] = v; else delete ratings[slug];
+    try { localStorage.setItem("mimir-ratings", JSON.stringify(ratings)); } catch { /* storage unavailable: keep for this visit */ }
+    queueSync(); refreshCounts();
+  }
+  // What the ratings say about each quality: loved counts 2, liked 1, not for me -1.5.
+  function tasteVector() {
+    const vec = new Map();
+    for (const [slug, v] of Object.entries(tasteRatings())) {
+      const tm = termMap().get(slug), k = v === "loved" ? 2 : v === "liked" ? 1 : -1.5;
+      if (tm) for (const [key, s] of tm) vec.set(key, (vec.get(key) || 0) + k * s);
+    }
+    return vec;
+  }
+  const topKeys = (vec, n, sign = 1) => [...vec].filter(([, v]) => v * sign > 0.3).sort((a, b) => sign * (b[1] - a[1])).slice(0, n).map(([k]) => k);
+  const oneLiner = (w) => RAW_BY.get(w.slug).summary || [(w.genres || []).slice(0, 2).map((g) => g.label).join(", "), w.year, (w.creators || [])[0]].filter(Boolean).join(" · ");
+
+  // ---- swipe
+  const swipe = { medium: "all", n: 0, skipped: new Set(), undo: [], lastGenre: null, lastMedium: null, current: null, learn: "" };
+  const swipePool = once(() => allWorks().filter((w) => !NOT_MEDIA.includes(w.medium) && (RAW_BY.get(w.slug).summary || wTier(w) <= 2)));
+  function pickSwipe() {
+    const vec = tasteVector(), known = Object.keys(tasteRatings()).length >= 3;
+    let best = null, bestS = -1e9;
+    for (const w of swipePool()) {
+      if (swipe.medium !== "all" && w.medium !== swipe.medium) continue;
+      const lib = library[w.slug];
+      if (ratings[w.slug] || swipe.skipped.has(w.slug) || (lib && ["completed", "dropped"].includes(lib.status)) || avoided(w.slug)) continue;
+      const tm = termMap().get(w.slug);
+      let aff = 0, novel = 0, n = 0;
+      for (const [k, v] of tm) { n++; const x = vec.get(k); if (x === undefined) novel++; else aff += x * v; }
+      let s = (known ? 0.6 * (aff / Math.sqrt(n || 1)) : 0) + 0.5 * (n ? novel / n : 0) * (known ? 0.6 : 1) + (wTier(w) <= 2 ? 0.35 : 0) + 0.5 * unitHash(`${w.slug}|${swipe.n}`);
+      if (firstGenre(w) && firstGenre(w) === swipe.lastGenre) s -= 0.4;
+      if (swipe.medium === "all" && w.medium === swipe.lastMedium) s -= 0.25;
+      if (s > bestS) { bestS = s; best = w; }
+    }
+    return best;
+  }
+  function swipeCard(w, i) {
+    const tags = [...(w.genres || []).slice(0, 2), ...(w.tags || []).slice(0, 2)];
+    return `<article class="sw-card${i === 0 ? " top" : ""}" data-sw-card="${esc(w.slug)}" style="--i:${i}" aria-label="${esc(w.title)}"${i ? ' aria-hidden="true"' : ""}>
+      <span class="sw-stamp sw-no">Nope</span><span class="sw-stamp sw-yes">Like</span><span class="sw-stamp sw-love">Love</span><span class="sw-stamp sw-skip">Skip</span>
+      <a class="sw-art" href="#work-${esc(w.slug)}" tabindex="-1" draggable="false">${poster(cardCover(w), "big")}</a>
+      <div class="sw-body"><p class="eyebrow">${esc(mediumLabel(w.medium))}${w.year ? ` · ${w.year}` : ""}</p><h2><a href="#work-${esc(w.slug)}">${esc(w.title)}</a></h2>
+        <p class="sw-line">${esc(oneLiner(w))}</p>
+        <p class="pchips">${tags.map((t) => `<span class="tchip">${esc(t.label)}</span>`).join("")}${w.time ? timeChip(w.time, w.medium === "album") : ""}</p></div></article>`;
+  }
+  function renderSwipe(p) {
+    if (p && p.get("m") !== null) swipe.medium = MEDIA.includes(p.get("m")) ? p.get("m") : "all";
+    swipe.current = pickSwipe();
+    const rated = Object.keys(tasteRatings()).length, top = topKeys(tasteVector(), 6);
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Teach Mimir your taste</p><h1>Swipe to find your taste</h1>
+        <p class="muted">Right to like, up to love, left for not for me, down to skip what you haven't seen. Each swipe shapes your picks everywhere in Mimir. Arrow keys work too.</p></header>
+      <nav class="medium-tabs" aria-label="Medium">${["all", ...MEDIA].map((x) => `<a href="#swipe?m=${x}" class="${swipe.medium === x ? "on" : ""}">${esc(PLURAL[x])}</a>`).join("")}</nav>
+      <section class="sw-wrap" aria-live="polite">
+        <div class="sw-stage" id="sw-stage">${swipe.current ? swipeCard(swipe.current, 0) : `<p class="empty">You've been through everything in this medium. Try another tab, or see <a href="#for-you">your picks</a>.</p>`}</div>
+        <p class="sw-learn muted small" id="sw-learn">${esc(swipe.learn)}</p>
+        <div class="sw-btns" role="group" aria-label="Your verdict">
+          <button type="button" class="sw-b no" data-sw="no" aria-label="Not for me">✕</button><button type="button" class="sw-b skip" data-sw="skip" aria-label="Skip, I haven't seen it">↷</button>
+          <button type="button" class="sw-b like" data-sw="like" aria-label="Like">✓</button><button type="button" class="sw-b love" data-sw="love" aria-label="Love">♥</button>
+          <button type="button" class="sw-b undo" data-sw="undo" aria-label="Undo the last swipe"${swipe.undo.length ? "" : " disabled"}>⟲</button></div>
+      </section>
+      <section class="block"><p class="pchips"><span class="eyebrow">Your taste so far</span>${top.length ? top.map((k) => `<a class="tchip" href="#${tagToken(k)}">${esc(labelOf(k))}</a>`).join("") : `<span class="muted small">Swipe a few and it appears here.</span>`}
+        <span class="muted small">${rated} rated${rated >= 8 ? ` · <a href="#for-you">see your picks</a>` : ""}</span> <a class="small" href="#taste">Edit your taste</a></p></section>`;
+  }
+  function swipeAct(act) {
+    const w = swipe.current;
+    if (act === "undo") {
+      const u = swipe.undo.pop();
+      if (!u) return;
+      putRating(u.slug, u.prev); swipe.skipped.delete(u.slug); swipe.n = Math.max(0, swipe.n - 1); swipe.learn = "Undone.";
+      swipe.current = null; renderSwipeKeep(u.slug); return;
+    }
+    if (!w) return;
+    const card = document.querySelector(".sw-card.top"), dir = { no: [-1, 0], like: [1, 0], love: [0, -1], skip: [0, 1] }[act];
+    const next = () => {
+      const prev = ratings[w.slug] || null, v = { no: "disliked", like: "liked", love: "loved" }[act] || null;
+      if (v) putRating(w.slug, v); else swipe.skipped.add(w.slug);
+      swipe.undo.push({ slug: w.slug, prev }); if (swipe.undo.length > 30) swipe.undo.shift();
+      swipe.n++; swipeStat = (Number(swipeStat) || 0) + 1; store("mimir-swipe-count", swipeStat);
+      swipe.lastGenre = firstGenre(w); swipe.lastMedium = w.medium;
+      const keys = topKeys(new Map([...(termMap().get(w.slug) || [])].filter(([k]) => !k.startsWith("genre:") || true)), 3);
+      swipe.learn = act === "skip" ? "Skipped: it won't count either way." : `${act === "no" ? "Less of" : "More of"}: ${keys.map(labelOf).join(", ")}`;
+      setTimeout(checkBadges, 0);
+      renderSwipe();
+    };
+    if (!card || reduceMotion()) { next(); return; }
+    card.style.transition = "transform .28s ease-in, opacity .28s";
+    card.style.transform = `translate(${dir[0] * 520}px, ${dir[1] * 520}px) rotate(${dir[0] * 18}deg)`; card.style.opacity = "0";
+    setTimeout(next, 260);
+  }
+  // After an undo, put the same work back on top.
+  function renderSwipeKeep(slug) { renderSwipe(); const w = cardOf(slug); if (w) { swipe.current = w; document.getElementById("sw-stage").innerHTML = swipeCard(w, 0); } }
+  let drag = null, dragSuppress = false;
+  document.addEventListener("click", (e) => { if (dragSuppress) { dragSuppress = false; e.preventDefault(); e.stopPropagation(); } }, true);
+  document.addEventListener("pointerdown", (e) => {
+    const card = e.target.closest(".sw-card.top");
+    if (!card || e.target.closest("button")) return;
+    drag = { card, x: e.clientX, y: e.clientY, dx: 0, dy: 0, id: e.pointerId }; card.style.transition = "none";
+  });
+  document.addEventListener("pointermove", (e) => {
+    if (!drag || e.pointerId !== drag.id) return;
+    drag.dx = e.clientX - drag.x; drag.dy = e.clientY - drag.y;
+    drag.card.style.transform = `translate(${drag.dx}px, ${drag.dy}px) rotate(${drag.dx / 22}deg)`;
+    const k = (v) => Math.max(0, Math.min(1, Math.abs(v) / 100));
+    const show = (c, v) => { const s = drag.card.querySelector(c); if (s) s.style.opacity = v; };
+    show(".sw-yes", drag.dx > 0 && Math.abs(drag.dx) > Math.abs(drag.dy) ? k(drag.dx) : 0); show(".sw-no", drag.dx < 0 && Math.abs(drag.dx) > Math.abs(drag.dy) ? k(drag.dx) : 0);
+    show(".sw-love", drag.dy < 0 && Math.abs(drag.dy) >= Math.abs(drag.dx) ? k(drag.dy) : 0); show(".sw-skip", drag.dy > 0 && Math.abs(drag.dy) >= Math.abs(drag.dx) ? k(drag.dy) : 0);
+  });
+  const endDrag = (e) => {
+    if (!drag || (e && e.pointerId !== drag.id)) return;
+    const { dx, dy, card } = drag; drag = null;
+    if (Math.abs(dx) + Math.abs(dy) > 8) dragSuppress = true;   // a drag that starts on the poster must not also follow its link
+    const act = Math.abs(dx) > Math.abs(dy) ? (dx > 100 ? "like" : dx < -100 ? "no" : null) : (dy < -100 ? "love" : dy > 100 ? "skip" : null);
+    if (act) swipeAct(act);
+    else { card.style.transition = "transform .2s"; card.style.transform = ""; card.querySelectorAll(".sw-stamp").forEach((s) => { s.style.opacity = 0; }); }
+  };
+  document.addEventListener("pointerup", endDrag); document.addEventListener("pointercancel", endDrag);
+  document.addEventListener("keydown", (e) => {
+    if (e.target.closest("input, textarea, select, [contenteditable]") || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (location.hash.startsWith("#swipe")) {
+      const act = { ArrowLeft: "no", ArrowRight: "like", ArrowUp: "love", ArrowDown: "skip", z: "undo", Z: "undo" }[e.key];
+      if (act) { e.preventDefault(); swipeAct(act); }
+    } else if (location.hash.startsWith("#spin")) {
+      const act = { ArrowLeft: "left", ArrowRight: "right", Enter: "ok", " ": "ok", Escape: "left" }[e.key];
+      if (act && !e.target.closest("a, button")) { e.preventDefault(); spinKey(act); }
+    }
+  });
+
+  // ---- spin: "Don't have time to browse?"
+  const SPIN_MOODS = [
+    { name: "Comfort", colour: "#F2B84B", rule: { any_tags: ["mood:comforting", "genre:sitcom", "mood:uplifting"], min_strength: 0.8 } },
+    { name: "Laugh out loud", colour: "#F27D4B", rule: { any_tags: ["mood:funny", "genre:comedy"], min_strength: 0.8 } },
+    { name: "Edge of the seat", colour: "#E5484D", rule: { any_tags: ["mood:tense", "genre:thriller"], min_strength: 0.8 } },
+    { name: "After dark", colour: "#7C6BB0", rule: { any_tags: ["mood:eerie", "genre:horror", "mood:unsettling"], min_strength: 0.8 } },
+    { name: "Mind games", colour: "#3E8C8C", rule: { any_tags: ["narrative:puzzle-box", "complexity:intellectually-demanding", "genre:mystery"], min_strength: 0.8 } },
+    { name: "Epic escapes", colour: "#4B8EF2", rule: { any_tags: ["mood:epic", "mood:wonder", "genre:adventure", "genre:fantasy"], min_strength: 0.8 } },
+    { name: "A good cry", colour: "#6C7A99", rule: { any_tags: ["mood:melancholic", "genre:tragic-romance", "genre:family-drama"], min_strength: 0.8 } },
+    { name: "Falling in love", colour: "#E5679B", rule: { any_tags: ["mood:romantic", "genre:romance"], min_strength: 0.8 } },
+    { name: "Anything at all", colour: "#B8C0CC", rule: {} },
+  ];
+  let moodPickState = null;
+  const spin = { i: 0, phase: "deck", picks: [], pick: null, count: 3, timer: null, cache: new Map(), seed: Math.floor(Math.random() * 1e6) };
+  function spinPool(m) {
+    if (spin.cache.has(m.name)) return spin.cache.get(m.name);
+    const done = (w) => ["completed", "dropped"].includes((library[w.slug] || {}).status);
+    const pool = allWorks().filter((w) => (RAW_BY.get(w.slug).summary || wTier(w) <= 2) && obsMatch(w, m.rule) && !done(w) && !avoided(w.slug) && tasteRatings()[w.slug] !== "disliked")
+      .sort((a, b) => ((unifiedScore(b) || 55) - (unifiedScore(a) || 55)) || a.title.localeCompare(b.title)).slice(0, 60);
+    const mixed = pool.map((w) => [unitHash(`${m.name}|${spin.seed}|${w.slug}`), w]).sort((a, b) => a[0] - b[0]).map((x) => x[1]).slice(0, 24);
+    spin.cache.set(m.name, mixed); return mixed;
+  }
+  function renderSpin() {
+    clearInterval(spin.timer);
+    const moods = SPIN_MOODS.filter((m) => spinPool(m).length >= 3), m = moods[spin.i % moods.length], pool = spinPool(m);
+    const peek = [1, 2].map((d) => moods[(spin.i + d) % moods.length]);
+    const bg = pool.find((w) => w.image) || pool[0];
+    app.innerHTML = `
+      <div class="spin" style="--mc:${m.colour}">
+        <div class="spin-bg" aria-hidden="true">${bg && bg.image ? `<img src="${esc(bg.image.url)}" alt="" loading="lazy">` : ""}</div>
+        <header class="page-head"><p class="eyebrow">Don't have time to browse?</p><h1>Pick a mood, we'll pick the title</h1>
+          <p class="muted">Right or Enter to spin, left to try another mood. The posters spin like a slot machine, land on one, and open it after a short countdown.</p></header>
+        <div class="spin-stage" id="spin-stage" aria-live="polite"></div>
+        <div class="sw-btns" id="spin-btns" role="group" aria-label="Choose a mood"><button type="button" class="sw-b no" data-spin="left" aria-label="Another mood">✕</button><button type="button" class="sw-b like" data-spin="right" aria-label="Spin this mood">✓</button></div>
+      </div>`;
+    spin.phase = "deck"; spin.mood = m; spin.peek = peek;
+    document.getElementById("spin-stage").innerHTML = spinDeckHtml(m, pool, peek);
+  }
+  const moodCard = (m, pool, cls = "") => `<article class="spin-card ${cls}" style="--mc:${m.colour}"><div class="spin-fan">${pool.slice(0, 3).map((w, i) => `<span class="spin-p p${i}">${poster(cardCover(w))}</span>`).join("")}</div><h2>${esc(m.name)}</h2><p class="muted small">${spinPool(m).length} titles</p></article>`;
+  const spinDeckHtml = (m, pool, peek) => `${peek.slice().reverse().map((x, i) => moodCard(x, spinPool(x), `peek d${2 - i}`)).join("")}${moodCard(m, pool, "top")}`;
+  function spinKey(act) {
+    if (spin.phase === "deck") { if (act === "left") spinNo(); else if (act === "right" || act === "ok") spinGo(); }
+    else if (spin.phase === "count") { if (act === "ok") spinOpen(); else if (act === "right") spinGo(); else if (act === "left") { clearInterval(spin.timer); renderSpin(); } }
+  }
+  function spinNo() {
+    moodPicks.skips[spin.mood.name] = (moodPicks.skips[spin.mood.name] || 0) + 1; store("mimir-moodpicks", moodPicks);
+    const card = document.querySelector(".spin-card.top");
+    const done = () => { spin.i++; renderSpin(); };
+    if (!card || reduceMotion()) { done(); return; }
+    card.style.transition = "transform .3s ease-in, opacity .3s"; card.style.transform = "translateX(-420px) rotate(-14deg)"; card.style.opacity = "0"; setTimeout(done, 280);
+  }
+  function spinGo() {
+    clearInterval(spin.timer);
+    const m = spin.mood, pool = spinPool(m);
+    if (spin.phase === "deck") { moodPicks.picks[m.name] = (moodPicks.picks[m.name] || 0) + 1; store("mimir-moodpicks", moodPicks); setTimeout(checkBadges, 0); }
+    const target = pool[Math.floor(Math.random() * Math.min(pool.length, 24))];
+    const strip = []; for (let k = 0; k < 28; k++) strip.push(pool[(k * 7 + Math.floor(Math.random() * pool.length)) % pool.length]);
+    const L = 22; strip[L] = target; spin.pick = target; spin.phase = "reel";
+    const stage = document.getElementById("spin-stage"), W = 132;
+    stage.innerHTML = `<div class="reel" style="--mc:${m.colour}"><div class="reel-strip" id="reel-strip">${strip.map((w) => `<span class="reel-p">${poster(cardCover(w))}</span>`).join("")}</div><span class="reel-mark" aria-hidden="true"></span></div><p class="muted small" id="spin-note">Spinning ${esc(m.name)}…</p>`;
+    document.getElementById("spin-btns").hidden = true;
+    const strip_ = document.getElementById("reel-strip"), vw = stage.clientWidth || 360, final = -(L * W) + vw / 2 - W / 2;
+    const land = () => { if (spin.phase !== "reel") return; spin.phase = "count"; spin.count = 3; spinCount(); };
+    if (reduceMotion()) { strip_.style.transform = `translateX(${final}px)`; land(); return; }
+    strip_.style.transform = "translateX(0)"; void strip_.offsetWidth;
+    strip_.style.transition = "transform 3.2s cubic-bezier(.12,.72,.12,1)"; strip_.style.transform = `translateX(${final}px)`;
+    setTimeout(land, 3300);
+  }
+  function spinCount() {
+    const w = spin.pick, m = spin.mood;
+    document.getElementById("spin-note").outerHTML = `<div class="spin-land" style="--mc:${m.colour}"><h2>${esc(w.title)}</h2><p class="muted small">${esc([mediumLabel(w.medium), w.year, (w.creators || [])[0]].filter(Boolean).join(" · "))}</p>
+      <p class="spin-count" id="spin-count">Opening in 3…</p><span class="spin-bar"><span id="spin-fill"></span></span>
+      <p class="pchips"><button type="button" class="btn" data-spin="ok">Open now</button><button type="button" class="btn ghost" data-spin="right">Spin again</button><button type="button" class="linkish" data-spin="left">Another mood</button></p></div>`;
+    document.getElementById("spin-btns").hidden = true;
+    const fill = document.getElementById("spin-fill"); fill.style.transition = reduceMotion() ? "none" : "width 3s linear"; void fill.offsetWidth; fill.style.width = "100%";
+    spin.timer = setInterval(() => { spin.count--; const el = document.getElementById("spin-count"); if (!el) { clearInterval(spin.timer); return; } if (spin.count <= 0) { clearInterval(spin.timer); spinOpen(); } else el.textContent = `Opening in ${spin.count}…`; }, 1000);
+  }
+  function spinOpen() { clearInterval(spin.timer); if (spin.pick) location.hash = `#work-${spin.pick.slug}`; }
+
+  // ---- craft: combine pieces into a hybrid, and get the pick that fits it best
+  const EMOJI_GENRE = { "science-fiction": "🚀", fantasy: "🧙", horror: "👻", comedy: "😂", romance: "💞", thriller: "🕵️", drama: "🎭", animation: "🎨", crime: "🕶️", war: "⚔️", mystery: "🔍", adventure: "🧭", action: "💥", musical: "🎶", documentary: "🎥", historical: "🏛️", family: "🏡", rpg: "🎲", jazz: "🎷", rock: "🎸", electronic: "🎛️", "hip-hop": "🎤", pop: "🎧", "space-opera": "🛸", cyberpunk: "🌃", western: "🤠", superhero: "🦸", biography: "📖", sports: "🏅", food: "🍜" };
+  const EMOJI_MOOD = { comforting: "☕", funny: "😄", tense: "😬", eerie: "🌫️", epic: "🏔️", wonder: "✨", melancholic: "🌧️", romantic: "💗", uplifting: "🌅", whimsical: "🎈", bleak: "🌑", nostalgic: "📼", contemplative: "🍃", unsettling: "🫥", "darkly-funny": "🖤" };
+  const craft = { items: [], sel: [], last: null, medium: "any", q: "", uid: 1, dragging: null };
+  const STARTERS = [["tag", "mood:comforting"], ["tag", "mood:funny"], ["tag", "mood:tense"], ["tag", "mood:wonder"], ["tag", "mood:melancholic"], ["tag", "genre:science-fiction"], ["tag", "genre:fantasy"], ["tag", "genre:crime"], ["medium", "film"], ["medium", "series"], ["medium", "book"], ["medium", "game"], ["medium", "album"]];
+  const norm1 = (m) => { const mx = Math.max(0, ...m.values()) || 1; return new Map([...m].map(([k, v]) => [k, v / mx])); };
+  // An element is { kind: work | tag | medium | blend, ref }; resolve gives its name, emoji and quality vector.
+  function resolve(el) {
+    if (el.kind === "work") { const w = cardOf(el.ref); return w ? { name: w.title, emoji: { film: "🎞️", series: "📺", book: "📖", game: "🎮", album: "💿" }[w.medium] || "✨", vec: norm1(new Map([...termMap().get(w.slug)].filter(([, v]) => v >= 0.4))), slug: w.slug, medium: null } : null; }
+    if (el.kind === "tag") return { name: labelOf(el.ref), emoji: el.ref.startsWith("genre:") ? EMOJI_GENRE[el.ref.slice(6)] || "🏷️" : EMOJI_MOOD[el.ref.slice(5)] || "🏷️", vec: new Map([[el.ref, 1]]), medium: null };
+    if (el.kind === "medium") return { name: PLURAL[el.ref], emoji: { film: "🎞️", series: "📺", book: "📖", game: "🎮", album: "💿" }[el.ref], vec: new Map(), medium: el.ref };
+    const b = craftBook[el.ref]; return b ? { name: b.name, emoji: b.emoji, vec: new Map(Object.entries(b.vec)), medium: b.medium || null, blend: b } : null;
+  }
+  const elId = (el) => `${el.kind}:${el.ref}`;
+  function combine(a, b) {
+    const A = resolve(a), B = resolve(b);
+    const merged = new Map();
+    for (const [k, v] of norm1(A.vec)) merged.set(k, v);
+    for (const [k, v] of norm1(B.vec)) merged.set(k, (merged.get(k) || 0) + v * (merged.has(k) ? 1.35 : 1));   // what both share counts for more
+    const vec = norm1(new Map([...merged].filter(([k]) => !k.startsWith("advisory:")).sort((x, y) => y[1] - x[1]).slice(0, 14)));
+    const medium = A.medium || B.medium || null;
+    const genres = [...vec].filter(([k]) => k.startsWith("genre:") && !isSub(k)).sort((x, y) => y[1] - x[1]);
+    const moods = [...vec].filter(([k]) => /^(mood|theme|style|world):/.test(k)).sort((x, y) => y[1] - x[1]);
+    const g1 = genres[0] && genres[0][0], m1 = moods[0] && moods[0][0];
+    const lab = (k) => labelOf(k);
+    let name = [m1 && lab(m1), g1 && lab(g1).toLowerCase()].filter(Boolean).join(" ") || `${A.name} × ${B.name}`;
+    if (medium) name = `${name} ${medium === "film" ? "film" : medium === "series" ? "series" : medium === "album" ? "album" : medium}`.replace("book book", "book");
+    const emoji = (g1 && EMOJI_GENRE[g1.slice(6)]) || (m1 && EMOJI_MOOD[m1.split(":")[1]]) || "✨";
+    const id = [elId(a), elId(b)].sort().join("+");
+    const bid = `b${hashOf(id).toString(36)}`;
+    const first = !craftBook[bid];
+    craftBook[bid] = { name: name.charAt(0).toUpperCase() + name.slice(1), emoji, vec: Object.fromEntries(vec), medium, parents: [A.name, B.name], at: craftBook[bid] ? craftBook[bid].at : today() };
+    if (first) { store("mimir-craft", craftBook); setTimeout(checkBadges, 0); }
+    return { el: { kind: "blend", ref: bid }, first };
+  }
+  function craftPicks(blend, exclude) {
+    const medium = craft.medium !== "any" ? craft.medium : blend.medium;
+    const vec = new Map(Object.entries(blend.vec)), gkeys = [...vec].filter(([k]) => k.startsWith("genre:") && !isSub(k)).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([k]) => k);
+    const mag = Math.sqrt([...vec.values()].reduce((s, v) => s + v * v, 0)) || 1, out = [];
+    for (const w of allWorks()) {
+      if (NOT_MEDIA.includes(w.medium) || (medium && w.medium !== medium) || exclude.has(w.slug) || ratings[w.slug] === "disliked" || avoided(w.slug)) continue;
+      const tm = termMap().get(w.slug); let dot = 0, mag2 = 0, cover = 0, total = 0;
+      for (const [k, x] of vec) { total += x; cover += Math.min(x, tm.get(k) || 0); }   // how much of the blend the work carries
+      for (const [k, v] of tm) { mag2 += v * v; const x = vec.get(k); if (x) dot += x * v; }
+      if (!dot) continue;
+      // A work tagged only with a genre can't carry a mood, so coverage leads and focus (cosine) only breaks ties.
+      let s = (cover / (total || 1)) + 0.15 * (dot / (mag * Math.sqrt(mag2 || 1))) + (gkeys.some((g) => (tm.get(g) || 0) >= 0.6) ? 0.12 : 0) + 0.04 * (wTier(w) <= 2 ? 1 : 0) + 0.002 * (unifiedScore(w) || 50);
+      out.push([s, w]);
+    }
+    return out.sort((a, b) => b[0] - a[0]).slice(0, 3).map(([s, w]) => ({ w, shared: [...vec].filter(([k, v]) => (termMap().get(w.slug).get(k) || 0) >= 0.4).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => labelOf(k)) }));
+  }
+  const craftChip = (el, cls = "") => { const r = resolve(el); return r ? `<span class="cr-chip ${cls}" data-el="${esc(elId(el))}"><span aria-hidden="true">${r.emoji}</span> ${esc(r.name)}</span>` : ""; };
+  const parseEl = (id) => { const i = id.indexOf(":"); return { kind: id.slice(0, i), ref: id.slice(i + 1) }; };
+  function trayElements() {
+    const mine = Object.entries(tasteRatings()).filter(([, v]) => v !== "disliked").map(([s]) => ({ kind: "work", ref: s })).filter((e) => cardOf(e.ref)).slice(0, 12);
+    const blends = Object.keys(craftBook).map((ref) => ({ kind: "blend", ref })).reverse();
+    return [...STARTERS.map(([kind, ref]) => ({ kind, ref })), ...blends, ...mine].filter((e) => !craft.q || (resolve(e) || { name: "" }).name.toLowerCase().includes(craft.q.toLowerCase()));
+  }
+  function renderCraft() {
+    const found = Object.keys(craftBook).length;
+    app.innerHTML = `
+      <header class="page-head"><p class="eyebrow">Craft</p><h1>Mix and match your way to a recommendation</h1>
+        <p class="muted">Drag one piece onto another, or tap two and press Combine. Works, moods, genres and mediums blend into something new, and Mimir finds the pick that fits it best. Every blend you discover is kept, and can be combined again.</p></header>
+      ${titleList()}
+      <div class="cr">
+        <aside class="cr-tray" aria-label="Pieces">
+          <input type="search" id="cr-q" placeholder="Search pieces" aria-label="Search pieces" value="${esc(craft.q)}">
+          <form class="cr-add" data-craft-add><input name="title" list="mimir-titles" placeholder="Add any work" aria-label="Add a work" autocomplete="off"><button class="btn ghost" type="submit">Add</button></form>
+          <div class="cr-list" id="cr-list">${trayElements().map((e) => craftChip(e, "tray")).join("") || `<p class="muted small">No pieces match.</p>`}</div>
+          <p class="muted small">${found} blend${found === 1 ? "" : "s"} discovered</p></aside>
+        <section class="cr-main"><div class="cr-canvas" id="cr-canvas" aria-label="Crafting area">${craft.items.length ? "" : `<p class="cr-hint muted">Drag pieces here</p>`}${craft.items.map(itemHtml).join("")}</div>
+          <p class="cr-bar"><button type="button" class="btn" data-craft="combine"${craft.sel.length === 2 ? "" : " disabled"}>Combine the two selected</button><button type="button" class="linkish" data-craft="clear">Clear the table</button>
+            <span class="eyebrow">Find it in</span>${["any", ...MEDIA].map((m) => `<button type="button" class="tchip${craft.medium === m ? " on" : ""}" data-craft-medium="${m}" aria-pressed="${craft.medium === m}">${esc(m === "any" ? "Anything" : PLURAL[m])}</button>`).join("")}</p>
+          <div id="cr-result" aria-live="polite">${craft.last ? resultHtml(craft.last) : ""}</div></section>
+      </div>`;
+  }
+  const itemHtml = (it) => `<span class="cr-item${craft.sel.includes(it.uid) ? " sel" : ""}" data-uid="${it.uid}" style="left:${it.x}px;top:${it.y}px" tabindex="0" role="button" aria-pressed="${craft.sel.includes(it.uid)}">${craftChip(it.el, "on-table").replace(/^<span class="cr-chip [^"]*"[^>]*>/, "").replace(/<\/span>$/, "")}<button type="button" class="cr-x" data-craft-del="${it.uid}" aria-label="Remove from the table">×</button></span>`;
+  function resultHtml(r) {
+    const R = resolve(r.el), b = R.blend, picks = craftPicks(b, new Set(r.exclude || []));
+    const keys = Object.entries(b.vec).sort((x, y) => y[1] - x[1]).slice(0, 6);
+    return `<div class="cr-res"><p class="eyebrow">${esc(r.a)} + ${esc(r.b)} =</p><h2><span aria-hidden="true">${b.emoji}</span> ${esc(b.name)}${r.first ? ` <span class="tchip on">New discovery</span>` : ""}</h2>
+      <p class="pchips">${keys.map(([k]) => `<a class="tchip" href="#${tagToken(k)}">${esc(labelOf(k))}</a>`).join("")}</p>
+      ${picks.length ? `<h3 class="sub-h">Your ideal pick${craft.medium !== "any" ? ` in ${esc(PLURAL[craft.medium].toLowerCase())}` : ""}</h3>${pgrid(picks.map((p) => p.w), (w) => `<p class="pmeta">Shares ${esc(picks.find((p) => p.w === w).shared.join(", ").toLowerCase())}</p>${rateButtons(w.slug, true)}`)}` : `<p class="empty">Nothing fits that blend in this medium yet. Try another medium.</p>`}</div>`;
+  }
+  function craftCombine(ua, ub) {
+    const a = craft.items.find((i) => i.uid === ua), b = craft.items.find((i) => i.uid === ub);
+    if (!a || !b || a === b) return;
+    const { el, first } = combine(a.el, b.el), ra = resolve(a.el), rb = resolve(b.el);
+    craft.items = craft.items.filter((i) => i !== a && i !== b);
+    craft.items.push({ uid: craft.uid++, el, x: Math.round((a.x + b.x) / 2), y: Math.round((a.y + b.y) / 2) });
+    craft.sel = []; craft.last = { el, first, a: ra.name, b: rb.name, exclude: [ra.slug, rb.slug].filter(Boolean) };
+    renderCraft();
+  }
+  function craftAddItem(el, x, y) { const c = document.getElementById("cr-canvas"), n = craft.items.length; craft.items.push({ uid: craft.uid++, el, x: x ?? 24 + (n % 4) * 150, y: y ?? 24 + Math.floor(n / 4) * 56 }); return craft.items[craft.items.length - 1]; }
+  // Dragging: from the tray (makes a copy on the table) or from the table; dropping one piece on another combines them.
+  document.addEventListener("pointerdown", (e) => {
+    const canvas = document.getElementById("cr-canvas");
+    if (!canvas || e.target.closest(".cr-x, button, input, form")) return;
+    const tray = e.target.closest(".cr-chip.tray"), item = e.target.closest(".cr-item");
+    if (!tray && !item) return;
+    const box = canvas.getBoundingClientRect();
+    let it;
+    if (tray) { it = craftAddItem(parseEl(tray.dataset.el), e.clientX - box.left - 40, e.clientY - box.top - 16); renderCraft(); }
+    else it = craft.items.find((i) => i.uid === Number(item.dataset.uid));
+    if (!it) return;
+    const node = document.querySelector(`.cr-item[data-uid="${it.uid}"]`);
+    craft.dragging = { it, node, ox: e.clientX - (box.left + it.x), oy: e.clientY - (box.top + it.y), sx: e.clientX, sy: e.clientY, moved: false, id: e.pointerId };
+    node.setPointerCapture(e.pointerId); node.classList.add("drag");
+  });
+  document.addEventListener("pointermove", (e) => {
+    const d = craft.dragging; if (!d || e.pointerId !== d.id) return;
+    const canvas = document.getElementById("cr-canvas"), box = canvas.getBoundingClientRect();
+    if (Math.abs(e.clientX - d.sx) + Math.abs(e.clientY - d.sy) > 4) d.moved = true;
+    d.it.x = Math.round(e.clientX - box.left - d.ox); d.it.y = Math.round(e.clientY - box.top - d.oy);
+    d.node.style.left = `${d.it.x}px`; d.node.style.top = `${d.it.y}px`;
+    document.querySelectorAll(".cr-item.over").forEach((n) => n.classList.remove("over"));
+    const t = overItem(d); if (t) t.classList.add("over");
+  });
+  const overItem = (d) => { const r = d.node.getBoundingClientRect(); return [...document.querySelectorAll(".cr-item")].find((n) => n !== d.node && (() => { const q = n.getBoundingClientRect(); return !(q.right < r.left + 12 || q.left > r.right - 12 || q.bottom < r.top + 8 || q.top > r.bottom - 8); })()); };
+  const endCraftDrag = (e) => {
+    const d = craft.dragging; if (!d || (e && e.pointerId !== d.id)) return;
+    craft.dragging = null; d.node.classList.remove("drag");
+    const tray = document.querySelector(".cr-tray").getBoundingClientRect();
+    if (d.moved && e.clientX < tray.right && e.clientX > tray.left && e.clientY > tray.top && e.clientY < tray.bottom) { craft.items = craft.items.filter((i) => i !== d.it); craft.sel = craft.sel.filter((u) => u !== d.it.uid); renderCraft(); return; }
+    if (!d.moved) { const s = craft.sel; const i = s.indexOf(d.it.uid); if (i >= 0) s.splice(i, 1); else { s.push(d.it.uid); if (s.length > 2) s.shift(); } renderCraft(); return; }
+    const t = overItem(d);
+    if (t) craftCombine(d.it.uid, Number(t.dataset.uid)); else renderCraft();
+  };
+  document.addEventListener("pointerup", endCraftDrag); document.addEventListener("pointercancel", endCraftDrag);
+
+  // ---- easter eggs: small surprises on some well-known titles, found by clicking the cover
+  const EGGS = [
+    ["spidey", /^(spider-man|marvels-spider-man)/, { kind: "burst", colour: "#E5484D", say: "Spider-sense tingling" }],
+    ["flash", /^the-flash-2014/, { kind: "shudder", colour: "#F2B84B", say: "Faster" }],
+    ["matrix", /^the-matrix/, { kind: "rain", glyphs: "01ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ", colour: "#3DDC84", say: "Wake up" }],
+    ["starwars", /^star-wars/, { kind: "crawl", say: "A long time ago in a galaxy far, far away…" }],
+    ["potter", /^harry-potter/, { kind: "glow", colour: "#F5E6A8", say: "Lumos" }],
+    ["ring", /^(the-fellowship-of-the-ring|the-two-towers|the-return-of-the-king|the-lord-of-the-rings|the-hobbit)/, { kind: "glow", colour: "#D8B24A", say: "Not all those who wander are lost" }],
+    ["stranger", /^stranger-things/, { kind: "glow", colour: "#E5484D", say: "Friends don't lie", flicker: true }],
+    ["squid", /^squid-game/, { kind: "float", glyphs: ["○", "△", "□"], colour: "#E5679B", say: "Red light, green light" }],
+    ["bb", /^breaking-bad/, { kind: "tiles", tiles: [["Br", "35", "79.904"], ["Ba", "56", "137.327"]], say: "Say my name" }],
+    ["severance", /^severance/, { kind: "split", say: "Have you been feeling like yourself?" }],
+    ["dune", /^dune-/, { kind: "rain", glyphs: "·•.", colour: "#D9B26F", dir: "side", say: "Fear is the mind-killer" }],
+    ["interstellar", /^interstellar/, { kind: "spin", say: "Stay" }],
+    ["inception", /^inception/, { kind: "spin", fast: true, say: "Still spinning?" }],
+    ["jurassic", /^jurassic-(park|world)/, { kind: "ripples", say: "Life finds a way" }],
+    ["bttf", /^back-to-the-future/, { kind: "counter", say: "88 miles per hour" }],
+    ["barbie", /^barbie/, { kind: "float", glyphs: ["✦", "♥", "✧"], colour: "#FF69B4", say: "Hi Barbie" }],
+    ["zelda", /^the-legend-of-zelda/, { kind: "glow", colour: "#F2D04B", say: "It's dangerous to go alone", tri: true }],
+    ["mario", /^super-mario/, { kind: "float", glyphs: ["◎"], colour: "#F2B84B", dir: "up", say: "+1", coins: true }],
+    ["pokemon", /^pokemon/, { kind: "float", glyphs: ["◓"], colour: "#E5484D", dir: "bounce", say: "Gotta catch 'em all" }],
+    ["minecraft", /^minecraft/, { kind: "rain", glyphs: "■", colour: "#7CB342", say: "Craft" }],
+    ["hollow", /^hollow-knight/, { kind: "float", glyphs: ["•"], colour: "#CFE8FF", dir: "up", say: "Soul" }],
+    ["undertale", /^undertale/, { kind: "float", glyphs: ["♥"], colour: "#E5484D", dir: "pulse", say: "You are filled with determination" }],
+    ["got", /^(game-of-thrones|a-game-of-thrones)/, { kind: "rain", glyphs: "•", colour: "#EAF2FF", dir: "snow", say: "Winter is coming" }],
+    ["tardis", /^doctor-who/, { kind: "tardis", say: "Bigger on the inside" }],
+    ["portal", /^portal/, { kind: "portals", say: "Now you're thinking with portals" }],
+    ["lastofus", /^the-last-of-us/, { kind: "float", glyphs: ["·", "•"], colour: "#B7C98B", dir: "up", say: "Look for the light" }],
+  ];
+  const eggFor = (slug) => EGGS.find(([, rx]) => rx.test(slug));
+  function playEgg(def, node) {
+    const [id, , fx] = def, found = !eggsFound.includes(id);
+    if (found) { eggsFound.push(id); store("mimir-eggs", eggsFound); setTimeout(checkBadges, 0); }
+    document.getElementById("egg")?.remove();
+    const el = document.createElement("div"); el.id = "egg"; el.className = `egg-fx egg-${fx.kind}`; el.setAttribute("aria-hidden", "true");
+    el.style.setProperty("--ec", fx.colour || "#D8B24A");
+    const say = `<p class="egg-say">${esc(fx.say)}${found ? ` <span class="egg-n">Easter egg ${eggsFound.length} of ${EGGS.length}</span>` : ""}</p>`;
+    if (reduceMotion()) { el.innerHTML = say; el.classList.add("still"); }
+    else el.innerHTML = say + eggParts(fx);
+    document.body.appendChild(el);
+    if (!reduceMotion() && node) { node.classList.remove("egg-shake", "egg-spin", "egg-split"); void node.offsetWidth; if (fx.kind === "shudder" || fx.kind === "burst" || fx.kind === "ripples") node.classList.add("egg-shake"); if (fx.kind === "spin") node.classList.add("egg-spin"); }
+    setTimeout(() => el.remove(), 3600);
+    if (found) toast(`<span class="toast-icon">🥚</span> Easter egg found: <strong>${esc(fx.say)}</strong>`);
+  }
+  function eggParts(fx) {
+    const r = (a, b) => (a + Math.random() * (b - a)).toFixed(1), n = (c, f) => Array.from({ length: c }, (_, i) => f(i)).join("");
+    switch (fx.kind) {
+      case "burst": return n(14, (i) => `<i class="eb-line" style="--a:${i * 25.7}deg;animation-delay:${r(0, .15)}s"></i>`);
+      case "shudder": return n(7, (i) => `<i class="es-streak" style="top:${r(10, 90)}%;animation-delay:${r(0, .3)}s"></i>`);
+      case "rain": { const chars = [...fx.glyphs]; return n(fx.dir === "snow" ? 70 : 46, () => `<i class="er-g${fx.dir === "side" ? " side" : ""}" style="left:${r(0, 100)}%;top:${r(-10, 40)}%;animation-duration:${r(1.6, 3.2)}s;animation-delay:${r(0, 1)}s;font-size:${r(12, 22)}px">${chars[Math.floor(Math.random() * chars.length)]}</i>`); }
+      case "crawl": return `<div class="ec-crawl"><p>${esc(fx.say)}</p></div>`;
+      case "glow": return `<div class="eg-glow${fx.flicker ? " flicker" : ""}"></div>${fx.tri ? `<div class="eg-tri" aria-hidden="true">▲<br>▲ ▲</div>` : ""}`;
+      case "float": return n(26, () => `<i class="ef-g ${fx.dir || ""}" style="left:${r(4, 96)}%;animation-duration:${r(1.8, 3.2)}s;animation-delay:${r(0, 1.2)}s;font-size:${r(18, 40)}px">${fx.glyphs[Math.floor(Math.random() * fx.glyphs.length)]}</i>`);
+      case "tiles": return `<div class="et-row">${fx.tiles.map(([s, num, w]) => `<div class="et-tile"><small>${num}</small><b>${s}</b><small>${w}</small></div>`).join("")}</div>`;
+      case "split": return `<div class="esp-half l"><span>Innie</span></div><div class="esp-half r"><span>Outie</span></div>`;
+      case "spin": return `<div class="esn-ring${fx.fast ? " fast" : ""}"></div>`;
+      case "ripples": return n(4, (i) => `<i class="erp-c" style="animation-delay:${i * 0.45}s"></i>`);
+      case "counter": return `<div class="ebt"><span class="ebt-n">88</span><small>mph</small></div><i class="ebt-t t1"></i><i class="ebt-t t2"></i>`;
+      case "tardis": return `<div class="etd"><i></i><b>POLICE<br>PUBLIC CALL BOX</b></div>`;
+      case "portals": return `<i class="epo a"></i><i class="epo b"></i>`;
+      default: return "";
+    }
+  }
+  document.addEventListener("click", (e) => {
+    const art = e.target.closest(".work-art-frame");
+    if (!art || e.target.closest("a, button")) return;
+    const def = eggFor(location.hash.replace(/^#work-/, "").split("?")[0]);
+    if (def) playEgg(def, art);
+  });
+
+  // ---- shared click and form handlers for the three pages
+  app.addEventListener("click", (e) => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    const d = b.dataset;
+    if (d.sw) swipeAct(d.sw);
+    else if (d.spin) spinKey(d.spin);
+    else if (d.craft === "combine") { if (craft.sel.length === 2) craftCombine(craft.sel[0], craft.sel[1]); }
+    else if (d.craft === "clear") { craft.items = []; craft.sel = []; craft.last = null; renderCraft(); }
+    else if (d.craftDel) { craft.items = craft.items.filter((i) => i.uid !== Number(d.craftDel)); craft.sel = craft.sel.filter((u) => u !== Number(d.craftDel)); renderCraft(); }
+    else if (d.craftMedium) { craft.medium = d.craftMedium; renderCraft(); }
+  });
+  app.addEventListener("submit", (e) => {
+    const f = e.target;
+    if (f.dataset.craftAdd !== undefined) {
+      e.preventDefault(); const slug = slugFromTitle(f.elements.title.value);
+      if (!slug) { f.elements.title.setCustomValidity("Pick a title from the list"); f.reportValidity(); return; }
+      craftAddItem({ kind: "work", ref: slug }); renderCraft();
+    }
+  });
+  app.addEventListener("input", (e) => { if (e.target.id === "cr-q") { craft.q = e.target.value; const list = document.getElementById("cr-list"); if (list) list.innerHTML = trayElements().map((x) => craftChip(x, "tray")).join("") || `<p class="muted small">No pieces match.</p>`; } });
+  app.addEventListener("keydown", (e) => { const it = e.target.closest(".cr-item"); if (it && (e.key === "Enter" || e.key === " ") && !e.target.closest("button")) { e.preventDefault(); const u = Number(it.dataset.uid), s = craft.sel, i = s.indexOf(u); if (i >= 0) s.splice(i, 1); else { s.push(u); if (s.length > 2) s.shift(); } renderCraft(); document.querySelector(`.cr-item[data-uid="${u}"]`)?.focus(); } });
+
   // ------------------------------------------------------------------ routing & events
   function setNav(group) {
     document.querySelectorAll(".menu-btn").forEach((b) => b.classList.toggle("here", b.textContent === group));
@@ -4902,6 +5441,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h === "plan") { setNav("Discover"); renderPlan(); }
     else if (h === "together") { setNav("Discover"); renderTogether(); }
     else if (h === "taste") { setNav("Discover"); renderTaste(); }
+    else if (h === "swipe") { setNav("Discover"); renderSwipe(p); }
+    else if (h === "spin") { setNav("Discover"); renderSpin(); }
+    else if (h === "craft") { setNav("Discover"); renderCraft(); }
     else if (h === "mix") { setNav("Discover"); renderMix(); }
     else if (h === "journal") { setNav("Library"); renderJournal(); }
     else if (h === "calendar") { setNav("Community"); renderCalendar(p); }
