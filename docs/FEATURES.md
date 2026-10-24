@@ -85,6 +85,9 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   (1st, 5th, 10th, 50th…), visit streaks, days you've opened Mimir, and how often you share works, lists and pages.
   Each share button shows how many times you've shared that link.
 - **Journal**, **stats** and a **year in review**.
+- **Reset my recommendations:** in your profile (and under Import & export), one confirmed click deletes your library,
+  ratings, "not for me" marks, feedback on picks and taste edits so recommendations start again from nothing.
+  Lists, journal, trackers and rings are kept, and a signed-in account's synced library is cleared too.
 - **Import and export** your whole library as a file.
 - Everything lives in your browser unless you sign in.
 

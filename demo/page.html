@@ -577,6 +577,10 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; border-radius: 50%; background: var(--gold-bright); color: #131315; font-size: 28px; line-height: 72px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, .5); }
 .video-facade:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
 .video-embed figcaption { margin-top: 6px; }
+.btn.danger { background: #8E3A22; border-color: #8E3A22; color: #fff; }
+.btn.danger:hover { background: #A8452A; }
+.btn[disabled] { opacity: .5; cursor: default; }
+.reset-box { margin-top: 28px; }
 .share-n { display: inline-block; min-width: 1.5em; margin-left: 6px; padding: 1px 6px; border-radius: 99px; background: var(--gold); color: var(--black); font-size: .72rem; line-height: 1.4; }
 .dna { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
 .dna-fig { margin: 0; color: var(--cream); text-align: center; }
@@ -3560,7 +3564,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <header class="sec-head"><h2>Export</h2></header>
         <p class="muted">Your library lives only in this browser. Save a backup now and then, or move it to another device.</p>
         <p class="lib-actions"><button type="button" class="btn" data-export="json">Download backup (.json)</button><button type="button" class="btn ghost" data-export="csv">Download as spreadsheet (.csv)</button></p>
-      </section>`;
+      </section>
+      ${resetPanel()}`;
   }
 
   // ------------------------------------------------------------------ journal (kept in this browser; synced with an account)
@@ -4008,7 +4013,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <header class="page-head"><p class="eyebrow">@${esc(u.username)} · joined ${esc(u.joined)}${u.is_private ? " · private" : ""}</p><h1>${esc(u.display_name)}</h1>${u.bio ? `<p class="muted">${esc(u.bio)}</p>` : ""}
           <p class="pchips"><span class="tchip">${u.followers} follower${u.followers === 1 ? "" : "s"}</span><span class="tchip">${u.following_count} following</span><span class="tchip">${u.reviews} review${u.reviews === 1 ? "" : "s"}</span></p>
           ${u.is_me ? "" : session ? `<button type="button" class="btn${u.following ? " ghost" : ""}" data-follow="${esc(u.username)}" data-on="${u.following ? 1 : 0}">${u.following ? "Following ✓" : "Follow"}</button> <button type="button" class="linkish small" data-report="user" data-id="${esc(u.username)}">Report</button>` : `<a class="btn ghost" href="#signin">Sign in to follow</a>`}</header>
-        ${u.is_me ? profileSettings() : ""}
+        ${u.is_me ? profileSettings() + resetPanel() : ""}
         ${!u.visible ? `<p class="empty">This profile is private. Follow to see reviews and activity.</p>` : `
           ${u.lists.length ? `<section class="block"><header class="sec-head"><h2>Lists</h2></header><ul class="list-cards">${u.lists.map((l) => `<li><a href="#plist-${esc(l.id)}"><span class="lc-name">${esc(l.name)}</span><span class="count">${l.slugs.length} works</span><span class="lc-fan">${l.slugs.map(workOf).filter(Boolean).slice(0, 4).map((w) => poster(cardCover(w))).join("")}</span></a></li>`).join("")}</ul></section>` : ""}
           <div class="comm-grid">
@@ -4394,6 +4399,44 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else changed = false;
     if (changed) { saveTogether(); const y = window.scrollY; renderTogether(); window.scrollTo(0, y); }
   });
+
+  // ------------------------------------------------------------------ reset my recommendations
+  // One click (after a confirmation) empties what recommendations are built from: the library, quick ratings, "not for me",
+  // feedback on picks and edits to the taste profile. Lists, journal, trackers and rings are kept.
+  const resetCounts = () => ({ entries: Object.keys(library).length, rated: Object.keys(ratings).length,
+    edits: tasteEdits.boost.length + tasteEdits.mute.length + tasteEdits.avoid.length });
+  function resetPanel() {
+    const c = resetCounts();
+    return `<section class="block reset-box"><header class="sec-head"><h2>Reset my recommendations</h2></header>
+      <p class="muted">Start your picks again from nothing. This deletes the ${c.entries} work${c.entries === 1 ? "" : "s"} in your library (statuses, scores, progress and notes on them),
+        your ${c.rated} quick rating${c.rated === 1 ? "" : "s"} and "not for me" marks, your feedback on picks and your taste edits.
+        Your lists, journal, trackers and rings stay. ${session ? "Your synced library is cleared too. " : ""}It can't be undone, so <a href="#transfer">download a backup</a> first if you might want it back.</p>
+      <p class="lib-actions"><button type="button" class="btn danger" data-reset-recs${c.entries + c.rated + c.edits ? "" : " disabled"}>Delete my library and reset recommendations</button><span class="muted small" id="reset-msg" role="status"></span></p>
+    </section>`;
+  }
+  async function resetRecommendations(btn) {
+    const c = resetCounts();
+    if (!confirm(`Delete ${c.entries} work${c.entries === 1 ? "" : "s"} from your library, ${c.rated} rating${c.rated === 1 ? "" : "s"} and your taste edits, and reset your recommendations?\n\nLists, journal, trackers and rings are kept. This can't be undone.`)) return;
+    for (const k of Object.keys(library)) delete library[k];
+    ratings = {};
+    tasteEdits.boost = []; tasteEdits.mute = []; tasteEdits.avoid = [];
+    Object.assign(forYouOpts, { pop: "any", len: "any", vary: "no", fam: "any", ctx: "" });
+    decideState = { skipped: [], penalties: {}, index: 0 };
+    try {
+      for (const k of ["mimir-library", "mimir-ratings", "mimir-feedback", "mimir-shelf", "mimir-taste-edits", "mimir-foryou-opts"]) localStorage.removeItem(k);
+    } catch { /* storage unavailable: the reset still holds for this visit */ }
+    refreshCounts();
+    let note = "Done. Your recommendations have been reset.";
+    if (session && CONFIG.api) {
+      clearTimeout(syncTimer);
+      try { await api("/api/me/state", { method: "PUT", body: stateNow() }); note += " Your synced library is cleared; other devices keep theirs until you reset them too."; }
+      catch { note = "Cleared on this device, but we couldn't reach your account to clear the synced copy. Try again when you're online, or it will come back at the next sync."; }
+    }
+    const msg = document.getElementById("reset-msg");
+    if (msg) msg.textContent = note;
+    if (btn) btn.disabled = true;
+    toast(note);
+  }
 
   // ------------------------------------------------------------------ phase 1: experience DNA, taste profile, mood mixer
   // Every tag a work carries, with its strength, basis and confidence, for the DNA view and the "why" drill-downs.
@@ -4973,6 +5016,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       api("/api/lists", { method: "POST", body: { name: l.name, note: l.note || "", slugs: l.slugs } }).then((pl) => { location.hash = `#plist-${pl.id}`; }).catch((err) => alert(err.message));
     }
     else if (d.plistDelete) { if (confirm("Unpublish this list? Your own copy stays in Lists.")) api(`/api/lists/${d.plistDelete}`, { method: "DELETE" }).then(() => { location.hash = "#lists"; }); }
+    else if (d.resetRecs !== undefined) resetRecommendations(t);
     else if (d.importRead !== undefined) previewImport(document.getElementById("imp-text").value);
     else if (d.importApply !== undefined) applyImport();
     else if (d.export === "json") exportBackup();
