@@ -236,6 +236,20 @@ details > summary:hover { color: var(--bone); }
 .filters .row { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
 .check { font-size: .92rem; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
 .check input { accent-color: var(--gold-bright); width: 16px; height: 16px; }
+.acct-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px; margin-block: 20px 40px; align-items: start; }
+.acct-card { border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 12px; background: var(--surface); align-content: start; }
+.acct-card h2 { font-size: 1.25rem; } .acct-card h3 { font-size: 1.05rem; } .acct-card p { margin: 0; }
+.acct-card.danger { border-color: rgba(200, 90, 70, .45); }
+.field { display: grid; gap: 6px; font-size: .92rem; color: var(--muted); }
+.field input, .field textarea { font: inherit; color: var(--ink); background: var(--black); border: 1px solid var(--line-strong); border-radius: 10px; padding: 10px 12px; width: 100%; }
+.field textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .04em; resize: vertical; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+.key-card { border: 1px dashed var(--gold); border-radius: 12px; padding: 14px 16px; display: grid; gap: 10px; }
+.key-text { font: 600 1.15rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .06em; word-break: break-word; color: var(--bone); user-select: all; }
+.key-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.form-msg { color: var(--gold-bright); font-size: .92rem; min-height: 1.2em; }
+.sync-notice { position: fixed; inset: auto 16px 16px 16px; max-width: 460px; margin-inline: auto; z-index: 60; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--surface-2); border: 1px solid var(--gold); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, .4); }
+
 .active { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 16px; }
 .active .chip { background: transparent; cursor: pointer; }
 .linkish { all: unset; cursor: pointer; color: var(--gold-bright); font-size: .88rem; }
@@ -4061,7 +4075,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function renderAccountLink() {
     const el = document.getElementById("account-link");
     if (!el) return;
-    el.hidden = !CONFIG.api;
+    el.hidden = !CONFIG.api && !CONFIG.vault;
+    if (CONFIG.vault) { el.innerHTML = VAULT.state.dev ? "Account" : "Sign in"; el.href = "#account"; return; }
     el.innerHTML = session ? `@${esc(session.user.username)}` : "Sign in";
     el.href = session ? `#u-${encodeURIComponent(session.user.username)}` : "#signin";
   }
@@ -4108,28 +4123,335 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }
   }
 
-  // Accounts need the community server (docs/DEPLOY.md). Until it is switched on, say so plainly rather than sending
-  // people to the Community page, and show what already works without an account.
-  function renderAccountsSoon() {
-    app.innerHTML = `
-      <header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>Accounts open soon</h1>
-        <p class="muted">Sign-in isn't switched on yet: the server that keeps accounts, reviews and follows is still being set up. Nothing is lost by waiting.</p></header>
-      <div class="prose block">
-        <h2>What works today, without an account</h2>
-        <ul>
-          <li>Your <a href="#library">library</a>, <a href="#lists">lists</a>, <a href="#journal">journal</a>, <a href="#trackers">trackers</a> and <a href="#achievements">rings and badges</a>, kept in this browser.</li>
-          <li>Picks that learn from what you rate: <a href="#for-you">For you</a>, your <a href="#taste">taste profile</a> and the <a href="#days">days of the year</a>.</li>
-          <li><a href="#decide">Decide for me</a>, <a href="#plan">Plan my time</a>, <a href="#together">Pick together</a> and watch-alongs.</li>
-          <li><a href="#transfer">Import and export</a>: back your library up now and it moves into your account in one step when accounts open.</li>
-        </ul>
-        <h2>What an account will add</h2>
-        <p>Your library in step across your devices, reviews and comments, following friends and a shared feed, published lists and challenge leaderboards.</p>
-        <p><a class="btn" href="${esc(feedbackHref())}">Tell us you want accounts</a> <a class="btn ghost" href="#community">See the community plans</a></p>
-      </div>`;
+  // ------------------------------------------------------------------ accounts: the encrypted vault
+  // A Mimir account is a recovery key. The browser derives three things from it (demo/vault.cjs): an id that names the
+  // vault, a secret that proves you hold the key, and an encryption key that never leaves the device. The server keeps
+  // one encrypted file per id. Everything under the mimir-* storage keys travels in it, merged key by key.
+  const VAULT = (() => {
+    const MV = window.MimirVault;
+    const SKIP = /^(mimir-session|mimir-theme|mimir-visits|mimir-vault-meta|mimir-consent|mimir-install-id)$/;
+    const origSet = Storage.prototype.setItem, origRemove = Storage.prototype.removeItem;
+    const state = { dev: null, busy: false, timer: null, online: null, notice: false };
+
+    const metaGet = () => { try { return JSON.parse(localStorage.getItem("mimir-vault-meta") || "{}"); } catch { return {}; } };
+    const metaSet = (m) => { try { origSet.call(localStorage, "mimir-vault-meta", JSON.stringify(m)); } catch { /* storage unavailable */ } };
+    const syncedKey = (k) => typeof k === "string" && k.startsWith("mimir-") && !SKIP.test(k);
+
+    // Every write or removal of a synced key is stamped, so a sync knows which side is newer.
+    function touched(k, removed) {
+      if (!syncedKey(k)) return;
+      const m = metaGet();
+      m.times = m.times || {}; m.gone = m.gone || {};
+      const now = Date.now();
+      if (removed) { m.gone[k] = now; delete m.times[k]; } else { m.times[k] = now; delete m.gone[k]; }
+      m.dirty = true; m.seq = (m.seq || 0) + 1;
+      metaSet(m);
+      if (state.dev) queue();
+    }
+    Storage.prototype.setItem = function (k, v) { origSet.call(this, k, v); if (this === localStorage) touched(k, false); };
+    Storage.prototype.removeItem = function (k) { origRemove.call(this, k); if (this === localStorage) touched(k, true); };
+
+    // ---- the device record: ids and the non-extractable key live in IndexedDB, never in localStorage
+    const idb = (mode, fn) => new Promise((resolve, reject) => {
+      if (!window.indexedDB) { reject(new Error("no storage")); return; }
+      const rq = indexedDB.open("mimir-vault", 1);
+      rq.onupgradeneeded = () => rq.result.createObjectStore("device");
+      rq.onerror = () => reject(rq.error);
+      rq.onsuccess = () => {
+        const tx = rq.result.transaction("device", mode); let out;
+        out = fn(tx.objectStore("device"));
+        tx.oncomplete = () => { rq.result.close(); resolve(out && "result" in out ? out.result : undefined); };
+        tx.onerror = () => reject(tx.error);
+      };
+    });
+    const saveDevice = (d) => idb("readwrite", (s) => s.put(d, "me")).catch(() => {});
+    const loadDevice = () => idb("readonly", (s) => s.get("me")).catch(() => null);
+    const dropDevice = () => idb("readwrite", (s) => s.delete("me")).catch(() => {});
+
+    // ---- talking to the plugin
+    async function call(path, body, timeout = 20000) {
+      const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), timeout);
+      try {
+        const res = await fetch(CONFIG.vault + path, { method: body === undefined ? "GET" : "POST", signal: ctl.signal,
+          headers: body === undefined ? {} : { "content-type": "application/json" }, body: body === undefined ? undefined : JSON.stringify(body) });
+        const data = await res.json().catch(() => null);
+        if (!res.ok) { const e = new Error((data && data.message) || `The server answered ${res.status}.`); e.status = res.status; e.data = (data && data.data) || data || {}; throw e; }
+        return data;
+      } catch (e) {
+        if (e.status) throw e;
+        const err = new Error("Couldn't reach the account server. Check your connection and try again."); err.status = 0; throw err;
+      } finally { clearTimeout(timer); }
+    }
+    async function reachable() {
+      if (state.online !== null) return state.online;
+      try { const h = await call("/health", undefined, 6000); state.online = !!(h && h.ok); } catch { state.online = false; }
+      return state.online;
+    }
+
+    // ---- what goes in the vault
+    function collect() {
+      const m = metaGet(), keys = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (!syncedKey(k)) continue;
+        let d; try { d = JSON.parse(localStorage.getItem(k)); } catch { continue; }
+        keys[k] = { t: (m.times || {})[k] || 0, d };
+      }
+      for (const [k, t] of Object.entries(m.gone || {})) if (!(k in keys)) keys[k] = { t, d: null };
+      return { v: 1, keys };
+    }
+    const stable = (x) => JSON.stringify(x, (k, v) => (v && typeof v === "object" && !Array.isArray(v) ? Object.fromEntries(Object.entries(v).sort(([a], [b]) => (a < b ? -1 : 1))) : v));
+    // Writes the merged copy back to this device without stamping it as a fresh edit. Returns true if anything changed.
+    function apply(merged) {
+      const m = metaGet(); m.times = m.times || {}; m.gone = m.gone || {};
+      let changed = false;
+      for (const [k, e] of Object.entries(merged.keys)) {
+        if (!syncedKey(k)) continue;
+        const have = localStorage.getItem(k);
+        if (e.d === null) { if (have !== null) { origRemove.call(localStorage, k); changed = true; } m.gone[k] = e.t; delete m.times[k]; continue; }
+        const text = JSON.stringify(e.d);
+        let same = false; try { same = stable(JSON.parse(have)) === stable(e.d); } catch { same = false; }
+        if (!same) { try { origSet.call(localStorage, k, text); changed = true; } catch { /* storage full: keep going */ } }
+        m.times[k] = e.t; delete m.gone[k];
+      }
+      metaSet(m);
+      return changed;
+    }
+
+    // ---- sync: pull, merge, push; if another device saved in between, merge again
+    async function sync() {
+      const dev = state.dev;
+      if (!dev || state.busy) return null;
+      state.busy = true;
+      try {
+        const seq0 = metaGet().seq || 0;
+        let version = 0, changedLocal = false;
+        for (let attempt = 0; attempt < 4; attempt++) {
+          const res = await call("/vault/open", { id: dev.id, auth: dev.auth });
+          const remote = await MV.open(dev, res.blob);
+          const merged = MV.mergeVaults(collect(), remote);
+          if (apply(merged)) changedLocal = true;
+          if (stable(merged) === stable(remote)) { version = res.version; break; }
+          try {
+            const saved = await call("/vault/save", { id: dev.id, auth: dev.auth, blob: await MV.seal(dev, merged), if_match: res.version });
+            version = saved.version; break;
+          } catch (e) { if (e.status !== 409 || attempt === 3) throw e; }
+        }
+        const m = metaGet(); m.version = version; m.lastSync = new Date().toISOString(); if ((m.seq || 0) === seq0) m.dirty = false; metaSet(m);
+        if (changedLocal) notice();
+        return { changedLocal };
+      } finally { state.busy = false; }
+    }
+    function queue() {
+      clearTimeout(state.timer);
+      state.timer = setTimeout(() => sync().catch(() => { /* stays queued: the next change, load or reconnect tries again */ }), 8000);
+    }
+    function notice() {
+      if (state.notice) return; state.notice = true;
+      const bar = document.createElement("div");
+      bar.className = "sync-notice"; bar.setAttribute("role", "status");
+      bar.innerHTML = `<span>Your library was updated from another device.</span> <button type="button" class="btn" data-vault-reload>Refresh to see it</button>`;
+      document.body.appendChild(bar);
+    }
+
+    // ---- account actions
+    const now = () => Date.now();
+    async function create(keyText) {
+      const parsed = await MV.parseRecoveryKey(keyText), dev = { ...(await MV.derive(parsed.bytes)) };
+      const m = metaGet(); m.times = m.times || {};
+      for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (syncedKey(k)) m.times[k] = now(); }
+      metaSet(m);
+      const res = await call("/vault/create", { id: dev.id, auth: dev.auth, blob: await MV.seal(dev, collect()), consent_version: "2026-10", analytics: false });
+      m.version = res.version; m.lastSync = new Date().toISOString(); m.dirty = false; metaSet(m);
+      await saveDevice(dev); state.dev = dev;
+    }
+    async function signIn(keyText) {
+      const parsed = await MV.parseRecoveryKey(keyText);
+      if (!parsed.ok) throw new Error(parsed.reason === "typo" ? "That key has a typing mistake: one character is wrong. Check it against your saved copy."
+        : parsed.reason === "length" ? "A recovery key is 36 letters and numbers, in groups of four. Check that you pasted all of it." : "That key has characters a recovery key never uses. Check it against your saved copy.");
+      const dev = await MV.derive(parsed.bytes);
+      const res = await call("/vault/open", { id: dev.id, auth: dev.auth });
+      const remote = await MV.open(dev, res.blob);
+      apply(MV.mergeVaults(collect(), remote));
+      const m = metaGet(); m.version = res.version; m.lastSync = new Date().toISOString(); m.dirty = true; m.seq = (m.seq || 0) + 1; metaSet(m);
+      await saveDevice(dev); state.dev = dev;
+      await sync().catch(() => {});
+    }
+    async function exportData() {
+      const dev = state.dev, res = await call("/vault/open", { id: dev.id, auth: dev.auth }), vault = await MV.open(dev, res.blob);
+      return { exported: new Date().toISOString(), note: "Your Mimir data, decrypted on this device.", data: Object.fromEntries(Object.entries(vault.keys).filter(([, e]) => e.d !== null).map(([k, e]) => [k, e.d])) };
+    }
+    async function rotate(newKeyText) {
+      await sync().catch(() => {});
+      const old = state.dev, parsed = await MV.parseRecoveryKey(newKeyText), next = await MV.derive(parsed.bytes);
+      const res = await call("/vault/rotate", { id: old.id, auth: old.auth, new_id: next.id, new_auth: next.auth, blob: await MV.seal(next, collect()) });
+      const m = metaGet(); m.version = res.version; m.lastSync = new Date().toISOString(); metaSet(m);
+      await saveDevice(next); state.dev = next;
+    }
+    async function leave({ wipe = false } = {}) {
+      clearTimeout(state.timer); await dropDevice(); state.dev = null;
+      try { origRemove.call(localStorage, "mimir-vault-meta"); } catch { /* storage unavailable */ }
+      if (wipe) for (const k of Object.keys(localStorage).filter(syncedKey)) origRemove.call(localStorage, k);
+    }
+    async function remove() { const d = state.dev; await call("/vault/delete", { id: d.id, auth: d.auth }); await leave(); }
+
+    async function init() {
+      if (!CONFIG.vault) return;
+      state.dev = await loadDevice();
+      if (state.dev) {
+        renderAccountLink();
+        const m = metaGet();
+        if (m.dirty || !m.lastSync || Date.now() - Date.parse(m.lastSync) > 10 * 60 * 1000) sync().catch(() => {});
+        window.addEventListener("online", () => sync().catch(() => {}));
+        document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && metaGet().dirty) sync().catch(() => {}); });
+      }
+    }
+    return { state, reachable, create, signIn, exportData, rotate, leave, remove, sync, init, meta: metaGet, call };
+  })();
+
+  // Key screens: shown once, with the ways to keep it, and a check that it really has been kept.
+  const keyBlock = (key) => `
+    <div class="key-card" role="group" aria-label="Your recovery key">
+      <p class="key-text" id="vault-key" data-key="${esc(key)}">${esc(key)}</p>
+      <p class="key-actions"><button type="button" class="btn ghost" data-key-copy>Copy</button> <button type="button" class="btn ghost" data-key-save>Download as a file</button> <button type="button" class="btn ghost" data-key-print>Print</button></p>
+    </div>
+    <p class="muted small">This key is the only way back in. We never see it and cannot recover it: if it is lost, your saved data can't be opened by anyone, including us. Keep it somewhere safe, like a password manager or a printed copy.</p>
+    <label class="check"><input type="checkbox" data-key-saved> I have saved my recovery key somewhere safe.</label>
+    <label class="field">To confirm, type the last four characters of the key<input type="text" data-key-confirm autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="4" aria-describedby="key-confirm-help"></label>
+    <p id="key-confirm-help" class="muted small">They are the last four characters of the key above.</p>`;
+
+  function wireKeyBlock(root, onReady) {
+    const key = root.querySelector("#vault-key").dataset.key;
+    const saved = root.querySelector("[data-key-saved]"), typed = root.querySelector("[data-key-confirm]");
+    const check = () => onReady(saved.checked && typed.value.trim().toUpperCase().replace(/[^0-9A-Z]/g, "") === key.replace(/-/g, "").slice(-4));
+    saved.addEventListener("change", check); typed.addEventListener("input", check);
+    root.querySelector("[data-key-copy]").addEventListener("click", async (e) => { try { await navigator.clipboard.writeText(key); e.target.textContent = "Copied"; } catch { e.target.textContent = "Copy failed: select the key and copy it"; } });
+    root.querySelector("[data-key-save]").addEventListener("click", () => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([`Mimir recovery key\n\n${key}\n\nKeep this file private. Anyone with this key can open your Mimir data, and nobody can recover it if it is lost.\n`], { type: "text/plain" }));
+      a.download = "mimir-recovery-key.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+    root.querySelector("[data-key-print]").addEventListener("click", () => {
+      const w = window.open("", "_blank", "noopener,width=640,height=480"); if (!w) return;
+      w.document.write(`<title>Mimir recovery key</title><body style="font:20px/1.6 monospace;padding:32px"><h1 style="font:600 22px sans-serif">Mimir recovery key</h1><p style="font-size:26px;letter-spacing:.06em">${esc(key)}</p><p style="font:14px sans-serif">Keep this page private. Anyone with this key can open your Mimir data, and nobody can recover it if it is lost.</p>`);
+      w.document.close(); w.print();
+    });
   }
 
+  const dlJson = (name, obj) => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(obj, null, 2)], { type: "application/json" })); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); };
+
+  // The Account page: create a vault, sign in with a key, and, once signed in, sync, export, change key, sign out and delete.
+  async function renderAccount() {
+    const head = (t, sub) => `<header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>${t}</h1><p class="muted">${sub}</p></header>`;
+    app.innerHTML = head("Account", "Checking the account server…");
+    if (!(await VAULT.reachable()) && !VAULT.state.dev) {
+      app.innerHTML = head("Accounts aren't connected yet", "The account server isn't answering, so sign-in is switched off for now. Nothing is lost: everything keeps working in this browser.") + `
+        <div class="prose block"><h2>In the meantime</h2><p>Your <a href="#library">library</a>, <a href="#lists">lists</a>, <a href="#journal">journal</a> and ratings stay on this device. Use <a href="#transfer">Import and export</a> to keep a copy.</p>
+        <p><a class="btn ghost" href="${esc(feedbackHref())}">Tell us you want accounts</a></p></div>`;
+      return;
+    }
+    const signedIn = !!VAULT.state.dev;
+    if (signedIn) return renderAccountHome();
+    app.innerHTML = head("Keep your Mimir in step", "Your data is encrypted on your device before it leaves it. Mimir cannot read it: only your recovery key can.") + `
+      <div class="acct-cols">
+        <section class="acct-card" aria-labelledby="acct-new"><h2 id="acct-new">Create a vault</h2>
+          <p>You get a recovery key: that is your account. No email, no password, no tracking. Use it on any device to bring your library, lists, ratings and journal with you.</p>
+          <label class="check"><input type="checkbox" data-age> I am 18 or older.</label>
+          <p class="muted small">Accounts are for adults. Under 18? Mimir works fully without one, on this device. Read how we handle data in the <a href="#privacy">privacy notice</a>.</p>
+          <p><button type="button" class="btn" data-create disabled>Create my vault</button></p>
+          <div id="acct-new-out" aria-live="polite"></div></section>
+        <section class="acct-card" aria-labelledby="acct-in"><h2 id="acct-in">Sign in with your key</h2>
+          <form data-signin><label class="field">Recovery key<textarea rows="2" data-key-in autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"></textarea></label>
+            <p><button type="submit" class="btn">Sign in</button></p><div class="form-msg" role="alert" data-signin-msg></div></form>
+          <p class="muted small">Lost your key? We can't recover it, because we never had it. Your data on this device is untouched.</p></section>
+      </div>`;
+    const ageBox = app.querySelector("[data-age]"), createBtn = app.querySelector("[data-create]"), out = app.querySelector("#acct-new-out");
+    ageBox.addEventListener("change", () => { createBtn.disabled = !ageBox.checked; });
+    createBtn.addEventListener("click", async () => {
+      createBtn.disabled = true; ageBox.disabled = true;
+      const key = await MimirVault.newRecoveryKey();
+      out.innerHTML = `<h3>Your recovery key</h3>${keyBlock(key)}<p><button type="button" class="btn" data-finish disabled>Finish creating my vault</button></p><div class="form-msg" role="alert" data-finish-msg></div>`;
+      const finish = out.querySelector("[data-finish]");
+      wireKeyBlock(out, (ok) => { finish.disabled = !ok; });
+      finish.addEventListener("click", async () => {
+        finish.disabled = true; finish.textContent = "Creating…";
+        try { await VAULT.create(key); renderAccountLink(); renderAccountHome({ justCreated: true }); }
+        catch (e) { out.querySelector("[data-finish-msg]").textContent = e.message; finish.disabled = false; finish.textContent = "Finish creating my vault"; }
+      });
+      finish.scrollIntoView({ block: "nearest" });
+    });
+    app.querySelector("[data-signin]").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const msg = app.querySelector("[data-signin-msg]"), btn = e.target.querySelector("button");
+      msg.textContent = ""; btn.disabled = true; btn.textContent = "Signing in…";
+      try { await VAULT.signIn(app.querySelector("[data-key-in]").value); location.hash = "#account"; location.reload(); }
+      catch (err) { msg.textContent = err.message; btn.disabled = false; btn.textContent = "Sign in"; }
+    });
+  }
+
+  function renderAccountHome({ justCreated = false } = {}) {
+    const m = VAULT.meta();
+    const when = m.lastSync ? new Date(m.lastSync).toLocaleString() : "not yet";
+    app.innerHTML = `<header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>${justCreated ? "Your vault is ready" : "You're signed in"}</h1>
+      <p class="muted">Your library, lists, ratings and journal are encrypted on this device and kept in step across every device you sign in on. Mimir cannot read them.</p></header>
+      <div class="acct-cols">
+        <section class="acct-card"><h2>Sync</h2>
+          <p>Last synced: <strong data-last>${esc(when)}</strong>${m.dirty ? " · changes waiting to sync" : ""}</p>
+          <p><button type="button" class="btn" data-sync-now>Sync now</button></p><div class="form-msg" role="status" data-sync-msg></div>
+          <p class="muted small">Changes sync a few seconds after you make them. If two devices change the same thing, the newest edit wins and lists are combined.</p></section>
+        <section class="acct-card"><h2>Your data</h2>
+          <p>Download everything in your vault as a file, decrypted on this device.</p>
+          <p><button type="button" class="btn ghost" data-export>Export my data</button></p><div class="form-msg" role="alert" data-export-msg></div></section>
+        <section class="acct-card"><h2>Recovery key</h2>
+          <p>Change your key if someone else may have seen it. Your old key stops working straight away.</p>
+          <p><button type="button" class="btn ghost" data-rotate>Make a new key</button></p><div id="rotate-out" aria-live="polite"></div></section>
+        <section class="acct-card"><h2>Sign out</h2>
+          <label class="check"><input type="checkbox" data-wipe> Also remove my library and settings from this device.</label>
+          <p class="muted small">Your vault stays safe on the server. Sign back in with your key any time.</p>
+          <p><button type="button" class="btn ghost" data-signout>Sign out</button></p></section>
+        <section class="acct-card danger"><h2>Delete my account</h2>
+          <p>Deletes your vault and everything stored for you on the server, at once and for good. Data on this device stays.</p>
+          <label class="field">Type DELETE to confirm<input type="text" data-del-confirm autocomplete="off"></label>
+          <p><button type="button" class="btn ghost" data-delete disabled>Delete my account</button></p><div class="form-msg" role="alert" data-del-msg></div></section>
+      </div>`;
+    const msg = (sel, text) => { app.querySelector(sel).textContent = text; };
+    app.querySelector("[data-sync-now]").addEventListener("click", async (e) => {
+      e.target.disabled = true; msg("[data-sync-msg]", "Syncing…");
+      try { const r = await VAULT.sync(); msg("[data-sync-msg]", r && r.changedLocal ? "Synced. New data from another device is waiting: refresh to see it." : "Synced."); app.querySelector("[data-last]").textContent = new Date(VAULT.meta().lastSync).toLocaleString(); }
+      catch (err) { msg("[data-sync-msg]", err.message); }
+      e.target.disabled = false;
+    });
+    app.querySelector("[data-export]").addEventListener("click", async (e) => {
+      e.target.disabled = true;
+      try { dlJson(`mimir-data-${new Date().toISOString().slice(0, 10)}.json`, await VAULT.exportData()); msg("[data-export-msg]", ""); } catch (err) { msg("[data-export-msg]", err.message); }
+      e.target.disabled = false;
+    });
+    app.querySelector("[data-rotate]").addEventListener("click", async (e) => {
+      e.target.disabled = true;
+      const out = app.querySelector("#rotate-out"), key = await MimirVault.newRecoveryKey();
+      out.innerHTML = `${keyBlock(key)}<p><button type="button" class="btn" data-rotate-go disabled>Switch to this key</button></p><div class="form-msg" role="alert" data-rotate-msg></div>`;
+      const go = out.querySelector("[data-rotate-go]");
+      wireKeyBlock(out, (ok) => { go.disabled = !ok; });
+      go.addEventListener("click", async () => {
+        go.disabled = true;
+        try { await VAULT.rotate(key); out.innerHTML = `<p><strong>Done.</strong> Your new key is active and the old one no longer opens your vault.</p>`; }
+        catch (err) { out.querySelector("[data-rotate-msg]").textContent = err.message; go.disabled = false; }
+      });
+    });
+    app.querySelector("[data-signout]").addEventListener("click", async () => { await VAULT.leave({ wipe: app.querySelector("[data-wipe]").checked }); renderAccountLink(); location.hash = "#account"; location.reload(); });
+    const del = app.querySelector("[data-delete]"), delBox = app.querySelector("[data-del-confirm]");
+    delBox.addEventListener("input", () => { del.disabled = delBox.value.trim() !== "DELETE"; });
+    del.addEventListener("click", async () => {
+      del.disabled = true;
+      try { await VAULT.remove(); renderAccountLink(); app.innerHTML = `<header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>Your account is deleted</h1><p class="muted">Your vault and everything stored for you on the server are gone. This device keeps its own copy, and Mimir still works here.</p></header><p><a class="btn" href="#">Back to Mimir</a></p>`; }
+      catch (err) { msg("[data-del-msg]", err.message); del.disabled = false; }
+    });
+  }
+
+  document.addEventListener("click", (e) => { if (e.target.closest("[data-vault-reload]")) location.reload(); });
+
   function renderSignin(p) {
-    if (!CONFIG.api) { renderAccountsSoon(); return; }
+    if (CONFIG.vault || !CONFIG.api) { renderAccount(); return; }
     if (session) { location.hash = `#u-${session.user.username}`; return; }
     const mode = p.get("mode") === "signup" ? "signup" : "signin";
     app.innerHTML = `
@@ -4222,7 +4544,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <header class="page-head"><p class="eyebrow">Community</p><h1>Find your next story through people</h1>
           <p class="muted">Reviews, a feed of what friends are finishing, shared lists, trending picks and calendar challenges together. Accounts are built and switch on here as soon as the community server goes live.</p></header>
         <div class="comm-grid">${watchAlongBox(null)}</div>
-        <div class="prose block"><p>Until then, everything personal already works in this browser: your <a href="#library">library</a>, <a href="#journal">journal</a>, <a href="#lists">lists</a> (shareable by link), <a href="#calendar">calendar challenges</a> and <a href="#decide">Decide for me</a>. When accounts open, all of it moves into your account in one step.</p></div>
+        <div class="prose block"><p>Until then, everything personal already works in this browser: your <a href="#library">library</a>, <a href="#journal">journal</a>, <a href="#lists">lists</a> (shareable by link), <a href="#calendar">calendar challenges</a> and <a href="#decide">Decide for me</a>. An optional <a href="#account">account</a> keeps all of it in step across your devices, encrypted so only you can read it.</p></div>
         ${calendarBand()}`;
       return;
     }
@@ -4456,7 +4778,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["calendar-days", "community", "Social calendar and days of the year", "Something new or something for you on World Laughter Day and about 50 more.",
       `<p>The <a href="#calendar">calendar</a> lists challenges and events; <a href="#days">Days of the year</a> lists about 50 observances. Each day has two kinds of pick: something completely new, chosen from review scores across platforms, and picks from your own profile.</p>`, "calendar days of the year events world laughter"],
     ["accounts", "community", "Accounts and the community", "When sign-in arrives.",
-      `<p>Accounts are not open yet; the Sign in link shows an Accounts open soon page. Everything except community features works without one, and your data stays in your browser.</p>`, "account sign in login community"],
+      `<p>Accounts are optional. Everything works without one and your data stays in your browser. An account is a recovery key: it keeps your library, lists, ratings and journal in step across devices, encrypted on your device so Mimir cannot read it. Reviews, shared lists and hosted watch-alongs need the community server, which is not connected yet.</p>`, "account sign in login community"],
     ["your-data", "data", "What Mimir stores and where", "Your library lives in your browser.",
       `<p>Ratings, library, lists, journal, trackers and settings live in this browser's storage. Mimir does not send them to a server. Clearing site data or switching browsers removes them, so save a backup from <a href="#transfer">Import &amp; export</a>.</p>`, "privacy data storage local browser backup"],
     ["reset", "data", "Reset your recommendations", "Start again in one click.",
@@ -5870,6 +6192,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h.startsWith("programme-")) { setNav("Community"); renderProgramme(h.slice(10), p); }
     else if (h === "community") { setNav("Community"); renderCommunity(); }
     else if (h === "signin") { setNav("Community"); renderSignin(p); }
+    else if (h === "account") { setNav("Community"); renderAccount(); }
     else if (h.startsWith("u-")) { setNav("Community"); renderProfile(decodeURIComponent(h.slice(2))); }
     else if (h.startsWith("plist-")) { setNav("Community"); renderPublicList(h.slice(6)); }
     else if (h === "library" || h === "mine") { setNav("Library"); renderLibrary(p); }
@@ -6205,6 +6528,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   renderMenubar();
   refreshCounts();
   renderAccountLink();
+  VAULT.init().then(renderAccountLink);
   if (session) syncNow().catch(() => {});
   document.getElementById("beta-pill").textContent = `Beta · ${RAW_WORKS.length} works`;
   document.getElementById("copy-year").textContent = new Date().getFullYear();

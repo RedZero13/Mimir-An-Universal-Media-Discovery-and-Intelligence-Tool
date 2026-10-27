@@ -61,7 +61,15 @@ What only the site's owner can do, in [Google Search Console](https://search.goo
 4. Re-inspect the home page after a few days. Indexing can take days to weeks, and Google decides how many of the
    thousands of work pages to keep; the favicon updates a few days after the home page is recrawled.
 
-## Accounts and community (the API)
+## Accounts (the Mimir Vault plugin)
+
+Optional accounts sync a person's library across devices with end-to-end encryption. The server side is the Mimir Vault
+WordPress plugin on terratalesmedia.world, not the API below. Install steps, the server contract and the plan and backup
+caveats are in [ACCOUNTS.md](ACCOUNTS.md). The site is built with `MIMIR_VAULT_URL` (default
+`https://terratalesmedia.world/wp-json/mimir/v1`, `off` disables accounts); until the plugin answers, the Account page
+says accounts aren't connected yet.
+
+## Community (the API)
 
 The site works on its own: library, journal, lists, calendar and Decide for me live in each browser. Accounts,
 reviews, follows, the feed and challenge leaderboards need the API (`api/`, FastAPI and PostgreSQL) on a server.

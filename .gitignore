@@ -12,3 +12,4 @@ next-env.d.ts
 demo/dist/
 _site/
 api/mde/data/cache/
+wordpress/dist/
