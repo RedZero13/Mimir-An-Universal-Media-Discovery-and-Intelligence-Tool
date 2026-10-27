@@ -140,7 +140,7 @@ ${related.length ? `<h2>Connected stories</h2><ul>${related.map((r) => `<li>${es
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, "index.html"), staticPage(title, desc, url, body,
       ld(schema) + crumbs([["Mimir", `${SITE_URL}/`], [hub.name, `${SITE_URL}/${hub.slug}/`], [w.title, url]]),
-      { type: "website", image: cover ? cover.url : undefined, index: !!w.summary }));
+      { type: "website", image: cover ? cover.url : undefined, index: !!w.summary, pageType: "ItemPage" }));
     // A work with no summary yet is a thin page: kept out of search until a batch fills it in.
     if (w.summary) urls.push([url, null, "0.6"]);
   }
@@ -166,7 +166,7 @@ ${related.length ? `<h2>Connected stories</h2><ul>${related.map((r) => `<li>${es
     fs.writeFileSync(path.join(out, hub.slug, "index.html"), staticPage(HUB_META[0], clip(HUB_META[1], 158), url, body,
       ld({ "@context": "https://schema.org", "@type": "CollectionPage", name: hub.name, url, description: hub.blurb,
         mainEntity: { "@type": "ItemList", numberOfItems: list.length, itemListElement: list.slice(0, 100).map((w, i) => ({ "@type": "ListItem", position: i + 1, url: workUrl(w.slug), name: w.title })) } }),
-      { type: "website" }));
+      { type: "website", pageType: null, crumbs: [["Mimir", `${SITE_URL}/`], [hub.name, url]] }));
     urls.push([url, null, "0.8"]);
   }
 
@@ -186,14 +186,14 @@ ${related.length ? `<h2>Connected stories</h2><ul>${related.map((r) => `<li>${es
     fs.writeFileSync(path.join(out, "shelves", sh.slug, "index.html"), staticPage([`${phrase} (${full.name}) · Mimir`, `${phrase} · Mimir`, `${full.name}: ${phrase} · Mimir`].filter((t) => phrase && t.length <= 70)[0] || `${clip(full.name, 56)} · Mimir`,
       clip(`${phrase ? `${phrase}: ` : ""}${full.tagline || ""} ${full.works.length.toLocaleString("en")} picks across the catalogue, each with the reason it fits.`.trim(), 158), url, body,
       ld({ "@context": "https://schema.org", "@type": "ItemList", name: full.name, url, numberOfItems: full.works.length,
-        itemListElement: full.works.map((w, i) => ({ "@type": "ListItem", position: i + 1, url: workUrl(w.slug), name: w.title })) }), { type: "website" }));
+        itemListElement: full.works.map((w, i) => ({ "@type": "ListItem", position: i + 1, url: workUrl(w.slug), name: w.title })) }), { type: "website", pageType: "CollectionPage", crumbs: [["Mimir", `${SITE_URL}/`], ["Shelves", `${SITE_URL}/shelves/`], [full.name, url]] }));
     urls.push([url, null, "0.7"]);
   }
   const shelvesUrl = `${SITE_URL}/shelves/`;
   fs.writeFileSync(path.join(out, "shelves", "index.html"), staticPage("Shelves: hand-picked films, books, games and music · Mimir",
     "Collections across every medium: comfort watches, diamonds in the rough, long hauls and more, each with the rule that fills it.", shelvesUrl,
     `<p class="eyebrow"><a href="/">Mimir</a> · Catalogue</p><h1>Shelves</h1><p class="lede">Collections across every medium, each filled by a stated rule.</p>
-<ul class="cards">${shelves.map((sh) => `<li><a href="/shelves/${esc(sh.slug)}/"><h2>${esc(sh.name)}</h2><p>${esc(sh.tagline || "")}</p></a></li>`).join("")}</ul>`, "", { type: "website" }));
+<ul class="cards">${shelves.map((sh) => `<li><a href="/shelves/${esc(sh.slug)}/"><h2>${esc(sh.name)}</h2><p>${esc(sh.tagline || "")}</p></a></li>`).join("")}</ul>`, "", { type: "website", pageType: "CollectionPage", crumbs: [["Mimir", `${SITE_URL}/`], ["Shelves", shelvesUrl]] }));
   urls.push([shelvesUrl, null, "0.7"]);
   return urls;
 }

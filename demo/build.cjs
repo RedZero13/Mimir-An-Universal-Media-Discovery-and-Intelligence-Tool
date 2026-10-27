@@ -230,12 +230,25 @@ ${ICON_LINKS}
 // app shows the same posts at #blog. A sitemap lists the home page and every post.
 // Static pages (blog, works, hubs, shelves) share one light shell: readable without the app, linked into it.
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png`, index = true } = {}) => `<!doctype html>
+// Structured data every static page gets: its own WebPage node (or a more specific type), tied to the Mimir site and to
+// Terratales, plus breadcrumbs and, for the tools, the application itself. pageType: null leaves the page's own markup alone.
+const ORG_REF = { "@type": "Organization", "@id": "https://terratalesmedia.world/#org", name: "Terratales Media Entertainment", url: "https://terratalesmedia.world/" };
+function pageSchema({ title, desc, canonical, pageType, crumbs, modified, app }) {
+  const nodes = [];
+  if (/^Page not found/.test(title)) return ""; // the 404 page is noindex and not a real page
+  if (pageType) nodes.push({ "@type": pageType, "@id": `${canonical}#webpage`, url: canonical, name: title.replace(/ · Mimir$/, ""), description: desc, inLanguage: "en",
+    isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#site`, name: "Mimir", url: `${SITE_URL}/` }, publisher: ORG_REF, ...(modified ? { dateModified: modified } : {}) });
+  if (crumbs) nodes.push({ "@type": "BreadcrumbList", itemListElement: crumbs.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
+  if (app) nodes.push({ "@type": "WebApplication", name: app, url: canonical, applicationCategory: "EntertainmentApplication", operatingSystem: "Any", isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, provider: ORG_REF });
+  return nodes.length ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": nodes }).replace(/</g, "\\u003c")}</script>` : "";
+}
+const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png`, index = true, pageType = "WebPage", crumbs = null, modified = null, app = null } = {}) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${index ? "index, follow, max-image-preview:large" : "noindex, follow"}"><link rel="canonical" href="${canonical}">
 <meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}"><meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Mimir">
-<meta name="theme-color" content="#131315">${ICON_LINKS}${extraHead}
+<meta name="theme-color" content="#131315">${ICON_LINKS}${extraHead}${pageSchema({ title, desc, canonical, pageType, crumbs, modified, app })}
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
@@ -271,7 +284,7 @@ function writeLegal(out) {
     const url = `${SITE_URL}/${p.slug}/`;
     fs.mkdirSync(path.join(out, p.slug), { recursive: true });
     const body = `<p class="eyebrow"><a href="/">Mimir</a> · Legal</p><h1>${esc(p.title)}</h1><p class="meta">Version ${legal.VERSION} · updated ${legal.UPDATED}</p>\n${legal.render(p.md)}`;
-    fs.writeFileSync(path.join(out, p.slug, "index.html"), staticPage(`${p.title} · Mimir`, p.desc, url, body, "", { type: "website" }));
+    fs.writeFileSync(path.join(out, p.slug, "index.html"), staticPage(`${p.title} · Mimir`, p.desc, url, body, "", { type: "website", pageType: "WebPage", modified: legal.MODIFIED, crumbs: [["Mimir", `${SITE_URL}/`], [p.title, url]] }));
     return [url, null, "0.3"];
   });
 }
@@ -287,7 +300,7 @@ function writeBlog(out) {
   fs.writeFileSync(path.join(out, "blog", "index.html"), staticPage("Notes from the well · Mimir",
     "What Mimir can do, how it works, and what's new: discover and track films, TV, books, manga, games and music.", `${SITE_URL}/blog/`,
     `<p class="eyebrow">The Mimir blog</p><h1>Notes from the well</h1><p class="meta">What Mimir can do, how it works, and what's new.</p>
-<ul class="cards">${posts.map((b) => `<li><a href="/blog/${b.slug}/"><p class="meta">${esc(b.tags.join(" · "))} · ${date(b.date)}</p><h2>${esc(b.title)}</h2><p>${esc(b.summary)}</p></a></li>`).join("")}</ul>`));
+<ul class="cards">${posts.map((b) => `<li><a href="/blog/${b.slug}/"><p class="meta">${esc(b.tags.join(" · "))} · ${date(b.date)}</p><h2>${esc(b.title)}</h2><p>${esc(b.summary)}</p></a></li>`).join("")}</ul>`, "", { pageType: "Blog", crumbs: [["Mimir", `${SITE_URL}/`], ["Blog", `${SITE_URL}/blog/`]] }));
   for (const b of posts) {
     const url = `${SITE_URL}/blog/${b.slug}/`;
     const ld = { "@context": "https://schema.org", "@type": "BlogPosting", headline: b.title, description: b.summary, datePublished: b.date,
@@ -299,7 +312,7 @@ function writeBlog(out) {
 <p class="lede">${esc(b.summary)}</p>
 ${md(b.body)}
 <p><a class="cta" href="/">Ask Mimir</a><a class="cta ghost" href="/#decide">Decide for me</a></p>`,
-      `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`));
+      `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, { pageType: null, crumbs: [["Mimir", `${SITE_URL}/`], ["Blog", `${SITE_URL}/blog/`], [b.title, url]] }));
   }
   const xml = (t) => esc(t).replace(/'/g, "&apos;");
   fs.writeFileSync(path.join(out, "blog", "feed.xml"), `<?xml version="1.0" encoding="UTF-8"?>

@@ -238,4 +238,5 @@ function render(md) {
 /** Placeholders still to be filled, for the audit and the final report. */
 const placeholders = () => PAGES.flatMap((p) => [...p.md.matchAll(/\[\[([^\]]+)\]\]/g)].map((m) => ({ page: p.slug, text: m[1] })));
 
-module.exports = { PAGES, VERSION, UPDATED, render, placeholders, esc };
+const MODIFIED = "2026-10-27";
+module.exports = { PAGES, VERSION, UPDATED, MODIFIED, render, placeholders, esc };

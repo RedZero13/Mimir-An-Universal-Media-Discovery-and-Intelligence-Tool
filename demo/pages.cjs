@@ -42,11 +42,25 @@ function writeSitePages(out, { cat, works, SITE_URL, staticPage, esc }) {
   };
   const crumbs = (items) => ld({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
   const T = (main) => `${clip(main, 52)} · Mimir`;
+  // Structured data by section: index and listing pages are CollectionPages, About is an AboutPage, each tool is also a WebApplication.
+  // Breadcrumbs are only added where the page does not already carry its own.
+  const SECTION = { franchises: "Franchises", tags: "Tags", people: "People", days: "Days", help: "Help centre", tools: "Tools" };
+  const schemaFor = (rel, title) => {
+    const [sec, sub] = rel.split("/");
+    const name = title.replace(/ · Mimir$/, "");
+    if (sec === "about") return { pageType: "AboutPage", crumbs: [["Mimir", `${SITE_URL}/`], ["About", `${SITE_URL}/about/`]] };
+    const secName = SECTION[sec] || name;
+    const crumbs = sub ? null : [["Mimir", `${SITE_URL}/`], [secName, `${SITE_URL}/${sec}/`]];
+    if (sec === "tools" && sub) return { pageType: "WebPage", crumbs, app: name.split(":")[0] };
+    if (sec === "help" && sub && !help.HELP.some((a) => a[0] === sub)) return { pageType: "CollectionPage", crumbs };
+    if (sec === "help" && sub) return { pageType: "WebPage", crumbs };
+    return { pageType: sub && sec !== "days" && sec !== "franchises" && sec !== "tags" && sec !== "people" ? "WebPage" : "CollectionPage", crumbs };
+  };
   const write = (rel, title, desc, body, extra = "", { index = true, priority = "0.5", lastmod = null } = {}) => {
     const dir = path.join(out, rel);
     fs.mkdirSync(dir, { recursive: true });
     const url = `${SITE_URL}/${rel}/`;
-    fs.writeFileSync(path.join(dir, "index.html"), staticPage(title, clip(desc, 158), url, body, extra, { type: "website", index }));
+    fs.writeFileSync(path.join(dir, "index.html"), staticPage(title, clip(desc, 158), url, body, extra, { type: "website", index, ...schemaFor(rel, title) }));
     if (index) urls.push([url, lastmod, priority]);
     return url;
   };

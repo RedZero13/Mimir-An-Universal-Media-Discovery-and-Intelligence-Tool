@@ -52,6 +52,7 @@
   {"id": "P002", "severity": "error", "scope": "site", "title": "Broken internal link", "hint": "Link targets must exist in the built site."},
   {"id": "P003", "severity": "error", "scope": "site", "title": "Sitemap lists a missing or noindex page", "hint": "Only indexable pages belong in the sitemap."},
   {"id": "P004", "severity": "warning", "scope": "site", "title": "Indexable page missing from the sitemap", "hint": "Add it to the sitemap build."},
-  {"id": "P005", "severity": "warning", "scope": "site", "title": "Title or description too long", "hint": "Titles up to 70 characters, descriptions up to 165."}
+  {"id": "P005", "severity": "warning", "scope": "site", "title": "Title or description too long", "hint": "Titles up to 70 characters, descriptions up to 165."},
+  {"id": "P006", "severity": "warning", "scope": "site", "title": "Page missing structured data", "hint": "Every indexable page carries valid JSON-LD: a WebPage-family node and, below the home page, a BreadcrumbList."}
  ]
 }

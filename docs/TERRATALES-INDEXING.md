@@ -50,3 +50,23 @@ is submitted under Sitemaps. The `news-sitemap.xml` Jetpack adds lists only the 
 harmless. The four draft pages (Home, Test, The Akashic Records, and one with unrelated text) stay out until published; delete the
 unused ones in WordPress if you do not want them. Mimir's own sitemaps (`https://mimir.terratalesmedia.world/sitemap.xml`, an
 index split by section) are rebuilt on every deploy. The domain property means one Search Console login covers both.
+
+## Structured data (schema.org) on every page
+
+**Mimir** (built by `demo/build.cjs`): every static page carries one JSON-LD graph, tied to the Mimir `WebSite` and to the Terratales `Organization` (`https://terratalesmedia.world/#org`).
+
+| Pages | Types |
+| --- | --- |
+| Work pages | `ItemPage` + the work's own type (`Movie`, `TVSeries`, `Book`, `VideoGame`, `MusicAlbum`, `VideoObject`, `CreativeWorkSeries`) + `BreadcrumbList` |
+| Category hubs (`/films/` …) | `CollectionPage` with an `ItemList` + `BreadcrumbList` |
+| Shelves, franchises, tags, people, days, help categories, indexes | `CollectionPage` (+ `ItemList`) + `BreadcrumbList` |
+| Help guides, legal pages | `WebPage` + `BreadcrumbList` (legal pages carry `dateModified`) |
+| Tools | `WebPage` + `WebApplication` (free) + `BreadcrumbList`; help index also `FAQPage` |
+| About | `AboutPage` + `BreadcrumbList` |
+| Blog | `Blog` index; posts `BlogPosting` + `BreadcrumbList` |
+| Home | `WebSite` (with search action), `WebApplication`, `Organization` |
+| 404 | none (noindex) |
+
+Audit rule **P006** fails the build's page audit if an indexable page has invalid JSON-LD, no WebPage-family node, or (below the home page) no `BreadcrumbList`.
+
+**terratalesmedia.world** (the *Terratales Indexing Fixes* plugin, 0.2.0): the home page gets `Organization`, `WebSite` and `WebPage`; every other page, post or realm page gets a WebPage-family node (About → `AboutPage`, Contact → `ContactPage`, Realms/Projects/Press → `CollectionPage`, posts → `Article`, the rest `WebPage`), a `BreadcrumbList`, and the six realm pages (Cinema, Music & Sound, OTT & Streaming, Events & Celebrity Management, Anime & Manga, Publishing) also a `Service` provided by the organization. Names and descriptions come only from each page's own title and excerpt; nothing is invented. Check a page with Google's Rich Results Test or the Schema Markup Validator after installing the new zip.

@@ -54,7 +54,7 @@ def test_llms_files_describe_the_site(site):
 
 
 def test_built_pages_pass_the_page_audit(site):
-    _, findings = run_audit(load_context(site), {"P001", "P002", "P003", "P004", "P005"}, set())
+    _, findings = run_audit(load_context(site), {"P001", "P002", "P003", "P004", "P005", "P006"}, set())
     assert not findings, "\n".join(f"{f.rule} {f.key}: {f.message}" for f in findings[:10])
 
 
