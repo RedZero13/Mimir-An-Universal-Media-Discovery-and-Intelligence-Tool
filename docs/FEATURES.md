@@ -112,6 +112,14 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
 - **Import and export** your whole library as a file.
 - Everything lives in your browser unless you sign in.
 
+## Accounts that cannot read your data
+- **A recovery key is your account.** No email or password. The browser encrypts your library, lists, ratings, journal and
+  settings before they leave the device; the server stores only ciphertext, so Mimir cannot read it.
+- **Sync across devices** with per-item merging, export your data as a file, change your key, sign out (optionally wiping
+  this device) or delete everything on the server in one step. A lost key cannot be recovered.
+- Needs the Mimir Vault plugin switched on: see [ACCOUNTS.md](ACCOUNTS.md). Sign in with Google, Apple and Meta and usage
+  analytics with consent are planned.
+
 ## Community
 
 - Accounts with profiles, privacy settings and account deletion.

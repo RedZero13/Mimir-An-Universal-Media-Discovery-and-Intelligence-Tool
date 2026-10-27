@@ -138,7 +138,9 @@ CI (`.github/workflows/ci.yml`) runs the same checks against a PostgreSQL 16 ser
 | POST | `/api/feedback` | `{event_id, work_slug, kind}` where kind is one of `relevant`, `irrelevant`, `too_long`, `wrong_mood`, `already_experienced`, `not_what_i_meant`, `will_try` |
 | GET | `/api/health` | |
 
-**Accounts and community** (`mde/community.py`; clients send `Authorization: Bearer <token>`):
+**Accounts** are an encrypted vault keyed by a recovery key, stored by the Mimir Vault WordPress plugin (`wordpress/mimir-vault/`, see [`docs/ACCOUNTS.md`](docs/ACCOUNTS.md)); the browser code is `demo/vault.cjs`.
+
+**Community** (`mde/community.py`; clients send `Authorization: Bearer <token>`):
 
 | Method | Path | |
 | --- | --- | --- |

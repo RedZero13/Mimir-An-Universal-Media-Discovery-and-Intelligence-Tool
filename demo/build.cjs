@@ -66,9 +66,16 @@ function dataTexts(slim) {
     audiobooks: read(path.join(api, "catalogue", "audiobooks.json")),
     observances: read(path.join(api, "catalogue", "observances.json")),
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
-    config: JSON.stringify({ api: (process.env.MIMIR_API_URL || "").replace(/\/$/, "") }),
+    config: JSON.stringify(siteConfig()),
     blog: read(path.join(here, "blog.json")),
   };
+}
+
+// Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only. Encrypted
+// accounts ("vaults") talk to the Mimir Vault WordPress plugin: MIMIR_VAULT_URL overrides where, and "off" switches them off.
+function siteConfig() {
+  const vault = process.env.MIMIR_VAULT_URL === undefined ? "https://terratalesmedia.world/wp-json/mimir/v1" : process.env.MIMIR_VAULT_URL;
+  return { api: (process.env.MIMIR_API_URL || "").replace(/\/$/, ""), vault: vault === "off" ? "" : vault.replace(/\/$/, "") };
 }
 
 function page() {
@@ -82,9 +89,9 @@ function page() {
     .replace("/*__OBSERVANCES__*/", () => json(path.join(api, "catalogue", "observances.json")))
     .replace("/*__BLOG__*/", () => json(path.join(here, "blog.json")))
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
-    .replace("/*__CONFIG__*/", () => safe(JSON.stringify({ api: (process.env.MIMIR_API_URL || "").replace(/\/$/, "") })))
+    .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
-    .replace("/*__ENGINE__*/", () => safe(fs.readFileSync(path.join(here, "engine.cjs"), "utf8")))
+    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}`))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }
 
@@ -153,7 +160,7 @@ function sitePage(out) {
   const start = html.indexOf("<script>/*__ENGINE__*/</script>");
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
   const dataJs = `window.MIMIR_DATA=${JSON.stringify(texts)};\n`;
-  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${main}`, "js");
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJs)}.js`]: dataJs, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
@@ -328,7 +335,7 @@ if (args[0] === "--site") {
     `<p class="eyebrow">Not found</p><h1>This page isn't in the well</h1><p class="lede">The link may be old, or the page may have moved.</p>
 <p><a class="cta" href="/">Ask Mimir</a><a class="cta ghost" href="/films/">Browse the catalogue</a></p>
 <script>/* The app's pages live after a #; send a path like /signin to /#signin */
-(function(){var r=location.pathname.split("/").join("");if(/^(signin|community|library|calendar|days|decide|for-you|taste|mix|plan|together|achievements|lists|journal|stats|year|transfer|about|help|shelves|series|youtube|audiobooks|trackers|tags|people|top-all)$/.test(r))location.replace("/#"+r+location.search+location.hash)})();</script>`).replace('<meta name="robots" content="index, follow, max-image-preview:large">', '<meta name="robots" content="noindex">'));
+(function(){var r=location.pathname.split("/").join("");if(/^(signin|account|community|library|calendar|days|decide|for-you|taste|mix|plan|together|achievements|lists|journal|stats|year|transfer|about|help|shelves|series|youtube|audiobooks|trackers|tags|people|top-all)$/.test(r))location.replace("/#"+r+location.search+location.hash)})();</script>`).replace('<meta name="robots" content="index, follow, max-image-preview:large">', '<meta name="robots" content="noindex">'));
   fs.writeFileSync(path.join(out, "CNAME"), `${HOST}\n`);
   console.log(`wrote site to ${out}`);
 } else {
