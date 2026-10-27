@@ -887,8 +887,11 @@ finish finished binge binged through will watching reading playing listening sta
     w.runtime_minutes !== null ? w.runtime_minutes : w.playtime_hours !== null ? pyRound(w.playtime_hours * 60) : seriesMinutes(w);
 
   function tagsOf(w, dimensions) {
-    const found = [...w.terms].filter(([k, ev]) => dimensions.includes(k.split(":")[0]) && ev.strength >= TAG_THRESHOLD)
-      .map(([k, ev]) => [k, ev.strength]);
+    const dims = new Set(dimensions);
+    const found = [];
+    for (const [k, ev] of w.terms) {
+      if (ev.strength >= TAG_THRESHOLD && dims.has(k.slice(0, k.indexOf(":")))) found.push([k, ev.strength]);
+    }
     return found.sort((a, b) => cmp([-a[1], a[0]], [-b[1], b[0]]));
   }
 
@@ -897,9 +900,15 @@ finish finished binge binged through will watching reading playing listening sta
 
     function guideFlags(w) {
       const flags = [];
+      const best = new Map();
+      for (const [k, ev] of w.terms) {
+        if (!k.startsWith("advisory:")) continue;
+        const g = tax.get(k).group;
+        if (!best.has(g) || ev.strength > best.get(g)) best.set(g, ev.strength);
+      }
       for (const [group, label] of tax.guideGroups) {
-        const levels = [...w.terms].filter(([k]) => k.startsWith("advisory:") && tax.get(k).group === group).map(([, ev]) => ev.strength);
-        if (levels.length && Math.max(...levels) >= SUITABLE_BELOW) flags.push({ group, label, severity: severity(Math.max(...levels)) });
+        const top = best.get(group);
+        if (top !== undefined && top >= SUITABLE_BELOW) flags.push({ group, label, severity: severity(top) });
       }
       return flags;
     }
@@ -1261,10 +1270,12 @@ finish finished binge binged through will watching reading playing listening sta
       return works.filter((w) => shelfMatch(w, rule, ctx)).map((w) => [shelfKey(w, rule), w]).sort((a, b) => cmp(a[0], b[0])).map((x) => x[1]);
     }
 
-    function shelves(works, spec, limit = 12) {
+    // `max` stops after that many qualifying shelves (in spec order), so the home page builds only the shelves it shows.
+    function shelves(works, spec, limit = 12, max = Infinity) {
       const ctx = context(works);
       const out = [];
       for (const s of spec.shelves) {
+        if (out.length >= max) break;
         const hits = shelfHits(works, s.rule, ctx);
         if (hits.length >= (has(spec, "min_works") ? spec.min_works : 3)) {
           out.push({ slug: s.slug, name: s.name, tagline: s.tagline, description: s.description || "", total: hits.length, works: hits.slice(0, limit).map((w) => richCard(w, ctx)) });
@@ -1626,7 +1637,7 @@ finish finished binge binged through will watching reading playing listening sta
       tag: (key) => views.tagPage(list, key),
       people: () => views.peopleIndex(list),
       person: (slug) => views.personPage(list, slug),
-      shelves: () => views.shelves(list, shelfSpec),
+      shelves: (max) => views.shelves(list, shelfSpec, 12, max),
       shelf: (slug) => views.shelf(list, shelfSpec, slug),
       groups: () => views.groupsIndex(list),
       group: (slug) => views.groupPage(list, slug),

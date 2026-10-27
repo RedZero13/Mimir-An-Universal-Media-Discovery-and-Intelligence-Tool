@@ -535,6 +535,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .tile-label { font: 600 1.2rem/1.15 var(--f-head); color: var(--bone); overflow-wrap: anywhere; }
 .tile-range { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; }
 .families > li[hidden] { display: none; }
+.home-defer { min-height: 100vh; }
 .fold-more { display: flex; justify-content: center; margin-top: 16px; }
 .families { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
 @media (max-width: 560px) { .families { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
@@ -1290,7 +1291,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script>
 (() => {
   "use strict";
-  const DATA = (name) => JSON.parse(window.MIMIR_DATA ? window.MIMIR_DATA[name] : document.getElementById(`${name}-data`).textContent);
+  // Each dataset is parsed once: the catalogue alone is several MB of JSON.
+  const DATA_CACHE = new Map();
+  const DATA = (name) => {
+    if (!DATA_CACHE.has(name)) DATA_CACHE.set(name, JSON.parse(window.MIMIR_DATA ? window.MIMIR_DATA[name] : document.getElementById(`${name}-data`).textContent));
+    return DATA_CACHE.get(name);
+  };
   const cat = MDE.createCatalogue(
     DATA("catalogue"),
     DATA("taxonomy"),
@@ -1652,11 +1658,19 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     stopRipples();
     const ctx = canvas.getContext("2d");
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let raf = 0;
+    let raf = 0, last = 0, visible = true, w = 0, h = 0;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // Size is measured when it changes, never inside the frame loop (that would force a layout every frame).
+    const measure = () => { w = canvas.clientWidth; h = canvas.clientHeight; canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); };
+    const ro = "ResizeObserver" in window ? new ResizeObserver(() => { measure(); if (still) draw(2600); }) : null;
+    if (ro) ro.observe(canvas); else measure();
+    const io = "IntersectionObserver" in window ? new IntersectionObserver((e) => { visible = e[0].isIntersecting; if (visible && !still) { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); } }) : null;
+    if (io) io.observe(canvas);
     const draw = (t) => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = canvas.clientWidth, h = canvas.clientHeight;
-      if (canvas.width !== Math.round(w * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+      if (!still && (!visible || document.hidden)) { raf = 0; if (document.hidden) document.addEventListener("visibilitychange", () => { if (!raf && visible) raf = requestAnimationFrame(draw); }, { once: true }); return; }
+      if (!still && t - last < 33) { raf = requestAnimationFrame(draw); return; }
+      last = t;
+      if (!w) measure();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
       // The well sits above the headline: a drop falls, and its rings spread out across the surface.
@@ -1688,7 +1702,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     };
     draw(2600);
     if (!still) raf = requestAnimationFrame(draw);
-    stopRipples = () => cancelAnimationFrame(raf);
+    stopRipples = () => { cancelAnimationFrame(raf); raf = 0; visible = false; if (ro) ro.disconnect(); if (io) io.disconnect(); };
   }
 
   // ------------------------------------------------------------------ discover
@@ -1761,7 +1775,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const r = hasAsked ? cat.discover(query) : null;
     const heroEnd = `${askForm()}
         <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>`;
-    const rest = `
+    const buildRest = () => `
       <div class="home">
         <div class="home-main">
           ${!hasAsked && Object.values(ratings).some((v) => v === "loved" || v === "liked") ? forYouRows(null, 2) : ""}
@@ -1771,7 +1785,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           ${hasAsked ? "" : calendarBand()}
           ${hasAsked || Object.keys(ratings).length >= 3 ? "" : starterPicker(true)}
           ${timeTiles()}
-          ${allShelves().slice(0, 2).map(shelfRow).join("")}
+          ${firstShelves().slice(0, 2).map(shelfRow).join("")}
           ${youtubeRow()}
         </div>
         <aside class="rail" aria-label="Rankings"></aside>
@@ -1783,6 +1797,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <div><p class="num">II</p><h3>See why each pick fits</h3><p>Every reason comes from the catalogue, and says whether it is a recorded fact or an editorial reading.</p></div>
         <div><p class="num">III</p><h3>Follow a thread</h3><p>Open a work for its tags, parents' guide, credits and connected stories, then wander by tag or by person.</p></div>
       </section>`}`;
+    // Landing view: paint the hero first and build the rest in the next tasks. A tall placeholder holds the space so the
+    // footer does not move when the shelves arrive; an asked question builds everything at once.
+    const deferRest = !hasAsked;
+    const rest = deferRest ? `<div id="home-defer" class="home-defer" aria-hidden="true"></div>` : buildRest();
     // The page arrives with the hero's headline already painted: build around it rather than replacing it.
     const shell = app.querySelector(".hero-shell");
     if (shell && app.children.length === 1) {
@@ -1806,14 +1824,23 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     idle(() => { if (well.isConnected) startRipples(well); }, { timeout: 2000 });
     // The rankings rail and the shelves below the opening screen are built in a second task, after the hero and first
     // rows have painted (the rail's column has a fixed width, so nothing moves when it fills).
-    const more = document.getElementById("home-more");
-    setTimeout(() => {
-      if (!more.isConnected) return;
+    const afterPaint = (f) => requestAnimationFrame(() => setTimeout(f, 0));
+    const finishHome = () => {
+      const more = document.getElementById("home-more");
+      if (!more || !more.isConnected) return;
       app.querySelector(".home > .rail").outerHTML = sideRail();
       more.insertAdjacentHTML("beforebegin", homeShelves());
       more.remove();
-      balanceHome();
-    }, 0);
+      (window.requestIdleCallback || ((f) => setTimeout(f, 50)))(balanceHome, { timeout: 1500 });
+    };
+    if (deferRest) {
+      afterPaint(() => {
+        const host = document.getElementById("home-defer");
+        if (!host || !host.isConnected) return;
+        host.outerHTML = buildRest();
+        setTimeout(finishHome, 0);
+      });
+    } else setTimeout(finishHome, 0);
   }
 
   // The rankings rail is taller than the opening shelves: move full-width shelves up beside it until the columns
@@ -2431,6 +2458,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const shelfCache = new Map();
   const shelfOf = (slug) => { if (!shelfCache.has(slug)) shelfCache.set(slug, cat.shelf(slug)); return shelfCache.get(slug); };
   const allShelves = once(() => cat.shelves());
+  const firstShelves = once(() => cat.shelves(14));
   const TIME_TILES = [["quick-bite", "Quick bite", "Under 45 minutes"], ["one-sitting", "One sitting", "Up to 2½ hours"],
     ["evening-or-two", "An evening or two", "Up to 6 hours"], ["weekend", "A weekend", "Up to 15 hours"],
     ["season", "A season", "Up to 40 hours"], ["long-haul", "A long haul", "40 hours and more"]];
@@ -2480,10 +2508,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function seriesBand() {
     const groups = cat.groups().filter((g) => g.count > 1);
     if (!groups.length) return "";
+    FOLD_ALL.set("home-series", () => groups.map(familyCard).join(""));
     return `
       <section class="block" aria-labelledby="series-h">
         <header class="shelf-head"><div><h2 id="series-h">Series &amp; franchise families</h2><p>Start at the beginning, or see what you'd be signing up for.</p></div><a class="see-all" href="#series">All series</a></header>
-        <ul class="families" data-fold="6" data-name="home-series">${groups.map(familyCard).join("")}</ul>
+        <ul class="families" data-fold="6" data-name="home-series" data-total="${groups.length}">${groups.slice(0, FOLD_FIRST).map(familyCard).join("")}</ul>
       </section>`;
   }
 
@@ -2523,9 +2552,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   function homeShelves() {
-    const shelves = allShelves().slice(2, 14);
+    const shelves = firstShelves().slice(2, 14);
     return shelves.map((s, i) => shelfRow(s) + (i === 1 ? moodBand() : i === 4 ? seriesBand() : "")).join("")
-      + `<p class="more-shelves"><a class="btn ghost btn-link" href="#shelves">See all ${allShelves().length} shelves</a></p>`;
+      + `<p class="more-shelves"><a class="btn ghost btn-link" href="#shelves">See all shelves</a></p>`;
   }
 
   // ------------------------------------------------------------------ about panels (shelf and tag pages)
@@ -2641,11 +2670,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     // Largest IPs first.
     const groups = ipList().map((g) => ({ ...g, n: g.members.length || (cat.group(g.slug) || { works: [] }).works.length }))
       .sort((a, b) => b.n - a.n || a.name.localeCompare(b.name));
+    FOLD_ALL.set("sagas", () => groups.map(familyCard).join(""));
     const lone = shelfOf("lone-wolves");
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">Series or standalone</p><h1>Series &amp; families</h1>
         <p>Every franchise and series as one page: its films, shows, books and games, each in order, with the time it takes to see the whole run. Franchises and series come from the catalogue and Wikidata; a family is found by following sequel, spin-off and remake links.</p></header>
-      <section class="block"><ul class="families" data-fold="9" data-name="sagas">${groups.map(familyCard).join("")}</ul></section>
+      <section class="block"><ul class="families" data-fold="9" data-name="sagas" data-total="${groups.length}">${groups.slice(0, FOLD_FIRST).map(familyCard).join("")}</ul></section>
       ${lone ? `<section class="block"><header class="shelf-head"><div><h2>${esc(lone.name)}</h2><p>${esc(lone.tagline)}</p></div><a class="see-all" href="#shelf-lone-wolves">See all ${lone.total}</a></header>${row(lone.works.slice(0, 16))}</section>` : ""}`;
   }
 
@@ -4321,7 +4351,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <h2>How picks are made</h2>
         <p>Every work is tagged against a controlled vocabulary of moods, themes, pacing, style and more, each with a definition. Mimir matches your request to those tags, respects your limits, favours lesser-known works when you ask, and spreads its picks so one creator doesn't fill the list. If nothing fits, it says so instead of guessing.</p>
         <h2>The beta</h2>
-        <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(allWorks().map((w) => w.language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
+        <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(allWorks().map((w) => w.original_language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
         <p>Your library, lists, ratings and preferred apps live in your browser only; Library → Import & export saves a backup. To tell us what's wrong or missing, <a href="${esc(feedbackHref())}">send beta feedback</a>.</p>
         <h2>A Terratales venture</h2>
         <p>Mimir is built by Terratales Media Entertainment, a media, entertainment and story-technology house: stories rooted in the earth, branched out to every realm of the world. <a href="https://terratalesmedia.world/">Visit Terratales</a>.</p>
@@ -4463,18 +4493,22 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   app.addEventListener("submit", (e) => { if (e.target.closest("[data-help-form]")) e.preventDefault(); });
 
 
-  // Long card grids show a few rows and keep the rest behind a button: [data-fold="rows"] on the list.
-  const foldOpen = new Set();
+  // Long card grids show a few rows and keep the rest behind a button: [data-fold="rows"] on the list. A grid with a
+  // FOLD_ALL entry holds only its first FOLD_FIRST cards until the button is pressed, so hidden cards cost nothing.
+  const FOLD_FIRST = 54, FOLD_ALL = new Map(), foldOpen = new Set();
   function foldGrids() {
     for (const ul of app.querySelectorAll("[data-fold]")) {
-      const rows = +ul.dataset.fold || 6, name = ul.dataset.name || "", items = [...ul.children];
+      const rows = +ul.dataset.fold || 6, name = ul.dataset.name || "";
+      const open = foldOpen.has(name), lazy = FOLD_ALL.has(name);
+      if (lazy && open && ul.dataset.full !== "1") { ul.innerHTML = FOLD_ALL.get(name)(); ul.dataset.full = "1"; }
+      const items = [...ul.children], total = +ul.dataset.total || items.length;
       const cols = Math.max(1, getComputedStyle(ul).gridTemplateColumns.split(" ").filter(Boolean).length);
-      const limit = cols * (cols <= 2 ? Math.min(rows, 4) : rows), open = foldOpen.has(name);
+      const limit = cols * (cols <= 2 ? Math.min(rows, 4) : rows);
       let more = ul.nextElementSibling && ul.nextElementSibling.classList.contains("fold-more") ? ul.nextElementSibling : null;
-      if (items.length <= limit) { items.forEach((li) => { li.hidden = false; }); if (more) more.remove(); continue; }
+      if (total <= limit) { items.forEach((li) => { li.hidden = false; }); if (more) more.remove(); continue; }
       items.forEach((li, i) => { li.hidden = !open && i >= limit; });
       if (!more) { more = document.createElement("div"); more.className = "fold-more"; ul.after(more); }
-      const html = `<button type="button" class="btn ghost" data-fold-toggle="${esc(name)}" aria-expanded="${open}">${open ? "Show fewer" : `Show all ${items.length}`}</button>`;
+      const html = `<button type="button" class="btn ghost" data-fold-toggle="${esc(name)}" aria-expanded="${open}">${open ? "Show fewer" : `Show all ${total}`}</button>`;
       if (more.innerHTML !== html) more.innerHTML = html;
     }
   }
@@ -5996,7 +6030,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   refreshCounts();
   renderAccountLink();
   if (session) syncNow().catch(() => {});
-  document.getElementById("beta-pill").textContent = `Beta · ${allWorks().length} works`;
+  document.getElementById("beta-pill").textContent = `Beta · ${RAW_WORKS.length} works`;
   // Light (default) and dark themes; the choice is remembered in this browser.
   const themeBtn = document.getElementById("theme-btn");
   const syncTheme = () => {
@@ -6015,7 +6049,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   syncTheme();
   // Installable and usable offline when served from the site (the single-file build has no sw.js and skips this).
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("/sw.js").catch(() => {});
-  document.getElementById("cat-count").textContent = allWorks().length;
+  document.getElementById("cat-count").textContent = RAW_WORKS.length;
   document.getElementById("foot-feedback").href = feedbackHref();
   // ------------------------------------------------------------------ the well backdrop, section rail, reveal
   (function ambience() {

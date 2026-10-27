@@ -121,6 +121,18 @@ function crawlBlock(texts, works) {
     </section>`;
 }
 
+// Minified with esbuild when it can be fetched (CI and a normal checkout have npm); otherwise the code ships as written.
+// MIMIR_NO_MINIFY=1 skips it. The result is checked to be non-empty and smaller before it is used.
+function minify(code, loader) {
+  if (process.env.MIMIR_NO_MINIFY) return code;
+  try {
+    const r = require("child_process").spawnSync("npx", ["--yes", "esbuild@0.25.5", `--loader=${loader}`, "--minify", "--log-level=error"],
+      { input: code, encoding: "utf8", maxBuffer: 256 * 1024 * 1024, timeout: 120000 });
+    if (r.status === 0 && r.stdout && r.stdout.length > 0 && r.stdout.length < code.length) return r.stdout;
+  } catch { /* no npm or no network: ship the source */ }
+  return code;
+}
+
 function sitePage(out) {
   const hash = (s) => require("crypto").createHash("sha256").update(s).digest("hex").slice(0, 10);
   const texts = dataTexts(true);
@@ -134,10 +146,11 @@ function sitePage(out) {
   // Self-hosted fonts in place of Google Fonts: no third-party connections before the first paint.
   html = html.replace(/<link rel="preconnect" href="https:\/\/fonts\.(googleapis|gstatic)\.com"( crossorigin)?>\n/g, "")
     .replace(/<link rel="preload" as="style" href="https:\/\/fonts\.googleapis\.com[^\n]*\n<noscript>[^\n]*<\/noscript>/, FONT_HEAD);
+  html = html.replace(/<style>([\s\S]*?)<\/style>/g, (m, css) => (css.length > 4000 ? `<style>${minify(css, "css")}</style>` : m));
   const start = html.indexOf("<script>/*__ENGINE__*/</script>");
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
   const dataJs = `window.MIMIR_DATA=${JSON.stringify(texts)};\n`;
-  const appJs = `${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${main}`;
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJs)}.js`]: dataJs, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
