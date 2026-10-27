@@ -1,0 +1,4 @@
+{
+ "about": "Known findings accepted on purpose. Each entry needs the rule id, the key the finding reports, and a reason.",
+ "accepted": []
+}
