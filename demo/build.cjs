@@ -8,6 +8,8 @@ const fs = require("fs");
 const { readSeed } = require("./seed.cjs");
 const { writeCatalogPages, HUBS } = require("./seo.cjs");
 const { writeSitemaps, writeRobots, writeLlms } = require("./discovery.cjs");
+const legal = require("./legal.cjs");
+const { writeSitePages, computeIps } = require("./pages.cjs");
 const path = require("path");
 
 const here = __dirname;
@@ -91,7 +93,7 @@ function page() {
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
-    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}`))
+    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }
 
@@ -121,12 +123,14 @@ function crawlBlock(texts, works) {
   const groups = [["film", "Films", "/films/"], ["series", "TV shows", "/tv/"], ["book", "Books and manga", "/books/"], ["game", "Games", "/games/"], ["album", "Albums", "/music/"]];
   const top = (m) => all.filter((w) => w.medium === m && withSummary.has(w.slug) && w.scores.length).sort((a, b) => score(b) - score(a) || a.title.localeCompare(b.title)).slice(0, 8);
   const shelves = cat.shelves().filter((x) => x.total >= 5).slice(0, 14);
+  const topIps = require("./pages.cjs").computeIps(cat).filter((g) => g.members.length >= 6).sort((a, b) => b.members.length - a.members.length || a.name.localeCompare(b.name)).slice(0, 14);
   const countries = new Set(P("catalogue").works.flatMap((w) => w.countries || [])).size;
   return `<section class="crawl" id="crawl" aria-labelledby="crawl-h">
       <h2 id="crawl-h">Browse the Mimir catalogue</h2>
-      <p>Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube. It holds ${works.toLocaleString("en")} works from ${countries} countries. Describe a mood, a favourite or how much time you have and it finds what fits, with the reason for every pick, a parents' guide for each work and where to watch, read, play or listen.</p>
-      <p class="crawl-hubs">${groups.map(([, l, u]) => `<a href="${u}">${l}</a>`).join("")}<a href="/youtube/">YouTube</a><a href="/shelves/">Shelves</a><a href="/blog/">Blog</a></p>
+      <p>Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube. It holds ${works.toLocaleString("en")} works from ${countries} countries. Describe a mood, a favourite or how much time you have and it finds what fits, with the reason for every pick, a parents' guide where one has been assessed, and where to watch, read, play or listen.</p>
+      <p class="crawl-hubs">${groups.map(([, l, u]) => `<a href="${u}">${l}</a>`).join("")}<a href="/youtube/">YouTube</a><a href="/shelves/">Shelves</a><a href="/franchises/">Franchises &amp; series</a><a href="/tools/">Tools</a><a href="/days/">Days of the year</a><a href="/help/">Help centre</a><a href="/tags/">Tags</a><a href="/people/">People</a><a href="/about/">About</a><a href="/blog/">Blog</a></p>
       ${groups.map(([m, l]) => `<h3>Well-reviewed ${l.replace(/^(?!TV)./, (c) => c.toLowerCase())}</h3><ul>${top(m).map((w) => `<li><a href="/works/${esc(w.slug)}/">${esc(w.title)}${w.year ? ` (${w.year})` : ""}</a></li>`).join("")}</ul>`).join("")}
+      <h3>Franchises and series in order</h3><ul>${topIps.map((g) => `<li><a href="/franchises/${esc(g.slug)}/">${esc(g.name)}</a></li>`).join("")}</ul>
       <h3>Shelves</h3><ul>${shelves.map((x) => `<li><a href="/shelves/${esc(x.slug)}/">${esc(x.name)}</a></li>`).join("")}</ul>
     </section>`;
 }
@@ -160,7 +164,7 @@ function sitePage(out) {
   const start = html.indexOf("<script>/*__ENGINE__*/</script>");
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
   const dataJs = `window.MIMIR_DATA=${JSON.stringify(texts)};\n`;
-  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${main}`, "js");
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJs)}.js`]: dataJs, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
@@ -208,11 +212,13 @@ ${ICON_LINKS}
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": [
     { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: "Mimir", alternateName: "Mimir",
       description: "Discover and track films, TV, books, manga, games and music by how they feel, with the reason for every pick.",
-      publisher: { "@id": "https://terratalesmedia.world/#org" }, inLanguage: "en" },
+      publisher: { "@id": "https://terratalesmedia.world/#org" }, inLanguage: "en",
+      potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/#browse?q={search_term_string}` }, "query-input": "required name=search_term_string" } },
     { "@type": "WebApplication", name: "Mimir", url: `${SITE_URL}/`, applicationCategory: "EntertainmentApplication", operatingSystem: "Any",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
     { "@type": "Organization", "@id": `${SITE_URL}/#brand`, name: "Mimir", url: `${SITE_URL}/`,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-512.png`, width: 512, height: 512 },
+      sameAs: ["https://github.com/RedZero13/Mimir-An-Universal-Media-Discovery-and-Intelligence-Tool"],
       parentOrganization: { "@id": "https://terratalesmedia.world/#org" } },
     { "@type": "Organization", "@id": "https://terratalesmedia.world/#org", name: "Terratales Media Entertainment", url: "https://terratalesmedia.world/",
       logo: `${SITE_URL}/icon-512.png`, email: "hello@terratalesmedia.world" },
@@ -224,17 +230,30 @@ ${ICON_LINKS}
 // app shows the same posts at #blog. A sitemap lists the home page and every post.
 // Static pages (blog, works, hubs, shelves) share one light shell: readable without the app, linked into it.
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png`, index = true } = {}) => `<!doctype html>
+// Structured data every static page gets: its own WebPage node (or a more specific type), tied to the Mimir site and to
+// Terratales, plus breadcrumbs and, for the tools, the application itself. pageType: null leaves the page's own markup alone.
+const ORG_REF = { "@type": "Organization", "@id": "https://terratalesmedia.world/#org", name: "Terratales Media Entertainment", url: "https://terratalesmedia.world/" };
+function pageSchema({ title, desc, canonical, pageType, crumbs, modified, app }) {
+  const nodes = [];
+  if (/^Page not found/.test(title)) return ""; // the 404 page is noindex and not a real page
+  if (pageType) nodes.push({ "@type": pageType, "@id": `${canonical}#webpage`, url: canonical, name: title.replace(/ · Mimir$/, ""), description: desc, inLanguage: "en",
+    isPartOf: { "@type": "WebSite", "@id": `${SITE_URL}/#site`, name: "Mimir", url: `${SITE_URL}/` }, publisher: ORG_REF, ...(modified ? { dateModified: modified } : {}) });
+  if (crumbs) nodes.push({ "@type": "BreadcrumbList", itemListElement: crumbs.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
+  if (app) nodes.push({ "@type": "WebApplication", name: app, url: canonical, applicationCategory: "EntertainmentApplication", operatingSystem: "Any", isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, provider: ORG_REF });
+  return nodes.length ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": nodes }).replace(/</g, "\\u003c")}</script>` : "";
+}
+const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png`, index = true, pageType = "WebPage", crumbs = null, modified = null, app = null } = {}) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${index ? "index, follow, max-image-preview:large" : "noindex, follow"}"><link rel="canonical" href="${canonical}">
 <meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}"><meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Mimir">
-<meta name="theme-color" content="#131315">${ICON_LINKS}${extraHead}
+<meta name="theme-color" content="#131315">${ICON_LINKS}${extraHead}${pageSchema({ title, desc, canonical, pageType, crumbs, modified, app })}
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 :root{color-scheme:dark;--bg:#131315;--surface:#1B1A17;--ink:#E4DCC6;--head:#F4EEDD;--muted:#A9A18E;--gold:#D8B24A;--line:rgba(216,178,74,.22);--lede:#E3CF8C;--on-gold:#131315}
-:root[data-theme="light"]{color-scheme:light;--bg:#EDE3CC;--surface:#F6F0E2;--ink:#23211C;--head:#131315;--muted:#5F5A4F;--gold:#8A6A18;--line:rgba(110,104,92,.24);--lede:#5E4B1C;--on-gold:#F6F0E2}
+:root[data-theme="light"]{color-scheme:light;--bg:#EDE3CC;--surface:#F6F0E2;--ink:#23211C;--head:#131315;--muted:#524D43;--gold:#6B500E;--line:rgba(110,104,92,.24);--lede:#5E4B1C;--on-gold:#F6F0E2}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.75 Inter,system-ui,sans-serif;padding:0 16px}
 a{color:var(--gold);text-underline-offset:3px}.wrap{max-width:720px;margin:0 auto}
 header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0;border-bottom:1px solid var(--line);max-width:1080px;margin:0 auto}
@@ -250,13 +269,25 @@ h2{font:600 1.6rem "Cormorant Garamond",Georgia,serif;color:var(--head);margin:3
 nav{font-size:.85rem;text-align:right;line-height:1.9}.cover{float:right;width:min(240px,40%);margin:6px 0 16px 20px;border-radius:6px;box-shadow:0 8px 22px rgba(0,0,0,.25)}
 .facts{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin:20px 0}.facts dt{color:var(--muted);font-size:.85rem}.facts dd{margin:0}
 .cols{columns:2 240px;column-gap:28px;padding-left:18px}.cols li{break-inside:avoid}h1,h2{clear:none}
+ul{padding-left:20px}.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--surface)}mark.todo{background:rgba(216,178,74,.22);color:var(--head);padding:0 4px;border-radius:4px}
 footer{max-width:1080px;margin:64px auto 0;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 </style></head><body>
-<header class="top"><a class="brand" href="/">MIMIR<small>A TERRATALES VENTURE</small></a><nav>${HUBS.map((h) => `<a href="/${h.slug}/">${h.name}</a>`).join(" · ")} · <a href="/shelves/">Shelves</a> · <a href="/blog/">Blog</a></nav></header>
+<header class="top"><a class="brand" href="/">MIMIR<small>A TERRATALES VENTURE</small></a><nav>${HUBS.map((h) => `<a href="/${h.slug}/">${h.name}</a>`).join(" · ")} · <a href="/shelves/">Shelves</a> · <a href="/franchises/">Franchises</a> · <a href="/tools/">Tools</a> · <a href="/days/">Days</a> · <a href="/help/">Help</a> · <a href="/blog/">Blog</a></nav></header>
 <main class="wrap">${body}</main>
-<footer><span>© ${new Date().getFullYear()} Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/blog/">Blog</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
+<footer><span>© ${new Date().getFullYear()} Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/about/">About</a> · <a href="/tags/">Tags</a> · <a href="/people/">People</a> · <a href="/blog/">Blog</a> · <a href="/privacy/">Privacy</a> · <a href="/cookies/">Cookies</a> · <a href="/terms/">Terms</a> · <a href="/data-requests/">Data requests</a> · <a href="/security/">Security</a> · <a href="/#privacy-choices">Privacy choices</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
 </body></html>
 `;
+
+// Privacy notice, cookie policy, terms, data requests and security: plain static pages with real URLs (demo/legal.cjs).
+function writeLegal(out) {
+  return legal.PAGES.map((p) => {
+    const url = `${SITE_URL}/${p.slug}/`;
+    fs.mkdirSync(path.join(out, p.slug), { recursive: true });
+    const body = `<p class="eyebrow"><a href="/">Mimir</a> · Legal</p><h1>${esc(p.title)}</h1><p class="meta">Version ${legal.VERSION} · updated ${legal.UPDATED}</p>\n${legal.render(p.md)}`;
+    fs.writeFileSync(path.join(out, p.slug, "index.html"), staticPage(`${p.title} · Mimir`, p.desc, url, body, "", { type: "website", pageType: "WebPage", modified: legal.MODIFIED, crumbs: [["Mimir", `${SITE_URL}/`], [p.title, url]] }));
+    return [url, null, "0.3"];
+  });
+}
 
 function writeBlog(out) {
   const posts = JSON.parse(fs.readFileSync(path.join(here, "blog.json"), "utf8")).posts.sort((a, b) => b.date.localeCompare(a.date));
@@ -269,7 +300,7 @@ function writeBlog(out) {
   fs.writeFileSync(path.join(out, "blog", "index.html"), staticPage("Notes from the well · Mimir",
     "What Mimir can do, how it works, and what's new: discover and track films, TV, books, manga, games and music.", `${SITE_URL}/blog/`,
     `<p class="eyebrow">The Mimir blog</p><h1>Notes from the well</h1><p class="meta">What Mimir can do, how it works, and what's new.</p>
-<ul class="cards">${posts.map((b) => `<li><a href="/blog/${b.slug}/"><p class="meta">${esc(b.tags.join(" · "))} · ${date(b.date)}</p><h2>${esc(b.title)}</h2><p>${esc(b.summary)}</p></a></li>`).join("")}</ul>`));
+<ul class="cards">${posts.map((b) => `<li><a href="/blog/${b.slug}/"><p class="meta">${esc(b.tags.join(" · "))} · ${date(b.date)}</p><h2>${esc(b.title)}</h2><p>${esc(b.summary)}</p></a></li>`).join("")}</ul>`, "", { pageType: "Blog", crumbs: [["Mimir", `${SITE_URL}/`], ["Blog", `${SITE_URL}/blog/`]] }));
   for (const b of posts) {
     const url = `${SITE_URL}/blog/${b.slug}/`;
     const ld = { "@context": "https://schema.org", "@type": "BlogPosting", headline: b.title, description: b.summary, datePublished: b.date,
@@ -281,7 +312,7 @@ function writeBlog(out) {
 <p class="lede">${esc(b.summary)}</p>
 ${md(b.body)}
 <p><a class="cta" href="/">Ask Mimir</a><a class="cta ghost" href="/#decide">Decide for me</a></p>`,
-      `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`));
+      `<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>`, { pageType: null, crumbs: [["Mimir", `${SITE_URL}/`], ["Blog", `${SITE_URL}/blog/`], [b.title, url]] }));
   }
   const xml = (t) => esc(t).replace(/'/g, "&apos;");
   fs.writeFileSync(path.join(out, "blog", "feed.xml"), `<?xml version="1.0" encoding="UTF-8"?>
@@ -324,8 +355,11 @@ if (args[0] === "--site") {
   const P = (n) => JSON.parse(texts[n]);
   const cat = MDE.createCatalogue(P("catalogue"), P("taxonomy"), P("enrichment"), P("shelves"), P("providers"), P("calendar"));
   const today = new Date().toISOString().slice(0, 10);
-  const urls = [[`${SITE_URL}/`, today, "1.0"], ...writeBlog(out),
-    ...writeCatalogPages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc })];
+  const urls = [[`${SITE_URL}/`, today, "1.0"], ...writeBlog(out), ...writeLegal(out),
+    ...writeCatalogPages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc, ipMap: new Map(computeIps(cat).filter((g) => g.members.length >= 2).map((g) => [g.slug, { name: g.name, count: g.members.length }])) })];
+  const more = writeSitePages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc });
+  urls.push(...more.urls);
+  console.log(`static pages: ${more.ips} franchises, ${more.tags} tags, ${more.people} people, ${more.help} help guides, ${more.days} days`);
   const worksList = P("catalogue").works;
   writeSitemaps(out, { SITE_URL, urls, works: worksList, hubs: HUBS });
   // Everything is crawlable, scripts included: search engines render the app with them.

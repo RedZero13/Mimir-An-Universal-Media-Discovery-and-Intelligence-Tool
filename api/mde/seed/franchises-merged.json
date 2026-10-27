@@ -1,0 +1,486 @@
+{
+ "about": "Umbrella franchises added to works that carried none, so that one IP page gathers every work across media (films, shows, books, games and soundtracks). Existing franchise lists are left as they are. Reviewed by hand; see docs/CATALOGUE-EXPANSION.md.",
+ "works": [],
+ "attributes": {
+  "a-game-of-thrones-1996": {
+   "franchises": [
+    "Game of Thrones"
+   ]
+  },
+  "a-clash-of-kings-1998": {
+   "franchises": [
+    "Game of Thrones"
+   ]
+  },
+  "a-storm-of-swords-2000": {
+   "franchises": [
+    "Game of Thrones"
+   ]
+  },
+  "a-feast-for-crows-2005": {
+   "franchises": [
+    "Game of Thrones"
+   ]
+  },
+  "a-dance-with-dragons-2011": {
+   "franchises": [
+    "Game of Thrones"
+   ]
+  },
+  "game-of-thrones-2011": {
+   "franchises": [
+    "Game of Thrones"
+   ]
+  },
+  "house-of-the-dragon-2022": {
+   "franchises": [
+    "Game of Thrones"
+   ]
+  },
+  "middle-earth-shadow-of-mordor-2014": {
+   "franchises": [
+    "Middle-earth"
+   ]
+  },
+  "middle-earth-shadow-of-war-2017": {
+   "franchises": [
+    "Middle-earth"
+   ]
+  },
+  "dune-1965": {
+   "franchises": [
+    "Dune"
+   ]
+  },
+  "dune-2021": {
+   "franchises": [
+    "Dune"
+   ]
+  },
+  "dune-part-two-2024": {
+   "franchises": [
+    "Dune"
+   ]
+  },
+  "dune-ii-1992": {
+   "franchises": [
+    "Dune"
+   ]
+  },
+  "dune-1992": {
+   "franchises": [
+    "Dune"
+   ]
+  },
+  "the-witcher-2019": {
+   "franchises": [
+    "The Witcher"
+   ]
+  },
+  "alien-isolation-2014": {
+   "franchises": [
+    "Alien"
+   ]
+  },
+  "the-memoirs-of-sherlock-holmes-1894": {
+   "franchises": [
+    "Sherlock Holmes"
+   ]
+  },
+  "sherlock-holmes-2009": {
+   "franchises": [
+    "Sherlock Holmes"
+   ]
+  },
+  "sherlock-holmes-a-game-of-shadows-2011": {
+   "franchises": [
+    "Sherlock Holmes"
+   ]
+  },
+  "young-sherlock-holmes-1985": {
+   "franchises": [
+    "Sherlock Holmes"
+   ]
+  },
+  "the-private-life-of-sherlock-holmes-1970": {
+   "franchises": [
+    "Sherlock Holmes"
+   ]
+  },
+  "sherlock-2010": {
+   "franchises": [
+    "Sherlock Holmes"
+   ]
+  },
+  "attack-on-titan-2009": {
+   "franchises": [
+    "Attack on Titan"
+   ]
+  },
+  "attack-on-titan-2013": {
+   "franchises": [
+    "Attack on Titan"
+   ]
+  },
+  "the-last-of-us-2013": {
+   "franchises": [
+    "The Last of Us"
+   ]
+  },
+  "the-last-of-us-2023": {
+   "franchises": [
+    "The Last of Us"
+   ]
+  },
+  "halo-3-2007": {
+   "franchises": [
+    "Halo"
+   ]
+  },
+  "halo-reach-2010": {
+   "franchises": [
+    "Halo"
+   ]
+  },
+  "fallout-new-vegas-2010": {
+   "franchises": [
+    "Fallout"
+   ]
+  },
+  "super-mario-odyssey-2017": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-all-stars-1993": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-bros-3-1988": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-advance-4-super-mario-bros-3-2003": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-64-1996": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-bros-1984": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-party-2018": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-bros-2-1988": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-galaxy-2007": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-bros-deluxe-1999": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-land-1989": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "paper-mario-2000": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-world-2-yoshi-s-island-1995": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "new-super-mario-bros-wii-2009": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-8-2014": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-maker-2-2019": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-rpg-1996": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-8-deluxe-2017": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-wii-2008": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-paper-mario-2007": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-3d-world-2013": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-bros-the-lost-levels-1986": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-ds-2005": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "new-super-mario-bros-u-2012": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-3d-land-2011": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-maker-2015": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-7-2011": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-kart-1992": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "paper-mario-the-thousand-year-door-2004": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-tour-2019": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "new-super-mario-bros-2006": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "new-super-mario-bros-2-2012": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "super-mario-galaxy-2-2010": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-super-circuit-2001": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-64-1996": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "mario-kart-double-dash-2003": {
+   "franchises": [
+    "Super Mario"
+   ]
+  },
+  "dragon-ball-1984": {
+   "franchises": [
+    "Dragon Ball"
+   ]
+  },
+  "stranger-things-3-the-game-2019": {
+   "franchises": [
+    "Stranger Things"
+   ]
+  },
+  "street-fighter-ii-1991": {
+   "franchises": [
+    "Street Fighter"
+   ]
+  },
+  "street-fighter-v-2016": {
+   "franchises": [
+    "Street Fighter"
+   ]
+  },
+  "street-fighter-iv-2008": {
+   "franchises": [
+    "Street Fighter"
+   ]
+  },
+  "street-fighter-alpha-2-1996": {
+   "franchises": [
+    "Street Fighter"
+   ]
+  },
+  "street-fighter-x-tekken-2012": {
+   "franchises": [
+    "Street Fighter"
+   ]
+  },
+  "super-street-fighter-iv-2010": {
+   "franchises": [
+    "Street Fighter"
+   ]
+  },
+  "call-of-duty-4-modern-warfare-2007": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "call-of-duty-modern-warfare-3-2011": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "call-of-duty-modern-warfare-2-2009": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "call-of-duty-black-ops-ii-2012": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "call-of-duty-world-at-war-2008": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "call-of-duty-black-ops-iii-2015": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "call-of-duty-3-2006": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "call-of-duty-modern-warfare-2019": {
+   "franchises": [
+    "Call of Duty"
+   ]
+  },
+  "god-of-war-2018": {
+   "franchises": [
+    "God of War"
+   ]
+  },
+  "god-of-war-iii-2010": {
+   "franchises": [
+    "God of War"
+   ]
+  },
+  "spider-man-into-the-spider-verse-2018": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "marvels-spider-man-2018": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-homecoming-2017": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-far-from-home-2016": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-2002": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-3-2007": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-2-2004": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-no-way-home-2021": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "the-amazing-spider-man-2-2014": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "the-amazing-spider-man-2012": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-3-2007-game": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-2018": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  },
+  "spider-man-2-2004-game": {
+   "franchises": [
+    "Spider-Man"
+   ]
+  }
+ }
+}

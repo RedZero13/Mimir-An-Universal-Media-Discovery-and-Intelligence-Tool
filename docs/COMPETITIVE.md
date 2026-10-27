@@ -5,7 +5,7 @@ Letterboxd for film and TV, Goodreads for books, Spotify for music discovery) wi
 everything and explains what to pick next. This page lists what each of those does that people rely on, whether
 Mimir matches it yet, and what Mimir offers that none of them do.
 
-Status: **Yes** shipped in the beta · **Partly** a first version, with the gap noted · **Not yet** planned.
+Other products are described by their public features as we understand them at the time of writing, which may be out of date; their names belong to their owners and are used only to identify them. Status: **Yes** shipped in the beta · **Partly** a first version, with the gap noted · **Not yet** planned.
 
 ## Points of parity
 
@@ -22,7 +22,7 @@ Status: **Yes** shipped in the beta · **Partly** a first version, with the gap 
 | Recommendations | **Yes**, taste profile from ratings and scores, with the reason for each pick |
 | Top rankings, genres, studios, people | **Yes** (Top lists, tags, people & studios) |
 | Seasonal charts, airing schedules, episode release dates | **Not yet**: needs a live data source |
-| Public profiles, friends, forums, clubs | **Partly**: accounts, profiles, follows, a feed and reviews with comments are built; they go live when the API is hosted. No forums or clubs yet |
+| Public profiles, friends, forums, clubs | **Partly**: optional encrypted accounts sync your library across devices. Profiles, follows, a feed and reviews with comments are built but need the community API to be hosted. No forums or clubs yet |
 
 ### MangaUpdates
 
@@ -68,9 +68,9 @@ Status: **Yes** shipped in the beta · **Partly** a first version, with the gap 
 ## Points of difference
 
 1. **One library for everything.** Films, TV, books, games and music in one list, one diary, one set of stats.
-   Nobody else tracks a novel, its film and the game it inspired side by side.
+   Few single apps track a novel, its film and the game it inspired side by side.
 2. **Discovery by feeling, in your own words.** "Something comforting after a difficult day, no violence, under
-   two hours" works across all media. The others search by title or genre.
+   two hours" works across all media. Most of the apps above search by title, genre or tags; a few offer mood-based search within one medium.
 3. **Every pick is explained.** Mimir says which of your words matched which qualities, and marks recorded facts
    apart from editorial readings. Recommendations say which work you rated they come from and what they share.
 4. **Cross-medium "like this".** "Something like Blade Runner but in a different medium" gives a novel, a game
@@ -82,8 +82,8 @@ Status: **Yes** shipped in the beta · **Partly** a first version, with the gap 
 7. **An honest parents' guide** in six categories that never treats "not assessed" as safe.
 8. **Provenance on every fact.** Each page says which source supplied a year, runtime, score or cover, and where
    a source disagreed with the editorial record.
-9. **Private by default.** Library, lists and ratings stay in the browser; nothing is collected silently.
-   Backups are a file you own.
+9. **Private by default.** Library, lists and ratings stay in the browser. An optional account is end-to-end encrypted, so Mimir
+   cannot read it, and usage analytics are off until you allow them. Backups are a file you own.
 10. **Less browsing, more watching.** "Decide for me" turns three taps into one pick with its reasons, and
     learns from "not this". The social calendar gives a pick a day for seasons and festivals people already
     celebrate: Spooktober, 12 Days of Christmas, Diwali, Lunar New Year, Pride, Noirvember.
@@ -98,6 +98,6 @@ Status: **Yes** shipped in the beta · **Partly** a first version, with the gap 
    exact matching on import.
 3. **Release and availability feeds** from licensed partners (JustWatch-style availability, airing and
    publication calendars) for "new episode / new volume" alerts on your list.
-4. **Catalogue scale**: the beta has 503 works. Import reports already list titles Mimir doesn't have; they feed
+4. **Catalogue scale**: the beta has about 7,650 works, far fewer than the single-medium sites above hold in their own medium. Import reports already list titles Mimir doesn't have; they feed
    the next catalogue additions.
 5. **Licensed artwork** for films, TV and games (generated covers stand in today).

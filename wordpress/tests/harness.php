@@ -53,6 +53,45 @@ check( 'repeated wrong keys are rate limited', 429 === $last, $last );
 for ( $i = 0; $i < 11; $i++ ) { [ $last ] = call( '/vault/create', array( 'id' => sprintf( '%032x', $i + 99 ), 'auth' => $auth, 'blob' => $blob ), '192.0.2.1' ); }
 check( 'creating vaults is rate limited per connection', 429 === $last, $last );
 
+// ---- consent and telemetry
+$cid = str_repeat( 'ab', 16 );
+call( '/vault/create', array( 'id' => $cid, 'auth' => $auth, 'blob' => $blob ), '192.0.2.50' );
+[ $s ] = call( '/vault/consent', array( 'id' => $cid, 'auth' => $auth, 'consent_version' => '2026-10', 'analytics' => true ), '192.0.2.50' );
+$crow = $wpdb->get_row( "SELECT consent_version, consent_analytics FROM wp_mimir_accounts WHERE id = '$cid'" );
+check( 'consent is recorded for an account', 200 === $s && '2026-10' === $crow['consent_version'] && 1 === (int) $crow['consent_analytics'], $crow );
+
+$vid = str_repeat( '1f', 16 );
+$report = array( 'vid' => $vid, 'ver' => 'abc123def456', 'start' => true, 'device' => 'mobile', 'browser' => 'chrome', 'os' => 'android', 'screen' => 'xs', 'lang' => 'en',
+	'events' => array( array( 'n' => 'pv', 'r' => 'for-you' ), array( 'n' => 'pv', 'r' => 'Bad Route!' ), array( 'n' => 'ft', 'f' => 'swipe' ), array( 'n' => 'pf', 'lcp' => 1800 ), array( 'n' => 'xx' ) ) );
+[ $s, $d ] = call( '/telemetry', $report, '192.0.2.60' ); check( 'a consented report is accepted and only valid events are kept', 202 === $s && 3 === $d['kept'], $d );
+$us = Mimir_Vault::usage();
+check( 'active visitors are counted', 1 === $us['dau'] && 1 === $us['mau'] && 1 === $us['new_30'], $us );
+check( 'device, route, feature and speed are counted', 'mobile' === $us['device'][0]['v'] && 'for-you' === $us['route'][0]['v'] && 'swipe' === $us['feature'][0]['v'] && '1 to 2.5s' === $us['lcp'][0]['v'], $us );
+check( 'a made-up route is not stored', 1 === count( $us['route'] ), $us['route'] );
+$report['device'] = 'toaster'; $report['vid'] = str_repeat( '2e', 16 );
+call( '/telemetry', $report, '192.0.2.60' );
+check( 'a device class outside the list is dropped', ! in_array( 'toaster', array_column( Mimir_Vault::usage()['device'], 'v' ), true ) );
+
+[ $s, $d ] = call( '/telemetry', array( 'events' => array( array( 'n' => 'pv', 'r' => 'home' ), array( 'n' => 'er', 'm' => 'TypeError: x is undefined', 'r' => 'home' ) ), 'ver' => 'abc123def456' ), '192.0.2.61' );
+check( 'without an opt-in only errors are kept', 202 === $s && 1 === $d['kept'], $d );
+call( '/telemetry', array( 'events' => array( array( 'n' => 'er', 'm' => 'TypeError: x is undefined', 'r' => 'home' ) ), 'ver' => 'abc123def456' ), '192.0.2.61' );
+$us = Mimir_Vault::usage(); check( 'the same error is counted, not duplicated', 1 === count( $us['errors'] ) && 2 === (int) $us['errors'][0]['n'] && 2 === $us['error_n'], $us['errors'] );
+[ $s ] = call( '/telemetry', array( 'events' => array( array( 'n' => 'er', 'm' => str_repeat( 'x', 9000 ) ) ) ), '192.0.2.62' ); check( 'an oversize report is refused', 413 === $s, $s );
+
+$wpdb->query( "INSERT INTO wp_mimir_metrics (day, k, v, n) VALUES ('2020-01-01', 'route', 'old', 5)" );
+$wpdb->query( "INSERT INTO wp_mimir_active (day, vid) VALUES ('2020-01-01', 'deadbeefdeadbeef')" );
+Mimir_Vault::purge_usage();
+check( 'usage older than 13 months is purged', 0 === (int) $wpdb->get_var( "SELECT COUNT(*) FROM wp_mimir_metrics WHERE day = '2020-01-01'" ) + (int) $wpdb->get_var( "SELECT COUNT(*) FROM wp_mimir_active WHERE day = '2020-01-01'" ) );
+$dump = '';
+foreach ( array( 'wp_mimir_metrics', 'wp_mimir_active', 'wp_mimir_visitors', 'wp_mimir_errors', 'wp_mimir_accounts' ) as $t ) { $dump .= json_encode( $wpdb->get_results( "SELECT * FROM $t" ) ); }
+check( 'no address and no raw visitor id is stored', ! str_contains( $dump, '192.0.2.' ) && ! str_contains( $dump, $vid ), '' );
+
+foreach ( array( '8.1.30' => 'eol', '8.0.1' => 'eol', '8.2.34' => 'update', '8.2.35' => 'ok', '8.3.35' => 'update', '8.3.36' => 'ok', '8.4.26' => 'update', '8.4.27' => 'ok', '8.5.11' => 'update', '8.5.12' => 'ok', '8.6.0' => 'ok' ) as $ver => $want ) {
+	check( "PHP $ver is judged $want", $want === Mimir_Vault::php_advisory( $ver )['level'], Mimir_Vault::php_advisory( $ver ) );
+}
+check( 'an unpatched PHP produces a message naming the CVEs', str_contains( Mimir_Vault::php_advisory( '8.3.20' )['message'], 'CVE-2026-109618' ) );
+check( 'the advisory is never in a public response', ! str_contains( json_encode( call( '/health', array() ) ), 'PHP' ) );
+
 Mimir_Vault::housekeeping();
 $origins = Mimir_Vault::origins( array() ); check( 'the Mimir origin is allowed for browsers', in_array( 'https://mimir.terratalesmedia.world', $origins, true ) );
 $src = file_get_contents( __DIR__ . '/../mimir-vault/mimir-vault.php' );

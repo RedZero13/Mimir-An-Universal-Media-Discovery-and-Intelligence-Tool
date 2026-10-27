@@ -67,6 +67,15 @@ statements plus a curated list of umbrella franchises. Films and series list the
 where Wikidata records it. Both live in `api/mde/seed/people-and-franchises.json`, an overlay on works defined in
 any seed file.
 
+**One page per IP.** A franchise page gathers every work that carries the franchise, with a shelf per medium, so Game of
+Thrones lists the show, House of the Dragon and the books, and The Lord of the Rings page also holds The Rings of Power.
+`api/mde/seed/franchises-merged.json` adds an umbrella franchise (Game of Thrones, Dune, Sherlock Holmes, The Last of Us,
+Super Mario, Spider-Man and others) to works that carried none, reviewed by hand; it never overrides an existing franchise
+list. `api/mde/seed/soundtracks.json` adds 19 soundtrack and score albums so franchise pages have a music shelf; their
+release groups, titles, years and cover availability were read from MusicBrainz and the Cover Art Archive, and their
+summaries and tags are AI-assisted readings. Franchises with no album yet (most of them) show no music shelf. To add
+another, find its release group on MusicBrainz and add it to `soundtracks.json` with a `franchises` attribute.
+
 ## Performance
 
 Holding about 7,500 works in the browser costs more start-up time than 681. The engine now caches cards and slug

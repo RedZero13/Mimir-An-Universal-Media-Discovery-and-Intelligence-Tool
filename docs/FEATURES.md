@@ -3,7 +3,7 @@
 Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube,
 built by Terratales Media Entertainment. Live at [mimir.terratalesmedia.world](https://mimir.terratalesmedia.world/).
 
-The catalogue holds about 7,650 works: 3,212 films, 1,439 TV series, 701 books and manga, 1,263 games, 852 albums,
+The catalogue holds about 7,650 works: 3,212 films, 1,439 TV series, 701 books and manga, 1,263 games, 871 albums,
 50 YouTube channels and 139 videos, from 99 countries in 68 original languages. The original 681 are fully classified
 against a controlled vocabulary of 372 terms (233 of them subgenres); the rest were imported from Wikidata with their
 facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.md](CATALOGUE-EXPANSION.md)).
@@ -117,8 +117,10 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   settings before they leave the device; the server stores only ciphertext, so Mimir cannot read it.
 - **Sync across devices** with per-item merging, export your data as a file, change your key, sign out (optionally wiping
   this device) or delete everything on the server in one step. A lost key cannot be recovered.
-- Needs the Mimir Vault plugin switched on: see [ACCOUNTS.md](ACCOUNTS.md). Sign in with Google, Apple and Meta and usage
-  analytics with consent are planned.
+- Needs the Mimir Vault plugin switched on: see [ACCOUNTS.md](ACCOUNTS.md). Sign in with Google, Apple and Meta is planned.
+- **Privacy you can change:** analytics is off until you allow it (a plain consent panel, honouring Global Privacy Control),
+  nothing you search for, rate or save is ever collected, and the privacy notice, cookie policy, terms, data requests and
+  security pages sit in every footer.
 
 ## Community
 

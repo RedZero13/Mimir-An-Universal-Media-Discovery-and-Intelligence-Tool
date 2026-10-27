@@ -74,7 +74,7 @@ def _images() -> dict[str, list[dict]]:
 
 
 def _public_texts() -> dict[str, str]:
-    files = ["demo/page.html", "demo/build.cjs", "demo/seo.cjs", "demo/blog.json", "README.md", "docs/FEATURES.md",
+    files = ["demo/page.html", "demo/build.cjs", "demo/seo.cjs", "demo/legal.cjs", "demo/vault.cjs", "demo/blog.json", "README.md", "docs/FEATURES.md",
              *[str(p.relative_to(ROOT)) for p in sorted((ROOT / "docs" / "press").glob("*.md"))]]
     return {f: (ROOT / f).read_text() for f in files if (ROOT / f).exists()}
 
@@ -88,10 +88,15 @@ class _Page(HTMLParser):
         self.meta: dict[str, str] = {}
         self.canonical = ""
         self.links: list[str] = []
+        self.ld: list[str] = []
+        self._in_ld = False
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
-        if tag == "title":
+        if tag == "script" and a.get("type") == "application/ld+json":
+            self._in_ld = True
+            self.ld.append("")
+        elif tag == "title":
             self._in_title = True
         elif tag == "h1":
             self.h1 += 1
@@ -105,8 +110,12 @@ class _Page(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "title":
             self._in_title = False
+        elif tag == "script":
+            self._in_ld = False
 
     def handle_data(self, data):
+        if self._in_ld:
+            self.ld[-1] += data
         if self._in_title:
             self.title += data
 
@@ -120,7 +129,7 @@ def scan_site(site: Path) -> tuple[dict[str, dict], list[str]]:
         p.feed(f.read_text(errors="replace"))
         robots = p.meta.get("robots", "")
         pages[url] = {"file": rel, "title": p.title.strip(), "description": p.meta.get("description", ""), "canonical": p.canonical,
-                      "h1": p.h1, "noindex": "noindex" in robots, "links": p.links}
+                      "h1": p.h1, "noindex": "noindex" in robots, "links": p.links, "ld": p.ld}
     locs: list[str] = []
     for sm in sorted(site.glob("sitemap*.xml")):   # the index lists other sitemaps, not pages
         locs += [u for u in re.findall(r"<loc>([^<]+)</loc>", sm.read_text()) if not u.endswith(".xml")]
@@ -465,6 +474,13 @@ def _b002(c):
                 yield f, f"says {m.group(0)!r}; the catalogue has {langs}"
 
 
+@check("B003")
+def _b003(c):
+    text = c.texts.get("demo/legal.cjs", "")
+    for m in re.finditer(r"\[\[([^\]]+)\]\]", text):
+        yield f"demo/legal.cjs:{m.group(1)[:50]}", f"to be supplied: {m.group(1)}"
+
+
 def _url_file(site: Path, url: str) -> Path | None:
     path = url.split("#")[0].split("?")[0]
     if not path.startswith("/") or path.startswith("//"):
@@ -530,6 +546,30 @@ def _p005(c):
             yield url, f"title is {len(p['title'])} characters"
         if len(p["description"]) > c.params["description_max_chars"]:
             yield url, f"description is {len(p['description'])} characters"
+
+
+PAGE_TYPES = {"WebPage", "ItemPage", "CollectionPage", "AboutPage", "ContactPage", "FAQPage", "Blog", "BlogPosting", "WebSite"}
+
+
+@check("P006")
+def _p006(c):
+    for url, p in c.pages.items():
+        if p["noindex"] or p["file"] == "/404.html":
+            continue
+        types: set[str] = set()
+        for raw in p["ld"]:
+            try:
+                d = json.loads(raw)
+            except ValueError:
+                yield url, "structured data is not valid JSON"
+                continue
+            for n in d.get("@graph", [d]):
+                t = n.get("@type")
+                types.update(t if isinstance(t, list) else [t])
+        if not types & PAGE_TYPES:
+            yield url, "no page-level structured data (WebPage family)"
+        if url != "/" and "BreadcrumbList" not in types:
+            yield url, "no BreadcrumbList structured data"
 
 
 # ---------------------------------------------------------------------------------------------------- running

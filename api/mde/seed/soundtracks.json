@@ -1,0 +1,565 @@
+{
+ "about": "Soundtrack albums that put music on the franchise pages. Release groups, titles and years were read from MusicBrainz (a front cover exists on the Cover Art Archive for each); summaries and terms are AI-assisted readings awaiting editorial review.",
+ "works": [
+  {
+   "slug": "harry-potter-and-the-philosophers-stone-soundtrack-2001",
+   "medium": "album",
+   "title": "Harry Potter and the Philosopher’s Stone (Soundtrack)",
+   "year": 2001,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "John Williams"
+    ]
+   ],
+   "summary": "John Williams's score for the first Harry Potter film, including Hedwig's Theme.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:whimsical": 0.8,
+    "mood:wonder": 0.9
+   },
+   "attributes": {
+    "franchises": [
+     "Wizarding World"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "fantastic-beasts-and-where-to-find-them-original-motion-picture-soundtrack-2016",
+   "medium": "album",
+   "title": "Fantastic Beasts and Where to Find Them: Original Motion Picture Soundtrack",
+   "year": 2016,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "James Newton Howard"
+    ]
+   ],
+   "summary": "James Newton Howard's score for Fantastic Beasts and Where to Find Them, the first film of the Wizarding World prequels.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:wonder": 0.8,
+    "mood:whimsical": 0.6
+   },
+   "attributes": {
+    "franchises": [
+     "Wizarding World"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring-original-motion-picture-soundtrack-2001",
+   "medium": "album",
+   "title": "The Lord of the Rings: The Fellowship of the Ring: Original Motion Picture Soundtrack",
+   "year": 2001,
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "artist",
+     "Howard Shore"
+    ]
+   ],
+   "summary": "Howard Shore's score for The Fellowship of the Ring, the first of his three Lord of the Rings film scores, written for orchestra and choir.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:epic": 1,
+    "mood:wonder": 0.8,
+    "mood:melancholic": 0.4
+   },
+   "attributes": {
+    "franchises": [
+     "Middle-earth"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "the-lord-of-the-rings-the-rings-of-power-season-one-amazon-original-series-soundtrack-2022",
+   "medium": "album",
+   "title": "The Lord of the Rings: The Rings of Power (Season One: Amazon Original Series Soundtrack)",
+   "year": 2022,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Bear McCreary"
+    ]
+   ],
+   "summary": "Bear McCreary's score for the first season of The Rings of Power.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:epic": 0.8,
+    "mood:wonder": 0.6
+   },
+   "attributes": {
+    "franchises": [
+     "Middle-earth"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "star-wars-soundtrack-1977",
+   "medium": "album",
+   "title": "Star Wars (Soundtrack)",
+   "year": 1977,
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "artist",
+     "John Williams"
+    ]
+   ],
+   "summary": "John Williams's orchestral score for the 1977 film, performed by the London Symphony Orchestra.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:epic": 1,
+    "mood:exhilarating": 0.8,
+    "mood:wonder": 0.6
+   },
+   "attributes": {
+    "franchises": [
+     "Star Wars"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "game-of-thrones-music-from-the-hbo-series-2011",
+   "medium": "album",
+   "title": "Game of Thrones: Music From the HBO Series",
+   "year": 2011,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "Ramin Djawadi"
+    ]
+   ],
+   "summary": "Ramin Djawadi's music for the first season of Game of Thrones, including its main title theme.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:epic": 0.8,
+    "mood:tense": 0.6,
+    "mood:bleak": 0.4
+   },
+   "attributes": {
+    "franchises": [
+     "Game of Thrones"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "house-of-the-dragon-season-1-soundtrack-from-the-series-2022",
+   "medium": "album",
+   "title": "House of the Dragon: Season 1 (Soundtrack from the Series)",
+   "year": 2022,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Ramin Djawadi"
+    ]
+   ],
+   "summary": "Ramin Djawadi's music for the first season of House of the Dragon.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:epic": 0.7,
+    "mood:tense": 0.6
+   },
+   "attributes": {
+    "franchises": [
+     "Game of Thrones"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "guardians-of-the-galaxy-awesome-mix-vol-1-original-motion-picture-soundtrack-2014",
+   "medium": "album",
+   "title": "Guardians of the Galaxy: Awesome Mix, Vol. 1: Original Motion Picture Soundtrack",
+   "year": 2014,
+   "popularity_tier": 1,
+   "credits": [
+    [
+     "artist",
+     "Various Artists",
+     "organisation"
+    ]
+   ],
+   "summary": "The 1970s and 80s songs Peter Quill plays in Guardians of the Galaxy, collected as the film's soundtrack.",
+   "terms": {
+    "genre:pop-rock": 0.6,
+    "mood:nostalgic": 0.8,
+    "mood:uplifting": 0.7
+   },
+   "attributes": {
+    "franchises": [
+     "Marvel Cinematic Universe"
+    ]
+   },
+   "language": "en"
+  },
+  {
+   "slug": "black-panther-the-album-music-from-and-inspired-by-2018",
+   "medium": "album",
+   "title": "Black Panther: The Album (Music From and Inspired By)",
+   "year": 2018,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "Kendrick Lamar"
+    ]
+   ],
+   "summary": "A Kendrick Lamar-curated album of music from and inspired by Black Panther.",
+   "terms": {
+    "genre:hip-hop": 0.9,
+    "mood:epic": 0.5
+   },
+   "attributes": {
+    "franchises": [
+     "Marvel Cinematic Universe"
+    ]
+   },
+   "language": "en"
+  },
+  {
+   "slug": "the-witcher-3-wild-hunt-official-soundtrack-2015",
+   "medium": "album",
+   "title": "The Witcher 3: Wild Hunt - Official Soundtrack",
+   "year": 2015,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "Marcin Przybyłowicz"
+    ]
+   ],
+   "summary": "Marcin Przybyłowicz's score for The Witcher 3: Wild Hunt, with an orchestral and folk-inspired sound.",
+   "terms": {
+    "genre:film-score": 0.7,
+    "mood:epic": 0.6,
+    "mood:melancholic": 0.5,
+    "mood:eerie": 0.4
+   },
+   "attributes": {
+    "franchises": [
+     "The Witcher"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "the-elder-scrolls-v-skyrim-original-game-soundtrack-2011",
+   "medium": "album",
+   "title": "The Elder Scrolls V: Skyrim: Original Game Soundtrack",
+   "year": 2011,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "Jeremy Soule"
+    ]
+   ],
+   "summary": "Jeremy Soule's score for The Elder Scrolls V: Skyrim.",
+   "terms": {
+    "genre:film-score": 0.7,
+    "mood:epic": 0.8,
+    "mood:wonder": 0.7,
+    "mood:contemplative": 0.5
+   },
+   "attributes": {
+    "franchises": [
+     "The Elder Scrolls"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "dune-original-motion-picture-soundtrack-2021",
+   "medium": "album",
+   "title": "Dune: Original Motion Picture Soundtrack",
+   "year": 2021,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "Hans Zimmer"
+    ]
+   ],
+   "summary": "Hans Zimmer's score for Denis Villeneuve's Dune.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:epic": 0.8,
+    "mood:unsettling": 0.5,
+    "mood:contemplative": 0.4
+   },
+   "attributes": {
+    "franchises": [
+     "Dune"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "dune-part-two-original-motion-picture-soundtrack-2024",
+   "medium": "album",
+   "title": "Dune: Part Two: Original Motion Picture Soundtrack",
+   "year": 2024,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Hans Zimmer"
+    ]
+   ],
+   "summary": "Hans Zimmer's score for Dune: Part Two.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:epic": 0.8,
+    "mood:unsettling": 0.5
+   },
+   "attributes": {
+    "franchises": [
+     "Dune"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "the-last-of-us-soundtrack-2013",
+   "medium": "album",
+   "title": "The Last of Us (Soundtrack)",
+   "year": 2013,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "Gustavo Santaolalla"
+    ]
+   ],
+   "summary": "Gustavo Santaolalla's sparse, guitar-led score for the first The Last of Us game.",
+   "terms": {
+    "genre:film-score": 0.7,
+    "mood:melancholic": 0.9,
+    "mood:bleak": 0.6,
+    "mood:contemplative": 0.7
+   },
+   "attributes": {
+    "franchises": [
+     "The Last of Us"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "the-last-of-us-season-1-2023",
+   "medium": "album",
+   "title": "The Last of Us: Season 1",
+   "year": 2023,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Gustavo Santaolalla"
+    ],
+    [
+     "artist",
+     "David Fleming"
+    ]
+   ],
+   "summary": "The score for the first season of the HBO series, by Gustavo Santaolalla and David Fleming.",
+   "terms": {
+    "genre:film-score": 1,
+    "mood:melancholic": 0.8,
+    "mood:bleak": 0.5,
+    "mood:contemplative": 0.6
+   },
+   "attributes": {
+    "franchises": [
+     "The Last of Us"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "stranger-things-2-soundtrack-2017",
+   "medium": "album",
+   "title": "Stranger Things 2 (Soundtrack)",
+   "year": 2017,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Kyle Dixon"
+    ],
+    [
+     "artist",
+     "Michael Stein"
+    ]
+   ],
+   "summary": "Kyle Dixon and Michael Stein's synthesiser score for the second season of Stranger Things.",
+   "terms": {
+    "genre:film-score": 0.7,
+    "mood:nostalgic": 0.8,
+    "mood:tense": 0.5,
+    "mood:eerie": 0.5,
+    "style:atmospheric": 0.7
+   },
+   "attributes": {
+    "franchises": [
+     "Stranger Things"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  },
+  {
+   "slug": "arcane-league-of-legends-soundtrack-from-the-animated-series-2021",
+   "medium": "album",
+   "title": "Arcane League of Legends: Soundtrack From the Animated Series",
+   "year": 2021,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Various Artists",
+     "organisation"
+    ]
+   ],
+   "summary": "The songs and score from the first season of Arcane, the animated series set in the League of Legends world.",
+   "terms": {
+    "genre:film-score": 0.4,
+    "mood:epic": 0.7
+   },
+   "attributes": {
+    "franchises": [
+     "League of Legends"
+    ]
+   },
+   "language": "en"
+  },
+  {
+   "slug": "spider-man-into-the-spider-verse-soundtrack-from-inspired-by-the-motion-picture-2018",
+   "medium": "album",
+   "title": "Spider-Man: Into the Spider-Verse (Soundtrack From & Inspired by the Motion Picture)",
+   "year": 2018,
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "artist",
+     "Various Artists",
+     "organisation"
+    ]
+   ],
+   "summary": "Songs from and inspired by the animated film Spider-Man: Into the Spider-Verse.",
+   "terms": {
+    "genre:hip-hop": 0.8,
+    "genre:pop": 0.5,
+    "mood:exhilarating": 0.8
+   },
+   "attributes": {
+    "franchises": [
+     "Spider-Man"
+    ]
+   },
+   "language": "en"
+  },
+  {
+   "slug": "cyberpunk-2077-original-score-2020",
+   "medium": "album",
+   "title": "Cyberpunk 2077: Original Score",
+   "year": 2020,
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "artist",
+     "Marcin Przybyłowicz"
+    ],
+    [
+     "artist",
+     "P.T. Adam"
+    ]
+   ],
+   "summary": "The original score for Cyberpunk 2077, by Marcin Przybyłowicz and P.T. Adam.",
+   "terms": {
+    "genre:film-score": 0.7,
+    "mood:tense": 0.6,
+    "mood:exhilarating": 0.5,
+    "style:atmospheric": 0.7
+   },
+   "attributes": {
+    "franchises": [
+     "Cyberpunk"
+    ]
+   },
+   "advisories": {
+    "strong-language": 0,
+    "sexual-content": 0,
+    "substance-use": 0
+   }
+  }
+ ],
+ "relationships": []
+}

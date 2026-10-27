@@ -248,6 +248,9 @@ details > summary:hover { color: var(--bone); }
 .key-text { font: 600 1.15rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .06em; word-break: break-word; color: var(--bone); user-select: all; }
 .key-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .form-msg { color: var(--gold-bright); font-size: .92rem; min-height: 1.2em; }
+.consent { position: fixed; inset: auto 12px 12px 12px; max-width: 560px; margin-inline: auto; z-index: 70; display: grid; gap: 10px; padding: 18px; background: var(--surface-2); border: 1px solid var(--gold); border-radius: 14px; box-shadow: 0 12px 40px rgba(0, 0, 0, .45); max-height: calc(100vh - 24px); overflow: auto; }
+.consent h2 { font-size: 1.15rem; } .consent p, .consent ul { margin: 0; } .consent ul { padding-left: 18px; display: grid; gap: 6px; }
+.consent summary { cursor: pointer; color: var(--ink); font-weight: 600; } .consent .muted, .consent .small, .consent a { color: var(--ink); } .consent a { text-decoration: underline; } .consent-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .sync-notice { position: fixed; inset: auto 16px 16px 16px; max-width: 460px; margin-inline: auto; z-index: 60; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--surface-2); border: 1px solid var(--gold); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, .4); }
 
 .active { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 16px; }
@@ -1300,7 +1303,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
       <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#swipe">Swipe</a></li><li><a href="#craft">Craft</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
       <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
-      <div><h2>Mimir</h2><ul><li><a href="#help">Help centre</a></li><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="/films/">Catalogue A–Z</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
+      <div><h2>Mimir</h2><ul><li><a href="#help">Help centre</a></li><li><a href="/privacy/">Privacy notice</a></li><li><a href="/cookies/">Cookie policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/data-requests/">Data requests</a></li><li><a href="/security/">Security</a></li><li><a href="#privacy-choices" data-consent-open>Privacy choices</a></li><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="/films/">Catalogue A–Z</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
       <div><h2>Terratales</h2><ul><li><a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></li><li><a href="https://terratalesmedia.world/publishing/" target="_blank" rel="noopener">Publishing</a></li><li><a href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener">The Akashic Records</a></li><li><a href="https://terratalesmedia.world/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
     </nav>
     <div class="foot-row">
@@ -4075,7 +4078,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function renderAccountLink() {
     const el = document.getElementById("account-link");
     if (!el) return;
-    el.hidden = !CONFIG.api && !CONFIG.vault;
+    el.hidden = !CONFIG.api && (!CONFIG.vault || (VAULT.state.online === false && !VAULT.state.dev));   // no Sign in link for a server that is not there
     if (CONFIG.vault) { el.innerHTML = VAULT.state.dev ? "Account" : "Sign in"; el.href = "#account"; return; }
     el.innerHTML = session ? `@${esc(session.user.username)}` : "Sign in";
     el.href = session ? `#u-${encodeURIComponent(session.user.username)}` : "#signin";
@@ -4182,9 +4185,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         const err = new Error("Couldn't reach the account server. Check your connection and try again."); err.status = 0; throw err;
       } finally { clearTimeout(timer); }
     }
+    // One cheap health check, remembered for ten minutes in this tab, so an unreachable server is never hammered and
+    // nothing (accounts, the consent panel, analytics) is offered for a server that is not there.
     async function reachable() {
       if (state.online !== null) return state.online;
+      try { const c = JSON.parse(sessionStorage.getItem("mimir-vault-up") || "null"); if (c && Date.now() - c.t < 600000) { state.online = c.up; return c.up; } } catch { /* no session storage */ }
       try { const h = await call("/health", undefined, 6000); state.online = !!(h && h.ok); } catch { state.online = false; }
+      try { sessionStorage.setItem("mimir-vault-up", JSON.stringify({ t: Date.now(), up: state.online })); } catch { /* no session storage */ }
       return state.online;
     }
 
@@ -4295,9 +4302,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }
     async function remove() { const d = state.dev; await call("/vault/delete", { id: d.id, auth: d.auth }); await leave(); }
 
+    // Loaded as soon as the page starts, so a page that needs to know whether you are signed in can wait for it.
+    const ready = CONFIG.vault ? loadDevice().then((d) => { state.dev = d; }) : Promise.resolve();
     async function init() {
       if (!CONFIG.vault) return;
-      state.dev = await loadDevice();
+      await ready;
+      if (!state.dev) await reachable();
       if (state.dev) {
         renderAccountLink();
         const m = metaGet();
@@ -4306,7 +4316,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && metaGet().dirty) sync().catch(() => {}); });
       }
     }
-    return { state, reachable, create, signIn, exportData, rotate, leave, remove, sync, init, meta: metaGet, call };
+    return { state, ready, reachable, create, signIn, exportData, rotate, leave, remove, sync, init, meta: metaGet, call };
   })();
 
   // Key screens: shown once, with the ways to keep it, and a check that it really has been kept.
@@ -4344,6 +4354,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   async function renderAccount() {
     const head = (t, sub) => `<header class="page-head"><p class="eyebrow">Your Mimir account</p><h1>${t}</h1><p class="muted">${sub}</p></header>`;
     app.innerHTML = head("Account", "Checking the account server…");
+    await VAULT.ready;
     if (!(await VAULT.reachable()) && !VAULT.state.dev) {
       app.innerHTML = head("Accounts aren't connected yet", "The account server isn't answering, so sign-in is switched off for now. Nothing is lost: everything keeps working in this browser.") + `
         <div class="prose block"><h2>In the meantime</h2><p>Your <a href="#library">library</a>, <a href="#lists">lists</a>, <a href="#journal">journal</a> and ratings stay on this device. Use <a href="#transfer">Import and export</a> to keep a copy.</p>
@@ -4357,7 +4368,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <section class="acct-card" aria-labelledby="acct-new"><h2 id="acct-new">Create a vault</h2>
           <p>You get a recovery key: that is your account. No email, no password, no tracking. Use it on any device to bring your library, lists, ratings and journal with you.</p>
           <label class="check"><input type="checkbox" data-age> I am 18 or older.</label>
-          <p class="muted small">Accounts are for adults. Under 18? Mimir works fully without one, on this device. Read how we handle data in the <a href="#privacy">privacy notice</a>.</p>
+          <p class="muted small">Accounts are for adults. Under 18? Mimir works fully without one, on this device. Read how we handle data in the <a href="/privacy/">privacy notice</a>.</p>
           <p><button type="button" class="btn" data-create disabled>Create my vault</button></p>
           <div id="acct-new-out" aria-live="polite"></div></section>
         <section class="acct-card" aria-labelledby="acct-in"><h2 id="acct-in">Sign in with your key</h2>
@@ -4402,6 +4413,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <section class="acct-card"><h2>Your data</h2>
           <p>Download everything in your vault as a file, decrypted on this device.</p>
           <p><button type="button" class="btn ghost" data-export>Export my data</button></p><div class="form-msg" role="alert" data-export-msg></div></section>
+        <section class="acct-card"><h2>Privacy choices</h2>
+          <p>Analytics is ${TEL.on() ? "on" : "off"}. It counts anonymous usage (never your library or what you search for), and only if you allow it.</p>
+          <p><button type="button" class="btn ghost" data-consent-open>Change</button></p></section>
         <section class="acct-card"><h2>Recovery key</h2>
           <p>Change your key if someone else may have seen it. Your old key stops working straight away.</p>
           <p><button type="button" class="btn ghost" data-rotate>Make a new key</button></p><div id="rotate-out" aria-live="polite"></div></section>
@@ -4449,6 +4463,121 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   document.addEventListener("click", (e) => { if (e.target.closest("[data-vault-reload]")) location.reload(); });
+
+  // ------------------------------------------------------------------ privacy choices and usage analytics
+  // Off until the visitor says yes. When on, Mimir counts which pages and features are used, the kind of device, and how fast
+  // pages load, with a random id that can be reset. It never sends what you search for, rate or save. Errors (no id) are
+  // reported either way so broken things get fixed. Everything goes to Mimir's own server; no third party sees it.
+  const CONSENT_VERSION = "2026-10";
+  const TEL = (() => {
+    const KEY = "mimir-consent", ID = "mimir-install-id";
+    const put = (k, v) => { try { Storage.prototype.setItem.call(localStorage, k, v); } catch { /* storage unavailable */ } };
+    const get = () => { try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch { return null; } };
+    const signal = () => navigator.globalPrivacyControl === true || navigator.doNotTrack === "1";
+    const on = () => { const c = get(); return !!(CONFIG.vault && c && c.analytics && c.v === CONSENT_VERSION); };
+    const hex = (n) => [...crypto.getRandomValues(new Uint8Array(n))].map((b) => b.toString(16).padStart(2, "0")).join("");
+    const q = { events: [], started: false, timer: null, errors: 0, lcp: null };
+
+    const ua = navigator.userAgent || "";
+    const device = () => (innerWidth < 768 ? "mobile" : innerWidth < 1024 ? "tablet" : "desktop");
+    const browser = () => /SamsungBrowser/.test(ua) ? "samsung" : /Edg\//.test(ua) ? "edge" : /OPR\/|Opera/.test(ua) ? "opera" : /Firefox\//.test(ua) ? "firefox" : /Chrome\/|CriOS/.test(ua) ? "chrome" : /Safari\//.test(ua) ? "safari" : "other";
+    const system = () => /Android/.test(ua) ? "android" : /iPhone|iPad|iPod/.test(ua) ? "ios" : /Windows/.test(ua) ? "windows" : /CrOS/.test(ua) ? "chromeos" : /Mac OS X|Macintosh/.test(ua) ? "macos" : /Linux/.test(ua) ? "linux" : "other";
+    const screenClass = () => (innerWidth < 480 ? "xs" : innerWidth < 768 ? "sm" : innerWidth < 1024 ? "md" : innerWidth < 1440 ? "lg" : "xl");
+    const version = () => { const s = document.querySelector('script[src*="assets/app."]'); const m = s && s.getAttribute("src").match(/app\.([0-9a-f]{6,12})\.js/); return m ? m[1] : ""; };
+    const word = (s) => (/^[a-z0-9][a-z0-9_:-]{0,31}$/.test(s) ? s : null);
+
+    function flush(final) {
+      clearTimeout(q.timer); q.timer = null;
+      if (!CONFIG.vault || !q.events.length) return;
+      const analytics = on();
+      const events = analytics ? q.events : q.events.filter((e) => e.n === "er");
+      q.events = [];
+      if (!events.length) return;
+      const body = { ver: version(), events };
+      if (analytics) {
+        let id = localStorage.getItem(ID); if (!id) { id = hex(16); put(ID, id); }
+        body.vid = id;
+        if (!q.started) { q.started = true; Object.assign(body, { start: true, device: device(), browser: browser(), os: system(), screen: screenClass(), lang: (navigator.language || "en").slice(0, 2).toLowerCase() }); }
+      }
+      try { fetch(`${CONFIG.vault}/telemetry`, { method: "POST", keepalive: true, headers: { "content-type": "application/json" }, body: JSON.stringify(body) }).catch(() => {}); } catch { /* never blocks the page */ }
+    }
+    function add(e) {
+      if (e.n !== "er" && !on()) return;
+      q.events.push(e);
+      if (!q.timer) q.timer = setTimeout(flush, 30000);
+    }
+    const track = {
+      route(h) { const r = word(String(h || "").split(/[?/]/)[0].replace(/^(work|person|shelf|group|programme|day|tag|u|wa|help-topic|help|post|list)-.+$/, "$1") || "home"); if (r) add({ n: "pv", r }); },
+      feature(f) { if (word(f)) add({ n: "ft", f }); },
+      error(msg, route) {
+        if (q.errors++ >= 5) return;
+        add({ n: "er", m: String(msg || "error").slice(0, 200), r: word(String(route || "").split(/[?/]/)[0]) || "home" });
+      },
+    };
+
+    // ---- consent state and the panel
+    function set(analytics) {
+      put(KEY, JSON.stringify({ v: CONSENT_VERSION, t: new Date().toISOString(), analytics: !!analytics }));
+      if (!analytics) { try { localStorage.removeItem(ID); } catch { /* storage unavailable */ } q.events = q.events.filter((e) => e.n === "er"); }
+      else { q.started = false; if (!localStorage.getItem(ID)) put(ID, hex(16)); }
+      if (VAULT.state.dev) VAULT.call("/vault/consent", { id: VAULT.state.dev.id, auth: VAULT.state.dev.auth, consent_version: CONSENT_VERSION, analytics: !!analytics }).catch(() => {});
+    }
+    function panel(force) {
+      if (!CONFIG.vault) return;
+      const have = get();
+      if (!force && have && have.v === CONSENT_VERSION) return;
+      document.getElementById("consent-panel")?.remove();
+      const cur = have && have.v === CONSENT_VERSION ? have.analytics : false;
+      const box = document.createElement("section");
+      box.id = "consent-panel"; box.className = "consent"; box.setAttribute("role", "dialog"); box.setAttribute("aria-labelledby", "consent-h"); box.setAttribute("aria-modal", "false");
+      box.innerHTML = `<h2 id="consent-h">Your privacy choices</h2>
+        <p>Mimir keeps your library on your device. We would like to count anonymous usage to find what is broken and what to build next: which pages and features are used, the kind of device, and how fast pages load. Never what you search for, rate or save. No ads, no tracking across sites, nobody else sees it.</p>
+        ${signal() ? `<p class="muted small">Your browser is sending a "do not track" or Global Privacy Control signal, so analytics stays off unless you turn it on here.</p>` : ""}
+        <details><summary>What is collected</summary><ul class="small">
+          <li><strong>Always, no id:</strong> error messages and the page they happened on, so broken things get fixed.</li>
+          <li><strong>Only if you allow analytics:</strong> a random id kept on this device (you can reset it), page names, feature names, device type, browser, system, screen size, language and page speed. Your address is not stored. It is deleted after 13 months.</li>
+          <li><strong>Storage on this device:</strong> your library and settings, which never leave it unless you create an account, and then only encrypted.</li></ul>
+          <p class="small">See the <a href="/privacy/">privacy notice</a> and <a href="/cookies/">cookie policy</a>. You can change this at any time from "Privacy choices" in the footer.</p></details>
+        <div class="consent-actions"><button type="button" class="btn" data-consent="yes">Allow analytics</button> <button type="button" class="btn" data-consent="no">No thanks</button>${cur ? ` <button type="button" class="btn ghost" data-consent-reset>Reset my analytics id</button>` : ""}</div>`;
+      document.body.appendChild(box);
+      box.addEventListener("click", (e) => {
+        const b = e.target.closest("[data-consent]");
+        if (b) { set(b.dataset.consent === "yes"); box.remove(); return; }
+        if (e.target.closest("[data-consent-reset]")) { try { localStorage.removeItem(ID); } catch { /* storage unavailable */ } e.target.textContent = "Reset"; e.target.disabled = true; }
+      });
+      box.querySelector("[data-consent]").focus({ preventScroll: true });
+    }
+
+    function init() {
+      if (!CONFIG.vault) return;
+      // Nothing starts until the account server has answered, so no consent is asked for, and nothing sent to, a server that is
+      // not there. A visitor who has not chosen yet sees the panel after the page has settled, never over the first paint.
+      setTimeout(() => VAULT.reachable().then((up) => { if (up) { start(); panel(false); } }), 3000);
+    }
+    function start() {
+      addEventListener("hashchange", () => track.route(location.hash.slice(1)));
+      track.route(location.hash.slice(1));
+      document.addEventListener("click", (e) => {
+        if (e.target.closest("[data-consent-open]")) { e.preventDefault(); panel(true); return; }
+        if (e.target.closest("[data-rate]")) track.feature("rate");
+        else if (e.target.closest("[data-mine]")) track.feature("library-add");
+        else if (e.target.closest("[data-share-url]")) track.feature("share");
+      });
+      document.addEventListener("submit", (e) => { if (e.target.closest("#ask")) track.feature("ask"); }, true);
+      addEventListener("error", (e) => track.error(e.message, location.hash.slice(1)));
+      addEventListener("unhandledrejection", (e) => track.error(e.reason && e.reason.message ? e.reason.message : "unhandled rejection", location.hash.slice(1)));
+      try { new PerformanceObserver((l) => { const x = l.getEntries().pop(); if (x) q.lcp = Math.round(x.startTime); }).observe({ type: "largest-contentful-paint", buffered: true }); } catch { /* not supported */ }
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState !== "hidden") return;
+        if (q.lcp !== null) { add({ n: "pf", lcp: q.lcp }); q.lcp = null; }
+        flush(true);
+      });
+      addEventListener("pagehide", () => flush(true));
+    }
+    return { track, panel, init, get, on };
+  })();
+  TEL.init();
+
 
   function renderSignin(p) {
     if (CONFIG.vault || !CONFIG.api) { renderAccount(); return; }
@@ -4722,82 +4851,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
 
   // ------------------------------------------------------------------ help centre
-  const HELP_CATS = [
-    ["start", "Getting started", "What Mimir is and the quickest way in."],
-    ["find", "Finding something", "Ask, decide, swipe, spin, craft and browse."],
-    ["library", "Your library", "Track what you watch, read, play and hear."],
-    ["taste", "Taste and picks", "How recommendations work and how to steer them."],
-    ["community", "Days and community", "Calendars, days of the year and sharing."],
-    ["data", "Privacy and your data", "What is stored, where, and how to reset it."],
-  ];
-  // [id, category, title, summary, html body, keywords]
-  const HELP = [
-    ["what-is-mimir", "start", "What Mimir is", "A catalogue and a guide, for films, TV, books, games, music and YouTube.",
-      `<p>Mimir is a free catalogue and discovery engine. Describe a mood, a favourite or how much time you have and it returns a few picks, each with the reasons it fits. It is also a catalogue you can browse by medium, shelf, tag, person and franchise.</p>
-       <p>Every reason Mimir shows is marked as a recorded fact or an editorial reading, so you can see what is known and what is interpreted.</p>`, "about catalogue guide overview"],
-    ["first-five-minutes", "start", "Your first five minutes", "The fastest way to get picks that feel like yours.",
-      `<ol><li>Open <a href="#swipe">Swipe</a> and go through ten cards: right to like, up to love, left for not for me, down to skip what you have not seen.</li>
-       <li>Open <a href="#for-you">For you</a> to see picks built from those swipes, each with a Why? link.</li>
-       <li>Or type what you want on the home page, for example "a cosy mystery, under two hours".</li>
-       <li>Save anything you like to your <a href="#library">Library</a>.</li></ol>
-       <p class="help-tip">Ratings stay in this browser. Nothing needs an account.</p>`, "start begin new tutorial swipe"],
-    ["get-around", "start", "Getting around the site", "The menu, the search box and the footer.",
-      `<p>The top menu groups the site: Discover, Films, TV, Books, Games, YouTube, Music, Sagas, Library, Community and Catalogue. The search box has a scope picker, so you can search everything, one medium, people or tags. Ask Mimir takes a whole sentence.</p>
-       <p>The footer repeats every section and lists the most-reviewed works. On a phone, open the menu with the ☰ button.</p>`, "menu navigation search footer"],
-    ["ask-mimir", "find", "Ask Mimir in your own words", "Moods, themes, things to avoid, time limits.",
-      `<p>On the home page, write what you want: "something slow and sad, a book, not too long", "a film like Arrival", "a game for twenty minutes". Mimir shows how it read the request as chips (wanted, avoided, limits) so you can see and correct it.</p>
-       <ol><li>Type your request and press Ask Mimir.</li><li>Check the chips under the box; remove or add one to adjust.</li><li>Open a pick to see why it fits.</li></ol>
-       <p class="help-tip">The <a href="#mix">mood mixer</a> builds a request for you from moods you tap.</p>`, "ask search request prompt natural language"],
-    ["decide-for-me", "find", "Decide for me", "Pick one thing when you cannot choose.",
-      `<p><a href="#decide">Decide for me</a> chooses one work, using up to three moods and your time. Press again for another. Not tonight? Say so and it remembers.</p>`, "decide random pick one"],
-    ["swipe", "find", "Swipe to teach Mimir your taste", "Like a dating app, for films, books and games.",
-      `<p><a href="#swipe">Swipe</a> shows one work at a time. Right likes, up loves, left is not for me, down skips. Use arrow keys, the buttons or a drag. Z undoes. Each swipe is saved as a rating, and the next card is chosen to teach Mimir something new about you.</p>`, "swipe tinder bumble cards rate"],
-    ["spin", "find", "No time to browse: spin a mood", "Pick a mood, spin the posters, watch the countdown.",
-      `<p>On <a href="#spin">Don't have time to browse?</a> pick a mood card (Comfort, Laugh out loud, Edge of the seat, After dark and more). Right spins that mood's posters like a slot machine, lands on one title and opens it after a three-second countdown. Left tries another mood.</p>`, "spin slot machine mood quick"],
-    ["craft", "find", "Craft a recommendation", "Combine works, moods and genres into something new.",
-      `<p>On <a href="#craft">Craft</a>, drag one piece onto another, or tap two and press Combine. Works, moods, genres and mediums blend into a hybrid such as "Comforting science fiction", and Mimir finds the works that carry the most of it. Keep a blend and combine it again.</p>`, "craft infinite craft combine mix hybrid"],
-    ["browse", "find", "Browse by medium, shelf, tag and person", "Directories, 36 shelves, sagas, tags and people.",
-      `<p>Use <a href="#films">Films</a>, <a href="#tv">TV</a>, <a href="#books">Books</a>, <a href="#games">Games</a> or <a href="#albums">Music</a> for directories with filters. <a href="#shelves">Shelves</a> are hand-named groups such as Laugh Riot or Fright Club. <a href="#series">Sagas</a> gather a whole franchise on one page with a row per medium. <a href="#tags">Tags</a> and <a href="#people">People and studios</a> let you wander by quality or by creator.</p>`, "browse directory shelves sagas franchise tags people"],
-    ["work-page", "find", "Reading a work page", "Tags, parents' guide, credits, where to watch.",
-      `<p>Each work page shows its summary, an Experience DNA (moods, themes, pacing and style), a parents' guide, credits including lead cast, and links to where you can watch, read, play or listen. Tags on a page lead to other works with the same quality. Where a parents' guide says "Not assessed", it has not been reviewed yet; it does not mean safe.</p>
-       <p>Press Compare on a work page to put two works side by side.</p>`, "work page parents guide tags credits where to watch compare"],
-    ["library-basics", "library", "Using your library", "Status, score, progress, notes, diary.",
-      `<ol><li>On any work, choose a status: Planned, In progress, Done and so on.</li><li>Add a score, progress and notes if you like.</li><li>Open <a href="#library">Library</a> and switch tabs for All, In progress, Planned or Diary.</li></ol>`, "library status score progress diary"],
-    ["lists-sharing", "library", "Lists, trackers and sharing", "Share a list, a playlist or a directory with a link.",
-      `<p>Make <a href="#lists">lists</a> of anything and share them with a link. <a href="#trackers">Custom trackers</a> follow things Mimir does not, like "films watched with Dad". Share buttons show how many times you have shared something.</p>`, "lists trackers share link playlist"],
-    ["import-export", "library", "Import from MyAnimeList, IMDb, Letterboxd or Goodreads", "Bring your history with you.",
-      `<ol><li>Open <a href="#transfer">Import &amp; export</a>.</li><li>Choose the service and upload its export file.</li><li>Review the matches and confirm.</li></ol>
-       <p>The same page saves a backup of your library you can restore later.</p>`, "import export backup mal imdb letterboxd goodreads"],
-    ["rings-badges", "library", "Rings, streaks and badges", "Daily rings, visit streaks, share and easter-egg badges.",
-      `<p><a href="#achievements">Rings and badges</a> track what you finish, how many days in a row you open Mimir and how often you share. Some covers hide easter eggs; finding them earns badges, and the page shows how many you have found without saying where.</p>`, "badges achievements streak rings easter eggs"],
-    ["how-picks-work", "taste", "How picks are made", "Tags, your ratings and the reasons shown.",
-      `<p>Every work is tagged against a controlled vocabulary. Mimir matches your request, then your ratings, to those tags, respects your limits and spreads its picks so one creator does not fill the list. Press Why? on a pick to see each shared quality and how strongly it counts.</p>`, "recommendations why algorithm tags explain"],
-    ["steer-picks", "taste", "Steer your recommendations", "More, less, never; hidden gems; stretch me.",
-      `<p>Open <a href="#taste">Your taste</a> to see what you lean towards and away from and to say more, less or never about any quality, including parents' guide items. On <a href="#for-you">For you</a> choose hidden gems or well known, a length, and how familiar the picks should be.</p>
-       <p><a href="#plan">Plan my time</a> fills an evening, weekend or month; <a href="#together">Pick together</a> finds picks fair to several people.</p>`, "taste profile for you plan together control"],
-    ["calendar-days", "community", "Social calendar and days of the year", "Something new or something for you on World Laughter Day and about 50 more.",
-      `<p>The <a href="#calendar">calendar</a> lists challenges and events; <a href="#days">Days of the year</a> lists about 50 observances. Each day has two kinds of pick: something completely new, chosen from review scores across platforms, and picks from your own profile.</p>`, "calendar days of the year events world laughter"],
-    ["accounts", "community", "Accounts and the community", "When sign-in arrives.",
-      `<p>Accounts are optional. Everything works without one and your data stays in your browser. An account is a recovery key: it keeps your library, lists, ratings and journal in step across devices, encrypted on your device so Mimir cannot read it. Reviews, shared lists and hosted watch-alongs need the community server, which is not connected yet.</p>`, "account sign in login community"],
-    ["your-data", "data", "What Mimir stores and where", "Your library lives in your browser.",
-      `<p>Ratings, library, lists, journal, trackers and settings live in this browser's storage. Mimir does not send them to a server. Clearing site data or switching browsers removes them, so save a backup from <a href="#transfer">Import &amp; export</a>.</p>`, "privacy data storage local browser backup"],
-    ["reset", "data", "Reset your recommendations", "Start again in one click.",
-      `<p>In your profile, or in Import &amp; export, press reset. One confirmed click deletes your library, ratings, feedback and taste edits. Lists, journal, trackers and rings stay.</p>`, "reset delete clear start over"],
-    ["report", "data", "Report a mistake or send feedback", "Wrong tag, missing work, broken link.",
-      `<p>Mimir's tags, summaries and parents' guide levels are AI-assisted readings awaiting editorial review, so mistakes are expected. <a href="${esc(feedbackHref())}">Send beta feedback</a> and say which work and what is wrong.</p>`, "feedback bug mistake missing wrong"],
-  ];
-  const HELP_FAQ = [
-    ["Is Mimir free?", "Yes. The catalogue, recommendations and library are free to use."],
-    ["Do I need an account?", "No. Everything works without one and is saved in your browser. Accounts for community features are coming."],
-    ["Where are my ratings and library stored?", "In this browser only. Save a backup from Import & export, because clearing site data removes them."],
-    ["Why does a work have no summary?", "Many works were imported from Wikidata with facts only. Summaries, moods and parents' guides are filled in batches."],
-    ["What does \"Not assessed\" mean in a parents' guide?", "That category has not been reviewed yet. It does not mean the work is safe."],
-    ["Are the tags and summaries written by people?", "They are AI-assisted readings awaiting editorial review, and the site labels them that way."],
-    ["Can I import my MyAnimeList, IMDb, Letterboxd or Goodreads history?", "Yes, from Import & export."],
-    ["How do I stop seeing something?", "Mark it not for me when you swipe or rate it, or say never about its qualities in Your taste."],
-    ["How do I start my recommendations from scratch?", "Use the reset button in your profile or in Import & export."],
-    ["How do I report something wrong?", "Use Send beta feedback in the Catalogue menu and name the work."],
-  ];
+  const { HELP_CATS, HELP, HELP_FAQ } = window.MimirHelp;
   const helpFaqHtml = (items) => `<div class="help-faq">${items.map(([q, a]) => `<details><summary>${esc(q)}</summary><div>${esc(a)}</div></details>`).join("")}</div>`;
   const helpVideo = () => `<figure class="video-embed"><button type="button" class="video-facade" data-yt="dpaix_g6aB8" aria-label="Play the Mimir walkthrough video">
       <img src="https://i.ytimg.com/vi/dpaix_g6aB8/hqdefault.jpg" alt="Mimir walkthrough video" loading="lazy" width="480" height="360"><span class="video-play" aria-hidden="true">▶</span></button>
@@ -4834,7 +4888,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const more = HELP.filter((x) => x[1] === a[1] && x[0] !== id);
     app.innerHTML = `<nav class="help-crumbs" aria-label="Breadcrumb"><a href="#help">Help centre</a> <span aria-hidden="true">›</span> <a href="#help-topic-${cat[0]}">${esc(cat[1])}</a></nav>
       <header class="page-head"><h1>${esc(a[2])}</h1><p>${esc(a[3])}</p></header>
-      <div class="help-cols block"><article class="help-article prose">${a[4]}</article>
+      <div class="help-cols block"><article class="help-article prose">${a[4].replace("{{feedback}}", esc(feedbackHref()))}</article>
         <aside class="help-side">${more.length ? `<div class="panel"><h3>More in ${esc(cat[1])}</h3><ul class="help-list">${more.map(helpRow).join("")}</ul></div>` : ""}${helpContact()}</aside></div>`;
   }
   // Live search over titles, summaries and keywords.
@@ -6193,6 +6247,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h === "community") { setNav("Community"); renderCommunity(); }
     else if (h === "signin") { setNav("Community"); renderSignin(p); }
     else if (h === "account") { setNav("Community"); renderAccount(); }
+    else if (h === "privacy-choices") { history.replaceState(null, "", location.pathname); TEL.panel(true); route(); }
     else if (h.startsWith("u-")) { setNav("Community"); renderProfile(decodeURIComponent(h.slice(2))); }
     else if (h.startsWith("plist-")) { setNav("Community"); renderPublicList(h.slice(6)); }
     else if (h === "library" || h === "mine") { setNav("Library"); renderLibrary(p); }

@@ -15807,6 +15807,367 @@
      "attribution": "Cover Art Archive / MusicBrainz"
     }
    ]
+  },
+  "harry-potter-and-the-philosophers-stone-soundtrack-2001": {
+   "match": {
+    "mbid": "3f7bd371-cf1e-3c26-bba5-5f06926976d0",
+    "release": "2fc73d52-5c6d-4325-8abb-f6dbb8763d70",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/3f7bd371-cf1e-3c26-bba5-5f06926976d0",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/3f7bd371-cf1e-3c26-bba5-5f06926976d0/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "fantastic-beasts-and-where-to-find-them-original-motion-picture-soundtrack-2016": {
+   "match": {
+    "mbid": "446a09bb-c449-4588-b463-e3260d715d37",
+    "release": "2c3dbe67-cf09-4f65-9497-ecfe2a13e4a4",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/446a09bb-c449-4588-b463-e3260d715d37",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/446a09bb-c449-4588-b463-e3260d715d37/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "the-lord-of-the-rings-the-fellowship-of-the-ring-original-motion-picture-soundtrack-2001": {
+   "match": {
+    "mbid": "355b15b8-6074-3e18-8e26-8bd6894a5899",
+    "release": "10d76576-260b-4b72-987b-b7fc6c4eae64",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/355b15b8-6074-3e18-8e26-8bd6894a5899",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/355b15b8-6074-3e18-8e26-8bd6894a5899/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "the-lord-of-the-rings-the-rings-of-power-season-one-amazon-original-series-soundtrack-2022": {
+   "match": {
+    "mbid": "a36532ff-c0b0-4133-b1a9-00a1795c36e3",
+    "release": "0e5233ac-84c3-4a5e-8317-604753274f66",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/a36532ff-c0b0-4133-b1a9-00a1795c36e3",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/a36532ff-c0b0-4133-b1a9-00a1795c36e3/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "star-wars-soundtrack-1977": {
+   "match": {
+    "mbid": "80fe84a4-b606-3491-a170-f2ca17501493",
+    "release": "0d7d2edb-61b2-499e-8d22-8ad3104ae4ad",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/80fe84a4-b606-3491-a170-f2ca17501493",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/80fe84a4-b606-3491-a170-f2ca17501493/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "game-of-thrones-music-from-the-hbo-series-2011": {
+   "match": {
+    "mbid": "c360052d-aecd-4716-9984-bd1f0d1c9d7f",
+    "release": "09b18d6a-da34-4671-b1a7-3ea4f8fe571d",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/c360052d-aecd-4716-9984-bd1f0d1c9d7f",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/c360052d-aecd-4716-9984-bd1f0d1c9d7f/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "house-of-the-dragon-season-1-soundtrack-from-the-series-2022": {
+   "match": {
+    "mbid": "ce805bda-5c1c-4f5b-8722-788ed75a3361",
+    "release": "7b5a4718-28b4-4668-8270-42156449b7a1",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/ce805bda-5c1c-4f5b-8722-788ed75a3361",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/ce805bda-5c1c-4f5b-8722-788ed75a3361/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "guardians-of-the-galaxy-awesome-mix-vol-1-original-motion-picture-soundtrack-2014": {
+   "match": {
+    "mbid": "950092d6-45f6-4269-87da-99a9ff2fcc52",
+    "release": "10e05aca-28ac-4466-95bb-40c2d0bb560f",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/950092d6-45f6-4269-87da-99a9ff2fcc52",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/950092d6-45f6-4269-87da-99a9ff2fcc52/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "black-panther-the-album-music-from-and-inspired-by-2018": {
+   "match": {
+    "mbid": "4e317e28-e6b2-46d7-81f7-306e349b3dd4",
+    "release": "015b4017-a78f-4072-bb58-5c4638a82196",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/4e317e28-e6b2-46d7-81f7-306e349b3dd4",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/4e317e28-e6b2-46d7-81f7-306e349b3dd4/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "the-witcher-3-wild-hunt-official-soundtrack-2015": {
+   "match": {
+    "mbid": "78d10ee5-67cd-425f-9a57-81396fae80ee",
+    "release": "125b5577-cdb2-47eb-b2d2-f8ea840497ea",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/78d10ee5-67cd-425f-9a57-81396fae80ee",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/78d10ee5-67cd-425f-9a57-81396fae80ee/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "the-elder-scrolls-v-skyrim-original-game-soundtrack-2011": {
+   "match": {
+    "mbid": "0a578ea0-a2ed-4dca-91dc-2b1b77cef1d6",
+    "release": "043e4a0f-3fb3-4e51-b2a1-ca267f21ac4e",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/0a578ea0-a2ed-4dca-91dc-2b1b77cef1d6",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/0a578ea0-a2ed-4dca-91dc-2b1b77cef1d6/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "dune-original-motion-picture-soundtrack-2021": {
+   "match": {
+    "mbid": "6790ad81-5b9c-4362-87c0-6c8e8d3d4100",
+    "release": "1d4b8ed0-81af-4b00-8740-fb9dc4d8b567",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/6790ad81-5b9c-4362-87c0-6c8e8d3d4100",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/6790ad81-5b9c-4362-87c0-6c8e8d3d4100/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "dune-part-two-original-motion-picture-soundtrack-2024": {
+   "match": {
+    "mbid": "8d636319-e0bf-425b-aa12-1c3a13e4488a",
+    "release": "50a232ae-45d0-4fde-b20a-e00a5ef88784",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/8d636319-e0bf-425b-aa12-1c3a13e4488a",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/8d636319-e0bf-425b-aa12-1c3a13e4488a/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "the-last-of-us-soundtrack-2013": {
+   "match": {
+    "mbid": "89d11273-7aad-43a0-8ec7-ad5be83286d8",
+    "release": "2d6fb74b-e5e5-4e1f-96fa-f42b00392d28",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/89d11273-7aad-43a0-8ec7-ad5be83286d8",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/89d11273-7aad-43a0-8ec7-ad5be83286d8/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "the-last-of-us-season-1-2023": {
+   "match": {
+    "mbid": "fa81dc6d-3556-4e52-bc18-8a64addc37e2",
+    "release": "0bc59420-d418-4522-9797-7659ce05cb18",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/fa81dc6d-3556-4e52-bc18-8a64addc37e2",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/fa81dc6d-3556-4e52-bc18-8a64addc37e2/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "stranger-things-2-soundtrack-2017": {
+   "match": {
+    "mbid": "7508acf4-bdcb-477a-bf42-c4fd98017386",
+    "release": "163ce17f-be12-42fd-88ae-dc1bfc2e50bf",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/7508acf4-bdcb-477a-bf42-c4fd98017386",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/7508acf4-bdcb-477a-bf42-c4fd98017386/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "arcane-league-of-legends-soundtrack-from-the-animated-series-2021": {
+   "match": {
+    "mbid": "43141177-7606-44cc-abdb-fa6a2b9275a2",
+    "release": "5cbbc8bb-2e13-4136-8f62-0ebfb6ba4f4a",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/43141177-7606-44cc-abdb-fa6a2b9275a2",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/43141177-7606-44cc-abdb-fa6a2b9275a2/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "spider-man-into-the-spider-verse-soundtrack-from-inspired-by-the-motion-picture-2018": {
+   "match": {
+    "mbid": "ec3599ab-5304-4373-9937-86ffd1fc2039",
+    "release": "07928ae6-6d8d-48c6-a75e-99967034b52a",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/ec3599ab-5304-4373-9937-86ffd1fc2039",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/ec3599ab-5304-4373-9937-86ffd1fc2039/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
+  },
+  "cyberpunk-2077-original-score-2020": {
+   "match": {
+    "mbid": "cfd42e00-21d3-4021-871a-68bac7e30ef6",
+    "release": "5a02c90e-6eb2-41d1-ab50-f53d4b075dc6",
+    "reason": "MusicBrainz release group, soundtrack for the franchise"
+   },
+   "url": "https://musicbrainz.org/release-group/cfd42e00-21d3-4021-871a-68bac7e30ef6",
+   "facts": {},
+   "tracks": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://coverartarchive.org/release-group/cfd42e00-21d3-4021-871a-68bac7e30ef6/front-500",
+     "licence": "Cover via the Cover Art Archive, shown for identification; rights remain with the owners",
+     "attribution": "Cover Art Archive / MusicBrainz"
+    }
+   ]
   }
  }
 }
