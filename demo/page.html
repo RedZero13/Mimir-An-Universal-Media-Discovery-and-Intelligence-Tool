@@ -87,7 +87,7 @@ p { margin: 0; }
 .foot-cols a { color: var(--ink); text-decoration: none; font-size: .86rem; } .foot-cols a:hover { color: var(--gold-bright); }
 @media (max-width: 860px) { .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .foot-row { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; }
-.foot p { color: var(--faint); font-size: .82rem; max-width: 70ch; }
+.foot p { color: var(--faint); font-size: .82rem; max-width: none; }
 .foot .legal { font: 500 10px var(--f-display); letter-spacing: .22em; color: var(--faint); }
 
 /* ---------------------------------------------------------------- hero & ask */
@@ -661,7 +661,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .crawl[hidden] { display: none; }
 .crawl h2 { font-size: 1.05rem; margin: 0 0 8px; }
 .crawl h3 { font: 600 .9rem/1.3 var(--f-body); color: var(--gold); margin: 16px 0 6px; }
-.crawl p { margin: 0 0 8px; max-width: 70ch; }
+.crawl p { margin: 0 0 8px; max-width: none; }
 .crawl ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; }
 .crawl a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
 .crawl a:hover { color: var(--gold-bright); }

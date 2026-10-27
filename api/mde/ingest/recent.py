@@ -3,9 +3,9 @@
     python -m mde.ingest.recent                 # discover, rank by how widely each work is covered, write the seed
     python -m mde.ingest.recent --offline       # rebuild from the HTTP cache only
 
-How it picks: full-text search of Wikidata descriptions ("2026 American film") restricted to the medium's item types, then
-only works whose own publication date is in range and not in the future are kept, ranked by the number of Wikipedia
-language editions that cover them (a fair proxy for how widely known a work is), up to a cap per medium and year.
+How it picks: a Wikidata SPARQL query per medium and year for works of the medium's item types whose own publication date is
+in range and not in the future, ranked by the number of Wikipedia language editions that cover them (a fair proxy for how
+widely known a work is), up to a cap per medium and year.
 Nothing is invented: titles, years, credits, countries and genres are Wikidata's; the summary is Wikidata's one-line
 description plus the cast. No parents' guide is claimed. Works already in the catalogue are skipped.
 """
@@ -28,10 +28,6 @@ TAXONOMY = Path(__file__).parent.parent / "taxonomy" / "taxonomy.json"
 YEARS = (2025, 2026)
 CAPS = {"film": 140, "series": 90, "game": 70, "album": 70, "book": 70}   # per year
 MIN_SITELINKS = {"film": 6, "series": 5, "game": 5, "album": 4, "book": 4}
-NOUN = {"film": "film", "series": "television series", "game": "video game", "album": "album", "book": "novel"}
-ADJECTIVES = ["", "American", "British", "Indian", "Hindi", "Tamil", "Telugu", "Malayalam", "Japanese", "South Korean", "French",
-              "German", "Chinese", "Spanish", "Italian", "Canadian", "Australian", "Mexican", "Brazilian", "Thai", "Turkish", "Swedish",
-              "Danish", "Norwegian", "Polish", "Argentine", "Nigerian", "Bengali", "Marathi", "Kannada", "Punjabi"]
 GENRE_ALIASES = {
     "action film": "action", "drama film": "drama", "comedy film": "comedy", "horror film": "horror", "thriller film": "thriller",
     "science fiction film": "science-fiction", "romance film": "romance", "romantic film": "romance", "animated film": "animation",
@@ -85,25 +81,26 @@ def tier(sitelinks: int) -> int:
     return 1 if sitelinks >= 70 else 2 if sitelinks >= 35 else 3
 
 
-def discover(wd: Wikidata, client: Client, medium: str, year: int, log=print) -> dict[str, int]:
-    """Candidate QIDs for one medium and year (search hits, unranked)."""
-    types = "|".join(f"P31={t}" for t in sorted(TYPES[medium]))
-    found: dict[str, int] = {}
-    for adj in ADJECTIVES:
-        text = f"{year} {adj} {NOUN[medium]}".replace("  ", " ")
-        for offset in (0, 50, 100):
-            try:
-                r = client.get_json(API, {"action": "query", "list": "search", "srsearch": f'"{text}" haswbstatement:{types}', "srlimit": 50,
-                                          "sroffset": offset, "format": "json"})
-            except Exception as e:   # noqa: BLE001 - a throttled or missing page just ends that query
-                log(f"  {text!r} offset {offset}: {str(e)[:80]}")
-                break
-            hits = [h["title"] for h in r.get("query", {}).get("search", []) if h.get("title", "").startswith("Q")]
-            for q in hits:
-                found.setdefault(q, 0)
-            if len(hits) < 50:
-                break
-    return found
+SPARQL = "https://query.wikidata.org/sparql"
+
+
+def discover(client: Client, medium: str, year: int, today: str, log=print) -> dict[str, int]:
+    """The most widely covered works of one medium and year: QID -> number of Wikipedia editions, by SPARQL."""
+    types = " ".join(f"wd:{t}" for t in sorted(TYPES[medium]))
+    end = min(f"{year}-12-31", today)
+    query = f"""SELECT ?item ?sl WHERE {{
+      VALUES ?type {{ {types} }}
+      ?item wdt:P31 ?type .
+      {{ ?item wdt:P577 ?d }} UNION {{ ?item wdt:P580 ?d }}
+      FILTER(?d >= "{year}-01-01T00:00:00Z"^^xsd:dateTime && ?d <= "{end}T23:59:59Z"^^xsd:dateTime)
+      ?item wikibase:sitelinks ?sl . FILTER(?sl >= {MIN_SITELINKS[medium]})
+    }} ORDER BY DESC(?sl) LIMIT {CAPS[medium] * 3}"""
+    try:
+        r = client.get_json(SPARQL, {"query": query, "format": "json"})
+    except Exception as e:   # noqa: BLE001 - one failed query should not lose the others
+        log(f"  {medium} {year}: {str(e)[:100]}")
+        return {}
+    return {b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in r["results"]["bindings"]}
 
 
 def fetch(client: Client, ids: list[str]) -> dict[str, dict]:
@@ -133,7 +130,7 @@ def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
     picked: list[tuple[str, int, int, str, dict]] = []   # medium, year, sitelinks, qid, entity
     for medium in CAPS:
         for year in YEARS:
-            cand = discover(wd, client, medium, year, log)
+            cand = discover(client, medium, year, today, log)
             ents = fetch(client, sorted(cand))
             rows = []
             for q, e in ents.items():

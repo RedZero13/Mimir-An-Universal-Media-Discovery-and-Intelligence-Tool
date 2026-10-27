@@ -168,6 +168,13 @@ footer and the sitemap, and written from what the code does. `docs/DPDP.md` is t
 retention, risks, checklist for counsel) and `docs/INCIDENT-RESPONSE.md` the breach plan. Anything the company must supply
 shows on the pages as "To be added" and is listed by audit rule B003. They have not been reviewed by a lawyer.
 
+**On hold.** Until the placeholders are filled and counsel has reviewed them, the five legal pages are `noindex, nofollow`, blocked
+in `robots.txt` for every crawler, and left out of the sitemap (`PUBLISHED = false` in `demo/legal.cjs`). They stay linked from the
+footers so visitors can read them. Set `PUBLISHED = true` to publish: they become indexable, drop out of `robots.txt` and join the
+sitemap. A page blocked in `robots.txt` cannot show its `noindex` tag to a crawler, so a page already indexed elsewhere may linger
+in results until the block is lifted or it is removed in Search Console; neither case has applied yet, since the pages were never
+submitted.
+
 ## Not built yet
 - Sign in with Google, Apple and Meta. End-to-end encryption means a provider login can only find an account, not unlock it:
   a new device still needs the recovery key. It also needs OAuth apps you register (Google Cloud console, an Apple
