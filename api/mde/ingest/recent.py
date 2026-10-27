@@ -106,6 +106,16 @@ def discover(wd: Wikidata, client: Client, medium: str, year: int, log=print) ->
     return found
 
 
+def fetch(client: Client, ids: list[str]) -> dict[str, dict]:
+    """Entities with every sitelink (Wikidata.entities limits them to English Wikipedia, which cannot rank coverage)."""
+    out: dict[str, dict] = {}
+    for i in range(0, len(ids), 50):
+        data = client.get_json(API, {"action": "wbgetentities", "ids": "|".join(ids[i:i + 50]), "props": "claims|labels|descriptions|sitelinks",
+                                     "languages": "en", "format": "json"})
+        out.update(data.get("entities", {}))
+    return out
+
+
 def start_date(entity: dict) -> str | None:
     for prop in ("P577", "P580"):
         times = [value(c)["time"] for c in claim_values(entity, prop) if isinstance(value(c), dict) and "time" in value(c)]
@@ -124,7 +134,7 @@ def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
     for medium in CAPS:
         for year in YEARS:
             cand = discover(wd, client, medium, year, log)
-            ents = wd.entities(sorted(cand))
+            ents = fetch(client, sorted(cand))
             rows = []
             for q, e in ents.items():
                 d = start_date(e)
