@@ -598,6 +598,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .d-chips .tchip { font-size: .8rem; padding: 6px 12px; }
 .video-embed { margin: 14px 0 24px; }
 .video-facade, .video-embed iframe { display: block; position: relative; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line-strong); border-radius: 14px; overflow: hidden; background: #000; padding: 0; cursor: pointer; }
+#overview .video-embed { max-width: 760px; margin: 0 0 16px; }
 .video-facade img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .video-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; border-radius: 50%; background: var(--gold-bright); color: #131315; font-size: 28px; line-height: 72px; text-align: center; box-shadow: 0 8px 24px rgba(0, 0, 0, .5); }
 .video-facade:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
@@ -2428,6 +2429,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <nav class="jump" aria-label="On this page">${jumps.map(([id, l]) => `<button type="button" class="linkish" data-jump="${id}">${l}</button>`).join("")}</nav>
         <section class="block" id="overview">
           ${w.summary ? `<p class="lead-summary">${esc(w.summary)}</p>` : ""}
+          ${w.medium === "online_video" && w.ids && w.ids.youtube_video ? `<figure class="video-embed"><button type="button" class="video-facade" data-yt="${esc(w.ids.youtube_video)}" data-yt-title="${esc(w.title)}" aria-label="Play ${esc(w.title)}">
+            <img src="https://i.ytimg.com/vi/${esc(w.ids.youtube_video)}/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="video-play" aria-hidden="true">▶</span></button>
+            <figcaption class="muted small">Loads from YouTube when you press play. <a href="https://www.youtube.com/watch?v=${esc(w.ids.youtube_video)}" target="_blank" rel="noopener">Watch on YouTube</a></figcaption></figure>` : ""}
           ${CHANNEL_OF[w.slug] && workOf(CHANNEL_OF[w.slug]) ? `<p class="yt-from">From <a href="#work-${esc(CHANNEL_OF[w.slug])}">${esc(workOf(CHANNEL_OF[w.slug]).title)}</a>${ATTRS[w.slug] && ATTRS[w.slug].views ? ` · ${esc(ATTRS[w.slug].views)} views on YouTube` : ""}</p>` : ""}
           ${w.medium === "channel" && ATTRS[w.slug] ? `<p class="yt-from">${esc(ATTRS[w.slug].handle || "")}${ATTRS[w.slug].subscribers ? ` · ${esc(ATTRS[w.slug].subscribers)}` : ""}${ATTRS[w.slug].videos ? ` · ${esc(ATTRS[w.slug].videos)}` : ""}</p>${row(videosOf(w.slug))}` : ""}
           ${still ? `<figure class="still"><img src="${esc(still.url)}" alt="${esc(w.title)}: image from Wikimedia Commons" loading="lazy" decoding="async"><figcaption class="muted small">${esc(still.licence)}${still.attribution ? ` · ${esc(still.attribution)}` : ""} · via ${esc(still.source)}</figcaption></figure>` : ""}
@@ -4565,7 +4569,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   app.addEventListener("click", (e) => {
     const b = e.target.closest("[data-yt]");
     if (!b) return;
-    b.outerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&rel=0" title="Mimir walkthrough" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>`;
+    b.outerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(b.dataset.yt)}?autoplay=1&rel=0" title="${esc(b.dataset.ytTitle || "Mimir walkthrough")}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>`;
   });
 
   // ------------------------------------------------------------------ compare, plan my time, pick together

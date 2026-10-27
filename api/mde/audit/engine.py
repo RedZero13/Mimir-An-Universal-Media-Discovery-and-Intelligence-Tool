@@ -122,8 +122,8 @@ def scan_site(site: Path) -> tuple[dict[str, dict], list[str]]:
         pages[url] = {"file": rel, "title": p.title.strip(), "description": p.meta.get("description", ""), "canonical": p.canonical,
                       "h1": p.h1, "noindex": "noindex" in robots, "links": p.links}
     locs: list[str] = []
-    for sm in sorted(site.glob("sitemap*.xml")):
-        locs += re.findall(r"<loc>([^<]+)</loc>", sm.read_text())
+    for sm in sorted(site.glob("sitemap*.xml")):   # the index lists other sitemaps, not pages
+        locs += [u for u in re.findall(r"<loc>([^<]+)</loc>", sm.read_text()) if not u.endswith(".xml")]
     return pages, locs
 
 

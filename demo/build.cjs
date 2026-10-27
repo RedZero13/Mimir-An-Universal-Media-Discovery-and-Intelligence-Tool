@@ -7,6 +7,7 @@
 const fs = require("fs");
 const { readSeed } = require("./seed.cjs");
 const { writeCatalogPages, HUBS } = require("./seo.cjs");
+const { writeSitemaps, writeRobots, writeLlms } = require("./discovery.cjs");
 const path = require("path");
 
 const here = __dirname;
@@ -318,9 +319,11 @@ if (args[0] === "--site") {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [[`${SITE_URL}/`, today, "1.0"], ...writeBlog(out),
     ...writeCatalogPages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc })];
-  fs.writeFileSync(path.join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u, d, pr]) => `  <url><loc>${u}</loc>${d ? `<lastmod>${d}</lastmod>` : ""}${pr ? `<priority>${pr}</priority>` : ""}</url>`).join("\n")}\n</urlset>\n`);
+  const worksList = P("catalogue").works;
+  writeSitemaps(out, { SITE_URL, urls, works: worksList, hubs: HUBS });
   // Everything is crawlable, scripts included: search engines render the app with them.
-  fs.writeFileSync(path.join(out, "robots.txt"), `# Mimir · ${SITE_URL}\nUser-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+  writeRobots(out, { SITE_URL });
+  writeLlms(out, { SITE_URL, works: worksList, hubs: HUBS, shelves: cat.shelves(), posts: JSON.parse(fs.readFileSync(path.join(here, "blog.json"), "utf8")).posts.sort((x, y) => y.date.localeCompare(x.date)) });
   fs.writeFileSync(path.join(out, "404.html"), staticPage("Page not found · Mimir", "This page isn't here. Search Mimir's catalogue of films, TV, books, games and music instead.", `${SITE_URL}/`,
     `<p class="eyebrow">Not found</p><h1>This page isn't in the well</h1><p class="lede">The link may be old, or the page may have moved.</p>
 <p><a class="cta" href="/">Ask Mimir</a><a class="cta ghost" href="/films/">Browse the catalogue</a></p>

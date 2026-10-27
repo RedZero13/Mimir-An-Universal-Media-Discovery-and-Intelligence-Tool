@@ -1,0 +1,3933 @@
+{
+ "about": "More YouTube channels, with three of each channel's most-watched recent videos. Channel ids, names, joined years, video ids, titles, publish dates and view counts were read from the channels' public pages and RSS feeds on 2026-10-27 (mde.ingest.youtube_channels); country and language are the editors' knowledge of each channel. View counts are a snapshot. Summaries and terms are AI-assisted readings awaiting editorial review; parents' guide levels are not assessed.",
+ "works": [
+  {
+   "slug": "kurzgesagt-in-a-nutshell-2013",
+   "medium": "channel",
+   "title": "Kurzgesagt – In a Nutshell",
+   "year": 2013,
+   "language": "en",
+   "countries": [
+    "DE"
+   ],
+   "popularity_tier": 1,
+   "summary": "Animated explainers on science, technology and the big questions, made by a Germany-based team of illustrators and animators and known for a bold look and a tone the channel calls optimistic nihilism.",
+   "terms": {
+    "genre:popular-science": 1,
+    "genre:animation": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "style:visually-striking": 0.9,
+    "complexity:accessible": 0.8
+   },
+   "attributes": {
+    "handle": "@kurzgesagt"
+   }
+  },
+  {
+   "slug": "yt-ujkd4sxpkoi-2026",
+   "medium": "online_video",
+   "title": "AI Just Crossed the Terrifying Line - Now What?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "DE"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Kurzgesagt – In a Nutshell",
+     "organisation"
+    ]
+   ],
+   "summary": "Kurzgesagt – In a Nutshell: How far artificial intelligence has come, and what could follow.",
+   "terms": {
+    "genre:popular-science": 1,
+    "genre:animation": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "kurzgesagt-in-a-nutshell-2013",
+    "views": "22.7M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-0ny2gaftzje-2026",
+   "medium": "online_video",
+   "title": "This Woman Cured Her Cancer with an Insane Method",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "DE"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Kurzgesagt – In a Nutshell",
+     "organisation"
+    ]
+   ],
+   "summary": "Kurzgesagt – In a Nutshell: The story of a woman who cured her own cancer, and the method behind it.",
+   "terms": {
+    "genre:popular-science": 1,
+    "genre:animation": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "kurzgesagt-in-a-nutshell-2013",
+    "views": "21.3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-y9juojaig0-2026",
+   "medium": "online_video",
+   "title": "We Finally Know More About Humanity’s First Civilization",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "DE"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Kurzgesagt – In a Nutshell",
+     "organisation"
+    ]
+   ],
+   "summary": "Kurzgesagt – In a Nutshell: What is now known about the first human civilisation.",
+   "terms": {
+    "genre:popular-science": 1,
+    "genre:animation": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "kurzgesagt-in-a-nutshell-2013",
+    "views": "11.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "veritasium-2010",
+   "medium": "channel",
+   "title": "Veritasium",
+   "year": 2010,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Videos about science, engineering and how things work, made by Derek Muller, mixing experiments, interviews and stories behind famous discoveries.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "complexity:accessible": 0.8,
+    "pacing:brisk": 0.6
+   },
+   "attributes": {
+    "handle": "@Veritasium"
+   }
+  },
+  {
+   "slug": "yt-jsbzocqzerk-2026",
+   "medium": "online_video",
+   "title": "The Insane Real Engineering of the Nazi Enigma Machine",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Veritasium",
+     "organisation"
+    ]
+   ],
+   "summary": "Veritasium: How the Enigma machine worked and why its engineering mattered in the Second World War.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "veritasium-2010",
+    "views": "21M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-nicgcutl9-q-2026",
+   "medium": "online_video",
+   "title": "The Insane Engineering of Fiber Optics",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Veritasium",
+     "organisation"
+    ]
+   ],
+   "summary": "Veritasium: How fibre optic cables carry the internet as light.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "veritasium-2010",
+    "views": "13.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-or94cico7xm-2026",
+   "medium": "online_video",
+   "title": "The Most Dangerous Escalator In Europe",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Veritasium",
+     "organisation"
+    ]
+   ],
+   "summary": "Veritasium: A look at an escalator in Europe that the channel calls the most dangerous.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "veritasium-2010",
+    "views": "7.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "vsauce-2007",
+   "medium": "channel",
+   "title": "Vsauce",
+   "year": 2007,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Michael Stevens's channel of curiosity-driven videos that start from a small question and wander through science, maths, philosophy and everyday oddities.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1,
+    "theme:time": 0.4,
+    "complexity:accessible": 0.7
+   },
+   "attributes": {
+    "handle": "@Vsauce"
+   }
+  },
+  {
+   "slug": "yt-j9y8tg7luec-2026",
+   "medium": "online_video",
+   "title": "Audio Palindromes",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Vsauce",
+     "organisation"
+    ]
+   ],
+   "summary": "Vsauce: Audio palindromes: sounds that play the same forwards and backwards.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1,
+    "theme:time": 0.4
+   },
+   "attributes": {
+    "channel": "vsauce-2007",
+    "views": "16.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-fob38jo9f-k-2026",
+   "medium": "online_video",
+   "title": "The Ontological Status of Phenylalanine In Sugar Free Sodas",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Vsauce",
+     "organisation"
+    ]
+   ],
+   "summary": "Vsauce: A long, winding video that starts from a sugar-free soda and the question of what exists.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1,
+    "theme:time": 0.4
+   },
+   "attributes": {
+    "channel": "vsauce-2007",
+    "views": "11.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-4skphdjf6-q-2026",
+   "medium": "online_video",
+   "title": "Who Said The First Bad Word On The Moon?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Vsauce",
+     "organisation"
+    ]
+   ],
+   "summary": "Vsauce: A question about the first bad word spoken on the Moon.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1,
+    "theme:time": 0.4
+   },
+   "attributes": {
+    "channel": "vsauce-2007",
+    "views": "9.3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "cgp-grey-2010",
+   "medium": "channel",
+   "title": "CGP Grey",
+   "year": 2010,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 1,
+   "summary": "Short, dry-witted explainers and rankings on politics, geography, history and the way things are organised, narrated by one person over simple animation.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "genre:documentary": 0.5,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.5,
+    "complexity:accessible": 1
+   },
+   "attributes": {
+    "handle": "@CGPGrey"
+   }
+  },
+  {
+   "slug": "yt-l4w6808wjcu-2023",
+   "medium": "online_video",
+   "title": "So Many State Flags Failed I Had to Split the F Tier",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "CGP Grey",
+     "organisation"
+    ]
+   ],
+   "summary": "CGP Grey: A ranking of the world's flags, with the failures of the state flags split off into their own tier.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "genre:documentary": 0.5,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.5
+   },
+   "attributes": {
+    "channel": "cgp-grey-2010",
+    "views": "20.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-bgr3yesaeve-2023",
+   "medium": "online_video",
+   "title": "In Hexagon Chess, Stalemate Isn't a Draw",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "CGP Grey",
+     "organisation"
+    ]
+   ],
+   "summary": "CGP Grey: A video on hexagonal chess and why a stalemate there is not a draw.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "genre:documentary": 0.5,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.5
+   },
+   "attributes": {
+    "channel": "cgp-grey-2010",
+    "views": "5.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-u0wtdk0voey-2023",
+   "medium": "online_video",
+   "title": "The Video Game That Accidentally Gave Antarctica a Flag",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "CGP Grey",
+     "organisation"
+    ]
+   ],
+   "summary": "CGP Grey: How a video game accidentally gave Antarctica a flag.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "genre:documentary": 0.5,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.5
+   },
+   "attributes": {
+    "channel": "cgp-grey-2010",
+    "views": "4.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "numberphile-2011",
+   "medium": "channel",
+   "title": "Numberphile",
+   "year": 2011,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 1,
+   "summary": "Videos about numbers and mathematics by Brady Haran, in which mathematicians explain their favourite problems on paper and in conversation.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7,
+    "complexity:intellectually-demanding": 0.4,
+    "complexity:accessible": 0.7
+   },
+   "attributes": {
+    "handle": "@numberphile"
+   }
+  },
+  {
+   "slug": "yt-3gedf-dawpg-2026",
+   "medium": "online_video",
+   "title": "SOLVED: Navier-Stokes cracked by AI - Numberphile",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Numberphile",
+     "organisation"
+    ]
+   ],
+   "summary": "Numberphile: A report on a claim that artificial intelligence has cracked the Navier-Stokes problem.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "numberphile-2011",
+    "views": "1.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-banwmdfcmvw-2026",
+   "medium": "online_video",
+   "title": "No More Heroes - Terence Tao Talks to Numberphile About AI",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Numberphile",
+     "organisation"
+    ]
+   ],
+   "summary": "Numberphile: Mathematician Terence Tao talks to Numberphile about artificial intelligence.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "numberphile-2011",
+    "views": "1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-umumga-rxnu-2026",
+   "medium": "online_video",
+   "title": "Blind Ranking Numbers (James Grime)",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Numberphile",
+     "organisation"
+    ]
+   ],
+   "summary": "Numberphile: James Grime ranks numbers blind, one at a time.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "numberphile-2011",
+    "views": "498K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "3blue1brown-2015",
+   "medium": "channel",
+   "title": "3Blue1Brown",
+   "year": 2015,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Grant Sanderson's maths videos, animated with his own software, that build intuition for topics in mathematics, physics and computer science through pictures.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "style:visually-striking": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "complexity:intellectually-demanding": 0.7,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "handle": "@3blue1brown"
+   }
+  },
+  {
+   "slug": "yt-nbwv5whqoj0-2026",
+   "medium": "online_video",
+   "title": "The last IMO problem AI could not solve",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "3Blue1Brown",
+     "organisation"
+    ]
+   ],
+   "summary": "3Blue1Brown: A look at the last problem from a maths olympiad that artificial intelligence could not solve.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "3blue1brown-2015",
+    "views": "3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-lkrwhjoi8nc-2026",
+   "medium": "online_video",
+   "title": "There's never been a better time to go into math",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "3Blue1Brown",
+     "organisation"
+    ]
+   ],
+   "summary": "3Blue1Brown: An argument that now is a good time to go into mathematics.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "3blue1brown-2015",
+    "views": "2.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-l6dkrf-faam-2026",
+   "medium": "online_video",
+   "title": "Reinventing Entropy | Compression is Intelligence Part 1",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "3Blue1Brown",
+     "organisation"
+    ]
+   ],
+   "summary": "3Blue1Brown: The first part of a series on entropy and compression.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "3blue1brown-2015",
+    "views": "1.7M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "computerphile-2009",
+   "medium": "channel",
+   "title": "Computerphile",
+   "year": 2009,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 2,
+   "summary": "Videos about computers and computer science from the team behind Numberphile, mostly academics explaining ideas at a whiteboard or on paper.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "genre:popular-science": 0.6,
+    "theme:knowledge-curiosity": 0.9,
+    "complexity:intellectually-demanding": 0.5,
+    "theme:technology-alienation": 0.3
+   },
+   "attributes": {
+    "handle": "@Computerphile"
+   }
+  },
+  {
+   "slug": "yt-iuhddnizkra-2026",
+   "medium": "online_video",
+   "title": "The AI Language We Can't Read: Neuralese ft. Rob Miles - Computerphile",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Computerphile",
+     "organisation"
+    ]
+   ],
+   "summary": "Computerphile: Rob Miles on a possible machine language that humans could not read.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "genre:popular-science": 0.6,
+    "theme:knowledge-curiosity": 0.9,
+    "theme:technology-alienation": 0.3
+   },
+   "attributes": {
+    "channel": "computerphile-2009",
+    "views": "619K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-kvxp6unvpto-2026",
+   "medium": "online_video",
+   "title": "How Watermarks Track AI Generated Content - Computerphile",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Computerphile",
+     "organisation"
+    ]
+   ],
+   "summary": "Computerphile: How watermarks can be used to track AI-generated content.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "genre:popular-science": 0.6,
+    "theme:knowledge-curiosity": 0.9,
+    "theme:technology-alienation": 0.3
+   },
+   "attributes": {
+    "channel": "computerphile-2009",
+    "views": "514K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-s6pqsz65mg4-2026",
+   "medium": "online_video",
+   "title": "Implementing Undo - Computerphile",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Computerphile",
+     "organisation"
+    ]
+   ],
+   "summary": "Computerphile: A computer science look at how to implement an undo function.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "genre:popular-science": 0.6,
+    "theme:knowledge-curiosity": 0.9,
+    "theme:technology-alienation": 0.3
+   },
+   "attributes": {
+    "channel": "computerphile-2009",
+    "views": "208K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "tom-scott-2006",
+   "medium": "channel",
+   "title": "Tom Scott",
+   "year": 2006,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 1,
+   "summary": "Tom Scott's videos on the surprising ways the world works, from places and technology to language, delivered quickly with a light touch.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.6,
+    "complexity:accessible": 1
+   },
+   "attributes": {
+    "handle": "@TomScottGo"
+   }
+  },
+  {
+   "slug": "yt-pztu48tjxxg-2026",
+   "medium": "online_video",
+   "title": "When I blow this whistle, a swimming pool appears.",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Tom Scott",
+     "organisation"
+    ]
+   ],
+   "summary": "Tom Scott: A video about a whistle that makes a swimming pool appear.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.6
+   },
+   "attributes": {
+    "channel": "tom-scott-2006",
+    "views": "2.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-tumxo2glmpq-2026",
+   "medium": "online_video",
+   "title": "Why robots still can't pick strawberries",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Tom Scott",
+     "organisation"
+    ]
+   ],
+   "summary": "Tom Scott: Why robots still struggle to pick strawberries.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.6
+   },
+   "attributes": {
+    "channel": "tom-scott-2006",
+    "views": "2.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-ywxif2gqtww-2026",
+   "medium": "online_video",
+   "title": "Flying a plane badly, on purpose.",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Tom Scott",
+     "organisation"
+    ]
+   ],
+   "summary": "Tom Scott: An attempt at flying a plane badly on purpose.",
+   "terms": {
+    "genre:popular-science": 0.7,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 0.9,
+    "mood:funny": 0.6
+   },
+   "attributes": {
+    "channel": "tom-scott-2006",
+    "views": "2.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "mark-rober-2011",
+   "medium": "channel",
+   "title": "Mark Rober",
+   "year": 2011,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Former NASA engineer Mark Rober's channel of large-scale builds, experiments and challenges that turn science and engineering into spectacle.",
+   "terms": {
+    "genre:comedy": 0.4,
+    "genre:popular-science": 0.6,
+    "mood:exhilarating": 0.7,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 0.8,
+    "complexity:accessible": 1
+   },
+   "attributes": {
+    "handle": "@MarkRober"
+   }
+  },
+  {
+   "slug": "yt-q3nd5qd758o-2026",
+   "medium": "online_video",
+   "title": "I Discovered a Lost Plane",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Mark Rober",
+     "organisation"
+    ]
+   ],
+   "summary": "Mark Rober: A search for a lost plane.",
+   "terms": {
+    "genre:comedy": 0.4,
+    "genre:popular-science": 0.6,
+    "mood:exhilarating": 0.7,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 0.8
+   },
+   "attributes": {
+    "channel": "mark-rober-2011",
+    "views": "35.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-l1rim7-ipo-2026",
+   "medium": "online_video",
+   "title": "Last Cheater Standing Wins $10,000",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Mark Rober",
+     "organisation"
+    ]
+   ],
+   "summary": "Mark Rober: A last-one-standing challenge with a $10,000 prize.",
+   "terms": {
+    "genre:comedy": 0.4,
+    "genre:popular-science": 0.6,
+    "mood:exhilarating": 0.7,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 0.8
+   },
+   "attributes": {
+    "channel": "mark-rober-2011",
+    "views": "30.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-h0egcnbjtvk-2026",
+   "medium": "online_video",
+   "title": "I Outsmarted Pro Car Thieves",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Mark Rober",
+     "organisation"
+    ]
+   ],
+   "summary": "Mark Rober: An attempt to outsmart professional car thieves.",
+   "terms": {
+    "genre:comedy": 0.4,
+    "genre:popular-science": 0.6,
+    "mood:exhilarating": 0.7,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 0.8
+   },
+   "attributes": {
+    "channel": "mark-rober-2011",
+    "views": "27.9M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "marques-brownlee-2008",
+   "medium": "channel",
+   "title": "Marques Brownlee",
+   "year": 2008,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Marques Brownlee's phone, gadget and car reviews, known for polished video and clear verdicts.",
+   "terms": {
+    "theme:technology-alienation": 0.2,
+    "theme:knowledge-curiosity": 0.5,
+    "complexity:accessible": 1,
+    "style:minimalist": 0.5
+   },
+   "attributes": {
+    "handle": "@mkbhd"
+   }
+  },
+  {
+   "slug": "yt-od6m0axpcxq-2026",
+   "medium": "online_video",
+   "title": "iPhone 18 Pro/Duo Impressions: Mogged",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Marques Brownlee",
+     "organisation"
+    ]
+   ],
+   "summary": "Marques Brownlee: First impressions of a new flagship iPhone.",
+   "terms": {
+    "theme:technology-alienation": 0.2,
+    "theme:knowledge-curiosity": 0.5
+   },
+   "attributes": {
+    "channel": "marques-brownlee-2008",
+    "views": "28.3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-dkuuor21v4s-2026",
+   "medium": "online_video",
+   "title": "Xiaomi 18 Pro Max: They've Done It Again!",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Marques Brownlee",
+     "organisation"
+    ]
+   ],
+   "summary": "Marques Brownlee: A look at a new Xiaomi flagship phone.",
+   "terms": {
+    "theme:technology-alienation": 0.2,
+    "theme:knowledge-curiosity": 0.5
+   },
+   "attributes": {
+    "channel": "marques-brownlee-2008",
+    "views": "14.2M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-6d-h-do2xk-2026",
+   "medium": "online_video",
+   "title": "iPhone Duo: What We Missed!",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Marques Brownlee",
+     "organisation"
+    ]
+   ],
+   "summary": "Marques Brownlee: A follow-up on what the channel missed about the new iPhone.",
+   "terms": {
+    "theme:technology-alienation": 0.2,
+    "theme:knowledge-curiosity": 0.5
+   },
+   "attributes": {
+    "channel": "marques-brownlee-2008",
+    "views": "12.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "linus-tech-tips-2008",
+   "medium": "channel",
+   "title": "Linus Tech Tips",
+   "year": 2008,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 1,
+   "summary": "Computer and consumer technology from a Canadian team that mixes reviews and how-tos with long-running builds and jokes.",
+   "terms": {
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3,
+    "theme:knowledge-curiosity": 0.5,
+    "complexity:accessible": 0.9
+   },
+   "attributes": {
+    "handle": "@LinusTechTips"
+   }
+  },
+  {
+   "slug": "yt-fh5soarx2ta-2026",
+   "medium": "online_video",
+   "title": "There’s a Secret (Better) Netflix for Millionaires",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Linus Tech Tips",
+     "organisation"
+    ]
+   ],
+   "summary": "Linus Tech Tips: A look at a streaming service said to be aimed at millionaires.",
+   "terms": {
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3,
+    "theme:knowledge-curiosity": 0.5
+   },
+   "attributes": {
+    "channel": "linus-tech-tips-2008",
+    "views": "4.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-fr0wiizxvx0-2026",
+   "medium": "online_video",
+   "title": "Pros Try Fake AI Photoshop",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Linus Tech Tips",
+     "organisation"
+    ]
+   ],
+   "summary": "Linus Tech Tips: Professionals try out fake AI photo editing.",
+   "terms": {
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3,
+    "theme:knowledge-curiosity": 0.5
+   },
+   "attributes": {
+    "channel": "linus-tech-tips-2008",
+    "views": "3.2M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-2i-dhrl9wo-2026",
+   "medium": "online_video",
+   "title": "This is an Official Sony Product",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Linus Tech Tips",
+     "organisation"
+    ]
+   ],
+   "summary": "Linus Tech Tips: A video about a product the channel says is officially from Sony.",
+   "terms": {
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3,
+    "theme:knowledge-curiosity": 0.5
+   },
+   "attributes": {
+    "channel": "linus-tech-tips-2008",
+    "views": "2.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "wendover-productions-2010",
+   "medium": "channel",
+   "title": "Wendover Productions",
+   "year": 2010,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "summary": "Explainers on how the world works, covering travel, economics, geography and business, in a measured narrated style.",
+   "terms": {
+    "genre:documentary": 0.7,
+    "theme:knowledge-curiosity": 1,
+    "theme:ambition-money": 0.4,
+    "complexity:accessible": 0.9
+   },
+   "attributes": {
+    "handle": "@Wendoverproductions"
+   }
+  },
+  {
+   "slug": "yt-glkbk8h-9fc-2026",
+   "medium": "online_video",
+   "title": "How the Channel Tunnel Works",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Wendover Productions",
+     "organisation"
+    ]
+   ],
+   "summary": "Wendover Productions: How the Channel Tunnel works.",
+   "terms": {
+    "genre:documentary": 0.7,
+    "theme:knowledge-curiosity": 1,
+    "theme:ambition-money": 0.4
+   },
+   "attributes": {
+    "channel": "wendover-productions-2010",
+    "views": "2.3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-2ihpvsyv4gu-2026",
+   "medium": "online_video",
+   "title": "How Taiwan is Preparing to Get Invaded",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Wendover Productions",
+     "organisation"
+    ]
+   ],
+   "summary": "Wendover Productions: How Taiwan is preparing for a possible invasion.",
+   "terms": {
+    "genre:documentary": 0.7,
+    "theme:knowledge-curiosity": 1,
+    "theme:ambition-money": 0.4
+   },
+   "attributes": {
+    "channel": "wendover-productions-2010",
+    "views": "1.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-hiow2hkgzpk-2026",
+   "medium": "online_video",
+   "title": "Why Fast Food Got So Expensive",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Wendover Productions",
+     "organisation"
+    ]
+   ],
+   "summary": "Wendover Productions: Why fast food got so expensive.",
+   "terms": {
+    "genre:documentary": 0.7,
+    "theme:knowledge-curiosity": 1,
+    "theme:ambition-money": 0.4
+   },
+   "attributes": {
+    "channel": "wendover-productions-2010",
+    "views": "1.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "real-engineering-2013",
+   "medium": "channel",
+   "title": "Real Engineering",
+   "year": 2013,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Engineering stories told with animation and diagrams: aircraft, materials, energy and the design choices behind them.",
+   "terms": {
+    "genre:documentary": 0.6,
+    "genre:popular-science": 0.7,
+    "theme:knowledge-curiosity": 1,
+    "style:visually-striking": 0.4,
+    "complexity:accessible": 0.7
+   },
+   "attributes": {
+    "handle": "@RealEngineering"
+   }
+  },
+  {
+   "slug": "yt-rw-tgmnih9y-2026",
+   "medium": "online_video",
+   "title": "The Forbidden Alloy of WW2",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Real Engineering",
+     "organisation"
+    ]
+   ],
+   "summary": "Real Engineering: The story of an alloy forbidden during the Second World War.",
+   "terms": {
+    "genre:documentary": 0.6,
+    "genre:popular-science": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "real-engineering-2013",
+    "views": "3.7M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-6b96xetwrqi-2026",
+   "medium": "online_video",
+   "title": "The Plane That's 38% Nose",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Real Engineering",
+     "organisation"
+    ]
+   ],
+   "summary": "Real Engineering: A look at an aircraft whose nose makes up 38 per cent of its length.",
+   "terms": {
+    "genre:documentary": 0.6,
+    "genre:popular-science": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "real-engineering-2013",
+    "views": "2.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-fymdlltcrc0-2026",
+   "medium": "online_video",
+   "title": "The Insane Engineering of the V-22 Osprey",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Real Engineering",
+     "organisation"
+    ]
+   ],
+   "summary": "Real Engineering: How the V-22 Osprey's engineering works.",
+   "terms": {
+    "genre:documentary": 0.6,
+    "genre:popular-science": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "real-engineering-2013",
+    "views": "1.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "minutephysics-2011",
+   "medium": "channel",
+   "title": "minutephysics",
+   "year": 2011,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Short hand-drawn videos explaining physics and other science, started by Henry Reich with a stated aim of explaining things simply.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 1,
+    "style:hand-drawn": 0.9,
+    "complexity:accessible": 0.9
+   },
+   "attributes": {
+    "handle": "@minutephysics"
+   }
+  },
+  {
+   "slug": "yt-sydxa-yp0fc-2026",
+   "medium": "online_video",
+   "title": "Strings Don't Vibrate The Way You Think",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "minutephysics",
+     "organisation"
+    ]
+   ],
+   "summary": "minutephysics: Why strings do not vibrate the way people think.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "minutephysics-2011",
+    "views": "1.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-zwsvhbg7x0w-2026",
+   "medium": "online_video",
+   "title": "Do *you* understand ISO?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "minutephysics",
+     "organisation"
+    ]
+   ],
+   "summary": "minutephysics: A video asking whether you understand ISO.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "minutephysics-2011",
+    "views": "987K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-31kyer-8dak-2026",
+   "medium": "online_video",
+   "title": "What if you try to sandwich a cube between two portals?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "minutephysics",
+     "organisation"
+    ]
+   ],
+   "summary": "minutephysics: What happens if a cube is sandwiched between two portals.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:whimsical": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "minutephysics-2011",
+    "views": "856K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "smartereveryday-2006",
+   "medium": "channel",
+   "title": "SmarterEveryDay",
+   "year": 2006,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Destin Sandlin's channel of hands-on science and engineering explorations, from slow-motion cameras to visits to unusual places.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "mood:exhilarating": 0.5,
+    "complexity:accessible": 0.9
+   },
+   "attributes": {
+    "handle": "@SmarterEveryDay"
+   }
+  },
+  {
+   "slug": "yt-v0afq6w3bjw-2025",
+   "medium": "online_video",
+   "title": "Refueling a NUCLEAR REACTOR - Smarter Every Day 311",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "SmarterEveryDay",
+     "organisation"
+    ]
+   ],
+   "summary": "SmarterEveryDay: A visit to see a nuclear reactor refuelled.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "mood:exhilarating": 0.5
+   },
+   "attributes": {
+    "channel": "smartereveryday-2006",
+    "views": "7.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-3ztgwchqfly-2025",
+   "medium": "online_video",
+   "title": "I Tried To Make Something In America (The Smarter Scrubber Experiment) - Smarter Every Day 308",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "SmarterEveryDay",
+     "organisation"
+    ]
+   ],
+   "summary": "SmarterEveryDay: An experiment about making a product in America.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "mood:exhilarating": 0.5
+   },
+   "attributes": {
+    "channel": "smartereveryday-2006",
+    "views": "4.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-8nilp-gfly-2025",
+   "medium": "online_video",
+   "title": "The Unsolved Mystery of Impact Flashes - Smarter Every Day 307",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "SmarterEveryDay",
+     "organisation"
+    ]
+   ],
+   "summary": "SmarterEveryDay: An investigation into the unsolved mystery of impact flashes.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "mood:exhilarating": 0.5
+   },
+   "attributes": {
+    "channel": "smartereveryday-2006",
+    "views": "3.9M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "joshua-weissman-2014",
+   "medium": "channel",
+   "title": "Joshua Weissman",
+   "year": 2014,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Cooking videos by Joshua Weissman, with a focus on making restaurant and fast-food favourites from scratch at home, and a particular love of bread.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.5,
+    "mood:comforting": 0.5,
+    "complexity:accessible": 1
+   },
+   "attributes": {
+    "handle": "@JoshuaWeissman"
+   }
+  },
+  {
+   "slug": "yt-fye5u5vtgzm-2026",
+   "medium": "online_video",
+   "title": "I Tried Fast Food That No Longer Exists",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Joshua Weissman",
+     "organisation"
+    ]
+   ],
+   "summary": "Joshua Weissman: Tries fast food that no longer exists.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.5,
+    "mood:comforting": 0.5
+   },
+   "attributes": {
+    "channel": "joshua-weissman-2014",
+    "views": "7.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-cldd6tfmrvo-2026",
+   "medium": "online_video",
+   "title": "Fools Gold Sandwich",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Joshua Weissman",
+     "organisation"
+    ]
+   ],
+   "summary": "Joshua Weissman: A video making a sandwich called Fool's Gold.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.5,
+    "mood:comforting": 0.5
+   },
+   "attributes": {
+    "channel": "joshua-weissman-2014",
+    "views": "6.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-kbw5gyjtelg-2026",
+   "medium": "online_video",
+   "title": "My baby tries exotic fruit",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Joshua Weissman",
+     "organisation"
+    ]
+   ],
+   "summary": "Joshua Weissman: A family video in which a baby tries exotic fruit.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.5,
+    "mood:comforting": 0.5
+   },
+   "attributes": {
+    "channel": "joshua-weissman-2014",
+    "views": "14.9M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "t-series-2006",
+   "medium": "channel",
+   "title": "T-Series",
+   "year": 2006,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 1,
+   "summary": "The channel of T-Series, an Indian music label and film studio, publishing film songs, music videos and film trailers, mostly in Hindi.",
+   "terms": {
+    "genre:filmi": 0.9,
+    "genre:indian-pop": 0.6,
+    "mood:uplifting": 0.5
+   },
+   "attributes": {
+    "handle": "@tseries"
+   }
+  },
+  {
+   "slug": "yt-z-e1d5-vvfw-2026",
+   "medium": "online_video",
+   "title": "Ramayana: Mangal Rang (Song) | Namit M, Nitesh T | AR Rahman, Arijit Singh, Shreya Ghoshal, Kumar V",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "T-Series",
+     "organisation"
+    ]
+   ],
+   "summary": "T-Series: A song from Ramayana called Mangal Rang, with music credited to A. R. Rahman.",
+   "terms": {
+    "genre:filmi": 0.9,
+    "genre:indian-pop": 0.6,
+    "mood:uplifting": 0.5
+   },
+   "attributes": {
+    "channel": "t-series-2006",
+    "views": "22.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-pxtg6tsmpom-2026",
+   "medium": "online_video",
+   "title": "File no.25 : FAUZI - Hindi | Prabhas | Hanu Raghavapudi | March 19th 2027",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "T-Series",
+     "organisation"
+    ]
+   ],
+   "summary": "T-Series: A film announcement video for a Hindi-language title with Prabhas.",
+   "terms": {
+    "genre:filmi": 0.9,
+    "genre:indian-pop": 0.6,
+    "mood:uplifting": 0.5
+   },
+   "attributes": {
+    "channel": "t-series-2006",
+    "views": "4.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-onaoiz80-py-2026",
+   "medium": "online_video",
+   "title": "Kamaal (Official Video) | Rochak Kohli, Kumaar | Pehla Pyaar Doosri Baar | Oct 23",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "T-Series",
+     "organisation"
+    ]
+   ],
+   "summary": "T-Series: An official music video called Kamaal.",
+   "terms": {
+    "genre:filmi": 0.9,
+    "genre:indian-pop": 0.6,
+    "mood:uplifting": 0.5
+   },
+   "attributes": {
+    "channel": "t-series-2006",
+    "views": "461K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "carryminati-2014",
+   "medium": "channel",
+   "title": "CarryMinati",
+   "year": 2014,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 1,
+   "summary": "Ajey Nagar's Hindi comedy channel of sketches, parodies, vlogs and roasts, one of the most subscribed in India.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 0.9,
+    "genre:hip-hop": 0.3
+   },
+   "attributes": {
+    "handle": "@CarryMinati"
+   }
+  },
+  {
+   "slug": "yt-m9s1nqg3tny-2024",
+   "medium": "online_video",
+   "title": "MR BEAST PARODY 🤑 Ft. INDIAN CREATORS | CARRYMINATI",
+   "year": 2024,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "CarryMinati",
+     "organisation"
+    ]
+   ],
+   "summary": "CarryMinati: A parody of MrBeast-style videos featuring Indian creators.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 0.9,
+    "genre:hip-hop": 0.3
+   },
+   "attributes": {
+    "channel": "carryminati-2014",
+    "views": "108M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-wx7dbpcsies-2024",
+   "medium": "online_video",
+   "title": "VADA PAV AUR CHAI 😍 | CARRYMINATI",
+   "year": 2024,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "CarryMinati",
+     "organisation"
+    ]
+   ],
+   "summary": "CarryMinati: A video titled Vada Pav aur Chai.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 0.9,
+    "genre:hip-hop": 0.3
+   },
+   "attributes": {
+    "channel": "carryminati-2014",
+    "views": "64.7M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-465ieenoebg-2025",
+   "medium": "online_video",
+   "title": "SAAS BAHU AUR SAANP | CARRYMINATI",
+   "year": 2025,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "CarryMinati",
+     "organisation"
+    ]
+   ],
+   "summary": "CarryMinati: A video titled Saas Bahu aur Saanp.",
+   "terms": {
+    "genre:comedy": 1,
+    "mood:funny": 0.9,
+    "genre:hip-hop": 0.3
+   },
+   "attributes": {
+    "channel": "carryminati-2014",
+    "views": "36.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "technical-guruji-2015",
+   "medium": "channel",
+   "title": "Technical Guruji",
+   "year": 2015,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 1,
+   "summary": "Gaurav Chaudhary's Hindi-language tech channel: phone unboxings, first looks and reviews for Indian viewers.",
+   "terms": {
+    "theme:technology-alienation": 0.1,
+    "theme:knowledge-curiosity": 0.4,
+    "complexity:accessible": 1
+   },
+   "attributes": {
+    "handle": "@TechnicalGuruji"
+   }
+  },
+  {
+   "slug": "yt-0sblnswd6-m-2026",
+   "medium": "online_video",
+   "title": "iPhone Duo Unboxing & First Look - Game Changer!🔥🔥🔥",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Technical Guruji",
+     "organisation"
+    ]
+   ],
+   "summary": "Technical Guruji: An unboxing and first look at a new iPhone model.",
+   "terms": {
+    "theme:technology-alienation": 0.1,
+    "theme:knowledge-curiosity": 0.4
+   },
+   "attributes": {
+    "channel": "technical-guruji-2015",
+    "views": "935K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-fp4wr6j0jog-2026",
+   "medium": "online_video",
+   "title": "Oppo Find X10 Pro Max Unboxing & First Look - Solid Experience!🔥🔥🔥",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Technical Guruji",
+     "organisation"
+    ]
+   ],
+   "summary": "Technical Guruji: An unboxing and first look at an Oppo flagship.",
+   "terms": {
+    "theme:technology-alienation": 0.1,
+    "theme:knowledge-curiosity": 0.4
+   },
+   "attributes": {
+    "channel": "technical-guruji-2015",
+    "views": "399K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-3qioaukhlve-2026",
+   "medium": "online_video",
+   "title": "Samsung Galaxy Tab S12 Ultra Unboxing & First Look - True Powerhouse!🔥🔥🔥",
+   "year": 2026,
+   "language": "hi",
+   "countries": [
+    "IN"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Technical Guruji",
+     "organisation"
+    ]
+   ],
+   "summary": "Technical Guruji: An unboxing and first look at a Samsung tablet.",
+   "terms": {
+    "theme:technology-alienation": 0.1,
+    "theme:knowledge-curiosity": 0.4
+   },
+   "attributes": {
+    "channel": "technical-guruji-2015",
+    "views": "342K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "mrbeast-2012",
+   "medium": "channel",
+   "title": "MrBeast",
+   "year": 2012,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Jimmy Donaldson's channel of big-budget challenges and giveaways, with huge cash prizes and fast edits.",
+   "terms": {
+    "mood:exhilarating": 0.9,
+    "theme:ambition-money": 0.8,
+    "genre:comedy": 0.3,
+    "complexity:accessible": 1,
+    "pacing:brisk": 1
+   },
+   "attributes": {
+    "handle": "@Mrbeast"
+   }
+  },
+  {
+   "slug": "yt-pln7jmbadrg-2026",
+   "medium": "online_video",
+   "title": "Eat Everything In A Grocery Store, Win $1,000,000",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "MrBeast",
+     "organisation"
+    ]
+   ],
+   "summary": "MrBeast: A challenge to eat everything in a grocery store for a $1,000,000 prize.",
+   "terms": {
+    "mood:exhilarating": 0.9,
+    "theme:ambition-money": 0.8,
+    "genre:comedy": 0.3
+   },
+   "attributes": {
+    "channel": "mrbeast-2012",
+    "views": "304.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-re3-pgwdwhw-2026",
+   "medium": "online_video",
+   "title": "Lose 150 Lbs Together, Win $250,000",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "MrBeast",
+     "organisation"
+    ]
+   ],
+   "summary": "MrBeast: A challenge to lose 150 pounds together for a $250,000 prize.",
+   "terms": {
+    "mood:exhilarating": 0.9,
+    "theme:ambition-money": 0.8,
+    "genre:comedy": 0.3
+   },
+   "attributes": {
+    "channel": "mrbeast-2012",
+    "views": "157M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-f7y2xike7sy-2026",
+   "medium": "online_video",
+   "title": "Paying For Food With My Car",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "MrBeast",
+     "organisation"
+    ]
+   ],
+   "summary": "MrBeast: A video about paying for food with his car.",
+   "terms": {
+    "mood:exhilarating": 0.9,
+    "theme:ambition-money": 0.8,
+    "genre:comedy": 0.3
+   },
+   "attributes": {
+    "channel": "mrbeast-2012",
+    "views": "139.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "pbs-space-time-2015",
+   "medium": "channel",
+   "title": "PBS Space Time",
+   "year": 2015,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Deep dives into astrophysics, quantum mechanics and the structure of space and time, presented with graphics and a patient, rigorous pace.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1,
+    "complexity:intellectually-demanding": 0.8
+   },
+   "attributes": {
+    "handle": "@PBSSpaceTime"
+   }
+  },
+  {
+   "slug": "yt-mxpuv33vpnk-2026",
+   "medium": "online_video",
+   "title": "JWST May Have Discovered a New Cosmic Object: The Black Hole Star",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "PBS Space Time",
+     "organisation"
+    ]
+   ],
+   "summary": "PBS Space Time: A report on a possible new cosmic object called a black hole star.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "pbs-space-time-2015",
+    "views": "2.8M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-yswrqncep9k-2026",
+   "medium": "online_video",
+   "title": "So You Want to Understand Quantum Mechanics…",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "PBS Space Time",
+     "organisation"
+    ]
+   ],
+   "summary": "PBS Space Time: A guide for anyone who wants to understand quantum mechanics.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "pbs-space-time-2015",
+    "views": "2.3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-0usb9arf-9c-2026",
+   "medium": "online_video",
+   "title": "Is There Only ONE Electron In the Universe?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "PBS Space Time",
+     "organisation"
+    ]
+   ],
+   "summary": "PBS Space Time: The question of whether there is only one electron in the universe.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 1,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "pbs-space-time-2015",
+    "views": "1.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "ted-2006",
+   "medium": "channel",
+   "title": "TED",
+   "year": 2006,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Talks and performances from the TED conferences and affiliated events, on science, technology, culture and ideas, each by a different speaker.",
+   "terms": {
+    "genre:documentary": 0.3,
+    "theme:knowledge-curiosity": 1,
+    "mood:uplifting": 0.5,
+    "complexity:accessible": 0.8
+   },
+   "attributes": {
+    "handle": "@TED"
+   }
+  },
+  {
+   "slug": "yt-untzmlgf2to-2026",
+   "medium": "online_video",
+   "title": "The Secret to Lasting Love | Eli J. Finkel | TED",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "TED",
+     "organisation"
+    ]
+   ],
+   "summary": "TED: Eli J. Finkel on the secret to lasting love.",
+   "terms": {
+    "genre:documentary": 0.3,
+    "theme:knowledge-curiosity": 1,
+    "mood:uplifting": 0.5
+   },
+   "attributes": {
+    "channel": "ted-2006",
+    "views": "161K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-ppeutpzwt2m-2026",
+   "medium": "online_video",
+   "title": "How the Wealth Gap Is Reshaping Politics | Xochitl Gonzalez | TED",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "TED",
+     "organisation"
+    ]
+   ],
+   "summary": "TED: Xochitl Gonzalez on how the wealth gap is reshaping politics.",
+   "terms": {
+    "genre:documentary": 0.3,
+    "theme:knowledge-curiosity": 1,
+    "mood:uplifting": 0.5
+   },
+   "attributes": {
+    "channel": "ted-2006",
+    "views": "153K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-truu-ezsl1c-2026",
+   "medium": "online_video",
+   "title": "I Thought I Was Lazy. Turns Out I Had a Sleep Disorder | Lindsay Scola | TED",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "TED",
+     "organisation"
+    ]
+   ],
+   "summary": "TED: A speaker who thought she was lazy and found she had a sleep disorder.",
+   "terms": {
+    "genre:documentary": 0.3,
+    "theme:knowledge-curiosity": 1,
+    "mood:uplifting": 0.5
+   },
+   "attributes": {
+    "channel": "ted-2006",
+    "views": "137K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "nilered-2014",
+   "medium": "channel",
+   "title": "NileRed",
+   "year": 2014,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 1,
+   "summary": "Chemistry experiments and syntheses by Nigel Braun, often turning one thing into another, with explanations of the chemistry along the way.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "style:visually-striking": 0.6,
+    "complexity:accessible": 0.8
+   },
+   "attributes": {
+    "handle": "@NileRed"
+   }
+  },
+  {
+   "slug": "yt-1tnbfcxlg0g-2025",
+   "medium": "online_video",
+   "title": "Mixing sodium and potassium is crazy",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "NileRed",
+     "organisation"
+    ]
+   ],
+   "summary": "NileRed: Mixing sodium and potassium.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "nilered-2014",
+    "views": "38.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-ndxrme-s2ce-2025",
+   "medium": "online_video",
+   "title": "Liquefying nails is crazy",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "NileRed",
+     "organisation"
+    ]
+   ],
+   "summary": "NileRed: Turning nails into a liquid.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "nilered-2014",
+    "views": "15.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-id-k64jk6jm-2026",
+   "medium": "online_video",
+   "title": "Turning air into alcohol",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "CA"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "NileRed",
+     "organisation"
+    ]
+   ],
+   "summary": "NileRed: Turning air into alcohol.",
+   "terms": {
+    "genre:popular-science": 0.9,
+    "mood:wonder": 0.8,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "nilered-2014",
+    "views": "12.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "lemmino-2012",
+   "medium": "channel",
+   "title": "LEMMiNO",
+   "year": 2012,
+   "language": "en",
+   "countries": [
+    "SE"
+   ],
+   "popularity_tier": 2,
+   "summary": "Long-form, carefully researched videos on mysteries and unresolved cases, with some on space and science, narrated over documentary footage.",
+   "terms": {
+    "genre:documentary": 0.9,
+    "genre:mystery": 0.8,
+    "genre:true-crime": 0.5,
+    "mood:eerie": 0.6,
+    "pacing:slow-burn": 0.6
+   },
+   "attributes": {
+    "handle": "@Lemmino"
+   }
+  },
+  {
+   "slug": "yt-cbujuwhqpks-2020",
+   "medium": "online_video",
+   "title": "The Search For D. B. Cooper",
+   "year": 2020,
+   "language": "en",
+   "countries": [
+    "SE"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "LEMMiNO",
+     "organisation"
+    ]
+   ],
+   "summary": "LEMMiNO: An account of the search for D. B. Cooper.",
+   "terms": {
+    "genre:documentary": 0.9,
+    "genre:mystery": 0.8,
+    "genre:true-crime": 0.5,
+    "mood:eerie": 0.6
+   },
+   "attributes": {
+    "channel": "lemmino-2012",
+    "views": "24.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-ladbhdg-jta-2021",
+   "medium": "online_video",
+   "title": "The Enduring Mystery of Jack the Ripper",
+   "year": 2021,
+   "language": "en",
+   "countries": [
+    "SE"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "LEMMiNO",
+     "organisation"
+    ]
+   ],
+   "summary": "LEMMiNO: An account of the mystery of Jack the Ripper.",
+   "terms": {
+    "genre:documentary": 0.9,
+    "genre:mystery": 0.8,
+    "genre:true-crime": 0.5,
+    "mood:eerie": 0.6
+   },
+   "attributes": {
+    "channel": "lemmino-2012",
+    "views": "16.2M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-5u7eun1htuu-2023",
+   "medium": "online_video",
+   "title": "The Kennedy Assassination: Inside the Book Depository",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "SE"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "LEMMiNO",
+     "organisation"
+    ]
+   ],
+   "summary": "LEMMiNO: A reconstruction of the Kennedy assassination from inside the Book Depository.",
+   "terms": {
+    "genre:documentary": 0.9,
+    "genre:mystery": 0.8,
+    "genre:true-crime": 0.5,
+    "mood:eerie": 0.6
+   },
+   "attributes": {
+    "channel": "lemmino-2012",
+    "views": "15.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "scishow-2011",
+   "medium": "channel",
+   "title": "SciShow",
+   "year": 2011,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Short science explainers on unexpected subjects, from biology and chemistry to health and space.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.7,
+    "theme:knowledge-curiosity": 1,
+    "complexity:accessible": 1
+   },
+   "attributes": {
+    "handle": "@SciShow"
+   }
+  },
+  {
+   "slug": "yt-9yyqhutv9t4-2026",
+   "medium": "online_video",
+   "title": "The Science That Finally Explains the Dyatlov Pass Incident",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "SciShow",
+     "organisation"
+    ]
+   ],
+   "summary": "SciShow: The science that may explain the Dyatlov Pass incident.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "scishow-2011",
+    "views": "1.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-09zd9k-szww-2026",
+   "medium": "online_video",
+   "title": "Why Doesn't Gold Tarnish?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "SciShow",
+     "organisation"
+    ]
+   ],
+   "summary": "SciShow: Why gold does not tarnish.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "scishow-2011",
+    "views": "603K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-glkyru2foos-2026",
+   "medium": "online_video",
+   "title": "The Bizarre Case of the Tully Monster",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "SciShow",
+     "organisation"
+    ]
+   ],
+   "summary": "SciShow: The case of the Tully Monster, a fossil that puzzled scientists.",
+   "terms": {
+    "genre:popular-science": 1,
+    "mood:wonder": 0.7,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "scishow-2011",
+    "views": "546K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "crashcourse-2006",
+   "medium": "channel",
+   "title": "CrashCourse",
+   "year": 2006,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "Free course-style videos on school and university subjects, from history and government to astronomy and geology, built from series with numbered episodes.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "theme:knowledge-curiosity": 1,
+    "complexity:accessible": 1,
+    "mood:uplifting": 0.4
+   },
+   "attributes": {
+    "handle": "@CrashCourse"
+   }
+  },
+  {
+   "slug": "yt-hicdzxfcas4-2026",
+   "medium": "online_video",
+   "title": "Crash Course Astronomy Marathon • Full Series",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "CrashCourse",
+     "organisation"
+    ]
+   ],
+   "summary": "CrashCourse: The full Crash Course Astronomy series as one marathon.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "theme:knowledge-curiosity": 1,
+    "mood:uplifting": 0.4
+   },
+   "attributes": {
+    "channel": "crashcourse-2006",
+    "views": "225K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-ht8ikfog-pq-2026",
+   "medium": "online_video",
+   "title": "Why Does the US Only Have Two Major Parties?: Crash Course US Government #2",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "CrashCourse",
+     "organisation"
+    ]
+   ],
+   "summary": "CrashCourse: Why the United States has only two major parties, from Crash Course US Government.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "theme:knowledge-curiosity": 1,
+    "mood:uplifting": 0.4
+   },
+   "attributes": {
+    "channel": "crashcourse-2006",
+    "views": "154K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-miijd66ycr8-2026",
+   "medium": "online_video",
+   "title": "How old is the Earth?: Crash Course Geology #17",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "CrashCourse",
+     "organisation"
+    ]
+   ],
+   "summary": "CrashCourse: How old the Earth is, from Crash Course Geology.",
+   "terms": {
+    "genre:documentary": 0.4,
+    "theme:knowledge-curiosity": 1,
+    "mood:uplifting": 0.4
+   },
+   "attributes": {
+    "channel": "crashcourse-2006",
+    "views": "144K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "the-british-museum-2006",
+   "medium": "channel",
+   "title": "The British Museum",
+   "year": 2006,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 2,
+   "summary": "The British Museum's channel: curators and scholars on objects in the collection and what they say about human history, from the Rosetta Stone to letters on clay.",
+   "terms": {
+    "genre:documentary": 0.8,
+    "genre:narrative-history": 0.5,
+    "theme:knowledge-curiosity": 1,
+    "theme:race-history": 0.4,
+    "complexity:accessible": 0.8
+   },
+   "attributes": {
+    "handle": "@BritishMuseum"
+   }
+  },
+  {
+   "slug": "yt-3mzq-zqdhja-2026",
+   "medium": "online_video",
+   "title": "Reading the Pharaoh's private mail with Irving Finkel | The Amarna Letters  | Curator's Corner Ep100",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "The British Museum",
+     "organisation"
+    ]
+   ],
+   "summary": "The British Museum: Irving Finkel reads the Amarna Letters, the pharaoh's private mail.",
+   "terms": {
+    "genre:documentary": 0.8,
+    "genre:narrative-history": 0.5,
+    "theme:knowledge-curiosity": 1,
+    "theme:race-history": 0.4
+   },
+   "attributes": {
+    "channel": "the-british-museum-2006",
+    "views": "978K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-qhlr0qejcsc-2026",
+   "medium": "online_video",
+   "title": "How Harold was depicted before the Bayeux Tapestry (and what it tells us) | Curator's Corner Ep101",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "The British Museum",
+     "organisation"
+    ]
+   ],
+   "summary": "The British Museum: How Harold was depicted before the Bayeux Tapestry and what that shows.",
+   "terms": {
+    "genre:documentary": 0.8,
+    "genre:narrative-history": 0.5,
+    "theme:knowledge-curiosity": 1,
+    "theme:race-history": 0.4
+   },
+   "attributes": {
+    "channel": "the-british-museum-2006",
+    "views": "251K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-nh4y0v3w-se-2026",
+   "medium": "online_video",
+   "title": "Can you identify this English town?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "The British Museum",
+     "organisation"
+    ]
+   ],
+   "summary": "The British Museum: A quiz asking viewers to identify an English town.",
+   "terms": {
+    "genre:documentary": 0.8,
+    "genre:narrative-history": 0.5,
+    "theme:knowledge-curiosity": 1,
+    "theme:race-history": 0.4
+   },
+   "attributes": {
+    "channel": "the-british-museum-2006",
+    "views": "75K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "explainingcomputers-2007",
+   "medium": "channel",
+   "title": "ExplainingComputers",
+   "year": 2007,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 2,
+   "summary": "Christopher Barnatt's weekly videos about computing, from single-board computers and Linux to storage and older machines, in a calm teaching style.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.8,
+    "theme:technology-alienation": 0.1,
+    "complexity:accessible": 1,
+    "pacing:slow-burn": 0.3
+   },
+   "attributes": {
+    "handle": "@ExplainingComputers"
+   }
+  },
+  {
+   "slug": "yt-r0k-2v23dqg-2026",
+   "medium": "online_video",
+   "title": "Keeping an Older PC Running: 5 Top Tips",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "ExplainingComputers",
+     "organisation"
+    ]
+   ],
+   "summary": "ExplainingComputers: Five tips for keeping an older PC running.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.8,
+    "theme:technology-alienation": 0.1
+   },
+   "attributes": {
+    "channel": "explainingcomputers-2007",
+    "views": "314K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-vsttre31k9w-2026",
+   "medium": "online_video",
+   "title": "Linux Update October 2026",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "ExplainingComputers",
+     "organisation"
+    ]
+   ],
+   "summary": "ExplainingComputers: A monthly Linux update for October 2026.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.8,
+    "theme:technology-alienation": 0.1
+   },
+   "attributes": {
+    "channel": "explainingcomputers-2007",
+    "views": "182K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-1r4wcaopmlo-2026",
+   "medium": "online_video",
+   "title": "Haiku Revisited: The Really Alternative OS",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "ExplainingComputers",
+     "organisation"
+    ]
+   ],
+   "summary": "ExplainingComputers: A revisit of Haiku, an unusual alternative operating system.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.8,
+    "theme:technology-alienation": 0.1
+   },
+   "attributes": {
+    "channel": "explainingcomputers-2007",
+    "views": "173K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "bon-appetit-2008",
+   "medium": "channel",
+   "title": "Bon Appétit",
+   "year": 2008,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 1,
+   "summary": "The video channel of Bon Appétit magazine: recipes, techniques and series that follow professional cooks and chefs.",
+   "terms": {
+    "genre:food": 1,
+    "mood:comforting": 0.6,
+    "complexity:accessible": 0.9
+   },
+   "attributes": {
+    "handle": "@bonappetit"
+   }
+  },
+  {
+   "slug": "yt-l6n8dyqfzj4-2026",
+   "medium": "online_video",
+   "title": "Surviving a 10-Hour Shift as a Line Cook in NYC | Life of a Line Cook | Bon Appétit",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Bon Appétit",
+     "organisation"
+    ]
+   ],
+   "summary": "Bon Appétit: A day in the life of a line cook working a ten-hour shift in New York.",
+   "terms": {
+    "genre:food": 1,
+    "mood:comforting": 0.6
+   },
+   "attributes": {
+    "channel": "bon-appetit-2008",
+    "views": "899K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-n2hjuxyynog-2026",
+   "medium": "online_video",
+   "title": "How the Best Cheesesteak in NYC is Made | Made to Order | Bon Appétit",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Bon Appétit",
+     "organisation"
+    ]
+   ],
+   "summary": "Bon Appétit: How a New York cheesesteak is made, in the Made to Order series.",
+   "terms": {
+    "genre:food": 1,
+    "mood:comforting": 0.6
+   },
+   "attributes": {
+    "channel": "bon-appetit-2008",
+    "views": "745K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-vs9lftzmomw-2026",
+   "medium": "online_video",
+   "title": "How a French Chef Makes France's Most Famous Soup | French Fundamentals | Bon Appétit",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Bon Appétit",
+     "organisation"
+    ]
+   ],
+   "summary": "Bon Appétit: How a French chef makes France's most famous soup.",
+   "terms": {
+    "genre:food": 1,
+    "mood:comforting": 0.6
+   },
+   "attributes": {
+    "channel": "bon-appetit-2008",
+    "views": "460K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "sorted-food-2010",
+   "medium": "channel",
+   "title": "Sorted Food",
+   "year": 2010,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 2,
+   "summary": "A London group of friends and chefs making food together, with recipes, challenges and cook-offs in a jokey format.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3,
+    "complexity:accessible": 1
+   },
+   "attributes": {
+    "handle": "@SortedFood"
+   }
+  },
+  {
+   "slug": "yt-vs0kxcm9dni-2026",
+   "medium": "online_video",
+   "title": "Should these Kitchen Gadgets be ILLEGAL?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Sorted Food",
+     "organisation"
+    ]
+   ],
+   "summary": "Sorted Food: A look at kitchen gadgets that the hosts say should be illegal.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3
+   },
+   "attributes": {
+    "channel": "sorted-food-2010",
+    "views": "812K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-opaz7guhjsg-2026",
+   "medium": "online_video",
+   "title": "Forcing Pro Chefs to Commit Food Crimes!",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Sorted Food",
+     "organisation"
+    ]
+   ],
+   "summary": "Sorted Food: Professional chefs are forced to make food 'crimes'.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3
+   },
+   "attributes": {
+    "channel": "sorted-food-2010",
+    "views": "743K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-qszgvgarywo-2026",
+   "medium": "online_video",
+   "title": "3 Random Cans. One Dinner. Chefs Weren’t Ready",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Sorted Food",
+     "organisation"
+    ]
+   ],
+   "summary": "Sorted Food: A challenge to cook one dinner from three random cans.",
+   "terms": {
+    "genre:food": 1,
+    "mood:funny": 0.6,
+    "genre:comedy": 0.3
+   },
+   "attributes": {
+    "channel": "sorted-food-2010",
+    "views": "621K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "mathologer-2015",
+   "medium": "channel",
+   "title": "Mathologer",
+   "year": 2015,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 2,
+   "summary": "Accessible explanations of hard and beautiful mathematics, as the channel puts it, from a working mathematician in Australia.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "complexity:intellectually-demanding": 0.8,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "handle": "@Mathologer"
+   }
+  },
+  {
+   "slug": "yt-5q-sfxy-va8-2023",
+   "medium": "online_video",
+   "title": "Why are the formulas for the sphere so weird? (major upgrade of Archimedes' greatest discoveries)",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Mathologer",
+     "organisation"
+    ]
+   ],
+   "summary": "Mathologer: Why the formulas for the sphere are so strange, with a look at Archimedes.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "mathologer-2015",
+    "views": "252K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-prv4wsm40ae-2024",
+   "medium": "online_video",
+   "title": "Simple yet 5000 years missed ?",
+   "year": 2024,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Mathologer",
+     "organisation"
+    ]
+   ],
+   "summary": "Mathologer: A video on a result that its title says was missed for 5,000 years.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "mathologer-2015",
+    "views": "219K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-yaeveah2kwi-2023",
+   "medium": "online_video",
+   "title": "What's the curse of the Schwarz lantern?",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Mathologer",
+     "organisation"
+    ]
+   ],
+   "summary": "Mathologer: The curse of the Schwarz lantern.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "theme:knowledge-curiosity": 1,
+    "mood:wonder": 0.7
+   },
+   "attributes": {
+    "channel": "mathologer-2015",
+    "views": "182K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "stand-up-maths-2009",
+   "medium": "channel",
+   "title": "Stand-up Maths",
+   "year": 2009,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 2,
+   "summary": "Matt Parker's maths videos mixing stand-up comedy with puzzles, experiments and computation.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "genre:comedy": 0.5,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 1,
+    "complexity:accessible": 0.7
+   },
+   "attributes": {
+    "handle": "@standupmaths"
+   }
+  },
+  {
+   "slug": "yt-ixxouebopjw-2026",
+   "medium": "online_video",
+   "title": "The sorting algorithm that shouldn’t.",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Stand-up Maths",
+     "organisation"
+    ]
+   ],
+   "summary": "Stand-up Maths: A sorting algorithm that should not work.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "genre:comedy": 0.5,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "stand-up-maths-2009",
+    "views": "2.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-c79psbkhw4a-2026",
+   "medium": "online_video",
+   "title": "Has a Millennium Prize Problem been solved by AI?",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Stand-up Maths",
+     "organisation"
+    ]
+   ],
+   "summary": "Stand-up Maths: Asks whether a Millennium Prize Problem has been solved by AI.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "genre:comedy": 0.5,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "stand-up-maths-2009",
+    "views": "1.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-9xwu-ochogk-2026",
+   "medium": "online_video",
+   "title": "We tested Babish's 15,000% claim!",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Stand-up Maths",
+     "organisation"
+    ]
+   ],
+   "summary": "Stand-up Maths: Testing a claim made by Babish about a 15,000% figure.",
+   "terms": {
+    "genre:popular-science": 0.8,
+    "genre:comedy": 0.5,
+    "mood:funny": 0.6,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "stand-up-maths-2009",
+    "views": "1.3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "lockpickinglawyer-2015",
+   "medium": "channel",
+   "title": "LockPickingLawyer",
+   "year": 2015,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "summary": "Short, wordless close-up videos of locks being picked, with the weaknesses of security products noted in captions for consumers.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.7,
+    "mood:comforting": 0.5,
+    "pacing:slow-burn": 0.6,
+    "complexity:accessible": 1,
+    "style:minimalist": 0.8
+   },
+   "attributes": {
+    "handle": "@LockPickingLawyer"
+   }
+  },
+  {
+   "slug": "yt-knqfpy2fffe-2026",
+   "medium": "online_video",
+   "title": "[1652] Why Your Lock Needs Balls… To Resist Drilling",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "LockPickingLawyer",
+     "organisation"
+    ]
+   ],
+   "summary": "LockPickingLawyer: Why a lock needs ball bearings to resist drilling.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.7,
+    "mood:comforting": 0.5
+   },
+   "attributes": {
+    "channel": "lockpickinglawyer-2015",
+    "views": "3.4M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-xwtaa-eq88e-2026",
+   "medium": "online_video",
+   "title": "[1649] Lock Design Malpractice By Schlage",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "LockPickingLawyer",
+     "organisation"
+    ]
+   ],
+   "summary": "LockPickingLawyer: A critique of the lock design of a Schlage product.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.7,
+    "mood:comforting": 0.5
+   },
+   "attributes": {
+    "channel": "lockpickinglawyer-2015",
+    "views": "749K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-kap9gubtpzk-2026",
+   "medium": "online_video",
+   "title": "[1654] Master Lock Fails AGAIN!",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "LockPickingLawyer",
+     "organisation"
+    ]
+   ],
+   "summary": "LockPickingLawyer: Another Master Lock that fails.",
+   "terms": {
+    "theme:knowledge-curiosity": 0.7,
+    "mood:comforting": 0.5
+   },
+   "attributes": {
+    "channel": "lockpickinglawyer-2015",
+    "views": "595K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "nativlang-2009",
+   "medium": "channel",
+   "title": "NativLang",
+   "year": 2009,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "summary": "Animated stories about languages, writing systems and the people who speak them, from a creator who learns from and about speakers around the world.",
+   "terms": {
+    "theme:language-communication": 1,
+    "theme:knowledge-curiosity": 1,
+    "style:hand-drawn": 0.6,
+    "complexity:accessible": 0.7
+   },
+   "attributes": {
+    "handle": "@NativLang"
+   }
+  },
+  {
+   "slug": "yt-trjovfzcjhs-2026",
+   "medium": "online_video",
+   "title": "Was Cuneiform Originally Sumerian? Linguistic doubts about the world's oldest writing",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "NativLang",
+     "organisation"
+    ]
+   ],
+   "summary": "NativLang: Whether cuneiform was originally Sumerian, and the doubts about the world's oldest writing.",
+   "terms": {
+    "theme:language-communication": 1,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "nativlang-2009",
+    "views": "137K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-hessujtfkna-2025",
+   "medium": "online_video",
+   "title": "How the Han dynasty changed Chinese pronunciation",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "NativLang",
+     "organisation"
+    ]
+   ],
+   "summary": "NativLang: How the Han dynasty changed Chinese pronunciation.",
+   "terms": {
+    "theme:language-communication": 1,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "nativlang-2009",
+    "views": "84K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-gawzdqlur78-2026",
+   "medium": "online_video",
+   "title": "How to Hide a Vowel in Southeast Asia: antivowels, why many scripts have them, why some ditched them",
+   "year": 2026,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "NativLang",
+     "organisation"
+    ]
+   ],
+   "summary": "NativLang: How to hide a vowel in Southeast Asia, and why many scripts have antivowels.",
+   "terms": {
+    "theme:language-communication": 1,
+    "theme:knowledge-curiosity": 1
+   },
+   "attributes": {
+    "channel": "nativlang-2009",
+    "views": "74K",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "stuff-made-here-2020",
+   "medium": "channel",
+   "title": "Stuff Made Here",
+   "year": 2020,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "summary": "Shane Wighton's engineering builds, in which ordinary objects are given robots, sensors and software, often with a joke at the end.",
+   "terms": {
+    "genre:comedy": 0.3,
+    "mood:exhilarating": 0.6,
+    "mood:wonder": 0.6,
+    "theme:knowledge-curiosity": 0.6,
+    "complexity:accessible": 0.9
+   },
+   "attributes": {
+    "handle": "@StuffMadeHere"
+   }
+  },
+  {
+   "slug": "yt-wh8ij9nnliq-2023",
+   "medium": "online_video",
+   "title": "Six questionably legal pencil sharpeners",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Stuff Made Here",
+     "organisation"
+    ]
+   ],
+   "summary": "Stuff Made Here: Six pencil sharpeners of questionable legality.",
+   "terms": {
+    "genre:comedy": 0.3,
+    "mood:exhilarating": 0.6,
+    "mood:wonder": 0.6,
+    "theme:knowledge-curiosity": 0.6
+   },
+   "attributes": {
+    "channel": "stuff-made-here-2020",
+    "views": "13.3M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-xhwxzyfhqas-2022",
+   "medium": "online_video",
+   "title": "I made a ball seeking hoop",
+   "year": 2022,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Stuff Made Here",
+     "organisation"
+    ]
+   ],
+   "summary": "Stuff Made Here: A basketball hoop that seeks out the ball.",
+   "terms": {
+    "genre:comedy": 0.3,
+    "mood:exhilarating": 0.6,
+    "mood:wonder": 0.6,
+    "theme:knowledge-curiosity": 0.6
+   },
+   "attributes": {
+    "channel": "stuff-made-here-2020",
+    "views": "13.1M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-cqo2xtp7qdw-2023",
+   "medium": "online_video",
+   "title": "I sent robot forgeries to a handwriting expert",
+   "year": 2023,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Stuff Made Here",
+     "organisation"
+    ]
+   ],
+   "summary": "Stuff Made Here: Robots forge handwriting and are tested against an expert.",
+   "terms": {
+    "genre:comedy": 0.3,
+    "mood:exhilarating": 0.6,
+    "mood:wonder": 0.6,
+    "theme:knowledge-curiosity": 0.6
+   },
+   "attributes": {
+    "channel": "stuff-made-here-2020",
+    "views": "11.5M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "code-bullet-2017",
+   "medium": "channel",
+   "title": "Code Bullet",
+   "year": 2017,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 2,
+   "summary": "Programming and AI experiments with deadpan humour: games solved or ruined by code, and the bugs along the way.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "mood:funny": 1,
+    "theme:consciousness-ai": 0.3,
+    "genre:artificial-intelligence": 0.4,
+    "complexity:accessible": 0.8
+   },
+   "attributes": {
+    "handle": "@CodeBullet"
+   }
+  },
+  {
+   "slug": "yt-bt8bwjs2jwi-2024",
+   "medium": "online_video",
+   "title": "Can I remake those SH*TTY mobile games in 1 HOUR?",
+   "year": 2024,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Code Bullet",
+     "organisation"
+    ]
+   ],
+   "summary": "Code Bullet: An attempt to remake poor mobile games in one hour.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "mood:funny": 1,
+    "theme:consciousness-ai": 0.3,
+    "genre:artificial-intelligence": 0.4
+   },
+   "attributes": {
+    "channel": "code-bullet-2017",
+    "views": "6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-ehastjmx-fo-2025",
+   "medium": "online_video",
+   "title": "Using A.I. to DESTROY Minesweeper",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 2,
+   "credits": [
+    [
+     "channel",
+     "Code Bullet",
+     "organisation"
+    ]
+   ],
+   "summary": "Code Bullet: Using AI to destroy Minesweeper.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "mood:funny": 1,
+    "theme:consciousness-ai": 0.3,
+    "genre:artificial-intelligence": 0.4
+   },
+   "attributes": {
+    "channel": "code-bullet-2017",
+    "views": "5.6M",
+    "year_is_estimate": false
+   }
+  },
+  {
+   "slug": "yt-2ydpib7wvfk-2025",
+   "medium": "online_video",
+   "title": "Snake But Eating Deletes A Random System 32 File",
+   "year": 2025,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "popularity_tier": 3,
+   "credits": [
+    [
+     "channel",
+     "Code Bullet",
+     "organisation"
+    ]
+   ],
+   "summary": "Code Bullet: A game of Snake where eating deletes a random system file.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "mood:funny": 1,
+    "theme:consciousness-ai": 0.3,
+    "genre:artificial-intelligence": 0.4
+   },
+   "attributes": {
+    "channel": "code-bullet-2017",
+    "views": "3.9M",
+    "year_is_estimate": false
+   }
+  }
+ ],
+ "relationships": []
+}
