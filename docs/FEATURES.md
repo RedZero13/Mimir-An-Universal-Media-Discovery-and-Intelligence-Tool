@@ -3,7 +3,7 @@
 Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube,
 built by Terratales Media Entertainment. Live at [mimir.terratalesmedia.world](https://mimir.terratalesmedia.world/).
 
-The catalogue holds about 7,650 works: 3,212 films, 1,439 TV series, 701 books and manga, 1,263 games, 852 albums,
+The catalogue holds about 7,650 works: 3,212 films, 1,439 TV series, 701 books and manga, 1,263 games, 871 albums,
 50 YouTube channels and 139 videos, from 99 countries in 68 original languages. The original 681 are fully classified
 against a controlled vocabulary of 372 terms (233 of them subgenres); the rest were imported from Wikidata with their
 facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.md](CATALOGUE-EXPANSION.md)).
