@@ -82,11 +82,16 @@ def tier(sitelinks: int) -> int:
 
 
 SPARQL = "https://query.wikidata.org/sparql"
+# Titles that are only an ordinary word people use in requests ("I'd like a romantic film...") are read by the query parser as a
+# reference to that title. Until the parser can tell them apart they are left out; see benchmark case "like-is-a-verb".
+COLLIDES = {"romantic"}
+# Wikidata's full list of book types is too large for one ranked query (it times out), so books use the two that matter.
+QUERY_TYPES = {**TYPES, "book": {"Q8261", "Q7725634"}}
 
 
 def discover(client: Client, medium: str, year: int, today: str, log=print) -> dict[str, int]:
     """The most widely covered works of one medium and year: QID -> number of Wikipedia editions, by SPARQL."""
-    types = " ".join(f"wd:{t}" for t in sorted(TYPES[medium]))
+    types = " ".join(f"wd:{t}" for t in sorted(QUERY_TYPES[medium]))
     end = min(f"{year}-12-31", today)
     query = f"""SELECT ?item ?sl WHERE {{
       VALUES ?type {{ {types} }}
@@ -122,7 +127,9 @@ def start_date(entity: dict) -> str | None:
 
 
 def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
-    seed = read_seed()["works"]
+    # Skip what the catalogue already holds, except this tool's own previous output, which is being rebuilt.
+    mine = {w["slug"] for w in json.loads(OUT.read_text())["works"]} if OUT.exists() else set()
+    seed = [w for w in read_seed()["works"] if w["slug"] not in mine]
     known = {(w["medium"], normalise_title(w["title"]), w.get("year")) for w in seed}
     taken = {w["slug"] for w in seed}
     idx = genre_index()
@@ -141,6 +148,8 @@ def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
                     continue
                 n = len(e.get("sitelinks", {}))
                 if n < MIN_SITELINKS[medium] or not label_of(e):
+                    continue
+                if normalise_title(label_of(e)) in COLLIDES:
                     continue
                 if (medium, normalise_title(label_of(e)), year) in known or (medium, normalise_title(label_of(e)), year - 1) in known:
                     continue
@@ -182,10 +191,19 @@ def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
         if credits:
             w["credits"] = credits
         desc = (e.get("descriptions", {}).get("en", {}) or {}).get("value", "")
-        cast = [c[1] for c in credits if c[0] == "actor"]
-        parts = [f"A {desc}." if desc else f"{title} ({year})."]
-        if cast:
-            parts.append("Starring " + (", ".join(cast[:-1]) + " and " + cast[-1] if len(cast) > 1 else cast[0]) + ".")
+        parts = [f"{'An' if desc[:1].lower() in 'aeiou' else 'A'} {desc}." if desc else f"{title} ({year})."]
+        by_role: dict[str, list[str]] = {}
+        for role, name in credits:
+            by_role.setdefault(role, []).append(name)
+        for role, lead in (("director", "Directed by"), ("creator", "Created by"), ("developer", "Developed by"), ("artist", "By"),
+                           ("author", "By"), ("actor", "Starring")):
+            names = [n for n in by_role.get(role, []) if n not in desc]   # the description often says it already
+            if lead in ("By", "Directed by") and f" {lead.lower()} " in desc.lower() + " ":   # the description already credits them
+                continue
+            if names and not (role == "director" and "creator" in by_role):
+                parts.append(f"{lead} " + (", ".join(names[:-1]) + " and " + names[-1] if len(names) > 1 else names[0]) + ".")
+        if len(" ".join(parts).split()) < 5:
+            parts.append("More details are not in the catalogue yet.")
         w["summary"] = " ".join(parts)
         terms = genre_terms([labels.get(x, "") for x in item_ids(e, "P136")], medium, idx)
         if terms:

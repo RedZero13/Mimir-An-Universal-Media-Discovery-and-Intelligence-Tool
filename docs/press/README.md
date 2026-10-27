@@ -12,7 +12,7 @@
 | Product | Mimir, a free catalogue and discovery engine for films, TV, books and manga, games, music and YouTube |
 | Company | Terratales Media Entertainment Private Limited, New Delhi |
 | Live | https://mimir.terratalesmedia.world (public beta, October 2026) |
-| Catalogue | About 7,500 works from 99 countries in 68 original languages (681 fully classified); 372 controlled terms, 233 of them subgenres; 36 shelves |
+| Catalogue | About 8,300 works from 100 countries in 68 original languages (681 fully classified); 372 controlled terms, 233 of them subgenres; 36 shelves |
 | Price | Free; no sign-up needed |
 | Platforms | Any browser; installs as an app on Android, iOS, Mac and Windows |
 | Contact | hello@terratalesmedia.world · +91 95994 85028 |

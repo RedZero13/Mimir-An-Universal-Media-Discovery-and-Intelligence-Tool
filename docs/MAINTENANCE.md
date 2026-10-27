@@ -45,3 +45,13 @@ per medium, `robots.txt`, `llms.txt` and `llms-full.txt` (code in `demo/discover
 search and AI assistants alike. To opt out of model training only, change the training crawlers listed in `ALLOWED` in
 that file to `Disallow: /`. After deploying, submit `https://mimir.terratalesmedia.world/sitemap.xml` in Google Search Console
 and Bing Webmaster Tools.
+
+## Keeping the catalogue current (2025 onwards)
+`python -m mde.ingest.recent` asks Wikidata (SPARQL, CC0) for the most widely covered works released since 1 January 2025, up to
+140 films, 90 series and 70 each of games, albums and books per year, and writes `api/mde/seed/recent.json`. Ranking is by the
+number of Wikipedia editions covering a work. Titles, years, credits, countries, genres and runtimes are Wikidata's; the summary is
+Wikidata's one-line description plus credits; no parents' guide, mood or theme is claimed, so audit warnings W011 and W012 list
+these works until they are assessed. Titles that are only an everyday word are skipped (`COLLIDES`). Needs
+`query.wikidata.org` and `www.wikidata.org` on the network allowlist. Re-run it every few months and review the diff; works
+already in the catalogue are never duplicated. Books for 2026 returned nothing on the last run (the ranked query timed out):
+re-run to retry. The first run added 650 works (102 + 118 films, 90 + 90 series, 53 + 39 games, 70 + 70 albums, 19 books).
