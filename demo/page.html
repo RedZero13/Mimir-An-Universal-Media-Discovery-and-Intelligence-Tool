@@ -244,6 +244,8 @@ details > summary:hover { color: var(--bone); }
 .field input, .field textarea { font: inherit; color: var(--ink); background: var(--black); border: 1px solid var(--line-strong); border-radius: 10px; padding: 10px 12px; width: 100%; }
 .field textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .04em; resize: vertical; }
 .field input:focus-visible, .field textarea:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 2px; }
+.key-backup { margin: 12px 0; padding: 10px 14px; border: 1px solid var(--line, rgba(128,128,128,.35)); border-radius: 10px; }
+.key-backup summary { cursor: pointer; font-weight: 600; }
 .key-card { border: 1px dashed var(--gold); border-radius: 12px; padding: 14px 16px; display: grid; gap: 10px; }
 .key-text { font: 600 1.15rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: .06em; word-break: break-word; color: var(--bone); user-select: all; }
 .key-actions { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -4328,7 +4330,14 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     <p class="muted small">This key is the only way back in. We never see it and cannot recover it: if it is lost, your saved data can't be opened by anyone, including us. Keep it somewhere safe, like a password manager or a printed copy.</p>
     <label class="check"><input type="checkbox" data-key-saved> I have saved my recovery key somewhere safe.</label>
     <label class="field">To confirm, type the last four characters of the key<input type="text" data-key-confirm autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="4" aria-describedby="key-confirm-help"></label>
-    <p id="key-confirm-help" class="muted small">They are the last four characters of the key above.</p>`;
+    <p id="key-confirm-help" class="muted small">They are the last four characters of the key above.</p>
+    <details class="key-backup"><summary>Also save a passphrase-protected backup</summary>
+      <p class="muted small">Safer than a plain copy: the key is locked with a passphrase you choose, on this device, and you keep the result as a file. If you forget the passphrase the backup cannot be opened, and neither can anything else without the key. The passphrase and the backup never leave your device.</p>
+      <label class="field">Passphrase<input type="password" data-bk-pass autocomplete="new-password" spellcheck="false" aria-describedby="bk-help"></label>
+      <label class="field">Type it again<input type="password" data-bk-pass2 autocomplete="new-password" spellcheck="false"></label>
+      <p id="bk-help" class="muted small">At least 12 characters. Four random words works well, like <em>correct horse battery staple</em>. Don't reuse a password from elsewhere.</p>
+      <p><button type="button" class="btn ghost" data-bk-save>Download protected backup</button> <button type="button" class="btn ghost" data-bk-copy>Copy it as text</button></p>
+      <div class="form-msg" role="alert" data-bk-msg></div></details>`;
 
   function wireKeyBlock(root, onReady) {
     const key = root.querySelector("#vault-key").dataset.key;
@@ -4340,6 +4349,24 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       const a = document.createElement("a");
       a.href = URL.createObjectURL(new Blob([`Mimir recovery key\n\n${key}\n\nKeep this file private. Anyone with this key can open your Mimir data, and nobody can recover it if it is lost.\n`], { type: "text/plain" }));
       a.download = "mimir-recovery-key.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    });
+    const bkMsg = root.querySelector("[data-bk-msg]");
+    const makeBackup = async () => {
+      const p1 = root.querySelector("[data-bk-pass]").value;
+      if (p1 !== root.querySelector("[data-bk-pass2]").value) { bkMsg.textContent = "The two passphrases don't match."; return null; }
+      try { bkMsg.textContent = "Locking…"; const b = await MimirVault.wrapKey(p1, key); bkMsg.textContent = ""; return b; }
+      catch (e) { bkMsg.textContent = e.message; return null; }
+    };
+    root.querySelector("[data-bk-save]").addEventListener("click", async () => {
+      const b = await makeBackup(); if (!b) return;
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([`Mimir key backup\n\nThis is your Mimir recovery key, locked with your passphrase. To use it, open Mimir's Account page, choose "Sign in with a protected backup" and paste this text or choose this file. Keep the passphrase somewhere else.\n\n${b}\n`], { type: "text/plain" }));
+      a.download = "mimir-key-backup.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      bkMsg.textContent = "Backup downloaded. Keep the passphrase somewhere other than this file.";
+    });
+    root.querySelector("[data-bk-copy]").addEventListener("click", async () => {
+      const b = await makeBackup(); if (!b) return;
+      try { await navigator.clipboard.writeText(b); bkMsg.textContent = "Copied. Paste it somewhere you can find it later."; } catch { bkMsg.textContent = "Copy failed: use Download instead."; }
     });
     root.querySelector("[data-key-print]").addEventListener("click", () => {
       const w = window.open("", "_blank", "noopener,width=640,height=480"); if (!w) return;
@@ -4374,6 +4401,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <section class="acct-card" aria-labelledby="acct-in"><h2 id="acct-in">Sign in with your key</h2>
           <form data-signin><label class="field">Recovery key<textarea rows="2" data-key-in autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX"></textarea></label>
             <p><button type="submit" class="btn">Sign in</button></p><div class="form-msg" role="alert" data-signin-msg></div></form>
+          <details class="key-backup"><summary>Sign in with a protected backup</summary>
+            <form data-signin-bk><label class="field">Backup text<textarea rows="3" data-bk-in autocomplete="off" spellcheck="false" placeholder="MIMIR-KEY-BACKUP-1:…"></textarea></label>
+              <label class="field">Or choose the backup file<input type="file" accept=".txt,text/plain" data-bk-file></label>
+              <label class="field">Passphrase<input type="password" data-bk-in-pass autocomplete="current-password" spellcheck="false"></label>
+              <p><button type="submit" class="btn">Unlock and sign in</button></p><div class="form-msg" role="alert" data-signin-bk-msg></div></form></details>
           <p class="muted small">Lost your key? We can't recover it, because we never had it. Your data on this device is untouched.</p></section>
       </div>`;
     const ageBox = app.querySelector("[data-age]"), createBtn = app.querySelector("[data-create]"), out = app.querySelector("#acct-new-out");
@@ -4390,6 +4422,21 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         catch (e) { out.querySelector("[data-finish-msg]").textContent = e.message; finish.disabled = false; finish.textContent = "Finish creating my vault"; }
       });
       finish.scrollIntoView({ block: "nearest" });
+    });
+    app.querySelector("[data-bk-file]").addEventListener("change", async (e) => {
+      const f = e.target.files && e.target.files[0]; if (!f || f.size > 20000) return;
+      const m = (await f.text()).match(/MIMIR-KEY-BACKUP-1:[A-Za-z0-9_-]+/);
+      if (m) app.querySelector("[data-bk-in]").value = m[0];
+    });
+    app.querySelector("[data-signin-bk]").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const msg = app.querySelector("[data-signin-bk-msg]"), btn = e.target.querySelector("button[type=submit]");
+      msg.textContent = ""; btn.disabled = true; btn.textContent = "Unlocking…";
+      try {
+        const m = app.querySelector("[data-bk-in]").value.match(/MIMIR-KEY-BACKUP-1:[\sA-Za-z0-9_-]+/);
+        const key = await MimirVault.unwrapKey(app.querySelector("[data-bk-in-pass]").value, m ? m[0] : app.querySelector("[data-bk-in]").value);
+        await VAULT.signIn(key); location.hash = "#account"; location.reload();
+      } catch (err) { msg.textContent = err.message; btn.disabled = false; btn.textContent = "Unlock and sign in"; }
     });
     app.querySelector("[data-signin]").addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -4417,7 +4464,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <p>Analytics is ${TEL.on() ? "on" : "off"}. It counts anonymous usage (never your library or what you search for), and only if you allow it.</p>
           <p><button type="button" class="btn ghost" data-consent-open>Change</button></p></section>
         <section class="acct-card"><h2>Recovery key</h2>
-          <p>Change your key if someone else may have seen it. Your old key stops working straight away.</p>
+          <p>Change your key if someone else may have seen it. Your old key stops working straight away. The new key screen also lets you save a passphrase-protected backup.</p>
           <p><button type="button" class="btn ghost" data-rotate>Make a new key</button></p><div id="rotate-out" aria-live="polite"></div></section>
         <section class="acct-card"><h2>Sign out</h2>
           <label class="check"><input type="checkbox" data-wipe> Also remove my library and settings from this device.</label>
