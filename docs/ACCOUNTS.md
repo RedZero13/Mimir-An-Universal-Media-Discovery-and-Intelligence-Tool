@@ -84,7 +84,8 @@ has a placeholder for the retention period.
 ## PHP security advisory (October 2026)
 PHP shipped emergency fixes on 21 October 2026 for CVE-2026-109618 and CVE-2026-109619, two critical vulnerabilities (CVSS 9.2) in
 PHP itself that allow unauthenticated remote code execution and, per Qualys, disclosure of worker memory. The fixed releases are
-PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35; branches older than 8.2 are end of life and get no fix. Sources:
+PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 (confirmed against PHP's own release notes in the php-src `NEWS` files: 8.3.36 and 8.2.35
+are dated 21 October 2026, 8.5.12 and 8.4.27 22 October); branches older than 8.2 are end of life and get no fix. Sources:
 [CyberScoop](https://cyberscoop.com/php-emergency-patches-php2shell-vulnerabilities/), [Qualys](https://blog.qualys.com/vulnerabilities-threat-research/2026/10/20/php-announces-critical-security-release-for-two-vulnerabilities),
 [Tenable](https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote),
 [Snyk](https://snyk.io/blog/php-patches-critical-unauthenticated-rces/). A later report says exploitation has begun; verify against CISA's catalogue.
