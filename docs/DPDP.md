@@ -91,7 +91,7 @@ and time the Rules require (*verify with counsel*), record, review.
 | Child uses accounts or analytics | Medium | Medium | 18+ tick; opt-in analytics; no targeting | Medium: see Children |
 | Cross-border storage | Certain (host decides) | Low | Disclosed; encrypted data | Low |
 | Plugin vulnerability | Low-medium | High | Validation, prepared statements, tests, small surface | Medium until independently reviewed |
-| Unpatched PHP on the host (October 2026 emergency release, CVE-2026-109618 and CVE-2026-109619) | Medium until the host confirms the fix | High for the server, limited for vault data (ciphertext only; keys never reach the server) | Host patches PHP; plugin warns admins; guidance to rotate keys if exploited | Low once patched |
+| Unpatched PHP on the host (October 2026 emergency release, CVE-2026-109618 and CVE-2026-109619) | Low: Site Health showed the fixed release (PHP 8.4.27) on 27 October 2026 | High for the server, limited for vault data (ciphertext only; keys never reach the server) | Host patches PHP; plugin warns admins; guidance to rotate keys if exploited | Low |
 
 ## Checklist to review with counsel
 - [ ] Is a tick enough for the 18+ gate, and how should the analytics prompt treat likely children?

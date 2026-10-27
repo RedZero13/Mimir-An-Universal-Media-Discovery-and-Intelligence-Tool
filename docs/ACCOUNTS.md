@@ -97,6 +97,9 @@ What this means here:
   version"; if it is below the fixed release for its branch, ask WordPress.com support to confirm the platform fix is applied. The
   plugin cannot read or change this beyond a warning: Settings, Mimir Vault, and an admin notice show an advisory when the PHP
   version is end of life or below the fixed release (it never appears to visitors).
+- **Checked on 27 October 2026 (Site Health, pasted by the site owner): PHP 8.4.27, which carries the fix.** WordPress 7.1.3 is
+  current, the plugins and theme are managed by WordPress.com, the plugins folder is writable, the database is MariaDB 11.8 and the
+  Jetpack connection tests all pass. The plugin's own warning stays quiet at this version. Re-check after any hosting change.
 - **Exposure of vault data is limited by design.** A compromised PHP process could see the login secret and the encrypted vault
   of anyone who used the server in that window, but not the recovery key or the encryption key, which never leave the browser. If
   the host confirms its PHP was unpatched while exploited, tell account holders to make a new recovery key (Account page, Make a new key).

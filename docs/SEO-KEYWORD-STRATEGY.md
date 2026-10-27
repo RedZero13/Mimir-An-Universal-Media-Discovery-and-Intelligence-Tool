@@ -35,6 +35,9 @@
   claim of being the best or only option.
 
 ## Search Console and Bing: what you do after the deploy
+0. Site Kit on `terratalesmedia.world` already has a Search Console **domain property** (`sc-domain:terratalesmedia.world`). A domain property
+   covers every subdomain, so `mimir.terratalesmedia.world` is probably already verified: open Search Console, pick that property and go to
+   step 2. Otherwise:
 1. In Google Search Console add the property `https://mimir.terratalesmedia.world/` (a URL-prefix property is simplest). Verify with
    the HTML tag method or the DNS record at your DNS host; GitHub Pages needs a file or meta tag, not a server setting.
 2. Submit `https://mimir.terratalesmedia.world/sitemap.xml` (the index); Search Console then lists each section file.
