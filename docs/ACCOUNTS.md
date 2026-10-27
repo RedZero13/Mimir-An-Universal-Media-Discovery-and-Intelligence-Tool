@@ -75,10 +75,33 @@ The deployed site already points at `https://terratalesmedia.world/wp-json/mimir
 to use another address, or `MIMIR_VAULT_URL=off` to switch accounts off. Until the endpoint answers, the Account page says
 plainly that accounts aren't connected yet.
 
-**Backups and data loss.** Premium has no real-time backups. The vault contents are ciphertext, but they are the only copy
-of a person's synced data: if the database is lost, so are the vaults (people keep their on-device copy). Add Jetpack
-Backup or upgrade to Business for restore points before inviting many people to use accounts.
+**Backups and data loss.** Checked on 27 October 2026 with the WordPress.com tools (read only): Jetpack Backup is active on
+`terratalesmedia.world`, with a daily backup (137 so far, the latest on 26 October) and a malware scan that found nothing. That is
+daily, not real-time: a restore could lose up to a day of vault changes (people keep their on-device copy). Confirm in
+WordPress.com that a restore works and how long backups are kept before inviting many people to use accounts; the privacy notice
+has a placeholder for the retention period.
 
+## PHP security advisory (October 2026)
+PHP shipped emergency fixes on 21 October 2026 for CVE-2026-109618 and CVE-2026-109619, two critical vulnerabilities (CVSS 9.2) in
+PHP itself that allow unauthenticated remote code execution and, per Qualys, disclosure of worker memory. The fixed releases are
+PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35; branches older than 8.2 are end of life and get no fix. Sources:
+[CyberScoop](https://cyberscoop.com/php-emergency-patches-php2shell-vulnerabilities/), [Qualys](https://blog.qualys.com/vulnerabilities-threat-research/2026/10/20/php-announces-critical-security-release-for-two-vulnerabilities),
+[Tenable](https://www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote),
+[Snyk](https://snyk.io/blog/php-patches-critical-unauthenticated-rces/). A later report says exploitation has begun; verify against CISA's catalogue.
+
+What this means here:
+- **The Mimir site** (`mimir.terratalesmedia.world`) is static files on GitHub Pages and runs no PHP: not affected.
+- **The account server** runs on the host's PHP. On WordPress.com the host (Automattic) patches PHP; you cannot patch it yourself, and
+  on the Premium plan you cannot choose the version either. **Check:** WordPress admin, Tools, Site Health, Info, Server, "PHP
+  version"; if it is below the fixed release for its branch, ask WordPress.com support to confirm the platform fix is applied. The
+  plugin cannot read or change this beyond a warning: Settings, Mimir Vault, and an admin notice show an advisory when the PHP
+  version is end of life or below the fixed release (it never appears to visitors).
+- **Exposure of vault data is limited by design.** A compromised PHP process could see the login secret and the encrypted vault
+  of anyone who used the server in that window, but not the recovery key or the encryption key, which never leave the browser. If
+  the host confirms its PHP was unpatched while exploited, tell account holders to make a new recovery key (Account page, Make a new key).
+- **Other PHP:** this repository's only PHP is the plugin and its tests (`wordpress/tests`), which take no outside input. Run them on a
+  patched PHP (8.3.36 or newer); the API itself is Python.
+- Keep WordPress core and plugins current as usual; updating them does not update PHP.
 **Do not** complete the Premium checkout for `piyushbanerjee370-cirgk.wordpress.com` or connect `terratalesmedia.world`
 to a different site. That could take the Terratales site offline and change DNS records that
 `mimir.terratalesmedia.world` (GitHub Pages) and `akashic.terratalesmedia.world` rely on. Confirm the plan under

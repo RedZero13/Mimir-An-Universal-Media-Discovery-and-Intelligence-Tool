@@ -86,6 +86,12 @@ $dump = '';
 foreach ( array( 'wp_mimir_metrics', 'wp_mimir_active', 'wp_mimir_visitors', 'wp_mimir_errors', 'wp_mimir_accounts' ) as $t ) { $dump .= json_encode( $wpdb->get_results( "SELECT * FROM $t" ) ); }
 check( 'no address and no raw visitor id is stored', ! str_contains( $dump, '192.0.2.' ) && ! str_contains( $dump, $vid ), '' );
 
+foreach ( array( '8.1.30' => 'eol', '8.0.1' => 'eol', '8.2.34' => 'update', '8.2.35' => 'ok', '8.3.35' => 'update', '8.3.36' => 'ok', '8.4.26' => 'update', '8.4.27' => 'ok', '8.5.11' => 'update', '8.5.12' => 'ok', '8.6.0' => 'ok' ) as $ver => $want ) {
+	check( "PHP $ver is judged $want", $want === Mimir_Vault::php_advisory( $ver )['level'], Mimir_Vault::php_advisory( $ver ) );
+}
+check( 'an unpatched PHP produces a message naming the CVEs', str_contains( Mimir_Vault::php_advisory( '8.3.20' )['message'], 'CVE-2026-109618' ) );
+check( 'the advisory is never in a public response', ! str_contains( json_encode( call( '/health', array() ) ), 'PHP' ) );
+
 Mimir_Vault::housekeeping();
 $origins = Mimir_Vault::origins( array() ); check( 'the Mimir origin is allowed for browsers', in_array( 'https://mimir.terratalesmedia.world', $origins, true ) );
 $src = file_get_contents( __DIR__ . '/../mimir-vault/mimir-vault.php' );

@@ -191,7 +191,7 @@ Related: [privacy notice](/privacy/). Version ${VERSION}, updated ${UPDATED}.
 ## Limits you should know
 - Anyone who holds your recovery key can open your vault; keep it private. If you lose it, nobody can recover your data.
 - The server operator can see that a vault exists, its size and when it was last used, and can delete it.
-- The server runs on shared WordPress.com hosting. We rely on the host for network and physical security and for backups [[backup arrangement to be confirmed]].
+- The server runs on shared WordPress.com hosting. We rely on the host for network and physical security, for keeping PHP and WordPress patched, and for daily backups [[how long backups are kept, to be confirmed with the host]].
 
 ## If something goes wrong
 We keep a written [incident response plan](https://github.com/RedZero13/Mimir-An-Universal-Media-Discovery-and-Intelligence-Tool/blob/main/docs/INCIDENT-RESPONSE.md). If a personal data breach affects you we will tell you, and the Data Protection Board of India, as the law requires.

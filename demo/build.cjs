@@ -9,6 +9,7 @@ const { readSeed } = require("./seed.cjs");
 const { writeCatalogPages, HUBS } = require("./seo.cjs");
 const { writeSitemaps, writeRobots, writeLlms } = require("./discovery.cjs");
 const legal = require("./legal.cjs");
+const { writeSitePages } = require("./pages.cjs");
 const path = require("path");
 
 const here = __dirname;
@@ -92,7 +93,7 @@ function page() {
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
-    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}`))
+    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }
 
@@ -161,7 +162,7 @@ function sitePage(out) {
   const start = html.indexOf("<script>/*__ENGINE__*/</script>");
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
   const dataJs = `window.MIMIR_DATA=${JSON.stringify(texts)};\n`;
-  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${main}`, "js");
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJs)}.js`]: dataJs, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
@@ -254,9 +255,9 @@ nav{font-size:.85rem;text-align:right;line-height:1.9}.cover{float:right;width:m
 ul{padding-left:20px}.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--surface)}mark.todo{background:rgba(216,178,74,.22);color:var(--head);padding:0 4px;border-radius:4px}
 footer{max-width:1080px;margin:64px auto 0;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 </style></head><body>
-<header class="top"><a class="brand" href="/">MIMIR<small>A TERRATALES VENTURE</small></a><nav>${HUBS.map((h) => `<a href="/${h.slug}/">${h.name}</a>`).join(" · ")} · <a href="/shelves/">Shelves</a> · <a href="/blog/">Blog</a></nav></header>
+<header class="top"><a class="brand" href="/">MIMIR<small>A TERRATALES VENTURE</small></a><nav>${HUBS.map((h) => `<a href="/${h.slug}/">${h.name}</a>`).join(" · ")} · <a href="/shelves/">Shelves</a> · <a href="/franchises/">Franchises</a> · <a href="/tools/">Tools</a> · <a href="/days/">Days</a> · <a href="/help/">Help</a> · <a href="/blog/">Blog</a></nav></header>
 <main class="wrap">${body}</main>
-<footer><span>© ${new Date().getFullYear()} Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/blog/">Blog</a> · <a href="/privacy/">Privacy</a> · <a href="/cookies/">Cookies</a> · <a href="/terms/">Terms</a> · <a href="/data-requests/">Data requests</a> · <a href="/security/">Security</a> · <a href="/#privacy-choices">Privacy choices</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
+<footer><span>© ${new Date().getFullYear()} Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/about/">About</a> · <a href="/tags/">Tags</a> · <a href="/people/">People</a> · <a href="/blog/">Blog</a> · <a href="/privacy/">Privacy</a> · <a href="/cookies/">Cookies</a> · <a href="/terms/">Terms</a> · <a href="/data-requests/">Data requests</a> · <a href="/security/">Security</a> · <a href="/#privacy-choices">Privacy choices</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
 </body></html>
 `;
 
@@ -339,6 +340,9 @@ if (args[0] === "--site") {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [[`${SITE_URL}/`, today, "1.0"], ...writeBlog(out), ...writeLegal(out),
     ...writeCatalogPages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc })];
+  const more = writeSitePages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc });
+  urls.push(...more.urls);
+  console.log(`static pages: ${more.ips} franchises, ${more.tags} tags, ${more.people} people, ${more.help} help guides, ${more.days} days`);
   const worksList = P("catalogue").works;
   writeSitemaps(out, { SITE_URL, urls, works: worksList, hubs: HUBS });
   // Everything is crawlable, scripts included: search engines render the app with them.

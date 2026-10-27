@@ -15,11 +15,12 @@ const ALLOWED = ["Googlebot", "Bingbot", "DuckDuckBot", "Applebot", "OAI-SearchB
 function writeSitemaps(out, { SITE_URL, urls, works, hubs }) {
   const hubOf = new Map(hubs.flatMap((h) => h.media.map((m) => [m, h])));
   const medium = new Map(works.map((w) => [w.slug, w.medium]));
-  const groups = new Map([["pages", []], ...hubs.map((h) => [`works-${h.slug}`, []])]);
+  const SECTIONS = ["franchises", "tags", "people", "help", "tools", "days", "shelves", "blog"];
+  const groups = new Map([["pages", []], ...SECTIONS.map((x) => [x, []]), ...hubs.map((h) => [`works-${h.slug}`, []])]);
   for (const u of urls) {
-    const m = u[0].match(/\/works\/([^/]+)\/$/);
+    const m = u[0].match(/\/works\/([^/]+)\/$/), section = u[0].replace(/^https?:\/\/[^/]+\//, "").split("/")[0];
     const hub = m && hubOf.get(medium.get(m[1]));
-    groups.get(hub ? `works-${hub.slug}` : "pages").push(u);
+    groups.get(hub ? `works-${hub.slug}` : SECTIONS.includes(section) && u[0].replace(/^https?:\/\/[^/]+\//, "").split("/").filter(Boolean).length > 1 ? section : "pages").push(u);
   }
   const today = new Date().toISOString().slice(0, 10);
   const index = [];

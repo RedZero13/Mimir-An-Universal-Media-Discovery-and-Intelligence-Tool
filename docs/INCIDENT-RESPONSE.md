@@ -24,6 +24,15 @@ opted in) hashed visitor ids and usage counts. Vault contents cannot be read wit
 5. **Fix and recover.** Patch the cause, restore from a clean backup if needed, check the fix with the contract tests (`php wordpress/tests/harness.php`), and watch for recurrence.
 6. **Review.** Within 14 days: root cause, what worked, changes to controls and to this plan; update `docs/DPDP.md`.
 
+## Platform and runtime vulnerabilities (for example PHP)
+When a widely announced vulnerability affects the runtime Mimir's account server uses (PHP on WordPress.com; WordPress itself),
+treat it as a possible incident even before anything is seen:
+1. Find out the version in use (Site Health, Info, Server) and compare with the fixed release; ask the host to confirm the fix in writing if you cannot.
+2. If the fix is missing or the host cannot confirm it, consider switching the Mimir Vault plugin off until it is applied: the site keeps working on-device without accounts.
+3. Check the Jetpack Scan report and the activity log for anything new; keep the last clean daily backup.
+4. If exploitation of the unpatched server is likely, treat it as step 3 of the plan above (assess) and advise account holders to make a new recovery key.
+5. Record the advisory, the dates and what was done in the incident log. The October 2026 PHP emergency release (CVE-2026-109618 and CVE-2026-109619) is the first such entry: see `docs/ACCOUNTS.md`.
+
 ## Incident log (copy per incident)
 | Time (UTC) | Who | What was seen or done |
 |---|---|---|

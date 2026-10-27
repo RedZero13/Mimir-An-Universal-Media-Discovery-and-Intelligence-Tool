@@ -32,6 +32,8 @@ function wp_add_privacy_policy_content() {}
 function wp_kses_post( $s ) { return $s; }
 function add_options_page() {}
 function wp_json_encode( $v ) { return json_encode( $v ); }
+function esc_html( $s ) { return htmlspecialchars( (string) $s ); }
+function current_user_can( $c ) { return true; }
 function is_wp_error( $x ) { return $x instanceof WP_Error; }
 function rest_url( $p = '' ) { return 'https://example.test/wp-json/' . $p; }
 function register_rest_route( $ns, $route, $args ) { $GLOBALS['routes'][ "/$ns$route" ] = $args; }

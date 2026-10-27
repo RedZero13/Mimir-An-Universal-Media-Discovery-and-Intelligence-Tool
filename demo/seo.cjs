@@ -141,4 +141,4 @@ ${related.length ? `<h2>Connected stories</h2><ul>${related.map((r) => `<li>${es
   return urls;
 }
 
-module.exports = { writeCatalogPages, HUBS };
+module.exports = { writeCatalogPages, HUBS, MEDIUM_NAME };

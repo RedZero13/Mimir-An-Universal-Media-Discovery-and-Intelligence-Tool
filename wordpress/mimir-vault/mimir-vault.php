@@ -27,6 +27,12 @@ if ( ! class_exists( 'Mimir_Vault' ) ) {
 		const NS         = 'mimir/v1';
 		const MAX_BLOB   = 2097152; // 2 MB of base64 text.
 
+		/**
+		 * First PHP release per branch that carries the October 2026 emergency fixes for CVE-2026-109618 and CVE-2026-109619
+		 * (unauthenticated remote code execution and memory disclosure in PHP itself, CVSS 9.2). Older branches get no fix.
+		 */
+		const PHP_PATCHED = array( '8.5' => '8.5.12', '8.4' => '8.4.27', '8.3' => '8.3.36', '8.2' => '8.2.35' );
+
 		/** Origins that may call the API from a browser. Filter: mimir_vault_origins. */
 		const ORIGINS = array( 'https://mimir.terratalesmedia.world' );
 
@@ -38,6 +44,7 @@ if ( ! class_exists( 'Mimir_Vault' ) ) {
 			add_action( 'mimir_vault_housekeeping', array( __CLASS__, 'housekeeping' ) );
 			add_action( 'admin_menu', array( __CLASS__, 'admin_menu' ) );
 			add_action( 'admin_init', array( __CLASS__, 'privacy_text' ) );
+			add_action( 'admin_notices', array( __CLASS__, 'php_notice' ) );
 			if ( ! wp_next_scheduled( 'mimir_vault_housekeeping' ) ) {
 				wp_schedule_event( time() + HOUR_IN_SECONDS, 'daily', 'mimir_vault_housekeeping' );
 			}
@@ -483,6 +490,32 @@ if ( ! class_exists( 'Mimir_Vault' ) ) {
 			$wpdb->query( $wpdb->prepare( 'DELETE FROM ' . self::errors() . ' WHERE last_seen < %s', $cut ) );
 		}
 
+		// ------------------------------------------------------------------ PHP runtime check
+		/**
+		 * Is the PHP this site runs on patched? 'ok', 'update' (a patched release exists for this branch) or 'eol' (the branch gets
+		 * no fixes). Advice only: the plugin cannot patch PHP, and distribution builds may carry fixes under older version numbers,
+		 * so the message says to confirm with the host. Never shown to visitors.
+		 */
+		public static function php_advisory( ?string $version = null ): array {
+			$v      = $version ?? PHP_VERSION;
+			$branch = implode( '.', array_slice( explode( '.', $v ), 0, 2 ) );
+			if ( version_compare( $branch, '8.2', '<' ) ) {
+				return array( 'level' => 'eol', 'message' => sprintf( 'This site runs PHP %s, which no longer receives security fixes, including the October 2026 emergency fixes for CVE-2026-109618 and CVE-2026-109619 (critical, remote code execution). Ask your host to move it to PHP 8.2.35 or newer (8.3.36, 8.4.27 or 8.5.12 recommended).', $v ) );
+			}
+			$fixed = self::PHP_PATCHED[ $branch ] ?? null;
+			if ( null !== $fixed && version_compare( $v, $fixed, '<' ) ) {
+				return array( 'level' => 'update', 'message' => sprintf( 'This site runs PHP %1$s. PHP %2$s fixes two critical vulnerabilities (CVE-2026-109618 and CVE-2026-109619, remote code execution). Ask your host to apply it, or confirm that your build already carries the fix.', $v, $fixed ) );
+			}
+			return array( 'level' => 'ok', 'message' => sprintf( 'PHP %s includes the October 2026 security fixes.', $v ) );
+		}
+
+		public static function php_notice(): void {
+			$a = self::php_advisory();
+			if ( 'ok' !== $a['level'] && current_user_can( 'manage_options' ) ) {
+				echo '<div class="notice notice-error"><p><strong>Mimir Vault:</strong> ' . esc_html( $a['message'] ) . '</p></div>';
+			}
+		}
+
 		// ------------------------------------------------------------------ housekeeping and admin
 		/** Daily: removes accounts unused for the number of days set under Settings, Mimir Vault (0 keeps them). */
 		public static function housekeeping(): void {
@@ -528,8 +561,10 @@ if ( ! class_exists( 'Mimir_Vault' ) ) {
 			if ( isset( $_POST['mimir_vault_days'] ) && check_admin_referer( 'mimir_vault_settings' ) ) {
 				update_option( 'mimir_vault_purge_inactive_days', max( 0, (int) $_POST['mimir_vault_days'] ), false );
 			}
-			$s = self::stats();
+			$s   = self::stats();
+			$php = self::php_advisory();
 			echo '<div class="wrap"><h1>Mimir Vault</h1>';
+			echo '<p><strong>PHP:</strong> ' . esc_html( $php['message'] ) . '</p>';
 			echo '<p>Vaults are encrypted in the visitor\'s browser. This screen shows totals only; nothing here can identify or read a person\'s data.</p>';
 			echo '<table class="widefat striped" style="max-width:480px"><tbody>';
 			$rows = array( 'Vaults' => $s['accounts'], 'New in the last 7 days' => $s['new_7'], 'New in the last 30 days' => $s['new_30'], 'Used in the last day' => $s['active_1'],
