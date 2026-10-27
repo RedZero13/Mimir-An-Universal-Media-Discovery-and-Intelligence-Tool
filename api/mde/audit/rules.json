@@ -4,7 +4,7 @@
   "year_min": -3000,
   "year_future": 2,
   "runtime_max_minutes": 1500,
-  "summary_min_words": 8,
+  "summary_min_words": 5,
   "summary_max_chars": 420,
   "title_max_chars": 70,
   "description_max_chars": 165,

@@ -2,7 +2,7 @@
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"dark";}catch(e){document.documentElement.dataset.theme="dark";}</script>
 <script>if (location.protocol === "http:" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) location.replace("https:" + location.href.slice(5));</script>
 <title>Find what to watch, read, play or listen to next · Mimir</title>
-<meta name="description" content="Tell Mimir a mood, a favourite or how long you have, and it finds films, TV shows, books, manga, games and music that fit, with the reason for every pick. Free, from Terratales.">
+<meta name="description" content="Tell Mimir a mood, a favourite or how long you have, and it finds films, TV, books, manga, games and music that fit, with the reason for every pick. Free.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -98,7 +98,12 @@ p { margin: 0; }
 .hero h1 em { font-style: italic; color: var(--gold-bright); }
 .hero .lead { font-size: 1.08rem; color: var(--muted); max-width: 54ch; }
 /* Until the app renders: the static hero holds the space the ask box and examples will take. */
-.hero-shell { min-height: calc(100vh - 140px); } .ask-shell { min-height: 360px; }
+.hero-shell { min-height: calc(100vh - 140px); } .ask-shell { min-height: 360px; display: grid; place-items: start center; padding-top: 24px; }
+.shell-load { display: grid; gap: 10px; justify-items: center; color: var(--muted); font-size: 14px; }
+.shell-load i { display: block; width: 160px; height: 3px; border-radius: 3px; background: var(--line); overflow: hidden; position: relative; }
+.shell-load i::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 40%; background: var(--gold); border-radius: 3px; animation: shell-slide 1.2s ease-in-out infinite; }
+@keyframes shell-slide { from { transform: translateX(-100%); } to { transform: translateX(260%); } }
+@media (prefers-reduced-motion: reduce) { .shell-load i::after { animation: none; width: 100%; opacity: .5; } }
 /* Sections below the opening screen skip style and layout until they come near the viewport. */
 #app > section.shelf, #app > section.steps, .foot { content-visibility: auto; contain-intrinsic-size: auto 420px; }
 /* Small gold and grey text in light mode, darkened to meet WCAG AA contrast on the parchment background. */
@@ -1272,7 +1277,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     <p class="eyebrow">The well beneath the tree</p>
     <h1>Find what to watch, read, play or listen to <em>next.</em></h1>
     <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, TV shows, books, manga, games and music that fit, and tells you why each one does.</p>
-    <div class="ask-shell" aria-hidden="true"></div>
+    <div class="ask-shell"><p class="shell-load" role="status"><i aria-hidden="true"></i>Opening the catalogue. The first visit takes a few seconds; later visits are faster.</p></div>
   </section></main>
   <footer class="foot">
     <!--__CRAWL__-->
@@ -2373,7 +2378,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       ["Original language", w.original_language ? langLabel(w.original_language) : "None / not recorded"],
       ["Country", w.countries.length ? w.countries.join(", ") : "Not recorded"]];
     if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
-    if (w.medium === "series" && w.attributes.episodes) facts.push(["Episodes", `${w.attributes.seasons ? `${w.attributes.seasons} season${w.attributes.seasons === 1 ? "" : "s"}, ` : ""}${w.attributes.episodes} episodes of about ${w.attributes.episode_minutes} min`]);
+    if (w.medium === "series" && w.attributes.episodes) facts.push(["Episodes", `${w.attributes.seasons ? `${w.attributes.seasons} season${w.attributes.seasons === 1 ? "" : "s"}, ` : ""}${w.attributes.episodes} episodes${typeof w.attributes.episode_minutes === "number" ? ` of about ${w.attributes.episode_minutes} min` : ""}`]);
     if (w.attributes.form) {
       const a = w.attributes, n = (v, s) => `${v} ${s}${v === 1 ? "" : "s"}`;
       const run = [a.volumes && n(a.volumes, "volume"), a.chapters && n(a.chapters, "chapter"),
