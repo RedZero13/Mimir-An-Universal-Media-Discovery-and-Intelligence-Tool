@@ -160,7 +160,11 @@ function sitePage(out) {
   const [dataFile, appFile] = Object.keys(files);
   // Requested just after the first paint, so on a slow connection the page, its styles and fonts get the bandwidth
   // first; async=false keeps the two in order (data, then the app).
-  html = html.slice(0, start) + `<script>requestAnimationFrame(() => setTimeout(() => ${JSON.stringify([`/${dataFile}`, `/${appFile}`])}.forEach((src) => {
+  // Preloaded from the head so the downloads start with the page rather than after the first paint; they are low priority,
+  // so the fonts and styles still go first, and they are only run by the script below.
+  html = html.replace("<!--/head-->", `<link rel="preload" as="script" href="/${dataFile}" fetchpriority="low">\n<link rel="preload" as="script" href="/${appFile}" fetchpriority="low">\n<!--/head-->`);
+  const startAt = html.indexOf("<script>/*__ENGINE__*/</script>");
+  html = html.slice(0, startAt) + `<script>requestAnimationFrame(() => setTimeout(() => ${JSON.stringify([`/${dataFile}`, `/${appFile}`])}.forEach((src) => {
   const s = document.createElement("script"); s.src = src; s.async = false; document.body.appendChild(s);
 }), 0));</script>\n`;
   return { html: standalone(html), assets: Object.keys(files).map((f) => `/${f}`) };

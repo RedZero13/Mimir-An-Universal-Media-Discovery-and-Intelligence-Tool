@@ -52,8 +52,12 @@ function writeCatalogPages(out, { cat, works, SITE_URL, staticPage, esc }) {
     const ratings = (w.parents_guide && w.parents_guide.ratings) || [];
     const kind = MEDIUM_NAME[w.medium] || w.medium;
     const byline = people.map((c) => c.name).join(", ");
-    const title = `${w.title}${w.year ? ` (${w.year})` : ""} · ${kind}${byline ? ` by ${byline}` : ""} · Mimir`;
-    const desc = clip(`${w.summary || ""} ${[w.length, genres.slice(0, 3).join(", ")].filter(Boolean).join(" · ")}`.trim(), 158);
+    // Search results show about 60 characters of title: drop the byline, then the type, before cutting the name itself.
+    const head = `${w.title}${w.year ? ` (${w.year})` : ""}`;
+    const title = [`${head} · ${kind}${byline ? ` by ${byline}` : ""} · Mimir`, `${head} · ${kind} · Mimir`, `${head} · Mimir`]
+      .find((t) => t.length <= 70) || `${clip(head, 61)} · Mimir`;
+    const lead = w.summary || `${w.title}${w.year ? ` (${w.year})` : ""} is ${/^[aeiou]/i.test(kind) ? "an" : "a"} ${kind.toLowerCase()}${byline ? ` by ${byline}` : ""}.`;
+    const desc = clip(`${lead} ${[w.length, genres.slice(0, 3).join(", ")].filter(Boolean).join(" · ")}`.trim(), 158);
     const related = [
       ...w.relationships.map((r) => ({ slug: r.slug, title: r.title, year: r.year, label: r.label })),
       ...(w.continuity.members || []).filter((m) => m.slug !== w.slug).map((m) => ({ slug: m.slug, title: m.title, year: m.year, label: w.continuity.group ? `also in ${w.continuity.group.name}:` : "connected:" })),
@@ -123,13 +127,13 @@ ${related.length ? `<h2>Connected stories</h2><ul>${related.map((r) => `<li>${es
 <ol>${full.works.map((w) => `<li>${workLink(w)} <span class="meta">${esc(MEDIUM_NAME[w.medium] || w.medium)}</span></li>`).join("")}</ol>
 <p><a class="cta" href="/#shelf-${esc(sh.slug)}">Open this shelf in Mimir</a></p>`;
     fs.mkdirSync(path.join(out, "shelves", sh.slug), { recursive: true });
-    fs.writeFileSync(path.join(out, "shelves", sh.slug, "index.html"), staticPage(`${full.name}: ${full.tagline || "a Mimir shelf"} · Mimir`, clip(full.description || full.tagline || full.name, 158), url, body,
+    fs.writeFileSync(path.join(out, "shelves", sh.slug, "index.html"), staticPage([`${full.name}: ${full.tagline || "a Mimir shelf"} · Mimir`, `${full.name} · a Mimir shelf`].find((t) => t.length <= 70) || `${clip(full.name, 56)} · Mimir`, clip(full.description || full.tagline || full.name, 158), url, body,
       ld({ "@context": "https://schema.org", "@type": "ItemList", name: full.name, url, numberOfItems: full.works.length,
         itemListElement: full.works.map((w, i) => ({ "@type": "ListItem", position: i + 1, url: workUrl(w.slug), name: w.title })) }), { type: "website" }));
     urls.push([url, null, "0.7"]);
   }
   const shelvesUrl = `${SITE_URL}/shelves/`;
-  fs.writeFileSync(path.join(out, "shelves", "index.html"), staticPage("Shelves · hand-picked collections of films, books, games and music · Mimir",
+  fs.writeFileSync(path.join(out, "shelves", "index.html"), staticPage("Shelves: hand-picked films, books, games and music · Mimir",
     "Collections across every medium: comfort watches, diamonds in the rough, long hauls and more, each with the rule that fills it.", shelvesUrl,
     `<p class="eyebrow"><a href="/">Mimir</a> · Catalogue</p><h1>Shelves</h1><p class="lede">Collections across every medium, each filled by a stated rule.</p>
 <ul class="cards">${shelves.map((sh) => `<li><a href="/shelves/${esc(sh.slug)}/"><h2>${esc(sh.name)}</h2><p>${esc(sh.tagline || "")}</p></a></li>`).join("")}</ul>`, "", { type: "website" }));
