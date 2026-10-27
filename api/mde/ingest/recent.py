@@ -21,7 +21,7 @@ from pathlib import Path
 from mde.catalogue.model import normalise_title, slugify
 from mde.catalogue.seedfiles import read_seed
 from mde.ingest.http import Client
-from mde.ingest.wikidata import API, TYPES, Wikidata, claim_values, label_of, runtime_minutes, value, year_of
+from mde.ingest.wikidata import API, TYPES, Wikidata, claim_values, label_of, runtime_minutes, value
 
 OUT = Path(__file__).parent.parent / "seed" / "recent.json"
 TAXONOMY = Path(__file__).parent.parent / "taxonomy" / "taxonomy.json"
@@ -213,8 +213,9 @@ def main() -> None:
     args = ap.parse_args()
     client = Client(offline=args.offline, max_age_days=365)
     works = build(Wikidata(client), client)
-    OUT.write_text(json.dumps({"about": "Recent works (2025 onwards) from Wikidata (CC0), ranked by Wikipedia coverage. Regenerate with python -m mde.ingest.recent; review before merging. No parents' guide is claimed.",
-                               "works": works}, ensure_ascii=False, indent=1) + "\n")
+    about = ("Recent works (2025 onwards) from Wikidata (CC0), ranked by Wikipedia coverage. "
+             "Regenerate with python -m mde.ingest.recent; review before merging. No parents' guide is claimed.")
+    OUT.write_text(json.dumps({"about": about, "works": works}, ensure_ascii=False, indent=1) + "\n")
     print(f"wrote {len(works)} works to {OUT}")
 
 
