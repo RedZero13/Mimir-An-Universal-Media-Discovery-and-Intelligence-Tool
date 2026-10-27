@@ -26,12 +26,13 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   library, taste and picks, days and community, privacy and your data), ten frequently asked questions, and the
   walkthrough video. Guides open at #help-<name>; the search filters guides and questions as you type.
 - **Swipe to teach Mimir.** A deck of cards, one work at a time: right to like, up to love, left for not for me,
-  down to skip what you haven't seen (arrow keys, buttons or a drag; Z undoes). Each swipe is a rating, so picks
-  everywhere improve, and the next card is chosen to learn something new about you.
+  down to skip what you haven't seen (arrow keys, buttons or a drag; Z undoes). Each swipe is a rating. The first 14
+  cards cover as many genres, moods and media as possible; after that the deck narrows towards what you liked, and
+  once there is enough signal Mimir offers to take you to your picks (and asks again after another 15 swipes).
 - **Don't have time to browse?** Mood cards (Comfort, Laugh out loud, Edge of the seat, After dark, Mind games …).
   Left tries another mood; right spins that mood's posters like a slot machine, lands on one title and opens it after
   a three-second countdown (Enter opens now, right spins again). The moods you spin for nudge your picks.
-- **Craft.** Drag one piece onto another, or tap two and combine: works, moods, genres and mediums blend into a new
+- **Craft.** Click or drag pieces onto the table, then drop one on another or select two and combine: works, moods, genres and mediums blend into a new
   hybrid ("Comforting science fiction"), and Mimir finds the works that carry the most of it, in any medium or one you
   choose. Blends are kept and can be combined again.
 - **Easter eggs.** Some well-known covers react when you click them (a burst of spider-sense, falling code, a crawl
@@ -126,7 +127,7 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   cached for repeat visits and offline use (installable as an app on Android, iOS, Mac and Windows).
 - Plain pages for every work, medium and shelf, with structured data and a sitemap, so search engines can index
   the catalogue; works still awaiting a summary are kept out of the index until they have one.
-- Light and dark modes, keyboard navigation, reduced-motion support and WCAG AA contrast.
+- Dark mode by default with a light mode toggle, keyboard navigation, reduced-motion support and WCAG AA contrast (checked with axe in both themes).
 - Labels everywhere say what is verified and what is an AI-assisted reading awaiting review.
 
 ## Under the hood

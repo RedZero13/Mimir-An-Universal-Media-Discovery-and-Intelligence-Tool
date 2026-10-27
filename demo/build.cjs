@@ -90,7 +90,9 @@ function page() {
 // Inter sets the hero's lead paragraph, usually the largest text on a phone: fetch it first.
 // Google picks the favicon from the home page: a stable .ico plus a PNG and the SVG, all at multiples of 48 px.
 const ICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">`;
 const FONT_HEAD = `<link rel="preload" as="font" type="font/woff2" href="/fonts/inter-latin.woff2" crossorigin fetchpriority="high">
@@ -215,10 +217,12 @@ const staticPage = (title, desc, canonical, body, extraHead = "", { type = "arti
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${index ? "index, follow, max-image-preview:large" : "noindex, follow"}"><link rel="canonical" href="${canonical}">
 <meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}"><meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Mimir">
-<meta name="theme-color" content="#EDE3CC">${ICON_LINKS}${extraHead}
+<meta name="theme-color" content="#131315">${ICON_LINKS}${extraHead}
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
-:root{--bg:#EDE3CC;--surface:#F6F0E2;--ink:#23211C;--head:#131315;--muted:#5F5A4F;--gold:#8A6A18;--line:rgba(110,104,92,.24)}
+:root{color-scheme:dark;--bg:#131315;--surface:#1B1A17;--ink:#E4DCC6;--head:#F4EEDD;--muted:#A9A18E;--gold:#D8B24A;--line:rgba(216,178,74,.22);--lede:#E3CF8C;--on-gold:#131315}
+:root[data-theme="light"]{color-scheme:light;--bg:#EDE3CC;--surface:#F6F0E2;--ink:#23211C;--head:#131315;--muted:#5F5A4F;--gold:#8A6A18;--line:rgba(110,104,92,.24);--lede:#5E4B1C;--on-gold:#F6F0E2}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.75 Inter,system-ui,sans-serif;padding:0 16px}
 a{color:var(--gold);text-underline-offset:3px}.wrap{max-width:720px;margin:0 auto}
 header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0;border-bottom:1px solid var(--line);max-width:1080px;margin:0 auto}
@@ -226,8 +230,8 @@ header.top{display:flex;justify-content:space-between;align-items:center;gap:12p
 .eyebrow{font:600 .7rem Cinzel,serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:40px 0 6px}
 h1{font:600 clamp(2rem,6vw,3rem)/1.1 "Cormorant Garamond",Georgia,serif;color:var(--head);margin:0 0 8px}
 h2{font:600 1.6rem "Cormorant Garamond",Georgia,serif;color:var(--head);margin:32px 0 6px}
-.meta{color:var(--muted);font-size:.85rem}.lede{font:italic 500 1.35rem/1.45 "Cormorant Garamond",Georgia,serif;color:#5E4B1C}
-.cta{display:inline-block;margin:28px 12px 0 0;padding:12px 22px;border-radius:99px;background:var(--gold);color:#F6F0E2;text-decoration:none;font:600 .75rem Cinzel,serif;letter-spacing:.16em;text-transform:uppercase}
+.meta{color:var(--muted);font-size:.85rem}.lede{font:italic 500 1.35rem/1.45 "Cormorant Garamond",Georgia,serif;color:var(--lede)}
+.cta{display:inline-block;margin:28px 12px 0 0;padding:12px 22px;border-radius:99px;background:var(--gold);color:var(--on-gold);text-decoration:none;font:600 .75rem Cinzel,serif;letter-spacing:.16em;text-transform:uppercase}
 .cta.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
 .cards{list-style:none;padding:0;display:grid;gap:14px}.cards a{display:block;padding:18px 20px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);text-decoration:none}
 .cards a:hover{border-color:var(--gold)}.cards h2{margin:0 0 4px;font-size:1.35rem}
@@ -238,7 +242,7 @@ footer{max-width:1080px;margin:64px auto 0;padding:22px 0 40px;border-top:1px so
 </style></head><body>
 <header class="top"><a class="brand" href="/">MIMIR<small>A TERRATALES VENTURE</small></a><nav>${HUBS.map((h) => `<a href="/${h.slug}/">${h.name}</a>`).join(" · ")} · <a href="/shelves/">Shelves</a> · <a href="/blog/">Blog</a></nav></header>
 <main class="wrap">${body}</main>
-<footer><span>© 2026 Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/blog/">Blog</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
+<footer><span>© ${new Date().getFullYear()} Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/blog/">Blog</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
 </body></html>
 `;
 
@@ -293,7 +297,7 @@ if (args[0] === "--site") {
     name: "Mimir", short_name: "Mimir", start_url: "/", scope: "/", display: "standalone",
     description: "Discover and track films, TV, books, manga, games and music, with the reason behind every pick.",
     categories: ["entertainment", "books", "music"],
-    background_color: "#EDE3CC", theme_color: "#EDE3CC",
+    background_color: "#131315", theme_color: "#131315",
     icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" }, { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
       { src: "/icon-maskable-192.png", sizes: "192x192", type: "image/png", purpose: "maskable" }, { src: "/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
       { src: "/app-icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }],

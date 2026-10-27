@@ -3254,6 +3254,6048 @@
     }
    ],
    "conflicts": []
+  },
+  "1q84-2000": {
+   "match": {
+    "key": "/works/OL15029001W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15029001W",
+   "url": "https://openlibrary.org/works/OL15029001W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11153243-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-dance-with-dragons-2011": {
+   "match": {
+    "key": "/works/OL1955906W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1955906W",
+   "url": "https://openlibrary.org/works/OL1955906W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11298743-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-esmorga-1959": {
+   "match": {
+    "key": "/works/OL2531979W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2531979W",
+   "url": "https://openlibrary.org/works/OL2531979W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12565861-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-journey-to-the-centre-of-the-earth-1864": {
+   "match": {
+    "key": "/works/OL1099513W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1099513W",
+   "url": "https://openlibrary.org/works/OL1099513W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/5890987-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-little-princess-1905": {
+   "match": {
+    "key": "/works/OL15040856W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15040856W",
+   "url": "https://openlibrary.org/works/OL15040856W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/436507-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-man-called-ove-2012": {
+   "match": {
+    "key": "/works/OL16793865W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL16793865W",
+   "url": "https://openlibrary.org/works/OL16793865W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7437001-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-pattern-language-towns-buildings-construction-1977": {
+   "match": {
+    "key": "/works/OL3923600W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL3923600W",
+   "url": "https://openlibrary.org/works/OL3923600W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/120825-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-portrait-of-the-artist-as-a-young-man-1907": {
+   "match": {
+    "key": "/works/OL86343W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL86343W",
+   "url": "https://openlibrary.org/works/OL86343W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9328410-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-scandal-in-bohemia-1892": {
+   "match": {
+    "key": "/works/OL14930611W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14930611W",
+   "url": "https://openlibrary.org/works/OL14930611W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9228946-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-stitch-in-time-2000": {
+   "match": {
+    "key": "/works/OL5689430W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5689430W",
+   "url": "https://openlibrary.org/works/OL5689430W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/404879-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-storm-of-swords-2000": {
+   "match": {
+    "key": "/works/OL257914W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL257914W",
+   "url": "https://openlibrary.org/works/OL257914W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15124196-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-streetcar-named-desire-1947": {
+   "match": {
+    "key": "/works/OL30294W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL30294W",
+   "url": "https://openlibrary.org/works/OL30294W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8422967-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-study-in-scarlet-1887": {
+   "match": {
+    "key": "/works/OL262496W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL262496W",
+   "url": "https://openlibrary.org/works/OL262496W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13405534-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "a-tale-of-two-cities-1859": {
+   "match": {
+    "key": "/works/OL8193465W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8193465W",
+   "url": "https://openlibrary.org/works/OL8193465W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13301713-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "abyss-2001": {
+   "match": {
+    "key": "/works/OL5687549W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5687549W",
+   "url": "https://openlibrary.org/works/OL5687549W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/408570-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "adventures-of-huckleberry-finn-1884": {
+   "match": {
+    "key": "/works/OL53908W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL53908W",
+   "url": "https://openlibrary.org/works/OL53908W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8157718-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "aeneid--100": {
+   "match": {
+    "key": "/works/OL17405200W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17405200W",
+   "url": "https://openlibrary.org/works/OL17405200W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7513241-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "alice-s-adventures-in-wonderland-1862": {
+   "match": {
+    "key": "/works/OL138052W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL138052W",
+   "url": "https://openlibrary.org/works/OL138052W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10527843-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "all-my-sons-1947": {
+   "match": {
+    "key": "/works/OL66338W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL66338W",
+   "url": "https://openlibrary.org/works/OL66338W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9184453-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "all-quiet-on-the-western-front-1928": {
+   "match": {
+    "key": "/works/OL1209288W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1209288W",
+   "url": "https://openlibrary.org/works/OL1209288W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12706822-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "allegiant-2013": {
+   "match": {
+    "key": "/works/OL16808471W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL16808471W",
+   "url": "https://openlibrary.org/works/OL16808471W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7276393-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "american-psycho-1991": {
+   "match": {
+    "key": "/works/OL1812933W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1812933W",
+   "url": "https://openlibrary.org/works/OL1812933W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8401686-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "anabasis--370": {
+   "match": {
+    "key": "/works/OL687015W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL687015W",
+   "url": "https://openlibrary.org/works/OL687015W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6133592-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "analects--480": {
+   "match": {
+    "key": "/works/OL15335450W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15335450W",
+   "url": "https://openlibrary.org/works/OL15335450W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/727362-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "angels-demons-2000": {
+   "match": {
+    "key": "/works/OL76833W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL76833W",
+   "url": "https://openlibrary.org/works/OL76833W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11408459-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "animal-farm-1945": {
+   "match": {
+    "key": "/works/OL1168007W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1168007W",
+   "url": "https://openlibrary.org/works/OL1168007W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11261770-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "anna-karenina-1873": {
+   "match": {
+    "key": "/works/OL267096W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL267096W",
+   "url": "https://openlibrary.org/works/OL267096W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2560652-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "another-2009": {
+   "match": {
+    "key": "/works/OL21541372W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL21541372W",
+   "url": "https://openlibrary.org/works/OL21541372W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10381552-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "are-you-there-god-it-s-me-margaret-1970": {
+   "match": {
+    "key": "/works/OL268217W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL268217W",
+   "url": "https://openlibrary.org/works/OL268217W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12388102-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "around-the-world-in-eighty-days-1872": {
+   "match": {
+    "key": "/works/OL1100007W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1100007W",
+   "url": "https://openlibrary.org/works/OL1100007W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6976035-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "baptism-of-fire-1996": {
+   "match": {
+    "key": "/works/OL19849810W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19849810W",
+   "url": "https://openlibrary.org/works/OL19849810W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8648762-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "battle-royale-1999": {
+   "match": {
+    "key": "/works/OL8897717W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8897717W",
+   "url": "https://openlibrary.org/works/OL8897717W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/813816-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "bel-ami-1885": {
+   "match": {
+    "key": "/works/OL24154963W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24154963W",
+   "url": "https://openlibrary.org/works/OL24154963W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10554898-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "belgarath-the-sorcerer-1995": {
+   "match": {
+    "key": "/works/OL11374780W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL11374780W",
+   "url": "https://openlibrary.org/works/OL11374780W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6461802-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "ben-hur-a-tale-of-the-christ-1880": {
+   "match": {
+    "key": "/works/OL25649164W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL25649164W",
+   "url": "https://openlibrary.org/works/OL25649164W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12474744-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "black-beauty-1877": {
+   "match": {
+    "key": "/works/OL15854658W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15854658W",
+   "url": "https://openlibrary.org/works/OL15854658W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/5007492-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "blood-of-elves-1994": {
+   "match": {
+    "key": "/works/OL2577486W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2577486W",
+   "url": "https://openlibrary.org/works/OL2577486W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8457619-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "bloodlands-2010": {
+   "match": {
+    "key": "/works/OL15688711W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15688711W",
+   "url": "https://openlibrary.org/works/OL15688711W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6713085-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "book-of-genesis--500": {
+   "match": {
+    "key": "/works/OL2384588W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2384588W",
+   "url": "https://openlibrary.org/works/OL2384588W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3123469-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "buddenbrooks-1890": {
+   "match": {
+    "key": "/works/OL14867081W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14867081W",
+   "url": "https://openlibrary.org/works/OL14867081W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8244437-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "bullet-train-2010": {
+   "match": {
+    "key": "/works/OL24375262W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24375262W",
+   "url": "https://openlibrary.org/works/OL24375262W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10906172-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "candide-1759": {
+   "match": {
+    "key": "/works/OL100672W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL100672W",
+   "url": "https://openlibrary.org/works/OL100672W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12736044-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "captain-s-glory-2002": {
+   "match": {
+    "key": "/works/OL14954145W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14954145W",
+   "url": "https://openlibrary.org/works/OL14954145W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/477563-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "carmen-1845": {
+   "match": {
+    "key": "/works/OL7999501W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL7999501W",
+   "url": "https://openlibrary.org/works/OL7999501W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/965287-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "carmilla-1871": {
+   "match": {
+    "key": "/works/OL2895536W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2895536W",
+   "url": "https://openlibrary.org/works/OL2895536W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/973851-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "catch-22-1961": {
+   "match": {
+    "key": "/works/OL276798W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL276798W",
+   "url": "https://openlibrary.org/works/OL276798W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6468653-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "catching-fire-2009": {
+   "match": {
+    "key": "/works/OL5735360W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5735360W",
+   "url": "https://openlibrary.org/works/OL5735360W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12646539-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "charlie-and-the-chocolate-factory-1964": {
+   "match": {
+    "key": "/works/OL45790W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL45790W",
+   "url": "https://openlibrary.org/works/OL45790W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12459564-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "commentarii-de-bello-gallico--58": {
+   "match": {
+    "key": "/works/OL9194061W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL9194061W",
+   "url": "https://openlibrary.org/works/OL9194061W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2150727-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "crito--400": {
+   "match": {
+    "key": "/works/OL51934W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL51934W",
+   "url": "https://openlibrary.org/works/OL51934W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14406484-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "cyrano-de-bergerac-1897": {
+   "match": {
+    "key": "/works/OL551668W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL551668W",
+   "url": "https://openlibrary.org/works/OL551668W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8236320-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "danton-s-death-1835": {
+   "match": {
+    "key": "/works/OL20235356W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20235356W",
+   "url": "https://openlibrary.org/works/OL20235356W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8889380-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "de-rerum-natura--100": {
+   "match": {
+    "key": "/works/OL1548597W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1548597W",
+   "url": "https://openlibrary.org/works/OL1548597W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/566208-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "death-and-memory-in-early-medieval-britain-2006": {
+   "match": {
+    "key": "/works/OL19341297W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19341297W",
+   "url": "https://openlibrary.org/works/OL19341297W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8454742-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "death-in-winter-2005": {
+   "match": {
+    "key": "/works/OL137971W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL137971W",
+   "url": "https://openlibrary.org/works/OL137971W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/479455-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "death-of-a-salesman-1949": {
+   "match": {
+    "key": "/works/OL66346W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL66346W",
+   "url": "https://openlibrary.org/works/OL66346W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9254686-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "democracy-in-chains-2017": {
+   "match": {
+    "key": "/works/OL20058015W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20058015W",
+   "url": "https://openlibrary.org/works/OL20058015W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8818443-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "demons-1870": {
+   "match": {
+    "key": "/works/OL166971W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL166971W",
+   "url": "https://openlibrary.org/works/OL166971W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9258937-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "diary-of-anne-frank-1942": {
+   "match": {
+    "key": "/works/OL266178W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL266178W",
+   "url": "https://openlibrary.org/works/OL266178W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8584021-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "disgrace-1999": {
+   "match": {
+    "key": "/works/OL500451W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL500451W",
+   "url": "https://openlibrary.org/works/OL500451W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11434870-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "dombey-and-son-1848": {
+   "match": {
+    "key": "/works/OL14868861W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14868861W",
+   "url": "https://openlibrary.org/works/OL14868861W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9283920-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "don-quixote-1605": {
+   "match": {
+    "key": "/works/OL503666W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL503666W",
+   "url": "https://openlibrary.org/works/OL503666W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14428305-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "doomsday-book-1992": {
+   "match": {
+    "key": "/works/OL14858406W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14858406W",
+   "url": "https://openlibrary.org/works/OL14858406W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/369478-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "dreamsongs-a-rretrospective-2006": {
+   "match": {
+    "key": "/works/OL257941W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL257941W",
+   "url": "https://openlibrary.org/works/OL257941W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11299400-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "emma-1815": {
+   "match": {
+    "key": "/works/OL66513W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL66513W",
+   "url": "https://openlibrary.org/works/OL66513W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9278312-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "epic-of-gilgamesh--2100": {
+   "match": {
+    "key": "/works/OL8962034W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8962034W",
+   "url": "https://openlibrary.org/works/OL8962034W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/854345-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "eugene-onegin-1823": {
+   "match": {
+    "key": "/works/OL623236W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL623236W",
+   "url": "https://openlibrary.org/works/OL623236W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2233613-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "evenings-on-a-farm-near-dikanka-1829": {
+   "match": {
+    "key": "/works/OL14948251W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14948251W",
+   "url": "https://openlibrary.org/works/OL14948251W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3075386-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "fathers-and-sons-1860": {
+   "match": {
+    "key": "/works/OL43370W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL43370W",
+   "url": "https://openlibrary.org/works/OL43370W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8236420-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "faust-1774": {
+   "match": {
+    "key": "/works/OL52456W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL52456W",
+   "url": "https://openlibrary.org/works/OL52456W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6499459-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "federation-1994": {
+   "match": {
+    "key": "/works/OL2241720W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2241720W",
+   "url": "https://openlibrary.org/works/OL2241720W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1334272-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "fifty-shades-of-grey-2011": {
+   "match": {
+    "key": "/works/OL16336633W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL16336633W",
+   "url": "https://openlibrary.org/works/OL16336633W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12648183-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "fight-club-1996": {
+   "match": {
+    "key": "/works/OL18941W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL18941W",
+   "url": "https://openlibrary.org/works/OL18941W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7890578-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "flatland-1884": {
+   "match": {
+    "key": "/works/OL118388W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL118388W",
+   "url": "https://openlibrary.org/works/OL118388W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10069547-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "flowers-for-algernon-1959": {
+   "match": {
+    "key": "/works/OL515754W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL515754W",
+   "url": "https://openlibrary.org/works/OL515754W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12947700-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "foundation-and-empire-1945": {
+   "match": {
+    "key": "/works/OL46224W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL46224W",
+   "url": "https://openlibrary.org/works/OL46224W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9300695-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "fragile-things-2006": {
+   "match": {
+    "key": "/works/OL679359W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL679359W",
+   "url": "https://openlibrary.org/works/OL679359W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/46488-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "frankenstein-or-the-modern-prometheus-1816": {
+   "match": {
+    "key": "/works/OL450063W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL450063W",
+   "url": "https://openlibrary.org/works/OL450063W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12356249-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "from-prison-to-revolt-1973": {
+   "match": {
+    "key": "/works/OL810354W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL810354W",
+   "url": "https://openlibrary.org/works/OL810354W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/989022-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "fuenteovejuna-1619": {
+   "match": {
+    "key": "/works/OL914527W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL914527W",
+   "url": "https://openlibrary.org/works/OL914527W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1047448-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "germinal-1885": {
+   "match": {
+    "key": "/works/OL118986W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL118986W",
+   "url": "https://openlibrary.org/works/OL118986W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8236935-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "golden-boy-2013": {
+   "match": {
+    "key": "/works/OL19667271W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19667271W",
+   "url": "https://openlibrary.org/works/OL19667271W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12359907-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "golden-legend-1298": {
+   "match": {
+    "key": "/works/OL813733W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL813733W",
+   "url": "https://openlibrary.org/works/OL813733W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6284843-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "gone-with-the-wind-1936": {
+   "match": {
+    "key": "/works/OL267933W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL267933W",
+   "url": "https://openlibrary.org/works/OL267933W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14817133-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "gotz-von-berlichingen-1771": {
+   "match": {
+    "key": "/works/OL52500W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL52500W",
+   "url": "https://openlibrary.org/works/OL52500W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6318313-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "great-expectations-1860": {
+   "match": {
+    "key": "/works/OL8721462W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8721462W",
+   "url": "https://openlibrary.org/works/OL8721462W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13322313-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "grimms-fairy-tales-1806": {
+   "match": {
+    "key": "/works/OL45361W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL45361W",
+   "url": "https://openlibrary.org/works/OL45361W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8236293-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "gulliver-s-travels-1726": {
+   "match": {
+    "key": "/works/OL20600W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20600W",
+   "url": "https://openlibrary.org/works/OL20600W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12717083-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "hallowe-en-party-1969": {
+   "match": {
+    "key": "/works/OL471832W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL471832W",
+   "url": "https://openlibrary.org/works/OL471832W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11160095-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "hannibal-1999": {
+   "match": {
+    "key": "/works/OL23478W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL23478W",
+   "url": "https://openlibrary.org/works/OL23478W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8384202-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "hansel-and-gretel-1812": {
+   "match": {
+    "key": "/works/OL24829519W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24829519W",
+   "url": "https://openlibrary.org/works/OL24829519W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11641678-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "harbinger-2005": {
+   "match": {
+    "key": "/works/OL5886050W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5886050W",
+   "url": "https://openlibrary.org/works/OL5886050W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4811748-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "hard-times-for-these-times-1854": {
+   "match": {
+    "key": "/works/OL8193387W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8193387W",
+   "url": "https://openlibrary.org/works/OL8193387W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8236916-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "harry-potter-and-the-chamber-of-secrets-1998": {
+   "match": {
+    "key": "/works/OL82537W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL82537W",
+   "url": "https://openlibrary.org/works/OL82537W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15158664-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "harry-potter-and-the-deathly-hallows-2007": {
+   "match": {
+    "key": "/works/OL82586W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL82586W",
+   "url": "https://openlibrary.org/works/OL82586W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15158660-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "harry-potter-and-the-goblet-of-fire-2000": {
+   "match": {
+    "key": "/works/OL82560W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL82560W",
+   "url": "https://openlibrary.org/works/OL82560W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12059372-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "harry-potter-and-the-half-blood-prince-2005": {
+   "match": {
+    "key": "/works/OL82565W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL82565W",
+   "url": "https://openlibrary.org/works/OL82565W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10716273-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "harry-potter-and-the-order-of-the-phoenix-2003": {
+   "match": {
+    "key": "/works/OL82548W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL82548W",
+   "url": "https://openlibrary.org/works/OL82548W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/15158666-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "harry-potter-and-the-prisoner-of-azkaban-1999": {
+   "match": {
+    "key": "/works/OL82536W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL82536W",
+   "url": "https://openlibrary.org/works/OL82536W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10580435-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "heidi-1880": {
+   "match": {
+    "key": "/works/OL1455042W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1455042W",
+   "url": "https://openlibrary.org/works/OL1455042W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2668686-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "heimskringla-1225": {
+   "match": {
+    "key": "/works/OL17397976W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17397976W",
+   "url": "https://openlibrary.org/works/OL17397976W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7498828-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "henry-iv-part-2-1598": {
+   "match": {
+    "key": "/works/OL362697W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL362697W",
+   "url": "https://openlibrary.org/works/OL362697W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7339581-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "how-long-til-black-future-month-2018": {
+   "match": {
+    "key": "/works/OL19740011W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19740011W",
+   "url": "https://openlibrary.org/works/OL19740011W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8577415-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "humiliated-and-insulted-1861": {
+   "match": {
+    "key": "/works/OL166968W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL166968W",
+   "url": "https://openlibrary.org/works/OL166968W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8221235-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "i-want-to-eat-your-pancreas-2015": {
+   "match": {
+    "key": "/works/OL20010923W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20010923W",
+   "url": "https://openlibrary.org/works/OL20010923W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10270475-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "interview-with-the-vampire-1976": {
+   "match": {
+    "key": "/works/OL77826W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL77826W",
+   "url": "https://openlibrary.org/works/OL77826W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8401488-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "intrigue-and-love-1782": {
+   "match": {
+    "key": "/works/OL29049657W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL29049657W",
+   "url": "https://openlibrary.org/works/OL29049657W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12976573-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "ivanhoe-1819": {
+   "match": {
+    "key": "/works/OL863808W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL863808W",
+   "url": "https://openlibrary.org/works/OL863808W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/314235-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "journey-to-the-west-1592": {
+   "match": {
+    "key": "/works/OL3593545W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL3593545W",
+   "url": "https://openlibrary.org/works/OL3593545W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8246231-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "jurassic-park-1990": {
+   "match": {
+    "key": "/works/OL46881W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL46881W",
+   "url": "https://openlibrary.org/works/OL46881W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12882940-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "just-so-stories-1902": {
+   "match": {
+    "key": "/works/OL19899W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19899W",
+   "url": "https://openlibrary.org/works/OL19899W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/36215-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "kalevala-1828": {
+   "match": {
+    "key": "/works/OL15445697W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15445697W",
+   "url": "https://openlibrary.org/works/OL15445697W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12600036-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "kidnapped-1886": {
+   "match": {
+    "key": "/works/OL24166W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24166W",
+   "url": "https://openlibrary.org/works/OL24166W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8267822-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "kojiki-712": {
+   "match": {
+    "key": "/works/OL1148493W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1148493W",
+   "url": "https://openlibrary.org/works/OL1148493W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8378107-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "le-morte-d-arthur-1485": {
+   "match": {
+    "key": "/works/OL15450151W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15450151W",
+   "url": "https://openlibrary.org/works/OL15450151W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8231834-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "leaves-of-grass-1855": {
+   "match": {
+    "key": "/works/OL16333W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL16333W",
+   "url": "https://openlibrary.org/works/OL16333W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9000447-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "les-fleurs-du-mal-1840": {
+   "match": {
+    "key": "/works/OL28964874W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL28964874W",
+   "url": "https://openlibrary.org/works/OL28964874W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11669428-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "les-miserables-1862": {
+   "match": {
+    "key": "/works/OL1063588W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1063588W",
+   "url": "https://openlibrary.org/works/OL1063588W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12721865-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "letters-from-my-windmill-1869": {
+   "match": {
+    "key": "/works/OL942495W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL942495W",
+   "url": "https://openlibrary.org/works/OL942495W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/968553-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "life-of-pi-2001": {
+   "match": {
+    "key": "/works/OL2827199W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2827199W",
+   "url": "https://openlibrary.org/works/OL2827199W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12840573-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "life-the-universe-and-everything-1982": {
+   "match": {
+    "key": "/works/OL2163623W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2163623W",
+   "url": "https://openlibrary.org/works/OL2163623W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8569244-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "little-dorrit-1857": {
+   "match": {
+    "key": "/works/OL14869215W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14869215W",
+   "url": "https://openlibrary.org/works/OL14869215W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13113263-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "little-women-1868": {
+   "match": {
+    "key": "/works/OL29983W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL29983W",
+   "url": "https://openlibrary.org/works/OL29983W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8775559-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "long-day-s-journey-into-night-1942": {
+   "match": {
+    "key": "/works/OL8026147W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8026147W",
+   "url": "https://openlibrary.org/works/OL8026147W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4909907-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "madame-bovary-1856": {
+   "match": {
+    "key": "/works/OL893707W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL893707W",
+   "url": "https://openlibrary.org/works/OL893707W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12993424-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "manfred-1817": {
+   "match": {
+    "key": "/works/OL24262555W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24262555W",
+   "url": "https://openlibrary.org/works/OL24262555W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10751322-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "manon-lescaut-1731": {
+   "match": {
+    "key": "/works/OL1132652W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1132652W",
+   "url": "https://openlibrary.org/works/OL1132652W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8236918-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "mary-stuart-1800": {
+   "match": {
+    "key": "/works/OL24635731W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24635731W",
+   "url": "https://openlibrary.org/works/OL24635731W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11315422-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "matilda-1986": {
+   "match": {
+    "key": "/works/OL45846W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL45846W",
+   "url": "https://openlibrary.org/works/OL45846W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12889769-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "max-and-moritz-1863": {
+   "match": {
+    "key": "/works/OL29234522W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL29234522W",
+   "url": "https://openlibrary.org/works/OL29234522W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14495331-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "meditations-200": {
+   "match": {
+    "key": "/works/OL1317211W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1317211W",
+   "url": "https://openlibrary.org/works/OL1317211W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/211529-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "metamorphoses-1": {
+   "match": {
+    "key": "/works/OL15292640W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15292640W",
+   "url": "https://openlibrary.org/works/OL15292640W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7212118-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "michael-strogoff-1874": {
+   "match": {
+    "key": "/works/OL35120170W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL35120170W",
+   "url": "https://openlibrary.org/works/OL35120170W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14110147-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "miss-julie-1888": {
+   "match": {
+    "key": "/works/OL789537W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL789537W",
+   "url": "https://openlibrary.org/works/OL789537W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3856531-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "mockingjay-2010": {
+   "match": {
+    "key": "/works/OL14908941W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14908941W",
+   "url": "https://openlibrary.org/works/OL14908941W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12646459-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "mort-1987": {
+   "match": {
+    "key": "/works/OL453658W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL453658W",
+   "url": "https://openlibrary.org/works/OL453658W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14648805-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "mother-courage-and-her-children-1938": {
+   "match": {
+    "key": "/works/OL3802456W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL3802456W",
+   "url": "https://openlibrary.org/works/OL3802456W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/990346-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "nicholas-nickleby-1838": {
+   "match": {
+    "key": "/works/OL13114895W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL13114895W",
+   "url": "https://openlibrary.org/works/OL13114895W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9283905-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "night-shift-1978": {
+   "match": {
+    "key": "/works/OL81608W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL81608W",
+   "url": "https://openlibrary.org/works/OL81608W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14651337-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "nightmares-dreamscapes-1993": {
+   "match": {
+    "key": "/works/OL81604W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL81604W",
+   "url": "https://openlibrary.org/works/OL81604W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14654718-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "norske-folkeeventyr-1841": {
+   "match": {
+    "key": "/works/OL2384812W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2384812W",
+   "url": "https://openlibrary.org/works/OL2384812W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8246201-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "of-mice-and-men-1937": {
+   "match": {
+    "key": "/works/OL23204W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL23204W",
+   "url": "https://openlibrary.org/works/OL23204W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14319003-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "orlando-furioso-1516": {
+   "match": {
+    "key": "/works/OL15693876W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15693876W",
+   "url": "https://openlibrary.org/works/OL15693876W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/971277-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "os-maias-1888": {
+   "match": {
+    "key": "/works/OL846513W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL846513W",
+   "url": "https://openlibrary.org/works/OL846513W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/104218-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "our-town-1938": {
+   "match": {
+    "key": "/works/OL482841W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL482841W",
+   "url": "https://openlibrary.org/works/OL482841W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/28005-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "paradise-lost-1667": {
+   "match": {
+    "key": "/works/OL810991W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL810991W",
+   "url": "https://openlibrary.org/works/OL810991W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/5992814-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "paul-et-virginie-1787": {
+   "match": {
+    "key": "/works/OL8470737W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8470737W",
+   "url": "https://openlibrary.org/works/OL8470737W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1532309-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "pebble-in-the-sky-1947": {
+   "match": {
+    "key": "/works/OL46402W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL46402W",
+   "url": "https://openlibrary.org/works/OL46402W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6550102-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "pere-goriot-1835": {
+   "match": {
+    "key": "/works/OL85047W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL85047W",
+   "url": "https://openlibrary.org/works/OL85047W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8237944-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "periplus-of-the-erythraean-sea-100": {
+   "match": {
+    "key": "/works/OL18339912W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL18339912W",
+   "url": "https://openlibrary.org/works/OL18339912W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4337187-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "peter-pan-1911": {
+   "match": {
+    "key": "/works/OL462007W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL462007W",
+   "url": "https://openlibrary.org/works/OL462007W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8237052-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "planet-of-the-apes-1963": {
+   "match": {
+    "key": "/works/OL1319418W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1319418W",
+   "url": "https://openlibrary.org/works/OL1319418W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1009545-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "poetic-edda-1260": {
+   "match": {
+    "key": "/works/OL92249W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL92249W",
+   "url": "https://openlibrary.org/works/OL92249W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/314251-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "polgara-the-sorceress-1997": {
+   "match": {
+    "key": "/works/OL15344389W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15344389W",
+   "url": "https://openlibrary.org/works/OL15344389W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/209228-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "pollyanna-1913": {
+   "match": {
+    "key": "/works/OL2775807W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2775807W",
+   "url": "https://openlibrary.org/works/OL2775807W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/902113-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "prelude-to-foundation-1988": {
+   "match": {
+    "key": "/works/OL46172W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL46172W",
+   "url": "https://openlibrary.org/works/OL46172W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12816973-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "pride-and-prejudice-and-zombies-2009": {
+   "match": {
+    "key": "/works/OL15093171W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15093171W",
+   "url": "https://openlibrary.org/works/OL15093171W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6260257-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "principles-of-economics-1871": {
+   "match": {
+    "key": "/works/OL1338940W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1338940W",
+   "url": "https://openlibrary.org/works/OL1338940W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4778646-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "prose-edda-1225": {
+   "match": {
+    "key": "/works/OL1133520W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1133520W",
+   "url": "https://openlibrary.org/works/OL1133520W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4080018-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "quran-631": {
+   "match": {
+    "key": "/works/OL9991493W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL9991493W",
+   "url": "https://openlibrary.org/works/OL9991493W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3127381-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "ready-player-one-2011": {
+   "match": {
+    "key": "/works/OL15936512W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15936512W",
+   "url": "https://openlibrary.org/works/OL15936512W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8737626-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "ready-player-two-2020": {
+   "match": {
+    "key": "/works/OL20907281W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20907281W",
+   "url": "https://openlibrary.org/works/OL20907281W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10250001-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "red-nails-1936": {
+   "match": {
+    "key": "/works/OL19792457W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19792457W",
+   "url": "https://openlibrary.org/works/OL19792457W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8596820-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "rendezvous-with-rama-1973": {
+   "match": {
+    "key": "/works/OL17417W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17417W",
+   "url": "https://openlibrary.org/works/OL17417W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13472608-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "resurrection-1899": {
+   "match": {
+    "key": "/works/OL457760W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL457760W",
+   "url": "https://openlibrary.org/works/OL457760W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6309101-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "revelation-space-2000": {
+   "match": {
+    "key": "/works/OL5724837W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5724837W",
+   "url": "https://openlibrary.org/works/OL5724837W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/911071-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "rise-and-fall-of-the-city-of-mahagonny-2000": {
+   "match": {
+    "key": "/works/OL3802381W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL3802381W",
+   "url": "https://openlibrary.org/works/OL3802381W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/990345-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "robots-and-empire-1985": {
+   "match": {
+    "key": "/works/OL46178W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL46178W",
+   "url": "https://openlibrary.org/works/OL46178W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9302088-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "rogue-2001": {
+   "match": {
+    "key": "/works/OL15101464W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15101464W",
+   "url": "https://openlibrary.org/works/OL15101464W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6796944-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "rubaiyat-of-omar-khayyam-1100": {
+   "match": {
+    "key": "/works/OL998027W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL998027W",
+   "url": "https://openlibrary.org/works/OL998027W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/182302-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "russia-in-revolution-2017": {
+   "match": {
+    "key": "/works/OL20052836W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20052836W",
+   "url": "https://openlibrary.org/works/OL20052836W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14514383-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "salammbo-1862": {
+   "match": {
+    "key": "/works/OL893958W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL893958W",
+   "url": "https://openlibrary.org/works/OL893958W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3078356-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "salem-s-lot-1975": {
+   "match": {
+    "key": "/works/OL81632W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL81632W",
+   "url": "https://openlibrary.org/works/OL81632W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14654118-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "salome-2000": {
+   "match": {
+    "key": "/works/OL905886W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL905886W",
+   "url": "https://openlibrary.org/works/OL905886W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8242137-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "sense-and-sensibility-1811": {
+   "match": {
+    "key": "/works/OL66562W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL66562W",
+   "url": "https://openlibrary.org/works/OL66562W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9278292-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "shakespeare-s-sonnets-1609": {
+   "match": {
+    "key": "/works/OL9659269W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL9659269W",
+   "url": "https://openlibrary.org/works/OL9659269W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2662031-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "shared-fantasy-role-playing-games-as-social-worlds-1983": {
+   "match": {
+    "key": "/works/OL2720381W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2720381W",
+   "url": "https://openlibrary.org/works/OL2720381W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/140722-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "ship-of-fools-1494": {
+   "match": {
+    "key": "/works/OL9213025W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL9213025W",
+   "url": "https://openlibrary.org/works/OL9213025W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2195988-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "smoke-and-mirrors-1998": {
+   "match": {
+    "key": "/works/OL679357W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL679357W",
+   "url": "https://openlibrary.org/works/OL679357W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6754762-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "snow-white-1812": {
+   "match": {
+    "key": "/works/OL24645992W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24645992W",
+   "url": "https://openlibrary.org/works/OL24645992W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11331449-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "songs-of-a-dead-dreamer-1986": {
+   "match": {
+    "key": "/works/OL20016684W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20016684W",
+   "url": "https://openlibrary.org/works/OL20016684W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12174063-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "spock-messiah-1976": {
+   "match": {
+    "key": "/works/OL15157561W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15157561W",
+   "url": "https://openlibrary.org/works/OL15157561W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6703604-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "spock-must-die-1970": {
+   "match": {
+    "key": "/works/OL11026748W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL11026748W",
+   "url": "https://openlibrary.org/works/OL11026748W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/368623-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "starship-troopers-1959": {
+   "match": {
+    "key": "/works/OL59740W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL59740W",
+   "url": "https://openlibrary.org/works/OL59740W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14630746-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "station-eleven-2014": {
+   "match": {
+    "key": "/works/OL17202418W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17202418W",
+   "url": "https://openlibrary.org/works/OL17202418W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7369961-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "summon-the-thunder-2006": {
+   "match": {
+    "key": "/works/OL5696521W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5696521W",
+   "url": "https://openlibrary.org/works/OL5696521W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/759990-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "tales-from-shakspeare-1807": {
+   "match": {
+    "key": "/works/OL15098509W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15098509W",
+   "url": "https://openlibrary.org/works/OL15098509W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2695777-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "tarzan-of-the-apes-1912": {
+   "match": {
+    "key": "/works/OL3851241W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL3851241W",
+   "url": "https://openlibrary.org/works/OL3851241W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8507406-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "terminologia-anatomica-1998": {
+   "match": {
+    "key": "/works/OL19070878W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19070878W",
+   "url": "https://openlibrary.org/works/OL19070878W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8385020-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-adventure-of-the-blue-carbuncle-1892": {
+   "match": {
+    "key": "/works/OL1518317W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1518317W",
+   "url": "https://openlibrary.org/works/OL1518317W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/767108-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-adventure-of-the-speckled-band-1891": {
+   "match": {
+    "key": "/works/OL262561W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL262561W",
+   "url": "https://openlibrary.org/works/OL262561W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8517526-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-adventures-of-pinocchio-1881": {
+   "match": {
+    "key": "/works/OL1527356W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1527356W",
+   "url": "https://openlibrary.org/works/OL1527356W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8597022-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-adventures-of-sherlock-holmes-1892": {
+   "match": {
+    "key": "/works/OL18188726W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL18188726W",
+   "url": "https://openlibrary.org/works/OL18188726W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8348999-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-adventures-of-tom-sawyer-1876": {
+   "match": {
+    "key": "/works/OL53919W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL53919W",
+   "url": "https://openlibrary.org/works/OL53919W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12043351-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-amber-spyglass-2000": {
+   "match": {
+    "key": "/works/OL28996W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL28996W",
+   "url": "https://openlibrary.org/works/OL28996W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12613246-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-ashes-of-eden-1995": {
+   "match": {
+    "key": "/works/OL24200797W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24200797W",
+   "url": "https://openlibrary.org/works/OL24200797W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/798059-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-betrothed-1821": {
+   "match": {
+    "key": "/works/OL20159687W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20159687W",
+   "url": "https://openlibrary.org/works/OL20159687W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8805010-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-book-of-lost-tales-1983": {
+   "match": {
+    "key": "/works/OL27435W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL27435W",
+   "url": "https://openlibrary.org/works/OL27435W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9293488-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-brothers-karamazov-1878": {
+   "match": {
+    "key": "/works/OL10432709W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL10432709W",
+   "url": "https://openlibrary.org/works/OL10432709W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8272336-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-brothers-lionheart-1973": {
+   "match": {
+    "key": "/works/OL14872846W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14872846W",
+   "url": "https://openlibrary.org/works/OL14872846W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/955438-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-call-of-the-wild-1903": {
+   "match": {
+    "key": "/works/OL14942956W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL14942956W",
+   "url": "https://openlibrary.org/works/OL14942956W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12393037-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-canterbury-tales-1387": {
+   "match": {
+    "key": "/works/OL531767W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL531767W",
+   "url": "https://openlibrary.org/works/OL531767W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/5767180-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-captain-s-daughter-1836": {
+   "match": {
+    "key": "/works/OL17680681W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17680681W",
+   "url": "https://openlibrary.org/works/OL17680681W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7954101-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-caves-of-steel-1954": {
+   "match": {
+    "key": "/works/OL46401W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL46401W",
+   "url": "https://openlibrary.org/works/OL46401W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13790511-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-clan-of-the-cave-bear-1980": {
+   "match": {
+    "key": "/works/OL2746369W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2746369W",
+   "url": "https://openlibrary.org/works/OL2746369W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12529015-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-communist-manifesto-1848": {
+   "match": {
+    "key": "/works/OL629052W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL629052W",
+   "url": "https://openlibrary.org/works/OL629052W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11048623-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-dark-tower-vii-the-dark-tower-2004": {
+   "match": {
+    "key": "/works/OL81600W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL81600W",
+   "url": "https://openlibrary.org/works/OL81600W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14656148-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-decameron-1351": {
+   "match": {
+    "key": "/works/OL7180368W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL7180368W",
+   "url": "https://openlibrary.org/works/OL7180368W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6073528-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-devil-wears-prada-2003": {
+   "match": {
+    "key": "/works/OL15137662W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15137662W",
+   "url": "https://openlibrary.org/works/OL15137662W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6490195-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-divine-comedy-1320": {
+   "match": {
+    "key": "/works/OL93082W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL93082W",
+   "url": "https://openlibrary.org/works/OL93082W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11621024-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-emperor-s-new-clothes-1837": {
+   "match": {
+    "key": "/works/OL24416347W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24416347W",
+   "url": "https://openlibrary.org/works/OL24416347W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10962041-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-fall-of-the-house-of-usher-1839": {
+   "match": {
+    "key": "/works/OL41078W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL41078W",
+   "url": "https://openlibrary.org/works/OL41078W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11838138-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-farther-shore-2003": {
+   "match": {
+    "key": "/works/OL5696531W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5696531W",
+   "url": "https://openlibrary.org/works/OL5696531W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/478143-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-girl-on-the-train-2015": {
+   "match": {
+    "key": "/works/OL17112428W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17112428W",
+   "url": "https://openlibrary.org/works/OL17112428W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7350360-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-glass-menagerie-1944": {
+   "match": {
+    "key": "/works/OL30293W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL30293W",
+   "url": "https://openlibrary.org/works/OL30293W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8417699-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-good-soldier-svejk-1921": {
+   "match": {
+    "key": "/works/OL835204W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL835204W",
+   "url": "https://openlibrary.org/works/OL835204W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9314448-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-good-that-men-do-2007": {
+   "match": {
+    "key": "/works/OL15101460W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15101460W",
+   "url": "https://openlibrary.org/works/OL15101460W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/477019-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-gospel-as-revealed-to-me-1956": {
+   "match": {
+    "key": "/works/OL4213482W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL4213482W",
+   "url": "https://openlibrary.org/works/OL4213482W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6920770-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-government-inspector-1835": {
+   "match": {
+    "key": "/works/OL38690664W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL38690664W",
+   "url": "https://openlibrary.org/works/OL38690664W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2140480-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-grapes-of-wrath-1939": {
+   "match": {
+    "key": "/works/OL23205W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL23205W",
+   "url": "https://openlibrary.org/works/OL23205W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12715902-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-hidden-side-of-the-moon-1988": {
+   "match": {
+    "key": "/works/OL11348016W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL11348016W",
+   "url": "https://openlibrary.org/works/OL11348016W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2367575-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-history-of-the-kings-of-britain-1136": {
+   "match": {
+    "key": "/works/OL7982126W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL7982126W",
+   "url": "https://openlibrary.org/works/OL7982126W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/103734-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-hitler-book-2005": {
+   "match": {
+    "key": "/works/OL26281197W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL26281197W",
+   "url": "https://openlibrary.org/works/OL26281197W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12284083-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-hound-of-the-baskervilles-1902": {
+   "match": {
+    "key": "/works/OL262454W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL262454W",
+   "url": "https://openlibrary.org/works/OL262454W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8063264-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-hour-of-the-dragon-1935": {
+   "match": {
+    "key": "/works/OL9007311W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL9007311W",
+   "url": "https://openlibrary.org/works/OL9007311W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/981279-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-house-of-bernarda-alba-1946": {
+   "match": {
+    "key": "/works/OL722545W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL722545W",
+   "url": "https://openlibrary.org/works/OL722545W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/456937-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-hunchback-of-notre-dame-1831": {
+   "match": {
+    "key": "/works/OL15202030W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15202030W",
+   "url": "https://openlibrary.org/works/OL15202030W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2626880-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-huron-or-pupil-of-nature-1767": {
+   "match": {
+    "key": "/works/OL21715774W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL21715774W",
+   "url": "https://openlibrary.org/works/OL21715774W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10396875-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-iceman-cometh-1939": {
+   "match": {
+    "key": "/works/OL8026193W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8026193W",
+   "url": "https://openlibrary.org/works/OL8026193W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/905025-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-illustrated-man-1946": {
+   "match": {
+    "key": "/works/OL103128W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL103128W",
+   "url": "https://openlibrary.org/works/OL103128W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9345484-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-invisible-man-1897": {
+   "match": {
+    "key": "/works/OL52266W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL52266W",
+   "url": "https://openlibrary.org/works/OL52266W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6419199-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-jungle-book-1894": {
+   "match": {
+    "key": "/works/OL19870W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19870W",
+   "url": "https://openlibrary.org/works/OL19870W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3344204-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-klingon-dictionary-1985": {
+   "match": {
+    "key": "/works/OL2152489W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2152489W",
+   "url": "https://openlibrary.org/works/OL2152489W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/408220-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-last-command-1993": {
+   "match": {
+    "key": "/works/OL6749811W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL6749811W",
+   "url": "https://openlibrary.org/works/OL6749811W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11933173-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-last-of-the-mohicans-1824": {
+   "match": {
+    "key": "/works/OL77958W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL77958W",
+   "url": "https://openlibrary.org/works/OL77958W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8236937-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-last-unicorn-1968": {
+   "match": {
+    "key": "/works/OL26459W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL26459W",
+   "url": "https://openlibrary.org/works/OL26459W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/294651-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-legend-of-sleepy-hollow-1819": {
+   "match": {
+    "key": "/works/OL63985W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL63985W",
+   "url": "https://openlibrary.org/works/OL63985W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8243083-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-library-of-babel-1941": {
+   "match": {
+    "key": "/works/OL444807W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL444807W",
+   "url": "https://openlibrary.org/works/OL444807W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3344503-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-life-and-opinions-of-tristram-shandy-gentleman-1759": {
+   "match": {
+    "key": "/works/OL16040440W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL16040440W",
+   "url": "https://openlibrary.org/works/OL16040440W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6931535-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-lightning-thief-2005": {
+   "match": {
+    "key": "/works/OL492658W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL492658W",
+   "url": "https://openlibrary.org/works/OL492658W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7239831-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-little-golden-calf-1931": {
+   "match": {
+    "key": "/works/OL2196440W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2196440W",
+   "url": "https://openlibrary.org/works/OL2196440W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8436855-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-little-mermaid-1837": {
+   "match": {
+    "key": "/works/OL33244044W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL33244044W",
+   "url": "https://openlibrary.org/works/OL33244044W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13122516-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-lord-of-the-rings-1954": {
+   "match": {
+    "key": "/works/OL27448W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL27448W",
+   "url": "https://openlibrary.org/works/OL27448W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14625765-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-lost-world-1912": {
+   "match": {
+    "key": "/works/OL262460W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL262460W",
+   "url": "https://openlibrary.org/works/OL262460W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8231444-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-lottery-and-other-stories-1949": {
+   "match": {
+    "key": "/works/OL3171083W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL3171083W",
+   "url": "https://openlibrary.org/works/OL3171083W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9272736-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-lucifer-effect-2007": {
+   "match": {
+    "key": "/works/OL8024260W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8024260W",
+   "url": "https://openlibrary.org/works/OL8024260W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1538373-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-man-without-qualities-1932": {
+   "match": {
+    "key": "/works/OL1330245W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1330245W",
+   "url": "https://openlibrary.org/works/OL1330245W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8757647-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-martian-chronicles-1950": {
+   "match": {
+    "key": "/works/OL103134W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL103134W",
+   "url": "https://openlibrary.org/works/OL103134W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9346537-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-master-and-margarita-1928": {
+   "match": {
+    "key": "/works/OL676009W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL676009W",
+   "url": "https://openlibrary.org/works/OL676009W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12947486-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-mysterious-island-1888": {
+   "match": {
+    "key": "/works/OL1099915W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1099915W",
+   "url": "https://openlibrary.org/works/OL1099915W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1277096-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-neverending-story-1979": {
+   "match": {
+    "key": "/works/OL2271589W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2271589W",
+   "url": "https://openlibrary.org/works/OL2271589W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7383413-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-old-man-and-the-sea-1952": {
+   "match": {
+    "key": "/works/OL63073W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL63073W",
+   "url": "https://openlibrary.org/works/OL63073W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/463307-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-peony-pavilion-1598": {
+   "match": {
+    "key": "/works/OL17075101W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17075101W",
+   "url": "https://openlibrary.org/works/OL17075101W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7314709-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-peripheral-2014": {
+   "match": {
+    "key": "/works/OL17268037W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17268037W",
+   "url": "https://openlibrary.org/works/OL17268037W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8787492-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-pickwick-papers-1836": {
+   "match": {
+    "key": "/works/OL8763776W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8763776W",
+   "url": "https://openlibrary.org/works/OL8763776W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13130696-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-picture-of-dorian-gray-1890": {
+   "match": {
+    "key": "/works/OL8193416W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8193416W",
+   "url": "https://openlibrary.org/works/OL8193416W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14314858-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-polar-express-1985": {
+   "match": {
+    "key": "/works/OL3743751W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL3743751W",
+   "url": "https://openlibrary.org/works/OL3743751W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/394670-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-prince-and-the-pauper-1881": {
+   "match": {
+    "key": "/works/OL53994W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL53994W",
+   "url": "https://openlibrary.org/works/OL53994W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8221267-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-queen-of-spades-1834": {
+   "match": {
+    "key": "/works/OL8968213W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8968213W",
+   "url": "https://openlibrary.org/works/OL8968213W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2155930-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-raven-1845": {
+   "match": {
+    "key": "/works/OL41081W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL41081W",
+   "url": "https://openlibrary.org/works/OL41081W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8246077-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-republic--379": {
+   "match": {
+    "key": "/works/OL51831W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL51831W",
+   "url": "https://openlibrary.org/works/OL51831W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14418448-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-return-of-sherlock-holmes-1905": {
+   "match": {
+    "key": "/works/OL262477W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL262477W",
+   "url": "https://openlibrary.org/works/OL262477W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9246467-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-rift-1991": {
+   "match": {
+    "key": "/works/OL8126274W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8126274W",
+   "url": "https://openlibrary.org/works/OL8126274W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4650190-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-rivan-codex-1998": {
+   "match": {
+    "key": "/works/OL1923053W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1923053W",
+   "url": "https://openlibrary.org/works/OL1923053W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/209287-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-robots-of-dawn-1983": {
+   "match": {
+    "key": "/works/OL46377W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL46377W",
+   "url": "https://openlibrary.org/works/OL46377W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14372309-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-romance-of-the-three-kingdoms-1350": {
+   "match": {
+    "key": "/works/OL8065661W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8065661W",
+   "url": "https://openlibrary.org/works/OL8065661W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/1045772-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-scar-2002": {
+   "match": {
+    "key": "/works/OL8718787W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8718787W",
+   "url": "https://openlibrary.org/works/OL8718787W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/210923-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-scarlet-letter-1850": {
+   "match": {
+    "key": "/works/OL455305W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL455305W",
+   "url": "https://openlibrary.org/works/OL455305W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/5654516-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-scarlet-pimpernel-1905": {
+   "match": {
+    "key": "/works/OL1253285W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1253285W",
+   "url": "https://openlibrary.org/works/OL1253285W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/479102-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-sign-of-four-1890": {
+   "match": {
+    "key": "/works/OL262438W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL262438W",
+   "url": "https://openlibrary.org/works/OL262438W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9247987-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-snow-queen-1844": {
+   "match": {
+    "key": "/works/OL26436318W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL26436318W",
+   "url": "https://openlibrary.org/works/OL26436318W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12454615-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-sorrows-of-young-werther-1774": {
+   "match": {
+    "key": "/works/OL52556W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL52556W",
+   "url": "https://openlibrary.org/works/OL52556W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7187281-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-sword-in-the-stone-1938": {
+   "match": {
+    "key": "/works/OL1388027W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1388027W",
+   "url": "https://openlibrary.org/works/OL1388027W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12387482-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-tale-of-genji-1010": {
+   "match": {
+    "key": "/works/OL2564006W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2564006W",
+   "url": "https://openlibrary.org/works/OL2564006W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6614001-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-tell-tale-heart-1842": {
+   "match": {
+    "key": "/works/OL41059W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL41059W",
+   "url": "https://openlibrary.org/works/OL41059W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11851436-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-three-musketeers-1844": {
+   "match": {
+    "key": "/works/OL36861W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL36861W",
+   "url": "https://openlibrary.org/works/OL36861W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11929973-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-time-machine-1895": {
+   "match": {
+    "key": "/works/OL52267W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL52267W",
+   "url": "https://openlibrary.org/works/OL52267W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9009316-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-time-of-the-doves-1962": {
+   "match": {
+    "key": "/works/OL798419W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL798419W",
+   "url": "https://openlibrary.org/works/OL798419W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13199923-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-time-ships-1995": {
+   "match": {
+    "key": "/works/OL72860W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL72860W",
+   "url": "https://openlibrary.org/works/OL72860W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8925-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-time-traveler-s-almanac-2013": {
+   "match": {
+    "key": "/works/OL19343355W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19343355W",
+   "url": "https://openlibrary.org/works/OL19343355W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8456861-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-tin-drum-1950": {
+   "match": {
+    "key": "/works/OL67334W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL67334W",
+   "url": "https://openlibrary.org/works/OL67334W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/419922-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-tinderbox-1835": {
+   "match": {
+    "key": "/works/OL25520W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL25520W",
+   "url": "https://openlibrary.org/works/OL25520W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/433468-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-twelve-chairs-1927": {
+   "match": {
+    "key": "/works/OL2196450W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2196450W",
+   "url": "https://openlibrary.org/works/OL2196450W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13111119-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-two-towers-1954": {
+   "match": {
+    "key": "/works/OL27479W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL27479W",
+   "url": "https://openlibrary.org/works/OL27479W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14627564-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-unknown-soldier-1954": {
+   "match": {
+    "key": "/works/OL17907180W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17907180W",
+   "url": "https://openlibrary.org/works/OL17907180W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8342414-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-valiant-little-tailor-1812": {
+   "match": {
+    "key": "/works/OL29317553W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL29317553W",
+   "url": "https://openlibrary.org/works/OL29317553W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13003521-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-visit-1956": {
+   "match": {
+    "key": "/works/OL8001640W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL8001640W",
+   "url": "https://openlibrary.org/works/OL8001640W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/999084-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-voyage-of-the-dawn-treader-1952": {
+   "match": {
+    "key": "/works/OL71132W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL71132W",
+   "url": "https://openlibrary.org/works/OL71132W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9184719-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-wonderful-wizard-of-oz-1900": {
+   "match": {
+    "key": "/works/OL18417W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL18417W",
+   "url": "https://openlibrary.org/works/OL18417W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/552443-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-wounded-sky-1983": {
+   "match": {
+    "key": "/works/OL1950888W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1950888W",
+   "url": "https://openlibrary.org/works/OL1950888W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/408161-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-year-s-best-science-fiction-twenty-fifth-annual-collection-2008": {
+   "match": {
+    "key": "/works/OL19927925W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL19927925W",
+   "url": "https://openlibrary.org/works/OL19927925W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12167089-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-year-s-best-science-fiction-twenty-sixth-annual-collection-2009": {
+   "match": {
+    "key": "/works/OL17481949W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17481949W",
+   "url": "https://openlibrary.org/works/OL17481949W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7665700-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "the-year-s-best-science-fiction-twenty-third-annual-collection-2006": {
+   "match": {
+    "key": "/works/OL18937115W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL18937115W",
+   "url": "https://openlibrary.org/works/OL18937115W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10224536-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "theogony--700": {
+   "match": {
+    "key": "/works/OL602585W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL602585W",
+   "url": "https://openlibrary.org/works/OL602585W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/4650708-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "three-moments-of-an-explosion-2015": {
+   "match": {
+    "key": "/works/OL20788218W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20788218W",
+   "url": "https://openlibrary.org/works/OL20788218W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/10080280-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "through-the-looking-glass-1871": {
+   "match": {
+    "key": "/works/OL151406W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL151406W",
+   "url": "https://openlibrary.org/works/OL151406W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/11272464-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "time-of-contempt-1995": {
+   "match": {
+    "key": "/works/OL2577481W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2577481W",
+   "url": "https://openlibrary.org/works/OL2577481W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8309685-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "tinker-tailor-soldier-spy-1974": {
+   "match": {
+    "key": "/works/OL15723131W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15723131W",
+   "url": "https://openlibrary.org/works/OL15723131W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/7021556-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "tirant-lo-blanc-1460": {
+   "match": {
+    "key": "/works/OL2989199W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2989199W",
+   "url": "https://openlibrary.org/works/OL2989199W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/566347-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "tom-thumb-1812": {
+   "match": {
+    "key": "/works/OL35365428W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL35365428W",
+   "url": "https://openlibrary.org/works/OL35365428W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/3081185-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "town-musicians-of-bremen-1819": {
+   "match": {
+    "key": "/works/OL27707873W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL27707873W",
+   "url": "https://openlibrary.org/works/OL27707873W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12705038-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "transgender-history-2008": {
+   "match": {
+    "key": "/works/OL2954890W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL2954890W",
+   "url": "https://openlibrary.org/works/OL2954890W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/2933051-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "treasure-island-1883": {
+   "match": {
+    "key": "/works/OL24034W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL24034W",
+   "url": "https://openlibrary.org/works/OL24034W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/13859660-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "trigger-warning-2015": {
+   "match": {
+    "key": "/works/OL17348681W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL17348681W",
+   "url": "https://openlibrary.org/works/OL17348681W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8432069-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "twenty-thousand-leagues-under-the-sea-1869": {
+   "match": {
+    "key": "/works/OL1099280W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1099280W",
+   "url": "https://openlibrary.org/works/OL1099280W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/6573517-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "twilight-2005": {
+   "match": {
+    "key": "/works/OL5720023W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5720023W",
+   "url": "https://openlibrary.org/works/OL5720023W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12641977-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "uncle-tom-s-cabin-1852": {
+   "match": {
+    "key": "/works/OL152161W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL152161W",
+   "url": "https://openlibrary.org/works/OL152161W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12728198-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "unfinished-tales-1980": {
+   "match": {
+    "key": "/works/OL27466W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL27466W",
+   "url": "https://openlibrary.org/works/OL27466W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/9293458-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "vanity-fair-1848": {
+   "match": {
+    "key": "/works/OL16313W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL16313W",
+   "url": "https://openlibrary.org/works/OL16313W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/417329-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "waiting-for-godot-1949": {
+   "match": {
+    "key": "/works/OL15164672W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL15164672W",
+   "url": "https://openlibrary.org/works/OL15164672W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/376471-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "war-and-peace-1863": {
+   "match": {
+    "key": "/works/OL267171W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL267171W",
+   "url": "https://openlibrary.org/works/OL267171W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12621906-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "welcome-to-the-monkey-house-1968": {
+   "match": {
+    "key": "/works/OL98480W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL98480W",
+   "url": "https://openlibrary.org/works/OL98480W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/239796-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "white-noise-1985": {
+   "match": {
+    "key": "/works/OL1921196W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL1921196W",
+   "url": "https://openlibrary.org/works/OL1921196W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/94015-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "who-must-die-in-rwanda-s-genocide-the-state-of-exception-realized-2015": {
+   "match": {
+    "key": "/works/OL21113489W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL21113489W",
+   "url": "https://openlibrary.org/works/OL21113489W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/14257825-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "william-tell-1803": {
+   "match": {
+    "key": "/works/OL20263239W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL20263239W",
+   "url": "https://openlibrary.org/works/OL20263239W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8920510-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "winnie-the-pooh-1926": {
+   "match": {
+    "key": "/works/OL476641W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL476641W",
+   "url": "https://openlibrary.org/works/OL476641W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/8610816-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "yerma-1934": {
+   "match": {
+    "key": "/works/OL26452095W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL26452095W",
+   "url": "https://openlibrary.org/works/OL26452095W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/12485389-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
+  },
+  "yesterday-s-son-1983": {
+   "match": {
+    "key": "/works/OL5354800W",
+    "reason": "Open Library work id from Wikidata"
+   },
+   "key": "/works/OL5354800W",
+   "url": "https://openlibrary.org/works/OL5354800W",
+   "facts": {},
+   "scores": [],
+   "conflicts": [],
+   "images": [
+    {
+     "kind": "cover",
+     "url": "https://covers.openlibrary.org/b/id/407185-L.jpg",
+     "licence": "Cover via Open Library, shown for identification; rights remain with the publisher",
+     "attribution": "Open Library"
+    }
+   ]
   }
  }
 }

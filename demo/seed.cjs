@@ -11,7 +11,7 @@ function readSeed(seedDir) {
     const part = JSON.parse(fs.readFileSync(path.join(seedDir, name), "utf8"));
     base.works.push(...(part.works || []));
     base.relationships.push(...(part.relationships || []));
-    overlays.push({ terms: part.terms || {}, attributes: part.attributes || {}, credits: part.credits || {} });
+    overlays.push({ terms: part.terms || {}, attributes: part.attributes || {}, credits: part.credits || {}, summaries: part.summaries || {} });
   }
   // Overlays add to works defined in any file: tags (seed/subgenres.json), attributes such as franchises, and
   // extra credits such as lead cast (seed/people-and-franchises.json). Existing values win over overlay attributes.
@@ -28,6 +28,10 @@ function readSeed(seedDir) {
     for (const [slug, attrs] of Object.entries(overlay.attributes)) {
       const w = target(slug);
       w.attributes = { ...attrs, ...(w.attributes || {}) };
+    }
+    for (const [slug, text] of Object.entries(overlay.summaries)) {   // a summary written in the work's own record wins
+      const w = target(slug);
+      if (!w.summary) w.summary = text;
     }
     for (const [slug, credits] of Object.entries(overlay.credits)) {
       const w = target(slug);

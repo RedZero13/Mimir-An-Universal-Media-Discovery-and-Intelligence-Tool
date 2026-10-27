@@ -1,7 +1,7 @@
 {
  "about": "What each imported work still lacks. Batches remove entries as they are filled.",
  "totals": {
-  "summary": 6831,
+  "summary": 6717,
   "moods and themes": 6831,
   "parents' guide": 6831,
   "playtime": 1193,
@@ -27,12 +27,10 @@
    "parents' guide"
   ],
   "harry-potter-and-the-philosopher-s-stone-2001": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "star-wars-episode-iv-a-new-hope-1977": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -42,27 +40,22 @@
    "parents' guide"
   ],
   "star-wars-episode-v-the-empire-strikes-back-1980": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "the-incredible-hulk-2008": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "titanic-1997": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "captain-america-civil-war-2016": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "gone-with-the-wind-1939": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -72,37 +65,30 @@
    "parents' guide"
   ],
   "star-wars-episode-vi-return-of-the-jedi-1983": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "star-wars-episode-ii-attack-of-the-clones-2002": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "harry-potter-and-the-deathly-hallows-part-2-2011": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "star-wars-episode-iii-revenge-of-the-sith-2005": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "star-wars-episode-vii-the-force-awakens-2015": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "rogue-one-a-star-wars-story-2016": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "star-wars-episode-i-the-phantom-menace-1999": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -117,22 +103,18 @@
    "parents' guide"
   ],
   "doctor-strange-2016": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "beauty-and-the-beast-2017": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "the-avengers-2011": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "avatar-2009": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -143,12 +125,10 @@
    "length"
   ],
   "skyfall-2012": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "e-t-the-extra-terrestrial-1982": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -158,27 +138,22 @@
    "parents' guide"
   ],
   "thor-2011": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "ant-man-2015": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "cinderella-2015": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "queen-of-katwe-2016": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "captain-america-the-first-avenger-2011": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -188,7 +163,6 @@
    "parents' guide"
   ],
   "iron-man-3-2013": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -198,47 +172,38 @@
    "parents' guide"
   ],
   "aliens-1986": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "star-trek-the-motion-picture-1979": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "the-bfg-2016": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "the-jungle-book-2016": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "guardians-of-the-galaxy-vol-2-2017": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "spider-man-homecoming-2017": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "harry-potter-and-the-goblet-of-fire-2005": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "lucy-2014": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
   "thor-ragnarok-2017": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -15165,13 +15130,11 @@
    "parents' guide"
   ],
   "saturday-night-live-1975": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "doctor-who-1963": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode length"
@@ -15214,7 +15177,6 @@
    "episode length"
   ],
   "law-order-1990": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
@@ -15226,7 +15188,6 @@
    "episode count"
   ],
   "ncis-2003": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
@@ -15240,7 +15201,6 @@
    "episode count"
   ],
   "grey-s-anatomy-2005": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode length"
@@ -15283,19 +15243,16 @@
    "episode count"
   ],
   "star-trek-the-original-series-1966": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "arrow-2012": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "csi-crime-scene-investigation-2000": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode length"
@@ -15307,19 +15264,16 @@
    "episode count"
   ],
   "how-i-met-your-mother-2005": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "smallville-2001": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "supernatural-2005": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
@@ -15331,13 +15285,11 @@
    "episode count"
   ],
   "er-1994": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "the-west-wing-1999": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode length"
@@ -15349,13 +15301,11 @@
    "episode count"
   ],
   "stargate-sg-1-1997": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "hawaii-five-0-2010": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
@@ -15375,7 +15325,6 @@
    "episode length"
   ],
   "desperate-housewives-2004": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
@@ -15389,19 +15338,16 @@
    "episode length"
   ],
   "supergirl-2015": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "criminal-minds-2005": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
   ],
   "the-big-bang-theory-2007": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode length"
@@ -15421,7 +15367,6 @@
    "episode length"
   ],
   "modern-family-2009": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode length"
@@ -15433,7 +15378,6 @@
    "episode count"
   ],
   "the-x-files-1993": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "episode count"
@@ -23830,7 +23774,6 @@
    "page count"
   ],
   "dream-of-the-red-chamber-1701": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "language",
@@ -23843,7 +23786,6 @@
    "page count"
   ],
   "water-margin-1400": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "language",
@@ -23899,13 +23841,11 @@
    "page count"
   ],
   "all-quiet-on-the-western-front-1928": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "page count"
   ],
   "the-silmarillion-1977": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "page count"
@@ -23925,7 +23865,6 @@
    "page count"
   ],
   "iliad--800": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
@@ -23947,7 +23886,6 @@
    "page count"
   ],
   "the-lord-of-the-rings-1954": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "page count"
@@ -23969,7 +23907,6 @@
    "page count"
   ],
   "salem-s-lot-1975": [
-   "summary",
    "moods and themes",
    "parents' guide"
   ],
@@ -23987,21 +23924,18 @@
    "page count"
   ],
   "shahnameh-1000": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "page count"
   ],
   "the-romance-of-the-three-kingdoms-1350": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "language",
    "page count"
   ],
   "the-decameron-1351": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "language",
@@ -24015,14 +23949,12 @@
    "page count"
   ],
   "the-divine-comedy-1320": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "page count"
   ],
   "hallowe-en-party-1969": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "page count"
@@ -24048,13 +23980,11 @@
    "page count"
   ],
   "divergent-2011": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "page count"
   ],
   "journey-to-the-west-1592": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "page count"
@@ -27367,19 +27297,16 @@
    "playtime"
   ],
   "pokemon-emerald-2004": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "pokemon-platinum-2008": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "pokemon-crystal-2000": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
@@ -27391,7 +27318,6 @@
    "playtime"
   ],
   "league-of-legends-2009": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "language",
@@ -27399,7 +27325,6 @@
    "playtime"
   ],
   "pokemon-yellow-1998": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
@@ -27417,58 +27342,49 @@
    "playtime"
   ],
   "team-fortress-2-2007": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "super-mario-bros-3-1988": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "grand-theft-auto-iv-2008": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "minecraft-dungeons-2020": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "super-smash-bros-ultimate-2018": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "genres",
    "playtime"
   ],
   "grand-theft-auto-san-andreas-2004": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "creators",
    "playtime"
   ],
   "dota-2-2013": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "super-smash-bros-melee-2001": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "genres",
    "playtime"
   ],
   "pokemon-go-2016": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "genres",
@@ -27494,7 +27410,6 @@
    "playtime"
   ],
   "fire-emblem-three-houses-2019": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "language",
@@ -27507,7 +27422,6 @@
    "playtime"
   ],
   "cyberpunk-2077-2020": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
@@ -27521,13 +27435,11 @@
    "playtime"
   ],
   "the-sims-2-2004": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "sonic-the-hedgehog-1991": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
@@ -27539,7 +27451,6 @@
    "playtime"
   ],
   "half-life-1998": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
@@ -27551,13 +27462,11 @@
    "playtime"
   ],
   "the-sims-3-2009": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "the-legend-of-zelda-twilight-princess-2005": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
@@ -27602,13 +27511,11 @@
    "playtime"
   ],
   "grand-theft-auto-iii-2001": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "space-invaders-1978": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "language",
@@ -27621,20 +27528,17 @@
    "playtime"
   ],
   "grand-theft-auto-vice-city-2002": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "creators",
    "playtime"
   ],
   "warcraft-iii-reign-of-chaos-2002": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
   ],
   "subnautica-2014": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "playtime"
@@ -35024,27 +34928,23 @@
    "length"
   ],
   "the-wall-1979": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "views-2016": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "a-night-at-the-opera-1975": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "length"
   ],
   "19-2008": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
@@ -35060,42 +34960,36 @@
    "length"
   ],
   "black-gives-way-to-blue-2009": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "the-beatles-1968": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "hamilton-2015": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "reputation-2017": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "history-past-present-and-future-book-i-1995": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "the-freewheelin-bob-dylan-1963": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
@@ -35116,14 +35010,12 @@
    "length"
   ],
   "dangerous-1991": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "kiss-me-kiss-me-kiss-me-1987": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
@@ -35152,21 +35044,18 @@
    "length"
   ],
   "let-it-be-1970-album": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "tommy-1969": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "disintegration-1989": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
@@ -35180,21 +35069,18 @@
    "length"
   ],
   "vulnicura-2015": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "beatles-for-sale-1964": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",
    "length"
   ],
   "revolver-1966": [
-   "summary",
    "moods and themes",
    "parents' guide",
    "countries",

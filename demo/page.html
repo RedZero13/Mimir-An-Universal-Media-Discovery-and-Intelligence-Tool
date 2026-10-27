@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"light";}catch(e){document.documentElement.dataset.theme="light";}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"dark";}catch(e){document.documentElement.dataset.theme="dark";}</script>
 <script>if (location.protocol === "http:" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) location.replace("https:" + location.href.slice(5));</script>
 <title>Find what to watch, read, play or listen to next · Mimir</title>
 <meta name="description" content="Tell Mimir a mood, a favourite or how long you have, and it finds films, TV shows, books, manga, games and music that fit, with the reason for every pick. Free, from Terratales.">
@@ -17,7 +17,7 @@
   /* Terratales Brand Guidelines Vol. II, §09 Colour: fixed values */
   --void: #0B0B0C; --black: #131315; --surface: #1A1813; --surface-2: #23211C;
   --gold: #C0902F; --gold-bright: #D8B24A; --gold-deep: #8A6A18; --cream: #D8C084;
-  --bone: #EDE3CC; --ink: #E7DECB; --muted: #9A8E72; --faint: #6E685C;
+  --bone: #EDE3CC; --ink: #E7DECB; --muted: #9A8E72; --faint: #8C8573;
   --line: rgba(216, 192, 132, .16); --line-strong: rgba(216, 192, 132, .32);
   /* Product semantics (parents' guide severity), warm to stay inside the lamplight palette */
   --sev-none: #8FA58A; --sev-mild: #D8C084; --sev-moderate: #E0A04A; --sev-severe: #E07A5F;
@@ -34,12 +34,13 @@
 :root[data-theme="light"] {
   --void: #E4D8BC; --black: #EDE3CC; --surface: #F6F0E2; --surface-2: #E6DAC0;
   --gold: #A27A26; --gold-bright: #7D5F14; --gold-deep: #8A6A18; --cream: #5E4B1C;
-  --bone: #131315; --ink: #23211C; --muted: #5F5A4F; --faint: #6E685C;
+  --bone: #131315; --ink: #23211C; --muted: #5F5A4F; --faint: #5A554A;
   --line: rgba(110, 104, 92, .24); --line-strong: rgba(138, 106, 24, .45);
   --sev-none: #4F6E4A; --sev-mild: #7D6A2E; --sev-moderate: #A2601A; --sev-severe: #B04A31;
   color-scheme: light;
 }
 :root[data-theme="light"] .mine-n { color: #F6F0E2; }
+:root[data-theme="light"] :is(.eyebrow, .crawl h3) { color: var(--gold-bright); }   /* small gold text needs the deeper gold on light grounds (contrast) */
 /* Dark islands re-declare the palette; their text must take the island's ink, not the light page's. */
 :root[data-theme="light"] :is(.work-hero, .spot-light, .ring-chip, .ring) { color: var(--ink); }
 :root[data-theme="light"] .menubar { background: linear-gradient(180deg, #F6F0E2, #E8DCC0); box-shadow: 0 6px 18px rgba(110, 90, 40, .14); }
@@ -268,8 +269,8 @@ details > summary:hover { color: var(--bone); }
 .bar { display: block; height: 3px; border-radius: 2px; background: var(--surface-2); overflow: hidden; }
 .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); }
 .strength .bar { width: 96px; }
-.people { columns: 2 260px; column-gap: 40px; padding: 0; list-style: none; margin: 0; }
-.people li { padding-block: 10px; border-top: 1px solid var(--line); break-inside: avoid; }
+.people { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); column-gap: 40px; padding: 0; list-style: none; margin: 0; }
+.people li { padding-block: 10px; border-top: 1px solid var(--line); min-width: 0; overflow-wrap: anywhere; }
 .people a { font: 500 1.15rem var(--f-head); color: var(--bone); text-decoration: none; }
 .people a:hover { color: var(--gold-bright); }
 
@@ -355,9 +356,9 @@ details > summary:hover { color: var(--bone); }
 .see-all { font: 500 .86rem var(--f-body); color: var(--gold-bright); text-decoration: none; white-space: nowrap; }
 .see-all:hover { color: var(--bone); text-decoration: underline; }
 .dir-sec { margin-top: 36px; }
-.dir { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
-.dir li { border-bottom: 1px solid var(--line); }
-.dir a { display: block; padding: 11px 8px 11px 20px; position: relative; color: var(--ink); text-decoration: none; font-size: .94rem; }
+.dir { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); }
+.dir li { border-bottom: 1px solid var(--line); min-width: 0; }
+.dir a { display: block; padding: 11px 8px 11px 20px; position: relative; color: var(--ink); text-decoration: none; font-size: .94rem; overflow-wrap: anywhere; }
 .dir a::before { content: "›"; position: absolute; left: 6px; color: var(--gold); }
 .dir a:hover { background: var(--surface); color: var(--gold-bright); }
 .medium-tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
@@ -526,6 +527,9 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); gap: 12px; }
 .tile, .family { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 14px; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; background: var(--surface); height: 100%; }
 .tile:hover, .family:hover { border-color: var(--gold); background: var(--surface-2); }
+.fan .poster svg text { display: none; }   /* fanned covers overlap, so their printed titles would run into each other; the card names the works */
+.fan-empty { display: grid; place-items: center; width: 56px; height: 84px; opacity: .6; } .fan-empty .medal { width: 40px; height: 40px; }
+.tile-n { font: 600 .8rem var(--f-mono); color: var(--gold-bright); }
 .fan { display: flex; height: 92px; margin-bottom: 8px; padding: 0 10px 0 4px; min-width: 0; }
 .fan .poster { width: 56px; flex: 0 1 56px; min-width: 0; margin-left: -18px; box-shadow: -4px 4px 14px rgba(0, 0, 0, .6); }
 .fan .poster:first-child { margin-left: 0; transform: rotate(-5deg); }
@@ -1284,7 +1288,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <a class="endorse" href="https://terratalesmedia.world/" aria-label="A Terratales venture: visit Terratales">
         <img src="/*__SEAL__*/" alt="Terratales seal" width="32" height="32"><span>A TERRATALES VENTURE</span>
       </a>
-      <span class="legal">© 2026 Terratales Media Entertainment · All realms reserved</span>
+      <span class="legal">© <span id="copy-year">2026</span> Terratales Media Entertainment · All realms reserved</span>
     </div>
     <p>Mimir is in beta. Its catalogue holds <span id="cat-count">hundreds of</span> works. Facts and credits come from open data where a source matches (and say so); otherwise they are unverified, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Each is labelled where it appears. Your library, lists, ratings and feedback stay in your browser unless you email them to us. <a id="foot-feedback" href="mailto:hello@terratalesmedia.world">Send beta feedback</a>.</p>
   </footer>
@@ -2495,16 +2499,28 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       </section>`;
   }
 
+  // Three well-known works for a time tile, one per medium where possible, each with a real cover (never a generated
+  // one), in a fixed order so the picture does not change between visits.
+  const timePicks = (hits) => {
+    const real = hits.filter((w) => cardCover(w).image);
+    const rank = (a, b) => ((tierOf(a.slug) || 5) - (tierOf(b.slug) || 5)) || ((unifiedScore(b) || 0) - (unifiedScore(a) || 0)) || a.slug.localeCompare(b.slug);
+    const byMedium = new Map();
+    for (const w of [...real].sort(rank)) if (!byMedium.has(w.medium)) byMedium.set(w.medium, w);
+    const picks = [...byMedium.values()].sort(rank).slice(0, 3);
+    for (const w of [...real].sort(rank)) { if (picks.length >= 3) break; if (!picks.includes(w)) picks.push(w); }
+    return picks;
+  };
   function timeTiles() {
-    const works = allWorks();
+    const works = allWorks(), n = (k) => k.toLocaleString("en");
+    const unknown = works.filter((w) => !w.time && !NOT_MEDIA.includes(w.medium)).length;
     return `
       <section class="block" aria-labelledby="time-h">
-        <header class="shelf-head"><div><h2 id="time-h">How much time do you have?</h2><p>From a lunch break to a long winter. Times are runtime, main-story playtime, or an estimate from page count.</p></div></header>
+        <header class="shelf-head"><div><h2 id="time-h">How much time do you have?</h2><p>From a lunch break to a long winter. Times are runtime, main-story playtime, or an estimate from page count${unknown ? `; ${n(unknown)} works with no known length aren't counted` : ""}.</p></div></header>
         <ul class="tiles">${TIME_TILES.map(([slug, label, range]) => {
-          const hits = works.filter((w) => w.time && w.time.bucket === slug);
+          const hits = works.filter((w) => w.time && w.time.bucket === slug), picks = timePicks(hits);
           return `<li><a class="tile" href="#time-${slug}">
-            <span class="fan n${Math.min(hits.length, 3)}">${hits.slice(0, 3).map((w) => poster(cardCover(w))).join("")}</span>
-            <span class="tile-label">${esc(label)}</span><span class="tile-range">${esc(range)} · ${hits.length}</span></a></li>`;
+            <span class="fan n${picks.length}">${picks.length ? picks.map((w) => poster(cardCover(w))).join("") : `<span class="fan-empty" aria-hidden="true">${medal("film")}</span>`}</span>
+            <span class="tile-label">${esc(label)}</span><span class="tile-range">${esc(range)}</span><span class="tile-n">${n(hits.length)} works</span></a></li>`;
         }).join("")}</ul>
       </section>`;
   }
@@ -4367,7 +4383,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <h2>How picks are made</h2>
         <p>Every work is tagged against a controlled vocabulary of moods, themes, pacing, style and more, each with a definition. Mimir matches your request to those tags, respects your limits, favours lesser-known works when you ask, and spreads its picks so one creator doesn't fill the list. If nothing fits, it says so instead of guessing.</p>
         <h2>The beta</h2>
-        <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(allWorks().map((w) => w.original_language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
+        <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length.toLocaleString("en")} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(RAW_WORKS.flatMap((w) => w.countries || [])).size} countries in ${new Set(RAW_WORKS.map((w) => w.language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
         <p>Your library, lists, ratings and preferred apps live in your browser only; Library → Import & export saves a backup. To tell us what's wrong or missing, <a href="${esc(feedbackHref())}">send beta feedback</a>.</p>
         <h2>A Terratales venture</h2>
         <p>Mimir is built by Terratales Media Entertainment, a media, entertainment and story-technology house: stories rooted in the earth, branched out to every realm of the world. <a href="https://terratalesmedia.world/">Visit Terratales</a>.</p>
@@ -6183,7 +6199,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   renderAccountLink();
   if (session) syncNow().catch(() => {});
   document.getElementById("beta-pill").textContent = `Beta · ${RAW_WORKS.length} works`;
-  // Light (default) and dark themes; the choice is remembered in this browser.
+  document.getElementById("copy-year").textContent = new Date().getFullYear();
+  // Dark (default) and light themes; the choice is remembered in this browser.
   const themeBtn = document.getElementById("theme-btn");
   const syncTheme = () => {
     const dark = document.documentElement.dataset.theme === "dark";
