@@ -1,9 +1,8 @@
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"light";}catch(e){document.documentElement.dataset.theme="light";}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("mimir-theme")||"dark";}catch(e){document.documentElement.dataset.theme="dark";}</script>
 <script>if (location.protocol === "http:" && !/^(localhost|127\.|\[::1\])/.test(location.hostname)) location.replace("https:" + location.href.slice(5));</script>
 <title>Find what to watch, read, play or listen to next · Mimir</title>
 <meta name="description" content="Tell Mimir a mood, a favourite or how long you have, and it finds films, TV shows, books, manga, games and music that fit, with the reason for every pick. Free, from Terratales.">
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -17,7 +16,7 @@
   /* Terratales Brand Guidelines Vol. II, §09 Colour: fixed values */
   --void: #0B0B0C; --black: #131315; --surface: #1A1813; --surface-2: #23211C;
   --gold: #C0902F; --gold-bright: #D8B24A; --gold-deep: #8A6A18; --cream: #D8C084;
-  --bone: #EDE3CC; --ink: #E7DECB; --muted: #9A8E72; --faint: #6E685C;
+  --bone: #EDE3CC; --ink: #E7DECB; --muted: #9A8E72; --faint: #8C8573;
   --line: rgba(216, 192, 132, .16); --line-strong: rgba(216, 192, 132, .32);
   /* Product semantics (parents' guide severity), warm to stay inside the lamplight palette */
   --sev-none: #8FA58A; --sev-mild: #D8C084; --sev-moderate: #E0A04A; --sev-severe: #E07A5F;
@@ -34,12 +33,13 @@
 :root[data-theme="light"] {
   --void: #E4D8BC; --black: #EDE3CC; --surface: #F6F0E2; --surface-2: #E6DAC0;
   --gold: #A27A26; --gold-bright: #7D5F14; --gold-deep: #8A6A18; --cream: #5E4B1C;
-  --bone: #131315; --ink: #23211C; --muted: #5F5A4F; --faint: #6E685C;
+  --bone: #131315; --ink: #23211C; --muted: #5F5A4F; --faint: #5A554A;
   --line: rgba(110, 104, 92, .24); --line-strong: rgba(138, 106, 24, .45);
   --sev-none: #4F6E4A; --sev-mild: #7D6A2E; --sev-moderate: #A2601A; --sev-severe: #B04A31;
   color-scheme: light;
 }
 :root[data-theme="light"] .mine-n { color: #F6F0E2; }
+:root[data-theme="light"] :is(.eyebrow, .crawl h3) { color: var(--gold-bright); }   /* small gold text needs the deeper gold on light grounds (contrast) */
 /* Dark islands re-declare the palette; their text must take the island's ink, not the light page's. */
 :root[data-theme="light"] :is(.work-hero, .spot-light, .ring-chip, .ring) { color: var(--ink); }
 :root[data-theme="light"] .menubar { background: linear-gradient(180deg, #F6F0E2, #E8DCC0); box-shadow: 0 6px 18px rgba(110, 90, 40, .14); }
@@ -268,8 +268,8 @@ details > summary:hover { color: var(--bone); }
 .bar { display: block; height: 3px; border-radius: 2px; background: var(--surface-2); overflow: hidden; }
 .bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright)); }
 .strength .bar { width: 96px; }
-.people { columns: 2 260px; column-gap: 40px; padding: 0; list-style: none; margin: 0; }
-.people li { padding-block: 10px; border-top: 1px solid var(--line); break-inside: avoid; }
+.people { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); column-gap: 40px; padding: 0; list-style: none; margin: 0; }
+.people li { padding-block: 10px; border-top: 1px solid var(--line); min-width: 0; overflow-wrap: anywhere; }
 .people a { font: 500 1.15rem var(--f-head); color: var(--bone); text-decoration: none; }
 .people a:hover { color: var(--gold-bright); }
 
@@ -355,9 +355,9 @@ details > summary:hover { color: var(--bone); }
 .see-all { font: 500 .86rem var(--f-body); color: var(--gold-bright); text-decoration: none; white-space: nowrap; }
 .see-all:hover { color: var(--bone); text-decoration: underline; }
 .dir-sec { margin-top: 36px; }
-.dir { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
-.dir li { border-bottom: 1px solid var(--line); }
-.dir a { display: block; padding: 11px 8px 11px 20px; position: relative; color: var(--ink); text-decoration: none; font-size: .94rem; }
+.dir { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); }
+.dir li { border-bottom: 1px solid var(--line); min-width: 0; }
+.dir a { display: block; padding: 11px 8px 11px 20px; position: relative; color: var(--ink); text-decoration: none; font-size: .94rem; overflow-wrap: anywhere; }
 .dir a::before { content: "›"; position: absolute; left: 6px; color: var(--gold); }
 .dir a:hover { background: var(--surface); color: var(--gold-bright); }
 .medium-tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 14px; }
@@ -380,7 +380,7 @@ a.letter { color: var(--muted); text-decoration: none; }
 .adv select, .res-tools select, .filter-line input { font: 400 .9rem var(--f-body); color: var(--bone); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 4px; padding: 7px 10px; max-width: 100%; }
 .pair { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); }
 .inc-mark { color: var(--sev-none); } .exc-mark { color: var(--sev-severe); }
-.tri-cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; align-items: start; }
+.tri-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; align-items: start; }
 .tri-box { border: 1px solid var(--line-strong); border-radius: 6px; padding: 10px 12px 12px; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-content: start; background: var(--surface); }
 .tri-box legend { font: 600 10.5px var(--f-display); letter-spacing: .26em; text-transform: uppercase; color: var(--gold); padding: 0 6px; }
 .tri { cursor: pointer; font: 400 .8rem/1.2 var(--f-body); padding: 5px 10px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--ink); }
@@ -397,7 +397,7 @@ a.letter { color: var(--muted); text-decoration: none; }
 .btn-link { display: inline-flex; align-items: center; text-decoration: none; }
 
 /* ---------------------------------------------------------------- detail tiles (category pages) */
-.dtiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+.dtiles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; }
 .dtile { display: grid; grid-template-rows: auto auto auto 1fr auto; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 6px; overflow: hidden; min-width: 0; }
 .dtile header { padding: 14px 14px 10px; text-align: center; }
 .dtile h3 { font-size: 1.4rem; }
@@ -523,9 +523,12 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .spot-body h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
 .spot-body h2 a { color: var(--bone); text-decoration: none; }
 .spot-sum { color: var(--ink); max-width: 60ch; }
-.tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 12px; }
+.tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); gap: 12px; }
 .tile, .family { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 14px; overflow: hidden; border: 1px solid var(--line); border-radius: 6px; text-decoration: none; background: var(--surface); height: 100%; }
 .tile:hover, .family:hover { border-color: var(--gold); background: var(--surface-2); }
+.fan .poster svg text { display: none; }   /* fanned covers overlap, so their printed titles would run into each other; the card names the works */
+.fan-empty { display: grid; place-items: center; width: 56px; height: 84px; opacity: .6; } .fan-empty .medal { width: 40px; height: 40px; }
+.tile-n { font: 600 .8rem var(--f-mono); color: var(--gold-bright); }
 .fan { display: flex; height: 92px; margin-bottom: 8px; padding: 0 10px 0 4px; min-width: 0; }
 .fan .poster { width: 56px; flex: 0 1 56px; min-width: 0; margin-left: -18px; box-shadow: -4px 4px 14px rgba(0, 0, 0, .6); }
 .fan .poster:first-child { margin-left: 0; transform: rotate(-5deg); }
@@ -535,10 +538,24 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .tile-label { font: 600 1.2rem/1.15 var(--f-head); color: var(--bone); overflow-wrap: anywhere; }
 .tile-range { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; }
 .families > li[hidden] { display: none; }
+.home-defer { min-height: 100vh; }
+.why .why-line { margin: 6px 0 4px; }
+.why .why-more { margin-top: 6px; }
+.why .why-more summary { font-size: .8rem; }
+.sw-enough { display: grid; gap: 10px; justify-items: center; text-align: center; padding: 28px 18px; border: 1px solid var(--line-strong); border-radius: 16px; background: var(--surface); max-width: 460px; margin: 0 auto; }
+.sw-enough h2 { margin: 0; font-size: 1.5rem; }
+.sw-enough-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 0; }
+.cr-cats { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.cr-chip.tray { cursor: pointer; }
+.h1-link { color: inherit; text-decoration: none; }
+.h1-link:hover { text-decoration: underline; text-decoration-color: var(--gold); }
+.wa-about { display: flex; align-items: center; gap: 14px; margin: 8px 0 14px; }
+.wa-art { flex: none; width: 56px; }
+.wa-art .poster, .wa-art svg, .wa-art img { width: 56px; height: auto; display: block; }
 .fold-more { display: flex; justify-content: center; margin-top: 16px; }
-.families { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.families { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
 @media (max-width: 560px) { .families { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } }
-.rings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
+.rings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
 .rings > li { display: flex; }
 .ring-chip { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 18px 16px; min-height: 132px; border-radius: 8px; text-decoration: none;
   background: radial-gradient(140% 120% at 100% 0%, var(--r1), var(--r0) 70%); border: 1px solid rgba(255, 255, 255, .08); position: relative; overflow: hidden; }
@@ -632,7 +649,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .help-search:focus-within { border-color: var(--gold); }
 .help-search input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--bone); font: 400 1rem/1.4 var(--f-body); padding: 14px 16px; outline: none; }
 .help-quick { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--muted); font-size: .88rem; }
-.help-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 16px; }
+.help-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 16px; }
 .help-cat { display: grid; gap: 6px; align-content: start; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); text-decoration: none; color: inherit; }
 .help-cat:hover { border-color: var(--gold); background: var(--surface-2); }
 .help-cat h3 { font-size: 1.1rem; margin: 0; }
@@ -784,7 +801,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .decide-pick h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 6px 0; } .decide-pick h2 a { color: var(--bone); text-decoration: none; }
 .dp-why { margin: 12px 0; padding-left: 18px; color: var(--cream); }
 .dp-not { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 16px; }
-.cal-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.cal-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
 .cal-cards > li { display: flex; }
 .cal-card { flex: 1; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 8px; border: 1px solid var(--line-strong); background: var(--surface); text-decoration: none; }
 .cal-card:hover { border-color: var(--gold); }
@@ -832,7 +849,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 /* ---------------------------------------------------------------- library, tracker, diary, lists, stats, import */
 .tracker { margin-top: 18px; padding: 16px 18px; border: 1px solid var(--line-strong); border-radius: 8px; background: rgba(19, 19, 21, .55); display: grid; gap: 12px; max-width: 640px; }
 .tracker h2 { margin: 0; }
-.tr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(176px, 1fr)); gap: 12px 14px; align-items: end; }
+.tr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(176px, 1fr)); gap: 12px 14px; align-items: end; }
 .tracker label, .tr-lists { display: grid; gap: 5px; font-size: .78rem; color: var(--muted); }
 .tracker label > span:first-child, .tr-lists > span:first-child { font: 600 .66rem var(--f-display); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
 .tracker select, .tracker input, .tracker textarea, .lib-ctl select, .lib-ctl input, .lib-filters select, .lib-form input, .transfer textarea {
@@ -861,7 +878,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .lib-form input { flex: 0 1 260px; } .lib-form input.grow { flex: 1 1 300px; }
 .lib-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 12px 0; }
 .lib-row-actions { display: flex; gap: 12px; margin-top: 4px; }
-.list-cards { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.list-cards { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
 .list-cards a { display: grid; gap: 6px; padding: 16px; border: 1px solid var(--line-strong); border-radius: 8px; text-decoration: none; background: var(--surface); height: 100%; box-sizing: border-box; }
 .list-cards a:hover { border-color: var(--gold); }
 .lc-name { font: 600 1.3rem var(--f-head); color: var(--bone); }
@@ -873,7 +890,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .d-art .poster { width: 40px; }
 .diary a { color: var(--bone); }
 .d-score { margin-left: 8px; font: 500 .74rem var(--f-mono); color: var(--black); background: var(--gold-bright); border-radius: 3px; padding: 1px 6px; }
-.stat-heads { list-style: none; margin: 18px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+.stat-heads { list-style: none; margin: 18px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
 .stat-heads li { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); font-size: .8rem; color: var(--muted); }
 .sh-n { font: 600 1.8rem var(--f-head); color: var(--gold-bright); }
 .yir-hero { grid-template-columns: 160px minmax(0, 1fr); }
@@ -888,7 +905,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .hub-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 16px; align-items: start; margin-bottom: 10px; }
 .hub-side { display: grid; gap: 16px; }
 @media (max-width: 860px) { .hub-grid { grid-template-columns: 1fr; } }
-.post-grid { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.post-grid { list-style: none; margin: 18px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 .post-card a { display: grid; gap: 8px; height: 100%; padding: 20px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--surface); color: var(--ink); text-decoration: none; }
 .post-card a:hover { border-color: var(--gold); }
 .post-card h2 { font-size: 1.35rem; margin: 0; color: var(--bone); } .post-card p { margin: 0; }
@@ -1270,7 +1287,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <a class="endorse" href="https://terratalesmedia.world/" aria-label="A Terratales venture: visit Terratales">
         <img src="/*__SEAL__*/" alt="Terratales seal" width="32" height="32"><span>A TERRATALES VENTURE</span>
       </a>
-      <span class="legal">© 2026 Terratales Media Entertainment · All realms reserved</span>
+      <span class="legal">© <span id="copy-year">2026</span> Terratales Media Entertainment · All realms reserved</span>
     </div>
     <p>Mimir is in beta. Its catalogue holds <span id="cat-count">hundreds of</span> works. Facts and credits come from open data where a source matches (and say so); otherwise they are unverified, and every tag and parents' guide level is an AI-assisted reading awaiting editorial review. Each is labelled where it appears. Your library, lists, ratings and feedback stay in your browser unless you email them to us. <a id="foot-feedback" href="mailto:hello@terratalesmedia.world">Send beta feedback</a>.</p>
   </footer>
@@ -1290,7 +1307,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script>
 (() => {
   "use strict";
-  const DATA = (name) => JSON.parse(window.MIMIR_DATA ? window.MIMIR_DATA[name] : document.getElementById(`${name}-data`).textContent);
+  // Each dataset is parsed once: the catalogue alone is several MB of JSON.
+  const DATA_CACHE = new Map();
+  const DATA = (name) => {
+    if (!DATA_CACHE.has(name)) DATA_CACHE.set(name, JSON.parse(window.MIMIR_DATA ? window.MIMIR_DATA[name] : document.getElementById(`${name}-data`).textContent));
+    return DATA_CACHE.get(name);
+  };
   const cat = MDE.createCatalogue(
     DATA("catalogue"),
     DATA("taxonomy"),
@@ -1652,11 +1674,19 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     stopRipples();
     const ctx = canvas.getContext("2d");
     const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let raf = 0;
+    let raf = 0, last = 0, visible = true, w = 0, h = 0;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // Size is measured when it changes, never inside the frame loop (that would force a layout every frame).
+    const measure = () => { w = canvas.clientWidth; h = canvas.clientHeight; canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); };
+    const ro = "ResizeObserver" in window ? new ResizeObserver(() => { measure(); if (still) draw(2600); }) : null;
+    if (ro) ro.observe(canvas); else measure();
+    const io = "IntersectionObserver" in window ? new IntersectionObserver((e) => { visible = e[0].isIntersecting; if (visible && !still) { cancelAnimationFrame(raf); raf = requestAnimationFrame(draw); } }) : null;
+    if (io) io.observe(canvas);
     const draw = (t) => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const w = canvas.clientWidth, h = canvas.clientHeight;
-      if (canvas.width !== Math.round(w * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+      if (!still && (!visible || document.hidden)) { raf = 0; if (document.hidden) document.addEventListener("visibilitychange", () => { if (!raf && visible) raf = requestAnimationFrame(draw); }, { once: true }); return; }
+      if (!still && t - last < 33) { raf = requestAnimationFrame(draw); return; }
+      last = t;
+      if (!w) measure();
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
       // The well sits above the headline: a drop falls, and its rings spread out across the surface.
@@ -1688,7 +1718,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     };
     draw(2600);
     if (!still) raf = requestAnimationFrame(draw);
-    stopRipples = () => cancelAnimationFrame(raf);
+    stopRipples = () => { cancelAnimationFrame(raf); raf = 0; visible = false; if (ro) ro.disconnect(); if (io) io.disconnect(); };
   }
 
   // ------------------------------------------------------------------ discover
@@ -1761,7 +1791,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const r = hasAsked ? cat.discover(query) : null;
     const heroEnd = `${askForm()}
         <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>`;
-    const rest = `
+    const buildRest = () => `
       <div class="home">
         <div class="home-main">
           ${!hasAsked && Object.values(ratings).some((v) => v === "loved" || v === "liked") ? forYouRows(null, 2) : ""}
@@ -1771,7 +1801,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           ${hasAsked ? "" : calendarBand()}
           ${hasAsked || Object.keys(ratings).length >= 3 ? "" : starterPicker(true)}
           ${timeTiles()}
-          ${allShelves().slice(0, 2).map(shelfRow).join("")}
+          ${firstShelves().slice(0, 2).map(shelfRow).join("")}
           ${youtubeRow()}
         </div>
         <aside class="rail" aria-label="Rankings"></aside>
@@ -1783,6 +1813,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <div><p class="num">II</p><h3>See why each pick fits</h3><p>Every reason comes from the catalogue, and says whether it is a recorded fact or an editorial reading.</p></div>
         <div><p class="num">III</p><h3>Follow a thread</h3><p>Open a work for its tags, parents' guide, credits and connected stories, then wander by tag or by person.</p></div>
       </section>`}`;
+    // Landing view: paint the hero first and build the rest in the next tasks. A tall placeholder holds the space so the
+    // footer does not move when the shelves arrive; an asked question builds everything at once.
+    const deferRest = !hasAsked;
+    const rest = deferRest ? `<div id="home-defer" class="home-defer" aria-hidden="true"></div>` : buildRest();
     // The page arrives with the hero's headline already painted: build around it rather than replacing it.
     const shell = app.querySelector(".hero-shell");
     if (shell && app.children.length === 1) {
@@ -1806,14 +1840,23 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     idle(() => { if (well.isConnected) startRipples(well); }, { timeout: 2000 });
     // The rankings rail and the shelves below the opening screen are built in a second task, after the hero and first
     // rows have painted (the rail's column has a fixed width, so nothing moves when it fills).
-    const more = document.getElementById("home-more");
-    setTimeout(() => {
-      if (!more.isConnected) return;
+    const afterPaint = (f) => requestAnimationFrame(() => setTimeout(f, 0));
+    const finishHome = () => {
+      const more = document.getElementById("home-more");
+      if (!more || !more.isConnected) return;
       app.querySelector(".home > .rail").outerHTML = sideRail();
       more.insertAdjacentHTML("beforebegin", homeShelves());
       more.remove();
-      balanceHome();
-    }, 0);
+      (window.requestIdleCallback || ((f) => setTimeout(f, 50)))(balanceHome, { timeout: 1500 });
+    };
+    if (deferRest) {
+      afterPaint(() => {
+        const host = document.getElementById("home-defer");
+        if (!host || !host.isConnected) return;
+        host.outerHTML = buildRest();
+        setTimeout(finishHome, 0);
+      });
+    } else setTimeout(finishHome, 0);
   }
 
   // The rankings rail is taller than the opening shelves: move full-width shelves up beside it until the columns
@@ -2431,6 +2474,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const shelfCache = new Map();
   const shelfOf = (slug) => { if (!shelfCache.has(slug)) shelfCache.set(slug, cat.shelf(slug)); return shelfCache.get(slug); };
   const allShelves = once(() => cat.shelves());
+  const firstShelves = once(() => cat.shelves(8));
   const TIME_TILES = [["quick-bite", "Quick bite", "Under 45 minutes"], ["one-sitting", "One sitting", "Up to 2½ hours"],
     ["evening-or-two", "An evening or two", "Up to 6 hours"], ["weekend", "A weekend", "Up to 15 hours"],
     ["season", "A season", "Up to 40 hours"], ["long-haul", "A long haul", "40 hours and more"]];
@@ -2454,16 +2498,28 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       </section>`;
   }
 
+  // Three well-known works for a time tile, one per medium where possible, each with a real cover (never a generated
+  // one), in a fixed order so the picture does not change between visits.
+  const timePicks = (hits) => {
+    const real = hits.filter((w) => cardCover(w).image);
+    const rank = (a, b) => ((tierOf(a.slug) || 5) - (tierOf(b.slug) || 5)) || ((unifiedScore(b) || 0) - (unifiedScore(a) || 0)) || a.slug.localeCompare(b.slug);
+    const byMedium = new Map();
+    for (const w of [...real].sort(rank)) if (!byMedium.has(w.medium)) byMedium.set(w.medium, w);
+    const picks = [...byMedium.values()].sort(rank).slice(0, 3);
+    for (const w of [...real].sort(rank)) { if (picks.length >= 3) break; if (!picks.includes(w)) picks.push(w); }
+    return picks;
+  };
   function timeTiles() {
-    const works = allWorks();
+    const works = allWorks(), n = (k) => k.toLocaleString("en");
+    const unknown = works.filter((w) => !w.time && !NOT_MEDIA.includes(w.medium)).length;
     return `
       <section class="block" aria-labelledby="time-h">
-        <header class="shelf-head"><div><h2 id="time-h">How much time do you have?</h2><p>From a lunch break to a long winter. Times are runtime, main-story playtime, or an estimate from page count.</p></div></header>
+        <header class="shelf-head"><div><h2 id="time-h">How much time do you have?</h2><p>From a lunch break to a long winter. Times are runtime, main-story playtime, or an estimate from page count${unknown ? `; ${n(unknown)} works with no known length aren't counted` : ""}.</p></div></header>
         <ul class="tiles">${TIME_TILES.map(([slug, label, range]) => {
-          const hits = works.filter((w) => w.time && w.time.bucket === slug);
+          const hits = works.filter((w) => w.time && w.time.bucket === slug), picks = timePicks(hits);
           return `<li><a class="tile" href="#time-${slug}">
-            <span class="fan n${Math.min(hits.length, 3)}">${hits.slice(0, 3).map((w) => poster(cardCover(w))).join("")}</span>
-            <span class="tile-label">${esc(label)}</span><span class="tile-range">${esc(range)} · ${hits.length}</span></a></li>`;
+            <span class="fan n${picks.length}">${picks.length ? picks.map((w) => poster(cardCover(w))).join("") : `<span class="fan-empty" aria-hidden="true">${medal("film")}</span>`}</span>
+            <span class="tile-label">${esc(label)}</span><span class="tile-range">${esc(range)}</span><span class="tile-n">${n(hits.length)} works</span></a></li>`;
         }).join("")}</ul>
       </section>`;
   }
@@ -2480,10 +2536,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function seriesBand() {
     const groups = cat.groups().filter((g) => g.count > 1);
     if (!groups.length) return "";
+    FOLD_ALL.set("home-series", () => groups.map(familyCard).join(""));
     return `
       <section class="block" aria-labelledby="series-h">
         <header class="shelf-head"><div><h2 id="series-h">Series &amp; franchise families</h2><p>Start at the beginning, or see what you'd be signing up for.</p></div><a class="see-all" href="#series">All series</a></header>
-        <ul class="families" data-fold="6" data-name="home-series">${groups.map(familyCard).join("")}</ul>
+        <ul class="families" data-fold="6" data-name="home-series" data-total="${groups.length}">${groups.slice(0, FOLD_FIRST).map(familyCard).join("")}</ul>
       </section>`;
   }
 
@@ -2523,9 +2580,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   function homeShelves() {
-    const shelves = allShelves().slice(2, 14);
+    const shelves = firstShelves().slice(2, 8);
     return shelves.map((s, i) => shelfRow(s) + (i === 1 ? moodBand() : i === 4 ? seriesBand() : "")).join("")
-      + `<p class="more-shelves"><a class="btn ghost btn-link" href="#shelves">See all ${allShelves().length} shelves</a></p>`;
+      + `<p class="more-shelves"><a class="btn ghost btn-link" href="#shelves">See all shelves</a></p>`;
   }
 
   // ------------------------------------------------------------------ about panels (shelf and tag pages)
@@ -2641,11 +2698,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     // Largest IPs first.
     const groups = ipList().map((g) => ({ ...g, n: g.members.length || (cat.group(g.slug) || { works: [] }).works.length }))
       .sort((a, b) => b.n - a.n || a.name.localeCompare(b.name));
+    FOLD_ALL.set("sagas", () => groups.map(familyCard).join(""));
     const lone = shelfOf("lone-wolves");
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">Series or standalone</p><h1>Series &amp; families</h1>
         <p>Every franchise and series as one page: its films, shows, books and games, each in order, with the time it takes to see the whole run. Franchises and series come from the catalogue and Wikidata; a family is found by following sequel, spin-off and remake links.</p></header>
-      <section class="block"><ul class="families" data-fold="9" data-name="sagas">${groups.map(familyCard).join("")}</ul></section>
+      <section class="block"><ul class="families" data-fold="9" data-name="sagas" data-total="${groups.length}">${groups.slice(0, FOLD_FIRST).map(familyCard).join("")}</ul></section>
       ${lone ? `<section class="block"><header class="shelf-head"><div><h2>${esc(lone.name)}</h2><p>${esc(lone.tagline)}</p></div><a class="see-all" href="#shelf-lone-wolves">See all ${lone.total}</a></header>${row(lone.works.slice(0, 16))}</section>` : ""}`;
   }
 
@@ -3187,7 +3245,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (waTimer.ctx !== (remoteId || slug)) { clearInterval(waTimer.tick); waTimer = { base: 0, startedAt: null, tick: null, ctx: remoteId || slug }; }
     const runtime = w ? (w.medium === "series" ? (w.attributes.episode_minutes || 45) * 60 : (w.runtime_minutes || 120) * 60) : 7200;
     app.innerHTML = `
-      <header class="page-band"><p class="eyebrow">Watch along</p><h1>${w ? esc(w.title) : "Watch-along"}</h1>
+      <header class="page-band"><p class="crumbs"><a href="#community">Community</a>${w ? ` · <a href="#work-${esc(slug)}">Back to ${esc(w.title)}</a>` : ""}</p>
+        <p class="eyebrow">Watch along</p><h1>${w ? `<a class="h1-link" href="#work-${esc(slug)}" title="Open the page for ${esc(w.title)}">${esc(w.title)}</a>` : "Watch-along"}</h1>
+        ${w ? `<p class="wa-about"><a class="wa-art" href="#work-${esc(slug)}" aria-hidden="true" tabindex="-1">${poster(cardCover(w))}</a><span class="muted">${esc(mediumLabel(w.medium))}${w.year ? ` · ${esc(w.year)}` : ""} · <a href="#work-${esc(slug)}">Open the full page: tags, parents' guide, credits and where to watch</a></span></p>` : ""}
         <p class="muted">Press play on your own screen and start the timer at the same moment. Comments are pinned to the time they were written and appear as your timer reaches them; nothing ahead of you is shown.</p></header>
       <section class="wa-panel">
         <div class="wa-clock"><span class="wa-time" id="wa-time">${clock(waNow())}</span>
@@ -3281,8 +3341,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function watchAlongBox(remote) {
     const local = localWatchAlongs();
     const items = [
-      ...(remote || []).map((x) => `<li><a href="#wa-${esc(x.id)}">${esc(x.work.title)}</a> <span class="muted small">with ${esc(x.host.display_name)}${x.starts_at ? ` · ${esc(new Date(x.starts_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }))}` : " · any time"} · ${x.comments} comments</span></li>`),
-      ...local.map(({ slug, wa, w }) => `<li><a href="#watch-${esc(slug)}">${esc(w.title)}</a> <span class="muted small">${wa.comments.length} comments · in this browser</span></li>`),
+      ...(remote || []).map((x) => `<li><a href="#wa-${esc(x.id)}">${esc(x.work.title)}</a>${x.work.slug ? ` <a class="small" href="#work-${esc(x.work.slug)}">(title page)</a>` : ""} <span class="muted small">with ${esc(x.host.display_name)}${x.starts_at ? ` · ${esc(new Date(x.starts_at).toLocaleString([], { dateStyle: "medium", timeStyle: "short" }))}` : " · any time"} · ${x.comments} comments</span></li>`),
+      ...local.map(({ slug, wa, w }) => `<li><a href="#watch-${esc(slug)}">${esc(w.title)}</a> <a class="small" href="#work-${esc(slug)}">(title page)</a> <span class="muted small">${wa.comments.length} comments · in this browser</span></li>`),
     ];
     return `<section class="stat-box"><h2>Watch-alongs</h2>${items.length ? `<ul class="plain">${items.join("")}</ul>` : `<p class="muted">None open. Open any film or series and choose <em>Watch along</em>: start a timer when you press play, comment as you go, and share the link so friends can watch on their own screens and see your comments at the same moments.</p>`}</section>`;
   }
@@ -4244,7 +4304,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   function forYouRows(medium = null, groups = 3) {
     const taste = tasteRatings();
-    const rec = cat.recommend(taste, 36, medium);
+    const rec = cat.recommend(taste, 60, medium);
+    rec.results = specificFirst(unseen(rec.results)).slice(0, 36);
     if (!rec.results.length) return "";
     const byBecause = new Map();
     for (const w of rec.results) {
@@ -4278,7 +4339,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function renderForYou(medium = "all") {
     const m = MEDIA.includes(medium) ? medium : null;
     const taste = tasteRatings();
-    const rec0 = cat.recommend(taste, 300, m), rec = { ...rec0, results: forYouFilter(personalise(rec0.results)) };
+    const rec0 = cat.recommend(taste, 300, m), rec = { ...rec0, results: forYouFilter(specificFirst(unseen(personalise(rec0.results)))) };
     const fyChips = (field, opts) => opts.map(([v, l]) => `<button type="button" class="tchip${forYouOpts[field] === v ? " on" : ""}" data-for-you="${field}" data-value="${v}" aria-pressed="${forYouOpts[field] === v}">${esc(l)}</button>`).join("");
     const rated = allWorks().filter((w) => taste[w.slug]);
     app.innerHTML = `
@@ -4290,7 +4351,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <p><span class="eyebrow">Context</span>${fyChips("ctx", [["", "None"], ...allContexts().map((c) => [c.id, c.name])])}<a class="small" href="#taste">Edit your taste</a></p></div>` : ""}
       ${rated.length ? (rec.results.length ? `
         <section class="results-sec"><header class="sec-head"><h2>Picks for you <span class="count">(${rec.results.length})</span></h2></header>
-          ${pgrid(rec.results, (w) => `<p class="pmeta">Because you ${taste[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}</p>${whyDetails(w)}${rateButtons(w.slug, true)}`)}
+          ${pgrid(rec.results, (w) => `<p class="pmeta">${specificShared(w).length ? `Because you ${taste[w.because.slug] === "loved" ? "loved" : "liked"} ${esc(w.because.title)}` : "A broad match for your taste"}</p>${whyDetails(w)}${rateButtons(w.slug, true)}`)}
         </section>` : `<p class="empty">${Object.values(taste).some((v) => v === "loved" || v === "liked") ? "Nothing new matches your taste with these settings. Try another tab, or loosen popularity or length." : "Love or like at least one work to get picks. \"Not for me\" alone only tells Mimir what to avoid."}</p>`) : ""}
       <p class="muted small">Faster than rating one by one: <a href="#swipe">swipe through cards</a>, or <a href="#craft">craft a recommendation</a>.</p>
       ${starterPicker()}
@@ -4321,7 +4382,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <h2>How picks are made</h2>
         <p>Every work is tagged against a controlled vocabulary of moods, themes, pacing, style and more, each with a definition. Mimir matches your request to those tags, respects your limits, favours lesser-known works when you ask, and spreads its picks so one creator doesn't fill the list. If nothing fits, it says so instead of guessing.</p>
         <h2>The beta</h2>
-        <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(allWorks().map((w) => w.language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
+        <p>${(() => { const n = (m) => allWorks().filter((w) => w.medium === m).length; return `The beta catalogue holds ${allWorks().length.toLocaleString("en")} works: ${n("film")} films, ${n("series")} TV series, ${n("book")} books, ${n("game")} games and ${n("album")} albums, from ${new Set(RAW_WORKS.flatMap((w) => w.countries || [])).size} countries in ${new Set(RAW_WORKS.map((w) => w.language).filter(Boolean)).size} original languages.`; })()} Facts come from open data (Wikidata, Open Library, MusicBrainz) where a source matches a work, and each page says which. The rest, and every tag and parents' guide level, is an AI-assisted reading awaiting editorial review. Where a category hasn't been assessed, Mimir says "Not assessed" rather than implying it is safe.</p>
         <p>Your library, lists, ratings and preferred apps live in your browser only; Library → Import & export saves a backup. To tell us what's wrong or missing, <a href="${esc(feedbackHref())}">send beta feedback</a>.</p>
         <h2>A Terratales venture</h2>
         <p>Mimir is built by Terratales Media Entertainment, a media, entertainment and story-technology house: stories rooted in the earth, branched out to every realm of the world. <a href="https://terratalesmedia.world/">Visit Terratales</a>.</p>
@@ -4463,18 +4524,22 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   app.addEventListener("submit", (e) => { if (e.target.closest("[data-help-form]")) e.preventDefault(); });
 
 
-  // Long card grids show a few rows and keep the rest behind a button: [data-fold="rows"] on the list.
-  const foldOpen = new Set();
+  // Long card grids show a few rows and keep the rest behind a button: [data-fold="rows"] on the list. A grid with a
+  // FOLD_ALL entry holds only its first FOLD_FIRST cards until the button is pressed, so hidden cards cost nothing.
+  const FOLD_FIRST = 54, FOLD_ALL = new Map(), foldOpen = new Set();
   function foldGrids() {
     for (const ul of app.querySelectorAll("[data-fold]")) {
-      const rows = +ul.dataset.fold || 6, name = ul.dataset.name || "", items = [...ul.children];
+      const rows = +ul.dataset.fold || 6, name = ul.dataset.name || "";
+      const open = foldOpen.has(name), lazy = FOLD_ALL.has(name);
+      if (lazy && open && ul.dataset.full !== "1") { ul.innerHTML = FOLD_ALL.get(name)(); ul.dataset.full = "1"; }
+      const items = [...ul.children], total = +ul.dataset.total || items.length;
       const cols = Math.max(1, getComputedStyle(ul).gridTemplateColumns.split(" ").filter(Boolean).length);
-      const limit = cols * (cols <= 2 ? Math.min(rows, 4) : rows), open = foldOpen.has(name);
+      const limit = cols * (cols <= 2 ? Math.min(rows, 4) : rows);
       let more = ul.nextElementSibling && ul.nextElementSibling.classList.contains("fold-more") ? ul.nextElementSibling : null;
-      if (items.length <= limit) { items.forEach((li) => { li.hidden = false; }); if (more) more.remove(); continue; }
+      if (total <= limit) { items.forEach((li) => { li.hidden = false; }); if (more) more.remove(); continue; }
       items.forEach((li, i) => { li.hidden = !open && i >= limit; });
       if (!more) { more = document.createElement("div"); more.className = "fold-more"; ul.after(more); }
-      const html = `<button type="button" class="btn ghost" data-fold-toggle="${esc(name)}" aria-expanded="${open}">${open ? "Show fewer" : `Show all ${items.length}`}</button>`;
+      const html = `<button type="button" class="btn ghost" data-fold-toggle="${esc(name)}" aria-expanded="${open}">${open ? "Show fewer" : `Show all ${total}`}</button>`;
       if (more.innerHTML !== html) more.innerHTML = html;
     }
   }
@@ -4869,6 +4934,25 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const all = [...sum].sort((a, b) => b[1] - a[1]);
     return { towards: all.filter(([, v]) => v > 0.3).slice(0, 14), away: all.filter(([, v]) => v < -0.3).reverse().slice(0, 8), n: Object.keys(taste).length };
   }
+  // Everything the visitor has already dealt with: rated (liked, loved, not for me), anything in the library at any
+  // status, and cards skipped in Swipe. Recommendations never repeat these.
+  function seenSlugs() {
+    const seen = new Set([...Object.keys(tasteRatings()), ...Object.keys(ratings), ...Object.keys(library)]);
+    for (const sl of swipe.skipped) seen.add(sl);
+    return seen;
+  }
+  const unseen = (list) => { const seen = seenSlugs(); return list.filter((w) => !seen.has(w.slug)); };
+  // How common each quality is across the catalogue: a quality most works carry says little about why one fits.
+  const TAG_FREQ = once(() => {
+    const f = new Map(); const n = cat.works.length || 1;
+    for (const w of cat.works) for (const [k, ev] of w.terms) if (ev.strength >= 0.5) f.set(k, (f.get(k) || 0) + 1);
+    for (const [k, c] of f) f.set(k, c / n);
+    return f;
+  });
+  const SPECIFIC_BELOW = 0.18;
+  const specificShared = (w) => (w.shared || []).filter((t) => (TAG_FREQ().get(t.key) || 0) < SPECIFIC_BELOW);
+  // Picks that share something distinctive come first; broad matches follow.
+  const specificFirst = (list) => [...list.filter((w) => specificShared(w).length), ...list.filter((w) => !specificShared(w).length)];
   // Re-rank picks with your edits, the active context and the familiarity setting; anything you avoid is removed.
   function personalise(results) {
     const taste = tasteRatings(), rated = Object.keys(taste).filter((s) => taste[s] !== "disliked" && fullWork().has(s));
@@ -4892,15 +4976,22 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       return { w, s };
     }).sort((a, b) => b.s - a.s).map((x) => x.w);
   }
-  // #5 + #12 Why a pick fits: each shared quality, how strongly it applies to the pick and to what you rated, and where it comes from.
+  // #5 + #12 Why a pick fits: one sentence on what it shares with the work it came from, and the numbers one click further.
   function whyDetails(w) {
     if (!w.because || !w.shared || !w.shared.length) return "";
     const mine = termInfo().get(w.because.slug), theirs = termInfo().get(w.slug);
-    return `<details class="why"><summary>Why?</summary><ul>${w.shared.map((t) => {
-      const a = theirs.get(t.key), b = mine.get(t.key);
-      return `<li><a href="#${tagToken(t.key)}">${esc(t.label)}</a>: ${a ? Math.round(a.strength * 100) : 0}% here, ${b ? Math.round(b.strength * 100) : 0}% in ${esc(w.because.title)}
-        <span class="muted small">${a ? esc(basisText(a)) : ""}${a && a.confidence != null ? ` · confidence ${Math.round(a.confidence * 100)}%` : ""}</span></li>`;
-    }).join("")}</ul>${tasteEdits.boost.length || tasteEdits.mute.length || activeContext() || forYouOpts.fam !== "any" ? `<p class="muted small">Order also reflects your <a href="#taste">taste settings</a>.</p>` : ""}</details>`;
+    const specific = specificShared(w), lead = (specific.length ? specific : w.shared).slice(0, 2);
+    const names = lead.map((t) => `<a href="#${tagToken(t.key)}">${esc(t.label.toLowerCase())}</a>`).join(" and ");
+    const sentence = specific.length
+      ? `It shares ${names} with ${esc(w.because.title)}.`
+      : `A broad match: it shares ${names} with ${esc(w.because.title)}, qualities that many works have.`;
+    const leadInfo = lead.map((t) => theirs.get(t.key)).filter(Boolean);
+    const conf = leadInfo.filter((a) => a.confidence != null).map((a) => a.confidence);
+    const basis = leadInfo.length ? `${basisText(leadInfo[0])}${conf.length ? ` · confidence ${Math.round((conf.reduce((x, y) => x + y, 0) / conf.length) * 100)}%` : ""}` : "";
+    const rows = w.shared.map((t) => { const a = theirs.get(t.key), b = mine.get(t.key);
+      return `<li><a href="#${tagToken(t.key)}">${esc(t.label)}</a>: ${a ? Math.round(a.strength * 100) : 0}% here, ${b ? Math.round(b.strength * 100) : 0}% in ${esc(w.because.title)}</li>`; }).join("");
+    return `<details class="why"><summary>Why?</summary><p class="why-line">${sentence}</p>${basis ? `<p class="muted small">${esc(basis)}</p>` : ""}
+      <details class="why-more"><summary>How strong each match is</summary><ul>${rows}</ul></details>${tasteEdits.boost.length || tasteEdits.mute.length || activeContext() || forYouOpts.fam !== "any" ? `<p class="muted small">Order also reflects your <a href="#taste">taste settings</a>.</p>` : ""}</details>`;
   }
 
   // #14 Taste over time, from what you finished and when.
@@ -5122,7 +5213,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function dayForYou(o) {
     const taste = tasteRatings();
     if (!Object.values(taste).some((v) => v === "loved" || v === "liked")) return { empty: true };
-    const picks = forYouFilter(personalise(cat.recommend(taste, 300, null).results)).filter((w) => obsMatch(w, o.rule) && !["completed", "dropped"].includes((library[w.slug] || {}).status)).slice(0, 6);
+    const picks = forYouFilter(specificFirst(unseen(personalise(cat.recommend(taste, 300, null).results)))).filter((w) => obsMatch(w, o.rule) && !["completed", "dropped"].includes((library[w.slug] || {}).status)).slice(0, 6);
     return { picks };
   }
   // No profile yet: well-known works that fit the day, to react to. Those reactions are the profile.
@@ -5197,25 +5288,33 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const oneLiner = (w) => RAW_BY.get(w.slug).summary || [(w.genres || []).slice(0, 2).map((g) => g.label).join(", "), w.year, (w.creators || [])[0]].filter(Boolean).join(" · ");
 
   // ---- swipe
-  const swipe = { medium: "all", n: 0, skipped: new Set(), undo: [], lastGenre: null, lastMedium: null, current: null, learn: "" };
+  const swipe = { medium: "all", n: 0, pos: 0, promptAt: 15, shown: new Map(), recent: [], skipped: new Set(), undo: [], lastGenre: null, lastMedium: null, current: null, learn: "" };
+  const SWIPE_EXPLORE = 14;   // the first swipes of a visit cover as many genres and moods as possible, then narrow to what you liked
   const swipePool = once(() => allWorks().filter((w) => !NOT_MEDIA.includes(w.medium) && (RAW_BY.get(w.slug).summary || wTier(w) <= 2)));
+  const swipeKeys = (slug) => [...(termMap().get(slug) || [])].filter(([k, v]) => v >= 0.5 && /^(genre|mood|theme):/.test(k) && !isSub(k)).map(([k]) => k);
   function pickSwipe() {
     const vec = tasteVector(), known = Object.keys(tasteRatings()).length >= 3;
+    // Phase 1 (the first swipes): breadth. Phase 2: lean harder on what you liked and loved, keeping some exploration.
+    const exploring = swipe.n < SWIPE_EXPLORE;
+    const wAff = exploring ? 0 : Math.min(0.95, 0.35 + 0.05 * (swipe.n - SWIPE_EXPLORE)), wNew = exploring ? 1 : Math.max(0.25, 0.7 - 0.04 * (swipe.n - SWIPE_EXPLORE));
     let best = null, bestS = -1e9;
     for (const w of swipePool()) {
       if (swipe.medium !== "all" && w.medium !== swipe.medium) continue;
-      const lib = library[w.slug];
-      if (ratings[w.slug] || swipe.skipped.has(w.slug) || (lib && ["completed", "dropped"].includes(lib.status)) || avoided(w.slug)) continue;
+      if (seenSlugs().has(w.slug) || avoided(w.slug)) continue;
       const tm = termMap().get(w.slug);
-      let aff = 0, novel = 0, n = 0;
-      for (const [k, v] of tm) { n++; const x = vec.get(k); if (x === undefined) novel++; else aff += x * v; }
-      let s = (known ? 0.6 * (aff / Math.sqrt(n || 1)) : 0) + 0.5 * (n ? novel / n : 0) * (known ? 0.6 : 1) + (wTier(w) <= 2 ? 0.35 : 0) + 0.5 * unitHash(`${w.slug}|${swipe.n}`);
-      if (firstGenre(w) && firstGenre(w) === swipe.lastGenre) s -= 0.4;
-      if (swipe.medium === "all" && w.medium === swipe.lastMedium) s -= 0.25;
+      let aff = 0, n = 0;
+      for (const [k, v] of tm) { n++; const x = vec.get(k); if (x !== undefined) aff += x * v; }
+      const keys = swipeKeys(w.slug);
+      const fresh = keys.length ? keys.filter((k) => !swipe.shown.has(k)).length / keys.length : 0.3;
+      let s = wNew * fresh + (known || !exploring ? wAff * (aff / Math.sqrt(n || 1)) : 0) + (wTier(w) <= 2 ? (exploring ? 0.3 : 0.2) : 0) + 0.35 * unitHash(`${w.slug}|${swipe.n}`);
+      if (firstGenre(w) && firstGenre(w) === swipe.lastGenre) s -= 0.5;
+      if (swipe.medium === "all") { const k = swipe.recent.filter((m) => m === w.medium).length; s -= 0.3 * k; }
       if (s > bestS) { bestS = s; best = w; }
     }
     return best;
   }
+  // After enough signal, offer to take the visitor to their picks (and again after another fifteen swipes).
+  const swipeReady = () => swipe.n >= swipe.promptAt && swipe.pos >= 5;
   function swipeCard(w, i) {
     const tags = [...(w.genres || []).slice(0, 2), ...(w.tags || []).slice(0, 2)];
     return `<article class="sw-card${i === 0 ? " top" : ""}" data-sw-card="${esc(w.slug)}" style="--i:${i}" aria-label="${esc(w.title)}"${i ? ' aria-hidden="true"' : ""}>
@@ -5227,16 +5326,18 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
   function renderSwipe(p) {
     if (p && p.get("m") !== null) swipe.medium = MEDIA.includes(p.get("m")) ? p.get("m") : "all";
-    swipe.current = pickSwipe();
+    swipe.current = swipeReady() ? null : pickSwipe();
     const rated = Object.keys(tasteRatings()).length, top = topKeys(tasteVector(), 6);
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">Teach Mimir your taste</p><h1>Swipe to find your taste</h1>
         <p class="muted">Right to like, up to love, left for not for me, down to skip what you haven't seen. Each swipe shapes your picks everywhere in Mimir. Arrow keys work too.</p></header>
       <nav class="medium-tabs" aria-label="Medium">${["all", ...MEDIA].map((x) => `<a href="#swipe?m=${x}" class="${swipe.medium === x ? "on" : ""}">${esc(PLURAL[x])}</a>`).join("")}</nav>
       <section class="sw-wrap" aria-live="polite">
-        <div class="sw-stage" id="sw-stage">${swipe.current ? swipeCard(swipe.current, 0) : `<p class="empty">You've been through everything in this medium. Try another tab, or see <a href="#for-you">your picks</a>.</p>`}</div>
+        <div class="sw-stage" id="sw-stage">${swipeReady() ? `<div class="sw-enough"><h2>We have enough to start recommending</h2><p class="muted">You've gone through ${swipe.n} cards and liked ${swipe.pos}. Want to see what Mimir would pick for you?</p>
+          <p class="sw-enough-btns"><a class="btn" href="#for-you" data-sw-picks>See my picks</a><button type="button" class="btn ghost" data-sw-more>Keep swiping</button></p></div>`
+          : swipe.current ? swipeCard(swipe.current, 0) : `<p class="empty">You've been through everything in this medium. Try another tab, or see <a href="#for-you">your picks</a>.</p>`}</div>
         <p class="sw-learn muted small" id="sw-learn">${esc(swipe.learn)}</p>
-        <div class="sw-btns" role="group" aria-label="Your verdict">
+        <div class="sw-btns" role="group" aria-label="Your verdict"${swipeReady() ? " hidden" : ""}>
           <button type="button" class="sw-b no" data-sw="no" aria-label="Not for me">✕</button><button type="button" class="sw-b skip" data-sw="skip" aria-label="Skip, I haven't seen it">↷</button>
           <button type="button" class="sw-b like" data-sw="like" aria-label="Like">✓</button><button type="button" class="sw-b love" data-sw="love" aria-label="Love">♥</button>
           <button type="button" class="sw-b undo" data-sw="undo" aria-label="Undo the last swipe"${swipe.undo.length ? "" : " disabled"}>⟲</button></div>
@@ -5260,6 +5361,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       swipe.undo.push({ slug: w.slug, prev }); if (swipe.undo.length > 30) swipe.undo.shift();
       swipe.n++; swipeStat = (Number(swipeStat) || 0) + 1; store("mimir-swipe-count", swipeStat);
       swipe.lastGenre = firstGenre(w); swipe.lastMedium = w.medium;
+      for (const k of swipeKeys(w.slug)) swipe.shown.set(k, (swipe.shown.get(k) || 0) + 1);
+      if (act === "like" || act === "love") swipe.pos++;
+      swipe.recent.push(w.medium); if (swipe.recent.length > 3) swipe.recent.shift();
       const keys = topKeys(new Map([...(termMap().get(w.slug) || [])].filter(([k]) => !k.startsWith("genre:") || true)), 3);
       swipe.learn = act === "skip" ? "Skipped: it won't count either way." : `${act === "no" ? "Less of" : "More of"}: ${keys.map(labelOf).join(", ")}`;
       setTimeout(checkBadges, 0);
@@ -5272,6 +5376,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
   // After an undo, put the same work back on top.
   function renderSwipeKeep(slug) { renderSwipe(); const w = cardOf(slug); if (w) { swipe.current = w; document.getElementById("sw-stage").innerHTML = swipeCard(w, 0); } }
+  app.addEventListener("click", (e) => {
+    if (e.target.closest("[data-sw-more]")) { swipe.promptAt = swipe.n + 15; renderSwipe(); }
+    else if (e.target.closest("[data-sw-picks]")) swipe.promptAt = swipe.n + 15;
+  });
   let drag = null, dragSuppress = false;
   document.addEventListener("click", (e) => { if (dragSuppress) { dragSuppress = false; e.preventDefault(); e.stopPropagation(); } }, true);
   document.addEventListener("pointerdown", (e) => {
@@ -5390,8 +5498,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // ---- craft: combine pieces into a hybrid, and get the pick that fits it best
   const EMOJI_GENRE = { "science-fiction": "🚀", fantasy: "🧙", horror: "👻", comedy: "😂", romance: "💞", thriller: "🕵️", drama: "🎭", animation: "🎨", crime: "🕶️", war: "⚔️", mystery: "🔍", adventure: "🧭", action: "💥", musical: "🎶", documentary: "🎥", historical: "🏛️", family: "🏡", rpg: "🎲", jazz: "🎷", rock: "🎸", electronic: "🎛️", "hip-hop": "🎤", pop: "🎧", "space-opera": "🛸", cyberpunk: "🌃", western: "🤠", superhero: "🦸", biography: "📖", sports: "🏅", food: "🍜" };
   const EMOJI_MOOD = { comforting: "☕", funny: "😄", tense: "😬", eerie: "🌫️", epic: "🏔️", wonder: "✨", melancholic: "🌧️", romantic: "💗", uplifting: "🌅", whimsical: "🎈", bleak: "🌑", nostalgic: "📼", contemplative: "🍃", unsettling: "🫥", "darkly-funny": "🖤" };
-  const craft = { items: [], sel: [], last: null, medium: "any", q: "", uid: 1, dragging: null };
-  const STARTERS = [["tag", "mood:comforting"], ["tag", "mood:funny"], ["tag", "mood:tense"], ["tag", "mood:wonder"], ["tag", "mood:melancholic"], ["tag", "genre:science-fiction"], ["tag", "genre:fantasy"], ["tag", "genre:crime"], ["medium", "film"], ["medium", "series"], ["medium", "book"], ["medium", "game"], ["medium", "album"]];
+  const craft = { items: [], sel: [], last: null, medium: "any", q: "", cat: "featured", uid: 1, dragging: null, pending: null };
+  const STARTERS = [["tag", "mood:comforting"], ["tag", "mood:funny"], ["tag", "mood:tense"], ["tag", "mood:wonder"], ["tag", "mood:melancholic"], ["tag", "mood:eerie"], ["tag", "mood:epic"], ["tag", "mood:romantic"], ["tag", "mood:whimsical"], ["tag", "mood:uplifting"], ["tag", "mood:darkly-funny"], ["tag", "mood:nostalgic"],
+    ["tag", "genre:science-fiction"], ["tag", "genre:fantasy"], ["tag", "genre:crime"], ["tag", "genre:horror"], ["tag", "genre:comedy"], ["tag", "genre:romance"], ["tag", "genre:mystery"], ["tag", "genre:adventure"], ["tag", "genre:animation"], ["tag", "genre:thriller"],
+    ["tag", "theme:time"], ["tag", "theme:family"], ["tag", "theme:coming-of-age"], ["tag", "theme:survival"], ["tag", "theme:memory"], ["tag", "world:space-setting"], ["tag", "style:atmospheric"], ["tag", "pacing:slow-burn"],
+    ["medium", "film"], ["medium", "series"], ["medium", "book"], ["medium", "game"], ["medium", "album"]];
+  const CRAFT_CATS = [["featured", "Featured"], ["mood", "Moods"], ["theme", "Themes"], ["genre", "Genres"], ["style", "Styles & worlds"], ["media", "Media"], ["blends", "My blends"], ["mine", "My works"]];
+  const CRAFT_DIMS = { mood: ["mood"], theme: ["theme"], genre: ["genre"], style: ["style", "world", "pacing", "complexity", "narrative"] };
   const norm1 = (m) => { const mx = Math.max(0, ...m.values()) || 1; return new Map([...m].map(([k, v]) => [k, v / mx])); };
   // An element is { kind: work | tag | medium | blend, ref }; resolve gives its name, emoji and quality vector.
   function resolve(el) {
@@ -5401,6 +5514,54 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const b = craftBook[el.ref]; return b ? { name: b.name, emoji: b.emoji, vec: new Map(Object.entries(b.vec)), medium: b.medium || null, blend: b } : null;
   }
   const elId = (el) => `${el.kind}:${el.ref}`;
+  // The base ingredients behind a piece (a blend carries its own list), so a result is named from everything in it,
+  // never just from the last piece added.
+  const ING_KINDS = new Set(["mood", "genre", "theme", "style", "world", "pacing", "complexity", "narrative"]);
+  function ingredientsOf(el) {
+    if (el.kind === "blend") { const b = craftBook[el.ref]; return b ? (b.ingredients || []) : []; }
+    if (el.kind === "tag") { const kind = el.ref.split(":")[0]; return [{ key: el.ref, label: labelOf(el.ref), kind: ING_KINDS.has(kind) ? kind : "theme" }]; }
+    if (el.kind === "medium") return [{ key: `medium:${el.ref}`, label: PLURAL[el.ref], kind: "medium", medium: el.ref }];
+    const R = resolve(el);   // a work stands for its strongest qualities
+    return !R ? [] : [...R.vec].filter(([k]) => /^(genre|mood|theme|style|world):/.test(k) && !isSub(k)).sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0])).slice(0, 3)
+      .map(([k]) => ({ key: k, label: labelOf(k), kind: k.split(":")[0] }));
+  }
+  // Names for common pairs; anything else gets a generated two-part name. Keys are the sorted ingredient keys.
+  const CURATED = {
+    "mood:funny+mood:wonder": "Whimsical wonder", "mood:comforting+mood:funny": "Cosy comedy", "mood:eerie+mood:tense": "Creeping dread", "mood:epic+mood:wonder": "Grand awe",
+    "mood:melancholic+mood:romantic": "Bittersweet longing", "mood:funny+mood:uplifting": "Sunny silliness", "mood:eerie+mood:funny": "Spooky giggles", "mood:epic+mood:tense": "High-stakes spectacle",
+    "mood:comforting+mood:nostalgic": "Warm nostalgia", "mood:melancholic+mood:wonder": "Wistful wonder", "mood:darkly-funny+mood:tense": "Gallows thrills", "mood:comforting+mood:wonder": "Gentle marvels",
+    "mood:romantic+mood:whimsical": "Storybook romance", "mood:eerie+mood:wonder": "Strange enchantment", "mood:contemplative+mood:melancholic": "Quiet sorrow", "mood:exhilarating+mood:funny": "Joyride",
+    "mood:bleak+mood:epic": "Grim grandeur", "mood:nostalgic+mood:whimsical": "Faded fairground", "mood:comforting+mood:melancholic": "Soft sadness", "mood:uplifting+mood:wonder": "Soaring hope",
+    "genre:fantasy+genre:science-fiction": "Starlit sorcery", "genre:comedy+genre:horror": "Horror-comedy romp", "genre:crime+genre:romance": "Dangerous liaisons", "genre:adventure+genre:fantasy": "Quest tale",
+    "genre:mystery+genre:science-fiction": "Cosmic whodunit", "genre:animation+genre:family": "Playroom picture", "genre:horror+genre:science-fiction": "Cosmic horror", "genre:crime+genre:thriller": "Noir chase",
+  };
+  const NAME_TAIL = ["fusion", "blend", "brew", "tonic", "medley", "alloy", "elixir", "spark"];
+  const upFirst = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+  function blendName(ings, blocked, h) {
+    const mediums = ings.filter((i) => i.kind === "medium"), pool = ings.filter((i) => i.kind !== "medium");
+    const lc = (t) => t.toLowerCase(), tone = new Set(["mood", "style", "world", "pacing", "complexity"]);
+    const tail = mediums.length ? ` ${mediums[0].medium === "series" ? "series" : mediums[0].medium}` : "";
+    const nameOf = (x, y) => {
+      const key = [x.key, y.key].sort().join("+");
+      if (CURATED[key]) return CURATED[key];
+      if (tone.has(x.kind) !== tone.has(y.kind) && (x.kind === "genre" || y.kind === "genre")) { const t = tone.has(x.kind) ? x : y, g = tone.has(x.kind) ? y : x; return `${t.label} ${lc(g.label)}`; }
+      if ((x.kind === "theme" || x.kind === "narrative") !== (y.kind === "theme" || y.kind === "narrative")) { const t = (x.kind === "theme" || x.kind === "narrative") ? x : y, o = t === x ? y : x; return `${o.label} ${lc(t.label)}`; }
+      return `${x.label}-${lc(y.label)} ${NAME_TAIL[hashOf(key) % NAME_TAIL.length]}`;
+    };
+    const pairs = [];
+    for (let i = 0; i < pool.length; i++) for (let j = i + 1; j < pool.length; j++) pairs.push([pool[i], pool[j]]);
+    if (!pairs.length) return upFirst(`${pool[0] ? pool[0].label : "Mystery"} remix${tail}`);
+    // Start from a pair chosen by the recipe, and move on if that name is already taken by a parent or another blend.
+    for (let n = 0; n < pairs.length; n++) {
+      const [x, y] = pairs[(h + n) % pairs.length];
+      const nm = upFirst(nameOf(x, y) + tail);
+      if (!blocked.has(nm.toLowerCase())) return nm;
+    }
+    // Every name is taken (the same ingredients met again): intensify it, then number it.
+    const [x, y] = pairs[h % pairs.length], base = nameOf(x, y) + tail;
+    for (const w of ["Deep", "Pure", "Extra", "Concentrated", "Double-strength"]) { const nm = `${w} ${base.charAt(0).toLowerCase()}${base.slice(1)}`; if (!blocked.has(nm.toLowerCase())) return nm; }
+    for (let k = 2; ; k++) { const nm = `${upFirst(base)} ${k}`; if (!blocked.has(nm.toLowerCase())) return nm; }
+  }
   function combine(a, b) {
     const A = resolve(a), B = resolve(b);
     const merged = new Map();
@@ -5408,17 +5569,17 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     for (const [k, v] of norm1(B.vec)) merged.set(k, (merged.get(k) || 0) + v * (merged.has(k) ? 1.35 : 1));   // what both share counts for more
     const vec = norm1(new Map([...merged].filter(([k]) => !k.startsWith("advisory:")).sort((x, y) => y[1] - x[1]).slice(0, 14)));
     const medium = A.medium || B.medium || null;
+    // Every ingredient from both pieces, first appearance order, no duplicates.
+    const seenKey = new Set(), ingredients = [...ingredientsOf(a), ...ingredientsOf(b)].filter((i) => !seenKey.has(i.key) && seenKey.add(i.key));
     const genres = [...vec].filter(([k]) => k.startsWith("genre:") && !isSub(k)).sort((x, y) => y[1] - x[1]);
-    const moods = [...vec].filter(([k]) => /^(mood|theme|style|world):/.test(k)).sort((x, y) => y[1] - x[1]);
-    const g1 = genres[0] && genres[0][0], m1 = moods[0] && moods[0][0];
-    const lab = (k) => labelOf(k);
-    let name = [m1 && lab(m1), g1 && lab(g1).toLowerCase()].filter(Boolean).join(" ") || `${A.name} × ${B.name}`;
-    if (medium) name = `${name} ${medium === "film" ? "film" : medium === "series" ? "series" : medium === "album" ? "album" : medium}`.replace("book book", "book");
-    const emoji = (g1 && EMOJI_GENRE[g1.slice(6)]) || (m1 && EMOJI_MOOD[m1.split(":")[1]]) || "✨";
+    const g1 = genres[0] && genres[0][0], m1 = ingredients.find((i) => i.kind === "mood");
     const id = [elId(a), elId(b)].sort().join("+");
     const bid = `b${hashOf(id).toString(36)}`;
     const first = !craftBook[bid];
-    craftBook[bid] = { name: name.charAt(0).toUpperCase() + name.slice(1), emoji, vec: Object.fromEntries(vec), medium, parents: [A.name, B.name], at: craftBook[bid] ? craftBook[bid].at : today() };
+    const blocked = new Set([A.name, B.name, ...Object.entries(craftBook).filter(([k]) => k !== bid).map(([, v]) => v.name)].map((x) => x.toLowerCase()));
+    const name = craftBook[bid] ? craftBook[bid].name : blendName(ingredients, blocked, hashOf(id));
+    const emoji = (g1 && EMOJI_GENRE[g1.slice(6)]) || (m1 && EMOJI_MOOD[m1.key.split(":")[1]]) || "✨";
+    craftBook[bid] = { name, emoji, vec: Object.fromEntries(vec), medium, ingredients, parents: [A.name, B.name], at: craftBook[bid] ? craftBook[bid].at : today() };
     if (first) { store("mimir-craft", craftBook); setTimeout(checkBadges, 0); }
     return { el: { kind: "blend", ref: bid }, first };
   }
@@ -5438,24 +5599,39 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     }
     return out.sort((a, b) => b[0] - a[0]).slice(0, 3).map(([s, w]) => ({ w, shared: [...vec].filter(([k, v]) => (termMap().get(w.slug).get(k) || 0) >= 0.4).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([k]) => labelOf(k)) }));
   }
-  const craftChip = (el, cls = "") => { const r = resolve(el); return r ? `<span class="cr-chip ${cls}" data-el="${esc(elId(el))}"><span aria-hidden="true">${r.emoji}</span> ${esc(r.name)}</span>` : ""; };
+  const craftChip = (el, cls = "") => { const r = resolve(el); return r ? `<span class="cr-chip ${cls}" data-el="${esc(elId(el))}"${cls === "tray" ? ' role="button" tabindex="0"' : ""}><span aria-hidden="true">${r.emoji}</span> ${esc(r.name)}</span>` : ""; };
   const parseEl = (id) => { const i = id.indexOf(":"); return { kind: id.slice(0, i), ref: id.slice(i + 1) }; };
+  const CRAFT_SHOW = 90;
+  const trayHtml = () => { const all = trayElements(); return (all.slice(0, CRAFT_SHOW).map((e) => craftChip(e, "tray")).join("") || `<p class="muted small">No pieces match.</p>`) + (all.length > CRAFT_SHOW ? `<p class="muted small">Showing ${CRAFT_SHOW} of ${all.length}: search to narrow them down.</p>` : ""); };
   function trayElements() {
-    const mine = Object.entries(tasteRatings()).filter(([, v]) => v !== "disliked").map(([s]) => ({ kind: "work", ref: s })).filter((e) => cardOf(e.ref)).slice(0, 12);
+    const q = craft.q.trim().toLowerCase();
+    const mine = Object.entries(tasteRatings()).filter(([, v]) => v !== "disliked").map(([s]) => ({ kind: "work", ref: s })).filter((e) => cardOf(e.ref)).slice(0, 40);
     const blends = Object.keys(craftBook).map((ref) => ({ kind: "blend", ref })).reverse();
-    return [...STARTERS.map(([kind, ref]) => ({ kind, ref })), ...blends, ...mine].filter((e) => !craft.q || (resolve(e) || { name: "" }).name.toLowerCase().includes(craft.q.toLowerCase()));
+    const mediums = ["film", "series", "book", "game", "album"].map((ref) => ({ kind: "medium", ref }));
+    const tags = (dims) => TAX_TERMS().filter((t) => dims.includes(t.dimension)).sort((x, y) => x.label.localeCompare(y.label)).map((t) => ({ kind: "tag", ref: t.key }));
+    const nameOf = (e) => (resolve(e) || { name: "" }).name.toLowerCase();
+    let list;
+    if (q) list = [...blends, ...mine, ...mediums, ...tags(["mood", "theme", "genre", "style", "world", "pacing", "complexity", "narrative"])].filter((e) => nameOf(e).includes(q));
+    else if (craft.cat === "featured") list = [...STARTERS.map(([kind, ref]) => ({ kind, ref })), ...blends.slice(0, 6), ...mine.slice(0, 6)];
+    else if (craft.cat === "media") list = mediums;
+    else if (craft.cat === "blends") list = blends;
+    else if (craft.cat === "mine") list = mine;
+    else list = tags(CRAFT_DIMS[craft.cat] || []);
+    return list;
   }
   function renderCraft() {
     const found = Object.keys(craftBook).length;
     app.innerHTML = `
       <header class="page-head"><p class="eyebrow">Craft</p><h1>Mix and match your way to a recommendation</h1>
-        <p class="muted">Drag one piece onto another, or tap two and press Combine. Works, moods, genres and mediums blend into something new, and Mimir finds the pick that fits it best. Every blend you discover is kept, and can be combined again.</p></header>
+        <p class="muted">Click or drag pieces onto the table, then drop one on another, or tap two and press Combine. Works, moods, genres and mediums blend into something new, and Mimir finds the pick that fits it best. Every blend you discover is kept, and can be combined again.</p></header>
       ${titleList()}
       <div class="cr">
         <aside class="cr-tray" aria-label="Pieces">
           <input type="search" id="cr-q" placeholder="Search pieces" aria-label="Search pieces" value="${esc(craft.q)}">
+          <p class="cr-cats" role="group" aria-label="Kinds of piece">${CRAFT_CATS.map(([id, l]) => `<button type="button" class="tchip${craft.cat === id && !craft.q ? " on" : ""}" data-craft-cat="${id}" aria-pressed="${craft.cat === id && !craft.q}">${esc(l)}</button>`).join("")}</p>
           <form class="cr-add" data-craft-add><input name="title" list="mimir-titles" placeholder="Add any work" aria-label="Add a work" autocomplete="off"><button class="btn ghost" type="submit">Add</button></form>
-          <div class="cr-list" id="cr-list">${trayElements().map((e) => craftChip(e, "tray")).join("") || `<p class="muted small">No pieces match.</p>`}</div>
+          <div class="cr-list" id="cr-list">${trayHtml()}</div>
+          <p class="muted small">Click a piece to put it on the table, or drag it there.</p>
           <p class="muted small">${found} blend${found === 1 ? "" : "s"} discovered</p></aside>
         <section class="cr-main"><div class="cr-canvas" id="cr-canvas" aria-label="Crafting area">${craft.items.length ? "" : `<p class="cr-hint muted">Drag pieces here</p>`}${craft.items.map(itemHtml).join("")}</div>
           <p class="cr-bar"><button type="button" class="btn" data-craft="combine"${craft.sel.length === 2 ? "" : " disabled"}>Combine the two selected</button><button type="button" class="linkish" data-craft="clear">Clear the table</button>
@@ -5468,6 +5644,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const R = resolve(r.el), b = R.blend, picks = craftPicks(b, new Set(r.exclude || []));
     const keys = Object.entries(b.vec).sort((x, y) => y[1] - x[1]).slice(0, 6);
     return `<div class="cr-res"><p class="eyebrow">${esc(r.a)} + ${esc(r.b)} =</p><h2><span aria-hidden="true">${b.emoji}</span> ${esc(b.name)}${r.first ? ` <span class="tchip on">New discovery</span>` : ""}</h2>
+      ${b.ingredients && b.ingredients.length ? `<p class="muted small">Made from ${esc(b.ingredients.map((i) => i.label).join(", "))}.</p>` : ""}
       <p class="pchips">${keys.map(([k]) => `<a class="tchip" href="#${tagToken(k)}">${esc(labelOf(k))}</a>`).join("")}</p>
       ${picks.length ? `<h3 class="sub-h">Your ideal pick${craft.medium !== "any" ? ` in ${esc(PLURAL[craft.medium].toLowerCase())}` : ""}</h3>${pgrid(picks.map((p) => p.w), (w) => `<p class="pmeta">Shares ${esc(picks.find((p) => p.w === w).shared.join(", ").toLowerCase())}</p>${rateButtons(w.slug, true)}`)}` : `<p class="empty">Nothing fits that blend in this medium yet. Try another medium.</p>`}</div>`;
   }
@@ -5480,7 +5657,15 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     craft.sel = []; craft.last = { el, first, a: ra.name, b: rb.name, exclude: [ra.slug, rb.slug].filter(Boolean) };
     renderCraft();
   }
-  function craftAddItem(el, x, y) { const c = document.getElementById("cr-canvas"), n = craft.items.length; craft.items.push({ uid: craft.uid++, el, x: x ?? 24 + (n % 4) * 150, y: y ?? 24 + Math.floor(n / 4) * 56 }); return craft.items[craft.items.length - 1]; }
+  // New pieces take the first free spot on the table (a grid of slots), so none lands on top of another.
+  function craftAddItem(el, x, y) {
+    if (x === undefined || y === undefined) {
+      const cols = 4, taken = (sx, sy) => craft.items.some((o) => Math.abs(o.x - sx) < 140 && Math.abs(o.y - sy) < 44);
+      let k = 0; while (taken(24 + (k % cols) * 150, 24 + Math.floor(k / cols) * 56)) k++;
+      x = 24 + (k % cols) * 150; y = 24 + Math.floor(k / cols) * 56;
+    }
+    craft.items.push({ uid: craft.uid++, el, x, y }); return craft.items[craft.items.length - 1];
+  }
   // Dragging: from the tray (makes a copy on the table) or from the table; dropping one piece on another combines them.
   document.addEventListener("pointerdown", (e) => {
     const canvas = document.getElementById("cr-canvas");
@@ -5489,14 +5674,24 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (!tray && !item) return;
     const box = canvas.getBoundingClientRect();
     let it;
-    if (tray) { it = craftAddItem(parseEl(tray.dataset.el), e.clientX - box.left - 40, e.clientY - box.top - 16); renderCraft(); }
-    else it = craft.items.find((i) => i.uid === Number(item.dataset.uid));
+    // A piece in the tray: a click puts it on the table in the next free spot; a drag brings a copy along under the pointer.
+    if (tray) { craft.pending = { el: parseEl(tray.dataset.el), sx: e.clientX, sy: e.clientY, id: e.pointerId }; return; }
+    it = craft.items.find((i) => i.uid === Number(item.dataset.uid));
     if (!it) return;
     const node = document.querySelector(`.cr-item[data-uid="${it.uid}"]`);
     craft.dragging = { it, node, ox: e.clientX - (box.left + it.x), oy: e.clientY - (box.top + it.y), sx: e.clientX, sy: e.clientY, moved: false, id: e.pointerId };
     node.setPointerCapture(e.pointerId); node.classList.add("drag");
   });
   document.addEventListener("pointermove", (e) => {
+    const pend = craft.pending;
+    if (pend && e.pointerId === pend.id && !craft.dragging && Math.abs(e.clientX - pend.sx) + Math.abs(e.clientY - pend.sy) > 6) {
+      craft.pending = null;
+      const canvas = document.getElementById("cr-canvas"), box = canvas.getBoundingClientRect();
+      const it = craftAddItem(pend.el, Math.max(4, Math.round(e.clientX - box.left - 40)), Math.max(4, Math.round(e.clientY - box.top - 16))); renderCraft();
+      const node = document.querySelector(`.cr-item[data-uid="${it.uid}"]`);
+      if (node) { craft.dragging = { it, node, ox: e.clientX - (box.left + it.x), oy: e.clientY - (box.top + it.y), sx: e.clientX, sy: e.clientY, moved: true, id: e.pointerId }; node.setPointerCapture(e.pointerId); node.classList.add("drag"); }
+      return;
+    }
     const d = craft.dragging; if (!d || e.pointerId !== d.id) return;
     const canvas = document.getElementById("cr-canvas"), box = canvas.getBoundingClientRect();
     if (Math.abs(e.clientX - d.sx) + Math.abs(e.clientY - d.sy) > 4) d.moved = true;
@@ -5507,6 +5702,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   });
   const overItem = (d) => { const r = d.node.getBoundingClientRect(); return [...document.querySelectorAll(".cr-item")].find((n) => n !== d.node && (() => { const q = n.getBoundingClientRect(); return !(q.right < r.left + 12 || q.left > r.right - 12 || q.bottom < r.top + 8 || q.top > r.bottom - 8); })()); };
   const endCraftDrag = (e) => {
+    const pend = craft.pending;
+    if (pend && (!e || e.pointerId === pend.id)) { craft.pending = null; if (e && e.type === "pointerup") { craftAddItem(pend.el); renderCraft(); } return; }
     const d = craft.dragging; if (!d || (e && e.pointerId !== d.id)) return;
     craft.dragging = null; d.node.classList.remove("drag");
     const tray = document.querySelector(".cr-tray").getBoundingClientRect();
@@ -5598,6 +5795,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (d.craft === "clear") { craft.items = []; craft.sel = []; craft.last = null; renderCraft(); }
     else if (d.craftDel) { craft.items = craft.items.filter((i) => i.uid !== Number(d.craftDel)); craft.sel = craft.sel.filter((u) => u !== Number(d.craftDel)); renderCraft(); }
     else if (d.craftMedium) { craft.medium = d.craftMedium; renderCraft(); }
+    else if (d.craftCat) { craft.cat = d.craftCat; craft.q = ""; renderCraft(); }
   });
   app.addEventListener("submit", (e) => {
     const f = e.target;
@@ -5607,8 +5805,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       craftAddItem({ kind: "work", ref: slug }); renderCraft();
     }
   });
-  app.addEventListener("input", (e) => { if (e.target.id === "cr-q") { craft.q = e.target.value; const list = document.getElementById("cr-list"); if (list) list.innerHTML = trayElements().map((x) => craftChip(x, "tray")).join("") || `<p class="muted small">No pieces match.</p>`; } });
-  app.addEventListener("keydown", (e) => { const it = e.target.closest(".cr-item"); if (it && (e.key === "Enter" || e.key === " ") && !e.target.closest("button")) { e.preventDefault(); const u = Number(it.dataset.uid), s = craft.sel, i = s.indexOf(u); if (i >= 0) s.splice(i, 1); else { s.push(u); if (s.length > 2) s.shift(); } renderCraft(); document.querySelector(`.cr-item[data-uid="${u}"]`)?.focus(); } });
+  app.addEventListener("input", (e) => { if (e.target.id === "cr-q") { craft.q = e.target.value; const list = document.getElementById("cr-list"); if (list) list.innerHTML = trayHtml(); document.querySelectorAll("[data-craft-cat]").forEach((x) => { const on = !craft.q && x.dataset.craftCat === craft.cat; x.classList.toggle("on", on); x.setAttribute("aria-pressed", on); }); } });
+  app.addEventListener("keydown", (e) => {
+    const tr = e.target.closest(".cr-chip.tray");
+    if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); const el = parseEl(tr.dataset.el); craftAddItem(el); renderCraft(); document.querySelector(`.cr-chip.tray[data-el="${CSS.escape(elId(el))}"]`)?.focus(); return; }
+    const it = e.target.closest(".cr-item"); if (it && (e.key === "Enter" || e.key === " ") && !e.target.closest("button")) { e.preventDefault(); const u = Number(it.dataset.uid), s = craft.sel, i = s.indexOf(u); if (i >= 0) s.splice(i, 1); else { s.push(u); if (s.length > 2) s.shift(); } renderCraft(); document.querySelector(`.cr-item[data-uid="${u}"]`)?.focus(); } });
 
   // ------------------------------------------------------------------ routing & events
   function setNav(group) {
@@ -5996,8 +6197,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   refreshCounts();
   renderAccountLink();
   if (session) syncNow().catch(() => {});
-  document.getElementById("beta-pill").textContent = `Beta · ${allWorks().length} works`;
-  // Light (default) and dark themes; the choice is remembered in this browser.
+  document.getElementById("beta-pill").textContent = `Beta · ${RAW_WORKS.length} works`;
+  document.getElementById("copy-year").textContent = new Date().getFullYear();
+  // Dark (default) and light themes; the choice is remembered in this browser.
   const themeBtn = document.getElementById("theme-btn");
   const syncTheme = () => {
     const dark = document.documentElement.dataset.theme === "dark";
@@ -6015,7 +6217,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   syncTheme();
   // Installable and usable offline when served from the site (the single-file build has no sw.js and skips this).
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) navigator.serviceWorker.register("/sw.js").catch(() => {});
-  document.getElementById("cat-count").textContent = allWorks().length;
+  document.getElementById("cat-count").textContent = RAW_WORKS.length;
   document.getElementById("foot-feedback").href = feedbackHref();
   // ------------------------------------------------------------------ the well backdrop, section rail, reveal
   (function ambience() {

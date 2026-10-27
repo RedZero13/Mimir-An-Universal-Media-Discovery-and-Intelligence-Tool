@@ -1,4 +1,4 @@
-"""CLI: python -m mde {migrate,seed,setup,discover,benchmark}"""
+"""CLI: python -m mde {migrate,seed,setup,discover,ingest,benchmark,audit}"""
 
 from __future__ import annotations
 
@@ -25,7 +25,14 @@ def main(argv: list[str] | None = None) -> int:
     i.add_argument("--offline", action="store_true", help="use only the local HTTP cache")
     b = sub.add_parser("benchmark", help="run the discovery benchmark")
     b.add_argument("--json", action="store_true")
-    args = parser.parse_args(argv)
+    sub.add_parser("audit", help="run the catalogue audit and write the verification workbook (see docs/MAINTENANCE.md)", add_help=False)
+    args, rest = parser.parse_known_args(argv)
+
+    if args.cmd == "audit":
+        from mde.audit.__main__ import main as audit_main
+        return audit_main(rest)
+    if rest:
+        parser.error(f"unrecognised arguments: {' '.join(rest)}")
 
     if args.cmd == "ingest":
         from mde.ingest.run import SOURCES, SourceUnavailable, run

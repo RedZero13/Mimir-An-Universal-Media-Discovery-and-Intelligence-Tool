@@ -26849,7 +26849,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Fantastic_Voyage",
    "series": null,
    "ids": {
-    "imdb": "tt0060397"
+    "imdb": "tt0060397",
+    "openlibrary": "OL46386W"
    },
    "rank": 2958
   },
@@ -44704,7 +44705,9 @@
    "description": "one of China's Four Great Classical Novels",
    "wikipedia": "https://en.wikipedia.org/wiki/Dream_of_the_Red_Chamber",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16280308W"
+   },
    "rank": 21
   },
   "crossing-the-quality-chasm-2001": {
@@ -44720,7 +44723,9 @@
    "description": "14th century Chinese novel, attributed to Shi Nai’an, one of China's Four Great Classical Novels",
    "wikipedia": "https://en.wikipedia.org/wiki/Water_Margin",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8303085W"
+   },
    "rank": 30
   },
   "book-of-jin-648": {
@@ -44748,7 +44753,9 @@
    "description": "the written work that is the authoritative definition of the 1998 edition of the international standard on human anatomic terminology",
    "wikipedia": "https://en.wikipedia.org/wiki/Terminologia_Anatomica",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19070878W"
+   },
    "rank": 38
   },
   "the-gospel-as-revealed-to-me-1956": {
@@ -44756,7 +44763,9 @@
    "description": "work by Maria Valtorta",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Poem_of_the_Man-God",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL4213482W"
+   },
    "rank": 39
   },
   "bautil-1750": {
@@ -44792,7 +44801,9 @@
    "description": "1929 novel by Erich Maria Remarque",
    "wikipedia": "https://en.wikipedia.org/wiki/All_Quiet_on_the_Western_Front",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1209288W"
+   },
    "rank": 52
   },
   "the-silmarillion-1977": {
@@ -44800,7 +44811,9 @@
    "description": "collection of myths and stories written by J. R. R. Tolkien",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Silmarillion",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27514W"
+   },
    "rank": 60
   },
   "taiping-guangji-978": {
@@ -44828,7 +44841,9 @@
    "series": [
     "Epic Cycle"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL34610657W"
+   },
    "rank": 66
   },
   "book-of-sui-636": {
@@ -44846,7 +44861,9 @@
    "description": "foundational Islamic religious text",
    "wikipedia": "https://en.wikipedia.org/wiki/Quran",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL9991493W"
+   },
    "rank": 72
   },
   "the-lord-of-the-rings-1954": {
@@ -44854,7 +44871,9 @@
    "description": "1954–1955 fantasy novel trilogy by J. R. R. Tolkien",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27448W"
+   },
    "rank": 74
   },
   "book-of-genesis--500": {
@@ -44865,7 +44884,9 @@
     "Torah",
     "Pentateuch"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2384588W"
+   },
    "rank": 76
   },
   "new-history-of-the-five-dynasties-1073": {
@@ -44883,7 +44904,9 @@
    "description": "1975 novel by Stephen King",
    "wikipedia": "https://en.wikipedia.org/wiki/'Salem's_Lot",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL81632W"
+   },
    "rank": 82
   },
   "monster-manual-ii-1st-ed-1983": {
@@ -44917,7 +44940,9 @@
    "description": "one of China's Four Great Classical Novels",
    "wikipedia": "https://en.wikipedia.org/wiki/Romance_of_the_Three_Kingdoms",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8065661W"
+   },
    "rank": 91
   },
   "the-decameron-1351": {
@@ -44925,7 +44950,9 @@
    "description": "14th-century collection of stories by Giovanni Boccaccio",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Decameron",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL7180368W"
+   },
    "rank": 96
   },
   "three-character-classic-1300": {
@@ -44941,7 +44968,9 @@
    "description": "Italian narrative poem by Dante Alighieri",
    "wikipedia": "https://en.wikipedia.org/wiki/Divine_Comedy",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL93082W"
+   },
    "rank": 102
   },
   "hallowe-en-party-1969": {
@@ -44951,7 +44980,9 @@
    "series": [
     "canon of Hercule Poirot"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL471832W"
+   },
    "rank": 103
   },
   "book-of-zhou-636": {
@@ -44977,7 +45008,9 @@
    "description": "book by Christopher Alexander",
    "wikipedia": "https://en.wikipedia.org/wiki/A_Pattern_Language",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL3923600W"
+   },
    "rank": 110
   },
   "divergent-2011": {
@@ -44987,7 +45020,9 @@
    "series": [
     "Divergent"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16813032W"
+   },
    "rank": 114
   },
   "journey-to-the-west-1592": {
@@ -44995,7 +45030,9 @@
    "description": "one of China's Four Great Classical Novels",
    "wikipedia": "https://en.wikipedia.org/wiki/Journey_to_the_West",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL3593545W"
+   },
    "rank": 115
   },
   "don-quixote-1605": {
@@ -45003,7 +45040,9 @@
    "description": "1605 and 1615 novel by Miguel de Cervantes",
    "wikipedia": "https://en.wikipedia.org/wiki/Don_Quixote",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL503666W"
+   },
    "rank": 124
   },
   "book-of-qi-510": {
@@ -45021,7 +45060,9 @@
    "description": "narrative poem by Ovid",
    "wikipedia": "https://en.wikipedia.org/wiki/Metamorphoses",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15292640W"
+   },
    "rank": 134
   },
   "ready-player-one-2011": {
@@ -45030,7 +45071,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Ready_Player_One",
    "series": null,
    "ids": {
-    "musicbrainz": "74cebfff-b24e-4e16-8761-86ec72a8f7a5"
+    "musicbrainz": "74cebfff-b24e-4e16-8761-86ec72a8f7a5",
+    "openlibrary": "OL15936512W"
    },
    "rank": 135
   },
@@ -45039,7 +45081,9 @@
    "description": "2012 novel written by Fredrik Backman",
    "wikipedia": "https://en.wikipedia.org/wiki/A_Man_Called_Ove_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16793865W"
+   },
    "rank": 140
   },
   "insurgent-2012": {
@@ -45049,7 +45093,9 @@
    "series": [
     "Divergent"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16529222W"
+   },
    "rank": 145
   },
   "aeneid--100": {
@@ -45057,7 +45103,9 @@
    "description": "epic poem by Virgil",
    "wikipedia": "https://en.wikipedia.org/wiki/Aeneid",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17405200W"
+   },
    "rank": 150
   },
   "the-tale-of-genji-1010": {
@@ -45065,7 +45113,9 @@
    "description": "classic work of Japanese literature",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Tale_of_Genji",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2564006W"
+   },
    "rank": 154
   },
   "allegiant-2013": {
@@ -45075,7 +45125,9 @@
    "series": [
     "Divergent"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16808471W"
+   },
    "rank": 158
   },
   "the-three-musketeers-1844": {
@@ -45085,7 +45137,9 @@
    "series": [
     "D'Artagnan Romances"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL36861W"
+   },
    "rank": 159
   },
   "grimms-fairy-tales-1806": {
@@ -45093,7 +45147,9 @@
    "description": "collection of German fairy tales first published 1812–15 by the Grimm brothers",
    "wikipedia": "https://en.wikipedia.org/wiki/Grimms'_Fairy_Tales",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL45361W"
+   },
    "rank": 161
   },
   "shakespeare-s-sonnets-1609": {
@@ -45101,7 +45157,9 @@
    "description": "collection of 154 sonnets by William Shakespeare, which covers themes such as the passage of time, love, beauty and mortality",
    "wikipedia": "https://en.wikipedia.org/wiki/Shakespeare's_sonnets",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL9659269W"
+   },
    "rank": 163
   },
   "parallel-lives-110": {
@@ -45109,7 +45167,9 @@
    "description": "biographies of famous Greeks and Romans by Plutarch",
    "wikipedia": "https://en.wikipedia.org/wiki/Parallel_Lives",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15436853W"
+   },
    "rank": 164
   },
   "ulysses-1914": {
@@ -45117,7 +45177,9 @@
    "description": "1922 novel by James Joyce",
    "wikipedia": "https://en.wikipedia.org/wiki/Ulysses_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL86344W"
+   },
    "rank": 167
   },
   "book-of-chen-636": {
@@ -45133,7 +45195,9 @@
    "description": "1865 children's novel by Lewis Carroll",
    "wikipedia": "https://en.wikipedia.org/wiki/Alice's_Adventures_in_Wonderland",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL138052W"
+   },
    "rank": 184
   },
   "gospel-of-luke-85": {
@@ -45149,7 +45213,9 @@
    "description": "1879 novel by Fyodor Dostoyevsky",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Brothers_Karamazov",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL10432709W"
+   },
    "rank": 187
   },
   "the-history-of-the-kings-of-britain-1136": {
@@ -45157,7 +45223,9 @@
    "description": "pseudohistorical account of British history (c.1136)",
    "wikipedia": "https://en.wikipedia.org/wiki/Historia_Regum_Britanniae",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL7982126W"
+   },
    "rank": 189
   },
   "exodus-1958": {
@@ -45183,7 +45251,9 @@
    "series": [
     "Danzig Trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL67334W"
+   },
    "rank": 194
   },
   "the-neverending-story-1979": {
@@ -45191,7 +45261,9 @@
    "description": "1979 novel by Michael Ende",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Neverending_Story",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2271589W"
+   },
    "rank": 205
   },
   "diary-of-anne-frank-1942": {
@@ -45199,7 +45271,9 @@
    "description": "posthumously published, compiled and edited literary work based on Anne Frank's diaries, distinct from its individual editions and publications",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Diary_of_a_Young_Girl",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL266178W"
+   },
    "rank": 214
   },
   "the-merchant-of-venice-1596": {
@@ -45207,7 +45281,9 @@
    "description": "play by Shakespeare set in the Republic of Venice",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Merchant_of_Venice",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL259002W"
+   },
    "rank": 215
   },
   "station-eleven-2014": {
@@ -45215,7 +45291,9 @@
    "description": "2014 science fiction novel by Emily St. John Mandel",
    "wikipedia": "https://en.wikipedia.org/wiki/Station_Eleven",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17202418W"
+   },
    "rank": 219
   },
   "little-women-1868": {
@@ -45225,7 +45303,9 @@
    "series": [
     "March Trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29983W"
+   },
    "rank": 223
   },
   "white-noise-1985": {
@@ -45233,7 +45313,9 @@
    "description": "1985 novel by Don DeLillo",
    "wikipedia": "https://en.wikipedia.org/wiki/White_Noise_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1921196W"
+   },
    "rank": 227
   },
   "the-adventures-of-pinocchio-1881": {
@@ -45241,7 +45323,9 @@
    "description": "1883 novel by Carlo Collodi",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Adventures_of_Pinocchio",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1527356W"
+   },
    "rank": 238
   },
   "the-count-of-monte-cristo-1844": {
@@ -45249,7 +45333,9 @@
    "description": "novel by Alexandre Dumas",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Count_of_Monte_Cristo",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15197048W"
+   },
    "rank": 241
   },
   "romance-of-sui-and-tang-dynasties-1695": {
@@ -45273,7 +45359,9 @@
    "description": "1970 novel by Judy Blume",
    "wikipedia": "https://en.wikipedia.org/wiki/Are_You_There_God?_It's_Me,_Margaret.",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL268217W"
+   },
    "rank": 261
   },
   "buddenbrooks-1890": {
@@ -45281,7 +45369,9 @@
    "description": "1901 novel by Thomas Mann",
    "wikipedia": "https://en.wikipedia.org/wiki/Buddenbrooks",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14867081W"
+   },
    "rank": 265
   },
   "orlando-furioso-1516": {
@@ -45289,7 +45379,9 @@
    "description": "epic Italian poem by Ludovico Ariosto",
    "wikipedia": "https://en.wikipedia.org/wiki/Orlando_Furioso",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15693876W"
+   },
    "rank": 266
   },
   "les-miserables-1862": {
@@ -45297,7 +45389,9 @@
    "description": "1862 novel by Victor Hugo",
    "wikipedia": "https://en.wikipedia.org/wiki/Les_Misérables",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1063588W"
+   },
    "rank": 268
   },
   "nihon-shoki-720": {
@@ -45315,7 +45409,9 @@
    "description": "Danish novel by Johannes V. Jensen",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Fall_of_the_King",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16152556W"
+   },
    "rank": 275
   },
   "sidereus-nuncius-1610": {
@@ -45323,7 +45419,9 @@
    "description": "astronomical treatise of Galileo",
    "wikipedia": "https://en.wikipedia.org/wiki/Sidereus_Nuncius",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16806156W"
+   },
    "rank": 277
   },
   "flora-of-australia-1981": {
@@ -45347,7 +45445,9 @@
    "description": "1883 novel by the Scottish author Robert Louis Stevenson",
    "wikipedia": "https://en.wikipedia.org/wiki/Treasure_Island",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24034W"
+   },
    "rank": 282
   },
   "choix-des-plus-belles-fleurs-et-de-quelques-branches-des-plus-beaux-fr-1827": {
@@ -45363,7 +45463,9 @@
    "description": "first part of Dante Alighieri's \"Divine Comedy\"",
    "wikipedia": "https://en.wikipedia.org/wiki/Inferno_(Dante)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL37820020W"
+   },
    "rank": 289
   },
   "moby-dick-1850": {
@@ -45371,7 +45473,9 @@
    "description": "novel by Herman Melville",
    "wikipedia": "https://en.wikipedia.org/wiki/Moby-Dick",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL21501229W"
+   },
    "rank": 295
   },
   "hortus-semper-virens-1827": {
@@ -45387,7 +45491,9 @@
    "description": "1869 novel by Leo Tolstoy",
    "wikipedia": "https://en.wikipedia.org/wiki/War_and_Peace",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL267171W"
+   },
    "rank": 297
   },
   "burke-s-landed-gentry-1844": {
@@ -45415,7 +45521,9 @@
    "description": "book by Timothy Snyder",
    "wikipedia": "https://en.wikipedia.org/wiki/Bloodlands",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15688711W"
+   },
    "rank": 310
   },
   "anna-karenina-1873": {
@@ -45423,7 +45531,9 @@
    "description": "1877 novel by Leo Tolstoy",
    "wikipedia": "https://en.wikipedia.org/wiki/Anna_Karenina",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL267096W"
+   },
    "rank": 312
   },
   "odes-et-ballades-1828": {
@@ -45441,7 +45551,9 @@
    "series": [
     "Oz book series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL18417W"
+   },
    "rank": 315
   },
   "frankenstein-or-the-modern-prometheus-1816": {
@@ -45449,7 +45561,9 @@
    "description": "1818 novel by Mary Shelley",
    "wikipedia": "https://en.wikipedia.org/wiki/Frankenstein",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL450063W"
+   },
    "rank": 316
   },
   "ship-of-fools-1494": {
@@ -45457,7 +45571,9 @@
    "description": "satirical allegory in German verse published in 1494 by Sebastian Brant",
    "wikipedia": "https://en.wikipedia.org/wiki/Ship_of_Fools_(satire)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL9213025W"
+   },
    "rank": 317
   },
   "faust-1774": {
@@ -45465,7 +45581,9 @@
    "description": "play by Johann Wolfgang von Goethe",
    "wikipedia": "https://en.wikipedia.org/wiki/Goethe's_Faust",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL52456W"
+   },
    "rank": 321
   },
   "robinson-crusoe-1719": {
@@ -45473,7 +45591,9 @@
    "description": "1719 novel by Daniel Defoe",
    "wikipedia": "https://en.wikipedia.org/wiki/Robinson_Crusoe",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17706876W"
+   },
    "rank": 322
   },
   "strange-case-of-dr-jekyll-and-mr-hyde-1885": {
@@ -45481,7 +45601,9 @@
    "description": "1886 novella by Robert Louis Stevenson",
    "wikipedia": "https://en.wikipedia.org/wiki/Strange_Case_of_Dr_Jekyll_and_Mr_Hyde",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24160W"
+   },
    "rank": 323
   },
   "the-sorrows-of-young-werther-1774": {
@@ -45489,7 +45611,9 @@
    "description": "1774 epistolary novel by Johann Wolfgang von Goethe",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Sorrows_of_Young_Werther",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL52556W"
+   },
    "rank": 327
   },
   "jerusalem-delivered-1575": {
@@ -45497,7 +45621,9 @@
    "description": "epic poem by the Italian poet Torquato Tasso first published in 1581; tells a mythified account of the First Crusade in which Christian knights led by Godfrey of Bouillon battle to take Jerusalem",
    "wikipedia": "https://en.wikipedia.org/wiki/Jerusalem_Delivered",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL502973W"
+   },
    "rank": 336
   },
   "kalevala-1828": {
@@ -45505,7 +45631,9 @@
    "description": "19th-century work of epic poetry compiled by Elias Lönnrot from Karelian and Finnish oral folklore and mythology",
    "wikipedia": "https://en.wikipedia.org/wiki/Kalevala",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15445697W"
+   },
    "rank": 340
   },
   "1001-children-s-books-you-must-read-before-you-grow-up-2009": {
@@ -45523,7 +45651,9 @@
    "series": [
     "Voyages Extraordinaires"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1100007W"
+   },
    "rank": 346
   },
   "death-and-memory-in-early-medieval-britain-2006": {
@@ -45532,7 +45662,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Death_and_Memory_in_Early_Medieval_Britain",
    "series": null,
    "ids": {
-    "isbn13": "978-0-511-48959-4"
+    "isbn13": "978-0-511-48959-4",
+    "openlibrary": "OL19341297W"
    },
    "rank": 347
   },
@@ -45541,7 +45672,9 @@
    "description": "1726 novel by Jonathan Swift",
    "wikipedia": "https://en.wikipedia.org/wiki/Gulliver's_Travels",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20600W"
+   },
    "rank": 348
   },
   "the-good-that-men-do-2007": {
@@ -45551,7 +45684,9 @@
    "series": [
     "Enterprise"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15101460W"
+   },
    "rank": 350
   },
   "the-raven-1845": {
@@ -45559,7 +45694,9 @@
    "description": "narrative poem by Edgar Allan Poe",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Raven",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL41081W"
+   },
    "rank": 353
   },
   "mister-president-1944": {
@@ -45567,7 +45704,9 @@
    "description": "novel by Miguel Ángel Asturias",
    "wikipedia": "https://en.wikipedia.org/wiki/El_Señor_Presidente",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL938688W"
+   },
    "rank": 354
   },
   "snow-white-1812": {
@@ -45575,7 +45714,9 @@
    "description": "fairy tale version published by the Brothers Grimm",
    "wikipedia": "https://en.wikipedia.org/wiki/Snow_White",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24645992W"
+   },
    "rank": 355
   },
   "bark-2014": {
@@ -45591,7 +45732,9 @@
    "description": "commentary on Gallic wars by Julius Caesar",
    "wikipedia": "https://en.wikipedia.org/wiki/Commentarii_de_Bello_Gallico",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL9194061W"
+   },
    "rank": 358
   },
   "a-storm-of-swords-2000": {
@@ -45601,7 +45744,9 @@
    "series": [
     "A Song of Ice and Fire"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL257914W"
+   },
    "rank": 359
   },
   "the-time-traveler-s-almanac-2013": {
@@ -45609,7 +45754,9 @@
    "description": "2013 short story collection",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Time_Traveler's_Almanac",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19343355W"
+   },
    "rank": 361
   },
   "the-picture-of-dorian-gray-1890": {
@@ -45617,7 +45764,9 @@
    "description": "1890–1891 novel by Oscar Wilde",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Picture_of_Dorian_Gray",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8193416W"
+   },
    "rank": 366
   },
   "fundamento-de-esperanto-1905": {
@@ -45645,7 +45794,8 @@
     "canon of Sherlock Holmes"
    ],
    "ids": {
-    "musicbrainz": "51d3960c-837e-3154-864c-8a8fb43f807c"
+    "musicbrainz": "51d3960c-837e-3154-864c-8a8fb43f807c",
+    "openlibrary": "OL262496W"
    },
    "rank": 370
   },
@@ -45654,7 +45804,9 @@
    "description": "1838 novel by Charles Dickens",
    "wikipedia": "https://en.wikipedia.org/wiki/Oliver_Twist",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL210220W"
+   },
    "rank": 372
   },
   "harry-potter-and-the-deathly-hallows-2007": {
@@ -45664,7 +45816,9 @@
    "series": [
     "Q8337"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL82586W"
+   },
    "rank": 375
   },
   "the-peony-pavilion-1598": {
@@ -45672,7 +45826,9 @@
    "description": "1598 play by Tang Xianzu",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Peony_Pavilion",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17075101W"
+   },
    "rank": 377
   },
   "the-betrothed-1821": {
@@ -45680,7 +45836,9 @@
    "description": "Italian historical novel by Alessandro Manzoni",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Betrothed",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20159687W"
+   },
    "rank": 378
   },
   "the-hound-of-the-baskervilles-1902": {
@@ -45692,7 +45850,8 @@
     "canon of Sherlock Holmes"
    ],
    "ids": {
-    "musicbrainz": "3eb6b342-e060-4e3a-b743-fc98733acd67"
+    "musicbrainz": "3eb6b342-e060-4e3a-b743-fc98733acd67",
+    "openlibrary": "OL262454W"
    },
    "rank": 382
   },
@@ -45701,7 +45860,9 @@
    "description": "tragicomic play by Friedrich Dürrenmatt",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Visit_(play)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8001640W"
+   },
    "rank": 384
   },
   "belgarath-the-sorcerer-1995": {
@@ -45711,7 +45872,9 @@
    "series": [
     "Q3234948"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL11374780W"
+   },
    "rank": 385
   },
   "uncle-tom-s-cabin-1852": {
@@ -45719,7 +45882,9 @@
    "description": "1852 novel by Harriet Beecher Stowe",
    "wikipedia": "https://en.wikipedia.org/wiki/Uncle_Tom's_Cabin",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL152161W"
+   },
    "rank": 386
   },
   "in-search-of-lost-time-2000": {
@@ -45737,7 +45902,9 @@
    "series": [
     "Q3234948"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15344389W"
+   },
    "rank": 388
   },
   "norske-folkeeventyr-1841": {
@@ -45745,7 +45912,9 @@
    "description": "1841 collection of Norwegian stories and legends",
    "wikipedia": "https://en.wikipedia.org/wiki/Norwegian_Folktales",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2384812W"
+   },
    "rank": 398
   },
   "the-hunchback-of-notre-dame-1831": {
@@ -45753,7 +45922,9 @@
    "description": "novel by Victor Hugo",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Hunchback_of_Notre-Dame",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15202030W"
+   },
    "rank": 401
   },
   "paradise-lost-1667": {
@@ -45761,7 +45932,9 @@
    "description": "epic poem by John Milton",
    "wikipedia": "https://en.wikipedia.org/wiki/Paradise_Lost",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL810991W"
+   },
    "rank": 402
   },
   "the-war-of-the-worlds-1897": {
@@ -45769,7 +45942,9 @@
    "description": "1897 serialized novel by H. G. Wells",
    "wikipedia": "https://en.wikipedia.org/wiki/The_War_of_the_Worlds",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL52268W"
+   },
    "rank": 405
   },
   "twenty-thousand-leagues-under-the-sea-1869": {
@@ -45780,7 +45955,9 @@
     "Voyages Extraordinaires",
     "Captain Nemo trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1099280W"
+   },
    "rank": 408
   },
   "cyrano-de-bergerac-1897": {
@@ -45788,7 +45965,9 @@
    "description": "play written in 1897 by Edmond Rostand",
    "wikipedia": "https://en.wikipedia.org/wiki/Cyrano_de_Bergerac_(play)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL551668W"
+   },
    "rank": 411
   },
   "the-time-machine-1895": {
@@ -45796,7 +45975,9 @@
    "description": "1895 dystopian science fiction novella by H. G. Wells",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Time_Machine",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL52267W"
+   },
    "rank": 415
   },
   "epistle-to-the-romans-57": {
@@ -45820,7 +46001,9 @@
    "description": "2009 novel by Seth Grahame-Smith",
    "wikipedia": "https://en.wikipedia.org/wiki/Pride_and_Prejudice_and_Zombies",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15093171W"
+   },
    "rank": 430
   },
   "paul-et-virginie-1787": {
@@ -45828,7 +46011,9 @@
    "description": "novel by Jacques-Henri Bernardin de Saint-Pierre",
    "wikipedia": "https://en.wikipedia.org/wiki/Paul_et_Virginie",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8470737W"
+   },
    "rank": 432
   },
   "the-pickwick-papers-1836": {
@@ -45836,7 +46021,9 @@
    "description": "1837 novel by Charles Dickens",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Pickwick_Papers",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8763776W"
+   },
    "rank": 433
   },
   "the-last-battle-1956": {
@@ -45846,7 +46033,9 @@
    "series": [
     "The Chronicles of Narnia"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL71169W"
+   },
    "rank": 435
   },
   "through-the-looking-glass-1871": {
@@ -45854,7 +46043,9 @@
    "description": "1871 children's novel by Lewis Carroll",
    "wikipedia": "https://en.wikipedia.org/wiki/Through_the_Looking-Glass",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL151406W"
+   },
    "rank": 437
   },
   "poetic-edda-1260": {
@@ -45862,7 +46053,9 @@
    "description": "collection of Old Norse poems",
    "wikipedia": "https://en.wikipedia.org/wiki/Poetic_Edda",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL92249W"
+   },
    "rank": 440
   },
   "the-hyborian-age-1936": {
@@ -45880,7 +46073,9 @@
    "series": [
     "Tom Sawyer books"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL53908W"
+   },
    "rank": 448
   },
   "lives-of-the-most-eminent-english-poets-1779": {
@@ -45905,7 +46100,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/The_Canterbury_Tales",
    "series": null,
    "ids": {
-    "musicbrainz": "5fc2d466-e22d-4460-806a-76cb08c893f5"
+    "musicbrainz": "5fc2d466-e22d-4460-806a-76cb08c893f5",
+    "openlibrary": "OL531767W"
    },
    "rank": 453
   },
@@ -45916,7 +46112,9 @@
    "series": [
     "A Song of Ice and Fire"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1955939W"
+   },
    "rank": 454
   },
   "battle-royale-1999": {
@@ -45924,7 +46122,9 @@
    "description": "1999 novel by Koushun Takami",
    "wikipedia": "https://en.wikipedia.org/wiki/Battle_Royale_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8897717W"
+   },
    "rank": 455
   },
   "the-hitler-book-2005": {
@@ -45932,7 +46132,9 @@
    "description": "2005 book edited by Matthias Uhl and Henrik Eberle",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Hitler_Book",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL26281197W"
+   },
    "rank": 456
   },
   "the-idiot-1867": {
@@ -45940,7 +46142,9 @@
    "description": "novel by Fyodor Dostoyevsky",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Idiot",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL166973W"
+   },
    "rank": 459
   },
   "pentamerone-1634": {
@@ -45958,7 +46162,9 @@
    "series": [
     "Waverley Novels"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL863808W"
+   },
    "rank": 467
   },
   "ready-player-two-2020": {
@@ -45966,7 +46172,9 @@
    "description": "2020 novel by Ernest Cline",
    "wikipedia": "https://en.wikipedia.org/wiki/Ready_Player_Two",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20907281W"
+   },
    "rank": 471
   },
   "the-seven-messengers-1942": {
@@ -45974,7 +46182,9 @@
    "description": "1942 short story collection by Dino Buzzati",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Seven_Messengers",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1437329W"
+   },
    "rank": 472
   },
   "madame-bovary-1856": {
@@ -45982,7 +46192,9 @@
    "description": "novel by Gustave Flaubert (1857)",
    "wikipedia": "https://en.wikipedia.org/wiki/Madame_Bovary",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL893707W"
+   },
    "rank": 474
   },
   "the-golden-key-or-the-adventures-of-buratino-1936": {
@@ -46000,7 +46212,9 @@
    "description": "fairy tale collected by the Brothers Grimm",
    "wikipedia": "https://en.wikipedia.org/wiki/Hansel_and_Gretel",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24829519W"
+   },
    "rank": 478
   },
   "harry-potter-and-the-half-blood-prince-2005": {
@@ -46010,7 +46224,9 @@
    "series": [
     "Q8337"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL82565W"
+   },
    "rank": 479
   },
   "tales-from-shakspeare-1807": {
@@ -46018,7 +46234,9 @@
    "description": "book by Charles and Mary Lamb",
    "wikipedia": "https://en.wikipedia.org/wiki/Tales_from_Shakespeare",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15098509W"
+   },
    "rank": 482
   },
   "abyss-2001": {
@@ -46029,7 +46247,9 @@
     "Section 31",
     "Star Trek: Deep Space Nine – Relaunch"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5687549W"
+   },
    "rank": 488
   },
   "les-fleurs-du-mal-1840": {
@@ -46037,7 +46257,9 @@
    "description": "volume of French poetry by Charles Baudelaire",
    "wikipedia": "https://en.wikipedia.org/wiki/Les_Fleurs_du_mal",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL28964874W"
+   },
    "rank": 489
   },
   "max-and-moritz-1863": {
@@ -46045,7 +46267,9 @@
    "description": "picture story by Wilhelm Busch",
    "wikipedia": "https://en.wikipedia.org/wiki/Max_and_Moritz",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29234522W"
+   },
    "rank": 494
   },
   "anne-of-green-gables-1908": {
@@ -46055,7 +46279,9 @@
    "series": [
     "Anne of Green Gables"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL77792W"
+   },
    "rank": 499
   },
   "tirant-lo-blanc-1460": {
@@ -46063,7 +46289,9 @@
    "description": "1490 novel by Joanot Martorell and Martí Joan de Galba",
    "wikipedia": "https://en.wikipedia.org/wiki/Tirant_lo_Blanch",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2989199W"
+   },
    "rank": 502
   },
   "bullet-train-2010": {
@@ -46071,7 +46299,9 @@
    "description": "2010 novel by Kōtarō Isaka",
    "wikipedia": "https://en.wikipedia.org/wiki/Bullet_Train_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24375262W"
+   },
    "rank": 503
   },
   "a-dance-with-dragons-2011": {
@@ -46081,7 +46311,9 @@
    "series": [
     "A Song of Ice and Fire"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1955906W"
+   },
    "rank": 506
   },
   "the-twelve-chairs-1927": {
@@ -46089,7 +46321,9 @@
    "description": "1928 novel by Ilya Ilf and Yevgeny Petrov",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Twelve_Chairs",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2196450W"
+   },
    "rank": 508
   },
   "unfinished-tales-1980": {
@@ -46097,7 +46331,9 @@
    "description": "1980 collection of stories and essays by J.R.R. Tolkien",
    "wikipedia": "https://en.wikipedia.org/wiki/Unfinished_Tales",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27466W"
+   },
    "rank": 510
   },
   "david-copperfield-1849": {
@@ -46105,7 +46341,9 @@
    "description": "1849–1850 novel by Charles Dickens",
    "wikipedia": "https://en.wikipedia.org/wiki/David_Copperfield",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL10322056W"
+   },
    "rank": 513
   },
   "a-journey-to-the-centre-of-the-earth-1864": {
@@ -46115,7 +46353,9 @@
    "series": [
     "Voyages Extraordinaires"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1099513W"
+   },
    "rank": 514
   },
   "analects--480": {
@@ -46123,7 +46363,9 @@
    "description": "ancient Confucian text collecting sayings and reminescences about Confucius",
    "wikipedia": "https://en.wikipedia.org/wiki/Analects",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15335450W"
+   },
    "rank": 516
   },
   "zhuangzi--300": {
@@ -46139,7 +46381,9 @@
    "description": "1886 novel by Robert Louis Stevenson",
    "wikipedia": "https://en.wikipedia.org/wiki/Kidnapped_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24166W"
+   },
    "rank": 520
   },
   "the-jungle-book-1894": {
@@ -46147,7 +46391,9 @@
    "description": "1894 short story collection by Rudyard Kipling",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Jungle_Book",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19870W"
+   },
    "rank": 522
   },
   "all-these-wonders-2017": {
@@ -46173,7 +46419,9 @@
    "series": [
     "The Chronicles of Narnia"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL71174W"
+   },
    "rank": 530
   },
   "twenty-years-after-1845": {
@@ -46183,7 +46431,9 @@
    "series": [
     "D'Artagnan Romances"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL36858W"
+   },
    "rank": 531
   },
   "purgatorio-1316": {
@@ -46191,7 +46441,9 @@
    "description": "second part of Dante Alighieri's \"Divine Comedy\"",
    "wikipedia": "https://en.wikipedia.org/wiki/Purgatorio",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16500198W"
+   },
    "rank": 533
   },
   "paradiso-1321": {
@@ -46199,7 +46451,9 @@
    "description": "third and final part of Dante Alighieri's \"Divine Comedy\"",
    "wikipedia": "https://en.wikipedia.org/wiki/Paradiso",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16277864W"
+   },
    "rank": 536
   },
   "te-deum-414": {
@@ -46215,7 +46469,9 @@
    "description": "1861 novel by Charles Dickens",
    "wikipedia": "https://en.wikipedia.org/wiki/Great_Expectations",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8721462W"
+   },
    "rank": 541
   },
   "charlie-and-the-chocolate-factory-1964": {
@@ -46223,7 +46479,9 @@
    "description": "1964 children's novel by Roald Dahl",
    "wikipedia": "https://en.wikipedia.org/wiki/Charlie_and_the_Chocolate_Factory",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL45790W"
+   },
    "rank": 542
   },
   "the-return-of-the-condor-heroes-1959": {
@@ -46249,7 +46507,9 @@
    "description": "novel by Yukito Ayatsuji",
    "wikipedia": "https://en.wikipedia.org/wiki/Another_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL21541372W"
+   },
    "rank": 556
   },
   "eclogues--41": {
@@ -46257,7 +46517,9 @@
    "description": "poem collection by Virgil",
    "wikipedia": "https://en.wikipedia.org/wiki/Eclogues",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16280229W"
+   },
    "rank": 557
   },
   "the-house-of-bernarda-alba-1946": {
@@ -46265,7 +46527,9 @@
    "description": "play by Federico García Lorca (1936)",
    "wikipedia": "https://en.wikipedia.org/wiki/The_House_of_Bernarda_Alba",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL722545W"
+   },
    "rank": 559
   },
   "the-little-mermaid-1837": {
@@ -46273,7 +46537,9 @@
    "description": "fairy tale by H. C. Andersen",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Little_Mermaid",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL33244044W"
+   },
    "rank": 560
   },
   "the-master-and-margarita-1928": {
@@ -46281,7 +46547,9 @@
    "description": "novel by Mikhail Bulgakov",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Master_and_Margarita",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL676009W"
+   },
    "rank": 562
   },
   "the-phantom-of-the-opera-1910": {
@@ -46289,7 +46557,9 @@
    "description": "1910 novel by Gaston Leroux",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Phantom_of_the_Opera_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15964819W"
+   },
    "rank": 564
   },
   "the-peripheral-2014": {
@@ -46298,7 +46568,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/The_Peripheral_(novel)",
    "series": null,
    "ids": {
-    "musicbrainz": "1f0cfc9d-e406-4fd7-996c-f1df2c371dd7"
+    "musicbrainz": "1f0cfc9d-e406-4fd7-996c-f1df2c371dd7",
+    "openlibrary": "OL17268037W"
    },
    "rank": 567
   },
@@ -46309,7 +46580,9 @@
    "series": [
     "Tom Sawyer books"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL53919W"
+   },
    "rank": 569
   },
   "the-communist-manifesto-1848": {
@@ -46317,7 +46590,9 @@
    "description": "1848 publication written by Karl Marx and Friedrich Engels",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Communist_Manifesto",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL629052W"
+   },
    "rank": 570
   },
   "peter-pan-1911": {
@@ -46325,7 +46600,9 @@
    "description": "play and novel by James Matthew Barrie",
    "wikipedia": "https://en.wikipedia.org/wiki/Peter_Pan_(play_and_novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL462007W"
+   },
    "rank": 575
   },
   "federation-1994": {
@@ -46335,7 +46612,9 @@
    "series": [
     "Star Trek"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2241720W"
+   },
    "rank": 577
   },
   "1q84-2000": {
@@ -46344,7 +46623,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/1Q84",
    "series": null,
    "ids": {
-    "musicbrainz": "3c3c0cdd-b8af-4792-b4e7-af10ec7ec459"
+    "musicbrainz": "3c3c0cdd-b8af-4792-b4e7-af10ec7ec459",
+    "openlibrary": "OL15029001W"
    },
    "rank": 578
   },
@@ -46356,7 +46636,8 @@
     "Ender's Saga"
    ],
    "ids": {
-    "musicbrainz": "d5bcd5cb-5d65-40e2-aedb-97bf88f7cf10"
+    "musicbrainz": "d5bcd5cb-5d65-40e2-aedb-97bf88f7cf10",
+    "openlibrary": "OL49676W"
    },
    "rank": 580
   },
@@ -46373,7 +46654,9 @@
    "description": "8th-century Japanese chronicle",
    "wikipedia": "https://en.wikipedia.org/wiki/Kojiki",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1148493W"
+   },
    "rank": 582
   },
   "the-captain-s-daughter-1836": {
@@ -46381,7 +46664,9 @@
    "description": "1836 novel by Aleksandr Pushkin",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Captain's_Daughter",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17680681W"
+   },
    "rank": 583
   },
   "the-heaven-sword-and-dragon-saber-1961": {
@@ -46399,7 +46684,9 @@
    "description": "1998 novel by David and Leigh Eddings",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Rivan_Codex",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1923053W"
+   },
    "rank": 586
   },
   "spock-must-die-1970": {
@@ -46409,7 +46696,9 @@
    "series": [
     "Star Trek"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL11026748W"
+   },
    "rank": 591
   },
   "lady-of-the-lake-1999": {
@@ -46419,7 +46708,9 @@
    "series": [
     "The Witcher"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27415166W"
+   },
    "rank": 592
   },
   "sirach--200": {
@@ -46435,7 +46726,9 @@
    "description": "13th-century Norse work of literature written in Iceland",
    "wikipedia": "https://en.wikipedia.org/wiki/Prose_Edda",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1133520W"
+   },
    "rank": 595
   },
   "harry-potter-and-the-chamber-of-secrets-1998": {
@@ -46445,7 +46738,9 @@
    "series": [
     "Q8337"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL82537W"
+   },
    "rank": 596
   },
   "the-tales-of-my-mother-goose-1695": {
@@ -46453,7 +46748,9 @@
    "description": "collection of fairy tales",
    "wikipedia": "https://en.wikipedia.org/wiki/Histoires_ou_contes_du_temps_passé",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15234518W"
+   },
    "rank": 599
   },
   "pan-tadeusz-1834": {
@@ -46461,7 +46758,9 @@
    "description": "epic poem by Adam Mickiewicz",
    "wikipedia": "https://en.wikipedia.org/wiki/Pan_Tadeusz",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1118938W"
+   },
    "rank": 601
   },
   "the-song-of-roland-1100": {
@@ -46469,7 +46768,9 @@
    "description": "medieval epic work",
    "wikipedia": "https://en.wikipedia.org/wiki/Song_of_Roland",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL21032809W"
+   },
    "rank": 602
   },
   "edda-1270": {
@@ -46488,7 +46789,9 @@
     "Star Trek: The Next Generation",
     "The Next Generation – The Second Decade"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL137971W"
+   },
    "rank": 604
   },
   "history-of-rome-10": {
@@ -46496,7 +46799,9 @@
    "description": "Livy's history of ancient Rome",
    "wikipedia": "https://en.wikipedia.org/wiki/History_of_Rome_(Livy)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL34039783W"
+   },
    "rank": 608
   },
   "rigveda--1500": {
@@ -46512,7 +46817,9 @@
    "description": "play by Federico García Lorca",
    "wikipedia": "https://en.wikipedia.org/wiki/Yerma",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL26452095W"
+   },
    "rank": 620
   },
   "harry-potter-and-the-goblet-of-fire-2000": {
@@ -46522,7 +46829,9 @@
    "series": [
     "Q8337"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL82560W"
+   },
    "rank": 621
   },
   "ringworld-1970": {
@@ -46533,7 +46842,8 @@
     "Ringworld series"
    ],
    "ids": {
-    "musicbrainz": "73ee9d0f-97f5-474b-a0d1-4f4df29f7e5a"
+    "musicbrainz": "73ee9d0f-97f5-474b-a0d1-4f4df29f7e5a",
+    "openlibrary": "OL510451W"
    },
    "rank": 622
   },
@@ -46542,7 +46852,9 @@
    "description": "1485 reworking of existing tales about King Arthur by Sir Thomas Malory",
    "wikipedia": "https://en.wikipedia.org/wiki/Le_Morte_d'Arthur",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15450151W"
+   },
    "rank": 623
   },
   "heidi-1880": {
@@ -46550,7 +46862,9 @@
    "description": "Swiss novel by Johanna Spyri",
    "wikipedia": "https://en.wikipedia.org/wiki/Heidi",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1455042W"
+   },
    "rank": 628
   },
   "our-town-1938": {
@@ -46558,7 +46872,9 @@
    "description": "play written by Thornton Wilder",
    "wikipedia": "https://en.wikipedia.org/wiki/Our_Town",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL482841W"
+   },
    "rank": 629
   },
   "the-last-of-the-mohicans-1824": {
@@ -46568,7 +46884,9 @@
    "series": [
     "Leatherstocking Tales"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL77958W"
+   },
    "rank": 632
   },
   "the-clan-of-the-cave-bear-1980": {
@@ -46578,7 +46896,9 @@
    "series": [
     "Earth's Children hexalogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2746369W"
+   },
    "rank": 633
   },
   "the-republic--379": {
@@ -46588,7 +46908,9 @@
    "series": [
     "Platonic dialogue"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL51831W"
+   },
    "rank": 636
   },
   "the-government-inspector-1835": {
@@ -46596,7 +46918,9 @@
    "description": "play by Nikolai Gogol",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Government_Inspector",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL38690664W"
+   },
    "rank": 640
   },
   "animal-farm-1945": {
@@ -46604,7 +46928,9 @@
    "description": "1945 novella by George Orwell",
    "wikipedia": "https://en.wikipedia.org/wiki/Animal_Farm",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1168007W"
+   },
    "rank": 641
   },
   "dubliners-1904": {
@@ -46612,7 +46938,9 @@
    "description": "1914 short story collection by James Joyce",
    "wikipedia": "https://en.wikipedia.org/wiki/Dubliners",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL86329W"
+   },
    "rank": 645
   },
   "the-voyage-of-the-dawn-treader-1952": {
@@ -46623,7 +46951,8 @@
     "The Chronicles of Narnia"
    ],
    "ids": {
-    "musicbrainz": "be1ef6f6-91ad-4436-a18c-8a56153e78aa"
+    "musicbrainz": "be1ef6f6-91ad-4436-a18c-8a56153e78aa",
+    "openlibrary": "OL71132W"
    },
    "rank": 648
   },
@@ -46634,7 +46963,9 @@
    "series": [
     "Inhibitor Cycle"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5724837W"
+   },
    "rank": 650
   },
   "smoke-and-mirrors-1998": {
@@ -46642,7 +46973,9 @@
    "description": "collection of short stories and poems by Neil Gaiman",
    "wikipedia": "https://en.wikipedia.org/wiki/Smoke_and_Mirrors_(Gaiman_book)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL679357W"
+   },
    "rank": 651
   },
   "the-prince-and-the-pauper-1881": {
@@ -46650,7 +46983,9 @@
    "description": "novel by Mark Twain",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Prince_and_the_Pauper",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL53994W"
+   },
    "rank": 652
   },
   "the-silver-chair-1953": {
@@ -46660,7 +46995,9 @@
    "series": [
     "The Chronicles of Narnia"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL71171W"
+   },
    "rank": 655
   },
   "the-hours-1998": {
@@ -46668,7 +47005,9 @@
    "description": "1998 novel by Michael Cunningham",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Hours_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15729019W"
+   },
    "rank": 657
   },
   "the-adventures-of-sherlock-holmes-1892": {
@@ -46679,7 +47018,8 @@
     "Sherlock Holmes novels"
    ],
    "ids": {
-    "musicbrainz": "bc1557d8-9346-468d-91ef-50b2ea9735be"
+    "musicbrainz": "bc1557d8-9346-468d-91ef-50b2ea9735be",
+    "openlibrary": "OL18188726W"
    },
    "rank": 659
   },
@@ -46698,7 +47038,9 @@
    "series": [
     "Vanguard"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5886050W"
+   },
    "rank": 665
   },
   "theogony--700": {
@@ -46706,7 +47048,9 @@
    "description": "poem by Hesiod, describing the origins and genealogies of the greek gods",
    "wikipedia": "https://en.wikipedia.org/wiki/Theogony",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL602585W"
+   },
    "rank": 666
   },
   "the-da-vinci-code-2003": {
@@ -46716,7 +47060,9 @@
    "series": [
     "Robert Langdon series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15290484W"
+   },
    "rank": 668
   },
   "a-stitch-in-time-2000": {
@@ -46727,7 +47073,9 @@
     "Star Trek: Deep Space Nine – Relaunch",
     "Star Trek: Deep Space Nine"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5689430W"
+   },
    "rank": 671
   },
   "woyzeck-1837": {
@@ -46743,7 +47091,9 @@
    "description": "novella by Friedrich de la Motte Fouqué",
    "wikipedia": "https://en.wikipedia.org/wiki/Undine_(novella)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL35852W"
+   },
    "rank": 673
   },
   "the-horse-and-his-boy-1954": {
@@ -46753,7 +47103,9 @@
    "series": [
     "The Chronicles of Narnia"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL71168W"
+   },
    "rank": 676
   },
   "epistle-to-the-hebrews-63": {
@@ -46777,7 +47129,9 @@
    "description": "play written by Bertolt Brecht",
    "wikipedia": "https://en.wikipedia.org/wiki/Mother_Courage_and_Her_Children",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL3802456W"
+   },
    "rank": 682
   },
   "pebble-in-the-sky-1947": {
@@ -46787,7 +47141,9 @@
    "series": [
     "Galactic Empire"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46402W"
+   },
    "rank": 683
   },
   "thumbelina-1835": {
@@ -46795,7 +47151,9 @@
    "description": "fairy tale by H. C. Andersen",
    "wikipedia": "https://en.wikipedia.org/wiki/Thumbelina",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL35351893W"
+   },
    "rank": 688
   },
   "the-sign-of-four-1890": {
@@ -46806,7 +47164,9 @@
     "Sherlock Holmes novels",
     "canon of Sherlock Holmes"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL262438W"
+   },
    "rank": 689
   },
   "the-farther-shore-2003": {
@@ -46816,7 +47176,9 @@
    "series": [
     "Star Trek: Voyager – Relaunch"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5696531W"
+   },
    "rank": 690
   },
   "harry-potter-and-the-order-of-the-phoenix-2003": {
@@ -46826,7 +47188,9 @@
    "series": [
     "Q8337"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL82548W"
+   },
    "rank": 691
   },
   "the-unknown-soldier-1954": {
@@ -46834,7 +47198,9 @@
    "description": "1954 war novel by Väinö Linna",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Unknown_Soldier_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17907180W"
+   },
    "rank": 692
   },
   "faust-part-one-1808": {
@@ -46844,7 +47210,9 @@
    "series": [
     "Faust"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL26458734W"
+   },
    "rank": 694
   },
   "a-tale-of-two-cities-1859": {
@@ -46852,7 +47220,9 @@
    "description": "1859 novel by Charles Dickens",
    "wikipedia": "https://en.wikipedia.org/wiki/A_Tale_of_Two_Cities",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8193465W"
+   },
    "rank": 695
   },
   "gone-with-the-wind-1936": {
@@ -46860,7 +47230,9 @@
    "description": "1936 novel by Margaret Mitchell",
    "wikipedia": "https://en.wikipedia.org/wiki/Gone_with_the_Wind_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL267933W"
+   },
    "rank": 696
   },
   "matilda-1986": {
@@ -46868,7 +47240,9 @@
    "description": "1988 children's book by Roald Dahl",
    "wikipedia": "https://en.wikipedia.org/wiki/Matilda_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL45846W"
+   },
    "rank": 700
   },
   "prodromus-flor-nov-hollandi-et-insul-van-diemen-exhibens-characteres-p-1810": {
@@ -46892,7 +47266,9 @@
    "description": "1845 novel by Prosper Mérimée",
    "wikipedia": "https://en.wikipedia.org/wiki/Carmen_(novella)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL7999501W"
+   },
    "rank": 706
   },
   "bluebeard-1697": {
@@ -46900,7 +47276,9 @@
    "description": "French folktale version by Charles Perrault",
    "wikipedia": "https://en.wikipedia.org/wiki/Bluebeard",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15234620W"
+   },
    "rank": 708
   },
   "the-backrooms-2019": {
@@ -46916,7 +47294,9 @@
    "description": "collection of short stories and poetry by English author Neil Gaiman",
    "wikipedia": "https://en.wikipedia.org/wiki/Fragile_Things",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL679359W"
+   },
    "rank": 713
   },
   "harry-potter-and-the-prisoner-of-azkaban-1999": {
@@ -46926,7 +47306,9 @@
    "series": [
     "Q8337"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL82536W"
+   },
    "rank": 714
   },
   "the-cat-in-the-hat-1957": {
@@ -46934,7 +47316,9 @@
    "description": "children's book by Dr. Seuss",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Cat_in_the_Hat",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL31405253W"
+   },
    "rank": 718
   },
   "the-mysterious-island-1888": {
@@ -46945,7 +47329,9 @@
     "Voyages Extraordinaires",
     "Captain Nemo trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1099915W"
+   },
    "rank": 721
   },
   "a-clash-of-kings-1998": {
@@ -46955,7 +47341,9 @@
    "series": [
     "A Song of Ice and Fire"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1955946W"
+   },
    "rank": 724
   },
   "anglo-saxon-chronicle-800": {
@@ -46971,7 +47359,9 @@
    "description": "epic poem from Mesopotamia, is amongst the earliest surviving works of literature",
    "wikipedia": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8962034W"
+   },
    "rank": 731
   },
   "the-year-s-best-science-fiction-twenty-third-annual-collection-2006": {
@@ -46981,7 +47371,9 @@
    "series": [
     "The Year's Best Science Fiction"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL18937115W"
+   },
    "rank": 734
   },
   "the-man-without-qualities-1932": {
@@ -46989,7 +47381,9 @@
    "description": "novel by Robert Musil",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Man_Without_Qualities",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1330245W"
+   },
    "rank": 736
   },
   "the-year-s-best-science-fiction-twenty-sixth-annual-collection-2009": {
@@ -46999,7 +47393,9 @@
    "series": [
     "The Year's Best Science Fiction"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17481949W"
+   },
    "rank": 738
   },
   "the-lucifer-effect-2007": {
@@ -47007,7 +47403,9 @@
    "description": "2007 book by Philip Zimbardo",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Lucifer_Effect",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8024260W"
+   },
    "rank": 739
   },
   "robots-and-empire-1985": {
@@ -47017,7 +47415,9 @@
    "series": [
     "Robot series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46178W"
+   },
    "rank": 743
   },
   "salammbo-1862": {
@@ -47025,7 +47425,9 @@
    "description": "1862 novel by Gustave Flaubert",
    "wikipedia": "https://en.wikipedia.org/wiki/Salammbô",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL893958W"
+   },
    "rank": 745
   },
   "the-old-man-and-the-sea-1952": {
@@ -47034,7 +47436,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea",
    "series": null,
    "ids": {
-    "musicbrainz": "001c7315-5f3f-3c8f-8820-60f50a430073"
+    "musicbrainz": "001c7315-5f3f-3c8f-8820-60f50a430073",
+    "openlibrary": "OL63073W"
    },
    "rank": 750
   },
@@ -47045,7 +47448,9 @@
    "series": [
     "The Year's Best Science Fiction"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19927925W"
+   },
    "rank": 755
   },
   "sefer-hayashar-1552": {
@@ -47061,7 +47466,9 @@
    "description": "collection of hagiographies compiled by Jacobus de Voragine c.1264",
    "wikipedia": "https://en.wikipedia.org/wiki/Golden_Legend",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL813733W"
+   },
    "rank": 760
   },
   "dreamsongs-a-rretrospective-2006": {
@@ -47069,7 +47476,9 @@
    "description": "2006 short story collection by George R. R. Martin",
    "wikipedia": "https://en.wikipedia.org/wiki/Dreamsongs:_A_RRetrospective",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL257941W"
+   },
    "rank": 761
   },
   "bibliotheca-1": {
@@ -47093,7 +47502,9 @@
    "description": "novel by Guy de Maupassant",
    "wikipedia": "https://en.wikipedia.org/wiki/Bel-Ami",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24154963W"
+   },
    "rank": 771
   },
   "waiting-for-godot-1949": {
@@ -47101,7 +47512,9 @@
    "description": "play by Samuel Beckett",
    "wikipedia": "https://en.wikipedia.org/wiki/Waiting_for_Godot",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15164672W"
+   },
    "rank": 775
   },
   "mother-hulda-1812": {
@@ -47119,7 +47532,9 @@
    "series": [
     "Star Trek: Deep Space Nine"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16062443W"
+   },
    "rank": 780
   },
   "the-curse-of-minerva-1811": {
@@ -47135,7 +47550,9 @@
    "description": "1962 novel by Mercè Rodoreda",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Time_of_the_Doves",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL798419W"
+   },
    "rank": 782
   },
   "the-girl-on-the-train-2015": {
@@ -47143,7 +47560,9 @@
    "description": "2015 novel by Paula Hawkins",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Girl_on_the_Train_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17112428W"
+   },
    "rank": 783
   },
   "the-little-match-girl-1845": {
@@ -47161,7 +47580,9 @@
    "series": [
     "The Godfather"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1673263W"
+   },
    "rank": 785
   },
   "the-snow-queen-1844": {
@@ -47171,7 +47592,9 @@
    "series": [
     "Hans Christian Andersen bibliography"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL26436318W"
+   },
    "rank": 787
   },
   "intrigue-and-love-1782": {
@@ -47179,7 +47602,9 @@
    "description": "1784 play by Friedrich Schiller",
    "wikipedia": "https://en.wikipedia.org/wiki/Intrigue_and_Love",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29049657W"
+   },
    "rank": 789
   },
   "sonnet-19-1840": {
@@ -47197,7 +47622,9 @@
    "series": [
     "The Hunger Games"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14908941W"
+   },
    "rank": 795
   },
   "blood-of-elves-1994": {
@@ -47207,7 +47634,9 @@
    "series": [
     "The Witcher"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2577486W"
+   },
    "rank": 796
   },
   "the-klingon-dictionary-1985": {
@@ -47217,7 +47646,9 @@
    "series": [
     "Star Trek"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2152489W"
+   },
    "rank": 798
   },
   "a-portrait-of-the-artist-as-a-young-man-1907": {
@@ -47225,7 +47656,9 @@
    "description": "1918 autobiographical artist's novel and bildungsroman by James Joyce",
    "wikipedia": "https://en.wikipedia.org/wiki/A_Portrait_of_the_Artist_as_a_Young_Man",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL86343W"
+   },
    "rank": 800
   },
   "sense-and-sensibility-1811": {
@@ -47234,7 +47667,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Sense_and_Sensibility",
    "series": null,
    "ids": {
-    "musicbrainz": "afda6d2e-189b-4751-b82e-3527ebd197c9"
+    "musicbrainz": "afda6d2e-189b-4751-b82e-3527ebd197c9",
+    "openlibrary": "OL66562W"
    },
    "rank": 803
   },
@@ -47253,7 +47687,9 @@
    "series": [
     "The Chronicles of Narnia"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL71172W"
+   },
    "rank": 808
   },
   "the-children-of-hurin-2007": {
@@ -47261,7 +47697,9 @@
    "description": "2007 novel by J. R. R. Tolkien",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Children_of_Húrin",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14933460W"
+   },
    "rank": 811
   },
   "the-legend-of-sleepy-hollow-1819": {
@@ -47269,7 +47707,9 @@
    "description": "1820 short story by Washington Irving",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Legend_of_Sleepy_Hollow",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL63985W"
+   },
    "rank": 812
   },
   "michael-strogoff-1874": {
@@ -47279,7 +47719,9 @@
    "series": [
     "Voyages Extraordinaires"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL35120170W"
+   },
    "rank": 813
   },
   "mary-stuart-1800": {
@@ -47287,7 +47729,9 @@
    "description": "play by Friedrich Schiller",
    "wikipedia": "https://en.wikipedia.org/wiki/Mary_Stuart_(Schiller_play)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24635731W"
+   },
    "rank": 814
   },
   "catch-22-1961": {
@@ -47295,7 +47739,9 @@
    "description": "novel by the American author Joseph Heller (1961)",
    "wikipedia": "https://en.wikipedia.org/wiki/Catch-22",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL276798W"
+   },
    "rank": 820
   },
   "six-characters-in-search-of-an-author-1921": {
@@ -47311,7 +47757,9 @@
    "description": "English children's novel, 1908, originally unillustrated",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Wind_in_the_Willows",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16312108W"
+   },
    "rank": 826
   },
   "catching-fire-2009": {
@@ -47321,7 +47769,9 @@
    "series": [
     "The Hunger Games"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5735360W"
+   },
    "rank": 827
   },
   "all-my-sons-1947": {
@@ -47329,7 +47779,9 @@
    "description": "1947 play by Arthur Miller",
    "wikipedia": "https://en.wikipedia.org/wiki/All_My_Sons",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL66338W"
+   },
    "rank": 829
   },
   "shared-fantasy-role-playing-games-as-social-worlds-1983": {
@@ -47337,7 +47789,9 @@
    "description": "scholarly essay",
    "wikipedia": "https://en.wikipedia.org/wiki/Shared_Fantasy:_Role_Playing_Games_as_Social_Worlds",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2720381W"
+   },
    "rank": 830
   },
   "the-steadfast-tin-soldier-1838": {
@@ -47353,7 +47807,9 @@
    "description": "novel by Hector Malot",
    "wikipedia": "https://en.wikipedia.org/wiki/Sans_Famille",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1544844W"
+   },
    "rank": 835
   },
   "man-yoshu-759": {
@@ -47372,7 +47828,9 @@
     "Star Trek",
     "Shatnerverse"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24200797W"
+   },
    "rank": 843
   },
   "trigger-warning-2015": {
@@ -47381,7 +47839,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Trigger_Warning_(book)",
    "series": null,
    "ids": {
-    "musicbrainz": "831b8860-9903-41b4-a6d7-c50e59d944c6"
+    "musicbrainz": "831b8860-9903-41b4-a6d7-c50e59d944c6",
+    "openlibrary": "OL17348681W"
    },
    "rank": 844
   },
@@ -47390,7 +47849,9 @@
    "description": "Persian poetry. Omar Khayyam’s robāʿiyyāt (“quatrains”). Also Persian-English quatrains translations by Edward Fitzgerald.",
    "wikipedia": "https://en.wikipedia.org/wiki/Rubaiyat_of_Omar_Khayyam",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL998027W"
+   },
    "rank": 845
   },
   "anabasis--370": {
@@ -47398,7 +47859,9 @@
    "description": "4th-century BC work by Xenophon on the expedition of the Ten Thousand",
    "wikipedia": "https://en.wikipedia.org/wiki/Anabasis_(Xenophon)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL687015W"
+   },
    "rank": 846
   },
   "the-glass-menagerie-1944": {
@@ -47406,7 +47869,9 @@
    "description": "play by Tennessee Williams",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Glass_Menagerie",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL30293W"
+   },
    "rank": 848
   },
   "fight-club-1996": {
@@ -47414,7 +47879,9 @@
    "description": "1996 novel by Chuck Palahniuk",
    "wikipedia": "https://en.wikipedia.org/wiki/Fight_Club_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL18941W"
+   },
    "rank": 850
   },
   "three-moments-of-an-explosion-2015": {
@@ -47422,7 +47889,9 @@
    "description": "2015 short story collection by China Miéville",
    "wikipedia": "https://en.wikipedia.org/wiki/Three_Moments_of_an_Explosion",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20788218W"
+   },
    "rank": 852
   },
   "in-search-of-the-castaways-1864": {
@@ -47433,7 +47902,9 @@
     "Voyages Extraordinaires",
     "Captain Nemo trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1100001W"
+   },
    "rank": 853
   },
   "rise-and-fall-of-the-city-of-mahagonny-2000": {
@@ -47441,7 +47912,9 @@
    "description": "political-satirical opera composed by Kurt Weill to a German libretto by Bertolt Brecht",
    "wikipedia": "https://en.wikipedia.org/wiki/Rise_and_Fall_of_the_City_of_Mahagonny",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL3802381W"
+   },
    "rank": 856
   },
   "the-return-of-sherlock-holmes-1905": {
@@ -47452,7 +47925,9 @@
     "canon of Sherlock Holmes",
     "Sherlock Holmes novels"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL262477W"
+   },
    "rank": 857
   },
   "selected-stories-munro-1996": {
@@ -47468,7 +47943,9 @@
    "description": "1898 novella by Henry James",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Turn_of_the_Screw",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL276391W"
+   },
    "rank": 860
   },
   "fifty-shades-of-grey-2011": {
@@ -47478,7 +47955,9 @@
    "series": [
     "Fifty Shades"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16336633W"
+   },
    "rank": 861
   },
   "the-little-golden-calf-1931": {
@@ -47486,7 +47965,9 @@
    "description": "1931 novel by Ilya Ilf and Yevgeny Petrov",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Little_Golden_Calf",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2196440W"
+   },
    "rank": 862
   },
   "the-two-towers-1954": {
@@ -47496,7 +47977,9 @@
    "series": [
     "The Lord of the Rings"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27479W"
+   },
    "rank": 863
   },
   "time-of-contempt-1995": {
@@ -47506,7 +47989,9 @@
    "series": [
     "The Witcher"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2577481W"
+   },
    "rank": 864
   },
   "lord-of-the-flies-1954": {
@@ -47515,7 +48000,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Lord_of_the_Flies",
    "series": null,
    "ids": {
-    "musicbrainz": "85f4b9d5-bde0-490b-a5fc-b82bf6713730"
+    "musicbrainz": "85f4b9d5-bde0-490b-a5fc-b82bf6713730",
+    "openlibrary": "OL2430140W"
    },
    "rank": 868
   },
@@ -47524,7 +48010,9 @@
    "description": "novel in verse by Alexander Pushkin",
    "wikipedia": "https://en.wikipedia.org/wiki/Eugene_Onegin",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL623236W"
+   },
    "rank": 874
   },
   "the-luminaries-2013": {
@@ -47532,7 +48020,9 @@
    "description": "2013 novel by Eleanor Catton",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Luminaries",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL26164868W"
+   },
    "rank": 876
   },
   "king-solomon-s-mines-1885": {
@@ -47542,7 +48032,9 @@
    "series": [
     "Allan Quatermain"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17449W"
+   },
    "rank": 881
   },
   "second-epistle-to-timothy-64": {
@@ -47561,7 +48053,9 @@
     "Star Trek",
     "Shatnerverse"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14954179W"
+   },
    "rank": 886
   },
   "the-return-of-the-king-1955": {
@@ -47571,7 +48065,9 @@
    "series": [
     "The Lord of the Rings"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27516W"
+   },
    "rank": 888
   },
   "quo-vadis-1895": {
@@ -47579,7 +48075,9 @@
    "description": "historical novel written by Henryk Sienkiewicz",
    "wikipedia": "https://en.wikipedia.org/wiki/Quo_Vadis_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL503494W"
+   },
    "rank": 889
   },
   "egmont-1775": {
@@ -47595,7 +48093,9 @@
    "description": "fairy tale by the Brothers Grimm",
    "wikipedia": "https://en.wikipedia.org/wiki/Thumbling",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL35365428W"
+   },
    "rank": 893
   },
   "the-scarlet-pimpernel-1905": {
@@ -47603,7 +48103,9 @@
    "description": "novel by Emma Orczy",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Scarlet_Pimpernel",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1253285W"
+   },
    "rank": 895
   },
   "the-grapes-of-wrath-1939": {
@@ -47611,7 +48113,9 @@
    "description": "1939 novel by John Steinbeck",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Grapes_of_Wrath",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL23205W"
+   },
    "rank": 896
   },
   "from-the-earth-to-the-moon-1865": {
@@ -47621,7 +48125,9 @@
    "series": [
     "Voyages Extraordinaires"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29426591W"
+   },
    "rank": 897
   },
   "rendezvous-with-rama-1973": {
@@ -47632,7 +48138,8 @@
     "Rama"
    ],
    "ids": {
-    "musicbrainz": "3c74ad37-1d9e-4f43-813d-2e222faa5649"
+    "musicbrainz": "3c74ad37-1d9e-4f43-813d-2e222faa5649",
+    "openlibrary": "OL17417W"
    },
    "rank": 898
   },
@@ -47643,7 +48150,9 @@
    "series": [
     "The Witcher"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24140921W"
+   },
    "rank": 904
   },
   "the-princess-and-the-pea-1835": {
@@ -47651,7 +48160,9 @@
    "description": "fairy tale by Hans Christian Andersen",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Princess_and_the_Pea",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29239529W"
+   },
    "rank": 905
   },
   "the-sword-in-the-stone-1938": {
@@ -47661,7 +48172,9 @@
    "series": [
     "The Once and Future King"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1388027W"
+   },
    "rank": 908
   },
   "pollyanna-1913": {
@@ -47669,7 +48182,9 @@
    "description": "1913 children's novel by Eleanor H. Porter",
    "wikipedia": "https://en.wikipedia.org/wiki/Pollyanna",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2775807W"
+   },
    "rank": 912
   },
   "fathers-and-sons-1860": {
@@ -47677,7 +48192,9 @@
    "description": "1862 novel by Ivan Turgenev",
    "wikipedia": "https://en.wikipedia.org/wiki/Fathers_and_Sons_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL43370W"
+   },
    "rank": 916
   },
   "summon-the-thunder-2006": {
@@ -47687,7 +48204,9 @@
    "series": [
     "Vanguard"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5696521W"
+   },
    "rank": 920
   },
   "georgics--37": {
@@ -47703,7 +48222,9 @@
    "description": "a novel by the Portuguese writer",
    "wikipedia": "https://en.wikipedia.org/wiki/Os_Maias",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL846513W"
+   },
    "rank": 922
   },
   "night-shift-1978": {
@@ -47711,7 +48232,9 @@
    "description": "1978 short story collection by Stephen King",
    "wikipedia": "https://en.wikipedia.org/wiki/Night_Shift_(short_story_collection)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL81608W"
+   },
    "rank": 924
   },
   "twilight-2005": {
@@ -47721,7 +48244,9 @@
    "series": [
     "Twilight"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5720023W"
+   },
    "rank": 925
   },
   "the-call-of-the-wild-1903": {
@@ -47729,7 +48254,9 @@
    "description": "1903 novel by Jack London",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Call_of_the_Wild",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14942956W"
+   },
    "rank": 926
   },
   "witness-for-the-prosecution-1953": {
@@ -47747,7 +48274,9 @@
    "series": [
     "Pippi Longstocking"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16249458W"
+   },
    "rank": 929
   },
   "candide-1759": {
@@ -47755,7 +48284,9 @@
    "description": "1759 philosophical tale by Voltaire",
    "wikipedia": "https://en.wikipedia.org/wiki/Candide",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL100672W"
+   },
    "rank": 930
   },
   "the-tale-of-the-bamboo-cutter-1000": {
@@ -47772,7 +48303,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Welcome_to_the_Monkey_House",
    "series": null,
    "ids": {
-    "musicbrainz": "c491973d-0097-4505-ac1b-eca3d0ef0952"
+    "musicbrainz": "c491973d-0097-4505-ac1b-eca3d0ef0952",
+    "openlibrary": "OL98480W"
    },
    "rank": 932
   },
@@ -47789,7 +48321,9 @@
    "description": "short story collection by N. K. Jemisin",
    "wikipedia": "https://en.wikipedia.org/wiki/How_Long_'til_Black_Future_Month?",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19740011W"
+   },
    "rank": 937
   },
   "miss-julie-1888": {
@@ -47797,7 +48331,9 @@
    "description": "play written by A. Strindberg",
    "wikipedia": "https://en.wikipedia.org/wiki/Miss_Julie",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL789537W"
+   },
    "rank": 938
   },
   "the-yiddish-policemen-s-union-2007": {
@@ -47805,7 +48341,9 @@
    "description": "2007 novel by Michael Chabon",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Yiddish_Policemen's_Union",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14958135W"
+   },
    "rank": 941
   },
   "the-memoirs-of-sherlock-holmes-1894": {
@@ -47825,7 +48363,9 @@
    "description": "book by Nancy MacLean",
    "wikipedia": "https://en.wikipedia.org/wiki/Democracy_in_Chains",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20058015W"
+   },
    "rank": 945
   },
   "meditations-200": {
@@ -47833,7 +48373,9 @@
    "description": "essay by Marcus Aurelius",
    "wikipedia": "https://en.wikipedia.org/wiki/Meditations",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1317211W"
+   },
    "rank": 947
   },
   "vanity-fair-1848": {
@@ -47841,7 +48383,9 @@
    "description": "1848 novel by William Makepeace Thackeray",
    "wikipedia": "https://en.wikipedia.org/wiki/Vanity_Fair_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16313W"
+   },
    "rank": 951
   },
   "fuenteovejuna-1619": {
@@ -47849,7 +48393,9 @@
    "description": "play written by Lope de Vega",
    "wikipedia": "https://en.wikipedia.org/wiki/Fuenteovejuna",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL914527W"
+   },
    "rank": 952
   },
   "starship-troopers-1959": {
@@ -47857,7 +48403,9 @@
    "description": "1959 military science fiction novel by Robert A. Heinlein",
    "wikipedia": "https://en.wikipedia.org/wiki/Starship_Troopers",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL59740W"
+   },
    "rank": 954
   },
   "interview-with-the-vampire-1976": {
@@ -47867,7 +48415,9 @@
    "series": [
     "The Vampire Chronicles"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL77826W"
+   },
    "rank": 956
   },
   "manfred-1817": {
@@ -47875,7 +48425,9 @@
    "description": "closet drama by Lord Byron",
    "wikipedia": "https://en.wikipedia.org/wiki/Manfred_(drama)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24262555W"
+   },
    "rank": 968
   },
   "hannibal-1999": {
@@ -47885,7 +48437,9 @@
    "series": [
     "Hannibal Lecter"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL23478W"
+   },
    "rank": 969
   },
   "the-huron-or-pupil-of-nature-1767": {
@@ -47893,7 +48447,9 @@
    "description": "satirical novella by the French writer Voltaire",
    "wikipedia": "https://en.wikipedia.org/wiki/L'Ingénu",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL21715774W"
+   },
    "rank": 970
   },
   "the-four-million-1906": {
@@ -47910,7 +48466,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Emma_(novel)",
    "series": null,
    "ids": {
-    "musicbrainz": "6e2e9bc9-b267-4625-b03b-dc0200da8597"
+    "musicbrainz": "6e2e9bc9-b267-4625-b03b-dc0200da8597",
+    "openlibrary": "OL66513W"
    },
    "rank": 974
   },
@@ -47927,7 +48484,9 @@
    "description": "short story collection by Stephen King",
    "wikipedia": "https://en.wikipedia.org/wiki/Skeleton_Crew_(short_story_collection)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16252009W"
+   },
    "rank": 976
   },
   "atlas-shrugged-1957": {
@@ -47935,7 +48494,9 @@
    "description": "1957 novel by Ayn Rand",
    "wikipedia": "https://en.wikipedia.org/wiki/Atlas_Shrugged",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL731735W"
+   },
    "rank": 978
   },
   "the-deerslayer-1841": {
@@ -47945,7 +48506,9 @@
    "series": [
     "Leatherstocking Tales"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15053977W"
+   },
    "rank": 982
   },
   "wilhelm-meister-s-apprenticeship-1790": {
@@ -47953,7 +48516,9 @@
    "description": "1795/96 Novel by Johann Wolfgang von Goethe",
    "wikipedia": "https://en.wikipedia.org/wiki/Wilhelm_Meister's_Apprenticeship",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL28917316W"
+   },
    "rank": 983
   },
   "the-book-of-lost-tales-1983": {
@@ -47963,7 +48528,9 @@
    "series": [
     "The History of Middle-earth"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27435W"
+   },
    "rank": 984
   },
   "mein-kampf-1924": {
@@ -47971,7 +48538,9 @@
    "description": "autobiographical manifesto by the National Socialist leader Adolf Hitler",
    "wikipedia": "https://en.wikipedia.org/wiki/Mein_Kampf",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1067441W"
+   },
    "rank": 986
   },
   "the-brothers-lionheart-1973": {
@@ -47979,7 +48548,9 @@
    "description": "1973 novel by Astrid Lindgren",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Brothers_Lionheart",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14872846W"
+   },
    "rank": 987
   },
   "leaves-of-grass-1855": {
@@ -47987,7 +48558,9 @@
    "description": "expansive Walt Whitman poetry collection",
    "wikipedia": "https://en.wikipedia.org/wiki/Leaves_of_Grass",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16333W"
+   },
    "rank": 989
   },
   "just-so-stories-1902": {
@@ -47995,7 +48568,9 @@
    "description": "short story collection by Rudyard Kipling",
    "wikipedia": "https://en.wikipedia.org/wiki/Just_So_Stories",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19899W"
+   },
    "rank": 995
   },
   "life-of-pi-2001": {
@@ -48003,7 +48578,9 @@
    "description": "2001 novel by Yann Martel",
    "wikipedia": "https://en.wikipedia.org/wiki/Life_of_Pi",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2827199W"
+   },
    "rank": 997
   },
   "the-adventure-of-the-speckled-band-1891": {
@@ -48014,7 +48591,9 @@
     "The Adventures of Sherlock Holmes",
     "canon of Sherlock Holmes"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL262561W"
+   },
    "rank": 1000
   },
   "the-emperor-s-new-clothes-1837": {
@@ -48022,7 +48601,9 @@
    "description": "fairytale by Hans Christian Andersen",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Emperor's_New_Clothes",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL24416347W"
+   },
    "rank": 1001
   },
   "letters-from-my-windmill-1869": {
@@ -48030,7 +48611,9 @@
    "description": "short story collection by Alphonse Daudet",
    "wikipedia": "https://en.wikipedia.org/wiki/Letters_from_My_Windmill",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL942495W"
+   },
    "rank": 1004
   },
   "evenings-on-a-farm-near-dikanka-1829": {
@@ -48038,7 +48621,9 @@
    "description": "short story collection by Gogol",
    "wikipedia": "https://en.wikipedia.org/wiki/Evenings_on_a_Farm_Near_Dikanka",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14948251W"
+   },
    "rank": 1005
   },
   "the-tinderbox-1835": {
@@ -48046,7 +48631,9 @@
    "description": "fairy tale by H.C. Andersen",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Tinderbox",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL25520W"
+   },
    "rank": 1007
   },
   "the-amber-spyglass-2000": {
@@ -48056,7 +48643,9 @@
    "series": [
     "His Dark Materials"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL28996W"
+   },
    "rank": 1008
   },
   "the-albatross-1842": {
@@ -48088,7 +48677,9 @@
    "description": "short story collection by Joanna Russ",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Hidden_Side_of_the_Moon",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL11348016W"
+   },
    "rank": 1016
   },
   "the-wounded-sky-1983": {
@@ -48098,7 +48689,9 @@
    "series": [
     "Star Trek"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1950888W"
+   },
    "rank": 1017
   },
   "speaker-for-the-dead-1986": {
@@ -48109,7 +48702,8 @@
     "Ender's Saga"
    ],
    "ids": {
-    "musicbrainz": "781c1d75-5527-3927-aa74-e080cb2fdbc9"
+    "musicbrainz": "781c1d75-5527-3927-aa74-e080cb2fdbc9",
+    "openlibrary": "OL49651W"
    },
    "rank": 1018
   },
@@ -48118,7 +48712,9 @@
    "description": "1804 play written by Friedrich Schiller",
    "wikipedia": "https://en.wikipedia.org/wiki/William_Tell_(play)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20263239W"
+   },
    "rank": 1020
   },
   "carmilla-1871": {
@@ -48126,7 +48722,9 @@
    "description": "novella by Sheridan Le Fanu",
    "wikipedia": "https://en.wikipedia.org/wiki/Carmilla",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2895536W"
+   },
    "rank": 1021
   },
   "salome-2000": {
@@ -48134,7 +48732,9 @@
    "description": "opera by Richard Strauss",
    "wikipedia": "https://en.wikipedia.org/wiki/Salome_(opera)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL905886W"
+   },
    "rank": 1022
   },
   "henry-iv-part-2-1598": {
@@ -48142,7 +48742,9 @@
    "description": "play by Shakespeare",
    "wikipedia": "https://en.wikipedia.org/wiki/Henry_IV,_Part_2",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL362697W"
+   },
    "rank": 1023
   },
   "manon-lescaut-1731": {
@@ -48150,7 +48752,9 @@
    "description": "novel by Abbé Prévost",
    "wikipedia": "https://en.wikipedia.org/wiki/Manon_Lescaut",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1132652W"
+   },
    "rank": 1024
   },
   "the-aleph-1949": {
@@ -48158,7 +48762,9 @@
    "description": "1949 short story collection by Jorge Luis Borges",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Aleph_and_Other_Stories",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16074654W"
+   },
    "rank": 1025
   },
   "prelude-to-foundation-1988": {
@@ -48168,7 +48774,9 @@
    "series": [
     "Foundation series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46172W"
+   },
    "rank": 1026
   },
   "black-beauty-1877": {
@@ -48176,7 +48784,9 @@
    "description": "1877 novel by Anna Sewell",
    "wikipedia": "https://en.wikipedia.org/wiki/Black_Beauty",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15854658W"
+   },
    "rank": 1027
   },
   "danton-s-death-1835": {
@@ -48184,7 +48794,9 @@
    "description": "1835 drama by Georg Büchner",
    "wikipedia": "https://en.wikipedia.org/wiki/Danton's_Death",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20235356W"
+   },
    "rank": 1030
   },
   "crito--400": {
@@ -48194,7 +48806,9 @@
    "series": [
     "Platonic dialogue"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL51934W"
+   },
    "rank": 1035
   },
   "primary-chronicle-1110": {
@@ -48210,7 +48824,9 @@
    "description": "1962 novel by Anthony Burgess",
    "wikipedia": "https://en.wikipedia.org/wiki/A_Clockwork_Orange_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1386747W"
+   },
    "rank": 1039
   },
   "tinker-tailor-soldier-spy-1974": {
@@ -48220,7 +48836,9 @@
    "series": [
     "George Smiley series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15723131W"
+   },
    "rank": 1040
   },
   "pere-goriot-1835": {
@@ -48230,7 +48848,9 @@
    "series": [
     "The Human Comedy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL85047W"
+   },
    "rank": 1041
   },
   "jurassic-park-1990": {
@@ -48240,7 +48860,9 @@
    "series": [
     "Jurassic Park"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46881W"
+   },
    "rank": 1043
   },
   "the-frog-prince-1812": {
@@ -48256,7 +48878,9 @@
    "description": "fairy tale collected by the Brothers Grimm",
    "wikipedia": "https://en.wikipedia.org/wiki/Town_Musicians_of_Bremen",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL27707873W"
+   },
    "rank": 1046
   },
   "leonce-and-lena-1836": {
@@ -48274,7 +48898,9 @@
    "series": [
     "Star Trek"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL5354800W"
+   },
    "rank": 1052
   },
   "the-last-unicorn-1968": {
@@ -48282,7 +48908,9 @@
    "description": "1968 fantasy novel by Peter S. Beagle",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Last_Unicorn",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL26459W"
+   },
    "rank": 1053
   },
   "the-overcoat-1841": {
@@ -48299,7 +48927,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/The_Wonderful_Adventures_of_Nils",
    "series": null,
    "ids": {
-    "musicbrainz": "7f95e326-8edc-4242-9198-c2041250d701"
+    "musicbrainz": "7f95e326-8edc-4242-9198-c2041250d701",
+    "openlibrary": "OL29409304W"
    },
    "rank": 1057
   },
@@ -48327,7 +48956,9 @@
    "description": "novel by the Czech author Jaroslav Hašek",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Good_Soldier_Švejk",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL835204W"
+   },
    "rank": 1062
   },
   "the-fall-of-the-house-of-usher-1839": {
@@ -48335,7 +48966,9 @@
    "description": "short story by Edgar Allan Poe",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Fall_of_the_House_of_Usher",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL41078W"
+   },
    "rank": 1064
   },
   "heimskringla-1225": {
@@ -48343,7 +48976,9 @@
    "description": "collection of kings' sagas, written by Snorri Sturluson",
    "wikipedia": "https://en.wikipedia.org/wiki/Heimskringla",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17397976W"
+   },
    "rank": 1065
   },
   "foundation-and-empire-1945": {
@@ -48354,7 +48989,9 @@
     "Foundation series",
     "Foundation Trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46224W"
+   },
    "rank": 1066
   },
   "1-maccabees--200": {
@@ -48381,7 +49018,8 @@
     "Robot series"
    ],
    "ids": {
-    "musicbrainz": "a55a4abf-14ce-4237-a7fa-6183cdbd3143"
+    "musicbrainz": "a55a4abf-14ce-4237-a7fa-6183cdbd3143",
+    "openlibrary": "OL46401W"
    },
    "rank": 1078
   },
@@ -48390,7 +49028,9 @@
    "description": "book by Shirley Jackson",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Lottery_and_Other_Stories",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL3171083W"
+   },
    "rank": 1079
   },
   "rogue-2001": {
@@ -48401,7 +49041,9 @@
     "Section 31",
     "Star Trek: The Next Generation"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15101464W"
+   },
    "rank": 1081
   },
   "the-life-and-opinions-of-tristram-shandy-gentleman-1759": {
@@ -48409,7 +49051,9 @@
    "description": "novel by Laurence Sterne",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Life_and_Opinions_of_Tristram_Shandy,_Gentleman",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL16040440W"
+   },
    "rank": 1083
   },
   "cloak-2001": {
@@ -48420,7 +49064,9 @@
     "Star Trek",
     "Section 31"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL25108557W"
+   },
    "rank": 1085
   },
   "la-reine-margot-1845": {
@@ -48428,7 +49074,9 @@
    "description": "novel by Alexandre Dumas",
    "wikipedia": "https://en.wikipedia.org/wiki/La_Reine_Margot_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL36839W"
+   },
    "rank": 1087
   },
   "nicholas-nickleby-1838": {
@@ -48436,7 +49084,9 @@
    "description": "monthly serial; novel by Charles Dickens; published 1838–1839",
    "wikipedia": "https://en.wikipedia.org/wiki/Nicholas_Nickleby",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL13114895W"
+   },
    "rank": 1088
   },
   "the-naked-sun-1956": {
@@ -48446,7 +49096,9 @@
    "series": [
     "Robot series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17187495W"
+   },
    "rank": 1091
   },
   "the-spanish-frontier-in-north-america-1992": {
@@ -48464,7 +49116,9 @@
    "series": [
     "Moomins"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17733731W"
+   },
    "rank": 1099
   },
   "the-queen-of-spades-1834": {
@@ -48472,7 +49126,9 @@
    "description": "short story by Alexander Pushkin",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Queen_of_Spades_(story)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8968213W"
+   },
    "rank": 1102
   },
   "the-robots-of-dawn-1983": {
@@ -48482,7 +49138,9 @@
    "series": [
     "Robot series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46377W"
+   },
    "rank": 1103
   },
   "a-scandal-in-bohemia-1892": {
@@ -48493,7 +49151,9 @@
     "The Adventures of Sherlock Holmes",
     "canon of Sherlock Holmes"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14930611W"
+   },
    "rank": 1107
   },
   "american-psycho-1991": {
@@ -48501,7 +49161,9 @@
    "description": "1991 novel by Bret Easton Ellis",
    "wikipedia": "https://en.wikipedia.org/wiki/American_Psycho",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1812933W"
+   },
    "rank": 1108
   },
   "demons-1870": {
@@ -48510,7 +49172,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Demons_(Dostoevsky_novel)",
    "series": null,
    "ids": {
-    "imdb": "tt0066703"
+    "imdb": "tt0066703",
+    "openlibrary": "OL166971W"
    },
    "rank": 1111
   },
@@ -48519,7 +49182,9 @@
    "description": "short story by Daniel Keyes, later expanded into a novel",
    "wikipedia": "https://en.wikipedia.org/wiki/Flowers_for_Algernon",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL515754W"
+   },
    "rank": 1112
   },
   "germinal-1885": {
@@ -48529,7 +49194,9 @@
    "series": [
     "Les Rougon-Macquart"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL118986W"
+   },
    "rank": 1114
   },
   "the-library-of-babel-1941": {
@@ -48537,7 +49204,9 @@
    "description": "1941 short story by Jorge Luis Borges",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Library_of_Babel",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL444807W"
+   },
    "rank": 1115
   },
   "dead-souls-1835": {
@@ -48545,7 +49214,9 @@
    "description": "1842 novel by Nikolai Gogol",
    "wikipedia": "https://en.wikipedia.org/wiki/Dead_Souls",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL39557306W"
+   },
    "rank": 1116
   },
   "rimen-en-teltsjes-1871": {
@@ -48562,7 +49233,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Planet_of_the_Apes_(novel)",
    "series": null,
    "ids": {
-    "musicbrainz": "2ebf8f24-3fa3-4c42-a27c-2b271d82b727"
+    "musicbrainz": "2ebf8f24-3fa3-4c42-a27c-2b271d82b727",
+    "openlibrary": "OL1319418W"
    },
    "rank": 1126
   },
@@ -48572,7 +49244,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/A_Streetcar_Named_Desire",
    "series": null,
    "ids": {
-    "musicbrainz": "49b0bca9-1e5e-447b-bc47-7a80a121923b"
+    "musicbrainz": "49b0bca9-1e5e-447b-bc47-7a80a121923b",
+    "openlibrary": "OL30294W"
    },
    "rank": 1128
   },
@@ -48583,7 +49256,9 @@
    "series": [
     "Household Words"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8193387W"
+   },
    "rank": 1138
   },
   "the-city-the-city-2009": {
@@ -48591,7 +49266,9 @@
    "description": "2009 novel by China Miéville",
    "wikipedia": "https://en.wikipedia.org/wiki/The_City_&_the_City",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14990802W"
+   },
    "rank": 1142
   },
   "northern-lights-1995": {
@@ -48601,7 +49278,9 @@
    "series": [
     "His Dark Materials"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29006W"
+   },
    "rank": 1150
   },
   "nightmares-dreamscapes-1993": {
@@ -48609,7 +49288,9 @@
    "description": "short story collection by Stephen King",
    "wikipedia": "https://en.wikipedia.org/wiki/Nightmares_&_Dreamscapes",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL81604W"
+   },
    "rank": 1151
   },
   "last-and-first-men-1930": {
@@ -48627,7 +49308,9 @@
    "series": [
     "Star Trek: The Next Generation"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8126336W"
+   },
    "rank": 1156
   },
   "the-titan-s-curse-2007": {
@@ -48637,7 +49320,9 @@
    "series": [
     "Percy Jackson & the Olympians"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL492657W"
+   },
    "rank": 1158
   },
   "life-the-universe-and-everything-1982": {
@@ -48647,7 +49332,9 @@
    "series": [
     "The Hitchhiker's Guide to the Galaxy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2163623W"
+   },
    "rank": 1163
   },
   "resurrection-1899": {
@@ -48655,7 +49342,9 @@
    "description": "1899 novel by Leo Tolstoy",
    "wikipedia": "https://en.wikipedia.org/wiki/Resurrection_(Tolstoy_novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL457760W"
+   },
    "rank": 1169
   },
   "the-dark-tower-vii-the-dark-tower-2004": {
@@ -48665,7 +49354,9 @@
    "series": [
     "The Dark Tower"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL81600W"
+   },
    "rank": 1171
   },
   "the-lost-world-1912": {
@@ -48675,7 +49366,9 @@
    "series": [
     "Professor Challenger"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL262460W"
+   },
    "rank": 1172
   },
   "occupe-toi-d-amelie-1908": {
@@ -48691,7 +49384,9 @@
    "description": "1937 novella by John Steinbeck",
    "wikipedia": "https://en.wikipedia.org/wiki/Of_Mice_and_Men",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL23204W"
+   },
    "rank": 1175
   },
   "world-of-warcraft-arthas-rise-of-the-lich-king-2009": {
@@ -48709,7 +49404,9 @@
    "description": "1929 novel by William Faulkner",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Sound_and_the_Fury",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL82932W"
+   },
    "rank": 1183
   },
   "a-esmorga-1959": {
@@ -48720,7 +49417,9 @@
     "Q71045816",
     "Q72069184"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2531979W"
+   },
    "rank": 1185
   },
   "des-knaben-wunderhorn-1805": {
@@ -48738,7 +49437,9 @@
    "series": [
     "Winnie-the-Pooh series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL476641W"
+   },
    "rank": 1187
   },
   "blind-willow-sleeping-woman-2006": {
@@ -48754,7 +49455,9 @@
    "description": "play by Johann Wolfgang von Goethe",
    "wikipedia": "https://en.wikipedia.org/wiki/Götz_von_Berlichingen_(Goethe)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL52500W"
+   },
    "rank": 1189
   },
   "the-sea-of-monsters-2006": {
@@ -48764,7 +49467,9 @@
    "series": [
     "Percy Jackson & the Olympians"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL492661W"
+   },
    "rank": 1191
   },
   "i-want-to-eat-your-pancreas-2015": {
@@ -48772,7 +49477,9 @@
    "description": "2015 Japanese light novel by Yoru Sumino",
    "wikipedia": "https://en.wikipedia.org/wiki/I_Want_to_Eat_Your_Pancreas",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20010923W"
+   },
    "rank": 1194
   },
   "iphigenia-in-tauris-1787": {
@@ -48780,7 +49487,9 @@
    "description": "play by Johann Wolfgang von Goethe",
    "wikipedia": "https://en.wikipedia.org/wiki/Iphigenia_in_Tauris_(Goethe)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL31920642W"
+   },
    "rank": 1197
   },
   "mort-1987": {
@@ -48791,7 +49500,9 @@
     "Discworld",
     "Death"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL453658W"
+   },
    "rank": 1198
   },
   "the-hour-of-the-dragon-1935": {
@@ -48799,7 +49510,9 @@
    "description": "fantasy novel by American writer Robert E. Howard",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Hour_of_the_Dragon",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL9007311W"
+   },
    "rank": 1200
   },
   "the-invisible-man-1897": {
@@ -48807,7 +49520,9 @@
    "description": "1897 science fiction novel by H. G. Wells",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Invisible_Man",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL52266W"
+   },
    "rank": 1203
   },
   "the-iceman-cometh-1939": {
@@ -48815,7 +49530,9 @@
    "description": "1939 play written by Eugene O'Neill",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Iceman_Cometh",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8026193W"
+   },
    "rank": 1204
   },
   "lucky-starr-and-the-pirates-of-the-asteroids-1953": {
@@ -48825,7 +49542,9 @@
    "series": [
     "Lucky Starr series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46242W"
+   },
    "rank": 1207
   },
   "forward-the-foundation-1993": {
@@ -48835,7 +49554,9 @@
    "series": [
     "Foundation series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL46369W"
+   },
    "rank": 1211
   },
   "lenore-1773": {
@@ -48863,7 +49584,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/The_Martian_Chronicles",
    "series": null,
    "ids": {
-    "musicbrainz": "4d3c19f6-9491-4c76-98ca-11a8e4989ac9"
+    "musicbrainz": "4d3c19f6-9491-4c76-98ca-11a8e4989ac9",
+    "openlibrary": "OL103134W"
    },
    "rank": 1214
   },
@@ -48891,7 +49613,9 @@
    "description": "short story by Edgar Allan Poe",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Tell-Tale_Heart",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL41059W"
+   },
    "rank": 1221
   },
   "the-queen-of-the-damned-1988": {
@@ -48918,7 +49642,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/The_Illustrated_Man",
    "series": null,
    "ids": {
-    "musicbrainz": "d8bb31ea-5448-424a-8a9f-b5a41ac8c51c"
+    "musicbrainz": "d8bb31ea-5448-424a-8a9f-b5a41ac8c51c",
+    "openlibrary": "OL103128W"
    },
    "rank": 1234
   },
@@ -48927,7 +49652,9 @@
    "description": "novel by Charles Dickens",
    "wikipedia": "https://en.wikipedia.org/wiki/Little_Dorrit",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14869215W"
+   },
    "rank": 1235
   },
   "panchatantra--300": {
@@ -48945,7 +49672,9 @@
    "series": [
     "His Dark Materials"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29021W"
+   },
    "rank": 1242
   },
   "long-day-s-journey-into-night-1942": {
@@ -48953,7 +49682,9 @@
    "description": "drama in four acts by Eugene O'Neill",
    "wikipedia": "https://en.wikipedia.org/wiki/Long_Day's_Journey_into_Night",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8026147W"
+   },
    "rank": 1243
   },
   "the-adventure-of-the-blue-carbuncle-1892": {
@@ -48964,7 +49695,9 @@
     "The Adventures of Sherlock Holmes",
     "canon of Sherlock Holmes"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1518317W"
+   },
    "rank": 1244
   },
   "la-celestina-1500": {
@@ -48972,7 +49705,9 @@
    "description": "Spanish literary tragicomedy",
    "wikipedia": "https://en.wikipedia.org/wiki/La_Celestina",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL32921084W"
+   },
    "rank": 1248
   },
   "flatland-1884": {
@@ -48981,7 +49716,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Flatland",
    "series": null,
    "ids": {
-    "musicbrainz": "87bdf98d-a1f1-4c66-a256-0f4c0e9a0646"
+    "musicbrainz": "87bdf98d-a1f1-4c66-a256-0f4c0e9a0646",
+    "openlibrary": "OL118388W"
    },
    "rank": 1249
   },
@@ -48992,7 +49728,9 @@
    "series": [
     "Heechee Saga"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL10587218W"
+   },
    "rank": 1251
   },
   "second-epistle-to-the-corinthians-56": {
@@ -49008,7 +49746,9 @@
    "description": "novel by Nathaniel Hawthorne",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Scarlet_Letter",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL455305W"
+   },
    "rank": 1256
   },
   "tarzan-of-the-apes-1912": {
@@ -49018,7 +49758,9 @@
    "series": [
     "Tarzan"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL3851241W"
+   },
    "rank": 1257
   },
   "baptism-of-fire-1996": {
@@ -49028,7 +49770,9 @@
    "series": [
     "The Witcher"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19849810W"
+   },
    "rank": 1259
   },
   "porno-2002": {
@@ -49038,7 +49782,9 @@
    "series": [
     "Mark Renton series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL17737227W"
+   },
    "rank": 1260
   },
   "the-scar-2002": {
@@ -49048,7 +49794,9 @@
    "series": [
     "Bas-Lag trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8718787W"
+   },
    "rank": 1262
   },
   "the-last-command-1993": {
@@ -49058,7 +49806,9 @@
    "series": [
     "Thrawn trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL6749811W"
+   },
    "rank": 1263
   },
   "devdas-1917": {
@@ -49074,7 +49824,9 @@
    "description": "1999 novel by J. M. Coetzee",
    "wikipedia": "https://en.wikipedia.org/wiki/Disgrace",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL500451W"
+   },
    "rank": 1268
   },
   "humiliated-and-insulted-1861": {
@@ -49082,7 +49834,9 @@
    "description": "1861 novel by Fyodor Dostoyevsky",
    "wikipedia": "https://en.wikipedia.org/wiki/Humiliated_and_Insulted",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL166968W"
+   },
    "rank": 1271
   },
   "the-devil-wears-prada-2003": {
@@ -49090,7 +49844,9 @@
    "description": "2003 novel by Lauren Weisberger",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Devil_Wears_Prada_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15137662W"
+   },
    "rank": 1273
   },
   "no-exit-1944": {
@@ -49106,7 +49862,9 @@
    "description": "1986 short story collection by Thomas Ligotti",
    "wikipedia": "https://en.wikipedia.org/wiki/Songs_of_a_Dead_Dreamer",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20016684W"
+   },
    "rank": 1278
   },
   "the-valiant-little-tailor-1812": {
@@ -49114,7 +49872,9 @@
    "description": "fairy tale by the Brothers Grimm",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Brave_Little_Tailor",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL29317553W"
+   },
    "rank": 1283
   },
   "spock-messiah-1976": {
@@ -49124,7 +49884,9 @@
    "series": [
     "Star Trek"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15157561W"
+   },
    "rank": 1284
   },
   "doomsday-book-1992": {
@@ -49134,7 +49896,9 @@
    "series": [
     "Oxford time-traveling historians"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14858406W"
+   },
    "rank": 1285
   },
   "almagest-148": {
@@ -49150,7 +49914,9 @@
    "description": "didactic poem by Lucretius",
    "wikipedia": "https://en.wikipedia.org/wiki/De_rerum_natura",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1548597W"
+   },
    "rank": 1292
   },
   "the-lower-depths-1902": {
@@ -49169,7 +49935,9 @@
     "Star Trek",
     "Totality Trilogy"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14954145W"
+   },
    "rank": 1299
   },
   "a-little-princess-1905": {
@@ -49177,7 +49945,9 @@
    "description": "1905 novel by Frances Hodgson Burnett",
    "wikipedia": "https://en.wikipedia.org/wiki/A_Little_Princess",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL15040856W"
+   },
    "rank": 1300
   },
   "death-of-a-salesman-1949": {
@@ -49185,7 +49955,9 @@
    "description": "1949 play by Arthur Miller",
    "wikipedia": "https://en.wikipedia.org/wiki/Death_of_a_Salesman",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL66346W"
+   },
    "rank": 1302
   },
   "edward-ii-1594": {
@@ -49211,7 +49983,9 @@
    "series": [
     "Star Trek"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL8126274W"
+   },
    "rank": 1308
   },
   "cat-s-cradle-1963": {
@@ -49219,7 +49993,9 @@
    "description": "1963 novel by Kurt Vonnegut",
    "wikipedia": "https://en.wikipedia.org/wiki/Cat's_Cradle",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL98482W"
+   },
    "rank": 1309
   },
   "the-lightning-thief-2005": {
@@ -49229,7 +50005,9 @@
    "series": [
     "Percy Jackson & the Olympians"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL492658W"
+   },
    "rank": 1313
   },
   "suecia-antiqua-et-hodierna-1660": {
@@ -49245,7 +50023,9 @@
    "description": "1880 novel by Lewis Wallace",
    "wikipedia": "https://en.wikipedia.org/wiki/Ben-Hur:_A_Tale_of_the_Christ",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL25649164W"
+   },
    "rank": 1315
   },
   "orlando-innamorato-1483": {
@@ -49261,7 +50041,9 @@
    "description": "1936 novella by Robert E. Howard",
    "wikipedia": "https://en.wikipedia.org/wiki/Red_Nails",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19792457W"
+   },
    "rank": 1317
   },
   "the-threepenny-opera-1928": {
@@ -49277,7 +50059,9 @@
    "description": "1912 novel by Frances Hodgson Burnett",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Secret_Garden",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL11916W"
+   },
    "rank": 1319
   },
   "the-time-ships-1995": {
@@ -49285,7 +50069,9 @@
    "description": "1995 novel by Stephen Baxter",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Time_Ships",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL72860W"
+   },
    "rank": 1321
   },
   "rainbow-six-1998": {
@@ -49295,7 +50081,9 @@
    "series": [
     "Ryanverse"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL449002W"
+   },
    "rank": 1322
   },
   "the-polar-express-1985": {
@@ -49303,7 +50091,9 @@
    "description": "1985 Chris Van Allsburg children's book",
    "wikipedia": "https://en.wikipedia.org/wiki/The_Polar_Express",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL3743751W"
+   },
    "rank": 1323
   },
   "gottorfer-codex-1700": {
@@ -49319,7 +50109,9 @@
    "description": "1848 novel by Charles Dickens",
    "wikipedia": "https://en.wikipedia.org/wiki/Dombey_and_Son",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL14868861W"
+   },
    "rank": 1326
   },
   "the-wild-swans-1838": {
@@ -49337,7 +50129,9 @@
    "description": "1st century Greco-Roman periplus",
    "wikipedia": "https://en.wikipedia.org/wiki/Periplus_of_the_Erythraean_Sea",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL18339912W"
+   },
    "rank": 1332
   },
   "angels-demons-2000": {
@@ -49347,7 +50141,9 @@
    "series": [
     "Robert Langdon series"
    ],
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL76833W"
+   },
    "rank": 1334
   },
   "linguistics-and-language-1973": {
@@ -49452,7 +50248,9 @@
    "description": "2017 book by S. A. Smith about history of revolutionary Russia from 1890 to 1928",
    "wikipedia": "https://en.wikipedia.org/wiki/Russia_in_Revolution",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL20052836W"
+   },
    "rank": 1945
   },
   "who-must-die-in-rwanda-s-genocide-the-state-of-exception-realized-2015": {
@@ -49461,7 +50259,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Who_Must_Die_in_Rwanda's_Genocide?:_The_State_of_Exception_Realized",
    "series": null,
    "ids": {
-    "isbn13": "978-1-498-51864-2"
+    "isbn13": "978-1-498-51864-2",
+    "openlibrary": "OL21113489W"
    },
    "rank": 1969
   },
@@ -49494,7 +50293,9 @@
    "description": "book by Susan Stryker",
    "wikipedia": "https://en.wikipedia.org/wiki/Transgender_History_(book)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL2954890W"
+   },
    "rank": 2146
   },
   "principles-of-economics-1871": {
@@ -49502,7 +50303,9 @@
    "description": "non-fiction work by Carl Menger",
    "wikipedia": "https://en.wikipedia.org/wiki/Principles_of_Economics_(Menger_book)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL1338940W"
+   },
    "rank": 2236
   },
   "golden-boy-2013": {
@@ -49510,7 +50313,9 @@
    "description": "2013 novel by Abigail Tarttelin",
    "wikipedia": "https://en.wikipedia.org/wiki/Golden_Boy_(novel)",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL19667271W"
+   },
    "rank": 2288
   },
   "the-jewel-ornament-of-liberation-1200": {
@@ -49526,7 +50331,9 @@
    "description": "1973 book by Serge Livrozet",
    "wikipedia": "https://en.wikipedia.org/wiki/From_Prison_to_Revolt",
    "series": null,
-   "ids": {},
+   "ids": {
+    "openlibrary": "OL810354W"
+   },
    "rank": 2404
   },
   "railworks-2009": {
@@ -65586,7 +66393,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Ray_of_Light",
    "series": null,
    "ids": {
-    "musicbrainz": "cb93e87f-5d21-3447-a6e8-22d44f9b0d7a"
+    "musicbrainz": "cb93e87f-5d21-3447-a6e8-22d44f9b0d7a",
+    "openlibrary": "OL3163560W"
    },
    "rank": 256
   },
@@ -65646,7 +66454,8 @@
    "wikipedia": "https://en.wikipedia.org/wiki/Like_a_Prayer_(album)",
    "series": null,
    "ids": {
-    "musicbrainz": "1f75a8df-176c-3d23-8f1f-b0c8935682ec"
+    "musicbrainz": "1f75a8df-176c-3d23-8f1f-b0c8935682ec",
+    "openlibrary": "OL3163553W"
    },
    "rank": 265
   },

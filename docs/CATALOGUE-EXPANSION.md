@@ -27,7 +27,7 @@ article and external ids for the batches to work from. Neither file is sent to t
 
 | Gap | Works |
 | --- | --- |
-| Summary | all imported |
+| Summary | all imported except 114 of the best known (batch 0) |
 | Moods, themes, pacing, style (beyond genre) | all imported |
 | Parents' guide | all imported (shown as "Not assessed") |
 | Playtime | all games |

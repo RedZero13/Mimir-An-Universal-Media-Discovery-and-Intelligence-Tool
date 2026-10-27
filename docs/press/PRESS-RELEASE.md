@@ -4,7 +4,7 @@
 
 ## Terratales launches Mimir, a free discovery engine that finds films, shows, books, games and music by how you want to feel
 
-*Describe a mood, a favourite or how much time you have; Mimir picks from 681 works across six media and tells
+*Describe a mood, a favourite or how much time you have; Mimir picks from about 7,500 works across six media and tells
 you why each one fits.*
 
 **New Delhi, October 2026.** Terratales Media Entertainment today opened Mimir to the public at
@@ -19,9 +19,9 @@ reasons it fits, drawn from recorded facts and clearly labelled editorial readin
 
 **What Mimir does**
 
-- **One catalogue for every medium.** 681 works from 42 countries in 29 original languages, from Hollywood,
-  Bollywood, Korean drama and anime to novels, manga, indie games, classic albums and YouTube creators, each
-  classified against 372 controlled terms, including 233 subgenres.
+- **One catalogue for every medium.** About 7,500 works from 99 countries in 68 original languages, from Hollywood,
+  Bollywood, Korean drama and anime to novels, manga, indie games, classic albums and YouTube creators. 681 are
+  fully classified against 372 controlled terms, including 233 subgenres; the rest are being classified in batches.
 - **Picks that explain themselves.** Every recommendation says why it fits, and whether each reason is a fact or
   an interpretation.
 - **Built around your time.** Every work carries how long it takes, from a quick bite to a long haul, including
@@ -65,7 +65,7 @@ after a difficult day, no violence." "A book like Outer Wilds." "I want to die l
 films, shows, books, manga, games, music and YouTube that fit, and tells you why each one does.
 
 A few things I'm proud of:
-→ 681 works from 42 countries, in one catalogue
+→ about 7,500 works from 99 countries, in one catalogue
 → every pick explains itself
 → a parents' guide for every medium
 → watch-alongs where comments stay hidden until your friends reach that moment
@@ -80,7 +80,7 @@ It's in public beta, and I'd love your honest feedback. Try it: https://mimir.te
 Introducing **Mimir**, a Terratales venture. 🌳
 
 In Norse myth, Mimir's well beneath the world tree held all knowledge. Ours holds stories: films, TV, books and
-manga, games, music and YouTube, 681 works from 42 countries.
+manga, games, music and YouTube, about 7,500 works from 99 countries.
 
 Describe a mood, a favourite or the time you have, and Mimir finds what to watch, read, play or listen to next,
 with the reason for every pick. Parents' guides for every medium, real audiobook lengths, activity rings and

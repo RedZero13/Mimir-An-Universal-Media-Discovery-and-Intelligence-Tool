@@ -21,7 +21,8 @@ def read_seed(seed_dir: Path = SEED_DIR) -> dict:
         part = json.loads(path.read_text())
         base["works"] += part.get("works", [])
         base["relationships"] += part.get("relationships", [])
-        overlays.append({"terms": part.get("terms", {}), "attributes": part.get("attributes", {}), "credits": part.get("credits", {})})
+        overlays.append({"terms": part.get("terms", {}), "attributes": part.get("attributes", {}), "credits": part.get("credits", {}),
+                         "summaries": part.get("summaries", {})})
     # Overlays add to works defined in any file: tags (seed/subgenres.json), attributes such as franchises, and
     # extra credits such as lead cast (seed/people-and-franchises.json). Existing values win over overlay attributes.
     by_slug = {w["slug"]: w for w in base["works"]}
@@ -38,6 +39,10 @@ def read_seed(seed_dir: Path = SEED_DIR) -> dict:
         for slug, attrs in overlay["attributes"].items():
             w = target(slug)
             w["attributes"] = {**attrs, **w.get("attributes", {})}
+        for slug, text in overlay["summaries"].items():   # a summary written in the work's own record wins
+            w = target(slug)
+            if not w.get("summary"):
+                w["summary"] = text
         for slug, credits in overlay["credits"].items():
             w = target(slug)
             have = {(c[0], c[1]) for c in w.get("credits", [])}
