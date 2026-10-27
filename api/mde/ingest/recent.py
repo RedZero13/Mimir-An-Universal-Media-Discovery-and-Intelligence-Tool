@@ -1,4 +1,4 @@
-"""Finds recent works (2025 onwards) on Wikidata (CC0) and writes them as a reviewable seed file, seed/recent.json.
+"""Finds recent works (2022 onwards) on Wikidata (CC0) and writes them as a reviewable seed file, seed/recent.json.
 
     python -m mde.ingest.recent                 # discover, rank by how widely each work is covered, write the seed
     python -m mde.ingest.recent --offline       # rebuild from the HTTP cache only
@@ -25,7 +25,7 @@ from mde.ingest.wikidata import API, TYPES, Wikidata, claim_values, label_of, ru
 
 OUT = Path(__file__).parent.parent / "seed" / "recent.json"
 TAXONOMY = Path(__file__).parent.parent / "taxonomy" / "taxonomy.json"
-YEARS = (2025, 2026)
+YEARS = (2022, 2023, 2024, 2025, 2026)
 CAPS = {"film": 140, "series": 90, "game": 70, "album": 70, "book": 70}   # per year
 MIN_SITELINKS = {"film": 6, "series": 5, "game": 5, "album": 4, "book": 4}
 GENRE_ALIASES = {
@@ -238,7 +238,7 @@ def main() -> None:
     args = ap.parse_args()
     client = Client(offline=args.offline, max_age_days=365)
     works = build(Wikidata(client), client)
-    about = ("Recent works (2025 onwards) from Wikidata (CC0), ranked by Wikipedia coverage. "
+    about = ("Recent works (2022 onwards) from Wikidata (CC0), ranked by Wikipedia coverage. "
              "Regenerate with python -m mde.ingest.recent; review before merging. No parents' guide is claimed.")
     OUT.write_text(json.dumps({"about": about, "works": works}, ensure_ascii=False, indent=1) + "\n")
     print(f"wrote {len(works)} works to {OUT}")
