@@ -1305,7 +1305,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
       <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#swipe">Swipe</a></li><li><a href="#craft">Craft</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
       <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
-      <div><h2>Mimir</h2><ul><li><a href="#help">Help centre</a></li><li><a href="/privacy/">Privacy notice</a></li><li><a href="/cookies/">Cookie policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/data-requests/">Data requests</a></li><li><a href="/security/">Security</a></li><li><a href="#privacy-choices" data-consent-open>Privacy choices</a></li><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="/films/">Catalogue A–Z</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
+      <div><h2>Mimir</h2><ul><li><a href="/help/">Help centre</a></li><li><a href="/privacy/">Privacy notice</a></li><li><a href="/cookies/">Cookie policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/data-requests/">Data requests</a></li><li><a href="/security/">Security</a></li><li><a href="#privacy-choices" data-consent-open>Privacy choices</a></li><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="/films/">Catalogue A–Z</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
       <div><h2>Terratales</h2><ul><li><a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></li><li><a href="https://terratalesmedia.world/publishing/" target="_blank" rel="noopener">Publishing</a></li><li><a href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener">The Akashic Records</a></li><li><a href="https://terratalesmedia.world/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
     </nav>
     <div class="foot-row">
@@ -2287,7 +2287,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
       ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Taste profile", "#taste"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Days of the year", "#days"], ["Your profile", "#signin"]]],
-    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["Help centre", "#help"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
+    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["Help centre", "/help/"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
   const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
   function renderMenubar() {
@@ -4918,7 +4918,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           <div class="help-cats">${HELP_CATS.map(([id, name, blurb]) => `<a class="help-cat" href="#help-topic-${id}"><h3>${esc(name)}</h3><p>${esc(blurb)}</p><span class="help-n">${HELP.filter((a) => a[1] === id).length} guides</span></a>`).join("")}</div></section>
         <div class="help-cols block">
           <section aria-labelledby="help-video-h"><h2 id="help-video-h">Watch the walkthrough</h2>${helpVideo()}
-            <h2 id="help-faq-h" style="margin-top:28px">Frequently asked questions</h2>${helpFaqHtml(HELP_FAQ)}</section>
+            <h2 id="help-faq-h" style="margin:28px 0 16px">Frequently asked questions</h2>${helpFaqHtml(HELP_FAQ)}</section>
           <aside class="help-side" aria-label="More help"><div class="panel"><h3>Start here</h3><ul class="help-list">${HELP.slice(0, 3).map(helpRow).join("")}</ul></div>${helpContact()}</aside></div></div>`;
   }
   function renderHelpTopic(id) {

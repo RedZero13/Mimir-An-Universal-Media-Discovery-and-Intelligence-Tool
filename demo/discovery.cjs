@@ -68,7 +68,7 @@ function writeLlms(out, { SITE_URL, works, hubs, shelves, posts }) {
     "",
     "## Learn how it works",
     `- [Ask Mimir](${SITE_URL}/): the app; type a request in plain words`,
-    `- [Help centre](${SITE_URL}/#help): guides to every feature, with FAQs`,
+    `- [Help centre](${SITE_URL}/help/): guides to every feature, with FAQs`,
     `- [About Mimir](${SITE_URL}/#about): what the catalogue holds and where facts come from`,
     ...posts.slice(0, 12).map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug}/)`),
     "",
