@@ -74,7 +74,7 @@ def _images() -> dict[str, list[dict]]:
 
 
 def _public_texts() -> dict[str, str]:
-    files = ["demo/page.html", "demo/build.cjs", "demo/seo.cjs", "demo/blog.json", "README.md", "docs/FEATURES.md",
+    files = ["demo/page.html", "demo/build.cjs", "demo/seo.cjs", "demo/legal.cjs", "demo/vault.cjs", "demo/blog.json", "README.md", "docs/FEATURES.md",
              *[str(p.relative_to(ROOT)) for p in sorted((ROOT / "docs" / "press").glob("*.md"))]]
     return {f: (ROOT / f).read_text() for f in files if (ROOT / f).exists()}
 
@@ -463,6 +463,13 @@ def _b002(c):
         for m in re.finditer(r"(\d+) original languages", text):
             if int(m.group(1)) != langs:
                 yield f, f"says {m.group(0)!r}; the catalogue has {langs}"
+
+
+@check("B003")
+def _b003(c):
+    text = c.texts.get("demo/legal.cjs", "")
+    for m in re.finditer(r"\[\[([^\]]+)\]\]", text):
+        yield f"demo/legal.cjs:{m.group(1)[:50]}", f"to be supplied: {m.group(1)}"
 
 
 def _url_file(site: Path, url: str) -> Path | None:

@@ -117,8 +117,10 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   settings before they leave the device; the server stores only ciphertext, so Mimir cannot read it.
 - **Sync across devices** with per-item merging, export your data as a file, change your key, sign out (optionally wiping
   this device) or delete everything on the server in one step. A lost key cannot be recovered.
-- Needs the Mimir Vault plugin switched on: see [ACCOUNTS.md](ACCOUNTS.md). Sign in with Google, Apple and Meta and usage
-  analytics with consent are planned.
+- Needs the Mimir Vault plugin switched on: see [ACCOUNTS.md](ACCOUNTS.md). Sign in with Google, Apple and Meta is planned.
+- **Privacy you can change:** analytics is off until you allow it (a plain consent panel, honouring Global Privacy Control),
+  nothing you search for, rate or save is ever collected, and the privacy notice, cookie policy, terms, data requests and
+  security pages sit in every footer.
 
 ## Community
 

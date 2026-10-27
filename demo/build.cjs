@@ -8,6 +8,7 @@ const fs = require("fs");
 const { readSeed } = require("./seed.cjs");
 const { writeCatalogPages, HUBS } = require("./seo.cjs");
 const { writeSitemaps, writeRobots, writeLlms } = require("./discovery.cjs");
+const legal = require("./legal.cjs");
 const path = require("path");
 
 const here = __dirname;
@@ -250,13 +251,25 @@ h2{font:600 1.6rem "Cormorant Garamond",Georgia,serif;color:var(--head);margin:3
 nav{font-size:.85rem;text-align:right;line-height:1.9}.cover{float:right;width:min(240px,40%);margin:6px 0 16px 20px;border-radius:6px;box-shadow:0 8px 22px rgba(0,0,0,.25)}
 .facts{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin:20px 0}.facts dt{color:var(--muted);font-size:.85rem}.facts dd{margin:0}
 .cols{columns:2 240px;column-gap:28px;padding-left:18px}.cols li{break-inside:avoid}h1,h2{clear:none}
+ul{padding-left:20px}.tbl{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--surface)}mark.todo{background:rgba(216,178,74,.22);color:var(--head);padding:0 4px;border-radius:4px}
 footer{max-width:1080px;margin:64px auto 0;padding:22px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 </style></head><body>
 <header class="top"><a class="brand" href="/">MIMIR<small>A TERRATALES VENTURE</small></a><nav>${HUBS.map((h) => `<a href="/${h.slug}/">${h.name}</a>`).join(" · ")} · <a href="/shelves/">Shelves</a> · <a href="/blog/">Blog</a></nav></header>
 <main class="wrap">${body}</main>
-<footer><span>© ${new Date().getFullYear()} Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/blog/">Blog</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
+<footer><span>© ${new Date().getFullYear()} Terratales Media Entertainment · All realms reserved</span><span><a href="/">Mimir</a> · <a href="/blog/">Blog</a> · <a href="/privacy/">Privacy</a> · <a href="/cookies/">Cookies</a> · <a href="/terms/">Terms</a> · <a href="/data-requests/">Data requests</a> · <a href="/security/">Security</a> · <a href="/#privacy-choices">Privacy choices</a> · <a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></span></footer>
 </body></html>
 `;
+
+// Privacy notice, cookie policy, terms, data requests and security: plain static pages with real URLs (demo/legal.cjs).
+function writeLegal(out) {
+  return legal.PAGES.map((p) => {
+    const url = `${SITE_URL}/${p.slug}/`;
+    fs.mkdirSync(path.join(out, p.slug), { recursive: true });
+    const body = `<p class="eyebrow"><a href="/">Mimir</a> · Legal</p><h1>${esc(p.title)}</h1><p class="meta">Version ${legal.VERSION} · updated ${legal.UPDATED}</p>\n${legal.render(p.md)}`;
+    fs.writeFileSync(path.join(out, p.slug, "index.html"), staticPage(`${p.title} · Mimir`, p.desc, url, body, "", { type: "website" }));
+    return [url, null, "0.3"];
+  });
+}
 
 function writeBlog(out) {
   const posts = JSON.parse(fs.readFileSync(path.join(here, "blog.json"), "utf8")).posts.sort((a, b) => b.date.localeCompare(a.date));
@@ -324,7 +337,7 @@ if (args[0] === "--site") {
   const P = (n) => JSON.parse(texts[n]);
   const cat = MDE.createCatalogue(P("catalogue"), P("taxonomy"), P("enrichment"), P("shelves"), P("providers"), P("calendar"));
   const today = new Date().toISOString().slice(0, 10);
-  const urls = [[`${SITE_URL}/`, today, "1.0"], ...writeBlog(out),
+  const urls = [[`${SITE_URL}/`, today, "1.0"], ...writeBlog(out), ...writeLegal(out),
     ...writeCatalogPages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc })];
   const worksList = P("catalogue").works;
   writeSitemaps(out, { SITE_URL, urls, works: worksList, hubs: HUBS });

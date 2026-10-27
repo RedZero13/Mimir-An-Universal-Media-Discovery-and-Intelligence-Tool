@@ -31,6 +31,7 @@ function wp_schedule_event() { return true; }
 function wp_add_privacy_policy_content() {}
 function wp_kses_post( $s ) { return $s; }
 function add_options_page() {}
+function wp_json_encode( $v ) { return json_encode( $v ); }
 function is_wp_error( $x ) { return $x instanceof WP_Error; }
 function rest_url( $p = '' ) { return 'https://example.test/wp-json/' . $p; }
 function register_rest_route( $ns, $route, $args ) { $GLOBALS['routes'][ "/$ns$route" ] = $args; }
@@ -39,6 +40,7 @@ class WP_Error { public function __construct( public string $code = '', public s
 class WP_REST_Response { public function __construct( public $data = null, public int $status = 200 ) {} }
 class WP_REST_Request implements ArrayAccess {
 	public function __construct( public array $p ) {}
+	public function get_json_params() { return $this->p; }
 	public function offsetExists( mixed $o ): bool { return isset( $this->p[ $o ] ); }
 	public function offsetGet( mixed $o ): mixed { return $this->p[ $o ] ?? null; }
 	public function offsetSet( mixed $o, mixed $v ): void { $this->p[ $o ] = $v; }
@@ -55,10 +57,19 @@ class Fake_Wpdb {
 		$i = 0;
 		return preg_replace_callback( '/%[sd]/', function ( $m ) use ( &$i, $a ) { $v = $a[ $i++ ]; return '%d' === $m[0] ? (string) (int) $v : $this->pdo->quote( (string) $v ); }, $q );
 	}
+	public function get_results( $q, $o = null ) { return $this->pdo->query( $q )->fetchAll( PDO::FETCH_ASSOC ); }
 	public function get_row( $q, $o = null ) { $r = $this->pdo->query( $q )->fetch( PDO::FETCH_ASSOC ); return $r ?: null; }
 	public function get_var( $q ) { $r = $this->pdo->query( $q )->fetch( PDO::FETCH_NUM ); return $r ? $r[0] : null; }
 	public function get_col( $q ) { return $this->pdo->query( $q )->fetchAll( PDO::FETCH_COLUMN ); }
-	public function query( $q ) { return $this->pdo->exec( $q ); }
+	public function query( $q ) {
+		// MySQL upserts, translated for sqlite.
+		$q = preg_replace( '/^INSERT IGNORE/', 'INSERT OR IGNORE', $q );
+		if ( preg_match( '/^INSERT INTO (\S+) \(([^)]*)\) VALUES \((.*)\) ON DUPLICATE KEY UPDATE (.*)$/s', $q, $m ) ) {
+			$key = array( 'wp_mimir_metrics' => 'day, k, v', 'wp_mimir_errors' => 'id' )[ $m[1] ] ?? 'id';
+			$q   = "INSERT INTO {$m[1]} ({$m[2]}) VALUES ({$m[3]}) ON CONFLICT($key) DO UPDATE SET " . preg_replace( '/\bn = n \+ 1/', 'n = n + 1', $m[4] );
+		}
+		return $this->pdo->exec( $q );
+	}
 	public function insert( $t, $d, $f = null ) { $c = implode( ',', array_keys( $d ) ); $p = implode( ',', array_fill( 0, count( $d ), '?' ) ); $s = $this->pdo->prepare( "INSERT INTO $t ($c) VALUES ($p)" ); $s->execute( array_values( $d ) ); return 1; }
 	public function update( $t, $d, $w, $f = null, $wf = null ) { $set = implode( ',', array_map( fn( $k ) => "$k = ?", array_keys( $d ) ) ); $wh = implode( ' AND ', array_map( fn( $k ) => "$k = ?", array_keys( $w ) ) ); $s = $this->pdo->prepare( "UPDATE $t SET $set WHERE $wh" ); $s->execute( array_merge( array_values( $d ), array_values( $w ) ) ); return $s->rowCount(); }
 	public function delete( $t, $w, $f = null ) { $wh = implode( ' AND ', array_map( fn( $k ) => "$k = ?", array_keys( $w ) ) ); $s = $this->pdo->prepare( "DELETE FROM $t WHERE $wh" ); $s->execute( array_values( $w ) ); return $s->rowCount(); }

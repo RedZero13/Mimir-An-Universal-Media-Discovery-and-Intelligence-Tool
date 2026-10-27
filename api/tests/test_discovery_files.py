@@ -56,3 +56,14 @@ def test_llms_files_describe_the_site(site):
 def test_built_pages_pass_the_page_audit(site):
     _, findings = run_audit(load_context(site), {"P001", "P002", "P003", "P004", "P005"}, set())
     assert not findings, "\n".join(f"{f.rule} {f.key}: {f.message}" for f in findings[:10])
+
+
+def test_legal_pages_are_built_linked_and_in_the_sitemap(site):
+    for slug in ("privacy", "cookies", "terms", "data-requests", "security"):
+        html = (site / slug / "index.html").read_text()
+        assert "<h1>" in html and "Version 2026-10" in html, slug
+        assert f"https://mimir.terratalesmedia.world/{slug}/" in (site / "sitemap-pages.xml").read_text()
+    privacy = (site / "privacy" / "index.html").read_text()
+    assert "Data Protection Board of India" in privacy and "Third Floor" in privacy
+    assert "To be added" in privacy, "unfilled placeholders must stay visible, not be dropped"
+    assert 'href="/privacy/"' in (site / "index.html").read_text(), "the app footer links to the notice"
