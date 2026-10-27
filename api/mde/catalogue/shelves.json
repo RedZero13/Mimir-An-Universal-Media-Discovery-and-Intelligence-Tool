@@ -1,5 +1,5 @@
 {
- "about": "Browsing shelves. Names are playful (Vol. II §11: social and marketing may be playful, in-world); taglines say plainly what is on the shelf, and each description is shown in the About panel on the shelf's own page. Rules (media, all_tags, any_tags, min_strength, popularity_min/max, relation_child, score_max (mean of all scores out of 100), continuity, min/max_minutes, languages, not_languages, forms, sort) are evaluated by catalogue/browse.py and demo/engine.cjs. A shelf with fewer than three works is hidden. 'Comedy Central' is a TV channel's trademark, so the comedy shelf is 'Laugh Riot'.",
+ "about": "Browsing shelves. Names are playful (Vol. II §11: social and marketing may be playful, in-world); taglines say plainly what is on the shelf, and each description is shown in the About panel on the shelf's own page. Rules (media, all_tags, any_tags, min_strength, popularity_min/max, relation_child, score_max (mean of all scores out of 100), continuity, min/max_minutes, languages, not_languages, forms, sort) are evaluated by catalogue/browse.py and demo/engine.cjs. A shelf with fewer than three works is hidden. 'Comedy Central' is a TV channel's trademark, so the comedy shelf is 'Laugh Riot'. Each shelf also has a plain-language 'phrase' used in page titles.",
  "min_works": 3,
  "shelves": [
   {
@@ -16,7 +16,8 @@
     ],
     "min_strength": 0.9,
     "sort": "obscure"
-   }
+   },
+   "phrase": "Lesser-known films, shows, books and games"
   },
   {
    "slug": "laugh-riot",
@@ -30,7 +31,8 @@
     ],
     "min_strength": 0.5,
     "sort": "strength"
-   }
+   },
+   "phrase": "Comedy films, shows and books"
   },
   {
    "slug": "drama-mamas",
@@ -47,13 +49,14 @@
     ],
     "min_strength": 0.5,
     "sort": "strength"
-   }
+   },
+   "phrase": "Emotional dramas: melancholic or tense films, shows and books"
   },
   {
    "slug": "nepo-babies",
    "name": "Nepo Babies",
-   "tagline": "Famous names, so-so stories: follow-ons and adaptations that coast on the family they came from.",
-   "description": "Every family has one. These sequels, remakes, spin-offs and adaptations were born into famous franchises and largely failed to live up to the name: critics and audiences scored them at 65 out of 100 or lower on average. Some are guilty pleasures, some are cautionary tales, and all of them got made because of who their parents were.",
+   "tagline": "Sequels, remakes, spin-offs and adaptations of famous franchises that score lower than the originals.",
+   "description": "Sequels, remakes, spin-offs and adaptations of well-known franchises whose average score across the review platforms Mimir holds is 65 out of 100 or lower. Scores are a rough guide, not a verdict: plenty of these have devoted fans, and the summary on each says why.",
    "rule": {
     "relation_child": [
      "adaptation_of",
@@ -63,7 +66,8 @@
     ],
     "score_max": 65,
     "sort": "popular"
-   }
+   },
+   "phrase": "Sequels, remakes and adaptations with lower scores"
   },
   {
    "slug": "binge-worthy",
@@ -75,7 +79,8 @@
      "series"
     ],
     "sort": "popular"
-   }
+   },
+   "phrase": "Popular TV series to binge"
   },
   {
    "slug": "desi-delights",
@@ -95,7 +100,8 @@
      "ur"
     ],
     "sort": "popular"
-   }
+   },
+   "phrase": "Indian-language films, series, books and music"
   },
   {
    "slug": "panels-and-pages",
@@ -112,7 +118,8 @@
      "manhua"
     ],
     "sort": "popular"
-   }
+   },
+   "phrase": "Manga, manhwa and manhua"
   },
   {
    "slug": "anime-essentials",
@@ -131,7 +138,8 @@
      "genre:animation"
     ],
     "sort": "popular"
-   }
+   },
+   "phrase": "Anime series and films"
   },
   {
    "slug": "cops-and-robbers",
@@ -144,7 +152,8 @@
     ],
     "min_strength": 0.6,
     "sort": "popular"
-   }
+   },
+   "phrase": "Crime films, shows, books and games"
   },
   {
    "slug": "action-blockbusters",
@@ -162,7 +171,8 @@
     ],
     "min_strength": 0.6,
     "sort": "popular"
-   }
+   },
+   "phrase": "Action films and games"
   },
   {
    "slug": "fright-club",
@@ -176,7 +186,8 @@
     ],
     "min_strength": 0.6,
     "sort": "strength"
-   }
+   },
+   "phrase": "Horror and unsettling films, shows, books and games"
   },
   {
    "slug": "brain-food",
@@ -189,7 +200,8 @@
     ],
     "min_strength": 0.8,
     "sort": "strength"
-   }
+   },
+   "phrase": "Intellectually demanding films, shows and books"
   },
   {
    "slug": "seoul-searching",
@@ -201,7 +213,8 @@
      "ko"
     ],
     "sort": "popular"
-   }
+   },
+   "phrase": "Korean-language films, series and music"
   },
   {
    "slug": "true-stories",
@@ -216,7 +229,8 @@
     ],
     "min_strength": 0.6,
     "sort": "popular"
-   }
+   },
+   "phrase": "Biographies, memoirs and documentaries"
   },
   {
    "slug": "mini-marathons",
@@ -229,12 +243,13 @@
     ],
     "max_minutes": 900,
     "sort": "shortest"
-   }
+   },
+   "phrase": "TV series you can finish in about 15 hours"
   },
   {
    "slug": "cosy-corner",
    "name": "Cosy Corner",
-   "tagline": "Warm, gentle, safe to land in.",
+   "tagline": "Warm, gentle and comforting.",
    "description": "Gentle, warm stories to come back to on a hard day. Low stakes, kind characters and little to fear, ordered by how comforting Mimir reads them to be.",
    "rule": {
     "any_tags": [
@@ -242,7 +257,8 @@
     ],
     "min_strength": 0.7,
     "sort": "strength"
-   }
+   },
+   "phrase": "Comforting films, shows, books and games"
   },
   {
    "slug": "cry-me-a-river",
@@ -255,7 +271,8 @@
     ],
     "min_strength": 0.8,
     "sort": "strength"
-   }
+   },
+   "phrase": "Melancholic films, shows, books and music"
   },
   {
    "slug": "mind-benders",
@@ -270,7 +287,8 @@
     ],
     "min_strength": 0.7,
     "sort": "strength"
-   }
+   },
+   "phrase": "Puzzle-box, time-loop and nonlinear stories"
   },
   {
    "slug": "world-builders",
@@ -283,7 +301,8 @@
     ],
     "min_strength": 0.9,
     "sort": "strength"
-   }
+   },
+   "phrase": "Works with rich worldbuilding"
   },
   {
    "slug": "quick-bites",
@@ -298,7 +317,8 @@
     ],
     "max_minutes": 120,
     "sort": "shortest"
-   }
+   },
+   "phrase": "Films, books and games that take two hours or less"
   },
   {
    "slug": "slow-burners",
@@ -311,7 +331,8 @@
     ],
     "min_strength": 0.8,
     "sort": "strength"
-   }
+   },
+   "phrase": "Slow-burn films, shows and books"
   },
   {
    "slug": "page-turners",
@@ -329,7 +350,8 @@
     ],
     "min_strength": 0.5,
     "sort": "strength"
-   }
+   },
+   "phrase": "Tense, fast-paced and mystery books"
   },
   {
    "slug": "side-quests",
@@ -342,7 +364,8 @@
     ],
     "max_minutes": 900,
     "sort": "shortest"
-   }
+   },
+   "phrase": "Short games: 15 hours or less"
   },
   {
    "slug": "main-quests",
@@ -355,7 +378,8 @@
     ],
     "min_minutes": 1200,
     "sort": "longest"
-   }
+   },
+   "phrase": "Long games: 20 hours or more"
   },
   {
    "slug": "lone-wolves",
@@ -368,7 +392,8 @@
     ],
     "popularity_max": 2,
     "sort": "popular"
-   }
+   },
+   "phrase": "Standalone films, books and games"
   },
   {
    "slug": "pack-animals",
@@ -381,7 +406,8 @@
      "franchise"
     ],
     "sort": "popular"
-   }
+   },
+   "phrase": "Series, sequels and shared worlds"
   },
   {
    "slug": "spin-cycle",
@@ -393,7 +419,8 @@
      "album"
     ],
     "sort": "popular"
-   }
+   },
+   "phrase": "Popular albums worth hearing start to finish"
   },
   {
    "slug": "subtitles-welcome",
@@ -410,7 +437,8 @@
     ],
     "popularity_max": 3,
     "sort": "popular"
-   }
+   },
+   "phrase": "Non-English films and TV series"
   },
   {
    "slug": "drawn-together",
@@ -423,12 +451,13 @@
     ],
     "min_strength": 0.8,
     "sort": "popular"
-   }
+   },
+   "phrase": "Animated films and shows"
   },
   {
    "slug": "family-matinee",
    "name": "Family Matinee",
-   "tagline": "Safe to press play with everyone on the sofa.",
+   "tagline": "Stories made to be shared across ages.",
    "description": "Stories made to be shared across ages. Check the parents' guide on each for anything that might frighten the youngest viewers.",
    "rule": {
     "any_tags": [
@@ -436,7 +465,8 @@
     ],
     "min_strength": 0.6,
     "sort": "popular"
-   }
+   },
+   "phrase": "Family films and shows"
   },
   {
    "slug": "brain-gain",
@@ -454,7 +484,8 @@
     ],
     "min_strength": 0.6,
     "sort": "popular"
-   }
+   },
+   "phrase": "Non-fiction, popular science and memoir"
   },
   {
    "slug": "rap-sheet",
@@ -470,7 +501,8 @@
     ],
     "min_strength": 0.7,
     "sort": "popular"
-   }
+   },
+   "phrase": "Hip-hop albums"
   },
   {
    "slug": "head-bangers",
@@ -489,7 +521,8 @@
     ],
     "min_strength": 0.7,
     "sort": "popular"
-   }
+   },
+   "phrase": "Rock, metal and punk albums"
   },
   {
    "slug": "hush-hour",
@@ -507,7 +540,8 @@
     ],
     "min_strength": 0.6,
     "sort": "strength"
-   }
+   },
+   "phrase": "Ambient, classical and jazz albums"
   },
   {
    "slug": "epic-quests",
@@ -520,7 +554,8 @@
     ],
     "min_strength": 0.7,
     "sort": "popular"
-   }
+   },
+   "phrase": "Epic stories across films, shows, books and games"
   },
   {
    "slug": "dark-laughs",
@@ -533,7 +568,8 @@
     ],
     "min_strength": 0.6,
     "sort": "strength"
-   }
+   },
+   "phrase": "Darkly funny films, shows and books"
   }
  ],
  "mood_rings": [

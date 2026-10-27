@@ -61,6 +61,11 @@ What only the site's owner can do, in [Google Search Console](https://search.goo
 4. Re-inspect the home page after a few days. Indexing can take days to weeks, and Google decides how many of the
    thousands of work pages to keep; the favicon updates a few days after the home page is recrawled.
 
+## Search visibility
+
+The build writes the sitemap index, `robots.txt`, `llms.txt` and every static page. The steps to verify the site in Google Search
+Console and Bing, and what each page type is for, are in [SEO-KEYWORD-STRATEGY.md](SEO-KEYWORD-STRATEGY.md).
+
 ## Accounts (the Mimir Vault plugin)
 
 Optional accounts sync a person's library across devices with end-to-end encryption. The server side is the Mimir Vault

@@ -9,7 +9,7 @@ const { readSeed } = require("./seed.cjs");
 const { writeCatalogPages, HUBS } = require("./seo.cjs");
 const { writeSitemaps, writeRobots, writeLlms } = require("./discovery.cjs");
 const legal = require("./legal.cjs");
-const { writeSitePages } = require("./pages.cjs");
+const { writeSitePages, computeIps } = require("./pages.cjs");
 const path = require("path");
 
 const here = __dirname;
@@ -123,12 +123,14 @@ function crawlBlock(texts, works) {
   const groups = [["film", "Films", "/films/"], ["series", "TV shows", "/tv/"], ["book", "Books and manga", "/books/"], ["game", "Games", "/games/"], ["album", "Albums", "/music/"]];
   const top = (m) => all.filter((w) => w.medium === m && withSummary.has(w.slug) && w.scores.length).sort((a, b) => score(b) - score(a) || a.title.localeCompare(b.title)).slice(0, 8);
   const shelves = cat.shelves().filter((x) => x.total >= 5).slice(0, 14);
+  const topIps = require("./pages.cjs").computeIps(cat).filter((g) => g.members.length >= 6).sort((a, b) => b.members.length - a.members.length || a.name.localeCompare(b.name)).slice(0, 14);
   const countries = new Set(P("catalogue").works.flatMap((w) => w.countries || [])).size;
   return `<section class="crawl" id="crawl" aria-labelledby="crawl-h">
       <h2 id="crawl-h">Browse the Mimir catalogue</h2>
-      <p>Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube. It holds ${works.toLocaleString("en")} works from ${countries} countries. Describe a mood, a favourite or how much time you have and it finds what fits, with the reason for every pick, a parents' guide for each work and where to watch, read, play or listen.</p>
-      <p class="crawl-hubs">${groups.map(([, l, u]) => `<a href="${u}">${l}</a>`).join("")}<a href="/youtube/">YouTube</a><a href="/shelves/">Shelves</a><a href="/blog/">Blog</a></p>
+      <p>Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube. It holds ${works.toLocaleString("en")} works from ${countries} countries. Describe a mood, a favourite or how much time you have and it finds what fits, with the reason for every pick, a parents' guide where one has been assessed, and where to watch, read, play or listen.</p>
+      <p class="crawl-hubs">${groups.map(([, l, u]) => `<a href="${u}">${l}</a>`).join("")}<a href="/youtube/">YouTube</a><a href="/shelves/">Shelves</a><a href="/franchises/">Franchises &amp; series</a><a href="/tools/">Tools</a><a href="/days/">Days of the year</a><a href="/help/">Help centre</a><a href="/tags/">Tags</a><a href="/people/">People</a><a href="/about/">About</a><a href="/blog/">Blog</a></p>
       ${groups.map(([m, l]) => `<h3>Well-reviewed ${l.replace(/^(?!TV)./, (c) => c.toLowerCase())}</h3><ul>${top(m).map((w) => `<li><a href="/works/${esc(w.slug)}/">${esc(w.title)}${w.year ? ` (${w.year})` : ""}</a></li>`).join("")}</ul>`).join("")}
+      <h3>Franchises and series in order</h3><ul>${topIps.map((g) => `<li><a href="/franchises/${esc(g.slug)}/">${esc(g.name)}</a></li>`).join("")}</ul>
       <h3>Shelves</h3><ul>${shelves.map((x) => `<li><a href="/shelves/${esc(x.slug)}/">${esc(x.name)}</a></li>`).join("")}</ul>
     </section>`;
 }
@@ -210,11 +212,13 @@ ${ICON_LINKS}
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": [
     { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: "Mimir", alternateName: "Mimir",
       description: "Discover and track films, TV, books, manga, games and music by how they feel, with the reason for every pick.",
-      publisher: { "@id": "https://terratalesmedia.world/#org" }, inLanguage: "en" },
+      publisher: { "@id": "https://terratalesmedia.world/#org" }, inLanguage: "en",
+      potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/#browse?q={search_term_string}` }, "query-input": "required name=search_term_string" } },
     { "@type": "WebApplication", name: "Mimir", url: `${SITE_URL}/`, applicationCategory: "EntertainmentApplication", operatingSystem: "Any",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
     { "@type": "Organization", "@id": `${SITE_URL}/#brand`, name: "Mimir", url: `${SITE_URL}/`,
       logo: { "@type": "ImageObject", url: `${SITE_URL}/icon-512.png`, width: 512, height: 512 },
+      sameAs: ["https://github.com/RedZero13/Mimir-An-Universal-Media-Discovery-and-Intelligence-Tool"],
       parentOrganization: { "@id": "https://terratalesmedia.world/#org" } },
     { "@type": "Organization", "@id": "https://terratalesmedia.world/#org", name: "Terratales Media Entertainment", url: "https://terratalesmedia.world/",
       logo: `${SITE_URL}/icon-512.png`, email: "hello@terratalesmedia.world" },
@@ -236,7 +240,7 @@ const staticPage = (title, desc, canonical, body, extraHead = "", { type = "arti
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 :root{color-scheme:dark;--bg:#131315;--surface:#1B1A17;--ink:#E4DCC6;--head:#F4EEDD;--muted:#A9A18E;--gold:#D8B24A;--line:rgba(216,178,74,.22);--lede:#E3CF8C;--on-gold:#131315}
-:root[data-theme="light"]{color-scheme:light;--bg:#EDE3CC;--surface:#F6F0E2;--ink:#23211C;--head:#131315;--muted:#5F5A4F;--gold:#8A6A18;--line:rgba(110,104,92,.24);--lede:#5E4B1C;--on-gold:#F6F0E2}
+:root[data-theme="light"]{color-scheme:light;--bg:#EDE3CC;--surface:#F6F0E2;--ink:#23211C;--head:#131315;--muted:#524D43;--gold:#6B500E;--line:rgba(110,104,92,.24);--lede:#5E4B1C;--on-gold:#F6F0E2}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.75 Inter,system-ui,sans-serif;padding:0 16px}
 a{color:var(--gold);text-underline-offset:3px}.wrap{max-width:720px;margin:0 auto}
 header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 0;border-bottom:1px solid var(--line);max-width:1080px;margin:0 auto}
@@ -339,7 +343,7 @@ if (args[0] === "--site") {
   const cat = MDE.createCatalogue(P("catalogue"), P("taxonomy"), P("enrichment"), P("shelves"), P("providers"), P("calendar"));
   const today = new Date().toISOString().slice(0, 10);
   const urls = [[`${SITE_URL}/`, today, "1.0"], ...writeBlog(out), ...writeLegal(out),
-    ...writeCatalogPages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc })];
+    ...writeCatalogPages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc, ipMap: new Map(computeIps(cat).filter((g) => g.members.length >= 2).map((g) => [g.slug, { name: g.name, count: g.members.length }])) })];
   const more = writeSitePages(out, { cat, works: P("catalogue").works, SITE_URL, staticPage, esc });
   urls.push(...more.urls);
   console.log(`static pages: ${more.ips} franchises, ${more.tags} tags, ${more.people} people, ${more.help} help guides, ${more.days} days`);

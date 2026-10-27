@@ -67,3 +67,30 @@ def test_legal_pages_are_built_linked_and_in_the_sitemap(site):
     assert "Data Protection Board of India" in privacy and "Third Floor" in privacy
     assert "To be added" in privacy, "unfilled placeholders must stay visible, not be dropped"
     assert 'href="/privacy/"' in (site / "index.html").read_text(), "the app footer links to the notice"
+
+
+def test_franchise_help_tool_and_day_pages_are_built_and_listed(site):
+    sitemap = "".join((site / f).read_text() for f in sorted(p.name for p in site.glob("sitemap-*.xml")))
+    got = (site / "franchises" / "game-of-thrones" / "index.html").read_text()
+    assert "House of the Dragon" in got and "A Game of Thrones" in got and "ItemList" in got and "<h1>Game of Thrones in order</h1>" in got
+    assert "FAQPage" in (site / "help" / "index.html").read_text()
+    assert len(list((site / "help").glob("*/index.html"))) >= 27  # 21 guides and 6 categories
+    assert len(list((site / "tools").glob("*/index.html"))) == 9
+    assert len(list((site / "days").glob("*/index.html"))) >= 45
+    for rel in ("franchises/game-of-thrones", "tools/decide", "days/laughter-day", "help/what-is-mimir", "tags/genre-comedy", "about"):
+        assert f"https://mimir.terratalesmedia.world/{rel}/" in sitemap, rel
+    home = (site / "index.html").read_text()
+    assert "SearchAction" in home and 'href="/franchises/"' in home and 'href="/help/"' in home
+    assert "parents' guide for each work" not in home
+
+
+def test_titles_only_promise_a_parents_guide_for_assessed_works(site):
+    import re
+
+    promised = 0
+    for f in list((site / "works").glob("*/index.html"))[:400]:
+        t = f.read_text()
+        if re.search(r"<title>[^<]*parents&#39; guide|<title>[^<]*parents' guide", t):
+            promised += 1
+            assert "noindex" not in t, f"{f}: a noindex page should not advertise a parents' guide"
+    assert promised > 0

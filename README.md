@@ -29,6 +29,7 @@ your recommendations.
 
 - **Everything Mimir does:** [`docs/FEATURES.md`](docs/FEATURES.md)
 - **Press kit and press release:** [`docs/press/`](docs/press/)
+- **Search visibility:** [`docs/SEO-KEYWORD-STRATEGY.md`](docs/SEO-KEYWORD-STRATEGY.md) (keywords, meta map, what is built and what is not).
 - **How the catalogue grew to about 7,500 works, and what is still being filled in:** [`docs/CATALOGUE-EXPANSION.md`](docs/CATALOGUE-EXPANSION.md) · **Planned features:** [`docs/FUTURE-FEATURES.md`](docs/FUTURE-FEATURES.md)
 - **Help centre:** the site's own guides, FAQs and walkthrough video at [mimir.terratalesmedia.world/#help](https://mimir.terratalesmedia.world/#help)
 - **Beta testers start here:** [`docs/BETA.md`](docs/BETA.md)

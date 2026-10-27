@@ -17,6 +17,20 @@ const hm = (m) => (m >= 60 ? `${Math.round(m / 60)}h${m % 60 && m < 600 ? ` ${m 
 const list = (xs) => (xs.length < 2 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+// Franchises, series outside any franchise, and continuity families with at least two works.
+function computeIps(cat) {
+  const idx = new Map();
+  for (const w of cat.works) for (const g of w.groups) {
+    if (!idx.has(g.slug)) idx.set(g.slug, { slug: g.slug, name: g.name, kind: g.kind, members: [] });
+    const e = idx.get(g.slug);
+    if (!e.members.some((m) => m.slug === w.slug)) e.members.push({ slug: w.slug, position: g.position });
+  }
+  const covered = new Set([...idx.values()].filter((g) => g.kind === "franchise").flatMap((g) => g.members.map((m) => m.slug)));
+  const ips = [...idx.values()].filter((g) => g.members.length >= 2 && (g.kind === "franchise" || !g.members.every((m) => covered.has(m.slug))));
+  for (const g of cat.groups()) if (!idx.has(g.slug) && g.count >= 2) ips.push({ slug: g.slug, name: g.name, kind: "family", members: (cat.group(g.slug).works || []).map((w) => ({ slug: w.slug, position: null })) });
+  return ips;
+}
+
 function writeSitePages(out, { cat, works, SITE_URL, staticPage, esc }) {
   const urls = [];
   const bySlug = new Map(works.map((w) => [w.slug, w]));
@@ -46,15 +60,7 @@ function writeSitePages(out, { cat, works, SITE_URL, staticPage, esc }) {
   const appLink = (route, label) => `<p><a class="cta" href="/#${esc(route)}">${esc(label)}</a><a class="cta ghost" href="/">Ask Mimir for a pick</a></p>`;
 
   // ------------------------------------------------------------------ franchises and series: one page per IP
-  const idx = new Map();
-  for (const w of cat.works) for (const g of w.groups) {
-    if (!idx.has(g.slug)) idx.set(g.slug, { slug: g.slug, name: g.name, kind: g.kind, members: [] });
-    const e = idx.get(g.slug);
-    if (!e.members.some((m) => m.slug === w.slug)) e.members.push({ slug: w.slug, position: g.position });
-  }
-  const covered = new Set([...idx.values()].filter((g) => g.kind === "franchise").flatMap((g) => g.members.map((m) => m.slug)));
-  const ips = [...idx.values()].filter((g) => g.members.length >= 2 && (g.kind === "franchise" || !g.members.every((m) => covered.has(m.slug))));
-  for (const g of cat.groups()) if (!idx.has(g.slug) && g.count >= 2) ips.push({ slug: g.slug, name: g.name, kind: "family", members: (cat.group(g.slug).works || []).map((w) => ({ slug: w.slug, position: null })) });
+  const ips = computeIps(cat);
   const posNum = (p) => (p !== null && p !== undefined && !isNaN(Number(p)) ? Number(p) : 1e9);
   const ipPages = [];
   for (const g of ips) {
@@ -69,7 +75,7 @@ function writeSitePages(out, { cat, works, SITE_URL, staticPage, esc }) {
     const hasOrder = members.some((w) => w.position !== null && w.position !== undefined && g.kind === "series");
     const rel = `franchises/${g.slug}`;
     const kind = g.kind === "franchise" || media.length > 1 ? "franchise" : "series";
-    const lede = `${g.name} is a ${kind} with ${members.length} works in Mimir's catalogue: ${list(counts)}. Here they are in release order${hasOrder ? ", with the series order where it is recorded" : ""}${mins ? `, and ${hm(mins)} is about how long it takes to get through everything with a recorded length` : ""}${unknown ? ` (${unknown} ${unknown === 1 ? "work has" : "works have"} no recorded length)` : ""}.`;
+    const lede = `${g.name} is a ${kind} with ${members.length} works in Mimir's catalogue: ${list(counts)}. Here they are in release order${hasOrder ? ", with the series order where it is recorded" : ""}${mins ? `. Everything with a recorded length takes about ${hm(mins)}` : ""}${unknown ? ` (${unknown} ${unknown === 1 ? "work has" : "works have"} no recorded length)` : ""}.`;
     const section = (title, ws, note = "") => `<h2>${esc(title)}</h2>${note ? `<p class="meta">${esc(note)}</p>` : ""}<ol>${ws.map((w) => workLi(w.slug, w.position && g.kind === "series" ? ` · no. ${esc(w.position)}` : "")).join("")}</ol>`;
     const body = `${head(`<a href="/">Mimir</a> · <a href="/franchises/">Franchises &amp; series</a>`, `${g.name} in order`, lede)}
 ${section("Release order", byRelease, "Every work, oldest first.")}
@@ -99,11 +105,11 @@ ${appLink(`group-${g.slug}`, `Open ${g.name} in Mimir`)}`;
       const ws = full.works.filter((w) => !NOT_MEDIA.has(w.medium)).sort((a, b) => Number(!!b.summary) - Number(!!a.summary) || (a.title < b.title ? -1 : 1)).slice(0, 60);
       const mediaN = MEDIA_ORDER.filter((m) => !NOT_MEDIA.has(m)).map((m) => [m, full.works.filter((w) => w.medium === m).length]).filter(([, n]) => n);
       const dimWord = dim.dimension === "genre" ? "genre" : dim.dimension === "mood" ? "mood" : dim.dimension === "theme" ? "theme" : dim.dimension_label ? dim.label.toLowerCase() : dim.dimension;
-      const lede = `${t.label} is a ${dimWord} in Mimir's catalogue: ${t.count} works across ${list(mediaN.map(([m, n]) => `${n} ${PLURAL[m]}`))}. ${full.definition || ""}`.trim();
+      const lede = `${t.label} is a ${dimWord} in Mimir's catalogue: ${t.count.toLocaleString("en")} works across ${list(mediaN.map(([m, n]) => `${n} ${PLURAL[m]}`))}. ${full.definition || ""}`.trim();
       const body = `${head(`<a href="/">Mimir</a> · <a href="/tags/">Tags</a>`, `${t.label}: ${dimWord === "genre" ? "films, shows, books, games and music" : `works with a ${t.label.toLowerCase()} ${dimWord}`}`, lede)}
 <p class="meta">Tags are an AI-assisted reading awaiting editorial review. ${ws.length < full.works.length ? `Showing ${ws.length} of ${t.count}.` : ""}</p>
 <ol>${ws.map((w) => workLi(w.slug)).join("")}</ol>${appLink(`tag-${t.key.replace(":", ".")}`, `Browse ${t.label} in Mimir`)}`;
-      write(`tags/${slug}`, T(`${t.label}: ${dimWord === "genre" ? "films, shows, books, games" : `${dimWord} picks`}`), `${t.label} ${dimWord}: ${t.count} works across ${list(mediaN.map(([m]) => PLURAL[m]))}. ${full.definition || ""}`, body,
+      write(`tags/${slug}`, T(`${t.label}: ${dimWord === "genre" ? "films, shows, books, games" : `${dimWord} picks`}`), `${t.label} ${dimWord}: ${t.count.toLocaleString("en")} works across ${list(mediaN.map(([m]) => PLURAL[m]))}. ${full.definition || ""}`, body,
         itemList(t.label, ws.map((w) => w.slug), `${SITE_URL}/tags/${slug}/`) + crumbs([["Mimir", `${SITE_URL}/`], ["Tags", `${SITE_URL}/tags/`], [t.label, `${SITE_URL}/tags/${slug}/`]]), { priority: dim.dimension === "genre" ? "0.6" : "0.5" });
       tagPages.push({ dim: dim.label, key: t.key, label: t.label, slug, count: t.count });
     }
@@ -233,4 +239,4 @@ ${appLink("about", "Open About in Mimir")}`, crumbs([["Mimir", `${SITE_URL}/`], 
   return { urls, ips: ipPages.length, tags: tagPages.length, people: people.length, days: days.length, help: help.HELP.length };
 }
 
-module.exports = { writeSitePages };
+module.exports = { writeSitePages, computeIps };
