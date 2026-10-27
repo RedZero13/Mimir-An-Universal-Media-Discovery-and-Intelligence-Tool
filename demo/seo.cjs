@@ -40,6 +40,30 @@ function writeCatalogPages(out, { cat, works, SITE_URL, staticPage, esc, ipMap =
     itemListElement: items.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
   const workLink = (x) => `<a href="/works/${esc(x.slug)}/">${esc(x.title)}</a>${x.year ? ` <span class="meta">(${esc(x.year)})</span>` : ""}`;
 
+  // ------------------------------------------------------------------ similarity: works that share qualities with each other
+  // A page with only a summary is thin; "more like this" and the parents' guide are unique to each work and link the catalogue together.
+  const QUALITY = /^(genre|mood|theme|narrative|style|world|pacing):/;
+  const qualities = (w) => Object.entries(w.terms || {}).filter(([k, v]) => QUALITY.test(k) && v >= 0.6).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([k]) => k);
+  const byTerm = new Map(), qOf = new Map();
+  for (const w of works) {
+    if (!w.summary || NOT_MEDIA.has(w.medium)) continue;
+    const q = qualities(w);
+    qOf.set(w.slug, q);
+    for (const k of q) { if (!byTerm.has(k)) byTerm.set(k, []); byTerm.get(k).push(w); }
+  }
+  for (const list of byTerm.values()) list.sort((a, b) => (a.popularity_tier || 5) - (b.popularity_tier || 5) || (a.slug < b.slug ? -1 : 1));
+  const termWord = (k) => k.split(":")[1].replace(/-/g, " ");
+  const similar = (w) => {
+    const mine = qOf.get(w.slug);
+    if (!mine || mine.length < 2) return { same: [], other: [] };
+    const score = new Map();
+    for (const k of mine) for (const c of (byTerm.get(k) || []).slice(0, 300)) if (c.slug !== w.slug) score.set(c.slug, (score.get(c.slug) || 0) + (k.startsWith("genre:") ? 1 : 1.5));
+    const ranked = [...score].filter(([, n]) => n >= 3).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)).map(([slug, n]) => ({ w: bySlug.get(slug), n }));
+    const shared = (c) => mine.filter((k) => (qOf.get(c.w.slug) || []).includes(k)).slice(0, 3).map(termWord);
+    const pick = (f, n) => ranked.filter(f).slice(0, n).map((c) => ({ ...c.w, shared: shared(c) }));
+    return { same: pick((c) => c.w.medium === w.medium, 4), other: pick((c) => c.w.medium !== w.medium, 4) };
+  };
+
   // ------------------------------------------------------------------ one page per work
   for (const card of works) {
     const w = cat.work(card.slug);
@@ -95,6 +119,18 @@ function writeCatalogPages(out, { cat, works, SITE_URL, staticPage, esc, ipMap =
 ${cover ? `<img class="cover" src="${esc(sized(cover.url))}" alt="${esc(w.title)}: ${esc(cover.kind)}" loading="eager" decoding="async" width="240">` : ""}
 ${w.summary ? `<p class="lede">${esc(w.summary)}</p>` : ""}
 <dl class="facts">${facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
+${(() => {
+      if (NOT_MEDIA.has(w.medium)) return "";
+      const pg = w.parents_guide;
+      if (!pg || !pg.assessed) return `<h2>Parents' guide</h2><p class="meta">Not assessed yet: nobody has reviewed this ${esc(kind.toLowerCase())} for violence, language, sex or other content, so it should not be treated as suitable for any age.</p>`;
+      const rows = pg.groups.filter((g) => g.severity !== "Not assessed");
+      return `<h2>Parents' guide</h2>${pg.ratings && pg.ratings.length ? `<p>Rated ${pg.ratings.map((r) => `${esc(r.system)} ${esc(r.rating)}${r.reason ? ` (${esc(r.reason)})` : ""}`).join("; ")}.</p>` : ""}<ul>${rows.map((g) => `<li><strong>${esc(g.label)}:</strong> ${esc(g.severity)}</li>`).join("")}</ul><p class="meta">Levels are an AI-assisted reading awaiting editorial review.</p>`;
+    })()}
+${(() => {
+      const sim = similar(w);
+      const li = (x) => `<li><a href="/works/${esc(x.slug)}/">${esc(x.title)}</a>${x.year ? ` <span class="meta">(${esc(x.year)})</span>` : ""} <span class="meta">${esc(MEDIUM_NAME[x.medium] || x.medium)}${x.shared.length ? ` · shares ${esc(x.shared.join(", "))}` : ""}</span></li>`;
+      return (sim.same.length ? `<h2>More ${esc(plural)} like ${esc(w.title)}</h2><ul>${sim.same.map(li).join("")}</ul>` : "") + (sim.other.length ? `<h2>In other media</h2><ul>${sim.other.map(li).join("")}</ul>` : "");
+    })()}
 ${ip ? `<p>Part of <a href="/franchises/${esc(ip.slug)}/">${esc(ip.name)} in order</a>: ${ip.count} works across the catalogue.</p>` : ""}
 ${genres.length ? `<h2>Genres</h2><p>${genres.map(esc).join(" · ")}</p>` : ""}
 ${moods.length ? `<h2>What it feels like</h2><p>${moods.map(esc).join(" · ")}</p><p class="meta">Tags are an AI-assisted reading awaiting editorial review.</p>` : ""}

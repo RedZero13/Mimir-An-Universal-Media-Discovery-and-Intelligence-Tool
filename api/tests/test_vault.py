@@ -38,3 +38,11 @@ def test_build_makes_a_plugin_zip_and_a_snippet_that_both_lint(tmp_path):
     snippet.write_text("<?php\n" + (dist / "mimir-vault-snippet.php").read_text())
     assert subprocess.run(["php", "-l", str(snippet)], capture_output=True).returncode == 0
     assert "Plugin Name" not in snippet.read_text()
+
+
+@needs_php
+def test_indexing_plugin_passes_its_harness_and_lints():
+    plugin = ROOT / "wordpress" / "terratales-indexing" / "terratales-indexing.php"
+    assert subprocess.run(["php", "-l", str(plugin)], capture_output=True).returncode == 0
+    r = subprocess.run(["php", str(ROOT / "wordpress" / "tests" / "indexing-harness.php")], capture_output=True, text=True, timeout=120)
+    assert r.returncode == 0, r.stdout + r.stderr

@@ -2,6 +2,8 @@
 
 ## Implementation status (27 October 2026)
 
+Search Console's first coverage findings and what was done about them are in [TERRATALES-INDEXING.md](TERRATALES-INDEXING.md).
+
 **Done in the site build (`node demo/build.cjs --site DIR`)**
 - Real, crawlable URLs with a title, description, canonical, one H1, breadcrumbs and an internal-link path from the home page:
   307 franchise and series pages (`/franchises/`, every medium in release order, time to finish, ItemList data), 245 tag pages

@@ -94,3 +94,12 @@ def test_titles_only_promise_a_parents_guide_for_assessed_works(site):
             promised += 1
             assert "noindex" not in t, f"{f}: a noindex page should not advertise a parents' guide"
     assert promised > 0
+
+
+def test_work_pages_carry_a_parents_guide_section_and_similar_works(site):
+    rich = (site / "works" / "no-country-for-old-men-2007" / "index.html").read_text()
+    assert (
+        "Parents' guide" in rich and "Violence &amp; gore" in rich and "More films like No Country for Old Men" in rich and "In other media" in rich
+    )
+    thin = (site / "works" / "cars-2006" / "index.html").read_text()
+    assert "Not assessed yet" in thin and "should not be treated as suitable for any age" in thin
