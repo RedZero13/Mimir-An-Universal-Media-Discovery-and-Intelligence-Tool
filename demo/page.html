@@ -35,7 +35,7 @@
   --gold: #A27A26; --gold-bright: #7D5F14; --gold-deep: #8A6A18; --cream: #5E4B1C;
   --bone: #131315; --ink: #23211C; --muted: #5F5A4F; --faint: #5A554A;
   --line: rgba(110, 104, 92, .24); --line-strong: rgba(138, 106, 24, .45);
-  --sev-none: #4F6E4A; --sev-mild: #7D6A2E; --sev-moderate: #A2601A; --sev-severe: #B04A31;
+  --sev-none: #4F6E4A; --sev-mild: #7D6A2E; --sev-moderate: #8A5013; --sev-severe: #A8432B;
   color-scheme: light;
 }
 :root[data-theme="light"] .mine-n { color: #F6F0E2; }
@@ -393,6 +393,18 @@ a.letter { color: var(--muted); text-decoration: none; }
 .letter:hover { color: var(--gold-bright); }
 .letter.on { color: var(--black); background: var(--gold-bright); }
 .letter:focus-visible { outline: 1.5px solid var(--gold-bright); }
+.search-notes { max-width: 760px; margin: 8px auto 0; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 8px; color: var(--cream); font-size: .88rem; }
+.search-tips { max-width: 760px; margin: 8px auto 0; }
+.search-tips .linkish { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .82rem; }
+#suggest { position: fixed; z-index: 60; margin: 0; padding: 6px; list-style: none; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 10px; box-shadow: 0 14px 40px rgba(0, 0, 0, .5); max-height: min(60vh, 420px); overflow: auto; }
+#suggest[hidden] { display: none; }
+#suggest li { display: flex; align-items: baseline; gap: 10px; padding: 8px 10px; border-radius: 6px; cursor: pointer; color: var(--bone); }
+#suggest li[aria-selected="true"], #suggest li:hover { background: var(--surface-2); }
+#suggest .sg-ico { flex: none; width: 1.2em; text-align: center; color: var(--gold-bright); }
+#suggest .sg-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#suggest .sg-label b { color: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+#suggest .sg-hint { flex: none; color: var(--ink); font-size: .78rem; }
+#suggest .sg-did { padding: 8px 10px; color: var(--cream); font-size: .88rem; }
 .bigsearch { position: relative; max-width: 760px; margin: 26px auto 0; }
 .bigsearch input { width: 100%; font: 400 1.05rem var(--f-body); color: var(--bone); background: var(--surface); border: 1px solid var(--line-strong); border-radius: 8px; padding: 16px 52px 16px 18px; }
 .bigsearch input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(192, 144, 47, .18); }
@@ -703,6 +715,10 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .help-article { max-width: 72ch; align-content: start; }
 .help-article > * { margin: 0; }
 .help-article ol { padding-left: 1.3em; display: grid; gap: 8px; }
+.help-table { width: 100%; border-collapse: collapse; font-size: .92rem; margin: 12px 0; }
+.help-table th, .help-table td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.help-table th { color: var(--gold); font: 600 .72rem var(--f-display); letter-spacing: .14em; text-transform: uppercase; }
+.help-table code, .help-prose code { font: 500 .85em ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; white-space: nowrap; }
 .help-tip { border-left: 3px solid var(--gold); background: var(--surface); padding: 10px 14px; border-radius: 0 8px 8px 0; color: var(--cream); }
 .help-side { display: grid; gap: 14px; align-content: start; }
 .help-side .panel { padding: 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
@@ -1813,10 +1829,22 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       </li>`;
   }
 
+  // Ask Mimir reads the sentence; the same filters as the search page can ride along ("cosy game -horror year:>=2020 lang:ja").
+  // The words go to the ranker, the filters then narrow its candidates, so every result still carries its reasons.
+  function askDiscover(q) {
+    const parsed = SEARCH.parse(q, searchCtx(), { filtersOnly: true });
+    if (parsed.empty) return cat.discover(q);
+    const words = SEARCH.tokenise(q).filter((t) => t.kind === "word" && !t.field && !t.neg && !/[*?]/.test(t.value)).map((t) => t.value).join(" ").trim();
+    const r = cat.discover(words.length >= 2 ? words : q.replace(/[^\p{L}\p{N}\s'-]/gu, " "), 300);
+    const keep = r.results.filter((x) => { const w = RAW_BY_SLUG.get(x.slug); return !w || SEARCH.test(w, parsed); }).slice(0, 8);
+    return { ...r, results: keep, excluded: { ...r.excluded, ...(r.results.length - keep.length ? { "left out by your filters": r.results.length - keep.length } : {}) },
+      message: keep.length ? null : "Nothing matched those filters. Try loosening one, or search the whole catalogue with them from the search page." };
+  }
+
   function renderDiscover() {
     document.body.classList.add("is-home");
     // Only parse and rank once someone has asked; the landing view doesn't show results.
-    const r = hasAsked ? cat.discover(query) : null;
+    const r = hasAsked ? askDiscover(query) : null;
     const heroEnd = `${askForm()}
         <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>`;
     const buildRest = () => `
@@ -1984,7 +2012,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const COUNTRIES_OF = Object.fromEntries(RAW_WORKS.map((w) => [w.slug, w.countries || []]));
   const inIndustry = (w, key) => { const ind = INDUSTRIES.find(([k]) => k === key); return !!(ind && (COUNTRIES_OF[w.slug] || []).some((c) => ind[2].includes(c))); };
   const blankSearch = (medium = "all") => ({ medium, q: "", letter: "", tags: [], exclude: [], avoid: [], sort: "popular", industry: "",
-    year_min: null, year_max: null, max_minutes: null, rating: "", view: "tiles", adv: false, list: false, shown: 48 });
+    year_min: null, year_max: null, max_minutes: null, rating: "", lang: "", country: "", assessed: false, view: "tiles", adv: false, list: false, shown: 48 });
   let search = blankSearch();
 
   function searchHash(s) {
@@ -1999,6 +2027,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (s.year_max !== null) p.set("to", s.year_max);
     if (s.max_minutes !== null) p.set("max", s.max_minutes);
     if (s.rating) p.set("rating", s.rating);
+    if (s.lang) p.set("lang", s.lang);
+    if (s.country) p.set("country", s.country);
+    if (s.assessed) p.set("assessed", "1");
     if (s.industry) p.set("ind", s.industry);
     if (s.view !== "tiles") p.set("view", s.view);
     if (s.adv) p.set("adv", "1");
@@ -2013,7 +2044,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       tags: p.getAll("tag").filter(known), exclude: p.getAll("x").filter(known),
       avoid: p.getAll("avoid").filter((k) => k.startsWith("advisory:") && known(k)),
       sort: SORTS.some(([v]) => v === p.get("sort")) ? p.get("sort") : "popular",
-      year_min: num("from"), year_max: num("to"), max_minutes: num("max"), rating: p.get("rating") || "", industry: INDUSTRIES.some(([k]) => k === p.get("ind")) ? p.get("ind") : "",
+      year_min: num("from"), year_max: num("to"), max_minutes: num("max"), rating: p.get("rating") || "", lang: (p.get("lang") || "").slice(0, 8), country: (p.get("country") || "").slice(0, 3).toUpperCase(), assessed: p.get("assessed") === "1", industry: INDUSTRIES.some(([k]) => k === p.get("ind")) ? p.get("ind") : "",
       view: p.get("view") === "grid" ? "grid" : "tiles", adv: p.get("adv") === "1", list: p.get("list") === "1" };
   }
   const hrefSearch = (medium, patch = {}) => `#${searchHash({ ...blankSearch(medium), ...patch })}`;
@@ -2022,14 +2053,28 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const scoreNorm = (w) => (w.scores && w.scores.length ? w.scores.reduce((a, s) => a + s.value / s.scale_max, 0) / w.scores.length : -1);
   const initial = (t) => { const ch = t.normalize("NFD").replace(/[̀-ͯ]/g, "").trim()[0] || "#"; return /[a-z]/i.test(ch) ? ch.toUpperCase() : "#"; };
 
-  function searchResults(s) {
-    const r = cat.browse({ media: s.medium === "all" ? [] : [s.medium], tags: s.tags, exclude: s.exclude, avoid: s.avoid,
-      year_min: s.year_min, year_max: s.year_max, max_minutes: s.max_minutes, q: s.q, sort: s.sort === "score" ? "popular" : s.sort });
+  // The free-text box understands the syntax in search.cjs (quotes, -word, OR, wildcards, /regex/ and field:value filters). It is matched
+  // against the raw catalogue here, then handed to browse as a set of slugs so the other filters, facets and cards work as before.
+  const SEARCH = MimirSearch;
+  const RAW_BY_SLUG = new Map(RAW_WORKS.map((w) => [w.slug, w]));
+  let searchCtxCache = null;
+  const searchCtx = () => searchCtxCache || (searchCtxCache = SEARCH.makeContext(cat.tags().flatMap((g) => g.terms.map((t) => ({ key: t.key, label: t.label, dimension: g.dimension, synonyms: (cat.taxonomy.get(t.key) || {}).synonyms || [] })))));
+  const searchQueryOf = (s) => [s.q, s.lang ? `lang:${s.lang}` : "", s.country ? `country:${s.country}` : "", s.assessed ? "is:assessed" : ""].filter(Boolean).join(" ");
+  function searchResults(s, notes) {
+    const parsed = SEARCH.parse(searchQueryOf(s), searchCtx());
+    if (notes) notes.push(...parsed.notes);
+    const only = parsed.empty ? null : new Set(RAW_WORKS.filter((w) => SEARCH.test(w, parsed)).map((w) => w.slug));
+    const r = cat.browse({ media: s.medium === "all" ? [] : [s.medium], tags: s.tags, exclude: s.exclude, avoid: s.avoid, only,
+      year_min: s.year_min, year_max: s.year_max, max_minutes: s.max_minutes, sort: s.sort === "score" || s.sort === "popular" ? "popular" : s.sort });
     let works = r.results;
     if (s.letter) works = works.filter((w) => initial(w.title) === s.letter);
     if (s.rating) works = works.filter((w) => w.ratings.some((x) => x.rating === s.rating));
     if (s.industry) works = works.filter((w) => inIndustry(w, s.industry));
     if (s.sort === "score") works = [...works].sort((a, b) => scoreNorm(b) - scoreNorm(a));
+    else if (s.sort === "popular" && parsed.plain) {   // best match first when words were typed; best known breaks ties
+      const rel = new Map(works.map((w) => [w.slug, SEARCH.relevance(RAW_BY_SLUG.get(w.slug) || w, parsed)]));
+      works = [...works].sort((a, b) => rel.get(b.slug) - rel.get(a.slug));
+    }
     return works;
   }
 
@@ -2067,6 +2112,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     return `<button type="button" class="tri ${state}" data-tri="${esc(key)}" aria-label="${esc(label)}: ${state === "inc" ? "included" : state === "exc" ? "excluded" : "not used"}">${state === "inc" ? "✓ " : state === "exc" ? "✕ " : ""}${esc(label)}</button>`;
   }
 
+  const regionNames = (() => { try { return new Intl.DisplayNames(["en"], { type: "region" }); } catch { return null; } })();
+  const languageNames = (() => { try { return new Intl.DisplayNames(["en"], { type: "language" }); } catch { return null; } })();
+  const nameOf = (names, code) => { try { return (names && names.of(code)) || code; } catch { return code; } };
+  const countOf = (arr) => { const m = new Map(); for (const x of arr) m.set(x, (m.get(x) || 0) + 1); return [...m].sort((a, b) => b[1] - a[1]); };
+  const mediumWorks = (s) => (s.medium === "all" ? RAW_WORKS : RAW_WORKS.filter((w) => w.medium === s.medium));
+  const langOptions = (s) => countOf(mediumWorks(s).map((w) => w.language).filter(Boolean)).slice(0, 40).map(([c, n]) => `<option value="${esc(c)}" ${s.lang === c ? "selected" : ""}>${esc(nameOf(languageNames, c))} (${n})</option>`).join("");
+  const countryOptions = (s) => countOf(mediumWorks(s).flatMap((w) => w.countries || [])).slice(0, 60).map(([c, n]) => `<option value="${esc(c)}" ${s.country === c ? "selected" : ""}>${esc(nameOf(regionNames, c))} (${n})</option>`).join("");
   function advanced(s, d) {
     const ratings = [...new Set(d.works.flatMap((w) => w.ratings.map((r) => r.rating)))].sort();
     const years = d.works.map((w) => w.year).filter(Boolean);
@@ -2079,6 +2131,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           ${["film", "series", "all"].includes(s.medium) ? `<label for="s-ind">Made in</label><select id="s-ind" data-s-field="industry"><option value="">Any industry</option>${INDUSTRIES.map(([k, l]) => `<option value="${k}" ${s.industry === k ? "selected" : ""}>${esc(l)}</option>`).join("")}</select>` : ""}
           <label for="s-from">Released from</label><span class="pair"><select id="s-from" data-s-field="year_min">${yOpts(s.year_min)}</select> to <select aria-label="Released up to" data-s-field="year_max">${[`<option value="">Any</option>`, ...[...new Set(years.map((y) => Math.floor(y / 10) * 10 + 9))].sort().map((y) => `<option value="${y}" ${s.year_max === y ? "selected" : ""}>${y}</option>`)].join("")}</select></span>
           <label for="s-max">Time</label><select id="s-max" data-s-field="max_minutes">${[["", "Any length"], ["45", "Quick bite (under 45 min)"], ["150", "One sitting (2½ h)"], ["360", "An evening or two (6 h)"], ["900", "A weekend (15 h)"], ["2400", "A season (40 h)"]].map(([v, l]) => `<option value="${v}" ${String(s.max_minutes ?? "") === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+          <label for="s-lang">Language</label><select id="s-lang" data-s-field="lang"><option value="">Any language</option>${langOptions(s)}</select>
+          <label for="s-country">Country</label><select id="s-country" data-s-field="country"><option value="">Any country</option>${countryOptions(s)}</select>
+          <label for="s-assessed">Parents' guide</label><label class="check"><input id="s-assessed" type="checkbox" data-s-assessed ${s.assessed ? "checked" : ""}> Only works with an assessed parents' guide</label>
           <label for="s-sort2">Sort</label><select id="s-sort2" data-s-field="sort">${SORTS.map(([v, l]) => `<option value="${v}" ${s.sort === v ? "selected" : ""}>${l}</option>`).join("")}</select>
         </div>
         <header class="sec-head"><h2>Content filter</h2><span class="muted small">Click once to include <span class="inc-mark">✓</span>, twice to exclude <span class="exc-mark">✕</span>. <button type="button" class="linkish" data-s-clear>Clear all</button></span></header>
@@ -2106,9 +2161,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
               ${w.creators.length ? `<div><dt>${esc(CREATOR_ROLE[w.medium] || "By")}:</dt><dd>${w.creators.slice(0, 2).map((c) => esc(c)).join(", ")}</dd></div>` : ""}
               ${qualities.length ? `<div><dt>Qualities:</dt><dd>${qualities.map((t) => `<a href="#${tagToken(t.key)}">${esc(t.label)}</a>`).join(", ")}</dd></div>` : ""}
               <div><dt>Continuity:</dt><dd>${esc(contText(w.continuity))}</dd></div>
-              <div class="dt-where">${prefLink(whereOfCard(w))}</div>
               ${w.guide_flags.length ? `<div><dt>Guide:</dt><dd>${w.guide_flags.map((f) => `${sevPill(f.severity)} ${esc(f.label)}`).join(" ")}</dd></div>` : ""}
             </dl>
+            <div class="dt-where">${prefLink(whereOfCard(w))}</div>
           </div>
         </div>
         <footer class="dt-foot">
@@ -2124,12 +2179,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const s = search;
     const d = directoryFor(s.medium);
     const filtered = s.list || s.q || s.letter || s.tags.length || s.exclude.length || s.avoid.length || s.year_min !== null || s.year_max !== null
-      || s.max_minutes !== null || s.rating || s.industry || s.sort !== "popular";
+      || s.max_minutes !== null || s.rating || s.lang || s.country || s.assessed || s.industry || s.sort !== "popular";
     const plural = PLURAL[s.medium];
     const single = s.tags.length === 1 && !s.exclude.length && !s.q && !s.letter ? cat.taxonomy.get(s.tags[0]) : null;
     const heading = single ? `${single.label} ${s.medium === "all" ? "" : plural.toLowerCase()}`.trim()
       : s.letter ? `${plural}: ${s.letter}` : s.q ? `${plural} matching "${s.q}"` : s.list && !s.tags.length && !s.exclude.length ? (s.industry ? `${plural} made in ${INDUSTRIES.find(([k]) => k === s.industry)[1]}` : `All ${plural.toLowerCase()}`) : filtered ? `${plural}, filtered` : `${s.medium === "all" ? "Catalogue" : mediumLabel(s.medium)} search`;
-    const works = filtered ? searchResults(s) : [];
+    const notes = [];
+    const works = filtered ? searchResults(s, notes) : [];
     app.innerHTML = `
       <header class="page-band"><h1>${esc(s.medium === "all" ? "Catalogue search" : `${mediumLabel(s.medium)} search`)}</h1></header>
       <p class="crumbs"><a href="#">Top</a> › <a href="${hrefSearch(s.medium)}">${esc(plural)}</a>${single ? ` › ${esc(single.label)}` : ""}</p>
@@ -2140,6 +2196,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <input id="s-q" type="search" value="${esc(s.q)}" placeholder="Search ${esc(plural.toLowerCase())} by title, director, author, studio…" autocomplete="off">
         <span class="bigsearch-ico" aria-hidden="true">⌕</span>
       </form>
+      ${notes.length ? `<p class="search-notes" role="status">${notes.map(esc).join(" ")}</p>` : ""}
+      <p class="search-tips muted small">Try <button type="button" class="linkish" data-s-try="genre:cyberpunk year:1980..1999">genre:cyberpunk year:1980..1999</button>, <button type="button" class="linkish" data-s-try="by:nolan -medium:game">by:nolan -medium:game</button>, <button type="button" class="linkish" data-s-try="&quot;the last&quot; is:new">&quot;the last&quot; is:new</button> or <button type="button" class="linkish" data-s-try="title:/^the .* of/">title:/^the .* of/</button>. <a href="/help/search-syntax/">Every option</a></p>
       ${["film", "series"].includes(s.medium) ? `<nav class="pchips industry-chips" aria-label="Where it's made"><span class="muted small">Made in</span>${INDUSTRIES.map(([k, l]) => `<a class="tchip${s.industry === k ? " on" : ""}" href="${esc(hrefSearch(s.medium, { ...s, industry: s.industry === k ? "" : k, list: true }))}">${esc(l)}</a>`).join("")}</nav>` : ""}
       <p class="adv-toggle"><button type="button" class="linkish" data-s-adv aria-expanded="${s.adv}">${s.adv ? "− Hide advanced search" : "+ Advanced search"}</button></p>
       ${s.adv ? advanced(s, d) : ""}
@@ -4595,7 +4653,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         if (b) { set(b.dataset.consent === "yes"); box.remove(); return; }
         if (e.target.closest("[data-consent-reset]")) { try { localStorage.removeItem(ID); } catch { /* storage unavailable */ } e.target.textContent = "Reset"; e.target.disabled = true; }
       });
-      box.querySelector("[data-consent]").focus({ preventScroll: true });
+      // Move focus to the choice only when nothing else is in use: never take it from someone typing in a field.
+      const busy = document.activeElement && document.activeElement.matches("input, textarea, select, [contenteditable]");
+      if (!busy) box.querySelector("[data-consent]").focus({ preventScroll: true });
     }
 
     function init() {
@@ -6325,6 +6385,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   function seek(q) {
+    rememberSearch(q);
     query = q;
     hasAsked = true;
     if (location.hash && location.hash !== "#") location.hash = "";
@@ -6467,8 +6528,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (t.dataset.sField) {
       const k = t.dataset.sField;
       const v = t.value;
-      goSearch({ ...search, [k]: k === "sort" || k === "rating" || k === "industry" ? v : v === "" ? null : Number(v) });
-    } else if (t.dataset.sAvoid) goSearch({ ...search, avoid: toggle(search.avoid, t.dataset.sAvoid) });
+      goSearch({ ...search, [k]: k === "sort" || k === "rating" || k === "industry" || k === "lang" || k === "country" ? v : v === "" ? null : Number(v) });
+    } else if ("sAssessed" in t.dataset) goSearch({ ...search, assessed: t.checked });
+    else if (t.dataset.sAvoid) goSearch({ ...search, avoid: toggle(search.avoid, t.dataset.sAvoid) });
   });
   app.addEventListener("click", (e) => {
     const t = e.target.closest("button");
@@ -6629,6 +6691,86 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   document.addEventListener("focusin", (e) => leaveOpen(e.target));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeMenus(); bar.classList.remove("open"); } });
   bar.addEventListener("click", (e) => { if (e.target.closest(".drop a")) { closeMenus(); bar.classList.remove("open"); } });
+
+  // ------------------------------------------------------------------ autocomplete (Ask box, search page, header search)
+  // One floating listbox shared by the three inputs: titles, franchises, people and tags as you type, operator completions after "genre:",
+  // typo help, and recent searches (kept only in this browser). Arrow keys, Enter, Tab and Escape work as in a search engine.
+  const RECENT_KEY = "mimir-recent-searches";
+  const recentSearches = () => stored(RECENT_KEY, []).filter((x) => typeof x === "string").slice(0, 8);
+  const rememberSearch = (q) => { q = String(q || "").trim(); if (q.length < 2 || q.length > 120) return; store(RECENT_KEY, [q, ...recentSearches().filter((x) => x.toLowerCase() !== q.toLowerCase())].slice(0, 8)); };
+  const suggestIndex = once(() => SEARCH.buildIndex([
+    ...RAW_WORKS.filter((w) => w.medium !== "channel" || true).map((w) => ({ kind: "title", label: w.title, hint: [mediumLabel(w.medium), w.year].filter(Boolean).join(" · "), href: `#work-${w.slug}`, boost: 6 - Math.min(5, w.popularity_tier || 5), slug: w.slug })),
+    ...cat.people().filter((p) => p.count >= 2).map((p) => ({ kind: "person", label: p.name, hint: `${p.roles[0] || "Credited"} · ${p.count}`, href: `#person-${p.slug}`, boost: Math.min(8, Math.log2(p.count + 1)) })),
+    ...ipList().map((g) => ({ kind: "franchise", label: g.name, hint: KIND_LABEL[g.kind] || "Series", href: `#group-${g.slug}`, boost: 4 })),
+    ...cat.tags().flatMap((g) => g.terms.map((t) => ({ kind: "tag", label: t.label, hint: g.label, href: `#search-all?tag=${encodeURIComponent(t.key)}`, boost: 0, key: t.key }))),
+  ]));
+  const SUGGEST_INPUTS = { q: "ask", "s-q": "search", "scope-q": "header" };
+  const SUGGEST_ICON = { recent: "↺", title: "▣", franchise: "❖", person: "☺", tag: "#", filter: "⚙" };
+  const sg = { el: null, input: null, items: [], active: -1, didYouMean: null };
+  const sgEl = () => sg.el || (sg.el = Object.assign(document.body.appendChild(document.createElement("ul")), { id: "suggest", hidden: true }));
+  const sgClose = () => { if (!sg.el) return; sg.el.hidden = true; sg.items = []; sg.active = -1; if (sg.input) { sg.input.setAttribute("aria-expanded", "false"); sg.input.removeAttribute("aria-activedescendant"); } };
+  function sgBold(label, text) {
+    const q = SEARCH.norm(text).split(" ").filter(Boolean).pop() || "", i = q ? SEARCH.norm(label).indexOf(q) : -1;
+    return i >= 0 && SEARCH.norm(label).length === label.length ? `${esc(label.slice(0, i))}<b>${esc(label.slice(i, i + q.length))}</b>${esc(label.slice(i + q.length))}` : esc(label);
+  }
+  function sgShow(input) {
+    const text = input.value;
+    const hints = SEARCH.operatorHints(text, searchCtx()).map((h) => ({ kind: "filter", label: h.label, hint: h.hint, insert: h.insert }));
+    const r = SEARCH.suggest(suggestIndex(), /(?:^|\s)-?[A-Za-z]+:\S*$/.test(text) ? "" : text, { limit: 8, recent: recentSearches() });
+    let items = [...hints, ...r.items].slice(0, 9);
+    if (!text.trim() && input.id === "q") items = [...items, ...EXAMPLES.slice(0, 3).map((e) => ({ kind: "recent", label: e, hint: "Example" }))].slice(0, 7);
+    sg.items = items; sg.didYouMean = r.didYouMean; sg.input = input; sg.active = -1;
+    const box = sgEl();
+    if (!items.length && !sg.didYouMean) { sgClose(); return; }
+    box.innerHTML = (sg.didYouMean ? `<li class="sg-did" role="presentation" data-did="${esc(sg.didYouMean)}">Did you mean <a href="#" data-did-link>${esc(sg.didYouMean)}</a>?</li>` : "")
+      + items.map((it, i) => `<li role="option" id="sg-${i}" data-i="${i}" aria-selected="false"><span class="sg-ico" aria-hidden="true">${SUGGEST_ICON[it.kind] || ""}</span><span class="sg-label">${sgBold(it.label, text)}</span><span class="sg-hint">${esc(it.hint || "")}</span></li>`).join("");
+    const rect = input.getBoundingClientRect();
+    Object.assign(box.style, { left: `${Math.max(8, rect.left)}px`, top: `${rect.bottom + 4}px`, width: `${Math.min(Math.max(rect.width, 280), innerWidth - 16)}px` });
+    box.setAttribute("role", "listbox"); box.setAttribute("aria-label", "Suggestions"); box.hidden = false;
+    input.setAttribute("role", "combobox"); input.setAttribute("aria-autocomplete", "list"); input.setAttribute("aria-expanded", "true"); input.setAttribute("aria-controls", "suggest");
+  }
+  function sgMove(d) {
+    if (!sg.items.length) return;
+    sg.active = (sg.active + d + sg.items.length) % sg.items.length;
+    sg.el.querySelectorAll("[role=option]").forEach((li) => li.setAttribute("aria-selected", String(Number(li.dataset.i) === sg.active)));
+    const li = sg.el.querySelector(`#sg-${sg.active}`); li.scrollIntoView({ block: "nearest" }); sg.input.setAttribute("aria-activedescendant", li.id);
+  }
+  function sgPick(i) {
+    const it = sg.items[i], input = sg.input, mode = SUGGEST_INPUTS[input.id];
+    if (!it) return;
+    sgClose();
+    if (it.kind === "filter") { input.value = it.insert; input.dispatchEvent(new Event("input", { bubbles: true })); input.focus(); return; }
+    rememberSearch(it.kind === "recent" ? it.label : it.label);
+    if (mode === "ask") {
+      const ask = it.kind === "title" || it.kind === "franchise" ? `Something like ${it.label}` : it.kind === "person" ? `Something by ${it.label}` : it.kind === "tag" ? `${it.label}, ${it.hint.toLowerCase()}` : it.label;
+      input.value = ask; seek(ask); return;
+    }
+    if (it.kind === "recent") { input.value = it.label; if (mode === "search") goSearch({ ...search, q: it.label, letter: "", list: false }); else document.getElementById("scope-form").requestSubmit(); return; }
+    location.hash = it.href.slice(1);
+    if (mode === "header") input.value = "";
+  }
+  // The search page redraws its box on every keystroke, so look the input up again once that redraw has finished.
+  document.addEventListener("input", (e) => { const id = e.target.id; if (SUGGEST_INPUTS[id]) queueMicrotask(() => { const el = document.getElementById(id); if (el && document.activeElement === el) sgShow(el); }); });
+  document.addEventListener("focusin", (e) => { if (SUGGEST_INPUTS[e.target.id]) sgShow(e.target); else if (!e.target.closest("#suggest")) sgClose(); });
+  document.addEventListener("keydown", (e) => {
+    if (!sg.el || sg.el.hidden || !SUGGEST_INPUTS[e.target.id]) return;
+    sg.input = e.target;   // the search page redraws its box on every keystroke, so follow whichever input has focus
+    if (e.key === "ArrowDown") { e.preventDefault(); sgMove(1); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); sgMove(-1); }
+    else if (e.key === "Escape") { e.preventDefault(); sgClose(); }   // closes the list without wiping what was typed
+    else if ((e.key === "Enter" || e.key === "Tab") && sg.active >= 0) { e.preventDefault(); e.stopImmediatePropagation(); sgPick(sg.active); }
+    else if (e.key === "Enter") { rememberSearch(sg.input.value); sgClose(); }
+  }, true);
+  document.addEventListener("mousedown", (e) => {
+    const li = e.target.closest("#suggest [role=option]");
+    if (li) { e.preventDefault(); sgPick(Number(li.dataset.i)); return; }
+    const did = e.target.closest("[data-did-link]");
+    if (did) { e.preventDefault(); const v = did.textContent; sg.input.value = v; sg.input.dispatchEvent(new Event("input", { bubbles: true })); return; }
+    if (!e.target.closest("#suggest") && !SUGGEST_INPUTS[e.target.id]) sgClose();
+  });
+  window.addEventListener("resize", sgClose);
+  window.addEventListener("hashchange", sgClose);
+  app.addEventListener("click", (e) => { const b = e.target.closest("[data-s-try]"); if (b) goSearch({ ...search, q: b.dataset.sTry, letter: "", list: false }); });
 
   renderMenubar();
   refreshCounts();

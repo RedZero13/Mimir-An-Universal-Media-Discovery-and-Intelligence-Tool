@@ -93,7 +93,7 @@ function page() {
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
-    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
+    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }
 
@@ -164,7 +164,7 @@ function sitePage(out) {
   const start = html.indexOf("<script>/*__ENGINE__*/</script>");
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
   const dataJs = `window.MIMIR_DATA=${JSON.stringify(texts)};\n`;
-  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJs)}.js`]: dataJs, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
@@ -261,6 +261,7 @@ header.top{display:flex;justify-content:space-between;align-items:center;gap:12p
 .eyebrow{font:600 .7rem Cinzel,serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:40px 0 6px}
 h1{font:600 clamp(2rem,6vw,3rem)/1.1 "Cormorant Garamond",Georgia,serif;color:var(--head);margin:0 0 8px}
 h2{font:600 1.6rem "Cormorant Garamond",Georgia,serif;color:var(--head);margin:32px 0 6px}
+.help-table{width:100%;border-collapse:collapse;font-size:.92rem;margin:12px 0}.help-table th,.help-table td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}.help-table code,main code{font:500 .85em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface);padding:1px 5px;border-radius:4px}
 .meta{color:var(--muted);font-size:.85rem}.lede{font:italic 500 1.35rem/1.45 "Cormorant Garamond",Georgia,serif;color:var(--lede)}
 .cta{display:inline-block;margin:28px 12px 0 0;padding:12px 22px;border-radius:99px;background:var(--gold);color:var(--on-gold);text-decoration:none;font:600 .75rem Cinzel,serif;letter-spacing:.16em;text-transform:uppercase}
 .cta.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}

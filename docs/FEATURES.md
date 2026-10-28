@@ -146,3 +146,11 @@ facts and genres and are being classified in batches (see [CATALOGUE-EXPANSION.m
   browser, kept identical to the Python by parity tests on every query.
 - No LLM and no API keys: requests are parsed into inspectable constraints, ranked, and explained from evidence.
 - Open data only, each source in a licensing register ([`SOURCES.md`](SOURCES.md)).
+
+## Search syntax and autocomplete
+The search box on every search page, the top-bar search and Ask Mimir share `demo/search.cjs`: plain words (all must match, best title first), `"phrases"`, `-exclude`/`NOT`,
+`OR`, `*`/`?` wildcards, `/regex/` (refused when it could freeze the page), and `field:value` filters (title, summary, by, director, author, artist, developer, cast, year ranges,
+decade, runtime, medium, lang, country, rating, franchise, any tag by name or slug, is:, has:, tier:). The advanced panel adds language, country and "assessed parents' guide only".
+Autocomplete offers titles, franchises, people and tags with keyboard support (arrows, Enter, Tab, Escape), completes filters after a colon, offers the nearest name for a typo
+and remembers recent searches in this browser only. Ask Mimir accepts the same filters inside a sentence. The Help guide "Search tips" lists every option. Tests:
+`node demo/search.test.cjs` and `api/tests/test_search_syntax.py`.
