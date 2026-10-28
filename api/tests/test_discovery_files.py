@@ -41,7 +41,8 @@ def test_robots_allows_search_and_answer_crawlers_and_names_the_sitemap(site):
     robots = (site / "robots.txt").read_text()
     for bot in ("Googlebot", "Bingbot", "OAI-SearchBot", "Claude-SearchBot", "PerplexityBot"):
         assert f"User-agent: {bot}\nAllow: /" in robots
-    assert "Disallow" not in robots
+    assert "Disallow: /privacy/" in robots and "Disallow: /terms/" in robots, "legal pages are held back from crawlers"
+    assert robots.count("Disallow") == robots.count("User-agent") * 5, "every group blocks the five legal pages and nothing else"
     assert "Sitemap: https://mimir.terratalesmedia.world/sitemap.xml" in robots
 
 
@@ -58,11 +59,12 @@ def test_built_pages_pass_the_page_audit(site):
     assert not findings, "\n".join(f"{f.rule} {f.key}: {f.message}" for f in findings[:10])
 
 
-def test_legal_pages_are_built_linked_and_in_the_sitemap(site):
+def test_legal_pages_are_built_and_linked_but_held_back_from_search(site):
     for slug in ("privacy", "cookies", "terms", "data-requests", "security"):
         html = (site / slug / "index.html").read_text()
         assert "<h1>" in html and "Version 2026-10" in html, slug
-        assert f"https://mimir.terratalesmedia.world/{slug}/" in (site / "sitemap-pages.xml").read_text()
+        assert f"https://mimir.terratalesmedia.world/{slug}/" not in (site / "sitemap-pages.xml").read_text(), "on hold: not in the sitemap"
+        assert '<meta name="robots" content="noindex, nofollow">' in html, slug
     privacy = (site / "privacy" / "index.html").read_text()
     assert "Data Protection Board of India" in privacy and "Third Floor" in privacy
     assert "To be added" in privacy, "unfilled placeholders must stay visible, not be dropped"

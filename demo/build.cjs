@@ -93,7 +93,7 @@ function page() {
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
-    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
+    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }
 
@@ -164,7 +164,7 @@ function sitePage(out) {
   const start = html.indexOf("<script>/*__ENGINE__*/</script>");
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
   const dataJs = `window.MIMIR_DATA=${JSON.stringify(texts)};\n`;
-  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJs)}.js`]: dataJs, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
@@ -243,9 +243,9 @@ function pageSchema({ title, desc, canonical, pageType, crumbs, modified, app })
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, provider: ORG_REF });
   return nodes.length ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": nodes }).replace(/</g, "\\u003c")}</script>` : "";
 }
-const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png`, index = true, pageType = "WebPage", crumbs = null, modified = null, app = null } = {}) => `<!doctype html>
+const staticPage = (title, desc, canonical, body, extraHead = "", { type = "article", image = `${SITE_URL}/og-image.png`, index = true, robots = null, pageType = "WebPage", crumbs = null, modified = null, app = null } = {}) => `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${index ? "index, follow, max-image-preview:large" : "noindex, follow"}"><link rel="canonical" href="${canonical}">
+<title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="robots" content="${robots || (index ? "index, follow, max-image-preview:large" : "noindex, follow")}"><link rel="canonical" href="${canonical}">
 <meta property="og:type" content="${type}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${canonical}"><meta property="og:image" content="${esc(image)}"><meta name="twitter:card" content="summary_large_image"><meta property="og:site_name" content="Mimir">
 <meta name="theme-color" content="#131315">${ICON_LINKS}${extraHead}${pageSchema({ title, desc, canonical, pageType, crumbs, modified, app })}
@@ -261,6 +261,7 @@ header.top{display:flex;justify-content:space-between;align-items:center;gap:12p
 .eyebrow{font:600 .7rem Cinzel,serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:40px 0 6px}
 h1{font:600 clamp(2rem,6vw,3rem)/1.1 "Cormorant Garamond",Georgia,serif;color:var(--head);margin:0 0 8px}
 h2{font:600 1.6rem "Cormorant Garamond",Georgia,serif;color:var(--head);margin:32px 0 6px}
+.help-table{width:100%;border-collapse:collapse;font-size:.92rem;margin:12px 0}.help-table th,.help-table td{text-align:left;vertical-align:top;padding:8px 10px;border-bottom:1px solid var(--line)}.help-table code,main code{font:500 .85em ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--surface);padding:1px 5px;border-radius:4px}
 .meta{color:var(--muted);font-size:.85rem}.lede{font:italic 500 1.35rem/1.45 "Cormorant Garamond",Georgia,serif;color:var(--lede)}
 .cta{display:inline-block;margin:28px 12px 0 0;padding:12px 22px;border-radius:99px;background:var(--gold);color:var(--on-gold);text-decoration:none;font:600 .75rem Cinzel,serif;letter-spacing:.16em;text-transform:uppercase}
 .cta.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
@@ -280,13 +281,14 @@ footer{max-width:1080px;margin:64px auto 0;padding:22px 0 40px;border-top:1px so
 
 // Privacy notice, cookie policy, terms, data requests and security: plain static pages with real URLs (demo/legal.cjs).
 function writeLegal(out) {
-  return legal.PAGES.map((p) => {
+  const urls = legal.PAGES.map((p) => {
     const url = `${SITE_URL}/${p.slug}/`;
     fs.mkdirSync(path.join(out, p.slug), { recursive: true });
     const body = `<p class="eyebrow"><a href="/">Mimir</a> · Legal</p><h1>${esc(p.title)}</h1><p class="meta">Version ${legal.VERSION} · updated ${legal.UPDATED}</p>\n${legal.render(p.md)}`;
-    fs.writeFileSync(path.join(out, p.slug, "index.html"), staticPage(`${p.title} · Mimir`, p.desc, url, body, "", { type: "website", pageType: "WebPage", modified: legal.MODIFIED, crumbs: [["Mimir", `${SITE_URL}/`], [p.title, url]] }));
+    fs.writeFileSync(path.join(out, p.slug, "index.html"), staticPage(`${p.title} · Mimir`, p.desc, url, body, "", { type: "website", pageType: "WebPage", modified: legal.MODIFIED, robots: legal.PUBLISHED ? null : "noindex, nofollow", crumbs: [["Mimir", `${SITE_URL}/`], [p.title, url]] }));
     return [url, null, "0.3"];
   });
+  return legal.PUBLISHED ? urls : [];   // on hold: not in the sitemap (and noindex, nofollow, robots-blocked)
 }
 
 function writeBlog(out) {
@@ -363,7 +365,7 @@ if (args[0] === "--site") {
   const worksList = P("catalogue").works;
   writeSitemaps(out, { SITE_URL, urls, works: worksList, hubs: HUBS });
   // Everything is crawlable, scripts included: search engines render the app with them.
-  writeRobots(out, { SITE_URL });
+  writeRobots(out, { SITE_URL, blocked: legal.PUBLISHED ? [] : legal.PAGES.map((p) => `/${p.slug}/`) });
   writeLlms(out, { SITE_URL, works: worksList, hubs: HUBS, shelves: cat.shelves(), posts: JSON.parse(fs.readFileSync(path.join(here, "blog.json"), "utf8")).posts.sort((x, y) => y.date.localeCompare(x.date)) });
   fs.writeFileSync(path.join(out, "404.html"), staticPage("Page not found · Mimir", "This page isn't here. Search Mimir's catalogue of films, TV, books, games and music instead.", `${SITE_URL}/`,
     `<p class="eyebrow">Not found</p><h1>This page isn't in the well</h1><p class="lede">The link may be old, or the page may have moved.</p>

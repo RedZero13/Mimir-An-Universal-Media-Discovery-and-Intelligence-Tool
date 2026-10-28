@@ -1,8 +1,15 @@
 name: CI
 
+# One run per change: pull requests are tested as pull requests, and a push only runs for main (after a merge). Pushing to a branch
+# that has an open pull request no longer starts a second, identical run, and a newer push cancels the run it replaces.
 on:
   push:
+    branches: [main]
   pull_request:
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   api:

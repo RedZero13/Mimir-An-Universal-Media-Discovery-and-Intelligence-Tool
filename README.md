@@ -8,7 +8,7 @@ TV series, books and manga, games, music and YouTube, built by
 **[mimir.terratalesmedia.world](https://mimir.terratalesmedia.world/)**.
 
 Describe what you want to experience: a mood, an idea, a favourite work, a time limit. Mimir returns a few
-well-chosen picks, each with the reasons it fits. The catalogue holds about 7,500 works from 99 countries in 68 original
+well-chosen picks, each with the reasons it fits. The catalogue holds about 8,300 works from 100 countries in 68 original
 languages; 681 are fully classified against 372 controlled terms (233 of them subgenres), and the rest, imported from
 Wikidata, are being classified in batches.
 
@@ -30,7 +30,7 @@ your recommendations.
 - **Everything Mimir does:** [`docs/FEATURES.md`](docs/FEATURES.md)
 - **Press kit and press release:** [`docs/press/`](docs/press/)
 - **Search visibility:** [`docs/SEO-KEYWORD-STRATEGY.md`](docs/SEO-KEYWORD-STRATEGY.md) (keywords, meta map, what is built and what is not).
-- **How the catalogue grew to about 7,500 works, and what is still being filled in:** [`docs/CATALOGUE-EXPANSION.md`](docs/CATALOGUE-EXPANSION.md) · **Planned features:** [`docs/FUTURE-FEATURES.md`](docs/FUTURE-FEATURES.md)
+- **How the catalogue grew to about 8,300 works, and what is still being filled in:** [`docs/CATALOGUE-EXPANSION.md`](docs/CATALOGUE-EXPANSION.md) · **Planned features:** [`docs/FUTURE-FEATURES.md`](docs/FUTURE-FEATURES.md)
 - **Help centre:** the site's own guides, FAQs and walkthrough video at [mimir.terratalesmedia.world/#help](https://mimir.terratalesmedia.world/#help)
 - **Beta testers start here:** [`docs/BETA.md`](docs/BETA.md)
 - **Where Mimir stands against MAL, MangaUpdates, IMDb, Letterboxd, Goodreads and Spotify:** [`docs/COMPETITIVE.md`](docs/COMPETITIVE.md) · **What comes next:** [`docs/ROADMAP.md`](docs/ROADMAP.md)

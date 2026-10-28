@@ -926,6 +926,7 @@ finish finished binge binged through will watching reading playing listening sta
 
     function matches(w, f) {
       if (f.media.length && !f.media.includes(w.medium)) return false;
+      if (f.only && !f.only.has(w.slug)) return false;   // a set of slugs chosen by the app's own search (operators, regex)
       if (f.tags.some((t) => strengthOf(w, t) < TAG_THRESHOLD)) return false;
       if (f.decade !== null && (w.year === null || decadeOf(w.year) !== f.decade)) return false;
       if (f.exclude.some((t) => strengthOf(w, t) >= TAG_THRESHOLD)) return false;

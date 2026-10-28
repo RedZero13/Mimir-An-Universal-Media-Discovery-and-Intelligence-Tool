@@ -1,4 +1,4 @@
-// The Help centre's content: categories, the 20 guides and the FAQ. Shared by the app (as window.MimirHelp) and the build,
+// The Help centre's content: categories, the guides and the FAQ. Shared by the app (as window.MimirHelp) and the build,
 // which writes each guide as its own static page. Bodies are HTML; links use the app's #routes, and {{feedback}} is replaced by
 // the feedback address where the guide is shown.
 "use strict";
@@ -33,6 +33,31 @@ const HELP = [
     `<p>On the home page, write what you want: "something slow and sad, a book, not too long", "a film like Arrival", "a game for twenty minutes". Mimir shows how it read the request as chips (wanted, avoided, limits) so you can see and correct it.</p>
      <ol><li>Type your request and press Ask Mimir.</li><li>Check the chips under the box; remove or add one to adjust.</li><li>Open a pick to see why it fits.</li></ol>
      <p class="help-tip">The <a href="#mix">mood mixer</a> builds a request for you from moods you tap.</p>`, "ask search request prompt natural language"],
+  ["search-syntax", "find", "Search tips: filters, phrases, tags and patterns", "Narrow the catalogue with year:, genre:, by:, -word, \"phrases\" and /regex/.",
+    `<p>The search box on <a href="#search-all">Catalogue search</a>, and the search box in the top bar, understand plain words and a few short filters. Combine as many as you like. Every word has to match, and
+     the best title match comes first.</p>
+     <table class="help-table"><thead><tr><th>Type</th><th>It finds</th></tr></thead><tbody>
+     <tr><td><code>blade runner</code></td><td>Titles, credits and franchises that contain every word. Accents and capitals do not matter.</td></tr>
+     <tr><td><code>"the last of us"</code></td><td>The exact phrase, in that order.</td></tr>
+     <tr><td><code>-horror</code> or <code>NOT horror</code></td><td>Leaves out anything that matches.</td></tr>
+     <tr><td><code>dune OR alien</code></td><td>Either side.</td></tr>
+     <tr><td><code>blad*</code> and <code>bl?de</code></td><td>Wildcards: <code>*</code> is any letters, <code>?</code> is one letter.</td></tr>
+     <tr><td><code>/^the .* of/i</code></td><td>A regular expression over titles, credits and summaries. Very complex patterns are refused so the page never freezes.</td></tr>
+     <tr><td><code>title:</code> <code>summary:</code> <code>by:</code> <code>director:</code> <code>author:</code> <code>artist:</code> <code>developer:</code> <code>cast:</code></td><td>Look in one place only. <code>title:/regex/</code> works too.</td></tr>
+     <tr><td><code>year:2019</code> <code>year:2015..2020</code> <code>year:&gt;=2010</code> <code>decade:1990s</code></td><td>When it came out.</td></tr>
+     <tr><td><code>runtime:&lt;120</code> <code>runtime:90..150</code></td><td>Length in minutes (films, where known).</td></tr>
+     <tr><td><code>medium:film</code> <code>tv</code> <code>book</code> <code>game</code> <code>album</code> <code>video</code> <code>channel</code></td><td>One medium.</td></tr>
+     <tr><td><code>lang:ja</code> <code>lang:korean</code> <code>country:india</code> <code>rating:PG-13</code></td><td>Original language, country of origin and age rating.</td></tr>
+     <tr><td><code>genre:cyberpunk</code> <code>mood:cosy</code> <code>theme:grief-loss</code> <code>tag:slow-burn</code></td><td>Any tag by name or slug. Start typing after the colon and Mimir completes it.</td></tr>
+     <tr><td><code>franchise:zelda</code></td><td>Works in a franchise or series.</td></tr>
+     <tr><td><code>is:new</code> <code>is:classic</code> <code>is:popular</code> <code>is:obscure</code> <code>is:assessed</code> <code>has:summary</code></td><td>New (last three years), before 1990, well known, lesser known, with a parents' guide, with a written summary.</td></tr>
+     </tbody></table>
+     <p>Examples: <code>genre:cyberpunk year:1980..1999</code> &middot; <code>by:nolan -medium:game</code> &middot; <code>mood:cosy medium:game is:new</code> &middot; <code>title:/^the .* of/</code></p>
+     <h3>Suggestions as you type</h3>
+     <p>Start typing and Mimir offers titles, people, franchises and tags, with arrow keys, Enter to choose and Escape to close. It also offers your recent searches, kept only in this browser, and completes filters after a colon. Misspelled something? Mimir offers the nearest name.</p>
+     <h3>In Ask Mimir</h3>
+     <p>You can add the same filters to a sentence: "a quiet atmospheric game <code>year:&gt;=2015</code>" or "something cosy <code>lang:ja</code>". The words steer the picks; the filters narrow them.</p>
+     <p class="help-tip">Not sure a filter was understood? Anything Mimir could not read is listed under the search box, and the rest of the search still runs.</p>`, "search filter regex regular expression operator syntax autocomplete suggestions boolean wildcard"],
   ["decide-for-me", "find", "Decide for me", "Pick one thing when you cannot choose.",
     `<p><a href="#decide">Decide for me</a> chooses one work, using up to three moods and your time. Press again for another. Not tonight? Say so and it remembers.</p>`, "decide random pick one"],
   ["swipe", "find", "Swipe to teach Mimir your taste", "Like a dating app, for films, books and games.",
@@ -73,8 +98,10 @@ const HELP = [
 ];
 const HELP_FAQ = [
   ["Is Mimir free?", "Yes. The catalogue, recommendations and library are free to use."],
+  ["How do I search with filters, phrases or patterns?", "Type them in the search box: genre:cyberpunk year:1980..1999, by:nolan -medium:game, \"exact phrase\", dune OR alien, blad*, or a /regular expression/. Mimir completes filters and suggests titles, people, franchises and tags as you type. The Help guide \"Search tips\" lists every option."],
   ["Do I need an account?", "No. Everything works without one and is saved in your browser. An optional account (a recovery key) keeps your library in step across devices, encrypted so Mimir cannot read it."],
   ["What happens if I lose my recovery key?", "Nobody can recover it, because Mimir never has it. Your data stays on the devices where you are signed in, so export it from the Account page and make a new vault."],
+  ["Can I back up my recovery key with a passphrase?", "Yes. When Mimir shows you a new recovery key, open \"Also save a passphrase-protected backup\", choose a passphrase of at least 12 characters and download the backup. To use it later, choose \"Sign in with a protected backup\" on the Account page. The key is locked on your device: Mimir never sees the passphrase or the backup, and cannot recover either one. Keep the passphrase somewhere other than the backup."],
   ["What does Mimir collect?", "Nothing, unless you allow it: your library stays on your device. If you allow analytics, Mimir counts anonymous usage such as pages, features and device type, never what you search for, rate or save. Change this any time from Privacy choices in the footer, and read the privacy notice."],
   ["Where are my ratings and library stored?", "In this browser only. Save a backup from Import & export, because clearing site data removes them."],
   ["Why does a work have no summary?", "Many works were imported from Wikidata with facts only. Summaries, moods and parents' guides are filled in batches."],

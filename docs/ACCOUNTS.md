@@ -32,6 +32,22 @@ are combined. Clearing a whole key is.
 operator can see that a vault exists, its size and when it was last used, and can delete it. Signing in on a new device
 needs the key; social sign-in (when added) will find the account but cannot decrypt it.
 
+## Passphrase-protected key backup
+Optional, on the key screens (create and "Make a new key") and as a second way to sign in. It is entirely client-side: the server
+contract is unchanged and the server never sees the passphrase or the backup.
+
+- The recovery key's 20 bytes are encrypted with AES-256-GCM under a key derived from the passphrase by PBKDF2-HMAC-SHA256
+  (600,000 iterations, random 16-byte salt, random 12-byte nonce, fixed associated data). The result is one line of text,
+  `MIMIR-KEY-BACKUP-1:` plus base64url JSON `{v, kdf, i, s, n, c}`, offered as a file download or copied text.
+- Sign in: paste the text or choose the file, type the passphrase; the key is recovered and the normal sign-in runs.
+  A wrong passphrase and a damaged backup give the same message. Iteration counts outside 100,000 to 5,000,000 are rejected.
+- Passphrases need 12 or more characters, at least six distinct ones, and may not be a common word on its own. The page suggests
+  four random words.
+- Trade-off: a plain printed key has no passphrase to guess; a backup file that leaks can be attacked offline, so its strength is
+  the passphrase's. Keep the passphrase apart from the file. Mimir cannot recover either.
+- Tested in `demo/vault.test.cjs` (round trip, wrong passphrase, tampering, weak passphrase, paste formatting) and in
+  `wordpress/tests/e2e.cjs` (download, then sign in on another device).
+
 ## Server contract (`/wp-json/mimir/v1`)
 All calls are JSON. Secrets travel in the body of a POST, never in a URL. `id` is 32 hex characters, `auth` 43 base64url
 characters, `blob` base64url text of at most 2 MB. Errors use WordPress's shape: `{ code, message, data: { status } }`.
@@ -152,9 +168,16 @@ footer and the sitemap, and written from what the code does. `docs/DPDP.md` is t
 retention, risks, checklist for counsel) and `docs/INCIDENT-RESPONSE.md` the breach plan. Anything the company must supply
 shows on the pages as "To be added" and is listed by audit rule B003. They have not been reviewed by a lawyer.
 
+**On hold.** Until the placeholders are filled and counsel has reviewed them, the five legal pages are `noindex, nofollow`, blocked
+in `robots.txt` for every crawler, and left out of the sitemap (`PUBLISHED = false` in `demo/legal.cjs`). They stay linked from the
+footers so visitors can read them. Set `PUBLISHED = true` to publish: they become indexable, drop out of `robots.txt` and join the
+sitemap. A page blocked in `robots.txt` cannot show its `noindex` tag to a crawler, so a page already indexed elsewhere may linger
+in results until the block is lifted or it is removed in Search Console; neither case has applied yet, since the pages were never
+submitted.
+
 ## Not built yet
 - Sign in with Google, Apple and Meta. End-to-end encryption means a provider login can only find an account, not unlock it:
   a new device still needs the recovery key. It also needs OAuth apps you register (Google Cloud console, an Apple
   Developer account with a Services ID and key, a Meta developer app with business verification). Say whether you still
-  want it before it is built; a passphrase-wrapped key backup is an alternative that restores without the key but is weaker.
+  want it before it is built. The passphrase-wrapped key backup (above) is built; it restores without typing the key, but it is a file you keep, not a server-side recovery.
 - Age handling beyond the "I am 18 or older" tick (verifiable parental consent): a question for counsel.

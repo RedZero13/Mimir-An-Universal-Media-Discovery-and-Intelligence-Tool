@@ -239,4 +239,7 @@ function render(md) {
 const placeholders = () => PAGES.flatMap((p) => [...p.md.matchAll(/\[\[([^\]]+)\]\]/g)].map((m) => ({ page: p.slug, text: m[1] })));
 
 const MODIFIED = "2026-10-27";
-module.exports = { PAGES, VERSION, UPDATED, MODIFIED, render, placeholders, esc };
+// The legal pages stay out of search until the company has filled the placeholders and counsel has reviewed them: while false they are
+// noindex and nofollow, blocked in robots.txt and left out of the sitemap. Set to true to publish them.
+const PUBLISHED = false;
+module.exports = { PAGES, VERSION, UPDATED, MODIFIED, PUBLISHED, render, placeholders, esc };
