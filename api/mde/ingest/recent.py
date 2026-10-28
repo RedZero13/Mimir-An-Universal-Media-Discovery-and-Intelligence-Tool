@@ -157,11 +157,13 @@ def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
             rows.sort(key=lambda r: (-r[0], r[1]))
             log(f"{medium} {year}: {len(cand)} found, {len(rows)} eligible, keeping {min(len(rows), CAPS[medium])}")
             picked += [(medium, year, n, q, e) for n, q, e in rows[:CAPS[medium]]]
-    return convert(wd, picked, taken, idx)
+    return convert(wd, picked, taken, idx, credit_spellings(seed))
 
 
-def convert(wd: Wikidata, picked: list[tuple[str, int, int, str, dict]], taken: set[str], idx: dict[str, dict]) -> list[dict]:
-    """Seed entries for picked (medium, year, sitelinks, qid, entity) rows; slugs avoid everything in `taken` (which is added to)."""
+def convert(wd: Wikidata, picked: list[tuple[str, int, int, str, dict]], taken: set[str], idx: dict[str, dict],
+            canon: dict[str, str] | None = None) -> list[dict]:
+    """Seed entries for picked (medium, year, sitelinks, qid, entity) rows; slugs avoid everything in `taken` (which is added to).
+    `canon` maps a lower-case credit name to the spelling the catalogue already uses, so one person is never spelled two ways."""
     # one batch of label and code lookups for everything the picked works point at
     refs: set[str] = set()
     for medium, _y, _n, _q, e in picked:
@@ -192,7 +194,7 @@ def convert(wd: Wikidata, picked: list[tuple[str, int, int, str, dict]], taken: 
         for role, prop, limit in CREDITS[medium]:
             for x in item_ids(e, prop)[:limit]:
                 if labels.get(x) and labels[x] != x:
-                    credits.append([role, labels[x]])
+                    credits.append([role, (canon or {}).get(labels[x].lower(), labels[x])])
         if credits:
             w["credits"] = credits
         desc = (e.get("descriptions", {}).get("en", {}) or {}).get("value", "")
@@ -221,6 +223,15 @@ def convert(wd: Wikidata, picked: list[tuple[str, int, int, str, dict]], taken: 
         w["attributes"] = attrs
         works.append(w)
     return works
+
+
+def credit_spellings(seed: list[dict]) -> dict[str, str]:
+    """Lower-case credit name -> the first spelling the catalogue uses (the database keys people case-insensitively)."""
+    out: dict[str, str] = {}
+    for w in seed:
+        for c in w.get("credits", []):
+            out.setdefault(c[1].lower(), c[1])
+    return out
 
 
 def item_ids(entity: dict, prop: str) -> list[str]:

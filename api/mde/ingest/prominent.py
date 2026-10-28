@@ -23,7 +23,7 @@ from pathlib import Path
 from mde.catalogue.model import normalise_title
 from mde.catalogue.seedfiles import read_seed
 from mde.ingest.http import Client
-from mde.ingest.recent import COLLIDES, QUERY_TYPES, SPARQL, convert, fetch, genre_index, item_ids, start_date
+from mde.ingest.recent import COLLIDES, QUERY_TYPES, SPARQL, convert, credit_spellings, fetch, genre_index, item_ids, start_date
 from mde.ingest.wikidata import TYPES, Wikidata, label_of
 
 OUT = Path(__file__).parent.parent / "seed" / "prominent.json"
@@ -222,7 +222,7 @@ def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
         picked.append((medium, year, n, q, e))
         notes[q] = cand[q][1]
     log(f"{len(picked)} new works to add")
-    works = convert(wd, picked, taken, genre_index())
+    works = convert(wd, picked, taken, genre_index(), credit_spellings(seed))
     for w in works:
         won = notes.get(w["attributes"]["wikidata"])
         if won:
