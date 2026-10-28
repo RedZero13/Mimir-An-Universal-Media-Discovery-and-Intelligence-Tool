@@ -157,6 +157,11 @@ def build(wd: Wikidata, client: Client, log=print) -> list[dict]:
             rows.sort(key=lambda r: (-r[0], r[1]))
             log(f"{medium} {year}: {len(cand)} found, {len(rows)} eligible, keeping {min(len(rows), CAPS[medium])}")
             picked += [(medium, year, n, q, e) for n, q, e in rows[:CAPS[medium]]]
+    return convert(wd, picked, taken, idx)
+
+
+def convert(wd: Wikidata, picked: list[tuple[str, int, int, str, dict]], taken: set[str], idx: dict[str, dict]) -> list[dict]:
+    """Seed entries for picked (medium, year, sitelinks, qid, entity) rows; slugs avoid everything in `taken` (which is added to)."""
     # one batch of label and code lookups for everything the picked works point at
     refs: set[str] = set()
     for medium, _y, _n, _q, e in picked:
