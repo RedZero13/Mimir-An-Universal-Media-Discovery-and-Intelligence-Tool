@@ -24,7 +24,7 @@ from mde.catalogue.model import normalise_title
 from mde.catalogue.seedfiles import read_seed
 from mde.ingest.http import Client
 from mde.ingest.recent import COLLIDES, QUERY_TYPES, SPARQL, convert, fetch, genre_index, item_ids, start_date
-from mde.ingest.wikidata import API, TYPES, Wikidata, label_of
+from mde.ingest.wikidata import TYPES, Wikidata, label_of
 
 OUT = Path(__file__).parent.parent / "seed" / "prominent.json"
 ALBUMS_PER_ARTIST = 6
@@ -79,42 +79,42 @@ AWARDS = {
 }
 
 
-def resolve(client: Client, name: str, accept=None) -> str | None:
-    """First Wikidata item whose label matches `name` (case-insensitive) and whose description passes `accept`."""
-    r = client.get_json(API, {"action": "wbsearchentities", "search": name, "language": "en", "type": "item", "limit": 7, "format": "json"})
-    for c in r.get("search", []):
-        label = (c.get("label") or "").lower()
-        if label != name.lower().replace("–", "-") and label != name.lower():
-            continue
-        if accept is None or accept((c.get("description") or "").lower()):
-            return c["id"]
-    return None
-
-
 def sparql(client: Client, query: str) -> list[dict]:
     r = client.get_json(SPARQL, {"query": query, "format": "json"})
     return [{k: v["value"].rsplit("/", 1)[-1] for k, v in b.items()} for b in r["results"]["bindings"]]
 
 
-def artists(client: Client, log=print) -> dict[str, str]:
-    """QID -> name for the named artists that resolve to a musical act with a MusicBrainz id and enough coverage."""
-    found: dict[str, str] = {}
-    for name in ARTISTS:
-        q = None
+def esc_lit(text: str) -> str:
+    return text.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def by_label(client: Client, names: list[str], extra: str, log=print) -> dict[str, tuple[str, int]]:
+    """name -> (QID, sitelinks): for each English label, the most widely covered item that also satisfies the `extra` triple pattern.
+    One batched SPARQL query per 40 names (the query service, not the throttled search API)."""
+    found: dict[str, tuple[str, int]] = {}
+    for i in range(0, len(names), 40):
+        vals = " ".join(f'"{esc_lit(n)}"@en' for n in names[i:i + 40])
         try:
-            q = resolve(client, name, lambda d: any(w in d for w in MUSIC_WORDS))
-        except Exception as e:   # noqa: BLE001 - one failed lookup should not lose the rest
-            log(f"  {name}: {str(e)[:80]}")
-        if q:
-            found[q] = name
-        else:
+            rows = sparql(client, f"""SELECT ?item ?name ?sl WHERE {{ VALUES ?name {{ {vals} }}
+              ?item rdfs:label ?name . {extra} ?item wikibase:sitelinks ?sl . }}""")
+        except Exception as e:   # noqa: BLE001 - a failed batch only loses its own names
+            log(f"  batch {i // 40}: {str(e)[:80]}")
+            continue
+        for r in rows:
+            name = next((n for n in names[i:i + 40] if n.lower() == r["name"].lower()), r["name"])
+            if int(r["sl"]) > found.get(name, ("", -1))[1]:
+                found[name] = (r["item"], int(r["sl"]))
+    return found
+
+
+def artists(client: Client, log=print) -> dict[str, str]:
+    """QID -> name for the named artists that resolve to a musical act (has a MusicBrainz artist id) with enough coverage."""
+    got = by_label(client, ARTISTS, "?item wdt:P434 ?mb .", log)
+    keep = {q: name for name, (q, sl) in got.items() if sl >= MIN_ARTIST_SITELINKS}
+    for name in ARTISTS:
+        if name not in got:
             log(f"  not resolved: {name}")
-    ents = fetch(client, sorted(found))
-    keep = {}
-    for q, e in ents.items():
-        if e.get("claims", {}).get("P434") and len(e.get("sitelinks", {})) >= MIN_ARTIST_SITELINKS:
-            keep[q] = label_of(e) or found[q]
-    log(f"artists: {len(found)} resolved, {len(keep)} kept")
+    log(f"artists: {len(got)} resolved, {len(keep)} kept")
     return keep
 
 
@@ -142,16 +142,12 @@ def artist_albums(client: Client, artist_ids: list[str], log=print) -> dict[str,
 
 def award_works(client: Client, log=print) -> dict[str, tuple[int, list[str]]]:
     """Work QID -> (sitelinks, [award labels]) for works that received or were nominated for a listed award."""
-    labels_by_q: dict[str, str] = {}
+    labels_by_q: dict[str, tuple[str, str]] = {}
     for medium, names in AWARDS.items():
+        got = by_label(client, names, "", log)
         for name in names:
-            try:
-                q = resolve(client, name)
-            except Exception as e:   # noqa: BLE001
-                log(f"  {name}: {str(e)[:80]}")
-                continue
-            if q:
-                labels_by_q[q] = (name, medium)
+            if name in got:
+                labels_by_q[got[name][0]] = (name, medium)
             else:
                 log(f"  award not resolved: {name}")
     out: dict[str, tuple[int, list[str]]] = {}

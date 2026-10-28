@@ -557,8 +557,11 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .fan .poster { width: 56px; flex: 0 1 56px; min-width: 0; margin-left: -18px; box-shadow: -4px 4px 14px rgba(0, 0, 0, .6); }
 .fan .poster:first-child { margin-left: 0; transform: rotate(-5deg); }
 .fan .poster:nth-child(3) { transform: rotate(5deg); }
-.fan .poster.sq { height: 56px; align-self: center; }
-.fan.wide { height: 120px; } .fan.wide .poster { width: 74px; } .fan.wide .poster.sq { height: 74px; }
+.fan .poster, .fan .poster.sq { aspect-ratio: 2 / 3; height: auto; align-self: flex-start; }   /* the row stretches items: keep every cover a true 2:3 portrait */
+.fan .poster.sq { background: radial-gradient(120% 70% at 50% 50%, #26221B, #0E0E10 70%); }   /* album and video covers are square: sit them in the same portrait frame as every other cover */
+.fan .poster.sq > .cover, .fan .poster.sq > img { inset: auto 0; top: 50%; height: auto; aspect-ratio: 1 / 1; transform: translateY(-50%); box-shadow: 0 6px 16px rgba(0, 0, 0, .55); }
+.fan .poster::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .09); pointer-events: none; }   /* one edge for real and generated covers alike */
+.fan.wide { height: 100px; } .fan.wide.wide .poster, .fan.wide.wide .poster.sq { width: 60px; flex: 0 0 60px; }
 .tile-label { font: 600 1.2rem/1.15 var(--f-head); color: var(--bone); overflow-wrap: anywhere; }
 .tile-range { font-size: .8rem; color: var(--muted); overflow-wrap: anywhere; }
 .families > li[hidden] { display: none; }
