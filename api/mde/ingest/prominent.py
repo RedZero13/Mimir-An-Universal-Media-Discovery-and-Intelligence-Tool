@@ -107,9 +107,42 @@ def by_label(client: Client, names: list[str], extra: str, log=print) -> dict[st
     return found
 
 
+MB_SEARCH = "https://musicbrainz.org/ws/2/artist/"
+
+
+def by_musicbrainz(client: Client, names: list[str], log=print) -> dict[str, tuple[str, int]]:
+    """name -> (QID, sitelinks) for names the label lookup missed: MusicBrainz finds the artist's id, Wikidata maps the id to its item."""
+    mbids: dict[str, str] = {}
+    for name in names:
+        try:
+            r = client.get_json(MB_SEARCH, {"query": f'artist:"{name}"', "fmt": "json", "limit": 3})
+        except Exception as e:   # noqa: BLE001 - a failed lookup only loses that name
+            log(f"  musicbrainz {name}: {str(e)[:60]}")
+            continue
+        for a in r.get("artists", []):
+            if a.get("score", 0) >= 95 and a.get("name", "").lower() == name.lower():
+                mbids[a["id"]] = name
+                break
+    found: dict[str, tuple[str, int]] = {}
+    ids = list(mbids)
+    for i in range(0, len(ids), 40):
+        vals = " ".join(f'"{m}"' for m in ids[i:i + 40])
+        try:
+            rows = sparql(client, f"SELECT ?item ?mb ?sl WHERE {{ VALUES ?mb {{ {vals} }} ?item wdt:P434 ?mb ; wikibase:sitelinks ?sl . }}")
+        except Exception as e:   # noqa: BLE001
+            log(f"  wikidata ids batch {i // 40}: {str(e)[:60]}")
+            continue
+        for r in rows:
+            name = mbids.get(r["mb"])
+            if name and int(r["sl"]) > found.get(name, ("", -1))[1]:
+                found[name] = (r["item"], int(r["sl"]))
+    return found
+
+
 def artists(client: Client, log=print) -> dict[str, str]:
     """QID -> name for the named artists that resolve to a musical act (has a MusicBrainz artist id) with enough coverage."""
     got = by_label(client, ARTISTS, "?item wdt:P434 ?mb .", log)
+    got.update(by_musicbrainz(client, [n for n in ARTISTS if n not in got], log))
     keep = {q: name for name, (q, sl) in got.items() if sl >= MIN_ARTIST_SITELINKS}
     for name in ARTISTS:
         if name not in got:
