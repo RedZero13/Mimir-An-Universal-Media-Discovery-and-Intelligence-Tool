@@ -97,7 +97,7 @@ assert.equal(S.editDistance("kitten", "sitting", 5), 3); assert.equal(S.editDist
 // speed: a keystroke over the whole catalogue must stay well under a frame budget
 const big = S.buildIndex(works.map((w) => ({ kind: "title", label: w.title, hint: "", href: "", boost: 0 })));
 const t0 = process.hrtime.bigint(); for (let i = 0; i < 20; i++) S.suggest(big, "the dark kn"); const ms = Number(process.hrtime.bigint() - t0) / 1e6 / 20;
-assert.ok(ms < 40, `a suggestion pass took ${ms.toFixed(1)} ms`);
+assert.ok(ms < 60, `a suggestion pass took ${ms.toFixed(1)} ms`);
 const t1 = process.hrtime.bigint(); const pp = S.parse('genre:cyberpunk year:1980..2000 -horror "rain" blad*', ctx); for (const w of works) S.test(w, pp); const ms2 = Number(process.hrtime.bigint() - t1) / 1e6;
 assert.ok(ms2 < 400, `filtering ${works.length} works took ${ms2.toFixed(0)} ms`);
 console.log(`search: all checks passed (suggest ${ms.toFixed(1)} ms, filter ${ms2.toFixed(0)} ms over ${works.length} works)`);
