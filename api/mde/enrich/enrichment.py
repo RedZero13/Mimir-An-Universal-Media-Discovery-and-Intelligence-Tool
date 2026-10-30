@@ -51,12 +51,13 @@ def score_rows(reviews: list[dict]) -> list[dict]:
 
 
 def box_rows(rows: list[dict]) -> list[dict]:
-    out = []
+    # Wikidata often holds several figures for one scope (re-releases, revised totals): keep the largest per scope and currency.
+    best: dict[tuple, dict] = {}
     for r in rows:
         cur, scope = CURRENCY.get(r.get("u")), SCOPES.get(r.get("place") or "")
-        if cur and scope and r["v"] > 0:
-            out.append({"scope": scope, "amount": r["v"], "currency": cur})
-    return out
+        if cur and scope and r["v"] > 0 and r["v"] > best.get((scope, cur), {}).get("amount", 0):
+            best[(scope, cur)] = {"scope": scope, "amount": r["v"], "currency": cur}
+    return list(best.values())
 
 
 def main() -> None:
@@ -107,6 +108,9 @@ def main() -> None:
             added["wikidata"] += 1
             added["scores"] += bool(scores)
             added["box_office"] += bool(box)
+        elif wd["works"][slug].get("match", {}).get("reason", "").startswith("Wikidata item recorded"):
+            # Records this tool wrote earlier pick up fixes to how box office is read.
+            wd["works"][slug]["box_office"] = box_rows(d.get("box_office") or [])
         if w["medium"] == "book" and slug not in ol["works"]:
             o = ev.by["openlibrary"].get(slug) or {}
             pages = o.get("pages") or d.get("pages")

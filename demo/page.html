@@ -2063,6 +2063,15 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   function goSearch(s) { search = s; history.replaceState(null, "", `#${searchHash(s)}`); renderSearch(); }
 
   const scoreNorm = (w) => (w.scores && w.scores.length ? w.scores.reduce((a, s) => a + s.value / s.scale_max, 0) / w.scores.length : -1);
+  // For rankings: one lone score (often a Tomatometer from a handful of reviews) is pulled toward a neutral 60, and the more
+  // sources agree the more the average counts; well-known works get a small lift. A single 100% no longer outranks a classic.
+  const TIER_LIFT = { 1: 0.06, 2: 0.03, 3: 0, 4: -0.03 };
+  const rankScore = (w) => {
+    const n = (w.scores || []).length;
+    if (!n) return -1;
+    const conf = n / (n + 1.5), raw = RAW_BY_SLUG.get(w.slug);
+    return scoreNorm(w) * conf + 0.6 * (1 - conf) + (TIER_LIFT[(raw && raw.popularity_tier) || 3] || 0);
+  };
   const initial = (t) => { const ch = t.normalize("NFD").replace(/[̀-ͯ]/g, "").trim()[0] || "#"; return /[a-z]/i.test(ch) ? ch.toUpperCase() : "#"; };
 
   // The free-text box understands the syntax in search.cjs (quotes, -word, OR, wildcards, /regex/ and field:value filters). It is matched
@@ -2082,7 +2091,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (s.letter) works = works.filter((w) => initial(w.title) === s.letter);
     if (s.rating) works = works.filter((w) => w.ratings.some((x) => x.rating === s.rating));
     if (s.industry) works = works.filter((w) => inIndustry(w, s.industry));
-    if (s.sort === "score") works = [...works].sort((a, b) => scoreNorm(b) - scoreNorm(a));
+    if (s.sort === "score") works = [...works].sort((a, b) => rankScore(b) - rankScore(a));
     else if (s.sort === "popular" && parsed.plain) {   // best match first when words were typed; best known breaks ties
       const rel = new Map(works.map((w) => [w.slug, SEARCH.relevance(RAW_BY_SLUG.get(w.slug) || w, parsed)]));
       works = [...works].sort((a, b) => rel.get(b.slug) - rel.get(a.slug));
@@ -2234,7 +2243,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   }
 
   function topList(medium, n = 5) {
-    return allWorks().filter((w) => medium === "all" || w.medium === medium).sort((a, b) => scoreNorm(b) - scoreNorm(a)).slice(0, n);
+    return allWorks().filter((w) => medium === "all" || w.medium === medium).sort((a, b) => rankScore(b) - rankScore(a)).slice(0, n);
   }
 
   function rankRow(w, i, compact = false) {
@@ -2583,7 +2592,10 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const ext = (href, label, cls = "") => `<a class="${cls}" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
 
   function spotlight() {
-    const pool = allWorks().filter((w) => w.summary);
+    // A real write-up of a well-known work: not an imported one-line stub.
+    const wordsIn = (s) => (s || "").split(/\s+/).filter(Boolean).length;
+    const best = allWorks().filter((w) => wordsIn(w.summary) >= 14 && ((RAW_BY_SLUG.get(w.slug) || {}).popularity_tier || 5) <= 2);
+    const pool = best.length ? best : allWorks().filter((w) => w.summary);
     const w = pool[Math.floor(Date.now() / 864e5) % pool.length];
     const [bg0, bg1, ac] = PALETTES[moodFromCard(w)] || PALETTES.default;
     return `

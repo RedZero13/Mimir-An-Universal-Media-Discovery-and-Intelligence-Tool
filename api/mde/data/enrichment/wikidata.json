@@ -1,7 +1,7 @@
 {
  "source": "wikidata",
  "licence": "CC0 1.0",
- "generated_at": "2026-10-29T07:47:48Z",
+ "generated_at": "2026-10-30T09:16:58Z",
  "unmatched": [
   "barbie-2023",
   "bojack-horseman-2014",
@@ -121277,11 +121277,6 @@
      "scope": "North America",
      "amount": 330360194.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 166007347.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -122701,11 +122696,6 @@
      "scope": "North America",
      "amount": 229024295.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 93842239.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -123296,11 +123286,6 @@
     {
      "scope": "North America",
      "amount": 206863479.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 48745440.0,
      "currency": "USD"
     }
    ],
@@ -123939,11 +123924,6 @@
      "scope": "North America",
      "amount": 251409241.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 40489746.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -124253,11 +124233,6 @@
     {
      "scope": "North America",
      "amount": 134478449.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 7465343.0,
      "currency": "USD"
     }
    ],
@@ -125902,11 +125877,6 @@
      "scope": "North America",
      "amount": 325100054.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 133682248.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -126568,11 +126538,6 @@
      "scope": "North America",
      "amount": 162924631.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 45687711.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -126897,11 +126862,6 @@
     {
      "scope": "North America",
      "amount": 184069126.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 52784433.0,
      "currency": "USD"
     }
    ],
@@ -129162,11 +129122,6 @@
     }
    ],
    "box_office": [
-    {
-     "scope": "worldwide",
-     "amount": 244400000.0,
-     "currency": "USD"
-    },
     {
      "scope": "worldwide",
      "amount": 245253686.0,
@@ -133630,11 +133585,6 @@
      "scope": "North America",
      "amount": 291045518.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 116619362.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -134709,11 +134659,6 @@
     {
      "scope": "North America",
      "amount": 448149584.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 160887295.0,
      "currency": "USD"
     }
    ],
@@ -135822,11 +135767,6 @@
      "scope": "North America",
      "amount": 46801036.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 16701957.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -136116,11 +136056,6 @@
     }
    ],
    "box_office": [
-    {
-     "scope": "worldwide",
-     "amount": 814037575.0,
-     "currency": "USD"
-    },
     {
      "scope": "worldwide",
      "amount": 814044001.0,
@@ -137534,11 +137469,6 @@
     {
      "scope": "North America",
      "amount": 107353792.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 42872605.0,
      "currency": "USD"
     }
    ],
@@ -148053,11 +147983,6 @@
      "scope": "North America",
      "amount": 335104314.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 67873522.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -149339,11 +149264,6 @@
     {
      "scope": "North America",
      "amount": 200081192.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 52535096.0,
      "currency": "USD"
     }
    ],
@@ -153032,11 +152952,6 @@
     {
      "scope": "North America",
      "amount": 107509799.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 55214334.0,
      "currency": "USD"
     }
    ],
@@ -159821,11 +159736,6 @@
      "scope": "North America",
      "amount": 335477657.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 96202337.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -161222,11 +161132,6 @@
      "scope": "North America",
      "amount": 412845172.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 103251471.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -161887,11 +161792,6 @@
     {
      "scope": "North America",
      "amount": 108185706.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 14100523.0,
      "currency": "USD"
     }
    ],
@@ -168456,11 +168356,6 @@
     {
      "scope": "North America",
      "amount": 84172791.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 33010017.0,
      "currency": "USD"
     }
    ],
@@ -179986,11 +179881,6 @@
     {
      "scope": "North America",
      "amount": 116601172.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 53174303.0,
      "currency": "USD"
     }
    ],
@@ -227921,11 +227811,6 @@
     {
      "scope": "North America",
      "amount": 75976178.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 29769098.0,
      "currency": "USD"
     }
    ],
@@ -290335,11 +290220,6 @@
      "scope": "North America",
      "amount": 40202379.0,
      "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 16728411.0,
-     "currency": "USD"
     }
    ],
    "series": [],
@@ -308148,11 +308028,6 @@
     {
      "scope": "North America",
      "amount": 10547117.0,
-     "currency": "USD"
-    },
-    {
-     "scope": "North America",
-     "amount": 5379365.0,
      "currency": "USD"
     }
    ],
