@@ -39,13 +39,25 @@ function enrichment() {
 
 // What the site's engine reads from each enrichment record; the rest (match reasons, candidates, Commons pages)
 // is for editors and the API, and would only weigh down the download.
-function slimEnrichment(all) {
+const SITE_IDS = ["imdb", "letterboxd", "rotten_tomatoes", "metacritic", "openlibrary", "steam", "musicbrainz_release_group", "youtube_video", "youtube_channel"];
+function slimEnrichment(all, seedWorks = []) {
+  const MDE = require("./engine.cjs");
+  const bySlug = new Map(seedWorks.map((w) => [w.slug, { ...w, credits: (w.credits || []).map((c) => ({ role: c[0], name: c[1] })) }]));
+  const same = (a, b) => a.length === b.length && a.every((x, i) => x.kind === b[i].kind && x.label === b[i].label && x.url === b[i].url);
   const pick = (o, keys) => Object.fromEntries(keys.filter((k) => o[k] !== undefined).map((k) => [k, o[k]]));
   const out = {};
   for (const [source, data] of Object.entries(all)) {
     const works = {};
     for (const [slug, rec] of Object.entries(data.works || {})) {
       const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key"]);
+      // Only the ids the site turns into links or player embeds; the rest (dozens of catalogue numbers) are for the API.
+      if (slim.ids) slim.ids = pick(slim.ids, SITE_IDS);
+      // Links the importer derived from the title and ids are rebuilt by the engine, not downloaded (see linksFor).
+      const w = bySlug.get(slug);
+      if (w && rec.links && rec.links.length && same(MDE.linksFor(w, rec.ids || {}, rec.wikipedia || null), rec.links)) {
+        delete slim.links; slim.dl = 1;
+        if (rec.wikipedia) slim.wikipedia = rec.wikipedia;
+      }
       if (rec.match) slim.match = rec.match.mbid ? { mbid: rec.match.mbid } : {};
       if (rec.images) slim.images = rec.images.map((i) => pick(i, ["kind", "url", "licence", "attribution"]));
       works[slug] = slim;
@@ -62,7 +74,7 @@ function dataTexts(slim) {
     taxonomy: read(path.join(api, "taxonomy", "taxonomy.json")),
     catalogue: JSON.stringify(readSeed(path.join(api, "seed"))),
     shelves: read(path.join(api, "catalogue", "shelves.json")),
-    enrichment: JSON.stringify(slim ? slimEnrichment(enrichment()) : enrichment()),
+    enrichment: JSON.stringify(slim ? slimEnrichment(enrichment(), readSeed(path.join(api, "seed")).works) : enrichment()),
     providers: read(path.join(api, "catalogue", "providers.json")),
     calendar: read(path.join(api, "catalogue", "calendar.json")),
     audiobooks: read(path.join(api, "catalogue", "audiobooks.json")),
@@ -163,22 +175,23 @@ function sitePage(out) {
   html = html.replace(/<style>([\s\S]*?)<\/style>/g, (m, css) => (css.length > 4000 ? `<style>${minify(css, "css")}</style>` : m));
   const start = html.indexOf("<script>/*__ENGINE__*/</script>");
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
-  const dataJs = `window.MIMIR_DATA=${JSON.stringify(texts)};\n`;
+  // The data ships as one JSON document (each dataset already JSON text, so no re-encoding): parsing JSON is several times
+  // cheaper than compiling the same data as a script, which was the page's longest single task.
+  const dataJson = `{${Object.entries(texts).map(([k, v]) => `${JSON.stringify(k)}:${v}`).join(",")}}`;
   const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
-  const files = { [`assets/data.${hash(dataJs)}.js`]: dataJs, [`assets/app.${hash(appJs)}.js`]: appJs };
+  const files = { [`assets/data.${hash(dataJson)}.json`]: dataJson, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
   for (const [f, body] of Object.entries(files)) fs.writeFileSync(path.join(out, f), body);
   const [dataFile, appFile] = Object.keys(files);
-  // Requested just after the first paint, so on a slow connection the page, its styles and fonts get the bandwidth
-  // first; async=false keeps the two in order (data, then the app).
-  // Preloaded from the head so the downloads start with the page rather than after the first paint; they are low priority,
-  // so the fonts and styles still go first, and they are only run by the script below.
-  html = html.replace("<!--/head-->", `<link rel="preload" as="script" href="/${dataFile}" fetchpriority="low">\n<link rel="preload" as="script" href="/${appFile}" fetchpriority="low">\n<!--/head-->`);
+  // Preloaded from the head so the downloads start with the page; they are low priority, so the fonts and styles still go
+  // first. Just after the first paint the data is read, then the app (already downloaded) runs on it.
+  html = html.replace("<!--/head-->", `<link rel="preload" as="fetch" href="/${dataFile}" crossorigin fetchpriority="low">\n<link rel="preload" as="script" href="/${appFile}" fetchpriority="low">\n<!--/head-->`);
   const startAt = html.indexOf("<script>/*__ENGINE__*/</script>");
-  html = html.slice(0, startAt) + `<script>requestAnimationFrame(() => setTimeout(() => ${JSON.stringify([`/${dataFile}`, `/${appFile}`])}.forEach((src) => {
-  const s = document.createElement("script"); s.src = src; s.async = false; document.body.appendChild(s);
-}), 0));</script>\n`;
+  html = html.slice(0, startAt) + `<script>requestAnimationFrame(() => setTimeout(() => fetch(${JSON.stringify(`/${dataFile}`)}).then((r) => r.json()).then((d) => {
+  window.MIMIR_DATA = d;
+  const s = document.createElement("script"); s.src = ${JSON.stringify(`/${appFile}`)}; document.body.appendChild(s);
+}).catch(() => { document.documentElement.dataset.loadFailed = "1"; }), 0));</script>\n`;
   return { html: standalone(html), assets: Object.keys(files).map((f) => `/${f}`) };
 }
 

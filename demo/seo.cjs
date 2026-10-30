@@ -84,11 +84,13 @@ function writeCatalogPages(out, { cat, works, SITE_URL, staticPage, esc, ipMap =
     const assessed = !!(w.parents_guide && w.parents_guide.assessed);
     const head = `${w.title}${w.year ? ` (${w.year})` : ""}`;
     const plural = { film: "films", series: "shows", book: "books", game: "games", album: "albums", online_video: "videos", channel: "channels" }[w.medium] || "works";
-    const title = (assessed && !NOT_MEDIA.has(w.medium)
+    // Pages kept out of search (no summary yet) do not advertise a guide in their title either.
+    const promise = assessed && !!w.summary && !NOT_MEDIA.has(w.medium);
+    const title = (promise
       ? [`${head}: similar ${plural}, parents' guide · Mimir`, `${head}: parents' guide · Mimir`]
       : [`${head} · ${kind}${byline ? ` by ${byline}` : ""} · Mimir`, `${head} · ${kind} · Mimir`]).concat([`${head} · Mimir`]).find((t) => t.length <= 70) || `${clip(head, 61)} · Mimir`;
     const lead = w.summary || `${w.title}${w.year ? ` (${w.year})` : ""} is ${/^[aeiou]/i.test(kind) ? "an" : "a"} ${kind.toLowerCase()}${byline ? ` by ${byline}` : ""}.`;
-    const tail = [w.length, genres.slice(0, 3).join(", "), assessed && !NOT_MEDIA.has(w.medium) ? "Parents' guide and similar picks" : ""].filter(Boolean).join(" · ");
+    const tail = [w.length, genres.slice(0, 3).join(", "), promise ? "Parents' guide and similar picks" : ""].filter(Boolean).join(" · ");
     const desc = clip(`${lead} ${tail}`.trim(), 158);
     const related = [
       ...w.relationships.map((r) => ({ slug: r.slug, title: r.title, year: r.year, label: r.label })),

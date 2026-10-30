@@ -9296,6 +9296,1076 @@
      "attribution": "Open Library"
     }
    ]
+  },
+  "shahnameh-1000": {
+   "match": {
+    "key": "/works/OL7989947W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL7989947W",
+   "facts": {
+    "page_count": 928
+   },
+   "ids": {
+    "openlibrary": "OL7989947W"
+   },
+   "images": [],
+   "links": []
+  },
+  "russian-fairy-tales-1855": {
+   "match": {
+    "key": "/works/OL20820034W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL20820034W",
+   "facts": {
+    "page_count": 81
+   },
+   "ids": {
+    "openlibrary": "OL20820034W"
+   },
+   "images": [],
+   "links": []
+  },
+  "choix-des-plus-belles-fleurs-et-de-quelques-branches-des-plus-beaux-fr-1827": {
+   "match": {
+    "key": "/works/",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": null,
+   "facts": {
+    "page_count": 187
+   },
+   "ids": {},
+   "images": [],
+   "links": []
+  },
+  "the-lion-the-witch-and-the-wardrobe-1950": {
+   "match": {
+    "key": "/works/OL71037W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL71037W",
+   "facts": {
+    "page_count": 186
+   },
+   "ids": {
+    "openlibrary": "OL71037W"
+   },
+   "images": [],
+   "links": []
+  },
+  "odes-et-ballades-1828": {
+   "match": {
+    "key": "/works/OL15202022W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL15202022W",
+   "facts": {
+    "page_count": 444
+   },
+   "ids": {
+    "openlibrary": "OL15202022W"
+   },
+   "images": [],
+   "links": []
+  },
+  "bark-2014": {
+   "match": {
+    "key": "/works/OL17861953W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL17861953W",
+   "facts": {
+    "page_count": 192
+   },
+   "ids": {
+    "openlibrary": "OL17861953W"
+   },
+   "images": [],
+   "links": []
+  },
+  "fundamento-de-esperanto-1905": {
+   "match": {
+    "key": "/works/OL24411552W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL24411552W",
+   "facts": {
+    "page_count": 196
+   },
+   "ids": {
+    "openlibrary": "OL24411552W"
+   },
+   "images": [],
+   "links": []
+  },
+  "in-search-of-lost-time-2000": {
+   "match": {
+    "key": "/works/OL38078207W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL38078207W",
+   "facts": {
+    "page_count": 856
+   },
+   "ids": {
+    "openlibrary": "OL38078207W"
+   },
+   "images": [],
+   "links": []
+  },
+  "lives-of-the-most-eminent-english-poets-1779": {
+   "match": {
+    "key": "/works/OL14862669W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL14862669W",
+   "facts": {
+    "page_count": 139
+   },
+   "ids": {
+    "openlibrary": "OL14862669W"
+   },
+   "images": [],
+   "links": []
+  },
+  "a-feast-for-crows-2005": {
+   "match": {
+    "key": "/works/OL1955939W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL1955939W",
+   "facts": {
+    "page_count": 753
+   },
+   "ids": {
+    "openlibrary": "OL1955939W"
+   },
+   "images": [],
+   "links": []
+  },
+  "pentamerone-1634": {
+   "match": {
+    "key": "/works/OL2297373W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL2297373W",
+   "facts": {
+    "page_count": 455
+   },
+   "ids": {
+    "openlibrary": "OL2297373W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-golden-key-or-the-adventures-of-buratino-1936": {
+   "match": {
+    "key": "/works/OL44420614W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL44420614W",
+   "facts": {
+    "page_count": 148
+   },
+   "ids": {
+    "openlibrary": "OL44420614W"
+   },
+   "images": [],
+   "links": []
+  },
+  "zhuangzi--300": {
+   "match": {
+    "key": "/works/OL9425814W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL9425814W",
+   "facts": {
+    "page_count": 190
+   },
+   "ids": {
+    "openlibrary": "OL9425814W"
+   },
+   "images": [],
+   "links": []
+  },
+  "historia-naturalis-brasiliae-1648": {
+   "match": {
+    "key": "/works/OL16846049W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL16846049W",
+   "facts": {
+    "page_count": 293
+   },
+   "ids": {
+    "openlibrary": "OL16846049W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-lady-of-the-camellias-1848": {
+   "match": {
+    "key": "/works/OL40248974W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL40248974W",
+   "facts": {
+    "page_count": 190
+   },
+   "ids": {
+    "openlibrary": "OL40248974W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-tower-of-the-elephant-1933": {
+   "match": {
+    "key": "/works/OL20888363W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL20888363W",
+   "facts": {
+    "page_count": 48
+   },
+   "ids": {
+    "openlibrary": "OL20888363W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-da-vinci-code-2003": {
+   "match": {
+    "key": "/works/OL15290484W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL15290484W",
+   "facts": {
+    "page_count": 519
+   },
+   "ids": {
+    "openlibrary": "OL15290484W"
+   },
+   "images": [],
+   "links": []
+  },
+  "prodromus-flor-nov-hollandi-et-insul-van-diemen-exhibens-characteres-p-1810": {
+   "match": {
+    "key": "/works/",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": null,
+   "facts": {
+    "page_count": 464
+   },
+   "ids": {},
+   "images": [],
+   "links": []
+  },
+  "the-34th-rule-1999": {
+   "match": {
+    "key": "/works/OL16062443W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL16062443W",
+   "facts": {
+    "page_count": 288
+   },
+   "ids": {
+    "openlibrary": "OL16062443W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-curse-of-minerva-1811": {
+   "match": {
+    "key": "/works/OL1092347W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL1092347W",
+   "facts": {
+    "page_count": 21
+   },
+   "ids": {
+    "openlibrary": "OL1092347W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-godfather-1969": {
+   "match": {
+    "key": "/works/OL1673263W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL1673263W",
+   "facts": {
+    "page_count": 608
+   },
+   "ids": {
+    "openlibrary": "OL1673263W"
+   },
+   "images": [],
+   "links": []
+  },
+  "cantigas-de-santa-maria-1300": {
+   "match": {
+    "key": "/works/OL498155W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL498155W",
+   "facts": {
+    "page_count": 399
+   },
+   "ids": {
+    "openlibrary": "OL498155W"
+   },
+   "images": [],
+   "links": []
+  },
+  "six-characters-in-search-of-an-author-1921": {
+   "match": {
+    "key": "/works/OL24201762W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL24201762W",
+   "facts": {
+    "page_count": 82
+   },
+   "ids": {
+    "openlibrary": "OL24201762W"
+   },
+   "images": [],
+   "links": []
+  },
+  "egmont-1775": {
+   "match": {
+    "key": "/works/OL52668W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL52668W",
+   "facts": {
+    "page_count": 120
+   },
+   "ids": {
+    "openlibrary": "OL52668W"
+   },
+   "images": [],
+   "links": []
+  },
+  "witness-for-the-prosecution-1953": {
+   "match": {
+    "key": "/works/OL472654W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL472654W",
+   "facts": {
+    "page_count": 255
+   },
+   "ids": {
+    "openlibrary": "OL472654W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-four-million-1906": {
+   "match": {
+    "key": "/works/OL181960W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL181960W",
+   "facts": {
+    "page_count": 261
+   },
+   "ids": {
+    "openlibrary": "OL181960W"
+   },
+   "images": [],
+   "links": []
+  },
+  "welcome-to-the-n-h-k-2002": {
+   "match": {
+    "key": "/works/OL27021877W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL27021877W",
+   "facts": {
+    "page_count": 200
+   },
+   "ids": {
+    "openlibrary": "OL27021877W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-people-of-the-black-circle-1934": {
+   "match": {
+    "key": "/works/OL3384291W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL3384291W",
+   "facts": {
+    "page_count": 92
+   },
+   "ids": {
+    "openlibrary": "OL3384291W"
+   },
+   "images": [],
+   "links": []
+  },
+  "a-clockwork-orange-1962": {
+   "match": {
+    "key": "/works/OL1386747W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL1386747W",
+   "facts": {
+    "page_count": 144
+   },
+   "ids": {
+    "openlibrary": "OL1386747W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-frog-prince-1812": {
+   "match": {
+    "key": "/works/OL15053043W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL15053043W",
+   "facts": {
+    "page_count": 32
+   },
+   "ids": {
+    "openlibrary": "OL15053043W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-overcoat-1841": {
+   "match": {
+    "key": "/works/OL9153415W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL9153415W",
+   "facts": {
+    "page_count": 66
+   },
+   "ids": {
+    "openlibrary": "OL9153415W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-final-problem-1891": {
+   "match": {
+    "key": "/works/OL26423742W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL26423742W",
+   "facts": {
+    "page_count": 28
+   },
+   "ids": {
+    "openlibrary": "OL26423742W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-naked-sun-1956": {
+   "match": {
+    "key": "/works/OL17187495W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL17187495W",
+   "facts": {
+    "page_count": 226
+   },
+   "ids": {
+    "openlibrary": "OL17187495W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-spanish-frontier-in-north-america-1992": {
+   "match": {
+    "key": "/works/OL3253978W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL3253978W",
+   "facts": {
+    "page_count": 450
+   },
+   "ids": {
+    "openlibrary": "OL3253978W"
+   },
+   "images": [],
+   "links": []
+  },
+  "northern-lights-1995": {
+   "match": {
+    "key": "/works/OL29006W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL29006W",
+   "facts": {
+    "page_count": 399
+   },
+   "ids": {
+    "openlibrary": "OL29006W"
+   },
+   "images": [],
+   "links": []
+  },
+  "last-and-first-men-1930": {
+   "match": {
+    "key": "/works/OL3290731W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL3290731W",
+   "facts": {
+    "page_count": 313
+   },
+   "ids": {
+    "openlibrary": "OL3290731W"
+   },
+   "images": [],
+   "links": []
+  },
+  "occupe-toi-d-amelie-1908": {
+   "match": {
+    "key": "/works/OL28196711W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL28196711W",
+   "facts": {
+    "page_count": 227
+   },
+   "ids": {
+    "openlibrary": "OL28196711W"
+   },
+   "images": [],
+   "links": []
+  },
+  "lenore-1773": {
+   "match": {
+    "key": "/works/OL1460068W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL1460068W",
+   "facts": {
+    "page_count": 34
+   },
+   "ids": {
+    "openlibrary": "OL1460068W"
+   },
+   "images": [],
+   "links": []
+  },
+  "martin-fierro-1872": {
+   "match": {
+    "key": "/works/OL8705203W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL8705203W",
+   "facts": {
+    "page_count": 253
+   },
+   "ids": {
+    "openlibrary": "OL8705203W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-man-with-the-twisted-lip-1891": {
+   "match": {
+    "key": "/works/OL14930258W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL14930258W",
+   "facts": {
+    "page_count": 24
+   },
+   "ids": {
+    "openlibrary": "OL14930258W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-queen-of-the-damned-1988": {
+   "match": {
+    "key": "/works/OL77828W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL77828W",
+   "facts": {
+    "page_count": 573
+   },
+   "ids": {
+    "openlibrary": "OL77828W"
+   },
+   "images": [],
+   "links": []
+  },
+  "book-of-common-prayer-1549": {
+   "match": {
+    "key": "/works/OL25407740W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL25407740W",
+   "facts": {
+    "page_count": 322
+   },
+   "ids": {
+    "openlibrary": "OL25407740W"
+   },
+   "images": [],
+   "links": []
+  },
+  "devdas-1917": {
+   "match": {
+    "key": "/works/OL10614823W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL10614823W",
+   "facts": {
+    "page_count": 132
+   },
+   "ids": {
+    "openlibrary": "OL10614823W"
+   },
+   "images": [],
+   "links": []
+  },
+  "no-exit-1944": {
+   "match": {
+    "key": "/works/OL4489200W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL4489200W",
+   "facts": {
+    "page_count": 221
+   },
+   "ids": {
+    "openlibrary": "OL4489200W"
+   },
+   "images": [],
+   "links": []
+  },
+  "almagest-148": {
+   "match": {
+    "key": "/works/OL20331665W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL20331665W",
+   "facts": {
+    "page_count": 264
+   },
+   "ids": {
+    "openlibrary": "OL20331665W"
+   },
+   "images": [],
+   "links": []
+  },
+  "edward-ii-1594": {
+   "match": {
+    "key": "/works/OL39906788W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL39906788W",
+   "facts": {
+    "page_count": 104
+   },
+   "ids": {
+    "openlibrary": "OL39906788W"
+   },
+   "images": [],
+   "links": []
+  },
+  "nanso-satomi-hakkenden-1814": {
+   "match": {
+    "key": "/works/OL125824W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL125824W",
+   "facts": {
+    "page_count": 133
+   },
+   "ids": {
+    "openlibrary": "OL125824W"
+   },
+   "images": [],
+   "links": []
+  },
+  "orlando-innamorato-1483": {
+   "match": {
+    "key": "/works/OL16722894W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL16722894W",
+   "facts": {
+    "page_count": 328
+   },
+   "ids": {
+    "openlibrary": "OL16722894W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-threepenny-opera-1928": {
+   "match": {
+    "key": "/works/OL37801503W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL37801503W",
+   "facts": {
+    "page_count": 116
+   },
+   "ids": {
+    "openlibrary": "OL37801503W"
+   },
+   "images": [],
+   "links": []
+  },
+  "guia-da-seccao-historica-do-museu-paulista-1937": {
+   "match": {
+    "key": "/works/",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": null,
+   "facts": {
+    "page_count": 122
+   },
+   "ids": {},
+   "images": [],
+   "links": []
+  },
+  "vers-tombouctou-l-afrique-des-explorateurs-ii-1994": {
+   "match": {
+    "key": "/works/",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": null,
+   "facts": {
+    "page_count": 176
+   },
+   "ids": {},
+   "images": [],
+   "links": []
+  },
+  "this-is-not-propaganda-2019": {
+   "match": {
+    "key": "/works/OL20800404W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL20800404W",
+   "facts": {
+    "page_count": 256
+   },
+   "ids": {
+    "openlibrary": "OL20800404W"
+   },
+   "images": [],
+   "links": []
+  },
+  "tim-the-official-biography-of-avicii-2021": {
+   "match": {
+    "key": "/works/OL25345629W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL25345629W",
+   "facts": {
+    "page_count": 320
+   },
+   "ids": {
+    "openlibrary": "OL25345629W"
+   },
+   "images": [],
+   "links": []
+  },
+  "stalin-paradoxes-of-power-1878-1928-2014": {
+   "match": {
+    "key": "/works/",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": null,
+   "facts": {
+    "page_count": 976
+   },
+   "ids": {},
+   "images": [],
+   "links": []
+  },
+  "get-a-life-chloe-brown-2019": {
+   "match": {
+    "key": "/works/OL20422812W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL20422812W",
+   "facts": {
+    "page_count": 377
+   },
+   "ids": {
+    "openlibrary": "OL20422812W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-jewel-ornament-of-liberation-1200": {
+   "match": {
+    "key": "/works/OL8857654W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL8857654W",
+   "facts": {
+    "page_count": 520
+   },
+   "ids": {
+    "openlibrary": "OL8857654W"
+   },
+   "images": [],
+   "links": []
+  },
+  "sunrise-on-the-reaping-2025": {
+   "match": {
+    "key": "/works/OL43426400W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL43426400W",
+   "facts": {
+    "page_count": 400
+   },
+   "ids": {
+    "openlibrary": "OL43426400W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-secret-of-secrets-2025": {
+   "match": {
+    "key": "/works/OL42542598W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42542598W",
+   "facts": {
+    "page_count": 704
+   },
+   "ids": {
+    "openlibrary": "OL42542598W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-seven-rules-of-trust-2025": {
+   "match": {
+    "key": "/works/OL43209076W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL43209076W",
+   "facts": {
+    "page_count": 240
+   },
+   "ids": {
+    "openlibrary": "OL43209076W"
+   },
+   "images": [],
+   "links": []
+  },
+  "flesh-2025": {
+   "match": {
+    "key": "/works/OL42549900W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42549900W",
+   "facts": {
+    "page_count": 368
+   },
+   "ids": {
+    "openlibrary": "OL42549900W"
+   },
+   "images": [],
+   "links": []
+  },
+  "onyx-storm-2025": {
+   "match": {
+    "key": "/works/OL41943074W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL41943074W",
+   "facts": {
+    "page_count": 544
+   },
+   "ids": {
+    "openlibrary": "OL41943074W"
+   },
+   "images": [],
+   "links": []
+  },
+  "never-flinch-2025": {
+   "match": {
+    "key": "/works/OL41942876W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL41942876W",
+   "facts": {
+    "page_count": 439
+   },
+   "ids": {
+    "openlibrary": "OL41942876W"
+   },
+   "images": [],
+   "links": []
+  },
+  "looking-at-women-looking-at-war-2025": {
+   "match": {
+    "key": "/works/OL42398685W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42398685W",
+   "facts": {
+    "page_count": 320
+   },
+   "ids": {
+    "openlibrary": "OL42398685W"
+   },
+   "images": [],
+   "links": []
+  },
+  "alchemised-2025": {
+   "match": {
+    "key": "/works/OL42543873W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42543873W",
+   "facts": {
+    "page_count": 976
+   },
+   "ids": {
+    "openlibrary": "OL42543873W"
+   },
+   "images": [],
+   "links": []
+  },
+  "dream-count-2025": {
+   "match": {
+    "key": "/works/OL42407991W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42407991W",
+   "facts": {
+    "page_count": 512
+   },
+   "ids": {
+    "openlibrary": "OL42407991W"
+   },
+   "images": [],
+   "links": []
+  },
+  "pilgrims-way-2025": {
+   "match": {
+    "key": "/works/OL3958398W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL3958398W",
+   "facts": {
+    "page_count": 232
+   },
+   "ids": {
+    "openlibrary": "OL3958398W"
+   },
+   "images": [],
+   "links": []
+  },
+  "what-we-can-know-2025": {
+   "match": {
+    "key": "/works/OL44084313W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL44084313W",
+   "facts": {
+    "page_count": 320
+   },
+   "ids": {
+    "openlibrary": "OL44084313W"
+   },
+   "images": [],
+   "links": []
+  },
+  "victorian-psycho-2025": {
+   "match": {
+    "key": "/works/OL42402547W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42402547W",
+   "facts": {
+    "page_count": 206
+   },
+   "ids": {
+    "openlibrary": "OL42402547W"
+   },
+   "images": [],
+   "links": []
+  },
+  "the-rose-field-2025": {
+   "match": {
+    "key": "/works/OL44205446W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL44205446W",
+   "facts": {
+    "page_count": 672
+   },
+   "ids": {
+    "openlibrary": "OL44205446W"
+   },
+   "images": [],
+   "links": []
+  },
+  "empire-of-ai-2025": {
+   "match": {
+    "key": "/works/OL42453624W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42453624W",
+   "facts": {
+    "page_count": 496
+   },
+   "ids": {
+    "openlibrary": "OL42453624W"
+   },
+   "images": [],
+   "links": []
+  },
+  "shadow-ticket-2025": {
+   "match": {
+    "key": "/works/OL44220096W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL44220096W",
+   "facts": {
+    "page_count": 304
+   },
+   "ids": {
+    "openlibrary": "OL44220096W"
+   },
+   "images": [],
+   "links": []
+  },
+  "necessary-fiction-2025": {
+   "match": {
+    "key": "/works/OL42397601W",
+    "reason": "Open Library work id recorded with the Wikidata item"
+   },
+   "key": "/works/OL42397601W",
+   "facts": {
+    "page_count": 320
+   },
+   "ids": {
+    "openlibrary": "OL42397601W"
+   },
+   "images": [],
+   "links": []
   }
  }
 }

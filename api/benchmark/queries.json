@@ -149,9 +149,9 @@
       "id": "historical-exploration",
       "category": "educational",
       "query": "historical works about the cost of war",
-      "good_results": "A work that faces war's human cost directly comes first (Come and See, Schindler's List, Band of Brothers, The Zone of Interest), with Come and See in the top six (it ties with Maus).",
+      "good_results": "A work that faces war's human cost directly comes first (Come and See, Schindler's List, Band of Brothers, The Zone of Interest), with Come and See in the top eight (it ties with Maus; the top six widened to eight once more war and history works carried full tags).",
       "relevant": ["come-and-see-1985", "schindlers-list-1993", "band-of-brothers-2001", "the-zone-of-interest-2023"],
-      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["come-and-see-1985", "schindlers-list-1993", "band-of-brothers-2001", "the-zone-of-interest-2023"]}, "top_k_includes_all": {"k": 6, "slugs": ["come-and-see-1985"]}}
+      "checks": {"top_k_includes_any": {"k": 1, "slugs": ["come-and-see-1985", "schindlers-list-1993", "band-of-brothers-2001", "the-zone-of-interest-2023"]}, "top_k_includes_all": {"k": 8, "slugs": ["come-and-see-1985"]}}
     },
     {
       "id": "unknown-advisory-honesty",
