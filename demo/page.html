@@ -1354,7 +1354,11 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // Each dataset is parsed once: the catalogue alone is several MB of JSON.
   const DATA_CACHE = new Map();
   const DATA = (name) => {
-    if (!DATA_CACHE.has(name)) DATA_CACHE.set(name, JSON.parse(window.MIMIR_DATA ? window.MIMIR_DATA[name] : document.getElementById(`${name}-data`).textContent));
+    if (!DATA_CACHE.has(name)) {
+      // The site build hands over parsed data; the single-file page carries each dataset as JSON text.
+      const v = window.MIMIR_DATA ? window.MIMIR_DATA[name] : document.getElementById(`${name}-data`).textContent;
+      DATA_CACHE.set(name, typeof v === "string" ? JSON.parse(v) : v);
+    }
     return DATA_CACHE.get(name);
   };
   const cat = MDE.createCatalogue(
