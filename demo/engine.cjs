@@ -808,14 +808,54 @@ finish finished binge binged through will watching reading playing listening sta
     w[attr] = value;
   }
 
+  const SOURCE_RANKS = ["editorial", ...SOURCE_ORDER];
+  const sortLinks = (links) => links.sort((a, b) => cmp([rankIn(LINK_ORDER, a.kind), a.kind], [rankIn(LINK_ORDER, b.kind), b.kind]));
   function normaliseOrder(w) {
-    const src = (s) => rankIn(["editorial", ...SOURCE_ORDER], s);
+    const src = (s) => rankIn(SOURCE_RANKS, s);
     const pref = (k) => (has(IMAGE_PREFERENCE, k) ? IMAGE_PREFERENCE[k] : 9);
-    w.images.sort((a, b) => cmp([pref(a.kind), src(a.source)], [pref(b.kind), src(b.source)]));
-    w.scores.sort((a, b) => cmp([src(a.source), a.publisher, a.metric], [src(b.source), b.publisher, b.metric]));
-    w.box_office.sort((a, b) => cmp([src(a.source), -a.amount], [src(b.source), -b.amount]));
-    w.groups.sort((a, b) => cmp([src(a.source), a.slug], [src(b.source), b.slug]));
-    w.links.sort((a, b) => cmp([rankIn(LINK_ORDER, a.kind), a.kind], [rankIn(LINK_ORDER, b.kind), b.kind]));
+    // Most works have at most one of each; skip the sort (and its key arrays) when there is nothing to order.
+    if (w.images.length > 1) w.images.sort((a, b) => cmp([pref(a.kind), src(a.source)], [pref(b.kind), src(b.source)]));
+    if (w.scores.length > 1) w.scores.sort((a, b) => cmp([src(a.source), a.publisher, a.metric], [src(b.source), b.publisher, b.metric]));
+    if (w.box_office.length > 1) w.box_office.sort((a, b) => cmp([src(a.source), -a.amount], [src(b.source), -b.amount]));
+    if (w.groups.length > 1) w.groups.sort((a, b) => cmp([src(a.source), a.slug], [src(b.source), b.slug]));
+    // Links still to be rebuilt (a getter) are sorted when they are.
+    const d = Object.getOwnPropertyDescriptor(w, "links");
+    if (d && "value" in d && w.links.length > 1) sortLinks(w.links);
+  }
+
+  // Mirrors mde/ingest/links.py: the outbound links the importer derives from a title and its ids. The site build leaves them
+  // out of the download when they are exactly what this produces (records marked dl), so 6 MB of URLs is not shipped.
+  const pyQuotePlus = (s) => pyQuote(s).replace(/%20/g, "+");
+  const pySlashQuote = (s) => pyQuote(s).replace(/%2F/g, "/");
+  function linksFor(work, ids, wikipedia) {
+    const { title, year, medium } = work;
+    const lead = (work.credits || []).find((c) => PRIMARY_ROLES.includes(c.role));
+    const creator = lead ? lead.name : "";
+    const q = `${title} ${year || ""}`.trim();
+    const out = [];
+    const add = (kind, label, url) => out.push({ kind, label, url });
+    if (medium === "film") {
+      add("reactions:letterboxd", "Letterboxd", ids.letterboxd ? `https://letterboxd.com/film/${ids.letterboxd}/` : `https://letterboxd.com/search/${pySlashQuote(title)}/`);
+      add("reactions:rotten-tomatoes", "Rotten Tomatoes", ids.rotten_tomatoes ? `https://www.rottentomatoes.com/${ids.rotten_tomatoes}` : `https://www.rottentomatoes.com/search?search=${pyQuotePlus(title)}`);
+      if (ids.imdb) add("info:imdb", "IMDb", `https://www.imdb.com/title/${ids.imdb}/`);
+      if (ids.metacritic) add("reactions:metacritic", "Metacritic", `https://www.metacritic.com/${ids.metacritic}`);
+      add("watch:justwatch", "Where to watch (JustWatch)", `https://www.justwatch.com/us/search?q=${pyQuotePlus(title)}`);
+    } else if (medium === "book") {
+      if (ids.openlibrary) add("info:openlibrary", "Open Library", `https://openlibrary.org/works/${ids.openlibrary}`);
+      add("reactions:goodreads", "Goodreads", `https://www.goodreads.com/search?q=${pyQuotePlus(`${title} ${creator}`)}`);
+      add("reactions:storygraph", "The StoryGraph", `https://app.thestorygraph.com/browse?search_term=${pyQuotePlus(title)}`);
+    } else if (medium === "game") {
+      if (ids.steam) add("buy:steam", "Steam", `https://store.steampowered.com/app/${ids.steam}/`);
+      add("reactions:metacritic", "Metacritic", `https://www.metacritic.com/search/${pySlashQuote(title)}/`);
+    } else if (medium === "album") {
+      add("listen:spotify", "Listen on Spotify", `https://open.spotify.com/search/${pySlashQuote(`${creator} ${title}`)}`);
+      add("listen:youtube-music", "YouTube Music", `https://music.youtube.com/search?q=${pyQuotePlus(`${creator} ${title}`)}`);
+      if (ids.musicbrainz_release_group) add("info:musicbrainz", "MusicBrainz", `https://musicbrainz.org/release-group/${ids.musicbrainz_release_group}`);
+    }
+    add("reactions:reddit", "Reddit discussions", `https://www.reddit.com/search/?q=${pyQuotePlus(`"${title}"${year ? ` ${year}` : ""}`)}`);
+    add("reactions:youtube", "Video reviews on YouTube", `https://www.youtube.com/results?search_query=${pyQuotePlus(q + " review")}`);
+    if (wikipedia) add("info:wikipedia", "Wikipedia", wikipedia);
+    return out;
   }
 
   function applyEnrichment(works, enrichment) {
@@ -851,6 +891,13 @@ finish finished binge binged through will watching reading playing listening sta
         }
         Object.assign(w.ids, rec.ids || {});
         if (rec.links && rec.links.length) w.links = rec.links.map((l) => ({ ...l }));
+        else if (rec.dl) {
+          // Rebuilt the first time a page reads them, not for every work at start-up.
+          const ids = rec.ids || {}, wiki = rec.wikipedia || null;
+          Object.defineProperty(w, "links", { enumerable: true, configurable: true,
+            get() { const v = sortLinks(linksFor(w, ids, wiki)); Object.defineProperty(w, "links", { value: v, writable: true, enumerable: true, configurable: true }); return v; },
+            set(v) { Object.defineProperty(w, "links", { value: v, writable: true, enumerable: true, configurable: true }); } });
+        }
         if (rec.tracks && rec.tracks.length) w.tracks = rec.tracks.map((t) => ({ ...t }));
         if (source === "openlibrary" && rec.key && !has(w.ids, "openlibrary")) w.ids.openlibrary = rec.key.split("/").pop();
         if (source === "musicbrainz" && rec.match.mbid && !has(w.ids, "musicbrainz_release_group")) w.ids.musicbrainz_release_group = rec.match.mbid;
@@ -973,7 +1020,7 @@ finish finished binge binged through will watching reading playing listening sta
       const hits = works.filter((w) => matches(w, f)).map((w) => [sortKey(w, f), w]).sort((a, b) => cmp(a[0], b[0])).map((x) => x[1]);
       const media = new Map(), decades = new Map(), languages = new Map();
       const byDim = { genre: new Map(), theme: new Map(), mood: new Map() };
-      for (const w of hits) {
+      for (const w of f.lazy ? [] : hits) {
         bump(media, w.medium);
         if (w.year !== null) bump(decades, decadeOf(w.year));
         if (w.language) bump(languages, w.language);
@@ -986,7 +1033,7 @@ finish finished binge binged through will watching reading playing listening sta
       };
       for (const [d, c] of Object.entries(byDim)) facets[d] = facet(c, (v) => tax.get(v).label).slice(0, 12);
       const ctx = context(works);
-      return { total: hits.length, results: hits.map((w) => richCard(w, ctx)), facets };
+      return { total: hits.length, results: hits.map((w) => (f.lazy ? lazyCard(w, ctx) : richCard(w, ctx))), facets };
     }
 
     function tagIndex(works) {
@@ -1157,6 +1204,21 @@ finish finished binge binged through will watching reading playing listening sta
       return groupIndexCache.get(works);
     };
 
+    // A series' members are sorted and listed once, however many of its works ask (a long series would otherwise be sorted per member).
+    const memberCache = new WeakMap();
+    function groupMembers(works, slug) {
+      if (!memberCache.has(works)) memberCache.set(works, new Map());
+      const cache = memberCache.get(works);
+      if (!cache.has(slug)) {
+        const members = (groupIndex(works).get(slug) || []).slice();
+        const pos = new Map(members.map((x) => [x.slug, x.groups.find((xg) => xg.slug === slug).position]));
+        members.sort((a, b) => cmp([positionKey(pos.get(a.slug)), a.year || 9999, normaliseTitle(a.title)],
+          [positionKey(pos.get(b.slug)), b.year || 9999, normaliseTitle(b.title)]));
+        cache.set(slug, { members, listed: members.map((x) => ({ slug: x.slug, title: x.title, year: x.year, medium: x.medium, position: pos.get(x.slug) })) });
+      }
+      return cache.get(slug);
+    }
+
     function continuity(w, works) {
       const bySlug = slugIndex(works);
       const ref = (r) => ({ slug: r.other_slug, title: r.other_title, medium: r.other_medium });
@@ -1166,12 +1228,8 @@ finish finished binge binged through will watching reading playing listening sta
       let series = null;
       if (w.groups.length) {
         const g = w.groups[0];
-        const members = (groupIndex(works).get(g.slug) || []).slice();
-        const pos = new Map(members.map((x) => [x.slug, x.groups.find((xg) => xg.slug === g.slug).position]));
-        members.sort((a, b) => cmp([positionKey(pos.get(a.slug)), a.year || 9999, normaliseTitle(a.title)],
-          [positionKey(pos.get(b.slug)), b.year || 9999, normaliseTitle(b.title)]));
-        series = { kind: g.kind, group: { slug: g.slug, name: g.name }, position: g.position,
-          members: members.map((x) => ({ slug: x.slug, title: x.title, year: x.year, medium: x.medium, position: pos.get(x.slug) })) };
+        const { members, listed } = groupMembers(works, g.slug);
+        series = { kind: g.kind, group: { slug: g.slug, name: g.name }, position: g.position, members: listed };
         if (members.length > 1) return Object.assign(out, series);
       }
       const seen = new Set([w.slug]);
@@ -1198,7 +1256,11 @@ finish finished binge binged through will watching reading playing listening sta
     // The catalogue doesn't change while the page is open, so each list's continuity is worked out once.
     const contextCache = new WeakMap();
     const context = (works) => {
-      if (!contextCache.has(works)) contextCache.set(works, new Map(works.map((w) => [w.slug, continuity(w, works)])));
+      if (!contextCache.has(works)) {
+        // Worked out on first use: most works are never asked about on a given page.
+        const memo = new Map(), by = slugIndex(works);
+        contextCache.set(works, { get: (slug) => { if (!memo.has(slug)) memo.set(slug, by.has(slug) ? continuity(by.get(slug), works) : undefined); return memo.get(slug); } });
+      }
       return contextCache.get(works);
     };
 
@@ -1210,6 +1272,34 @@ finish finished binge binged through will watching reading playing listening sta
       const cache = cardCache.get(ctx);
       if (!cache.has(w.slug)) cache.set(w.slug, buildRichCard(w, ctx));
       return { ...cache.get(w.slug) };
+    }
+    // The same card with its costly parts (tags, guide flags, time, continuity, scores) worked out on first read. The whole-catalogue
+    // list the app keeps is mostly never looked at beyond a title, so building every card up front was the page's biggest start-up cost.
+    const lazyCache = new WeakMap();
+    function lazyCard(w, ctx) {
+      if (!lazyCache.has(ctx)) lazyCache.set(ctx, new Map());
+      const cache = lazyCache.get(ctx);
+      if (cache.has(w.slug)) return cache.get(w.slug);
+      const o = { slug: w.slug, title: w.title, original_title: w.original_title, medium: w.medium, year: w.year, creators: w.creators, summary: w.summary,
+        ratings: w.ratings.map((r) => ({ system: r.system, rating: r.rating })) };
+      const part = {
+        length: () => lengthText(w),
+        genres: () => tagsOf(w, ["genre"]).map(([k]) => ({ key: k, label: tax.get(k).label })),
+        tags: () => tagsOf(w, TAG_DIMENSIONS.slice(1)).slice(0, 4).map(([k]) => ({ key: k, label: tax.get(k).label })),
+        guide_flags: () => guideFlags(w),
+        image: () => { const img = w.images.find((i) => i.kind === "cover" || i.kind === "poster") || null;
+          return img ? { url: img.url, kind: img.kind, licence: img.licence, attribution: img.attribution, source: img.source } : null; },
+        time: () => timeInvestment(w),
+        continuity: () => { const c = ctx.get(w.slug); return { kind: c.kind, group: c.group, position: c.position, count: c.members.length }; },
+        scores: () => w.scores.map((s) => ({ publisher: s.publisher, metric: s.metric, value: s.value, scale_max: s.scale_max })),
+      };
+      for (const k of Object.keys(part)) {
+        Object.defineProperty(o, k, { enumerable: true, configurable: true,
+          get() { const v = part[k](); Object.defineProperty(o, k, { value: v, writable: true, enumerable: true, configurable: true }); return v; },
+          set(v) { Object.defineProperty(o, k, { value: v, writable: true, enumerable: true, configurable: true }); } });
+      }
+      cache.set(w.slug, o);
+      return o;
     }
     function buildRichCard(w, ctx) {
       // Only real artwork becomes a cover (mirrors browse.py COVER_KINDS).
@@ -1583,14 +1673,16 @@ finish finished binge binged through will watching reading playing listening sta
       b.relations.push({ other_slug: a.slug, other_title: a.title, other_medium: a.medium, type, label: inverse, note, confidence, origin, factual });
     }
     const list = applyEnrichment([...works.values()], enrichment);
-    const titles = new Map(list.map((w) => [w.slug, new Set([w.title, w.original_title].filter(Boolean).map(normaliseTitle))]));
-    const index = new Map(list.map((w) => [w.slug, [words(`${w.title} ${w.original_title || ""}`), words(w.summary)]]));
+    // The title and keyword indexes are only needed once someone asks: built then, not at start-up.
+    let titlesMap = null, indexMap = null;
+    const titlesOf = () => titlesMap || (titlesMap = new Map(list.map((w) => [w.slug, new Set([w.title, w.original_title].filter(Boolean).map(normaliseTitle))])));
+    const indexOf = () => indexMap || (indexMap = new Map(list.map((w) => [w.slug, [words(`${w.title} ${w.original_title || ""}`), words(w.summary)]])));
 
     function keywordScores(keywords) {
       const stems = new Set(keywords.map((k) => stem(k.toLowerCase())));
       const raw = {};
       let top = 0;
-      for (const [slug, [title, summary]] of index) {
+      for (const [slug, [title, summary]] of indexOf()) {
         let n = 0;
         for (const s of stems) n += (title.has(s) ? 2 : 0) + (summary.has(s) ? 1 : 0);
         raw[slug] = n;
@@ -1604,7 +1696,7 @@ finish finished binge binged through will watching reading playing listening sta
 
     function resolveTitle(phrase) {
       const target = normaliseTitle(phrase);
-      const hits = list.filter((w) => target && titles.get(w.slug).has(target));
+      const hits = target ? list.filter((w) => titlesOf().get(w.slug).has(target)) : [];
       if (!hits.length) return null;
       // Best-known first; then the work with a written summary; then the slug (mirrors memory.py and repository.py).
       const rank = (w) => [w.popularity_tier || 5, w.summary ? 0 : 1, w.slug];
@@ -1653,7 +1745,7 @@ finish finished binge binged through will watching reading playing listening sta
     };
   }
 
-  return { createCatalogue };
+  return { createCatalogue, linksFor };
 })();
 
 if (typeof module !== "undefined" && module.exports) module.exports = MDE;

@@ -39,13 +39,25 @@ function enrichment() {
 
 // What the site's engine reads from each enrichment record; the rest (match reasons, candidates, Commons pages)
 // is for editors and the API, and would only weigh down the download.
-function slimEnrichment(all) {
+const SITE_IDS = ["imdb", "letterboxd", "rotten_tomatoes", "metacritic", "openlibrary", "steam", "musicbrainz_release_group", "youtube_video", "youtube_channel"];
+function slimEnrichment(all, seedWorks = []) {
+  const MDE = require("./engine.cjs");
+  const bySlug = new Map(seedWorks.map((w) => [w.slug, { ...w, credits: (w.credits || []).map((c) => ({ role: c[0], name: c[1] })) }]));
+  const same = (a, b) => a.length === b.length && a.every((x, i) => x.kind === b[i].kind && x.label === b[i].label && x.url === b[i].url);
   const pick = (o, keys) => Object.fromEntries(keys.filter((k) => o[k] !== undefined).map((k) => [k, o[k]]));
   const out = {};
   for (const [source, data] of Object.entries(all)) {
     const works = {};
     for (const [slug, rec] of Object.entries(data.works || {})) {
       const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key"]);
+      // Only the ids the site turns into links or player embeds; the rest (dozens of catalogue numbers) are for the API.
+      if (slim.ids) slim.ids = pick(slim.ids, SITE_IDS);
+      // Links the importer derived from the title and ids are rebuilt by the engine, not downloaded (see linksFor).
+      const w = bySlug.get(slug);
+      if (w && rec.links && rec.links.length && same(MDE.linksFor(w, rec.ids || {}, rec.wikipedia || null), rec.links)) {
+        delete slim.links; slim.dl = 1;
+        if (rec.wikipedia) slim.wikipedia = rec.wikipedia;
+      }
       if (rec.match) slim.match = rec.match.mbid ? { mbid: rec.match.mbid } : {};
       if (rec.images) slim.images = rec.images.map((i) => pick(i, ["kind", "url", "licence", "attribution"]));
       works[slug] = slim;
@@ -62,7 +74,7 @@ function dataTexts(slim) {
     taxonomy: read(path.join(api, "taxonomy", "taxonomy.json")),
     catalogue: JSON.stringify(readSeed(path.join(api, "seed"))),
     shelves: read(path.join(api, "catalogue", "shelves.json")),
-    enrichment: JSON.stringify(slim ? slimEnrichment(enrichment()) : enrichment()),
+    enrichment: JSON.stringify(slim ? slimEnrichment(enrichment(), readSeed(path.join(api, "seed")).works) : enrichment()),
     providers: read(path.join(api, "catalogue", "providers.json")),
     calendar: read(path.join(api, "catalogue", "calendar.json")),
     audiobooks: read(path.join(api, "catalogue", "audiobooks.json")),
