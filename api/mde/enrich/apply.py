@@ -364,6 +364,8 @@ def enrich_facts(w: dict, ev: Sources, qid: str, stats: dict, tag: bool) -> bool
             r = str(rec["rating"]).upper()
             ratings.append([b, r if b == "PEGI" else {"E10": "E10+"}.get(r, r), None])
             have.add(b)
+    # One order everywhere: the database returns ratings by system, so the seed lists them that way too.
+    ratings.sort(key=lambda r: r[0])
     if ratings != w.get("ratings", []) and ratings:
         w["ratings"] = ratings
         stats["ratings"] += 1

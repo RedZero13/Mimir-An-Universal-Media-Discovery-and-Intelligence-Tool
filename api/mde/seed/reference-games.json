@@ -2371,13 +2371,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -3867,13 +3867,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -7813,13 +7813,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -8940,13 +8940,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -9965,13 +9965,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E10+",
      null
     ],
     [
-     "ESRB",
-     "E10+",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -13668,13 +13668,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -15982,13 +15982,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -18756,13 +18756,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ],
@@ -21144,13 +21144,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ],
@@ -22409,13 +22409,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -22781,13 +22781,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -25079,13 +25079,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -30308,13 +30308,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -30634,13 +30634,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -34448,13 +34448,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -38426,13 +38426,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -38853,13 +38853,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -42830,13 +42830,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -42915,13 +42915,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -42969,13 +42969,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -43027,13 +43027,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -43241,13 +43241,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ],
@@ -43355,13 +43355,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -44198,13 +44198,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -44251,13 +44251,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ]
@@ -44431,13 +44431,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -45093,13 +45093,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -45334,13 +45334,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E10+",
      null
     ],
     [
-     "ESRB",
-     "E10+",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -45387,13 +45387,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -45492,13 +45492,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -45554,13 +45554,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -45612,13 +45612,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -45697,13 +45697,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -45810,13 +45810,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -45956,13 +45956,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -46244,13 +46244,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "E10+",
      null
     ],
     [
-     "ESRB",
-     "E10+",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -46354,13 +46354,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -46652,13 +46652,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -46697,13 +46697,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ]
@@ -47066,13 +47066,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -47113,13 +47113,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -47381,13 +47381,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "16",
      null
     ]
    ],
@@ -47491,13 +47491,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "16",
      null
     ]
    ]
@@ -47676,13 +47676,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ],
@@ -47880,13 +47880,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -48132,13 +48132,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -49129,13 +49129,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -49180,13 +49180,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -49410,13 +49410,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E10+",
      null
     ],
     [
-     "ESRB",
-     "E10+",
+     "PEGI",
+     "3",
      null
     ]
    ],
@@ -49608,13 +49608,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -49875,13 +49875,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -50076,13 +50076,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -50131,13 +50131,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ]
@@ -50232,13 +50232,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -50683,13 +50683,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E10+",
      null
     ],
     [
-     "ESRB",
-     "E10+",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -50896,13 +50896,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -51454,13 +51454,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "12",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "12",
      null
     ]
    ],
@@ -51698,13 +51698,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -52341,13 +52341,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -52440,13 +52440,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "18",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "18",
      null
     ]
    ],
@@ -52493,13 +52493,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "7",
+     "ESRB",
+     "E10+",
      null
     ],
     [
-     "ESRB",
-     "E10+",
+     "PEGI",
+     "7",
      null
     ]
    ],
@@ -52610,13 +52610,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "T",
      null
     ],
     [
-     "ESRB",
-     "T",
+     "PEGI",
+     "3",
      null
     ]
    ],
@@ -53156,13 +53156,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "16",
+     "ESRB",
+     "M",
      null
     ],
     [
-     "ESRB",
-     "M",
+     "PEGI",
+     "16",
      null
     ]
    ]
@@ -53202,13 +53202,13 @@
    "length_is_estimate": true,
    "ratings": [
     [
-     "PEGI",
-     "3",
+     "ESRB",
+     "E",
      null
     ],
     [
-     "ESRB",
-     "E",
+     "PEGI",
+     "3",
      null
     ]
    ],
