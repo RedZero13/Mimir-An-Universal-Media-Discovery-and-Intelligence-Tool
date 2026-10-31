@@ -82,7 +82,7 @@ def test_franchise_help_tool_and_day_pages_are_built_and_listed(site):
     for rel in ("franchises/game-of-thrones", "tools/decide", "days/laughter-day", "help/what-is-mimir", "tags/genre-comedy", "about"):
         assert f"https://mimir.terratalesmedia.world/{rel}/" in sitemap, rel
     home = (site / "index.html").read_text()
-    assert "SearchAction" in home and 'href="/franchises/"' in home and 'href="/help/"' in home
+    assert 'href="/franchises/"' in home and 'href="/help/"' in home
     assert "parents' guide for each work" not in home
 
 

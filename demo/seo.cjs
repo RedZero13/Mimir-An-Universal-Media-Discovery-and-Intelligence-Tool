@@ -15,7 +15,8 @@ const HUBS = [
 ];
 const HUB_OF = Object.fromEntries(HUBS.flatMap((h) => h.media.map((m) => [m, h])));
 const MEDIUM_NAME = { film: "Film", series: "TV series", book: "Book", game: "Game", album: "Album", online_video: "YouTube video", channel: "YouTube channel" };
-const SCHEMA_TYPE = { film: "Movie", series: "TVSeries", book: "Book", game: "VideoGame", album: "MusicAlbum", online_video: "VideoObject", channel: "CreativeWorkSeries" };
+// Games are marked up as Game: Google reads VideoGame as an app and then expects a price or user ratings, which Mimir does not have.
+const SCHEMA_TYPE = { film: "Movie", series: "TVSeries", book: "Book", game: "Game", album: "MusicAlbum", online_video: "VideoObject", channel: "CreativeWorkSeries" };
 const CREATOR_PROP = { film: "director", series: "creator", book: "author", game: "author", album: "byArtist", online_video: "author", channel: "author" };
 const LEAD_ROLES = ["director", "creator", "author", "artist", "developer", "studio", "channel", "host"];
 
@@ -99,7 +100,8 @@ function writeCatalogPages(out, { cat, works, SITE_URL, staticPage, esc, ipMap =
     const sameAs = w.links.filter((l) => /^(info|reactions):/.test(l.kind) && /^https:\/\/(en\.wikipedia\.org|www\.imdb\.com|letterboxd\.com|musicbrainz\.org|openlibrary\.org)/.test(l.url)).map((l) => l.url);
     const schema = { "@context": "https://schema.org", "@type": SCHEMA_TYPE[w.medium] || "CreativeWork", name: w.title, url,
       description: w.summary || undefined, inLanguage: w.original_language || undefined,
-      datePublished: w.year ? String(w.year) : undefined, image: cover ? cover.url : undefined,
+      // Search engines require an image on Movie markup: the site's card stands in until a licensed poster is on file.
+      datePublished: w.year ? String(w.year) : undefined, image: cover ? cover.url : (w.medium === "film" ? `${SITE_URL}/og-image.png` : undefined),
       genre: genres.length ? genres : undefined, keywords: moods.length ? moods.join(", ") : undefined,
       sameAs: sameAs.length ? sameAs : undefined,
       contentRating: ratings.length ? `${ratings[0].system} ${ratings[0].rating}` : undefined };
