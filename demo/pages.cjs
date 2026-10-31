@@ -193,8 +193,8 @@ ${helpHref(a[4])}${more.length ? `<h2>More in ${esc(c[1])}</h2><ul>${more.map((x
       ["Add each person and a few things they love.", "Tick what anyone would rather avoid.", "Mimir favours picks that suit everyone and says where the compromise is."], "group movie night"],
     ["taste", "taste", "Your taste profile", "Your taste profile", "Worked out from the works you've rated or scored, and editable: ask for more or less of any quality, or never see it again. It all stays in this browser and shapes your picks.",
       ["Rate or score works you know.", "See which qualities Mimir reads in your taste, and edit them.", "Ask for more or less of any quality, or never see it again."], "taste profile"],
-    ["compare", "compare", "Compare", "Compare two works", "Pick any work, in any medium. Mimir lines them up by length, scores, popularity, mood, themes, style and the parents' guide.",
-      ["Pick a work, in any medium.", "Pick another to set beside it.", "See length, scores, popularity, mood, themes, style and the parents' guide side by side."], "compare films and books"],
+    ["compare", "compare", "Compare", "Compare films, shows, books and games", "Pick up to five works, in any medium. Mimir lines them up by genre, length, scores, box office, budget, awards, popularity, mood, themes, style and the parents' guide.",
+      ["Pick a work, in any medium.", "Add up to four more to set beside it.", "See genre, length, scores, box office, budget, return, awards and the parents' guide side by side, with the best of each row marked."], "compare films and books"],
   ];
   for (const [slug, route, name, h1, what, steps] of TOOLS) {
     write(`tools/${slug}`, T(`${name}: ${h1}`), what, `${head(`<a href="/">Mimir</a> · <a href="/tools/">Tools</a>`, name, what)}

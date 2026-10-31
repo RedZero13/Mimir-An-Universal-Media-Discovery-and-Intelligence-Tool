@@ -820,6 +820,16 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .cmp-heads a { width: min(160px, 36vw); text-align: center; text-decoration: none; color: var(--bone); font-weight: 600; }
 .cmp-heads a span { display: block; margin-top: 8px; }
 .cmp-vs { font: 600 1.6rem/1 var(--f-display, serif); color: var(--gold-bright); text-align: center; }
+.cmp-heads.cmp-n { flex-wrap: wrap; align-items: flex-start; }
+.cmp-head { display: grid; justify-items: center; gap: 6px; width: min(160px, 40vw); text-align: center; }
+.cmp-head a { width: 100%; }
+.cmp-col-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.cmp-best { color: var(--gold-bright); font-weight: 600; }
+.cmp-table th .cmp-both { margin-top: 6px; padding: 4px 6px; border-radius: 8px; font-weight: 400; }
+.money-line b { color: var(--bone); }
+details.awards { margin: 8px 0; } details.awards summary { cursor: pointer; color: var(--ink); }
+details.awards h3 { font-size: .95rem; margin: 10px 0 4px; } .award-list { margin: 0; padding-left: 18px; columns: 2 260px; font-size: .9rem; }
+.money-table td, .money-table th { white-space: nowrap; } .money-table td:nth-child(2) { white-space: normal; min-width: 180px; }
 .cmp-vs small { font-size: .7rem; color: var(--cream); }
 .cmp-scroll { overflow-x: auto; }
 .cmp-table { width: 100%; min-width: 520px; }
@@ -1322,7 +1332,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     <!--__CRAWL__-->
     <nav class="foot-cols" aria-label="Footer">
       <div><h2>Explore</h2><ul><li><a href="#films">Films</a></li><li><a href="#tv">TV</a></li><li><a href="#books">Books &amp; manga</a></li><li><a href="#games">Games</a></li><li><a href="#albums">Music</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#series">Sagas &amp; series</a></li></ul></div>
-      <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#swipe">Swipe</a></li><li><a href="#craft">Craft</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li></ul></div>
+      <div><h2>Find something</h2><ul><li><a href="#">Ask Mimir</a></li><li><a href="#decide">Decide for me</a></li><li><a href="#swipe">Swipe</a></li><li><a href="#craft">Craft</a></li><li><a href="#for-you">For you</a></li><li><a href="#calendar">Social calendar</a></li><li><a href="#shelves">All shelves</a></li><li><a href="#top-all">Top rated</a></li><li><a href="#box-office">Box office</a></li><li><a href="#awards">Awards</a></li></ul></div>
       <div><h2>Your Mimir</h2><ul><li><a href="#library">Library</a></li><li><a href="#journal">Journal</a></li><li><a href="#stats">Stats</a></li><li><a href="#year">Year in review</a></li><li><a href="#transfer">Import &amp; export</a></li><li><a href="#community">Community</a></li></ul></div>
       <div><h2>Mimir</h2><ul><li><a href="/help/">Help centre</a></li><li><a href="/privacy/">Privacy notice</a></li><li><a href="/cookies/">Cookie policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/data-requests/">Data requests</a></li><li><a href="/security/">Security</a></li><li><a href="#privacy-choices" data-consent-open>Privacy choices</a></li><li><a href="#about">About Mimir</a></li><li><a href="#blog">Blog</a></li><li><a href="#tags">Tags</a></li><li><a href="/films/">Catalogue A–Z</a></li><li><a href="#people">People &amp; studios</a></li><li><a href="mailto:hello@terratalesmedia.world">Contact</a></li></ul></div>
       <div><h2>Terratales</h2><ul><li><a href="https://terratalesmedia.world/" target="_blank" rel="noopener">Terratales</a></li><li><a href="https://terratalesmedia.world/publishing/" target="_blank" rel="noopener">Publishing</a></li><li><a href="https://akashic.terratalesmedia.world/" target="_blank" rel="noopener">The Akashic Records</a></li><li><a href="https://terratalesmedia.world/privacy-policy/" target="_blank" rel="noopener">Privacy policy</a></li></ul></div>
@@ -1644,6 +1654,14 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const allScores = (w) => w.scores || [];
   const unifiedScore = (w) => { const xs = allScores(w); return xs.length ? Math.round((xs.reduce((a, x) => a + x.value / x.scale_max, 0) / xs.length) * 100) : null; };
   const scoreTitle = (w) => { const xs = allScores(w); return `Average of ${xs.length === 1 ? "1 score" : `${xs.length} scores`}: ${xs.map((x) => `${x.publisher} ${scoreText(x)}`).join(", ")}`; };
+  // Budgets and awards ride on the Wikidata enrichment records (the engine does not use them), read here by slug.
+  const wdRec = (slug) => (((DATA("enrichment").wikidata || {}).works || {})[slug]) || {};
+  const budgetOf = (slug) => wdRec(slug).budget || [];
+  const awardsOf = (slug) => wdRec(slug).awards || { won: [], nominated: [] };
+  const grossOf = (slug) => { const bo = (ENG_BY().get(slug) || {}).box_office || []; return bo.find((b) => b.scope === "worldwide") || bo[0] || null; };
+  // Gross over budget, only where both are in the same currency (no exchange-rate guesswork).
+  const returnOf = (slug) => { const g = grossOf(slug), b = g && budgetOf(slug).find((x) => x.currency === g.currency); return g && b && b.amount ? g.amount / b.amount : null; };
+  const ENG_BY = (() => { let m = null; return () => m || (m = new Map(cat.works.map((w) => [w.slug, w]))); })();
   const money = (b) => { try { return new Intl.NumberFormat("en", { style: "currency", currency: b.currency, notation: "compact", maximumFractionDigits: 1 }).format(b.amount); } catch { return `${b.amount} ${b.currency}`; } };
 
   // ------------------------------------------------------------------ cards and rows
@@ -2357,7 +2375,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   // ------------------------------------------------------------------ menu bar (navigation tree)
   const MENU = [
     ["Discover", [["Decide for me", "#decide"], ["For you", "#for-you"], ["Swipe to teach Mimir", "#swipe"], ["Don't have time to browse?", "#spin"], ["Craft a recommendation", "#craft"], ["Mood mixer", "#mix"], ["Your taste", "#taste"], ["Plan my time", "#plan"], ["Pick together", "#together"], ["Ask Mimir", "#"], ["Social calendar", "#calendar"], ["Days of the year", "#days"], ["All shelves", "#shelves"], ["By time you have", "#time-one-sitting"], ["Diamonds in the Rough", "#shelf-diamonds-in-the-rough"], ["Nepo Babies", "#shelf-nepo-babies"]]],
-    ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
+    ["Films", [["All films", "#films"], ["Film search", "#search-film"], ["Top films", "#top-film"], ["Box office & budgets", "#box-office"], ["Family-friendly films", hrefSearch("film", { avoid: ["advisory:graphic-violence", "advisory:sexual-content", "advisory:strong-language"] })],
       ["Action Blockbusters", "#shelf-action-blockbusters"], ["Fright Club", "#shelf-fright-club"], ["Laugh Riot", "#shelf-laugh-riot"], ["Drama Mamas", "#shelf-drama-mamas"]]],
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
       ["Seoul Searching", "#shelf-seoul-searching"], ["Desi Delights", "#shelf-desi-delights"]]],
@@ -2369,7 +2387,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
       ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Taste profile", "#taste"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Days of the year", "#days"], ["Your profile", "#signin"]]],
-    ["Catalogue", [["Everything", "#search-all"], ["Tags", "#tags"], ["People & studios", "#people"], ["Help centre", "/help/"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
+    ["Catalogue", [["Everything", "#search-all"], ["Compare works", "#compare"], ["Box office & budgets", "#box-office"], ["Awards", "#awards"], ["Tags", "#tags"], ["People & studios", "#people"], ["Help centre", "/help/"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
   const SCOPES = [["ask", "Ask Mimir"], ["all", "All titles"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"], ["people", "People"], ["tags", "Tags"]];
   function renderMenubar() {
@@ -2511,7 +2529,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
               return gs.length ? `<p class="pchips"><span class="eyebrow">Part of</span>${gs.map((x) => `<a class="tchip" href="#group-${esc(x.slug)}">${esc(x.name)}</a>`).join("")}</p>` : ""; })()}
             <p class="pchips big">${w.time ? `${timeChip(w.time, album)}<span class="muted small">${esc(timeText(w.time, album))}</span>` : ""}${contChip(c, w.medium)}</p>
             ${w.scores.length ? `<ul class="scores">${w.scores.map((s) => `<li><span class="score-v">${esc(scoreText(s))}</span><span class="score-p">${esc(s.publisher)}<br><span class="muted">${esc(s.metric)}${s.votes ? ` · ${s.votes.toLocaleString("en")} votes` : ""}${s.as_of ? ` · ${esc(s.as_of)}` : ""}</span></span></li>`).join("")}</ul>` : ""}
-            ${w.box_office.length ? `<p class="small muted">Box office: ${w.box_office.map((b) => `${esc(money(b))} ${esc(b.scope)}`).join(" · ")}</p>` : ""}
+            ${moneyLine(w)}
+            ${awardsBlock(w.slug)}
             <div class="actions">
               ${prefLink(where, "btn")}
               <button class="btn ghost" type="button" data-similar="${esc(w.title)}">Find similar</button>
@@ -5107,6 +5126,74 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const guideSev = (slug, group) => { const g = fullWork().get(slug).parents_guide.groups.find((x) => x.slug === group); return g ? SEV[g.severity] ?? null : null; };
   const GUIDE_GROUPS = once(() => DATA("taxonomy").guide_groups.map((g) => [g.slug, g.label]));
 
+  // ------------------------------------------------------------------ box office, budgets and awards
+  function moneyLine(w) {
+    const parts = [];
+    if (w.box_office.length) parts.push(`Box office ${w.box_office.map((b) => `${esc(money(b))} ${esc(b.scope)}`).join(" · ")}`);
+    const bud = budgetOf(w.slug);
+    if (bud.length) parts.push(`Budget ${bud.map((b) => esc(money(b))).join(" · ")}`);
+    const r = returnOf(w.slug);
+    if (r) parts.push(`${r >= 1 ? "earned" : "recouped"} <b>${r.toFixed(1)}×</b> its budget worldwide`);
+    return parts.length ? `<p class="small muted money-line">${parts.join(" · ")} <a href="#box-office" class="small">Box office chart</a></p>` : "";
+  }
+  function awardsBlock(slug) {
+    const a = awardsOf(slug);
+    if (!a.won.length && !a.nominated.length) return "";
+    const li = (x) => `<li>${esc(x.name)}${x.year ? ` <span class="muted">${x.year}</span>` : ""}</li>`;
+    return `<details class="awards"><summary><span class="eyebrow">Awards</span> ${a.won.length} won · ${a.nominated.length} more nominations</summary>
+      ${a.won.length ? `<h3>Won</h3><ul class="award-list">${a.won.map(li).join("")}</ul>` : ""}
+      ${a.nominated.length ? `<h3>Nominated</h3><ul class="award-list">${a.nominated.map(li).join("")}</ul>` : ""}
+      <p class="small muted">From Wikidata. <a href="#awards">All awards in the catalogue</a></p></details>`;
+  }
+  const moneyTabs = (on) => `<nav class="medium-tabs" aria-label="Money and awards">${[["box", "Box office", "#box-office"], ["budget", "Budgets", "#box-office?sort=budget"], ["return", "Best return", "#box-office?sort=return"], ["awards", "Awards", "#awards"]].map(([k, l, h]) => `<a href="${h}" class="${on === k ? "on" : ""}">${l}</a>`).join("")}</nav>`;
+  function renderBoxOffice(p) {
+    const sort = ["gross", "budget", "return", "year"].includes(p.get("sort")) ? p.get("sort") : "gross";
+    const cur = p.get("cur") || "USD", dec = Number(p.get("decade")) || 0;
+    const films = cat.works.filter((w) => w.medium === "film").map((w) => {
+      const g = grossOf(w.slug), b = budgetOf(w.slug).find((x) => x.currency === cur) || null;
+      return { w, g: g && g.currency === cur ? g : null, b, r: returnOf(w.slug) };
+    }).filter((x) => (sort === "budget" ? x.b : x.g) && (!dec || (x.w.year && Math.floor(x.w.year / 10) * 10 === dec)));
+    const key = { gross: (x) => -x.g.amount, budget: (x) => -x.b.amount, return: (x) => -(x.r || 0), year: (x) => -(x.w.year || 0) }[sort];
+    const rows = films.filter((x) => sort !== "return" || (x.r && x.b && x.b.amount >= 1e6)).sort((a, b) => key(a) - key(b)).slice(0, 100);
+    const currencies = [...new Set(cat.works.map((w) => grossOf(w.slug)).filter(Boolean).map((g) => g.currency))].sort();
+    const decades = [...new Set(cat.works.filter((w) => w.medium === "film" && w.year && grossOf(w.slug)).map((w) => Math.floor(w.year / 10) * 10))].sort((a, b) => b - a);
+    const href = (o) => `#box-office?${new URLSearchParams({ sort, cur, ...(dec ? { decade: dec } : {}), ...o }).toString().replace(/(^|&)decade=0/, "")}`;
+    const tab = sort === "budget" ? "budget" : sort === "return" ? "return" : "box";
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Box office</p><h1>${{ gross: "Highest-grossing films", budget: "Biggest budgets", return: "Best return on budget", year: "Box office by year" }[sort]}</h1>
+        <p class="muted">Worldwide box office and production budgets as recorded on Wikidata, in ${esc(cur)}, not adjusted for inflation. Return is worldwide gross divided by budget, shown only where both are in the same currency (budgets of at least 1 million for the return chart).</p></header>
+      ${moneyTabs(tab)}
+      <p class="pchips"><span class="eyebrow">Currency</span>${currencies.map((c) => `<a class="tchip${c === cur ? " on" : ""}" href="${esc(href({ cur: c }))}">${esc(c)}</a>`).join("")}</p>
+      <p class="pchips"><span class="eyebrow">Decade</span><a class="tchip${dec ? "" : " on"}" href="${esc(href({ decade: 0 }))}">All</a>${decades.map((d) => `<a class="tchip${d === dec ? " on" : ""}" href="${esc(href({ decade: d }))}">${d}s</a>`).join("")}</p>
+      ${rows.length ? `<div class="cmp-scroll"><table class="stat-table money-table"><thead><tr><th>#</th><th>Film</th><th>Worldwide box office</th><th>Budget</th><th>Return</th><th>Awards won</th><th></th></tr></thead><tbody>
+        ${rows.map((x, i) => `<tr><td>${i + 1}</td><td><a href="#work-${esc(x.w.slug)}">${esc(x.w.title)}</a> <span class="muted">${esc(x.w.year || "")}</span></td>
+          <td>${x.g ? esc(money(x.g)) : "—"}</td><td>${x.b ? esc(money(x.b)) : "—"}</td><td>${x.r ? `${x.r.toFixed(1)}×` : "—"}</td><td>${awardsOf(x.w.slug).won.length || "—"}</td>
+          <td><a class="tchip" href="#compare-${esc(x.w.slug)}">Compare</a></td></tr>`).join("")}</tbody></table></div>`
+        : `<p class="empty">No films with these figures yet. Try another currency or decade.</p>`}`;
+  }
+  function renderAwards(p) {
+    const q = (p.get("q") || "").trim(), medium = p.get("m") || "all";
+    const all = cat.works.filter((w) => medium === "all" || w.medium === medium).map((w) => ({ w, a: awardsOf(w.slug) })).filter((x) => x.a.won.length || x.a.nominated.length);
+    const counts = new Map();
+    for (const x of all) for (const aw of x.a.won) counts.set(aw.name, (counts.get(aw.name) || 0) + 1);
+    const top = [...counts].sort((a, b) => b[1] - a[1]).slice(0, 24);
+    const ql = q.toLowerCase();
+    const hits = all.map((x) => ({ ...x, won: q ? x.a.won.filter((a) => a.name.toLowerCase().includes(ql)) : x.a.won, nom: q ? x.a.nominated.filter((a) => a.name.toLowerCase().includes(ql)) : x.a.nominated }))
+      .filter((x) => x.won.length || (q && x.nom.length)).sort((a, b) => b.won.length - a.won.length || b.nom.length - a.nom.length || (b.w.year || 0) - (a.w.year || 0)).slice(0, 100);
+    const href = (o) => `#awards?${new URLSearchParams({ ...(q ? { q } : {}), m: medium, ...o })}`;
+    app.innerHTML = `
+      <header class="page-band"><p class="eyebrow">Awards</p><h1>${q ? `Winners and nominees: ${esc(q)}` : "Most-awarded works"}</h1>
+        <p class="muted">Awards won and nominations as recorded on Wikidata. Coverage is best for major film, television and music awards.</p></header>
+      ${moneyTabs("awards")}
+      <form class="lib-form" data-awards-search><input name="q" value="${esc(q)}" placeholder="An award, e.g. Academy Award for Best Picture" aria-label="Award name" class="grow"><input type="hidden" name="m" value="${esc(medium)}"><button class="btn" type="submit">Find</button></form>
+      <p class="pchips"><span class="eyebrow">Medium</span>${[["all", "All"], ["film", "Films"], ["series", "TV"], ["book", "Books"], ["game", "Games"], ["album", "Music"]].map(([m, l]) => `<a class="tchip${m === medium ? " on" : ""}" href="${esc(href({ m }))}">${l}</a>`).join("")}</p>
+      ${top.length ? `<p class="pchips"><span class="eyebrow">Most-won</span>${top.map(([n, c]) => `<a class="tchip" href="${esc(href({ q: n }))}">${esc(n)} · ${c}</a>`).join("")}</p>` : ""}
+      ${hits.length ? `<div class="cmp-scroll"><table class="stat-table money-table"><thead><tr><th>#</th><th>Work</th><th>Won</th><th>Nominations</th><th>${q ? "Matching awards" : "Recent wins"}</th></tr></thead><tbody>
+        ${hits.map((x, i) => `<tr><td>${i + 1}</td><td><a href="#work-${esc(x.w.slug)}">${esc(x.w.title)}</a> <span class="muted">${esc([mediumLabel(x.w.medium), x.w.year].filter(Boolean).join(", "))}</span></td>
+          <td>${x.won.length}</td><td>${x.nom.length}</td><td class="small">${esc([...x.won.map((a) => a.name + (a.year ? ` (${a.year})` : "")), ...(q ? x.nom.map((a) => `nominated: ${a.name}${a.year ? ` (${a.year})` : ""}`) : [])].slice(0, 3).join("; "))}</td></tr>`).join("")}</tbody></table></div>`
+        : `<p class="empty">No works with that award yet.</p>`}`;
+  }
+
   // #11 Comparison: two works side by side, with what they share and where they differ.
   function similarity(a, b) {
     const A = termMap().get(a), B = termMap().get(b);
@@ -5115,52 +5202,71 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     for (const v of B.values()) nb += v * v;
     return na && nb ? Math.round((dot / Math.sqrt(na * nb)) * 100) : 0;
   }
+  // Up to five works, any media: facts, money, awards and tags side by side. #compare-a~b~c; one slug asks for the next.
+  const CMP_MAX = 5;
   function renderCompare(arg) {
-    const [a, b] = arg.split("~").map((s) => fullWork().get(s) ? s : null);
-    if (!a) { app.innerHTML = `<p class="empty">That work isn't in the catalogue. <a href="#">Back to Mimir</a></p>`; return; }
-    const A = fullWork().get(a);
-    if (!b) {
-      const near = cat.recommend({ [a]: "loved" }, 8, null).results;
+    const slugs = [...new Set(arg.split("~").filter((s) => s && fullWork().get(s)))].slice(0, CMP_MAX);
+    const hashOf = (xs) => `#compare-${xs.join("~")}`;
+    if (slugs.length < 2) {
+      const a = slugs[0], A = a && fullWork().get(a);
+      const near = a ? cat.recommend({ [a]: "loved" }, 8, null).results : [];
       app.innerHTML = `
-        <header class="page-head"><p class="eyebrow">Compare</p><h1>Compare ${esc(A.title)} with…</h1>
-          <p class="muted">Pick any work, in any medium. Mimir lines them up by length, scores, popularity, mood, themes, style and the parents' guide.</p></header>
-        ${titlePicker(`data-compare-with="${esc(a)}"`, "Type a title", "Compare")}${titleList()}
-        ${near.length ? `<section class="block"><header class="sec-head"><h2>Or try one of its closest matches</h2></header>${pgrid(near, (w) => `<p><a class="tchip" href="#compare-${esc(a)}~${esc(w.slug)}">Compare</a></p>`)}</section>` : ""}`;
+        <header class="page-head"><p class="eyebrow">Compare</p><h1>${A ? `Compare ${esc(A.title)} with…` : "Compare films, shows, books, games and music"}</h1>
+          <p class="muted">Pick up to ${CMP_MAX} works, in any media. Mimir lines them up by genre, length, scores, box office, budget, awards, popularity, mood, themes, style and the parents' guide.</p></header>
+        ${titlePicker(`data-compare-add="${esc(slugs.join("~"))}"`, A ? "Type another title" : "Type a title", A ? "Compare" : "Add")}${titleList()}
+        ${near.length ? `<section class="block"><header class="sec-head"><h2>Or try one of its closest matches</h2></header>${pgrid(near, (w) => `<p><a class="tchip" href="${hashOf([a, w.slug])}">Compare</a></p>`)}</section>` : ""}`;
       return;
     }
-    const B = fullWork().get(b), cards = [a, b].map((s) => cardOf(s));
+    const W = slugs.map((s) => fullWork().get(s)), cards = slugs.map((s) => cardOf(s));
     const terms = (w, dim) => new Map((w.tags.find((d) => d.dimension === dim) || { terms: [] }).terms.filter((t) => t.strength >= 0.5).map((t) => [t.key, t]));
     const DIMS = [["genre", "Genre"], ["mood", "Mood"], ["theme", "Themes"], ["style", "Style"], ["world", "World & setting"], ["pacing", "Pacing"], ["complexity", "Complexity"], ["narrative", "Storytelling"]];
+    const chips = (xs) => xs.map((t) => tagChip(t)).join("") || `<span class="muted">—</span>`;
+    // Tags every work shares are pulled out first; each column then shows only what that work adds.
     const tagRows = DIMS.map(([dim, label]) => {
-      const ta = terms(A, dim), tb = terms(B, dim);
-      if (!ta.size && !tb.size) return "";
-      const both = [...ta.values()].filter((t) => tb.has(t.key)), onlyA = [...ta.values()].filter((t) => !tb.has(t.key)), onlyB = [...tb.values()].filter((t) => !ta.has(t.key));
-      const chips = (xs) => xs.map((t) => tagChip(t)).join("") || `<span class="muted">—</span>`;
-      return `<tr><th>${esc(label)}</th><td>${chips(onlyA)}</td><td class="cmp-both">${chips(both)}</td><td>${chips(onlyB)}</td></tr>`;
+      const sets = W.map((w) => terms(w, dim));
+      if (sets.every((s) => !s.size)) return "";
+      const shared = [...sets[0].values()].filter((t) => sets.every((s) => s.has(t.key)));
+      const sharedKeys = new Set(shared.map((t) => t.key));
+      return `<tr><th>${esc(label)}${shared.length ? `<div class="cmp-both small">All share: ${chips(shared)}</div>` : ""}</th>${sets.map((s) => `<td>${chips([...s.values()].filter((t) => !sharedKeys.has(t.key)))}</td>`).join("")}</tr>`;
     }).join("");
-    const fact = (label, f) => `<tr><th>${esc(label)}</th><td>${f(A, cards[0])}</td><td>${f(B, cards[1])}</td></tr>`;
-    const sc = (c) => (unifiedScore(c) === null ? `<span class="muted">No scores</span>` : `${unifiedScore(c)}/100 <span class="muted small">(${esc(scoreTitle(c))})</span>`);
-    const sim = similarity(a, b);
+    const muted = (t) => `<span class="muted">${esc(t)}</span>`;
+    const row = (label, f) => `<tr><th>${esc(label)}</th>${W.map((w, i) => `<td>${f(w, cards[i], slugs[i])}</td>`).join("")}</tr>`;
+    // Highlight the best of a numeric row (largest, or smallest where asked) when at least two works have a value.
+    const best = (vals, low = false) => { const xs = vals.filter((v) => v !== null); if (xs.length < 2) return () => false; const t = low ? Math.min(...xs) : Math.max(...xs); return (v) => v === t; };
+    const numRow = (label, val, show, low) => { const vals = slugs.map(val), isBest = best(vals, low); return row(label, (w, c, s) => { const v = val(s); return v === null ? muted("—") : `<span class="${isBest(v) ? "cmp-best" : ""}">${show(v, s)}</span>`; }); };
+    const sameCur = (() => { const cs = slugs.map((s) => grossOf(s)).filter(Boolean).map((g) => g.currency); return cs.length && cs.every((c) => c === cs[0]) ? cs[0] : null; })();
+    const sims = slugs.slice(1).map((s) => similarity(slugs[0], s));
     app.innerHTML = `
-      <header class="page-head"><p class="eyebrow">Compare</p><h1>${esc(A.title)} <span class="muted">vs</span> ${esc(B.title)}</h1>
-        <p class="muted">They share ${sim}% of their tagged character: moods, themes, style and more, weighted by strength. Tags and guide levels are AI-assisted readings awaiting editorial review; scores and lengths come from the sources named on each work's page.</p></header>
-      <div class="cmp-heads">${cards.map((c) => `<a href="#work-${esc(c.slug)}">${poster(cardCover(c))}<span>${esc(c.title)}</span></a>`).join(`<span class="cmp-vs">${sim}%<br><small>alike</small></span>`)}</div>
-      <section class="block"><div class="cmp-scroll"><table class="stat-table cmp-table">
-        <thead><tr><th></th><th>${esc(A.title)}</th><th>${esc(B.title)}</th></tr></thead><tbody>
-        ${fact("Medium", (w) => esc(mediumLabel(w.medium)))}
-        ${fact("Year", (w) => esc(w.year || "—"))}
-        ${fact("By", (w) => esc(w.credits.slice(0, 2).map((c) => c.name).join(", ") || "—"))}
-        ${fact("Time", (w) => (w.time ? esc(timeText(w.time, w.medium === "album")) : `<span class="muted">Not recorded</span>`))}
-        ${fact("Series", (w) => esc(contText(w.continuity)))}
-        ${fact("Scores", (w, c) => sc(c))}
-        ${fact("Popularity", (w) => esc(TIER[w.popularity_tier] || "Not rated"))}
-        ${fact("Age ratings", (w) => esc(w.parents_guide.ratings.map((r) => `${r.system} ${r.rating}`).join(", ") || "—"))}
-        ${GUIDE_GROUPS().map(([g, label]) => fact(label, (w) => esc((w.parents_guide.groups.find((x) => x.slug === g) || {}).severity || "—"))).join("")}
+      <header class="page-head"><p class="eyebrow">Compare</p><h1>${W.map((w) => esc(w.title)).join(` <span class="muted">vs</span> `)}</h1>
+        <p class="muted">Tags and guide levels are AI-assisted readings awaiting editorial review; scores, lengths, box office, budgets and awards come from the open sources named on each work's page.${slugs.length === 2 ? ` They share ${sims[0]}% of their tagged character.` : ""}</p></header>
+      <div class="cmp-heads cmp-n">${cards.map((c, i) => `<div class="cmp-head"><a href="#work-${esc(c.slug)}">${poster(cardCover(c))}<span>${esc(c.title)}</span></a>
+        ${i ? `<span class="small muted">${sims[i - 1]}% like ${esc(W[0].title)}</span>` : `<span class="small muted">Reference</span>`}
+        <span class="cmp-col-actions">${i ? `<a class="tchip" href="${hashOf([slugs[i], ...slugs.filter((x, j) => j !== i)])}" title="Make this the reference">Lead</a>` : ""}<a class="tchip" href="${hashOf(slugs.filter((x, j) => j !== i))}" aria-label="Remove ${esc(c.title)}">Remove</a></span></div>`).join("")}</div>
+      ${slugs.length < CMP_MAX ? `<section class="block">${titlePicker(`data-compare-add="${esc(slugs.join("~"))}"`, "Add another title to compare", "Add")}${titleList()}</section>` : ""}
+      <section class="block"><header class="sec-head"><h2>Key facts</h2></header><div class="cmp-scroll"><table class="stat-table cmp-table">
+        <thead><tr><th></th>${W.map((w) => `<th>${esc(w.title)}</th>`).join("")}</tr></thead><tbody>
+        ${row("Medium", (w) => esc(mediumLabel(w.medium)))}
+        ${row("Year", (w) => esc(w.year || "—"))}
+        ${row("Genre", (w) => chips([...terms(w, "genre").values()].slice(0, 4)))}
+        ${row("By", (w) => esc(w.credits.slice(0, 2).map((c) => c.name).join(", ") || "—"))}
+        ${row("Country", (w) => esc((w.countries || []).join(", ") || "—"))}
+        ${numRow("Time", (s) => { const w = fullWork().get(s); return w.time ? w.time.minutes : null; }, (v, s) => esc(timeText(fullWork().get(s).time, fullWork().get(s).medium === "album")), true)}
+        ${row("Series", (w) => esc(contText(w.continuity)))}
+        ${numRow("Score", (s) => unifiedScore(cardOf(s)), (v, s) => `${v}/100 <span class="muted small">(${esc(scoreTitle(cardOf(s)))})</span>`)}
+        ${row("Popularity", (w) => esc(TIER[w.popularity_tier] || "Not rated"))}
+        ${sameCur ? numRow("Box office (worldwide)", (s) => (grossOf(s) ? grossOf(s).amount : null), (v, s) => esc(money(grossOf(s))))
+          : row("Box office", (w, c, s) => (grossOf(s) ? `${esc(money(grossOf(s)))} <span class="muted small">${esc(grossOf(s).scope)}</span>` : muted("—")))}
+        ${row("Budget", (w, c, s) => esc(budgetOf(s).map(money).join(" · ")) || muted("—"))}
+        ${numRow("Return on budget", (s) => returnOf(s), (v) => `${v.toFixed(1)}×`)}
+        ${numRow("Awards won", (s) => awardsOf(s).won.length || null, (v, s) => `${v} <span class="muted small">${esc(awardsOf(s).won.slice(0, 2).map((a) => a.name).join("; "))}</span>`)}
+        ${numRow("Nominations", (s) => awardsOf(s).nominated.length || null, (v) => String(v))}
+        ${row("Age ratings", (w) => esc(w.parents_guide.ratings.map((r) => `${r.system} ${r.rating}`).join(", ") || "—"))}
+        ${GUIDE_GROUPS().map(([g, label]) => row(label, (w) => esc((w.parents_guide.groups.find((x) => x.slug === g) || {}).severity || "—"))).join("")}
         </tbody></table></div></section>
-      <section class="block"><header class="sec-head"><h2>What they share, and what sets them apart</h2></header>
-        <div class="cmp-scroll"><table class="stat-table cmp-table cmp-tags"><thead><tr><th></th><th>Only ${esc(A.title)}</th><th>Both</th><th>Only ${esc(B.title)}</th></tr></thead><tbody>${tagRows}</tbody></table></div></section>
-      <p class="actions"><a class="btn ghost" href="#compare-${esc(b)}~${esc(a)}">Swap sides</a><a class="btn ghost" href="#compare-${esc(a)}">Compare ${esc(A.title)} with another</a>
-        ${shareButton(`${location.origin}${location.pathname}#compare-${a}~${b}`, `${A.title} vs ${B.title}`, `${A.title} vs ${B.title} on Mimir`)}</p>`;
+      <section class="block"><header class="sec-head"><h2>What they share, and what sets each apart</h2></header>
+        <div class="cmp-scroll"><table class="stat-table cmp-table cmp-tags"><thead><tr><th></th>${W.map((w) => `<th>Only ${esc(w.title)}</th>`).join("")}</tr></thead><tbody>${tagRows}</tbody></table></div></section>
+      <p class="actions">${slugs.length === 2 ? `<a class="btn ghost" href="${hashOf([slugs[1], slugs[0]])}">Swap sides</a>` : ""}
+        ${shareButton(`${location.origin}${location.pathname}${hashOf(slugs)}`, W.map((w) => w.title).join(" vs "), `${W.map((w) => w.title).join(" vs ")} on Mimir`)}</p>`;
   }
 
   // #20 + #23 Plan my time: fill a time budget from your backlog first, then from picks for you.
@@ -5287,7 +5393,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   app.addEventListener("submit", (e) => {
     const f = e.target, slug = f.elements.title ? slugFromTitle(f.elements.title.value) : null;
-    if (f.dataset.compareWith !== undefined) { if (slug) location.hash = `#compare-${f.dataset.compareWith}~${slug}`; else f.elements.title.setCustomValidity("Pick a title from the list"), f.reportValidity(); }
+    if (f.dataset.compareAdd !== undefined) { e.preventDefault(); if (slug) location.hash = `#compare-${[f.dataset.compareAdd, slug].filter(Boolean).join("~")}`; else f.elements.title.setCustomValidity("Pick a title from the list"), f.reportValidity(); }
+    if (f.dataset.awardsSearch !== undefined) { e.preventDefault(); location.hash = `#awards?${new URLSearchParams({ q: f.elements.q.value.trim(), m: f.elements.m.value })}`; }
     if (f.dataset.togetherLove !== undefined) {
       if (!slug) { f.elements.title.setCustomValidity("Pick a title from the list"); f.reportValidity(); return; }
       const p = together.people[Number(f.dataset.togetherLove)];
@@ -6365,7 +6472,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h === "for-you") { setNav("Discover"); renderForYou(p.get("m") || "all"); }
     else if (h === "shelves") { setNav("Discover"); renderShelves(); }
     else if (h === "decide") { setNav("Discover"); renderDecide(); }
-    else if (h.startsWith("compare-")) { setNav("Discover"); renderCompare(h.slice(8)); }
+    else if (h === "compare" || h.startsWith("compare-")) { setNav("Discover"); renderCompare(h.slice(8)); }
+    else if (h === "box-office") { setNav("Films"); renderBoxOffice(p); }
+    else if (h === "awards") { setNav("Catalogue"); renderAwards(p); }
     else if (h === "plan") { setNav("Discover"); renderPlan(); }
     else if (h === "together") { setNav("Discover"); renderTogether(); }
     else if (h === "taste") { setNav("Discover"); renderTaste(); }

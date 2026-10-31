@@ -49,7 +49,7 @@ function slimEnrichment(all, seedWorks = []) {
   for (const [source, data] of Object.entries(all)) {
     const works = {};
     for (const [slug, rec] of Object.entries(data.works || {})) {
-      const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key"]);
+      const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key", "budget", "awards"]);
       // Only the ids the site turns into links or player embeds; the rest (dozens of catalogue numbers) are for the API.
       if (slim.ids) slim.ids = pick(slim.ids, SITE_IDS);
       // Links the importer derived from the title and ids are rebuilt by the engine, not downloaded (see linksFor).
