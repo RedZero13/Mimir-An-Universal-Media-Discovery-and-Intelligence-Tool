@@ -813,9 +813,11 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .epo { position: absolute; top: 38%; width: 12vmin; height: 22vmin; border-radius: 50%; animation: epo 3s ease both; } .epo.a { left: 25%; border: 5px solid #FF9A1F; box-shadow: 0 0 40px #FF9A1F; } .epo.b { right: 25%; border: 5px solid #1F9AFF; box-shadow: 0 0 40px #1F9AFF; } @keyframes epo { 0% { transform: scaleY(0); opacity: 0; } 25%, 75% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0); opacity: 0; } }
 .egg-fx.still { animation: egg-out .5s ease 2.2s forwards; background: rgba(0, 0, 0, .55); }
 @media (prefers-reduced-motion: reduce) { .sw-card, .sw-b, .cr-item { transition: none !important; } }
-.fy-ctl { display: grid; gap: 8px; margin: 0 0 18px; }
+.fy-ctl { display: grid; gap: 10px; margin: 18px 0 18px; }
 .fy-ctl p { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; }
-.fy-ctl .eyebrow { min-width: 86px; }
+/* One label width for every row, wide enough for the longest ("Familiarity"), so the chips line up in a column. */
+.fy-ctl .eyebrow { flex: 0 0 130px; }
+@media (max-width: 560px) { .fy-ctl .eyebrow { flex-basis: 100%; } }
 .cmp-heads { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 18px 0; }
 .cmp-heads a { width: min(160px, 36vw); text-align: center; text-decoration: none; color: var(--bone); font-weight: 600; }
 .cmp-heads a span { display: block; margin-top: 8px; }
