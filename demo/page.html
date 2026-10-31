@@ -829,7 +829,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .money-line b { color: var(--bone); }
 details.awards { margin: 8px 0; } details.awards summary { cursor: pointer; color: var(--ink); }
 details.awards h3 { font-size: .95rem; margin: 10px 0 4px; } .award-list { margin: 0; padding-left: 18px; columns: 2 260px; font-size: .9rem; }
-.money-table td, .money-table th { white-space: nowrap; } .money-table td:nth-child(2) { white-space: normal; min-width: 180px; }
+.money-table td, .money-table th { white-space: nowrap; } .money-table td:nth-child(2), .money-table th:nth-child(2) { white-space: normal; min-width: 180px; text-align: left; }
 .cmp-vs small { font-size: .7rem; color: var(--cream); }
 .cmp-scroll { overflow-x: auto; }
 .cmp-table { width: 100%; min-width: 520px; }
@@ -5250,7 +5250,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${row("Genre", (w) => chips([...terms(w, "genre").values()].slice(0, 4)))}
         ${row("By", (w) => esc(w.credits.slice(0, 2).map((c) => c.name).join(", ") || "—"))}
         ${row("Country", (w) => esc((w.countries || []).join(", ") || "—"))}
-        ${numRow("Time", (s) => { const w = fullWork().get(s); return w.time ? w.time.minutes : null; }, (v, s) => esc(timeText(fullWork().get(s).time, fullWork().get(s).medium === "album")), true)}
+        ${row("Time", (w) => (w.time ? esc(timeText(w.time, w.medium === "album")) : muted("Not recorded")))}
         ${row("Series", (w) => esc(contText(w.continuity)))}
         ${numRow("Score", (s) => unifiedScore(cardOf(s)), (v, s) => `${v}/100 <span class="muted small">(${esc(scoreTitle(cardOf(s)))})</span>`)}
         ${row("Popularity", (w) => esc(TIER[w.popularity_tier] || "Not rated"))}
