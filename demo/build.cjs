@@ -225,8 +225,7 @@ ${ICON_LINKS}
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": [
     { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: "Mimir", alternateName: "Mimir",
       description: "Discover and track films, TV, books, manga, games and music by how they feel, with the reason for every pick.",
-      publisher: { "@id": "https://terratalesmedia.world/#org" }, inLanguage: "en",
-      potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/#browse?q={search_term_string}` }, "query-input": "required name=search_term_string" } },
+      publisher: { "@id": "https://terratalesmedia.world/#org" }, inLanguage: "en" },
     { "@type": "WebApplication", name: "Mimir", url: `${SITE_URL}/`, applicationCategory: "EntertainmentApplication", operatingSystem: "Any",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } },
     { "@type": "Organization", "@id": `${SITE_URL}/#brand`, name: "Mimir", url: `${SITE_URL}/`,
@@ -351,6 +350,7 @@ if (args[0] === "--site") {
   }
   fs.rmSync(path.join(out, "fonts"), { recursive: true, force: true });
   fs.cpSync(path.join(here, "fonts"), path.join(out, "fonts"), { recursive: true, filter: (f) => !f.endsWith(".md") });
+  fs.writeFileSync(path.join(out, "fonts", "fonts.css"), minify(fs.readFileSync(path.join(here, "fonts", "fonts.css"), "utf8"), "css"));
   fs.writeFileSync(path.join(out, "site.webmanifest"), JSON.stringify({
     name: "Mimir", short_name: "Mimir", start_url: "/", scope: "/", display: "standalone",
     description: "Discover and track films, TV, books, manga, games and music, with the reason behind every pick.",
