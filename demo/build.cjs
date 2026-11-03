@@ -49,7 +49,7 @@ function slimEnrichment(all, seedWorks = []) {
   for (const [source, data] of Object.entries(all)) {
     const works = {};
     for (const [slug, rec] of Object.entries(data.works || {})) {
-      const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key", "budget", "awards"]);
+      const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key", "budget", "awards", "game"]);
       // Only the ids the site turns into links or player embeds; the rest (dozens of catalogue numbers) are for the API.
       if (slim.ids) slim.ids = pick(slim.ids, SITE_IDS);
       // Links the importer derived from the title and ids are rebuilt by the engine, not downloaded (see linksFor).
@@ -82,6 +82,7 @@ function dataTexts(slim) {
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     config: JSON.stringify(siteConfig()),
     blog: read(path.join(here, "blog.json")),
+    gametrackers: read(path.join(api, "catalogue", "game-trackers.json")),
   };
 }
 
@@ -102,6 +103,7 @@ function page() {
     .replace("/*__AUDIOBOOKS__*/", () => json(path.join(api, "catalogue", "audiobooks.json")))
     .replace("/*__OBSERVANCES__*/", () => json(path.join(api, "catalogue", "observances.json")))
     .replace("/*__BLOG__*/", () => json(path.join(here, "blog.json")))
+    .replace("/*__GAMETRACKERS__*/", () => json(path.join(api, "catalogue", "game-trackers.json")))
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))

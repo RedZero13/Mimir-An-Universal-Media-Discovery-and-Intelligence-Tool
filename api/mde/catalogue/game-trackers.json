@@ -1,0 +1,2791 @@
+{
+ "about": "Wish rules are community-measured presets (editable in the tracker); lists are from the EnkaNetwork API-docs open data and may lag the newest releases.",
+ "generated": "2026-11-03",
+ "games": [
+  {
+   "key": "genshin-impact",
+   "name": "Genshin Impact",
+   "currency": "Primogems",
+   "per_pull": 160,
+   "pull_name": "Wish",
+   "banners": [
+    {
+     "key": "character",
+     "name": "Character event wish",
+     "hard": 90,
+     "soft": 74,
+     "step": 6.0,
+     "base": 0.6,
+     "featured": 0.5,
+     "pity4": 10
+    },
+    {
+     "key": "weapon",
+     "name": "Weapon event wish",
+     "hard": 80,
+     "soft": 63,
+     "step": 7.0,
+     "base": 0.7,
+     "featured": 0.75,
+     "pity4": 10
+    },
+    {
+     "key": "standard",
+     "name": "Standard wish",
+     "hard": 90,
+     "soft": 74,
+     "step": 6.0,
+     "base": 0.6,
+     "featured": 0.0,
+     "pity4": 10
+    }
+   ],
+   "categories": [
+    {
+     "key": "characters",
+     "label": "Characters",
+     "types_label": "Element",
+     "items": [
+      {
+       "id": "10000038",
+       "name": "Albedo",
+       "rarity": 5,
+       "type": "Geo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000078",
+       "name": "Alhaitham",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000057",
+       "name": "Arataki Itto",
+       "rarity": 5,
+       "type": "Geo",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000096",
+       "name": "Arlecchino",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000082",
+       "name": "Baizhu",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000104",
+       "name": "Chasca",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000094",
+       "name": "Chiori",
+       "rarity": 5,
+       "type": "Geo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000107",
+       "name": "Citlali",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000098",
+       "name": "Clorinde",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000904",
+       "name": "Columbina",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000071",
+       "name": "Cyno",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000079",
+       "name": "Dehya",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000016",
+       "name": "Diluc",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000123",
+       "name": "Durin",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000099",
+       "name": "Emilie",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000112",
+       "name": "Escoffier",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000051",
+       "name": "Eula",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000120",
+       "name": "Flins",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000089",
+       "name": "Furina",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000037",
+       "name": "Ganyu",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000046",
+       "name": "Hu Tao",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000116",
+       "name": "Ineffa",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000003",
+       "name": "Jean",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000047",
+       "name": "Kaedehara Kazuha",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000002",
+       "name": "Kamisato Ayaka",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000066",
+       "name": "Kamisato Ayato",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000042",
+       "name": "Keqing",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000101",
+       "name": "Kinich",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000029",
+       "name": "Klee",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000119",
+       "name": "Lauma",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000084",
+       "name": "Lyney",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000106",
+       "name": "Mavuika",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000041",
+       "name": "Mona",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000102",
+       "name": "Mualani",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000073",
+       "name": "Nahida",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000091",
+       "name": "Navia",
+       "rarity": 5,
+       "type": "Geo",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000122",
+       "name": "Nefer",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000087",
+       "name": "Neuvillette",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000070",
+       "name": "Nilou",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000035",
+       "name": "Qiqi",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000052",
+       "name": "Raiden Shogun",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000054",
+       "name": "Sangonomiya Kokomi",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000063",
+       "name": "Shenhe",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000095",
+       "name": "Sigewinne",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000114",
+       "name": "Skirk",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000033",
+       "name": "Tartaglia",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000069",
+       "name": "Tighnari",
+       "rarity": 5,
+       "type": "Dendro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000005",
+       "name": "Traveler",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000111",
+       "name": "Varesa",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000022",
+       "name": "Venti",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000075",
+       "name": "Wanderer",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000086",
+       "name": "Wriothesley",
+       "rarity": 5,
+       "type": "Cryo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000093",
+       "name": "Xianyun",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000026",
+       "name": "Xiao",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000103",
+       "name": "Xilonen",
+       "rarity": 5,
+       "type": "Geo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000058",
+       "name": "Yae Miko",
+       "rarity": 5,
+       "type": "Electro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000060",
+       "name": "Yelan",
+       "rarity": 5,
+       "type": "Hydro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000049",
+       "name": "Yoimiya",
+       "rarity": 5,
+       "type": "Pyro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000109",
+       "name": "Yumemizuki Mizuki",
+       "rarity": 5,
+       "type": "Anemo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000030",
+       "name": "Zhongli",
+       "rarity": 5,
+       "type": "Geo",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000121",
+       "name": "Aino",
+       "rarity": 4,
+       "type": "Hydro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000021",
+       "name": "Amber",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000014",
+       "name": "Barbara",
+       "rarity": 4,
+       "type": "Hydro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000024",
+       "name": "Beidou",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000032",
+       "name": "Bennett",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000072",
+       "name": "Candace",
+       "rarity": 4,
+       "type": "Hydro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000088",
+       "name": "Charlotte",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000090",
+       "name": "Chevreuse",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000036",
+       "name": "Chongyun",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000067",
+       "name": "Collei",
+       "rarity": 4,
+       "type": "Dendro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000115",
+       "name": "Dahlia",
+       "rarity": 4,
+       "type": "Hydro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000039",
+       "name": "Diona",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000068",
+       "name": "Dori",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000076",
+       "name": "Faruzan",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000031",
+       "name": "Fischl",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000085",
+       "name": "Freminet",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000092",
+       "name": "Gaming",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000055",
+       "name": "Gorou",
+       "rarity": 4,
+       "type": "Geo",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000110",
+       "name": "Iansan",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000113",
+       "name": "Ifa",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000124",
+       "name": "Jahoda",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000100",
+       "name": "Kachina",
+       "rarity": 4,
+       "type": "Geo",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000015",
+       "name": "Kaeya",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000081",
+       "name": "Kaveh",
+       "rarity": 4,
+       "type": "Dendro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000061",
+       "name": "Kirara",
+       "rarity": 4,
+       "type": "Dendro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000056",
+       "name": "Kujou Sara",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000065",
+       "name": "Kuki Shinobu",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000108",
+       "name": "Lan Yan",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000074",
+       "name": "Layla",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000006",
+       "name": "Lisa",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000083",
+       "name": "Lynette",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000080",
+       "name": "Mika",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000027",
+       "name": "Ningguang",
+       "rarity": 4,
+       "type": "Geo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000034",
+       "name": "Noelle",
+       "rarity": 4,
+       "type": "Geo",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000105",
+       "name": "Ororon",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000020",
+       "name": "Razor",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000045",
+       "name": "Rosaria",
+       "rarity": 4,
+       "type": "Cryo",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000053",
+       "name": "Sayu",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000097",
+       "name": "Sethos",
+       "rarity": 4,
+       "type": "Electro",
+       "sub": "Bow"
+      },
+      {
+       "id": "10000059",
+       "name": "Shikanoin Heizou",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000043",
+       "name": "Sucrose",
+       "rarity": 4,
+       "type": "Anemo",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000050",
+       "name": "Thoma",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000023",
+       "name": "Xiangling",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000025",
+       "name": "Xingqiu",
+       "rarity": 4,
+       "type": "Hydro",
+       "sub": "Sword"
+      },
+      {
+       "id": "10000044",
+       "name": "Xinyan",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Claymore"
+      },
+      {
+       "id": "10000048",
+       "name": "Yanfei",
+       "rarity": 4,
+       "type": "Pyro",
+       "sub": "Catalyst"
+      },
+      {
+       "id": "10000077",
+       "name": "Yaoyao",
+       "rarity": 4,
+       "type": "Dendro",
+       "sub": "Polearm"
+      },
+      {
+       "id": "10000064",
+       "name": "Yun Jin",
+       "rarity": 4,
+       "type": "Geo",
+       "sub": "Polearm"
+      }
+     ]
+    },
+    {
+     "key": "weapons",
+     "label": "Weapons",
+     "types_label": "Type",
+     "items": [
+      {
+       "id": "12514",
+       "name": "A Thousand Blazing Suns",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11515",
+       "name": "Absolution",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "15502",
+       "name": "Amos' Bow",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "15508",
+       "name": "Aqua Simulacra",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11501",
+       "name": "Aquila Favonia",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "11518",
+       "name": "Athame Artis",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "12511",
+       "name": "Beacon of the Reed Sea",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13516",
+       "name": "Bloodsoaked Ruins",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13507",
+       "name": "Calamity Queller",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "14515",
+       "name": "Crane's Echoing Call",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13509",
+       "name": "Engulfing Lightning",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13515",
+       "name": "Fractured Halo",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "15511",
+       "name": "Hunter's Path",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "14505",
+       "name": "Jadefall's Splendor",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11511",
+       "name": "Key of Khaj-Nisut",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "11512",
+       "name": "Light of Foliar Incision",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "13513",
+       "name": "Lumidouce Elegy",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11509",
+       "name": "Mistsplitter Reforged",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "14520",
+       "name": "Nightweaver's Looking Glass",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11516",
+       "name": "Peak Patrol Song",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "11505",
+       "name": "Primordial Jade Cutter",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "12505",
+       "name": "Primordial Jade Greatsword",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13505",
+       "name": "Primordial Jade Winged-Spear",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "12510",
+       "name": "Redhorn Stonethresher",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "14521",
+       "name": "Reliquary of Truth",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "14501",
+       "name": "Skyward Atlas",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11502",
+       "name": "Skyward Blade",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "15501",
+       "name": "Skyward Harp",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13511",
+       "name": "Staff of the Scarlet Sands",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "14517",
+       "name": "Starcaller's Watch",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11504",
+       "name": "Summit Shaper",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "14516",
+       "name": "Surf's Up",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13514",
+       "name": "Symphonist of Scents",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "15512",
+       "name": "The First Great Magic",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "12504",
+       "name": "The Unforged",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "14512",
+       "name": "Tulaytullah's Remembrance",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "11514",
+       "name": "Uraku Misugiri",
+       "rarity": 5,
+       "type": "Sword"
+      },
+      {
+       "id": "12512",
+       "name": "Verdict",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "14519",
+       "name": "Vivid Notions",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "13504",
+       "name": "Vortex Vanquisher",
+       "rarity": 5,
+       "type": ""
+      },
+      {
+       "id": "15410",
+       "name": "Alley Hunter",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11414",
+       "name": "Amenoma Kageuchi",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "14427",
+       "name": "Ash-Graven Drinking Horn",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14426",
+       "name": "Ballad of the Boundless Blue",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11408",
+       "name": "Blackcliff Longsword",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "13404",
+       "name": "Blackcliff Pole",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12408",
+       "name": "Blackcliff Slasher",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14433",
+       "name": "Blackmarrow Lantern",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11432",
+       "name": "Calamity of Eshu",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "15407",
+       "name": "Compound Bow",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13426",
+       "name": "Dialogues of the Desert Sages",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13409",
+       "name": "Dragonspine Spear",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15418",
+       "name": "End of the Line",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14432",
+       "name": "Etherlight Spindlelute",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15411",
+       "name": "Fading Twilight",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14401",
+       "name": "Favonius Codex",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13407",
+       "name": "Favonius Lance",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11401",
+       "name": "Favonius Sword",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "15401",
+       "name": "Favonius Warbow",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11413",
+       "name": "Festering Desire",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "11425",
+       "name": "Finale of the Deep",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "11426",
+       "name": "Fleuve Cendre Ferryman",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "15430",
+       "name": "Flower-Wreathed Feathers",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14425",
+       "name": "Flowing Purity",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11431",
+       "name": "Flute of Ezpitzal",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "13431",
+       "name": "Footprint of the Rainbow",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14412",
+       "name": "Frostbearer",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14417",
+       "name": "Fruit of Fulfillment",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12430",
+       "name": "Fruitful Hook",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14414",
+       "name": "Hakushin Ring",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15414",
+       "name": "Hamayumi",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11416",
+       "name": "Kagotsurube Isshin",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "12414",
+       "name": "Katsuragikiri Nagamasa",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12410",
+       "name": "Lithic Blade",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13406",
+       "name": "Lithic Spear",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12412",
+       "name": "Luxurious Sea-Lord",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14407",
+       "name": "Mappa Mare",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12433",
+       "name": "Master Key",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13419",
+       "name": "Missive Windspear",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15416",
+       "name": "Mouun's Moon",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12427",
+       "name": "Portable Power Saw",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15415",
+       "name": "Predator",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13433",
+       "name": "Prospector's Shovel",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14406",
+       "name": "Prototype Amber",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12406",
+       "name": "Prototype Archaic",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11406",
+       "name": "Prototype Rancour",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "13402",
+       "name": "Prototype Starglitter",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15434",
+       "name": "Rainbow Serpent's Rain Bow",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12405",
+       "name": "Rainslasher",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13425",
+       "name": "Rightful Reward",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14431",
+       "name": "Ring of Yaxche",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12404",
+       "name": "Royal Greatsword",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11404",
+       "name": "Royal Longsword",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "15405",
+       "name": "Rust",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "13434",
+       "name": "Sacrificer's Staff",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "12403",
+       "name": "Sacrificial Greatsword",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11403",
+       "name": "Sacrificial Sword",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "11417",
+       "name": "Sapwood Blade",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "15424",
+       "name": "Scion of the Blazing Sun",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11433",
+       "name": "Serenity's Call",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "12409",
+       "name": "Serpent Spine",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15425",
+       "name": "Song of Stillness",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11430",
+       "name": "Sturdy Bone",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "12424",
+       "name": "Talking Stick",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11410",
+       "name": "The Alley Flash",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "12402",
+       "name": "The Bell",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11402",
+       "name": "The Flute",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "14402",
+       "name": "The Widsith",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11422",
+       "name": "Toukabou Shigure",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "14430",
+       "name": "Waveriding Whirl",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "15413",
+       "name": "Windblume Ode",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "14410",
+       "name": "Wine and Song",
+       "rarity": 4,
+       "type": ""
+      },
+      {
+       "id": "11424",
+       "name": "Wolf-Fang",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "11418",
+       "name": "Xiphos' Moonlight",
+       "rarity": 4,
+       "type": "Sword"
+      },
+      {
+       "id": "13303",
+       "name": "Black Tassel",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "12302",
+       "name": "Bloodtainted Greatsword",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "11301",
+       "name": "Cool Steel",
+       "rarity": 3,
+       "type": "Sword"
+      },
+      {
+       "id": "14304",
+       "name": "Emerald Orb",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "14301",
+       "name": "Magic Guide",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "14303",
+       "name": "Otherworldly Story",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "15301",
+       "name": "Raven Bow",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "15303",
+       "name": "Recurve Bow",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "15302",
+       "name": "Sharpshooter's Oath",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "12303",
+       "name": "White Iron Greatsword",
+       "rarity": 3,
+       "type": ""
+      },
+      {
+       "id": "13301",
+       "name": "White Tassel",
+       "rarity": 3,
+       "type": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "honkai-star-rail",
+   "name": "Honkai: Star Rail",
+   "currency": "Stellar Jade",
+   "per_pull": 160,
+   "pull_name": "Warp",
+   "banners": [
+    {
+     "key": "character",
+     "name": "Character event warp",
+     "hard": 90,
+     "soft": 74,
+     "step": 6.0,
+     "base": 0.6,
+     "featured": 0.5,
+     "pity4": 10
+    },
+    {
+     "key": "lightcone",
+     "name": "Light cone event warp",
+     "hard": 80,
+     "soft": 66,
+     "step": 7.0,
+     "base": 0.8,
+     "featured": 0.75,
+     "pity4": 10
+    },
+    {
+     "key": "standard",
+     "name": "Stellar warp (standard)",
+     "hard": 90,
+     "soft": 74,
+     "step": 6.0,
+     "base": 0.6,
+     "featured": 0.0,
+     "pity4": 10
+    }
+   ],
+   "categories": []
+  },
+  {
+   "key": "zenless-zone-zero",
+   "name": "Zenless Zone Zero",
+   "currency": "Polychrome",
+   "per_pull": 160,
+   "pull_name": "Signal search",
+   "banners": [
+    {
+     "key": "agent",
+     "name": "Exclusive channel (agent)",
+     "hard": 90,
+     "soft": 74,
+     "step": 6.0,
+     "base": 0.6,
+     "featured": 0.5,
+     "pity4": 10
+    },
+    {
+     "key": "wengine",
+     "name": "W-engine channel",
+     "hard": 80,
+     "soft": 65,
+     "step": 7.0,
+     "base": 1.0,
+     "featured": 0.75,
+     "pity4": 10
+    },
+    {
+     "key": "standard",
+     "name": "Stable channel (standard)",
+     "hard": 90,
+     "soft": 74,
+     "step": 6.0,
+     "base": 0.6,
+     "featured": 0.0,
+     "pity4": 10
+    }
+   ],
+   "categories": [
+    {
+     "key": "agents",
+     "label": "Agents",
+     "types_label": "Element",
+     "items": [
+      {
+       "id": "1401",
+       "name": "Alice",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1501",
+       "name": "Aria",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ether",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1311",
+       "name": "Astra Yao",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ether",
+       "sub": "Support"
+      },
+      {
+       "id": "1471",
+       "name": "Banyue",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Rupture"
+      },
+      {
+       "id": "1171",
+       "name": "Burnice",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1071",
+       "name": "Caesar",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Defense"
+      },
+      {
+       "id": "1521",
+       "name": "Cissia",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Attack"
+      },
+      {
+       "id": "1611",
+       "name": "Claret",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Armorer"
+      },
+      {
+       "id": "1481",
+       "name": "Dialyn",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Stun"
+      },
+      {
+       "id": "1191",
+       "name": "Ellen",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ice",
+       "sub": "Attack"
+      },
+      {
+       "id": "1321",
+       "name": "Evelyn",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Attack"
+      },
+      {
+       "id": "1181",
+       "name": "Grace",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1201",
+       "name": "Harumasa",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Attack"
+      },
+      {
+       "id": "1291",
+       "name": "Hugo",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ice",
+       "sub": "Attack"
+      },
+      {
+       "id": "1261",
+       "name": "Jane",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1391",
+       "name": "Ju Fufu",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Stun"
+      },
+      {
+       "id": "1101",
+       "name": "Koleda",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Stun"
+      },
+      {
+       "id": "1161",
+       "name": "Lighter",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Stun"
+      },
+      {
+       "id": "1451",
+       "name": "Lucia",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ether",
+       "sub": "Support"
+      },
+      {
+       "id": "1141",
+       "name": "Lycaon",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ice",
+       "sub": "Stun"
+      },
+      {
+       "id": "1091",
+       "name": "Miyabi",
+       "rarity": 5,
+       "rank": "S",
+       "type": "FireFrost/Ice",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1511",
+       "name": "Nangong Yu",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ether",
+       "sub": "Stun"
+      },
+      {
+       "id": "1021",
+       "name": "Nekomata",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Attack"
+      },
+      {
+       "id": "1571",
+       "name": "Norma",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Stun"
+      },
+      {
+       "id": "1301",
+       "name": "Orphie & Magus",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Attack"
+      },
+      {
+       "id": "1641",
+       "name": "Phoenix",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Fire",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1541",
+       "name": "Promeia",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ice",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1551",
+       "name": "Pyrois",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ether",
+       "sub": "Attack"
+      },
+      {
+       "id": "1251",
+       "name": "Qingyi",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Stun"
+      },
+      {
+       "id": "1581",
+       "name": "Remielle",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Lumen",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1211",
+       "name": "Rina",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Support"
+      },
+      {
+       "id": "1621",
+       "name": "Roxy",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Wind",
+       "sub": "Stun"
+      },
+      {
+       "id": "1461",
+       "name": "Seed",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Attack"
+      },
+      {
+       "id": "1631",
+       "name": "Severian",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Wind",
+       "sub": "Attack"
+      },
+      {
+       "id": "1591",
+       "name": "Sigrid",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ice",
+       "sub": "Attack"
+      },
+      {
+       "id": "1531",
+       "name": "Starlight - Billy",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Rupture"
+      },
+      {
+       "id": "1491",
+       "name": "Sunna",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Support"
+      },
+      {
+       "id": "1361",
+       "name": "Trigger",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Stun"
+      },
+      {
+       "id": "1561",
+       "name": "Velina",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Wind",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1331",
+       "name": "Vivian",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ether",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1221",
+       "name": "Yanagi",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Elec",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1431",
+       "name": "Ye Shunguang",
+       "rarity": 5,
+       "rank": "S",
+       "type": "ZhenZhenAssault/Physics",
+       "sub": "Attack"
+      },
+      {
+       "id": "1051",
+       "name": "Yidhari",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ice",
+       "sub": "Rupture"
+      },
+      {
+       "id": "1371",
+       "name": "Yixuan",
+       "rarity": 5,
+       "rank": "S",
+       "type": "AuricEther/Ether",
+       "sub": "Rupture"
+      },
+      {
+       "id": "1411",
+       "name": "Yuzuha",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Physics",
+       "sub": "Support"
+      },
+      {
+       "id": "1341",
+       "name": "Zhao",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ice",
+       "sub": "Defense"
+      },
+      {
+       "id": "1241",
+       "name": "Zhu Yuan",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Ether",
+       "sub": "Attack"
+      },
+      {
+       "id": "1011",
+       "name": "Anby",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Elec",
+       "sub": "Stun"
+      },
+      {
+       "id": "1111",
+       "name": "Anton",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Elec",
+       "sub": "Attack"
+      },
+      {
+       "id": "1121",
+       "name": "Ben",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Fire",
+       "sub": "Defense"
+      },
+      {
+       "id": "1081",
+       "name": "Billy",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Physics",
+       "sub": "Attack"
+      },
+      {
+       "id": "1061",
+       "name": "Corin",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Physics",
+       "sub": "Attack"
+      },
+      {
+       "id": "1151",
+       "name": "Lucy",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Fire",
+       "sub": "Support"
+      },
+      {
+       "id": "1441",
+       "name": "Manato",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Fire",
+       "sub": "Rupture"
+      },
+      {
+       "id": "1031",
+       "name": "Nicole",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Ether",
+       "sub": "Support"
+      },
+      {
+       "id": "1421",
+       "name": "Pan Yinhu",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Physics",
+       "sub": "Defense"
+      },
+      {
+       "id": "1281",
+       "name": "Piper",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Physics",
+       "sub": "Anomaly"
+      },
+      {
+       "id": "1351",
+       "name": "Pulchra",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Physics",
+       "sub": "Stun"
+      },
+      {
+       "id": "1271",
+       "name": "Seth",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Elec",
+       "sub": "Defense"
+      },
+      {
+       "id": "1131",
+       "name": "Soukaku",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Ice",
+       "sub": "Support"
+      }
+     ]
+    },
+    {
+     "key": "wengines",
+     "label": "W-engines",
+     "types_label": "Specialty",
+     "items": [
+      {
+       "id": "14150",
+       "name": "Angel in the Shell",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14130",
+       "name": "Bellicose Blaze",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14116",
+       "name": "Blazing Laurel",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14157",
+       "name": "Chief Sidekick",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14143",
+       "name": "Cloudcleave Radiance",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14146",
+       "name": "Cordis Germina",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14162",
+       "name": "Crimson Moon Casket",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14161",
+       "name": "Crimson Thirst",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Armorer"
+      },
+      {
+       "id": "14119",
+       "name": "Deep Sea Visitor",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14145",
+       "name": "Dreamlit Hearth",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Support"
+      },
+      {
+       "id": "14131",
+       "name": "Elegant Vanity",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Support"
+      },
+      {
+       "id": "14117",
+       "name": "Flamemaker Shaker",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14133",
+       "name": "Flight of Fancy",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14154",
+       "name": "Frostfall Sickle",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14118",
+       "name": "Fusion Compiler",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14109",
+       "name": "Hailstorm Shrine",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14134",
+       "name": "Half-Sugar Bunny",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Defense"
+      },
+      {
+       "id": "14132",
+       "name": "Heartstring Nocturne",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14110",
+       "name": "Hellfire Gears",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14125",
+       "name": "Ice-Jade Teapot",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14163",
+       "name": "Incarcerating Grip",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14156",
+       "name": "Joyau Dore",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14159",
+       "name": "Knight's Extolment",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14105",
+       "name": "Kraken's Cradle",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Rupture"
+      },
+      {
+       "id": "14141",
+       "name": "Metanukimorphosis",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Support"
+      },
+      {
+       "id": "14129",
+       "name": "Myriad Eclipse",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14151",
+       "name": "Neon Fantasies",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14158",
+       "name": "Ode of Resurrected Wings",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14164",
+       "name": "Plume of Rebirth",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14140",
+       "name": "Practiced Perfection",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14137",
+       "name": "Qingming Birdcage",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Rupture"
+      },
+      {
+       "id": "14124",
+       "name": "Riot Suppressor Mark VI",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14139",
+       "name": "Roaring Fur-nace",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14152",
+       "name": "Serpentine Seeker",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14138",
+       "name": "Severed Innocence",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14126",
+       "name": "Sharpened Stinger",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14155",
+       "name": "Sol Exuvia",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14136",
+       "name": "Spectral Gaze",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14153",
+       "name": "Starlight Rider Faceplate",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Rupture"
+      },
+      {
+       "id": "14102",
+       "name": "Steel Cushion",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14104",
+       "name": "The Brimstone",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "14114",
+       "name": "The Restrained",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14149",
+       "name": "Thoughtbop",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Support"
+      },
+      {
+       "id": "14122",
+       "name": "Timeweaver",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14107",
+       "name": "Tusks of Fury",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Defense"
+      },
+      {
+       "id": "14121",
+       "name": "Weeping Cradle",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Support"
+      },
+      {
+       "id": "14147",
+       "name": "Wrathful Vajra",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Rupture"
+      },
+      {
+       "id": "14148",
+       "name": "Yesterday Calls",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Stun"
+      },
+      {
+       "id": "14120",
+       "name": "Zanshin Herb Case",
+       "rarity": 5,
+       "rank": "S",
+       "type": "Attack"
+      },
+      {
+       "id": "13113",
+       "name": "Bashful Demon",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Support"
+      },
+      {
+       "id": "13112",
+       "name": "Big Cylinder",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Defense"
+      },
+      {
+       "id": "13021",
+       "name": "Bloodmarrow Coffer",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Armorer"
+      },
+      {
+       "id": "13018",
+       "name": "Boisterous Echoes",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Anomaly"
+      },
+      {
+       "id": "13135",
+       "name": "Box Cutter",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Stun"
+      },
+      {
+       "id": "13010",
+       "name": "Bunny Band",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Defense"
+      },
+      {
+       "id": "13022",
+       "name": "Candlelit Scheme",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Armorer"
+      },
+      {
+       "id": "14001",
+       "name": "Cannon Rotor",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13017",
+       "name": "Catty Luck",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Armorer"
+      },
+      {
+       "id": "13019",
+       "name": "Cauldron of Clarity",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Rupture"
+      },
+      {
+       "id": "13101",
+       "name": "Demara Battery Mark II",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Stun"
+      },
+      {
+       "id": "13111",
+       "name": "Drill Rig - Red Axis",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13009",
+       "name": "Electro-Lip Gloss",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Anomaly"
+      },
+      {
+       "id": "13013",
+       "name": "Gilded Blossom",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13144",
+       "name": "Grill O'Wisp",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Rupture"
+      },
+      {
+       "id": "13106",
+       "name": "Housekeeper",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13115",
+       "name": "Kaboom the Cannon",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Support"
+      },
+      {
+       "id": "13015",
+       "name": "Marcato Desire",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13007",
+       "name": "Original Transmorpher",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Defense"
+      },
+      {
+       "id": "13127",
+       "name": "Peacekeeper - Specialized",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Defense"
+      },
+      {
+       "id": "13006",
+       "name": "Precious Fossilized Core",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Stun"
+      },
+      {
+       "id": "13012",
+       "name": "Puzzle Sphere",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Rupture"
+      },
+      {
+       "id": "13014",
+       "name": "Radiowave Journey",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Rupture"
+      },
+      {
+       "id": "13003",
+       "name": "Rainforest Gourmet",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Anomaly"
+      },
+      {
+       "id": "13016",
+       "name": "Reel Projector",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Defense"
+      },
+      {
+       "id": "13128",
+       "name": "Roaring Ride",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Anomaly"
+      },
+      {
+       "id": "14003",
+       "name": "Six Shooter",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Stun"
+      },
+      {
+       "id": "13002",
+       "name": "Slice of Time",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Support"
+      },
+      {
+       "id": "13011",
+       "name": "Spring Embrace",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Defense"
+      },
+      {
+       "id": "13004",
+       "name": "Starlight Engine",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13108",
+       "name": "Starlight Engine Replica",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13005",
+       "name": "Steam Oven",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Stun"
+      },
+      {
+       "id": "13001",
+       "name": "Street Superstar",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Attack"
+      },
+      {
+       "id": "13020",
+       "name": "The Simmering Pot",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Stun"
+      },
+      {
+       "id": "13103",
+       "name": "The Vault",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Support"
+      },
+      {
+       "id": "13142",
+       "name": "Tremor Trigram Vessel",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Defense"
+      },
+      {
+       "id": "14002",
+       "name": "Unfettered Game Ball",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Support"
+      },
+      {
+       "id": "13008",
+       "name": "Weeping Gemini",
+       "rarity": 4,
+       "rank": "A",
+       "type": "Anomaly"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "wuthering-waves",
+   "name": "Wuthering Waves",
+   "currency": "Astrite",
+   "per_pull": 160,
+   "pull_name": "Convene",
+   "banners": [
+    {
+     "key": "character",
+     "name": "Featured resonator convene",
+     "hard": 80,
+     "soft": 66,
+     "step": 6.0,
+     "base": 0.8,
+     "featured": 0.5,
+     "pity4": 10
+    },
+    {
+     "key": "weapon",
+     "name": "Featured weapon convene",
+     "hard": 80,
+     "soft": 66,
+     "step": 6.0,
+     "base": 0.8,
+     "featured": 1.0,
+     "pity4": 10
+    },
+    {
+     "key": "standard",
+     "name": "Standard convene",
+     "hard": 80,
+     "soft": 66,
+     "step": 6.0,
+     "base": 0.8,
+     "featured": 0.0,
+     "pity4": 10
+    }
+   ],
+   "categories": []
+  }
+ ]
+}

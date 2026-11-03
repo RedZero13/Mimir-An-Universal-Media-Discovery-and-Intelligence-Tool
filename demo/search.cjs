@@ -26,7 +26,7 @@
     starring: ["actor"], cast: ["actor"], actor: ["actor"] };
   const FIELDS = ["title", "t", "by", "person", "studio", ...Object.keys(ROLE_FIELDS), "year", "y", "decade", "medium", "type", "in", "lang", "language", "country",
     "rating", "franchise", "universe", "genre", "tag", "mood", "theme", "style", "pacing", "world", "narrative", "complexity", "runtime", "length", "minutes",
-    "is", "has", "tier", "summary"];
+    "is", "has", "tier", "summary", "platform", "plat", "on"];
   const DIMENSION_FIELDS = new Set(["genre", "mood", "theme", "style", "pacing", "world", "narrative", "complexity"]);
   const LANGUAGES = { english: "en", hindi: "hi", tamil: "ta", telugu: "te", malayalam: "ml", kannada: "kn", bengali: "bn", marathi: "mr", punjabi: "pa", urdu: "ur",
     japanese: "ja", korean: "ko", chinese: "zh", mandarin: "zh", cantonese: "yue", french: "fr", german: "de", spanish: "es", italian: "it", portuguese: "pt",
@@ -36,6 +36,9 @@
     korea: "KR", "south korea": "KR", korean: "KR", china: "CN", chinese: "CN", france: "FR", french: "FR", germany: "DE", german: "DE", italy: "IT", italian: "IT",
     spain: "ES", spanish: "ES", canada: "CA", canadian: "CA", australia: "AU", mexico: "MX", brazil: "BR", russia: "RU", sweden: "SE", denmark: "DK", norway: "NO",
     ireland: "IE", nigeria: "NG", turkey: "TR", iran: "IR", argentina: "AR", poland: "PL", thailand: "TH", "hong kong": "HK", taiwan: "TW", "new zealand": "NZ" };
+  // Platforms are matched against the coarse list on each game (PC, PlayStation, Xbox, Nintendo Switch, Mobile).
+  const PLATFORMS = { pc: ["pc"], steam: ["pc"], windows: ["pc"], mac: ["pc"], playstation: ["playstation"], ps: ["playstation"], ps4: ["playstation"], ps5: ["playstation"], xbox: ["xbox"],
+    switch: ["switch"], nintendo: ["nintendo", "switch", "game boy", "nes"], mobile: ["mobile", "ios", "android"], ios: ["ios", "mobile"], android: ["android", "mobile"], phone: ["mobile", "ios", "android"] };
   const TAG_MIN = 0.5;
 
   // ---------------------------------------------------------------- tokenising
@@ -170,6 +173,9 @@
       case "country": {
         const code = COUNTRIES[n] || (/^[a-z]{2}$/.test(n) ? n.toUpperCase() : null); if (!code) { notes.push(`"${v}" is not a country Mimir knows.`); return null; }
         return (w) => (w.countries || []).includes(code); }
+      case "platform": case "plat": case "on": {
+        const want = PLATFORMS[n] || [n];
+        return (w) => ((w.attributes && w.attributes.platforms) || []).some((p) => want.some((x) => norm(p).includes(x))); }
       case "rating": { const r = String(v).toLowerCase(); return (w) => (w.ratings || []).some((x) => String(x[1] || x.rating || "").toLowerCase() === r); }
       case "franchise": case "universe": return (w) => norm(((w.attributes && w.attributes.franchises) || []).concat([w.attributes && w.attributes.series].filter(Boolean)).join(" ")).includes(n);
       case "genre": case "mood": case "theme": case "style": case "pacing": case "world": case "narrative": case "complexity": case "tag": {
@@ -311,6 +317,7 @@
     if (f === "medium" || f === "type") values = pick(["film", "tv", "book", "game", "album", "video", "channel"]);
     else if (f === "lang" || f === "language") values = pick(Object.keys(LANGUAGES));
     else if (f === "country") values = pick(Object.keys(COUNTRIES));
+    else if (f === "platform" || f === "plat" || f === "on") values = pick(["pc", "playstation", "xbox", "switch", "mobile"]);
     else if (f === "is") values = pick(["assessed", "unassessed", "new", "classic", "popular", "obscure"]);
     else if (f === "has") values = pick(["summary", "score", "guide", "cover"]);
     else if (f === "decade") values = pick(["1960s", "1970s", "1980s", "1990s", "2000s", "2010s", "2020s"]);
