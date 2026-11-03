@@ -1,3 +1,4 @@
+# ruff: noqa: E501  (data tables: one franchise or list per line reads better than wrapping)
 """Checklist trackers for games without a gacha: every game in a franchise, bosses, villagers, the Pokédex.
 
 Hand-written from public knowledge (titles and years are facts); the Pokédex names come from Wikidata (CC0), saved in
