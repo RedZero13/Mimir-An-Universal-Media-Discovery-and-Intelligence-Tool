@@ -6476,25 +6476,9 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   const gtKeyOfWork = (w) => GT_BY_TITLE[(w.title || "").toLowerCase()] || null;
   const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
 
-  // The chance that pull number n since the last 5-star is a 5-star: flat, then rising from the soft pity, certain at the hard pity.
+  // The maths lives in demo/wish.cjs (shared with its tests). A banner's rule: the preset, with any edits the player has made.
   const gtRule = (g, b) => ({ ...b, ...((gt.rules[g.key] || {})[b.key] || {}) });
-  const gtRate = (r, n) => (n >= r.hard ? 1 : n >= r.soft ? Math.min(1, r.base / 100 + (n - r.soft + 1) * r.step / 100) : r.base / 100);
-  // dist[k] = chance the next 5-star comes on exactly the k-th pull from now, starting at `pity` pulls since the last one.
-  function gtDist(r, pity) {
-    const out = [0]; let alive = 1;
-    for (let k = 1; k + pity <= r.hard; k++) { const p = gtRate(r, pity + k); out[k] = alive * p; alive *= 1 - p; }
-    return out;
-  }
-  const gtCdf = (d, n) => { let s = 0; for (let k = 1; k <= Math.min(n, d.length - 1); k++) s += d[k]; return s; };
-  // Chance of the featured 5-star within n pulls: the next one is featured with probability `feat` (or surely, if guaranteed); after an off-banner one the next is guaranteed.
-  function gtFeaturedWithin(r, pity, guaranteed, n) {
-    const d1 = gtDist(r, pity), d0 = gtDist(r, 0);
-    if (guaranteed || r.featured >= 1) return gtCdf(d1, n);
-    let p = r.featured * gtCdf(d1, n);
-    for (let k = 1; k < d1.length && k <= n; k++) p += (1 - r.featured) * d1[k] * gtCdf(d0, n - k);
-    return p;
-  }
-  const gtPullsFor = (r, pity, guaranteed, target) => { for (let n = 1; n <= 400; n++) if (gtFeaturedWithin(r, pity, guaranteed, n) >= target) return n; return null; };
+  const WISH = window.MimirWish, gtRate = WISH.rate, gtDist = WISH.dist, gtCdf = WISH.cdf, gtFeaturedWithin = WISH.featuredWithin, gtPullsFor = WISH.pullsFor;
   function gtBanner(g, bk) {
     const b = g.banners.find((x) => x.key === bk) || g.banners[0], r = gtRule(g, b);
     const list = (((gt.wishes[g.key] || {})[b.key]) || []);

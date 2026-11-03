@@ -107,7 +107,7 @@ function page() {
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
-    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
+    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "wish.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }
 
@@ -211,7 +211,7 @@ function sitePage(out) {
   // The data ships as one JSON document (each dataset already JSON text, so no re-encoding): parsing JSON is several times
   // cheaper than compiling the same data as a script, which was the page's longest single task.
   const dataJson = `{${Object.entries(texts).map(([k, v]) => `${JSON.stringify(k)}:${v}`).join(",")}}`;
-  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "wish.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJson)}.json`]: dataJson, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });

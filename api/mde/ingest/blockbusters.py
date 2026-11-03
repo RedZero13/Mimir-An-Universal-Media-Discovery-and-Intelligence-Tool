@@ -47,7 +47,10 @@ def sparql(client: Client, query: str, log=print) -> list[dict]:
 
 def candidates(client: Client, medium: str, log=print) -> dict[str, int]:
     """Wikidata item -> number of Wikipedia editions, for every film or game that qualifies."""
-    kind = {"film": "?item wdt:P31/wdt:P279* wd:Q11424", "game": "?item wdt:P31/wdt:P279* wd:Q7889"}[medium]
+    # Direct instance-of (no subclass walk): the walk makes the series and coverage queries time out on the query service.
+    types = " ".join(f"wd:{t}" for t in sorted(TYPES[medium]))
+    direct = f"VALUES ?type {{ {types} }} ?item wdt:P31 ?type"
+    kind = {"film": "?item wdt:P31/wdt:P279* wd:Q11424", "game": direct}[medium]
     out: dict[str, int] = {}
     if medium == "film":
         for unit in BIG_CURRENCIES:  # one query per currency: the query service times out on a combined one
@@ -58,7 +61,7 @@ def candidates(client: Client, medium: str, log=print) -> dict[str, int]:
             out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
         log(f"film budget >= 50M (all currencies): {len(out)}")
     # part of a series (film series, game series, media franchise...)
-    q = f"""SELECT DISTINCT ?item ?sl WHERE {{ {kind} . ?item wdt:P179 ?s . ?item wikibase:sitelinks ?sl . FILTER(?sl >= {SERIES_MIN_SITELINKS[medium]}) }}"""
+    q = f"""SELECT DISTINCT ?item ?sl WHERE {{ {direct} . ?item wdt:P179 ?s . ?item wikibase:sitelinks ?sl . FILTER(?sl >= {SERIES_MIN_SITELINKS[medium]}) }}"""
     rows = sparql(client, q, log)
     out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
     log(f"{medium} in a series: {len(rows)}")
@@ -145,7 +148,7 @@ def main() -> None:
     ap.add_argument("medium", choices=["film", "game"])
     ap.add_argument("--offline", action="store_true")
     args = ap.parse_args()
-    client = Client(offline=args.offline, max_age_days=0.04)   # about an hour: a stale or partial query answer must not stick
+    client = Client(offline=args.offline, max_age_days=0.04)  # about an hour: a stale or partial query answer must not stick
     works = build(client, args.medium)
     about = {
         "film": "Films with a budget of at least 50 million, or part of a film series, from Wikidata (CC0), including announced ones. ",
