@@ -59,11 +59,21 @@ def candidates(client: Client, medium: str, log=print) -> dict[str, int]:
             rows = sparql(client, q, log)
             out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
         log(f"film budget >= 50M (all currencies): {len(out)}")
-    # part of a series (film series, game series, media franchise...)
-    q = f"""SELECT DISTINCT ?item ?sl WHERE {{ {direct} . ?item wdt:P179 ?s . ?item wikibase:sitelinks ?sl . FILTER(?sl >= {SERIES_MIN_SITELINKS[medium]}) }}"""
-    rows = sparql(client, q, log)
-    out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
-    log(f"{medium} in a series: {len(rows)}")
+    # part of a series: list the series first (a small query), then their members in batches; one combined query times out
+    series_types = {"film": ("Q24856", "Q196600"), "game": ("Q7058673", "Q196600")}[medium]
+    series: set[str] = set()
+    for ty in series_types:
+        rows = sparql(client, f"SELECT ?s WHERE {{ ?s wdt:P31 wd:{ty}; wikibase:sitelinks ?sl FILTER(?sl >= 12) }}", log)
+        series |= {b["s"]["value"].rsplit("/", 1)[1] for b in rows}
+    series_sorted = sorted(series)
+    found = 0
+    for i in range(0, len(series_sorted), 40):
+        vals = " ".join("wd:" + s for s in series_sorted[i : i + 40])
+        q = f"""SELECT DISTINCT ?item ?sl WHERE {{ VALUES ?s {{ {vals} }} ?item wdt:P179 ?s; {direct.split(' ', 1)[1]}; wikibase:sitelinks ?sl FILTER(?sl >= {SERIES_MIN_SITELINKS[medium]}) }}"""
+        rows = sparql(client, q, log)
+        found += len(rows)
+        out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
+    log(f"{medium} in {len(series_sorted)} series: {found}")
     if medium == "game":
         # widely covered games, series or not: the ones a catalogue of games is expected to hold
         for lo, hi in ((60, 9999), (40, 60), (30, 40), (24, 30)):

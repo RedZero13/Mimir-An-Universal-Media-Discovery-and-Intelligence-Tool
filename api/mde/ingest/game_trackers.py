@@ -16,6 +16,8 @@ import json
 import urllib.request
 from pathlib import Path
 
+from mde.ingest.game_checklists import checklist_games
+
 RAW = "https://raw.githubusercontent.com/EnkaNetwork/API-docs/master/store/"
 OUT = Path(__file__).parent.parent / "catalogue" / "game-trackers.json"
 UA = "MimirCatalogue/0.1 (+https://mimir.terratalesmedia.world)"
@@ -203,6 +205,9 @@ def main() -> None:
         games.append({"key": key, **RULES[key], "categories": cats})
         print(key, {c["key"]: len(c["items"]) for c in cats})
     games.append({"key": "wuthering-waves", **RULES["wuthering-waves"], "categories": []})
+    for g in checklist_games():
+        g["source"] = "Checklists written by hand from public knowledge" + ("; Pokémon names from Wikidata (CC0)" if g["key"] == "pokedex" else "") + ". Anything missing can be added under Checklists."
+        games.append(g)
     OUT.write_text(
         json.dumps(
             {

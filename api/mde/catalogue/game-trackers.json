@@ -2786,6 +2786,8635 @@
     }
    ],
    "categories": []
+  },
+  {
+   "key": "elden-ring",
+   "name": "Elden Ring",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "bosses",
+     "label": "Bosses",
+     "verb": [
+      "Defeated",
+      "Not defeated"
+     ],
+     "types_label": "Kind",
+     "items": [
+      {
+       "id": "margit-the-fell-omen",
+       "name": "Margit, the Fell Omen",
+       "type": "Main"
+      },
+      {
+       "id": "godrick-the-grafted",
+       "name": "Godrick the Grafted",
+       "type": "Demigod"
+      },
+      {
+       "id": "red-wolf-of-radagon",
+       "name": "Red Wolf of Radagon",
+       "type": "Main"
+      },
+      {
+       "id": "rennala-queen-of-the-full-moon",
+       "name": "Rennala, Queen of the Full Moon",
+       "type": "Demigod"
+      },
+      {
+       "id": "starscourge-radahn",
+       "name": "Starscourge Radahn",
+       "type": "Demigod"
+      },
+      {
+       "id": "rykard-lord-of-blasphemy",
+       "name": "Rykard, Lord of Blasphemy",
+       "type": "Demigod"
+      },
+      {
+       "id": "morgott-the-omen-king",
+       "name": "Morgott, the Omen King",
+       "type": "Demigod"
+      },
+      {
+       "id": "mohg-lord-of-blood",
+       "name": "Mohg, Lord of Blood",
+       "type": "Demigod"
+      },
+      {
+       "id": "malenia-blade-of-miquella",
+       "name": "Malenia, Blade of Miquella",
+       "type": "Demigod"
+      },
+      {
+       "id": "godskin-duo",
+       "name": "Godskin Duo",
+       "type": "Remembrance"
+      },
+      {
+       "id": "fire-giant",
+       "name": "Fire Giant",
+       "type": "Remembrance"
+      },
+      {
+       "id": "maliketh-the-black-blade",
+       "name": "Maliketh, the Black Blade",
+       "type": "Remembrance"
+      },
+      {
+       "id": "astel-naturalborn-of-the-void",
+       "name": "Astel, Naturalborn of the Void",
+       "type": "Remembrance"
+      },
+      {
+       "id": "dragonlord-placidusax",
+       "name": "Dragonlord Placidusax",
+       "type": "Remembrance"
+      },
+      {
+       "id": "lichdragon-fortissax",
+       "name": "Lichdragon Fortissax",
+       "type": "Remembrance"
+      },
+      {
+       "id": "regal-ancestor-spirit",
+       "name": "Regal Ancestor Spirit",
+       "type": "Remembrance"
+      },
+      {
+       "id": "hoarah-loux-warrior",
+       "name": "Hoarah Loux, Warrior",
+       "type": "Final"
+      },
+      {
+       "id": "radagon-of-the-golden-order",
+       "name": "Radagon of the Golden Order",
+       "type": "Final"
+      },
+      {
+       "id": "elden-beast",
+       "name": "Elden Beast",
+       "type": "Final"
+      },
+      {
+       "id": "mohg-the-omen",
+       "name": "Mohg, the Omen",
+       "type": "Remembrance"
+      },
+      {
+       "id": "messmer-the-impaler",
+       "name": "Messmer the Impaler",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "romina-saint-of-the-bud",
+       "name": "Romina, Saint of the Bud",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "rellana-twin-moon-knight",
+       "name": "Rellana, Twin Moon Knight",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "divine-beast-dancing-lion",
+       "name": "Divine Beast Dancing Lion",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "metyr-mother-of-fingers",
+       "name": "Metyr, Mother of Fingers",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "bayle-the-dread",
+       "name": "Bayle the Dread",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "midra-lord-of-frenzied-flame",
+       "name": "Midra, Lord of Frenzied Flame",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "commander-gaius",
+       "name": "Commander Gaius",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "putrescent-knight",
+       "name": "Putrescent Knight",
+       "type": "Shadow of the Erdtree"
+      },
+      {
+       "id": "promised-consort-radahn",
+       "name": "Promised Consort Radahn",
+       "type": "Shadow of the Erdtree"
+      }
+     ]
+    },
+    {
+     "key": "runes",
+     "label": "Great Runes",
+     "verb": [
+      "Found",
+      "Not found"
+     ],
+     "items": [
+      {
+       "id": "godrick-s-great-rune",
+       "name": "Godrick's Great Rune",
+       "type": "Great Rune"
+      },
+      {
+       "id": "radahn-s-great-rune",
+       "name": "Radahn's Great Rune",
+       "type": "Great Rune"
+      },
+      {
+       "id": "morgott-s-great-rune",
+       "name": "Morgott's Great Rune",
+       "type": "Great Rune"
+      },
+      {
+       "id": "rykard-s-great-rune",
+       "name": "Rykard's Great Rune",
+       "type": "Great Rune"
+      },
+      {
+       "id": "mohg-s-great-rune",
+       "name": "Mohg's Great Rune",
+       "type": "Great Rune"
+      },
+      {
+       "id": "malenia-s-great-rune",
+       "name": "Malenia's Great Rune",
+       "type": "Great Rune"
+      },
+      {
+       "id": "miquella-s-great-rune",
+       "name": "Miquella's Great Rune",
+       "type": "Great Rune"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "pokedex",
+   "name": "Pokédex (all 1,025)",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "dex",
+     "label": "Pokémon",
+     "verb": [
+      "Caught",
+      "Not caught"
+     ],
+     "types_label": "Generation",
+     "items": [
+      {
+       "id": "1",
+       "name": "Bulbasaur",
+       "type": "Gen I (Kanto)",
+       "sub": "#0001"
+      },
+      {
+       "id": "2",
+       "name": "Ivysaur",
+       "type": "Gen I (Kanto)",
+       "sub": "#0002"
+      },
+      {
+       "id": "3",
+       "name": "Venusaur",
+       "type": "Gen I (Kanto)",
+       "sub": "#0003"
+      },
+      {
+       "id": "4",
+       "name": "Charmander",
+       "type": "Gen I (Kanto)",
+       "sub": "#0004"
+      },
+      {
+       "id": "5",
+       "name": "Charmeleon",
+       "type": "Gen I (Kanto)",
+       "sub": "#0005"
+      },
+      {
+       "id": "6",
+       "name": "Charizard",
+       "type": "Gen I (Kanto)",
+       "sub": "#0006"
+      },
+      {
+       "id": "7",
+       "name": "Squirtle",
+       "type": "Gen I (Kanto)",
+       "sub": "#0007"
+      },
+      {
+       "id": "8",
+       "name": "Wartortle",
+       "type": "Gen I (Kanto)",
+       "sub": "#0008"
+      },
+      {
+       "id": "9",
+       "name": "Blastoise",
+       "type": "Gen I (Kanto)",
+       "sub": "#0009"
+      },
+      {
+       "id": "10",
+       "name": "Caterpie",
+       "type": "Gen I (Kanto)",
+       "sub": "#0010"
+      },
+      {
+       "id": "11",
+       "name": "Metapod",
+       "type": "Gen I (Kanto)",
+       "sub": "#0011"
+      },
+      {
+       "id": "12",
+       "name": "Butterfree",
+       "type": "Gen I (Kanto)",
+       "sub": "#0012"
+      },
+      {
+       "id": "13",
+       "name": "Weedle",
+       "type": "Gen I (Kanto)",
+       "sub": "#0013"
+      },
+      {
+       "id": "14",
+       "name": "Kakuna",
+       "type": "Gen I (Kanto)",
+       "sub": "#0014"
+      },
+      {
+       "id": "15",
+       "name": "Beedrill",
+       "type": "Gen I (Kanto)",
+       "sub": "#0015"
+      },
+      {
+       "id": "16",
+       "name": "Pidgey",
+       "type": "Gen I (Kanto)",
+       "sub": "#0016"
+      },
+      {
+       "id": "17",
+       "name": "Pidgeotto",
+       "type": "Gen I (Kanto)",
+       "sub": "#0017"
+      },
+      {
+       "id": "18",
+       "name": "Pidgeot",
+       "type": "Gen I (Kanto)",
+       "sub": "#0018"
+      },
+      {
+       "id": "19",
+       "name": "Rattata",
+       "type": "Gen I (Kanto)",
+       "sub": "#0019"
+      },
+      {
+       "id": "20",
+       "name": "Raticate",
+       "type": "Gen I (Kanto)",
+       "sub": "#0020"
+      },
+      {
+       "id": "21",
+       "name": "Spearow",
+       "type": "Gen I (Kanto)",
+       "sub": "#0021"
+      },
+      {
+       "id": "22",
+       "name": "Fearow",
+       "type": "Gen I (Kanto)",
+       "sub": "#0022"
+      },
+      {
+       "id": "23",
+       "name": "Ekans",
+       "type": "Gen I (Kanto)",
+       "sub": "#0023"
+      },
+      {
+       "id": "24",
+       "name": "Arbok",
+       "type": "Gen I (Kanto)",
+       "sub": "#0024"
+      },
+      {
+       "id": "25",
+       "name": "Pikachu",
+       "type": "Gen I (Kanto)",
+       "sub": "#0025"
+      },
+      {
+       "id": "26",
+       "name": "Raichu",
+       "type": "Gen I (Kanto)",
+       "sub": "#0026"
+      },
+      {
+       "id": "27",
+       "name": "Sandshrew",
+       "type": "Gen I (Kanto)",
+       "sub": "#0027"
+      },
+      {
+       "id": "28",
+       "name": "Sandslash",
+       "type": "Gen I (Kanto)",
+       "sub": "#0028"
+      },
+      {
+       "id": "29",
+       "name": "Nidoran♀",
+       "type": "Gen I (Kanto)",
+       "sub": "#0029"
+      },
+      {
+       "id": "30",
+       "name": "Nidorina",
+       "type": "Gen I (Kanto)",
+       "sub": "#0030"
+      },
+      {
+       "id": "31",
+       "name": "Nidoqueen",
+       "type": "Gen I (Kanto)",
+       "sub": "#0031"
+      },
+      {
+       "id": "32",
+       "name": "Nidoran♂",
+       "type": "Gen I (Kanto)",
+       "sub": "#0032"
+      },
+      {
+       "id": "33",
+       "name": "Nidorino",
+       "type": "Gen I (Kanto)",
+       "sub": "#0033"
+      },
+      {
+       "id": "34",
+       "name": "Nidoking",
+       "type": "Gen I (Kanto)",
+       "sub": "#0034"
+      },
+      {
+       "id": "35",
+       "name": "Clefairy",
+       "type": "Gen I (Kanto)",
+       "sub": "#0035"
+      },
+      {
+       "id": "36",
+       "name": "Clefable",
+       "type": "Gen I (Kanto)",
+       "sub": "#0036"
+      },
+      {
+       "id": "37",
+       "name": "Vulpix",
+       "type": "Gen I (Kanto)",
+       "sub": "#0037"
+      },
+      {
+       "id": "38",
+       "name": "Ninetales",
+       "type": "Gen I (Kanto)",
+       "sub": "#0038"
+      },
+      {
+       "id": "39",
+       "name": "Jigglypuff",
+       "type": "Gen I (Kanto)",
+       "sub": "#0039"
+      },
+      {
+       "id": "40",
+       "name": "Wigglytuff",
+       "type": "Gen I (Kanto)",
+       "sub": "#0040"
+      },
+      {
+       "id": "41",
+       "name": "Zubat",
+       "type": "Gen I (Kanto)",
+       "sub": "#0041"
+      },
+      {
+       "id": "42",
+       "name": "Golbat",
+       "type": "Gen I (Kanto)",
+       "sub": "#0042"
+      },
+      {
+       "id": "43",
+       "name": "Oddish",
+       "type": "Gen I (Kanto)",
+       "sub": "#0043"
+      },
+      {
+       "id": "44",
+       "name": "Gloom",
+       "type": "Gen I (Kanto)",
+       "sub": "#0044"
+      },
+      {
+       "id": "45",
+       "name": "Vileplume",
+       "type": "Gen I (Kanto)",
+       "sub": "#0045"
+      },
+      {
+       "id": "46",
+       "name": "Paras",
+       "type": "Gen I (Kanto)",
+       "sub": "#0046"
+      },
+      {
+       "id": "47",
+       "name": "Parasect",
+       "type": "Gen I (Kanto)",
+       "sub": "#0047"
+      },
+      {
+       "id": "48",
+       "name": "Venonat",
+       "type": "Gen I (Kanto)",
+       "sub": "#0048"
+      },
+      {
+       "id": "49",
+       "name": "Venomoth",
+       "type": "Gen I (Kanto)",
+       "sub": "#0049"
+      },
+      {
+       "id": "50",
+       "name": "Diglett",
+       "type": "Gen I (Kanto)",
+       "sub": "#0050"
+      },
+      {
+       "id": "51",
+       "name": "Dugtrio",
+       "type": "Gen I (Kanto)",
+       "sub": "#0051"
+      },
+      {
+       "id": "52",
+       "name": "Meowth",
+       "type": "Gen I (Kanto)",
+       "sub": "#0052"
+      },
+      {
+       "id": "53",
+       "name": "Persian",
+       "type": "Gen I (Kanto)",
+       "sub": "#0053"
+      },
+      {
+       "id": "54",
+       "name": "Psyduck",
+       "type": "Gen I (Kanto)",
+       "sub": "#0054"
+      },
+      {
+       "id": "55",
+       "name": "Golduck",
+       "type": "Gen I (Kanto)",
+       "sub": "#0055"
+      },
+      {
+       "id": "56",
+       "name": "Mankey",
+       "type": "Gen I (Kanto)",
+       "sub": "#0056"
+      },
+      {
+       "id": "57",
+       "name": "Primeape",
+       "type": "Gen I (Kanto)",
+       "sub": "#0057"
+      },
+      {
+       "id": "58",
+       "name": "Growlithe",
+       "type": "Gen I (Kanto)",
+       "sub": "#0058"
+      },
+      {
+       "id": "59",
+       "name": "Arcanine",
+       "type": "Gen I (Kanto)",
+       "sub": "#0059"
+      },
+      {
+       "id": "60",
+       "name": "Poliwag",
+       "type": "Gen I (Kanto)",
+       "sub": "#0060"
+      },
+      {
+       "id": "61",
+       "name": "Poliwhirl",
+       "type": "Gen I (Kanto)",
+       "sub": "#0061"
+      },
+      {
+       "id": "62",
+       "name": "Poliwrath",
+       "type": "Gen I (Kanto)",
+       "sub": "#0062"
+      },
+      {
+       "id": "63",
+       "name": "Abra",
+       "type": "Gen I (Kanto)",
+       "sub": "#0063"
+      },
+      {
+       "id": "64",
+       "name": "Kadabra",
+       "type": "Gen I (Kanto)",
+       "sub": "#0064"
+      },
+      {
+       "id": "65",
+       "name": "Alakazam",
+       "type": "Gen I (Kanto)",
+       "sub": "#0065"
+      },
+      {
+       "id": "66",
+       "name": "Machop",
+       "type": "Gen I (Kanto)",
+       "sub": "#0066"
+      },
+      {
+       "id": "67",
+       "name": "Machoke",
+       "type": "Gen I (Kanto)",
+       "sub": "#0067"
+      },
+      {
+       "id": "68",
+       "name": "Machamp",
+       "type": "Gen I (Kanto)",
+       "sub": "#0068"
+      },
+      {
+       "id": "69",
+       "name": "Bellsprout",
+       "type": "Gen I (Kanto)",
+       "sub": "#0069"
+      },
+      {
+       "id": "70",
+       "name": "Weepinbell",
+       "type": "Gen I (Kanto)",
+       "sub": "#0070"
+      },
+      {
+       "id": "71",
+       "name": "Victreebel",
+       "type": "Gen I (Kanto)",
+       "sub": "#0071"
+      },
+      {
+       "id": "72",
+       "name": "Tentacool",
+       "type": "Gen I (Kanto)",
+       "sub": "#0072"
+      },
+      {
+       "id": "73",
+       "name": "Tentacruel",
+       "type": "Gen I (Kanto)",
+       "sub": "#0073"
+      },
+      {
+       "id": "74",
+       "name": "Geodude",
+       "type": "Gen I (Kanto)",
+       "sub": "#0074"
+      },
+      {
+       "id": "75",
+       "name": "Graveler",
+       "type": "Gen I (Kanto)",
+       "sub": "#0075"
+      },
+      {
+       "id": "76",
+       "name": "Golem",
+       "type": "Gen I (Kanto)",
+       "sub": "#0076"
+      },
+      {
+       "id": "77",
+       "name": "Ponyta",
+       "type": "Gen I (Kanto)",
+       "sub": "#0077"
+      },
+      {
+       "id": "78",
+       "name": "Rapidash",
+       "type": "Gen I (Kanto)",
+       "sub": "#0078"
+      },
+      {
+       "id": "79",
+       "name": "Slowpoke",
+       "type": "Gen I (Kanto)",
+       "sub": "#0079"
+      },
+      {
+       "id": "80",
+       "name": "Slowbro",
+       "type": "Gen I (Kanto)",
+       "sub": "#0080"
+      },
+      {
+       "id": "81",
+       "name": "Magnemite",
+       "type": "Gen I (Kanto)",
+       "sub": "#0081"
+      },
+      {
+       "id": "82",
+       "name": "Magneton",
+       "type": "Gen I (Kanto)",
+       "sub": "#0082"
+      },
+      {
+       "id": "83",
+       "name": "Farfetch'd",
+       "type": "Gen I (Kanto)",
+       "sub": "#0083"
+      },
+      {
+       "id": "84",
+       "name": "Doduo",
+       "type": "Gen I (Kanto)",
+       "sub": "#0084"
+      },
+      {
+       "id": "85",
+       "name": "Dodrio",
+       "type": "Gen I (Kanto)",
+       "sub": "#0085"
+      },
+      {
+       "id": "86",
+       "name": "Seel",
+       "type": "Gen I (Kanto)",
+       "sub": "#0086"
+      },
+      {
+       "id": "87",
+       "name": "Dewgong",
+       "type": "Gen I (Kanto)",
+       "sub": "#0087"
+      },
+      {
+       "id": "88",
+       "name": "Grimer",
+       "type": "Gen I (Kanto)",
+       "sub": "#0088"
+      },
+      {
+       "id": "89",
+       "name": "Muk",
+       "type": "Gen I (Kanto)",
+       "sub": "#0089"
+      },
+      {
+       "id": "90",
+       "name": "Shellder",
+       "type": "Gen I (Kanto)",
+       "sub": "#0090"
+      },
+      {
+       "id": "91",
+       "name": "Cloyster",
+       "type": "Gen I (Kanto)",
+       "sub": "#0091"
+      },
+      {
+       "id": "92",
+       "name": "Gastly",
+       "type": "Gen I (Kanto)",
+       "sub": "#0092"
+      },
+      {
+       "id": "93",
+       "name": "Haunter",
+       "type": "Gen I (Kanto)",
+       "sub": "#0093"
+      },
+      {
+       "id": "94",
+       "name": "Gengar",
+       "type": "Gen I (Kanto)",
+       "sub": "#0094"
+      },
+      {
+       "id": "95",
+       "name": "Onix",
+       "type": "Gen I (Kanto)",
+       "sub": "#0095"
+      },
+      {
+       "id": "96",
+       "name": "Drowzee",
+       "type": "Gen I (Kanto)",
+       "sub": "#0096"
+      },
+      {
+       "id": "97",
+       "name": "Hypno",
+       "type": "Gen I (Kanto)",
+       "sub": "#0097"
+      },
+      {
+       "id": "98",
+       "name": "Krabby",
+       "type": "Gen I (Kanto)",
+       "sub": "#0098"
+      },
+      {
+       "id": "99",
+       "name": "Kingler",
+       "type": "Gen I (Kanto)",
+       "sub": "#0099"
+      },
+      {
+       "id": "100",
+       "name": "Voltorb",
+       "type": "Gen I (Kanto)",
+       "sub": "#0100"
+      },
+      {
+       "id": "101",
+       "name": "Electrode",
+       "type": "Gen I (Kanto)",
+       "sub": "#0101"
+      },
+      {
+       "id": "102",
+       "name": "Exeggcute",
+       "type": "Gen I (Kanto)",
+       "sub": "#0102"
+      },
+      {
+       "id": "103",
+       "name": "Exeggutor",
+       "type": "Gen I (Kanto)",
+       "sub": "#0103"
+      },
+      {
+       "id": "104",
+       "name": "Cubone",
+       "type": "Gen I (Kanto)",
+       "sub": "#0104"
+      },
+      {
+       "id": "105",
+       "name": "Marowak",
+       "type": "Gen I (Kanto)",
+       "sub": "#0105"
+      },
+      {
+       "id": "106",
+       "name": "Hitmonlee",
+       "type": "Gen I (Kanto)",
+       "sub": "#0106"
+      },
+      {
+       "id": "107",
+       "name": "Hitmonchan",
+       "type": "Gen I (Kanto)",
+       "sub": "#0107"
+      },
+      {
+       "id": "108",
+       "name": "Lickitung",
+       "type": "Gen I (Kanto)",
+       "sub": "#0108"
+      },
+      {
+       "id": "109",
+       "name": "Koffing",
+       "type": "Gen I (Kanto)",
+       "sub": "#0109"
+      },
+      {
+       "id": "110",
+       "name": "Weezing",
+       "type": "Gen I (Kanto)",
+       "sub": "#0110"
+      },
+      {
+       "id": "111",
+       "name": "Rhyhorn",
+       "type": "Gen I (Kanto)",
+       "sub": "#0111"
+      },
+      {
+       "id": "112",
+       "name": "Rhydon",
+       "type": "Gen I (Kanto)",
+       "sub": "#0112"
+      },
+      {
+       "id": "113",
+       "name": "Chansey",
+       "type": "Gen I (Kanto)",
+       "sub": "#0113"
+      },
+      {
+       "id": "114",
+       "name": "Tangela",
+       "type": "Gen I (Kanto)",
+       "sub": "#0114"
+      },
+      {
+       "id": "115",
+       "name": "Kangaskhan",
+       "type": "Gen I (Kanto)",
+       "sub": "#0115"
+      },
+      {
+       "id": "116",
+       "name": "Horsea",
+       "type": "Gen I (Kanto)",
+       "sub": "#0116"
+      },
+      {
+       "id": "117",
+       "name": "Seadra",
+       "type": "Gen I (Kanto)",
+       "sub": "#0117"
+      },
+      {
+       "id": "118",
+       "name": "Goldeen",
+       "type": "Gen I (Kanto)",
+       "sub": "#0118"
+      },
+      {
+       "id": "119",
+       "name": "Seaking",
+       "type": "Gen I (Kanto)",
+       "sub": "#0119"
+      },
+      {
+       "id": "120",
+       "name": "Staryu",
+       "type": "Gen I (Kanto)",
+       "sub": "#0120"
+      },
+      {
+       "id": "121",
+       "name": "Starmie",
+       "type": "Gen I (Kanto)",
+       "sub": "#0121"
+      },
+      {
+       "id": "122",
+       "name": "Mr. Mime",
+       "type": "Gen I (Kanto)",
+       "sub": "#0122"
+      },
+      {
+       "id": "123",
+       "name": "Scyther",
+       "type": "Gen I (Kanto)",
+       "sub": "#0123"
+      },
+      {
+       "id": "124",
+       "name": "Jynx",
+       "type": "Gen I (Kanto)",
+       "sub": "#0124"
+      },
+      {
+       "id": "125",
+       "name": "Electabuzz",
+       "type": "Gen I (Kanto)",
+       "sub": "#0125"
+      },
+      {
+       "id": "126",
+       "name": "Magmar",
+       "type": "Gen I (Kanto)",
+       "sub": "#0126"
+      },
+      {
+       "id": "127",
+       "name": "Pinsir",
+       "type": "Gen I (Kanto)",
+       "sub": "#0127"
+      },
+      {
+       "id": "128",
+       "name": "Tauros",
+       "type": "Gen I (Kanto)",
+       "sub": "#0128"
+      },
+      {
+       "id": "129",
+       "name": "Magikarp",
+       "type": "Gen I (Kanto)",
+       "sub": "#0129"
+      },
+      {
+       "id": "130",
+       "name": "Gyarados",
+       "type": "Gen I (Kanto)",
+       "sub": "#0130"
+      },
+      {
+       "id": "131",
+       "name": "Lapras",
+       "type": "Gen I (Kanto)",
+       "sub": "#0131"
+      },
+      {
+       "id": "132",
+       "name": "Ditto",
+       "type": "Gen I (Kanto)",
+       "sub": "#0132"
+      },
+      {
+       "id": "133",
+       "name": "Eevee",
+       "type": "Gen I (Kanto)",
+       "sub": "#0133"
+      },
+      {
+       "id": "134",
+       "name": "Vaporeon",
+       "type": "Gen I (Kanto)",
+       "sub": "#0134"
+      },
+      {
+       "id": "135",
+       "name": "Jolteon",
+       "type": "Gen I (Kanto)",
+       "sub": "#0135"
+      },
+      {
+       "id": "136",
+       "name": "Flareon",
+       "type": "Gen I (Kanto)",
+       "sub": "#0136"
+      },
+      {
+       "id": "137",
+       "name": "Porygon",
+       "type": "Gen I (Kanto)",
+       "sub": "#0137"
+      },
+      {
+       "id": "138",
+       "name": "Omanyte",
+       "type": "Gen I (Kanto)",
+       "sub": "#0138"
+      },
+      {
+       "id": "139",
+       "name": "Omastar",
+       "type": "Gen I (Kanto)",
+       "sub": "#0139"
+      },
+      {
+       "id": "140",
+       "name": "Kabuto",
+       "type": "Gen I (Kanto)",
+       "sub": "#0140"
+      },
+      {
+       "id": "141",
+       "name": "Kabutops",
+       "type": "Gen I (Kanto)",
+       "sub": "#0141"
+      },
+      {
+       "id": "142",
+       "name": "Aerodactyl",
+       "type": "Gen I (Kanto)",
+       "sub": "#0142"
+      },
+      {
+       "id": "143",
+       "name": "Snorlax",
+       "type": "Gen I (Kanto)",
+       "sub": "#0143"
+      },
+      {
+       "id": "144",
+       "name": "Articuno",
+       "type": "Gen I (Kanto)",
+       "sub": "#0144"
+      },
+      {
+       "id": "145",
+       "name": "Zapdos",
+       "type": "Gen I (Kanto)",
+       "sub": "#0145"
+      },
+      {
+       "id": "146",
+       "name": "Moltres",
+       "type": "Gen I (Kanto)",
+       "sub": "#0146"
+      },
+      {
+       "id": "147",
+       "name": "Dratini",
+       "type": "Gen I (Kanto)",
+       "sub": "#0147"
+      },
+      {
+       "id": "148",
+       "name": "Dragonair",
+       "type": "Gen I (Kanto)",
+       "sub": "#0148"
+      },
+      {
+       "id": "149",
+       "name": "Dragonite",
+       "type": "Gen I (Kanto)",
+       "sub": "#0149"
+      },
+      {
+       "id": "150",
+       "name": "Mewtwo",
+       "type": "Gen I (Kanto)",
+       "sub": "#0150"
+      },
+      {
+       "id": "151",
+       "name": "Mew",
+       "type": "Gen I (Kanto)",
+       "sub": "#0151"
+      },
+      {
+       "id": "152",
+       "name": "Chikorita",
+       "type": "Gen II (Johto)",
+       "sub": "#0152"
+      },
+      {
+       "id": "153",
+       "name": "Bayleef",
+       "type": "Gen II (Johto)",
+       "sub": "#0153"
+      },
+      {
+       "id": "154",
+       "name": "Meganium",
+       "type": "Gen II (Johto)",
+       "sub": "#0154"
+      },
+      {
+       "id": "155",
+       "name": "Cyndaquil",
+       "type": "Gen II (Johto)",
+       "sub": "#0155"
+      },
+      {
+       "id": "156",
+       "name": "Quilava",
+       "type": "Gen II (Johto)",
+       "sub": "#0156"
+      },
+      {
+       "id": "157",
+       "name": "Typhlosion",
+       "type": "Gen II (Johto)",
+       "sub": "#0157"
+      },
+      {
+       "id": "158",
+       "name": "Totodile",
+       "type": "Gen II (Johto)",
+       "sub": "#0158"
+      },
+      {
+       "id": "159",
+       "name": "Croconaw",
+       "type": "Gen II (Johto)",
+       "sub": "#0159"
+      },
+      {
+       "id": "160",
+       "name": "Feraligatr",
+       "type": "Gen II (Johto)",
+       "sub": "#0160"
+      },
+      {
+       "id": "161",
+       "name": "Sentret",
+       "type": "Gen II (Johto)",
+       "sub": "#0161"
+      },
+      {
+       "id": "162",
+       "name": "Furret",
+       "type": "Gen II (Johto)",
+       "sub": "#0162"
+      },
+      {
+       "id": "163",
+       "name": "Hoothoot",
+       "type": "Gen II (Johto)",
+       "sub": "#0163"
+      },
+      {
+       "id": "164",
+       "name": "Noctowl",
+       "type": "Gen II (Johto)",
+       "sub": "#0164"
+      },
+      {
+       "id": "165",
+       "name": "Ledyba",
+       "type": "Gen II (Johto)",
+       "sub": "#0165"
+      },
+      {
+       "id": "166",
+       "name": "Ledian",
+       "type": "Gen II (Johto)",
+       "sub": "#0166"
+      },
+      {
+       "id": "167",
+       "name": "Spinarak",
+       "type": "Gen II (Johto)",
+       "sub": "#0167"
+      },
+      {
+       "id": "168",
+       "name": "Ariados",
+       "type": "Gen II (Johto)",
+       "sub": "#0168"
+      },
+      {
+       "id": "169",
+       "name": "Crobat",
+       "type": "Gen II (Johto)",
+       "sub": "#0169"
+      },
+      {
+       "id": "170",
+       "name": "Chinchou",
+       "type": "Gen II (Johto)",
+       "sub": "#0170"
+      },
+      {
+       "id": "171",
+       "name": "Lanturn",
+       "type": "Gen II (Johto)",
+       "sub": "#0171"
+      },
+      {
+       "id": "172",
+       "name": "Pichu",
+       "type": "Gen II (Johto)",
+       "sub": "#0172"
+      },
+      {
+       "id": "173",
+       "name": "Cleffa",
+       "type": "Gen II (Johto)",
+       "sub": "#0173"
+      },
+      {
+       "id": "174",
+       "name": "Igglybuff",
+       "type": "Gen II (Johto)",
+       "sub": "#0174"
+      },
+      {
+       "id": "175",
+       "name": "Togepi",
+       "type": "Gen II (Johto)",
+       "sub": "#0175"
+      },
+      {
+       "id": "176",
+       "name": "Togetic",
+       "type": "Gen II (Johto)",
+       "sub": "#0176"
+      },
+      {
+       "id": "177",
+       "name": "Natu",
+       "type": "Gen II (Johto)",
+       "sub": "#0177"
+      },
+      {
+       "id": "178",
+       "name": "Xatu",
+       "type": "Gen II (Johto)",
+       "sub": "#0178"
+      },
+      {
+       "id": "179",
+       "name": "Mareep",
+       "type": "Gen II (Johto)",
+       "sub": "#0179"
+      },
+      {
+       "id": "180",
+       "name": "Flaaffy",
+       "type": "Gen II (Johto)",
+       "sub": "#0180"
+      },
+      {
+       "id": "181",
+       "name": "Ampharos",
+       "type": "Gen II (Johto)",
+       "sub": "#0181"
+      },
+      {
+       "id": "182",
+       "name": "Bellossom",
+       "type": "Gen II (Johto)",
+       "sub": "#0182"
+      },
+      {
+       "id": "183",
+       "name": "Marill",
+       "type": "Gen II (Johto)",
+       "sub": "#0183"
+      },
+      {
+       "id": "184",
+       "name": "Azumarill",
+       "type": "Gen II (Johto)",
+       "sub": "#0184"
+      },
+      {
+       "id": "185",
+       "name": "Sudowoodo",
+       "type": "Gen II (Johto)",
+       "sub": "#0185"
+      },
+      {
+       "id": "186",
+       "name": "Politoed",
+       "type": "Gen II (Johto)",
+       "sub": "#0186"
+      },
+      {
+       "id": "187",
+       "name": "Hoppip",
+       "type": "Gen II (Johto)",
+       "sub": "#0187"
+      },
+      {
+       "id": "188",
+       "name": "Skiploom",
+       "type": "Gen II (Johto)",
+       "sub": "#0188"
+      },
+      {
+       "id": "189",
+       "name": "Jumpluff",
+       "type": "Gen II (Johto)",
+       "sub": "#0189"
+      },
+      {
+       "id": "190",
+       "name": "Aipom",
+       "type": "Gen II (Johto)",
+       "sub": "#0190"
+      },
+      {
+       "id": "191",
+       "name": "Sunkern",
+       "type": "Gen II (Johto)",
+       "sub": "#0191"
+      },
+      {
+       "id": "192",
+       "name": "Sunflora",
+       "type": "Gen II (Johto)",
+       "sub": "#0192"
+      },
+      {
+       "id": "193",
+       "name": "Yanma",
+       "type": "Gen II (Johto)",
+       "sub": "#0193"
+      },
+      {
+       "id": "194",
+       "name": "Wooper",
+       "type": "Gen II (Johto)",
+       "sub": "#0194"
+      },
+      {
+       "id": "195",
+       "name": "Quagsire",
+       "type": "Gen II (Johto)",
+       "sub": "#0195"
+      },
+      {
+       "id": "196",
+       "name": "Espeon",
+       "type": "Gen II (Johto)",
+       "sub": "#0196"
+      },
+      {
+       "id": "197",
+       "name": "Umbreon",
+       "type": "Gen II (Johto)",
+       "sub": "#0197"
+      },
+      {
+       "id": "198",
+       "name": "Murkrow",
+       "type": "Gen II (Johto)",
+       "sub": "#0198"
+      },
+      {
+       "id": "199",
+       "name": "Slowking",
+       "type": "Gen II (Johto)",
+       "sub": "#0199"
+      },
+      {
+       "id": "200",
+       "name": "Misdreavus",
+       "type": "Gen II (Johto)",
+       "sub": "#0200"
+      },
+      {
+       "id": "201",
+       "name": "Unown",
+       "type": "Gen II (Johto)",
+       "sub": "#0201"
+      },
+      {
+       "id": "202",
+       "name": "Wobbuffet",
+       "type": "Gen II (Johto)",
+       "sub": "#0202"
+      },
+      {
+       "id": "203",
+       "name": "Girafarig",
+       "type": "Gen II (Johto)",
+       "sub": "#0203"
+      },
+      {
+       "id": "204",
+       "name": "Pineco",
+       "type": "Gen II (Johto)",
+       "sub": "#0204"
+      },
+      {
+       "id": "205",
+       "name": "Forretress",
+       "type": "Gen II (Johto)",
+       "sub": "#0205"
+      },
+      {
+       "id": "206",
+       "name": "Dunsparce",
+       "type": "Gen II (Johto)",
+       "sub": "#0206"
+      },
+      {
+       "id": "207",
+       "name": "Gligar",
+       "type": "Gen II (Johto)",
+       "sub": "#0207"
+      },
+      {
+       "id": "208",
+       "name": "Steelix",
+       "type": "Gen II (Johto)",
+       "sub": "#0208"
+      },
+      {
+       "id": "209",
+       "name": "Snubbull",
+       "type": "Gen II (Johto)",
+       "sub": "#0209"
+      },
+      {
+       "id": "210",
+       "name": "Granbull",
+       "type": "Gen II (Johto)",
+       "sub": "#0210"
+      },
+      {
+       "id": "211",
+       "name": "Qwilfish",
+       "type": "Gen II (Johto)",
+       "sub": "#0211"
+      },
+      {
+       "id": "212",
+       "name": "Scizor",
+       "type": "Gen II (Johto)",
+       "sub": "#0212"
+      },
+      {
+       "id": "213",
+       "name": "Shuckle",
+       "type": "Gen II (Johto)",
+       "sub": "#0213"
+      },
+      {
+       "id": "214",
+       "name": "Heracross",
+       "type": "Gen II (Johto)",
+       "sub": "#0214"
+      },
+      {
+       "id": "215",
+       "name": "Sneasel",
+       "type": "Gen II (Johto)",
+       "sub": "#0215"
+      },
+      {
+       "id": "216",
+       "name": "Teddiursa",
+       "type": "Gen II (Johto)",
+       "sub": "#0216"
+      },
+      {
+       "id": "217",
+       "name": "Ursaring",
+       "type": "Gen II (Johto)",
+       "sub": "#0217"
+      },
+      {
+       "id": "218",
+       "name": "Slugma",
+       "type": "Gen II (Johto)",
+       "sub": "#0218"
+      },
+      {
+       "id": "219",
+       "name": "Magcargo",
+       "type": "Gen II (Johto)",
+       "sub": "#0219"
+      },
+      {
+       "id": "220",
+       "name": "Swinub",
+       "type": "Gen II (Johto)",
+       "sub": "#0220"
+      },
+      {
+       "id": "221",
+       "name": "Piloswine",
+       "type": "Gen II (Johto)",
+       "sub": "#0221"
+      },
+      {
+       "id": "222",
+       "name": "Corsola",
+       "type": "Gen II (Johto)",
+       "sub": "#0222"
+      },
+      {
+       "id": "223",
+       "name": "Remoraid",
+       "type": "Gen II (Johto)",
+       "sub": "#0223"
+      },
+      {
+       "id": "224",
+       "name": "Octillery",
+       "type": "Gen II (Johto)",
+       "sub": "#0224"
+      },
+      {
+       "id": "225",
+       "name": "Delibird",
+       "type": "Gen II (Johto)",
+       "sub": "#0225"
+      },
+      {
+       "id": "226",
+       "name": "Mantine",
+       "type": "Gen II (Johto)",
+       "sub": "#0226"
+      },
+      {
+       "id": "227",
+       "name": "Skarmory",
+       "type": "Gen II (Johto)",
+       "sub": "#0227"
+      },
+      {
+       "id": "228",
+       "name": "Houndour",
+       "type": "Gen II (Johto)",
+       "sub": "#0228"
+      },
+      {
+       "id": "229",
+       "name": "Houndoom",
+       "type": "Gen II (Johto)",
+       "sub": "#0229"
+      },
+      {
+       "id": "230",
+       "name": "Kingdra",
+       "type": "Gen II (Johto)",
+       "sub": "#0230"
+      },
+      {
+       "id": "231",
+       "name": "Phanpy",
+       "type": "Gen II (Johto)",
+       "sub": "#0231"
+      },
+      {
+       "id": "232",
+       "name": "Donphan",
+       "type": "Gen II (Johto)",
+       "sub": "#0232"
+      },
+      {
+       "id": "233",
+       "name": "Porygon2",
+       "type": "Gen II (Johto)",
+       "sub": "#0233"
+      },
+      {
+       "id": "234",
+       "name": "Stantler",
+       "type": "Gen II (Johto)",
+       "sub": "#0234"
+      },
+      {
+       "id": "235",
+       "name": "Smeargle",
+       "type": "Gen II (Johto)",
+       "sub": "#0235"
+      },
+      {
+       "id": "236",
+       "name": "Tyrogue",
+       "type": "Gen II (Johto)",
+       "sub": "#0236"
+      },
+      {
+       "id": "237",
+       "name": "Hitmontop",
+       "type": "Gen II (Johto)",
+       "sub": "#0237"
+      },
+      {
+       "id": "238",
+       "name": "Smoochum",
+       "type": "Gen II (Johto)",
+       "sub": "#0238"
+      },
+      {
+       "id": "239",
+       "name": "Elekid",
+       "type": "Gen II (Johto)",
+       "sub": "#0239"
+      },
+      {
+       "id": "240",
+       "name": "Magby",
+       "type": "Gen II (Johto)",
+       "sub": "#0240"
+      },
+      {
+       "id": "241",
+       "name": "Miltank",
+       "type": "Gen II (Johto)",
+       "sub": "#0241"
+      },
+      {
+       "id": "242",
+       "name": "Blissey",
+       "type": "Gen II (Johto)",
+       "sub": "#0242"
+      },
+      {
+       "id": "243",
+       "name": "Raikou",
+       "type": "Gen II (Johto)",
+       "sub": "#0243"
+      },
+      {
+       "id": "244",
+       "name": "Entei",
+       "type": "Gen II (Johto)",
+       "sub": "#0244"
+      },
+      {
+       "id": "245",
+       "name": "Suicune",
+       "type": "Gen II (Johto)",
+       "sub": "#0245"
+      },
+      {
+       "id": "246",
+       "name": "Larvitar",
+       "type": "Gen II (Johto)",
+       "sub": "#0246"
+      },
+      {
+       "id": "247",
+       "name": "Pupitar",
+       "type": "Gen II (Johto)",
+       "sub": "#0247"
+      },
+      {
+       "id": "248",
+       "name": "Tyranitar",
+       "type": "Gen II (Johto)",
+       "sub": "#0248"
+      },
+      {
+       "id": "249",
+       "name": "Lugia",
+       "type": "Gen II (Johto)",
+       "sub": "#0249"
+      },
+      {
+       "id": "250",
+       "name": "Ho-Oh",
+       "type": "Gen II (Johto)",
+       "sub": "#0250"
+      },
+      {
+       "id": "251",
+       "name": "Celebi",
+       "type": "Gen II (Johto)",
+       "sub": "#0251"
+      },
+      {
+       "id": "252",
+       "name": "Treecko",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0252"
+      },
+      {
+       "id": "253",
+       "name": "Grovyle",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0253"
+      },
+      {
+       "id": "254",
+       "name": "Sceptile",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0254"
+      },
+      {
+       "id": "255",
+       "name": "Torchic",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0255"
+      },
+      {
+       "id": "256",
+       "name": "Combusken",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0256"
+      },
+      {
+       "id": "257",
+       "name": "Blaziken",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0257"
+      },
+      {
+       "id": "258",
+       "name": "Mudkip",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0258"
+      },
+      {
+       "id": "259",
+       "name": "Marshtomp",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0259"
+      },
+      {
+       "id": "260",
+       "name": "Swampert",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0260"
+      },
+      {
+       "id": "261",
+       "name": "Poochyena",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0261"
+      },
+      {
+       "id": "262",
+       "name": "Mightyena",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0262"
+      },
+      {
+       "id": "263",
+       "name": "Zigzagoon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0263"
+      },
+      {
+       "id": "264",
+       "name": "Linoone",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0264"
+      },
+      {
+       "id": "265",
+       "name": "Wurmple",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0265"
+      },
+      {
+       "id": "266",
+       "name": "Silcoon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0266"
+      },
+      {
+       "id": "267",
+       "name": "Beautifly",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0267"
+      },
+      {
+       "id": "268",
+       "name": "Cascoon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0268"
+      },
+      {
+       "id": "269",
+       "name": "Dustox",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0269"
+      },
+      {
+       "id": "270",
+       "name": "Lotad",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0270"
+      },
+      {
+       "id": "271",
+       "name": "Lombre",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0271"
+      },
+      {
+       "id": "272",
+       "name": "Ludicolo",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0272"
+      },
+      {
+       "id": "273",
+       "name": "Seedot",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0273"
+      },
+      {
+       "id": "274",
+       "name": "Nuzleaf",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0274"
+      },
+      {
+       "id": "275",
+       "name": "Shiftry",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0275"
+      },
+      {
+       "id": "276",
+       "name": "Taillow",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0276"
+      },
+      {
+       "id": "277",
+       "name": "Swellow",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0277"
+      },
+      {
+       "id": "278",
+       "name": "Wingull",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0278"
+      },
+      {
+       "id": "279",
+       "name": "Pelipper",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0279"
+      },
+      {
+       "id": "280",
+       "name": "Ralts",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0280"
+      },
+      {
+       "id": "281",
+       "name": "Kirlia",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0281"
+      },
+      {
+       "id": "282",
+       "name": "Gardevoir",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0282"
+      },
+      {
+       "id": "283",
+       "name": "Surskit",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0283"
+      },
+      {
+       "id": "284",
+       "name": "Masquerain",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0284"
+      },
+      {
+       "id": "285",
+       "name": "Shroomish",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0285"
+      },
+      {
+       "id": "286",
+       "name": "Breloom",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0286"
+      },
+      {
+       "id": "287",
+       "name": "Slakoth",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0287"
+      },
+      {
+       "id": "288",
+       "name": "Vigoroth",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0288"
+      },
+      {
+       "id": "289",
+       "name": "Slaking",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0289"
+      },
+      {
+       "id": "290",
+       "name": "Nincada",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0290"
+      },
+      {
+       "id": "291",
+       "name": "Ninjask",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0291"
+      },
+      {
+       "id": "292",
+       "name": "Shedinja",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0292"
+      },
+      {
+       "id": "293",
+       "name": "Whismur",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0293"
+      },
+      {
+       "id": "294",
+       "name": "Loudred",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0294"
+      },
+      {
+       "id": "295",
+       "name": "Exploud",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0295"
+      },
+      {
+       "id": "296",
+       "name": "Makuhita",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0296"
+      },
+      {
+       "id": "297",
+       "name": "Hariyama",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0297"
+      },
+      {
+       "id": "298",
+       "name": "Azurill",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0298"
+      },
+      {
+       "id": "299",
+       "name": "Nosepass",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0299"
+      },
+      {
+       "id": "300",
+       "name": "Skitty",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0300"
+      },
+      {
+       "id": "301",
+       "name": "Delcatty",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0301"
+      },
+      {
+       "id": "302",
+       "name": "Sableye",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0302"
+      },
+      {
+       "id": "303",
+       "name": "Mawile",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0303"
+      },
+      {
+       "id": "304",
+       "name": "Aron",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0304"
+      },
+      {
+       "id": "305",
+       "name": "Lairon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0305"
+      },
+      {
+       "id": "306",
+       "name": "Aggron",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0306"
+      },
+      {
+       "id": "307",
+       "name": "Meditite",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0307"
+      },
+      {
+       "id": "308",
+       "name": "Medicham",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0308"
+      },
+      {
+       "id": "309",
+       "name": "Electrike",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0309"
+      },
+      {
+       "id": "310",
+       "name": "Manectric",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0310"
+      },
+      {
+       "id": "311",
+       "name": "Plusle",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0311"
+      },
+      {
+       "id": "312",
+       "name": "Minun",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0312"
+      },
+      {
+       "id": "313",
+       "name": "Volbeat",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0313"
+      },
+      {
+       "id": "314",
+       "name": "Illumise",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0314"
+      },
+      {
+       "id": "315",
+       "name": "Roselia",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0315"
+      },
+      {
+       "id": "316",
+       "name": "Gulpin",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0316"
+      },
+      {
+       "id": "317",
+       "name": "Swalot",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0317"
+      },
+      {
+       "id": "318",
+       "name": "Carvanha",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0318"
+      },
+      {
+       "id": "319",
+       "name": "Sharpedo",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0319"
+      },
+      {
+       "id": "320",
+       "name": "Wailmer",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0320"
+      },
+      {
+       "id": "321",
+       "name": "Wailord",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0321"
+      },
+      {
+       "id": "322",
+       "name": "Numel",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0322"
+      },
+      {
+       "id": "323",
+       "name": "Camerupt",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0323"
+      },
+      {
+       "id": "324",
+       "name": "Torkoal",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0324"
+      },
+      {
+       "id": "325",
+       "name": "Spoink",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0325"
+      },
+      {
+       "id": "326",
+       "name": "Grumpig",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0326"
+      },
+      {
+       "id": "327",
+       "name": "Spinda",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0327"
+      },
+      {
+       "id": "328",
+       "name": "Trapinch",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0328"
+      },
+      {
+       "id": "329",
+       "name": "Vibrava",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0329"
+      },
+      {
+       "id": "330",
+       "name": "Flygon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0330"
+      },
+      {
+       "id": "331",
+       "name": "Cacnea",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0331"
+      },
+      {
+       "id": "332",
+       "name": "Cacturne",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0332"
+      },
+      {
+       "id": "333",
+       "name": "Swablu",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0333"
+      },
+      {
+       "id": "334",
+       "name": "Altaria",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0334"
+      },
+      {
+       "id": "335",
+       "name": "Zangoose",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0335"
+      },
+      {
+       "id": "336",
+       "name": "Seviper",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0336"
+      },
+      {
+       "id": "337",
+       "name": "Lunatone",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0337"
+      },
+      {
+       "id": "338",
+       "name": "Solrock",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0338"
+      },
+      {
+       "id": "339",
+       "name": "Barboach",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0339"
+      },
+      {
+       "id": "340",
+       "name": "Whiscash",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0340"
+      },
+      {
+       "id": "341",
+       "name": "Corphish",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0341"
+      },
+      {
+       "id": "342",
+       "name": "Crawdaunt",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0342"
+      },
+      {
+       "id": "343",
+       "name": "Baltoy",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0343"
+      },
+      {
+       "id": "344",
+       "name": "Claydol",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0344"
+      },
+      {
+       "id": "345",
+       "name": "Lileep",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0345"
+      },
+      {
+       "id": "346",
+       "name": "Cradily",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0346"
+      },
+      {
+       "id": "347",
+       "name": "Anorith",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0347"
+      },
+      {
+       "id": "348",
+       "name": "Armaldo",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0348"
+      },
+      {
+       "id": "349",
+       "name": "Feebas",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0349"
+      },
+      {
+       "id": "350",
+       "name": "Milotic",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0350"
+      },
+      {
+       "id": "351",
+       "name": "Castform",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0351"
+      },
+      {
+       "id": "352",
+       "name": "Kecleon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0352"
+      },
+      {
+       "id": "353",
+       "name": "Shuppet",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0353"
+      },
+      {
+       "id": "354",
+       "name": "Banette",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0354"
+      },
+      {
+       "id": "355",
+       "name": "Duskull",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0355"
+      },
+      {
+       "id": "356",
+       "name": "Dusclops",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0356"
+      },
+      {
+       "id": "357",
+       "name": "Tropius",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0357"
+      },
+      {
+       "id": "358",
+       "name": "Chimecho",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0358"
+      },
+      {
+       "id": "359",
+       "name": "Absol",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0359"
+      },
+      {
+       "id": "360",
+       "name": "Wynaut",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0360"
+      },
+      {
+       "id": "361",
+       "name": "Snorunt",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0361"
+      },
+      {
+       "id": "362",
+       "name": "Glalie",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0362"
+      },
+      {
+       "id": "363",
+       "name": "Spheal",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0363"
+      },
+      {
+       "id": "364",
+       "name": "Sealeo",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0364"
+      },
+      {
+       "id": "365",
+       "name": "Walrein",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0365"
+      },
+      {
+       "id": "366",
+       "name": "Clamperl",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0366"
+      },
+      {
+       "id": "367",
+       "name": "Huntail",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0367"
+      },
+      {
+       "id": "368",
+       "name": "Gorebyss",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0368"
+      },
+      {
+       "id": "369",
+       "name": "Relicanth",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0369"
+      },
+      {
+       "id": "370",
+       "name": "Luvdisc",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0370"
+      },
+      {
+       "id": "371",
+       "name": "Bagon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0371"
+      },
+      {
+       "id": "372",
+       "name": "Shelgon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0372"
+      },
+      {
+       "id": "373",
+       "name": "Salamence",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0373"
+      },
+      {
+       "id": "374",
+       "name": "Beldum",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0374"
+      },
+      {
+       "id": "375",
+       "name": "Metang",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0375"
+      },
+      {
+       "id": "376",
+       "name": "Metagross",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0376"
+      },
+      {
+       "id": "377",
+       "name": "Regirock",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0377"
+      },
+      {
+       "id": "378",
+       "name": "Regice",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0378"
+      },
+      {
+       "id": "379",
+       "name": "Registeel",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0379"
+      },
+      {
+       "id": "380",
+       "name": "Latias",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0380"
+      },
+      {
+       "id": "381",
+       "name": "Latios",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0381"
+      },
+      {
+       "id": "382",
+       "name": "Kyogre",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0382"
+      },
+      {
+       "id": "383",
+       "name": "Groudon",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0383"
+      },
+      {
+       "id": "384",
+       "name": "Rayquaza",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0384"
+      },
+      {
+       "id": "385",
+       "name": "Jirachi",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0385"
+      },
+      {
+       "id": "386",
+       "name": "Deoxys",
+       "type": "Gen III (Hoenn)",
+       "sub": "#0386"
+      },
+      {
+       "id": "387",
+       "name": "Turtwig",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0387"
+      },
+      {
+       "id": "388",
+       "name": "Grotle",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0388"
+      },
+      {
+       "id": "389",
+       "name": "Torterra",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0389"
+      },
+      {
+       "id": "390",
+       "name": "Chimchar",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0390"
+      },
+      {
+       "id": "391",
+       "name": "Monferno",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0391"
+      },
+      {
+       "id": "392",
+       "name": "Infernape",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0392"
+      },
+      {
+       "id": "393",
+       "name": "Piplup",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0393"
+      },
+      {
+       "id": "394",
+       "name": "Prinplup",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0394"
+      },
+      {
+       "id": "395",
+       "name": "Empoleon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0395"
+      },
+      {
+       "id": "396",
+       "name": "Starly",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0396"
+      },
+      {
+       "id": "397",
+       "name": "Staravia",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0397"
+      },
+      {
+       "id": "398",
+       "name": "Staraptor",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0398"
+      },
+      {
+       "id": "399",
+       "name": "Bidoof",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0399"
+      },
+      {
+       "id": "400",
+       "name": "Bibarel",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0400"
+      },
+      {
+       "id": "401",
+       "name": "Kricketot",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0401"
+      },
+      {
+       "id": "402",
+       "name": "Kricketune",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0402"
+      },
+      {
+       "id": "403",
+       "name": "Shinx",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0403"
+      },
+      {
+       "id": "404",
+       "name": "Luxio",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0404"
+      },
+      {
+       "id": "405",
+       "name": "Luxray",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0405"
+      },
+      {
+       "id": "406",
+       "name": "Budew",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0406"
+      },
+      {
+       "id": "407",
+       "name": "Roserade",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0407"
+      },
+      {
+       "id": "408",
+       "name": "Cranidos",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0408"
+      },
+      {
+       "id": "409",
+       "name": "Rampardos",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0409"
+      },
+      {
+       "id": "410",
+       "name": "Shieldon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0410"
+      },
+      {
+       "id": "411",
+       "name": "Bastiodon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0411"
+      },
+      {
+       "id": "412",
+       "name": "Burmy",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0412"
+      },
+      {
+       "id": "413",
+       "name": "Wormadam",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0413"
+      },
+      {
+       "id": "414",
+       "name": "Mothim",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0414"
+      },
+      {
+       "id": "415",
+       "name": "Combee",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0415"
+      },
+      {
+       "id": "416",
+       "name": "Vespiquen",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0416"
+      },
+      {
+       "id": "417",
+       "name": "Pachirisu",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0417"
+      },
+      {
+       "id": "418",
+       "name": "Buizel",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0418"
+      },
+      {
+       "id": "419",
+       "name": "Floatzel",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0419"
+      },
+      {
+       "id": "420",
+       "name": "Cherubi",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0420"
+      },
+      {
+       "id": "421",
+       "name": "Cherrim",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0421"
+      },
+      {
+       "id": "422",
+       "name": "Shellos",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0422"
+      },
+      {
+       "id": "423",
+       "name": "Gastrodon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0423"
+      },
+      {
+       "id": "424",
+       "name": "Ambipom",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0424"
+      },
+      {
+       "id": "425",
+       "name": "Drifloon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0425"
+      },
+      {
+       "id": "426",
+       "name": "Drifblim",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0426"
+      },
+      {
+       "id": "427",
+       "name": "Buneary",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0427"
+      },
+      {
+       "id": "428",
+       "name": "Lopunny",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0428"
+      },
+      {
+       "id": "429",
+       "name": "Mismagius",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0429"
+      },
+      {
+       "id": "430",
+       "name": "Honchkrow",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0430"
+      },
+      {
+       "id": "431",
+       "name": "Glameow",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0431"
+      },
+      {
+       "id": "432",
+       "name": "Purugly",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0432"
+      },
+      {
+       "id": "433",
+       "name": "Chingling",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0433"
+      },
+      {
+       "id": "434",
+       "name": "Stunky",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0434"
+      },
+      {
+       "id": "435",
+       "name": "Skuntank",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0435"
+      },
+      {
+       "id": "436",
+       "name": "Bronzor",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0436"
+      },
+      {
+       "id": "437",
+       "name": "Bronzong",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0437"
+      },
+      {
+       "id": "438",
+       "name": "Bonsly",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0438"
+      },
+      {
+       "id": "439",
+       "name": "Mime Jr.",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0439"
+      },
+      {
+       "id": "440",
+       "name": "Happiny",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0440"
+      },
+      {
+       "id": "441",
+       "name": "Chatot",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0441"
+      },
+      {
+       "id": "442",
+       "name": "Spiritomb",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0442"
+      },
+      {
+       "id": "443",
+       "name": "Gible",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0443"
+      },
+      {
+       "id": "444",
+       "name": "Gabite",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0444"
+      },
+      {
+       "id": "445",
+       "name": "Garchomp",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0445"
+      },
+      {
+       "id": "446",
+       "name": "Munchlax",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0446"
+      },
+      {
+       "id": "447",
+       "name": "Riolu",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0447"
+      },
+      {
+       "id": "448",
+       "name": "Lucario",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0448"
+      },
+      {
+       "id": "449",
+       "name": "Hippopotas",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0449"
+      },
+      {
+       "id": "450",
+       "name": "Hippowdon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0450"
+      },
+      {
+       "id": "451",
+       "name": "Skorupi",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0451"
+      },
+      {
+       "id": "452",
+       "name": "Drapion",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0452"
+      },
+      {
+       "id": "453",
+       "name": "Croagunk",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0453"
+      },
+      {
+       "id": "454",
+       "name": "Toxicroak",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0454"
+      },
+      {
+       "id": "455",
+       "name": "Carnivine",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0455"
+      },
+      {
+       "id": "456",
+       "name": "Finneon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0456"
+      },
+      {
+       "id": "457",
+       "name": "Lumineon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0457"
+      },
+      {
+       "id": "458",
+       "name": "Mantyke",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0458"
+      },
+      {
+       "id": "459",
+       "name": "Snover",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0459"
+      },
+      {
+       "id": "460",
+       "name": "Abomasnow",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0460"
+      },
+      {
+       "id": "461",
+       "name": "Weavile",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0461"
+      },
+      {
+       "id": "462",
+       "name": "Magnezone",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0462"
+      },
+      {
+       "id": "463",
+       "name": "Lickilicky",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0463"
+      },
+      {
+       "id": "464",
+       "name": "Rhyperior",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0464"
+      },
+      {
+       "id": "465",
+       "name": "Tangrowth",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0465"
+      },
+      {
+       "id": "466",
+       "name": "Electivire",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0466"
+      },
+      {
+       "id": "467",
+       "name": "Magmortar",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0467"
+      },
+      {
+       "id": "468",
+       "name": "Togekiss",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0468"
+      },
+      {
+       "id": "469",
+       "name": "Yanmega",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0469"
+      },
+      {
+       "id": "470",
+       "name": "Leafeon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0470"
+      },
+      {
+       "id": "471",
+       "name": "Glaceon",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0471"
+      },
+      {
+       "id": "472",
+       "name": "Gliscor",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0472"
+      },
+      {
+       "id": "473",
+       "name": "Mamoswine",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0473"
+      },
+      {
+       "id": "474",
+       "name": "Porygon-Z",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0474"
+      },
+      {
+       "id": "475",
+       "name": "Gallade",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0475"
+      },
+      {
+       "id": "476",
+       "name": "Probopass",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0476"
+      },
+      {
+       "id": "477",
+       "name": "Dusknoir",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0477"
+      },
+      {
+       "id": "478",
+       "name": "Froslass",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0478"
+      },
+      {
+       "id": "479",
+       "name": "Rotom",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0479"
+      },
+      {
+       "id": "480",
+       "name": "Uxie",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0480"
+      },
+      {
+       "id": "481",
+       "name": "Mesprit",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0481"
+      },
+      {
+       "id": "482",
+       "name": "Azelf",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0482"
+      },
+      {
+       "id": "483",
+       "name": "Dialga",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0483"
+      },
+      {
+       "id": "484",
+       "name": "Palkia",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0484"
+      },
+      {
+       "id": "485",
+       "name": "Heatran",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0485"
+      },
+      {
+       "id": "486",
+       "name": "Regigigas",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0486"
+      },
+      {
+       "id": "487",
+       "name": "Giratina",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0487"
+      },
+      {
+       "id": "488",
+       "name": "Cresselia",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0488"
+      },
+      {
+       "id": "489",
+       "name": "Phione",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0489"
+      },
+      {
+       "id": "490",
+       "name": "Manaphy",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0490"
+      },
+      {
+       "id": "491",
+       "name": "Darkrai",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0491"
+      },
+      {
+       "id": "492",
+       "name": "Shaymin",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0492"
+      },
+      {
+       "id": "493",
+       "name": "Arceus",
+       "type": "Gen IV (Sinnoh)",
+       "sub": "#0493"
+      },
+      {
+       "id": "494",
+       "name": "Victini",
+       "type": "Gen V (Unova)",
+       "sub": "#0494"
+      },
+      {
+       "id": "495",
+       "name": "Snivy",
+       "type": "Gen V (Unova)",
+       "sub": "#0495"
+      },
+      {
+       "id": "496",
+       "name": "Servine",
+       "type": "Gen V (Unova)",
+       "sub": "#0496"
+      },
+      {
+       "id": "497",
+       "name": "Serperior",
+       "type": "Gen V (Unova)",
+       "sub": "#0497"
+      },
+      {
+       "id": "498",
+       "name": "Tepig",
+       "type": "Gen V (Unova)",
+       "sub": "#0498"
+      },
+      {
+       "id": "499",
+       "name": "Pignite",
+       "type": "Gen V (Unova)",
+       "sub": "#0499"
+      },
+      {
+       "id": "500",
+       "name": "Emboar",
+       "type": "Gen V (Unova)",
+       "sub": "#0500"
+      },
+      {
+       "id": "501",
+       "name": "Oshawott",
+       "type": "Gen V (Unova)",
+       "sub": "#0501"
+      },
+      {
+       "id": "502",
+       "name": "Dewott",
+       "type": "Gen V (Unova)",
+       "sub": "#0502"
+      },
+      {
+       "id": "503",
+       "name": "Samurott",
+       "type": "Gen V (Unova)",
+       "sub": "#0503"
+      },
+      {
+       "id": "504",
+       "name": "Patrat",
+       "type": "Gen V (Unova)",
+       "sub": "#0504"
+      },
+      {
+       "id": "505",
+       "name": "Watchog",
+       "type": "Gen V (Unova)",
+       "sub": "#0505"
+      },
+      {
+       "id": "506",
+       "name": "Lillipup",
+       "type": "Gen V (Unova)",
+       "sub": "#0506"
+      },
+      {
+       "id": "507",
+       "name": "Herdier",
+       "type": "Gen V (Unova)",
+       "sub": "#0507"
+      },
+      {
+       "id": "508",
+       "name": "Stoutland",
+       "type": "Gen V (Unova)",
+       "sub": "#0508"
+      },
+      {
+       "id": "509",
+       "name": "Purrloin",
+       "type": "Gen V (Unova)",
+       "sub": "#0509"
+      },
+      {
+       "id": "510",
+       "name": "Liepard",
+       "type": "Gen V (Unova)",
+       "sub": "#0510"
+      },
+      {
+       "id": "511",
+       "name": "Pansage",
+       "type": "Gen V (Unova)",
+       "sub": "#0511"
+      },
+      {
+       "id": "512",
+       "name": "Simisage",
+       "type": "Gen V (Unova)",
+       "sub": "#0512"
+      },
+      {
+       "id": "513",
+       "name": "Pansear",
+       "type": "Gen V (Unova)",
+       "sub": "#0513"
+      },
+      {
+       "id": "514",
+       "name": "Simisear",
+       "type": "Gen V (Unova)",
+       "sub": "#0514"
+      },
+      {
+       "id": "515",
+       "name": "Panpour",
+       "type": "Gen V (Unova)",
+       "sub": "#0515"
+      },
+      {
+       "id": "516",
+       "name": "Simipour",
+       "type": "Gen V (Unova)",
+       "sub": "#0516"
+      },
+      {
+       "id": "517",
+       "name": "Munna",
+       "type": "Gen V (Unova)",
+       "sub": "#0517"
+      },
+      {
+       "id": "518",
+       "name": "Musharna",
+       "type": "Gen V (Unova)",
+       "sub": "#0518"
+      },
+      {
+       "id": "519",
+       "name": "Pidove",
+       "type": "Gen V (Unova)",
+       "sub": "#0519"
+      },
+      {
+       "id": "520",
+       "name": "Tranquill",
+       "type": "Gen V (Unova)",
+       "sub": "#0520"
+      },
+      {
+       "id": "521",
+       "name": "Unfezant",
+       "type": "Gen V (Unova)",
+       "sub": "#0521"
+      },
+      {
+       "id": "522",
+       "name": "Blitzle",
+       "type": "Gen V (Unova)",
+       "sub": "#0522"
+      },
+      {
+       "id": "523",
+       "name": "Zebstrika",
+       "type": "Gen V (Unova)",
+       "sub": "#0523"
+      },
+      {
+       "id": "524",
+       "name": "Roggenrola",
+       "type": "Gen V (Unova)",
+       "sub": "#0524"
+      },
+      {
+       "id": "525",
+       "name": "Boldore",
+       "type": "Gen V (Unova)",
+       "sub": "#0525"
+      },
+      {
+       "id": "526",
+       "name": "Gigalith",
+       "type": "Gen V (Unova)",
+       "sub": "#0526"
+      },
+      {
+       "id": "527",
+       "name": "Woobat",
+       "type": "Gen V (Unova)",
+       "sub": "#0527"
+      },
+      {
+       "id": "528",
+       "name": "Swoobat",
+       "type": "Gen V (Unova)",
+       "sub": "#0528"
+      },
+      {
+       "id": "529",
+       "name": "Drilbur",
+       "type": "Gen V (Unova)",
+       "sub": "#0529"
+      },
+      {
+       "id": "530",
+       "name": "Excadrill",
+       "type": "Gen V (Unova)",
+       "sub": "#0530"
+      },
+      {
+       "id": "531",
+       "name": "Audino",
+       "type": "Gen V (Unova)",
+       "sub": "#0531"
+      },
+      {
+       "id": "532",
+       "name": "Timburr",
+       "type": "Gen V (Unova)",
+       "sub": "#0532"
+      },
+      {
+       "id": "533",
+       "name": "Gurdurr",
+       "type": "Gen V (Unova)",
+       "sub": "#0533"
+      },
+      {
+       "id": "534",
+       "name": "Conkeldurr",
+       "type": "Gen V (Unova)",
+       "sub": "#0534"
+      },
+      {
+       "id": "535",
+       "name": "Tympole",
+       "type": "Gen V (Unova)",
+       "sub": "#0535"
+      },
+      {
+       "id": "536",
+       "name": "Palpitoad",
+       "type": "Gen V (Unova)",
+       "sub": "#0536"
+      },
+      {
+       "id": "537",
+       "name": "Seismitoad",
+       "type": "Gen V (Unova)",
+       "sub": "#0537"
+      },
+      {
+       "id": "538",
+       "name": "Throh",
+       "type": "Gen V (Unova)",
+       "sub": "#0538"
+      },
+      {
+       "id": "539",
+       "name": "Sawk",
+       "type": "Gen V (Unova)",
+       "sub": "#0539"
+      },
+      {
+       "id": "540",
+       "name": "Sewaddle",
+       "type": "Gen V (Unova)",
+       "sub": "#0540"
+      },
+      {
+       "id": "541",
+       "name": "Swadloon",
+       "type": "Gen V (Unova)",
+       "sub": "#0541"
+      },
+      {
+       "id": "542",
+       "name": "Leavanny",
+       "type": "Gen V (Unova)",
+       "sub": "#0542"
+      },
+      {
+       "id": "543",
+       "name": "Venipede",
+       "type": "Gen V (Unova)",
+       "sub": "#0543"
+      },
+      {
+       "id": "544",
+       "name": "Whirlipede",
+       "type": "Gen V (Unova)",
+       "sub": "#0544"
+      },
+      {
+       "id": "545",
+       "name": "Scolipede",
+       "type": "Gen V (Unova)",
+       "sub": "#0545"
+      },
+      {
+       "id": "546",
+       "name": "Cottonee",
+       "type": "Gen V (Unova)",
+       "sub": "#0546"
+      },
+      {
+       "id": "547",
+       "name": "Whimsicott",
+       "type": "Gen V (Unova)",
+       "sub": "#0547"
+      },
+      {
+       "id": "548",
+       "name": "Petilil",
+       "type": "Gen V (Unova)",
+       "sub": "#0548"
+      },
+      {
+       "id": "549",
+       "name": "Lilligant",
+       "type": "Gen V (Unova)",
+       "sub": "#0549"
+      },
+      {
+       "id": "550",
+       "name": "Basculin",
+       "type": "Gen V (Unova)",
+       "sub": "#0550"
+      },
+      {
+       "id": "551",
+       "name": "Sandile",
+       "type": "Gen V (Unova)",
+       "sub": "#0551"
+      },
+      {
+       "id": "552",
+       "name": "Krokorok",
+       "type": "Gen V (Unova)",
+       "sub": "#0552"
+      },
+      {
+       "id": "553",
+       "name": "Krookodile",
+       "type": "Gen V (Unova)",
+       "sub": "#0553"
+      },
+      {
+       "id": "554",
+       "name": "Darumaka",
+       "type": "Gen V (Unova)",
+       "sub": "#0554"
+      },
+      {
+       "id": "555",
+       "name": "Darmanitan",
+       "type": "Gen V (Unova)",
+       "sub": "#0555"
+      },
+      {
+       "id": "556",
+       "name": "Maractus",
+       "type": "Gen V (Unova)",
+       "sub": "#0556"
+      },
+      {
+       "id": "557",
+       "name": "Dwebble",
+       "type": "Gen V (Unova)",
+       "sub": "#0557"
+      },
+      {
+       "id": "558",
+       "name": "Crustle",
+       "type": "Gen V (Unova)",
+       "sub": "#0558"
+      },
+      {
+       "id": "559",
+       "name": "Scraggy",
+       "type": "Gen V (Unova)",
+       "sub": "#0559"
+      },
+      {
+       "id": "560",
+       "name": "Scrafty",
+       "type": "Gen V (Unova)",
+       "sub": "#0560"
+      },
+      {
+       "id": "561",
+       "name": "Sigilyph",
+       "type": "Gen V (Unova)",
+       "sub": "#0561"
+      },
+      {
+       "id": "562",
+       "name": "Yamask",
+       "type": "Gen V (Unova)",
+       "sub": "#0562"
+      },
+      {
+       "id": "563",
+       "name": "Cofagrigus",
+       "type": "Gen V (Unova)",
+       "sub": "#0563"
+      },
+      {
+       "id": "564",
+       "name": "Tirtouga",
+       "type": "Gen V (Unova)",
+       "sub": "#0564"
+      },
+      {
+       "id": "565",
+       "name": "Carracosta",
+       "type": "Gen V (Unova)",
+       "sub": "#0565"
+      },
+      {
+       "id": "566",
+       "name": "Archen",
+       "type": "Gen V (Unova)",
+       "sub": "#0566"
+      },
+      {
+       "id": "567",
+       "name": "Archeops",
+       "type": "Gen V (Unova)",
+       "sub": "#0567"
+      },
+      {
+       "id": "568",
+       "name": "Trubbish",
+       "type": "Gen V (Unova)",
+       "sub": "#0568"
+      },
+      {
+       "id": "569",
+       "name": "Garbodor",
+       "type": "Gen V (Unova)",
+       "sub": "#0569"
+      },
+      {
+       "id": "570",
+       "name": "Zorua",
+       "type": "Gen V (Unova)",
+       "sub": "#0570"
+      },
+      {
+       "id": "571",
+       "name": "Zoroark",
+       "type": "Gen V (Unova)",
+       "sub": "#0571"
+      },
+      {
+       "id": "572",
+       "name": "Minccino",
+       "type": "Gen V (Unova)",
+       "sub": "#0572"
+      },
+      {
+       "id": "573",
+       "name": "Cinccino",
+       "type": "Gen V (Unova)",
+       "sub": "#0573"
+      },
+      {
+       "id": "574",
+       "name": "Gothita",
+       "type": "Gen V (Unova)",
+       "sub": "#0574"
+      },
+      {
+       "id": "575",
+       "name": "Gothorita",
+       "type": "Gen V (Unova)",
+       "sub": "#0575"
+      },
+      {
+       "id": "576",
+       "name": "Gothitelle",
+       "type": "Gen V (Unova)",
+       "sub": "#0576"
+      },
+      {
+       "id": "577",
+       "name": "Solosis",
+       "type": "Gen V (Unova)",
+       "sub": "#0577"
+      },
+      {
+       "id": "578",
+       "name": "Duosion",
+       "type": "Gen V (Unova)",
+       "sub": "#0578"
+      },
+      {
+       "id": "579",
+       "name": "Reuniclus",
+       "type": "Gen V (Unova)",
+       "sub": "#0579"
+      },
+      {
+       "id": "580",
+       "name": "Ducklett",
+       "type": "Gen V (Unova)",
+       "sub": "#0580"
+      },
+      {
+       "id": "581",
+       "name": "Swanna",
+       "type": "Gen V (Unova)",
+       "sub": "#0581"
+      },
+      {
+       "id": "582",
+       "name": "Vanillite",
+       "type": "Gen V (Unova)",
+       "sub": "#0582"
+      },
+      {
+       "id": "583",
+       "name": "Vanillish",
+       "type": "Gen V (Unova)",
+       "sub": "#0583"
+      },
+      {
+       "id": "584",
+       "name": "Vanilluxe",
+       "type": "Gen V (Unova)",
+       "sub": "#0584"
+      },
+      {
+       "id": "585",
+       "name": "Deerling",
+       "type": "Gen V (Unova)",
+       "sub": "#0585"
+      },
+      {
+       "id": "586",
+       "name": "Sawsbuck",
+       "type": "Gen V (Unova)",
+       "sub": "#0586"
+      },
+      {
+       "id": "587",
+       "name": "Emolga",
+       "type": "Gen V (Unova)",
+       "sub": "#0587"
+      },
+      {
+       "id": "588",
+       "name": "Karrablast",
+       "type": "Gen V (Unova)",
+       "sub": "#0588"
+      },
+      {
+       "id": "589",
+       "name": "Escavalier",
+       "type": "Gen V (Unova)",
+       "sub": "#0589"
+      },
+      {
+       "id": "590",
+       "name": "Foongus",
+       "type": "Gen V (Unova)",
+       "sub": "#0590"
+      },
+      {
+       "id": "591",
+       "name": "Amoonguss",
+       "type": "Gen V (Unova)",
+       "sub": "#0591"
+      },
+      {
+       "id": "592",
+       "name": "Frillish",
+       "type": "Gen V (Unova)",
+       "sub": "#0592"
+      },
+      {
+       "id": "593",
+       "name": "Jellicent",
+       "type": "Gen V (Unova)",
+       "sub": "#0593"
+      },
+      {
+       "id": "594",
+       "name": "Alomomola",
+       "type": "Gen V (Unova)",
+       "sub": "#0594"
+      },
+      {
+       "id": "595",
+       "name": "Joltik",
+       "type": "Gen V (Unova)",
+       "sub": "#0595"
+      },
+      {
+       "id": "596",
+       "name": "Galvantula",
+       "type": "Gen V (Unova)",
+       "sub": "#0596"
+      },
+      {
+       "id": "597",
+       "name": "Ferroseed",
+       "type": "Gen V (Unova)",
+       "sub": "#0597"
+      },
+      {
+       "id": "598",
+       "name": "Ferrothorn",
+       "type": "Gen V (Unova)",
+       "sub": "#0598"
+      },
+      {
+       "id": "599",
+       "name": "Klink",
+       "type": "Gen V (Unova)",
+       "sub": "#0599"
+      },
+      {
+       "id": "600",
+       "name": "Klang",
+       "type": "Gen V (Unova)",
+       "sub": "#0600"
+      },
+      {
+       "id": "601",
+       "name": "Klinklang",
+       "type": "Gen V (Unova)",
+       "sub": "#0601"
+      },
+      {
+       "id": "602",
+       "name": "Tynamo",
+       "type": "Gen V (Unova)",
+       "sub": "#0602"
+      },
+      {
+       "id": "603",
+       "name": "Eelektrik",
+       "type": "Gen V (Unova)",
+       "sub": "#0603"
+      },
+      {
+       "id": "604",
+       "name": "Eelektross",
+       "type": "Gen V (Unova)",
+       "sub": "#0604"
+      },
+      {
+       "id": "605",
+       "name": "Elgyem",
+       "type": "Gen V (Unova)",
+       "sub": "#0605"
+      },
+      {
+       "id": "606",
+       "name": "Beheeyem",
+       "type": "Gen V (Unova)",
+       "sub": "#0606"
+      },
+      {
+       "id": "607",
+       "name": "Litwick",
+       "type": "Gen V (Unova)",
+       "sub": "#0607"
+      },
+      {
+       "id": "608",
+       "name": "Lampent",
+       "type": "Gen V (Unova)",
+       "sub": "#0608"
+      },
+      {
+       "id": "609",
+       "name": "Chandelure",
+       "type": "Gen V (Unova)",
+       "sub": "#0609"
+      },
+      {
+       "id": "610",
+       "name": "Axew",
+       "type": "Gen V (Unova)",
+       "sub": "#0610"
+      },
+      {
+       "id": "611",
+       "name": "Fraxure",
+       "type": "Gen V (Unova)",
+       "sub": "#0611"
+      },
+      {
+       "id": "612",
+       "name": "Haxorus",
+       "type": "Gen V (Unova)",
+       "sub": "#0612"
+      },
+      {
+       "id": "613",
+       "name": "Cubchoo",
+       "type": "Gen V (Unova)",
+       "sub": "#0613"
+      },
+      {
+       "id": "614",
+       "name": "Beartic",
+       "type": "Gen V (Unova)",
+       "sub": "#0614"
+      },
+      {
+       "id": "615",
+       "name": "Cryogonal",
+       "type": "Gen V (Unova)",
+       "sub": "#0615"
+      },
+      {
+       "id": "616",
+       "name": "Shelmet",
+       "type": "Gen V (Unova)",
+       "sub": "#0616"
+      },
+      {
+       "id": "617",
+       "name": "Accelgor",
+       "type": "Gen V (Unova)",
+       "sub": "#0617"
+      },
+      {
+       "id": "618",
+       "name": "Stunfisk",
+       "type": "Gen V (Unova)",
+       "sub": "#0618"
+      },
+      {
+       "id": "619",
+       "name": "Mienfoo",
+       "type": "Gen V (Unova)",
+       "sub": "#0619"
+      },
+      {
+       "id": "620",
+       "name": "Mienshao",
+       "type": "Gen V (Unova)",
+       "sub": "#0620"
+      },
+      {
+       "id": "621",
+       "name": "Druddigon",
+       "type": "Gen V (Unova)",
+       "sub": "#0621"
+      },
+      {
+       "id": "622",
+       "name": "Golett",
+       "type": "Gen V (Unova)",
+       "sub": "#0622"
+      },
+      {
+       "id": "623",
+       "name": "Golurk",
+       "type": "Gen V (Unova)",
+       "sub": "#0623"
+      },
+      {
+       "id": "624",
+       "name": "Pawniard",
+       "type": "Gen V (Unova)",
+       "sub": "#0624"
+      },
+      {
+       "id": "625",
+       "name": "Bisharp",
+       "type": "Gen V (Unova)",
+       "sub": "#0625"
+      },
+      {
+       "id": "626",
+       "name": "Bouffalant",
+       "type": "Gen V (Unova)",
+       "sub": "#0626"
+      },
+      {
+       "id": "627",
+       "name": "Rufflet",
+       "type": "Gen V (Unova)",
+       "sub": "#0627"
+      },
+      {
+       "id": "628",
+       "name": "Braviary",
+       "type": "Gen V (Unova)",
+       "sub": "#0628"
+      },
+      {
+       "id": "629",
+       "name": "Vullaby",
+       "type": "Gen V (Unova)",
+       "sub": "#0629"
+      },
+      {
+       "id": "630",
+       "name": "Mandibuzz",
+       "type": "Gen V (Unova)",
+       "sub": "#0630"
+      },
+      {
+       "id": "631",
+       "name": "Heatmor",
+       "type": "Gen V (Unova)",
+       "sub": "#0631"
+      },
+      {
+       "id": "632",
+       "name": "Durant",
+       "type": "Gen V (Unova)",
+       "sub": "#0632"
+      },
+      {
+       "id": "633",
+       "name": "Deino",
+       "type": "Gen V (Unova)",
+       "sub": "#0633"
+      },
+      {
+       "id": "634",
+       "name": "Zweilous",
+       "type": "Gen V (Unova)",
+       "sub": "#0634"
+      },
+      {
+       "id": "635",
+       "name": "Hydreigon",
+       "type": "Gen V (Unova)",
+       "sub": "#0635"
+      },
+      {
+       "id": "636",
+       "name": "Larvesta",
+       "type": "Gen V (Unova)",
+       "sub": "#0636"
+      },
+      {
+       "id": "637",
+       "name": "Volcarona",
+       "type": "Gen V (Unova)",
+       "sub": "#0637"
+      },
+      {
+       "id": "638",
+       "name": "Cobalion",
+       "type": "Gen V (Unova)",
+       "sub": "#0638"
+      },
+      {
+       "id": "639",
+       "name": "Terrakion",
+       "type": "Gen V (Unova)",
+       "sub": "#0639"
+      },
+      {
+       "id": "640",
+       "name": "Virizion",
+       "type": "Gen V (Unova)",
+       "sub": "#0640"
+      },
+      {
+       "id": "641",
+       "name": "Tornadus",
+       "type": "Gen V (Unova)",
+       "sub": "#0641"
+      },
+      {
+       "id": "642",
+       "name": "Thundurus",
+       "type": "Gen V (Unova)",
+       "sub": "#0642"
+      },
+      {
+       "id": "643",
+       "name": "Reshiram",
+       "type": "Gen V (Unova)",
+       "sub": "#0643"
+      },
+      {
+       "id": "644",
+       "name": "Zekrom",
+       "type": "Gen V (Unova)",
+       "sub": "#0644"
+      },
+      {
+       "id": "645",
+       "name": "Landorus",
+       "type": "Gen V (Unova)",
+       "sub": "#0645"
+      },
+      {
+       "id": "646",
+       "name": "Kyurem",
+       "type": "Gen V (Unova)",
+       "sub": "#0646"
+      },
+      {
+       "id": "647",
+       "name": "Keldeo",
+       "type": "Gen V (Unova)",
+       "sub": "#0647"
+      },
+      {
+       "id": "648",
+       "name": "Meloetta",
+       "type": "Gen V (Unova)",
+       "sub": "#0648"
+      },
+      {
+       "id": "649",
+       "name": "Genesect",
+       "type": "Gen V (Unova)",
+       "sub": "#0649"
+      },
+      {
+       "id": "650",
+       "name": "Chespin",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0650"
+      },
+      {
+       "id": "651",
+       "name": "Quilladin",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0651"
+      },
+      {
+       "id": "652",
+       "name": "Chesnaught",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0652"
+      },
+      {
+       "id": "653",
+       "name": "Fennekin",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0653"
+      },
+      {
+       "id": "654",
+       "name": "Braixen",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0654"
+      },
+      {
+       "id": "655",
+       "name": "Delphox",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0655"
+      },
+      {
+       "id": "656",
+       "name": "Froakie",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0656"
+      },
+      {
+       "id": "657",
+       "name": "Frogadier",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0657"
+      },
+      {
+       "id": "658",
+       "name": "Greninja",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0658"
+      },
+      {
+       "id": "659",
+       "name": "Bunnelby",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0659"
+      },
+      {
+       "id": "660",
+       "name": "Diggersby",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0660"
+      },
+      {
+       "id": "661",
+       "name": "Fletchling",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0661"
+      },
+      {
+       "id": "662",
+       "name": "Fletchinder",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0662"
+      },
+      {
+       "id": "663",
+       "name": "Talonflame",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0663"
+      },
+      {
+       "id": "664",
+       "name": "Scatterbug",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0664"
+      },
+      {
+       "id": "665",
+       "name": "Spewpa",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0665"
+      },
+      {
+       "id": "666",
+       "name": "Vivillon",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0666"
+      },
+      {
+       "id": "667",
+       "name": "Litleo",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0667"
+      },
+      {
+       "id": "668",
+       "name": "Pyroar",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0668"
+      },
+      {
+       "id": "669",
+       "name": "Flabébé",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0669"
+      },
+      {
+       "id": "670",
+       "name": "Floette",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0670"
+      },
+      {
+       "id": "671",
+       "name": "Florges",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0671"
+      },
+      {
+       "id": "672",
+       "name": "Skiddo",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0672"
+      },
+      {
+       "id": "673",
+       "name": "Gogoat",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0673"
+      },
+      {
+       "id": "674",
+       "name": "Pancham",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0674"
+      },
+      {
+       "id": "675",
+       "name": "Pangoro",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0675"
+      },
+      {
+       "id": "676",
+       "name": "Furfrou",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0676"
+      },
+      {
+       "id": "677",
+       "name": "Espurr",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0677"
+      },
+      {
+       "id": "678",
+       "name": "Meowstic",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0678"
+      },
+      {
+       "id": "679",
+       "name": "Honedge",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0679"
+      },
+      {
+       "id": "680",
+       "name": "Doublade",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0680"
+      },
+      {
+       "id": "681",
+       "name": "Aegislash",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0681"
+      },
+      {
+       "id": "682",
+       "name": "Spritzee",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0682"
+      },
+      {
+       "id": "683",
+       "name": "Aromatisse",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0683"
+      },
+      {
+       "id": "684",
+       "name": "Swirlix",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0684"
+      },
+      {
+       "id": "685",
+       "name": "Slurpuff",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0685"
+      },
+      {
+       "id": "686",
+       "name": "Inkay",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0686"
+      },
+      {
+       "id": "687",
+       "name": "Malamar",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0687"
+      },
+      {
+       "id": "688",
+       "name": "Binacle",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0688"
+      },
+      {
+       "id": "689",
+       "name": "Barbaracle",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0689"
+      },
+      {
+       "id": "690",
+       "name": "Skrelp",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0690"
+      },
+      {
+       "id": "691",
+       "name": "Dragalge",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0691"
+      },
+      {
+       "id": "692",
+       "name": "Clauncher",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0692"
+      },
+      {
+       "id": "693",
+       "name": "Clawitzer",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0693"
+      },
+      {
+       "id": "694",
+       "name": "Helioptile",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0694"
+      },
+      {
+       "id": "695",
+       "name": "Heliolisk",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0695"
+      },
+      {
+       "id": "696",
+       "name": "Tyrunt",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0696"
+      },
+      {
+       "id": "697",
+       "name": "Tyrantrum",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0697"
+      },
+      {
+       "id": "698",
+       "name": "Amaura",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0698"
+      },
+      {
+       "id": "699",
+       "name": "Aurorus",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0699"
+      },
+      {
+       "id": "700",
+       "name": "Sylveon",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0700"
+      },
+      {
+       "id": "701",
+       "name": "Hawlucha",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0701"
+      },
+      {
+       "id": "702",
+       "name": "Dedenne",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0702"
+      },
+      {
+       "id": "703",
+       "name": "Carbink",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0703"
+      },
+      {
+       "id": "704",
+       "name": "Goomy",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0704"
+      },
+      {
+       "id": "705",
+       "name": "Sliggoo",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0705"
+      },
+      {
+       "id": "706",
+       "name": "Goodra",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0706"
+      },
+      {
+       "id": "707",
+       "name": "Klefki",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0707"
+      },
+      {
+       "id": "708",
+       "name": "Phantump",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0708"
+      },
+      {
+       "id": "709",
+       "name": "Trevenant",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0709"
+      },
+      {
+       "id": "710",
+       "name": "Pumpkaboo",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0710"
+      },
+      {
+       "id": "711",
+       "name": "Gourgeist",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0711"
+      },
+      {
+       "id": "712",
+       "name": "Bergmite",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0712"
+      },
+      {
+       "id": "713",
+       "name": "Avalugg",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0713"
+      },
+      {
+       "id": "714",
+       "name": "Noibat",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0714"
+      },
+      {
+       "id": "715",
+       "name": "Noivern",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0715"
+      },
+      {
+       "id": "716",
+       "name": "Xerneas",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0716"
+      },
+      {
+       "id": "717",
+       "name": "Yveltal",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0717"
+      },
+      {
+       "id": "718",
+       "name": "Zygarde",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0718"
+      },
+      {
+       "id": "719",
+       "name": "Diancie",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0719"
+      },
+      {
+       "id": "720",
+       "name": "Hoopa",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0720"
+      },
+      {
+       "id": "721",
+       "name": "Volcanion",
+       "type": "Gen VI (Kalos)",
+       "sub": "#0721"
+      },
+      {
+       "id": "722",
+       "name": "Rowlet",
+       "type": "Gen VII (Alola)",
+       "sub": "#0722"
+      },
+      {
+       "id": "723",
+       "name": "Dartrix",
+       "type": "Gen VII (Alola)",
+       "sub": "#0723"
+      },
+      {
+       "id": "724",
+       "name": "Decidueye",
+       "type": "Gen VII (Alola)",
+       "sub": "#0724"
+      },
+      {
+       "id": "725",
+       "name": "Litten",
+       "type": "Gen VII (Alola)",
+       "sub": "#0725"
+      },
+      {
+       "id": "726",
+       "name": "Torracat",
+       "type": "Gen VII (Alola)",
+       "sub": "#0726"
+      },
+      {
+       "id": "727",
+       "name": "Incineroar",
+       "type": "Gen VII (Alola)",
+       "sub": "#0727"
+      },
+      {
+       "id": "728",
+       "name": "Popplio",
+       "type": "Gen VII (Alola)",
+       "sub": "#0728"
+      },
+      {
+       "id": "729",
+       "name": "Brionne",
+       "type": "Gen VII (Alola)",
+       "sub": "#0729"
+      },
+      {
+       "id": "730",
+       "name": "Primarina",
+       "type": "Gen VII (Alola)",
+       "sub": "#0730"
+      },
+      {
+       "id": "731",
+       "name": "Pikipek",
+       "type": "Gen VII (Alola)",
+       "sub": "#0731"
+      },
+      {
+       "id": "732",
+       "name": "Trumbeak",
+       "type": "Gen VII (Alola)",
+       "sub": "#0732"
+      },
+      {
+       "id": "733",
+       "name": "Toucannon",
+       "type": "Gen VII (Alola)",
+       "sub": "#0733"
+      },
+      {
+       "id": "734",
+       "name": "Yungoos",
+       "type": "Gen VII (Alola)",
+       "sub": "#0734"
+      },
+      {
+       "id": "735",
+       "name": "Gumshoos",
+       "type": "Gen VII (Alola)",
+       "sub": "#0735"
+      },
+      {
+       "id": "736",
+       "name": "Grubbin",
+       "type": "Gen VII (Alola)",
+       "sub": "#0736"
+      },
+      {
+       "id": "737",
+       "name": "Charjabug",
+       "type": "Gen VII (Alola)",
+       "sub": "#0737"
+      },
+      {
+       "id": "738",
+       "name": "Vikavolt",
+       "type": "Gen VII (Alola)",
+       "sub": "#0738"
+      },
+      {
+       "id": "739",
+       "name": "Crabrawler",
+       "type": "Gen VII (Alola)",
+       "sub": "#0739"
+      },
+      {
+       "id": "740",
+       "name": "Crabominable",
+       "type": "Gen VII (Alola)",
+       "sub": "#0740"
+      },
+      {
+       "id": "741",
+       "name": "Oricorio",
+       "type": "Gen VII (Alola)",
+       "sub": "#0741"
+      },
+      {
+       "id": "742",
+       "name": "Cutiefly",
+       "type": "Gen VII (Alola)",
+       "sub": "#0742"
+      },
+      {
+       "id": "743",
+       "name": "Ribombee",
+       "type": "Gen VII (Alola)",
+       "sub": "#0743"
+      },
+      {
+       "id": "744",
+       "name": "Rockruff",
+       "type": "Gen VII (Alola)",
+       "sub": "#0744"
+      },
+      {
+       "id": "745",
+       "name": "Lycanroc",
+       "type": "Gen VII (Alola)",
+       "sub": "#0745"
+      },
+      {
+       "id": "746",
+       "name": "Wishiwashi",
+       "type": "Gen VII (Alola)",
+       "sub": "#0746"
+      },
+      {
+       "id": "747",
+       "name": "Mareanie",
+       "type": "Gen VII (Alola)",
+       "sub": "#0747"
+      },
+      {
+       "id": "748",
+       "name": "Toxapex",
+       "type": "Gen VII (Alola)",
+       "sub": "#0748"
+      },
+      {
+       "id": "749",
+       "name": "Mudbray",
+       "type": "Gen VII (Alola)",
+       "sub": "#0749"
+      },
+      {
+       "id": "750",
+       "name": "Mudsdale",
+       "type": "Gen VII (Alola)",
+       "sub": "#0750"
+      },
+      {
+       "id": "751",
+       "name": "Dewpider",
+       "type": "Gen VII (Alola)",
+       "sub": "#0751"
+      },
+      {
+       "id": "752",
+       "name": "Araquanid",
+       "type": "Gen VII (Alola)",
+       "sub": "#0752"
+      },
+      {
+       "id": "753",
+       "name": "Fomantis",
+       "type": "Gen VII (Alola)",
+       "sub": "#0753"
+      },
+      {
+       "id": "754",
+       "name": "Lurantis",
+       "type": "Gen VII (Alola)",
+       "sub": "#0754"
+      },
+      {
+       "id": "755",
+       "name": "Morelull",
+       "type": "Gen VII (Alola)",
+       "sub": "#0755"
+      },
+      {
+       "id": "756",
+       "name": "Shiinotic",
+       "type": "Gen VII (Alola)",
+       "sub": "#0756"
+      },
+      {
+       "id": "757",
+       "name": "Salandit",
+       "type": "Gen VII (Alola)",
+       "sub": "#0757"
+      },
+      {
+       "id": "758",
+       "name": "Salazzle",
+       "type": "Gen VII (Alola)",
+       "sub": "#0758"
+      },
+      {
+       "id": "759",
+       "name": "Stufful",
+       "type": "Gen VII (Alola)",
+       "sub": "#0759"
+      },
+      {
+       "id": "760",
+       "name": "Bewear",
+       "type": "Gen VII (Alola)",
+       "sub": "#0760"
+      },
+      {
+       "id": "761",
+       "name": "Bounsweet",
+       "type": "Gen VII (Alola)",
+       "sub": "#0761"
+      },
+      {
+       "id": "762",
+       "name": "Steenee",
+       "type": "Gen VII (Alola)",
+       "sub": "#0762"
+      },
+      {
+       "id": "763",
+       "name": "Tsareena",
+       "type": "Gen VII (Alola)",
+       "sub": "#0763"
+      },
+      {
+       "id": "764",
+       "name": "Comfey",
+       "type": "Gen VII (Alola)",
+       "sub": "#0764"
+      },
+      {
+       "id": "765",
+       "name": "Oranguru",
+       "type": "Gen VII (Alola)",
+       "sub": "#0765"
+      },
+      {
+       "id": "766",
+       "name": "Passimian",
+       "type": "Gen VII (Alola)",
+       "sub": "#0766"
+      },
+      {
+       "id": "767",
+       "name": "Wimpod",
+       "type": "Gen VII (Alola)",
+       "sub": "#0767"
+      },
+      {
+       "id": "768",
+       "name": "Golisopod",
+       "type": "Gen VII (Alola)",
+       "sub": "#0768"
+      },
+      {
+       "id": "769",
+       "name": "Sandygast",
+       "type": "Gen VII (Alola)",
+       "sub": "#0769"
+      },
+      {
+       "id": "770",
+       "name": "Palossand",
+       "type": "Gen VII (Alola)",
+       "sub": "#0770"
+      },
+      {
+       "id": "771",
+       "name": "Pyukumuku",
+       "type": "Gen VII (Alola)",
+       "sub": "#0771"
+      },
+      {
+       "id": "772",
+       "name": "Type: Null",
+       "type": "Gen VII (Alola)",
+       "sub": "#0772"
+      },
+      {
+       "id": "773",
+       "name": "Silvally",
+       "type": "Gen VII (Alola)",
+       "sub": "#0773"
+      },
+      {
+       "id": "774",
+       "name": "Minior",
+       "type": "Gen VII (Alola)",
+       "sub": "#0774"
+      },
+      {
+       "id": "775",
+       "name": "Komala",
+       "type": "Gen VII (Alola)",
+       "sub": "#0775"
+      },
+      {
+       "id": "776",
+       "name": "Turtonator",
+       "type": "Gen VII (Alola)",
+       "sub": "#0776"
+      },
+      {
+       "id": "777",
+       "name": "Togedemaru",
+       "type": "Gen VII (Alola)",
+       "sub": "#0777"
+      },
+      {
+       "id": "778",
+       "name": "Mimikyu",
+       "type": "Gen VII (Alola)",
+       "sub": "#0778"
+      },
+      {
+       "id": "779",
+       "name": "Bruxish",
+       "type": "Gen VII (Alola)",
+       "sub": "#0779"
+      },
+      {
+       "id": "780",
+       "name": "Drampa",
+       "type": "Gen VII (Alola)",
+       "sub": "#0780"
+      },
+      {
+       "id": "781",
+       "name": "Dhelmise",
+       "type": "Gen VII (Alola)",
+       "sub": "#0781"
+      },
+      {
+       "id": "782",
+       "name": "Jangmo-o",
+       "type": "Gen VII (Alola)",
+       "sub": "#0782"
+      },
+      {
+       "id": "783",
+       "name": "Hakamo-o",
+       "type": "Gen VII (Alola)",
+       "sub": "#0783"
+      },
+      {
+       "id": "784",
+       "name": "Kommo-o",
+       "type": "Gen VII (Alola)",
+       "sub": "#0784"
+      },
+      {
+       "id": "785",
+       "name": "Tapu Koko",
+       "type": "Gen VII (Alola)",
+       "sub": "#0785"
+      },
+      {
+       "id": "786",
+       "name": "Tapu Lele",
+       "type": "Gen VII (Alola)",
+       "sub": "#0786"
+      },
+      {
+       "id": "787",
+       "name": "Tapu Bulu",
+       "type": "Gen VII (Alola)",
+       "sub": "#0787"
+      },
+      {
+       "id": "788",
+       "name": "Tapu Fini",
+       "type": "Gen VII (Alola)",
+       "sub": "#0788"
+      },
+      {
+       "id": "789",
+       "name": "Cosmog",
+       "type": "Gen VII (Alola)",
+       "sub": "#0789"
+      },
+      {
+       "id": "790",
+       "name": "Cosmoem",
+       "type": "Gen VII (Alola)",
+       "sub": "#0790"
+      },
+      {
+       "id": "791",
+       "name": "Solgaleo",
+       "type": "Gen VII (Alola)",
+       "sub": "#0791"
+      },
+      {
+       "id": "792",
+       "name": "Lunala",
+       "type": "Gen VII (Alola)",
+       "sub": "#0792"
+      },
+      {
+       "id": "793",
+       "name": "Nihilego",
+       "type": "Gen VII (Alola)",
+       "sub": "#0793"
+      },
+      {
+       "id": "794",
+       "name": "Buzzwole",
+       "type": "Gen VII (Alola)",
+       "sub": "#0794"
+      },
+      {
+       "id": "795",
+       "name": "Pheromosa",
+       "type": "Gen VII (Alola)",
+       "sub": "#0795"
+      },
+      {
+       "id": "796",
+       "name": "Xurkitree",
+       "type": "Gen VII (Alola)",
+       "sub": "#0796"
+      },
+      {
+       "id": "797",
+       "name": "Celesteela",
+       "type": "Gen VII (Alola)",
+       "sub": "#0797"
+      },
+      {
+       "id": "798",
+       "name": "Kartana",
+       "type": "Gen VII (Alola)",
+       "sub": "#0798"
+      },
+      {
+       "id": "799",
+       "name": "Guzzlord",
+       "type": "Gen VII (Alola)",
+       "sub": "#0799"
+      },
+      {
+       "id": "800",
+       "name": "Necrozma",
+       "type": "Gen VII (Alola)",
+       "sub": "#0800"
+      },
+      {
+       "id": "801",
+       "name": "Magearna",
+       "type": "Gen VII (Alola)",
+       "sub": "#0801"
+      },
+      {
+       "id": "802",
+       "name": "Marshadow",
+       "type": "Gen VII (Alola)",
+       "sub": "#0802"
+      },
+      {
+       "id": "803",
+       "name": "Poipole",
+       "type": "Gen VII (Alola)",
+       "sub": "#0803"
+      },
+      {
+       "id": "804",
+       "name": "Naganadel",
+       "type": "Gen VII (Alola)",
+       "sub": "#0804"
+      },
+      {
+       "id": "805",
+       "name": "Stakataka",
+       "type": "Gen VII (Alola)",
+       "sub": "#0805"
+      },
+      {
+       "id": "806",
+       "name": "Blacephalon",
+       "type": "Gen VII (Alola)",
+       "sub": "#0806"
+      },
+      {
+       "id": "807",
+       "name": "Zeraora",
+       "type": "Gen VII (Alola)",
+       "sub": "#0807"
+      },
+      {
+       "id": "808",
+       "name": "Meltan",
+       "type": "Gen VII (Alola)",
+       "sub": "#0808"
+      },
+      {
+       "id": "809",
+       "name": "Melmetal",
+       "type": "Gen VII (Alola)",
+       "sub": "#0809"
+      },
+      {
+       "id": "810",
+       "name": "Grookey",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0810"
+      },
+      {
+       "id": "811",
+       "name": "Thwackey",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0811"
+      },
+      {
+       "id": "812",
+       "name": "Rillaboom",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0812"
+      },
+      {
+       "id": "813",
+       "name": "Scorbunny",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0813"
+      },
+      {
+       "id": "814",
+       "name": "Raboot",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0814"
+      },
+      {
+       "id": "815",
+       "name": "Cinderace",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0815"
+      },
+      {
+       "id": "816",
+       "name": "Sobble",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0816"
+      },
+      {
+       "id": "817",
+       "name": "Drizzile",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0817"
+      },
+      {
+       "id": "818",
+       "name": "Inteleon",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0818"
+      },
+      {
+       "id": "819",
+       "name": "Skwovet",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0819"
+      },
+      {
+       "id": "820",
+       "name": "Greedent",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0820"
+      },
+      {
+       "id": "821",
+       "name": "Rookidee",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0821"
+      },
+      {
+       "id": "822",
+       "name": "Corvisquire",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0822"
+      },
+      {
+       "id": "823",
+       "name": "Corviknight",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0823"
+      },
+      {
+       "id": "824",
+       "name": "Blipbug",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0824"
+      },
+      {
+       "id": "825",
+       "name": "Dottler",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0825"
+      },
+      {
+       "id": "826",
+       "name": "Orbeetle",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0826"
+      },
+      {
+       "id": "827",
+       "name": "Nickit",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0827"
+      },
+      {
+       "id": "828",
+       "name": "Thievul",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0828"
+      },
+      {
+       "id": "829",
+       "name": "Gossifleur",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0829"
+      },
+      {
+       "id": "830",
+       "name": "Eldegoss",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0830"
+      },
+      {
+       "id": "831",
+       "name": "Wooloo",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0831"
+      },
+      {
+       "id": "832",
+       "name": "Dubwool",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0832"
+      },
+      {
+       "id": "833",
+       "name": "Chewtle",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0833"
+      },
+      {
+       "id": "834",
+       "name": "Drednaw",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0834"
+      },
+      {
+       "id": "835",
+       "name": "Yamper",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0835"
+      },
+      {
+       "id": "836",
+       "name": "Boltund",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0836"
+      },
+      {
+       "id": "837",
+       "name": "Rolycoly",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0837"
+      },
+      {
+       "id": "838",
+       "name": "Carkol",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0838"
+      },
+      {
+       "id": "839",
+       "name": "Coalossal",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0839"
+      },
+      {
+       "id": "840",
+       "name": "Applin",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0840"
+      },
+      {
+       "id": "841",
+       "name": "Flapple",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0841"
+      },
+      {
+       "id": "842",
+       "name": "Appletun",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0842"
+      },
+      {
+       "id": "843",
+       "name": "Silicobra",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0843"
+      },
+      {
+       "id": "844",
+       "name": "Sandaconda",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0844"
+      },
+      {
+       "id": "845",
+       "name": "Cramorant",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0845"
+      },
+      {
+       "id": "846",
+       "name": "Arrokuda",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0846"
+      },
+      {
+       "id": "847",
+       "name": "Barraskewda",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0847"
+      },
+      {
+       "id": "848",
+       "name": "Toxel",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0848"
+      },
+      {
+       "id": "849",
+       "name": "Toxtricity",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0849"
+      },
+      {
+       "id": "850",
+       "name": "Sizzlipede",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0850"
+      },
+      {
+       "id": "851",
+       "name": "Centiskorch",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0851"
+      },
+      {
+       "id": "852",
+       "name": "Clobbopus",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0852"
+      },
+      {
+       "id": "853",
+       "name": "Grapploct",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0853"
+      },
+      {
+       "id": "854",
+       "name": "Sinistea",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0854"
+      },
+      {
+       "id": "855",
+       "name": "Polteageist",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0855"
+      },
+      {
+       "id": "856",
+       "name": "Hatenna",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0856"
+      },
+      {
+       "id": "857",
+       "name": "Hattrem",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0857"
+      },
+      {
+       "id": "858",
+       "name": "Hatterene",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0858"
+      },
+      {
+       "id": "859",
+       "name": "Impidimp",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0859"
+      },
+      {
+       "id": "860",
+       "name": "Morgrem",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0860"
+      },
+      {
+       "id": "861",
+       "name": "Grimmsnarl",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0861"
+      },
+      {
+       "id": "862",
+       "name": "Obstagoon",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0862"
+      },
+      {
+       "id": "863",
+       "name": "Perrserker",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0863"
+      },
+      {
+       "id": "864",
+       "name": "Cursola",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0864"
+      },
+      {
+       "id": "865",
+       "name": "Sirfetch'd",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0865"
+      },
+      {
+       "id": "866",
+       "name": "Mr. Rime",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0866"
+      },
+      {
+       "id": "867",
+       "name": "Runerigus",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0867"
+      },
+      {
+       "id": "868",
+       "name": "Milcery",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0868"
+      },
+      {
+       "id": "869",
+       "name": "Alcremie",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0869"
+      },
+      {
+       "id": "870",
+       "name": "Falinks",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0870"
+      },
+      {
+       "id": "871",
+       "name": "Pincurchin",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0871"
+      },
+      {
+       "id": "872",
+       "name": "Snom",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0872"
+      },
+      {
+       "id": "873",
+       "name": "Frosmoth",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0873"
+      },
+      {
+       "id": "874",
+       "name": "Stonjourner",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0874"
+      },
+      {
+       "id": "875",
+       "name": "Eiscue",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0875"
+      },
+      {
+       "id": "876",
+       "name": "Indeedee",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0876"
+      },
+      {
+       "id": "877",
+       "name": "Morpeko",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0877"
+      },
+      {
+       "id": "878",
+       "name": "Cufant",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0878"
+      },
+      {
+       "id": "879",
+       "name": "Copperajah",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0879"
+      },
+      {
+       "id": "880",
+       "name": "Dracozolt",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0880"
+      },
+      {
+       "id": "881",
+       "name": "Arctozolt",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0881"
+      },
+      {
+       "id": "882",
+       "name": "Dracovish",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0882"
+      },
+      {
+       "id": "883",
+       "name": "Arctovish",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0883"
+      },
+      {
+       "id": "884",
+       "name": "Duraludon",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0884"
+      },
+      {
+       "id": "885",
+       "name": "Dreepy",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0885"
+      },
+      {
+       "id": "886",
+       "name": "Drakloak",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0886"
+      },
+      {
+       "id": "887",
+       "name": "Dragapult",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0887"
+      },
+      {
+       "id": "888",
+       "name": "Zacian",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0888"
+      },
+      {
+       "id": "889",
+       "name": "Zamazenta",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0889"
+      },
+      {
+       "id": "890",
+       "name": "Eternatus",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0890"
+      },
+      {
+       "id": "891",
+       "name": "Kubfu",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0891"
+      },
+      {
+       "id": "892",
+       "name": "Urshifu",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0892"
+      },
+      {
+       "id": "893",
+       "name": "Zarude",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0893"
+      },
+      {
+       "id": "894",
+       "name": "Regieleki",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0894"
+      },
+      {
+       "id": "895",
+       "name": "Regidrago",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0895"
+      },
+      {
+       "id": "896",
+       "name": "Glastrier",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0896"
+      },
+      {
+       "id": "897",
+       "name": "Spectrier",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0897"
+      },
+      {
+       "id": "898",
+       "name": "Calyrex",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0898"
+      },
+      {
+       "id": "899",
+       "name": "Wyrdeer",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0899"
+      },
+      {
+       "id": "900",
+       "name": "Kleavor",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0900"
+      },
+      {
+       "id": "901",
+       "name": "Ursaluna",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0901"
+      },
+      {
+       "id": "902",
+       "name": "Basculegion",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0902"
+      },
+      {
+       "id": "903",
+       "name": "Sneasler",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0903"
+      },
+      {
+       "id": "904",
+       "name": "Overqwil",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0904"
+      },
+      {
+       "id": "905",
+       "name": "Enamorus",
+       "type": "Gen VIII (Galar and Hisui)",
+       "sub": "#0905"
+      },
+      {
+       "id": "906",
+       "name": "Sprigatito",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0906"
+      },
+      {
+       "id": "907",
+       "name": "Floragato",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0907"
+      },
+      {
+       "id": "908",
+       "name": "Meowscarada",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0908"
+      },
+      {
+       "id": "909",
+       "name": "Fuecoco",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0909"
+      },
+      {
+       "id": "910",
+       "name": "Crocalor",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0910"
+      },
+      {
+       "id": "911",
+       "name": "Skeledirge",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0911"
+      },
+      {
+       "id": "912",
+       "name": "Quaxly",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0912"
+      },
+      {
+       "id": "913",
+       "name": "Quaxwell",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0913"
+      },
+      {
+       "id": "914",
+       "name": "Quaquaval",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0914"
+      },
+      {
+       "id": "915",
+       "name": "Lechonk",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0915"
+      },
+      {
+       "id": "916",
+       "name": "Oinkologne",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0916"
+      },
+      {
+       "id": "917",
+       "name": "Tarountula",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0917"
+      },
+      {
+       "id": "918",
+       "name": "Spidops",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0918"
+      },
+      {
+       "id": "919",
+       "name": "Nymble",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0919"
+      },
+      {
+       "id": "920",
+       "name": "Lokix",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0920"
+      },
+      {
+       "id": "921",
+       "name": "Pawmi",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0921"
+      },
+      {
+       "id": "922",
+       "name": "Pawmo",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0922"
+      },
+      {
+       "id": "923",
+       "name": "Pawmot",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0923"
+      },
+      {
+       "id": "924",
+       "name": "Tandemaus",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0924"
+      },
+      {
+       "id": "925",
+       "name": "Maushold",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0925"
+      },
+      {
+       "id": "926",
+       "name": "Fidough",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0926"
+      },
+      {
+       "id": "927",
+       "name": "Dachsbun",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0927"
+      },
+      {
+       "id": "928",
+       "name": "Smoliv",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0928"
+      },
+      {
+       "id": "929",
+       "name": "Dolliv",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0929"
+      },
+      {
+       "id": "930",
+       "name": "Arboliva",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0930"
+      },
+      {
+       "id": "931",
+       "name": "Squawkabilly",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0931"
+      },
+      {
+       "id": "932",
+       "name": "Nacli",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0932"
+      },
+      {
+       "id": "933",
+       "name": "Naclstack",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0933"
+      },
+      {
+       "id": "934",
+       "name": "Garganacl",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0934"
+      },
+      {
+       "id": "935",
+       "name": "Charcadet",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0935"
+      },
+      {
+       "id": "936",
+       "name": "Armarouge",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0936"
+      },
+      {
+       "id": "937",
+       "name": "Ceruledge",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0937"
+      },
+      {
+       "id": "938",
+       "name": "Tadbulb",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0938"
+      },
+      {
+       "id": "939",
+       "name": "Bellibolt",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0939"
+      },
+      {
+       "id": "940",
+       "name": "Wattrel",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0940"
+      },
+      {
+       "id": "941",
+       "name": "Kilowattrel",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0941"
+      },
+      {
+       "id": "942",
+       "name": "Maschiff",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0942"
+      },
+      {
+       "id": "943",
+       "name": "Mabosstiff",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0943"
+      },
+      {
+       "id": "944",
+       "name": "Shroodle",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0944"
+      },
+      {
+       "id": "945",
+       "name": "Grafaiai",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0945"
+      },
+      {
+       "id": "946",
+       "name": "Bramblin",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0946"
+      },
+      {
+       "id": "947",
+       "name": "Brambleghast",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0947"
+      },
+      {
+       "id": "948",
+       "name": "Toedscool",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0948"
+      },
+      {
+       "id": "949",
+       "name": "Toedscruel",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0949"
+      },
+      {
+       "id": "950",
+       "name": "Klawf",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0950"
+      },
+      {
+       "id": "951",
+       "name": "Capsakid",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0951"
+      },
+      {
+       "id": "952",
+       "name": "Scovillain",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0952"
+      },
+      {
+       "id": "953",
+       "name": "Rellor",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0953"
+      },
+      {
+       "id": "954",
+       "name": "Rabsca",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0954"
+      },
+      {
+       "id": "955",
+       "name": "Flittle",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0955"
+      },
+      {
+       "id": "956",
+       "name": "Espathra",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0956"
+      },
+      {
+       "id": "957",
+       "name": "Tinkatink",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0957"
+      },
+      {
+       "id": "958",
+       "name": "Tinkatuff",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0958"
+      },
+      {
+       "id": "959",
+       "name": "Tinkaton",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0959"
+      },
+      {
+       "id": "960",
+       "name": "Wiglett",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0960"
+      },
+      {
+       "id": "961",
+       "name": "Wugtrio",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0961"
+      },
+      {
+       "id": "962",
+       "name": "Bombirdier",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0962"
+      },
+      {
+       "id": "963",
+       "name": "Finizen",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0963"
+      },
+      {
+       "id": "964",
+       "name": "Palafin",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0964"
+      },
+      {
+       "id": "965",
+       "name": "Varoom",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0965"
+      },
+      {
+       "id": "966",
+       "name": "Revavroom",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0966"
+      },
+      {
+       "id": "967",
+       "name": "Cyclizar",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0967"
+      },
+      {
+       "id": "968",
+       "name": "Orthworm",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0968"
+      },
+      {
+       "id": "969",
+       "name": "Glimmet",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0969"
+      },
+      {
+       "id": "970",
+       "name": "Glimmora",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0970"
+      },
+      {
+       "id": "971",
+       "name": "Greavard",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0971"
+      },
+      {
+       "id": "972",
+       "name": "Houndstone",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0972"
+      },
+      {
+       "id": "973",
+       "name": "Flamigo",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0973"
+      },
+      {
+       "id": "974",
+       "name": "Cetoddle",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0974"
+      },
+      {
+       "id": "975",
+       "name": "Cetitan",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0975"
+      },
+      {
+       "id": "976",
+       "name": "Veluza",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0976"
+      },
+      {
+       "id": "977",
+       "name": "Dondozo",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0977"
+      },
+      {
+       "id": "978",
+       "name": "Tatsugiri",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0978"
+      },
+      {
+       "id": "979",
+       "name": "Annihilape",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0979"
+      },
+      {
+       "id": "980",
+       "name": "Clodsire",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0980"
+      },
+      {
+       "id": "981",
+       "name": "Farigiraf",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0981"
+      },
+      {
+       "id": "982",
+       "name": "Dudunsparce",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0982"
+      },
+      {
+       "id": "983",
+       "name": "Kingambit",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0983"
+      },
+      {
+       "id": "984",
+       "name": "Great Tusk",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0984"
+      },
+      {
+       "id": "985",
+       "name": "Scream Tail",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0985"
+      },
+      {
+       "id": "986",
+       "name": "Brute Bonnet",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0986"
+      },
+      {
+       "id": "987",
+       "name": "Flutter Mane",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0987"
+      },
+      {
+       "id": "988",
+       "name": "Slither Wing",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0988"
+      },
+      {
+       "id": "989",
+       "name": "Sandy Shocks",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0989"
+      },
+      {
+       "id": "990",
+       "name": "Iron Treads",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0990"
+      },
+      {
+       "id": "991",
+       "name": "Iron Bundle",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0991"
+      },
+      {
+       "id": "992",
+       "name": "Iron Hands",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0992"
+      },
+      {
+       "id": "993",
+       "name": "Iron Jugulis",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0993"
+      },
+      {
+       "id": "994",
+       "name": "Iron Moth",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0994"
+      },
+      {
+       "id": "995",
+       "name": "Iron Thorns",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0995"
+      },
+      {
+       "id": "996",
+       "name": "Frigibax",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0996"
+      },
+      {
+       "id": "997",
+       "name": "Arctibax",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0997"
+      },
+      {
+       "id": "998",
+       "name": "Baxcalibur",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0998"
+      },
+      {
+       "id": "999",
+       "name": "Gimmighoul",
+       "type": "Gen IX (Paldea)",
+       "sub": "#0999"
+      },
+      {
+       "id": "1000",
+       "name": "Gholdengo",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1000"
+      },
+      {
+       "id": "1001",
+       "name": "Wo-Chien",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1001"
+      },
+      {
+       "id": "1002",
+       "name": "Chien-Pao",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1002"
+      },
+      {
+       "id": "1003",
+       "name": "Ting-Lu",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1003"
+      },
+      {
+       "id": "1004",
+       "name": "Chi-Yu",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1004"
+      },
+      {
+       "id": "1005",
+       "name": "Roaring Moon",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1005"
+      },
+      {
+       "id": "1006",
+       "name": "Iron Valiant",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1006"
+      },
+      {
+       "id": "1007",
+       "name": "Koraidon",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1007"
+      },
+      {
+       "id": "1008",
+       "name": "Miraidon",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1008"
+      },
+      {
+       "id": "1009",
+       "name": "Walking Wake",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1009"
+      },
+      {
+       "id": "1010",
+       "name": "Iron Leaves",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1010"
+      },
+      {
+       "id": "1011",
+       "name": "Dipplin",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1011"
+      },
+      {
+       "id": "1012",
+       "name": "Poltchageist",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1012"
+      },
+      {
+       "id": "1013",
+       "name": "Sinistcha",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1013"
+      },
+      {
+       "id": "1014",
+       "name": "Okidogi",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1014"
+      },
+      {
+       "id": "1015",
+       "name": "Munkidori",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1015"
+      },
+      {
+       "id": "1016",
+       "name": "Fezandipiti",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1016"
+      },
+      {
+       "id": "1017",
+       "name": "Ogerpon",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1017"
+      },
+      {
+       "id": "1018",
+       "name": "Archaludon",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1018"
+      },
+      {
+       "id": "1019",
+       "name": "Hydrapple",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1019"
+      },
+      {
+       "id": "1020",
+       "name": "Gouging Fire",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1020"
+      },
+      {
+       "id": "1021",
+       "name": "Raging Bolt",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1021"
+      },
+      {
+       "id": "1022",
+       "name": "Iron Boulder",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1022"
+      },
+      {
+       "id": "1023",
+       "name": "Iron Crown",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1023"
+      },
+      {
+       "id": "1024",
+       "name": "Terapagos",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1024"
+      },
+      {
+       "id": "1025",
+       "name": "Pecharunt",
+       "type": "Gen IX (Paldea)",
+       "sub": "#1025"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge; Pokémon names from Wikidata (CC0). Anything missing can be added under Checklists."
+  },
+  {
+   "key": "stardew-valley",
+   "name": "Stardew Valley",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "villagers",
+     "label": "Villagers",
+     "verb": [
+      "Befriended",
+      "Not yet"
+     ],
+     "types_label": "Kind",
+     "items": [
+      {
+       "id": "abigail",
+       "name": "Abigail",
+       "type": "Can marry"
+      },
+      {
+       "id": "alex",
+       "name": "Alex",
+       "type": "Can marry"
+      },
+      {
+       "id": "elliott",
+       "name": "Elliott",
+       "type": "Can marry"
+      },
+      {
+       "id": "emily",
+       "name": "Emily",
+       "type": "Can marry"
+      },
+      {
+       "id": "haley",
+       "name": "Haley",
+       "type": "Can marry"
+      },
+      {
+       "id": "harvey",
+       "name": "Harvey",
+       "type": "Can marry"
+      },
+      {
+       "id": "leah",
+       "name": "Leah",
+       "type": "Can marry"
+      },
+      {
+       "id": "maru",
+       "name": "Maru",
+       "type": "Can marry"
+      },
+      {
+       "id": "penny",
+       "name": "Penny",
+       "type": "Can marry"
+      },
+      {
+       "id": "sam",
+       "name": "Sam",
+       "type": "Can marry"
+      },
+      {
+       "id": "sebastian",
+       "name": "Sebastian",
+       "type": "Can marry"
+      },
+      {
+       "id": "shane",
+       "name": "Shane",
+       "type": "Can marry"
+      },
+      {
+       "id": "caroline",
+       "name": "Caroline",
+       "type": "Villager"
+      },
+      {
+       "id": "clint",
+       "name": "Clint",
+       "type": "Villager"
+      },
+      {
+       "id": "demetrius",
+       "name": "Demetrius",
+       "type": "Villager"
+      },
+      {
+       "id": "evelyn",
+       "name": "Evelyn",
+       "type": "Villager"
+      },
+      {
+       "id": "george",
+       "name": "George",
+       "type": "Villager"
+      },
+      {
+       "id": "gus",
+       "name": "Gus",
+       "type": "Villager"
+      },
+      {
+       "id": "jas",
+       "name": "Jas",
+       "type": "Villager"
+      },
+      {
+       "id": "jodi",
+       "name": "Jodi",
+       "type": "Villager"
+      },
+      {
+       "id": "kent",
+       "name": "Kent",
+       "type": "Villager"
+      },
+      {
+       "id": "krobus",
+       "name": "Krobus",
+       "type": "Villager"
+      },
+      {
+       "id": "leo",
+       "name": "Leo",
+       "type": "Villager"
+      },
+      {
+       "id": "lewis",
+       "name": "Lewis",
+       "type": "Villager"
+      },
+      {
+       "id": "linus",
+       "name": "Linus",
+       "type": "Villager"
+      },
+      {
+       "id": "marnie",
+       "name": "Marnie",
+       "type": "Villager"
+      },
+      {
+       "id": "pam",
+       "name": "Pam",
+       "type": "Villager"
+      },
+      {
+       "id": "pierre",
+       "name": "Pierre",
+       "type": "Villager"
+      },
+      {
+       "id": "robin",
+       "name": "Robin",
+       "type": "Villager"
+      },
+      {
+       "id": "sandy",
+       "name": "Sandy",
+       "type": "Villager"
+      },
+      {
+       "id": "vincent",
+       "name": "Vincent",
+       "type": "Villager"
+      },
+      {
+       "id": "willy",
+       "name": "Willy",
+       "type": "Villager"
+      },
+      {
+       "id": "wizard",
+       "name": "Wizard",
+       "type": "Villager"
+      },
+      {
+       "id": "dwarf",
+       "name": "Dwarf",
+       "type": "Villager"
+      }
+     ]
+    },
+    {
+     "key": "rooms",
+     "label": "Community Center",
+     "verb": [
+      "Completed",
+      "Not completed"
+     ],
+     "items": [
+      {
+       "id": "crafts-room",
+       "name": "Crafts Room",
+       "type": "Room"
+      },
+      {
+       "id": "pantry",
+       "name": "Pantry",
+       "type": "Room"
+      },
+      {
+       "id": "fish-tank",
+       "name": "Fish Tank",
+       "type": "Room"
+      },
+      {
+       "id": "boiler-room",
+       "name": "Boiler Room",
+       "type": "Room"
+      },
+      {
+       "id": "bulletin-board",
+       "name": "Bulletin Board",
+       "type": "Room"
+      },
+      {
+       "id": "vault",
+       "name": "Vault",
+       "type": "Room"
+      }
+     ]
+    },
+    {
+     "key": "skills",
+     "label": "Skills at level 10",
+     "verb": [
+      "Mastered",
+      "Not yet"
+     ],
+     "items": [
+      {
+       "id": "farming",
+       "name": "Farming",
+       "type": "Skill"
+      },
+      {
+       "id": "mining",
+       "name": "Mining",
+       "type": "Skill"
+      },
+      {
+       "id": "foraging",
+       "name": "Foraging",
+       "type": "Skill"
+      },
+      {
+       "id": "fishing",
+       "name": "Fishing",
+       "type": "Skill"
+      },
+      {
+       "id": "combat",
+       "name": "Combat",
+       "type": "Skill"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "zelda-modern",
+   "name": "Zelda: Breath of the Wild and Tears of the Kingdom",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "botw",
+     "label": "Breath of the Wild",
+     "verb": [
+      "Done",
+      "Not done"
+     ],
+     "types_label": "Kind",
+     "items": [
+      {
+       "id": "vah-ruta",
+       "name": "Vah Ruta",
+       "type": "Divine Beast"
+      },
+      {
+       "id": "vah-rudania",
+       "name": "Vah Rudania",
+       "type": "Divine Beast"
+      },
+      {
+       "id": "vah-medoh",
+       "name": "Vah Medoh",
+       "type": "Divine Beast"
+      },
+      {
+       "id": "vah-naboris",
+       "name": "Vah Naboris",
+       "type": "Divine Beast"
+      },
+      {
+       "id": "mipha",
+       "name": "Mipha",
+       "type": "Champion"
+      },
+      {
+       "id": "daruk",
+       "name": "Daruk",
+       "type": "Champion"
+      },
+      {
+       "id": "revali",
+       "name": "Revali",
+       "type": "Champion"
+      },
+      {
+       "id": "urbosa",
+       "name": "Urbosa",
+       "type": "Champion"
+      },
+      {
+       "id": "calamity-ganon",
+       "name": "Calamity Ganon",
+       "type": "Final boss"
+      }
+     ]
+    },
+    {
+     "key": "totk",
+     "label": "Tears of the Kingdom",
+     "verb": [
+      "Done",
+      "Not done"
+     ],
+     "types_label": "Kind",
+     "items": [
+      {
+       "id": "wind-temple-tulin",
+       "name": "Wind Temple (Tulin)",
+       "type": "Temple"
+      },
+      {
+       "id": "fire-temple-yunobo",
+       "name": "Fire Temple (Yunobo)",
+       "type": "Temple"
+      },
+      {
+       "id": "water-temple-sidon",
+       "name": "Water Temple (Sidon)",
+       "type": "Temple"
+      },
+      {
+       "id": "lightning-temple-riju",
+       "name": "Lightning Temple (Riju)",
+       "type": "Temple"
+      },
+      {
+       "id": "spirit-temple-mineru",
+       "name": "Spirit Temple (Mineru)",
+       "type": "Temple"
+      },
+      {
+       "id": "ganondorf",
+       "name": "Ganondorf",
+       "type": "Final boss"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "hollow-knight",
+   "name": "Hollow Knight",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "bosses",
+     "label": "Bosses",
+     "verb": [
+      "Defeated",
+      "Not defeated"
+     ],
+     "items": [
+      {
+       "id": "gruz-mother",
+       "name": "Gruz Mother",
+       "type": "Boss"
+      },
+      {
+       "id": "false-knight",
+       "name": "False Knight",
+       "type": "Boss"
+      },
+      {
+       "id": "hornet-greenpath",
+       "name": "Hornet (Greenpath)",
+       "type": "Boss"
+      },
+      {
+       "id": "vengefly-king",
+       "name": "Vengefly King",
+       "type": "Boss"
+      },
+      {
+       "id": "massive-moss-charger",
+       "name": "Massive Moss Charger",
+       "type": "Boss"
+      },
+      {
+       "id": "brooding-mawlek",
+       "name": "Brooding Mawlek",
+       "type": "Boss"
+      },
+      {
+       "id": "mantis-lords",
+       "name": "Mantis Lords",
+       "type": "Boss"
+      },
+      {
+       "id": "soul-master",
+       "name": "Soul Master",
+       "type": "Boss"
+      },
+      {
+       "id": "dung-defender",
+       "name": "Dung Defender",
+       "type": "Boss"
+      },
+      {
+       "id": "crystal-guardian",
+       "name": "Crystal Guardian",
+       "type": "Boss"
+      },
+      {
+       "id": "broken-vessel",
+       "name": "Broken Vessel",
+       "type": "Boss"
+      },
+      {
+       "id": "watcher-knights",
+       "name": "Watcher Knights",
+       "type": "Boss"
+      },
+      {
+       "id": "uumuu",
+       "name": "Uumuu",
+       "type": "Boss"
+      },
+      {
+       "id": "nosk",
+       "name": "Nosk",
+       "type": "Boss"
+      },
+      {
+       "id": "flukemarm",
+       "name": "Flukemarm",
+       "type": "Boss"
+      },
+      {
+       "id": "hive-knight",
+       "name": "Hive Knight",
+       "type": "Boss"
+      },
+      {
+       "id": "traitor-lord",
+       "name": "Traitor Lord",
+       "type": "Boss"
+      },
+      {
+       "id": "hornet-kingdom-s-edge",
+       "name": "Hornet (Kingdom's Edge)",
+       "type": "Boss"
+      },
+      {
+       "id": "troupe-master-grimm",
+       "name": "Troupe Master Grimm",
+       "type": "Boss"
+      },
+      {
+       "id": "the-collector",
+       "name": "The Collector",
+       "type": "Boss"
+      },
+      {
+       "id": "nightmare-king-grimm",
+       "name": "Nightmare King Grimm",
+       "type": "Boss"
+      },
+      {
+       "id": "the-hollow-knight",
+       "name": "The Hollow Knight",
+       "type": "Boss"
+      },
+      {
+       "id": "radiance",
+       "name": "Radiance",
+       "type": "Boss"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "minecraft",
+   "name": "Minecraft",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "milestones",
+     "label": "Milestones",
+     "verb": [
+      "Done",
+      "Not done"
+     ],
+     "items": [
+      {
+       "id": "survive-the-first-night",
+       "name": "Survive the first night",
+       "type": "Milestone"
+      },
+      {
+       "id": "craft-an-iron-pickaxe",
+       "name": "Craft an iron pickaxe",
+       "type": "Milestone"
+      },
+      {
+       "id": "find-diamonds",
+       "name": "Find diamonds",
+       "type": "Milestone"
+      },
+      {
+       "id": "enter-the-nether",
+       "name": "Enter the Nether",
+       "type": "Milestone"
+      },
+      {
+       "id": "find-a-nether-fortress",
+       "name": "Find a Nether fortress",
+       "type": "Milestone"
+      },
+      {
+       "id": "trade-with-a-piglin",
+       "name": "Trade with a piglin",
+       "type": "Milestone"
+      },
+      {
+       "id": "find-a-stronghold",
+       "name": "Find a stronghold",
+       "type": "Milestone"
+      },
+      {
+       "id": "enter-the-end",
+       "name": "Enter the End",
+       "type": "Milestone"
+      },
+      {
+       "id": "defeat-the-ender-dragon",
+       "name": "Defeat the Ender Dragon",
+       "type": "Milestone"
+      },
+      {
+       "id": "defeat-the-wither",
+       "name": "Defeat the Wither",
+       "type": "Milestone"
+      },
+      {
+       "id": "defeat-an-elder-guardian",
+       "name": "Defeat an Elder Guardian",
+       "type": "Milestone"
+      },
+      {
+       "id": "find-an-elytra",
+       "name": "Find an Elytra",
+       "type": "Milestone"
+      },
+      {
+       "id": "light-a-beacon",
+       "name": "Light a beacon",
+       "type": "Milestone"
+      },
+      {
+       "id": "defeat-the-warden",
+       "name": "Defeat the Warden",
+       "type": "Milestone"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "super-mario",
+   "name": "Super Mario (platformers)",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "super-mario-bros-1985",
+       "name": "Super Mario Bros.",
+       "type": "1980s",
+       "sub": "1985"
+      },
+      {
+       "id": "super-mario-bros-the-lost-levels-1986",
+       "name": "Super Mario Bros.: The Lost Levels",
+       "type": "1980s",
+       "sub": "1986"
+      },
+      {
+       "id": "super-mario-bros-2-1988",
+       "name": "Super Mario Bros. 2",
+       "type": "1980s",
+       "sub": "1988"
+      },
+      {
+       "id": "super-mario-bros-3-1988",
+       "name": "Super Mario Bros. 3",
+       "type": "1980s",
+       "sub": "1988"
+      },
+      {
+       "id": "super-mario-land-1989",
+       "name": "Super Mario Land",
+       "type": "1980s",
+       "sub": "1989"
+      },
+      {
+       "id": "super-mario-world-1990",
+       "name": "Super Mario World",
+       "type": "1990s",
+       "sub": "1990"
+      },
+      {
+       "id": "super-mario-land-2-6-golden-coins-1992",
+       "name": "Super Mario Land 2: 6 Golden Coins",
+       "type": "1990s",
+       "sub": "1992"
+      },
+      {
+       "id": "super-mario-64-1996",
+       "name": "Super Mario 64",
+       "type": "1990s",
+       "sub": "1996"
+      },
+      {
+       "id": "super-mario-sunshine-2002",
+       "name": "Super Mario Sunshine",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "new-super-mario-bros-2006",
+       "name": "New Super Mario Bros.",
+       "type": "2000s",
+       "sub": "2006"
+      },
+      {
+       "id": "super-mario-galaxy-2007",
+       "name": "Super Mario Galaxy",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "new-super-mario-bros-wii-2009",
+       "name": "New Super Mario Bros. Wii",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "super-mario-galaxy-2-2010",
+       "name": "Super Mario Galaxy 2",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "super-mario-3d-land-2011",
+       "name": "Super Mario 3D Land",
+       "type": "2010s",
+       "sub": "2011"
+      },
+      {
+       "id": "new-super-mario-bros-2-2012",
+       "name": "New Super Mario Bros. 2",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "new-super-mario-bros-u-2012",
+       "name": "New Super Mario Bros. U",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "super-mario-3d-world-2013",
+       "name": "Super Mario 3D World",
+       "type": "2010s",
+       "sub": "2013"
+      },
+      {
+       "id": "super-mario-maker-2015",
+       "name": "Super Mario Maker",
+       "type": "2010s",
+       "sub": "2015"
+      },
+      {
+       "id": "super-mario-run-2016",
+       "name": "Super Mario Run",
+       "type": "2010s",
+       "sub": "2016"
+      },
+      {
+       "id": "super-mario-odyssey-2017",
+       "name": "Super Mario Odyssey",
+       "type": "2010s",
+       "sub": "2017"
+      },
+      {
+       "id": "super-mario-maker-2-2019",
+       "name": "Super Mario Maker 2",
+       "type": "2010s",
+       "sub": "2019"
+      },
+      {
+       "id": "super-mario-bros-wonder-2023",
+       "name": "Super Mario Bros. Wonder",
+       "type": "2020s",
+       "sub": "2023"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "mario-kart",
+   "name": "Mario Kart",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "super-mario-kart-1992",
+       "name": "Super Mario Kart",
+       "type": "1990s",
+       "sub": "1992"
+      },
+      {
+       "id": "mario-kart-64-1996",
+       "name": "Mario Kart 64",
+       "type": "1990s",
+       "sub": "1996"
+      },
+      {
+       "id": "mario-kart-super-circuit-2001",
+       "name": "Mario Kart: Super Circuit",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "mario-kart-double-dash-2003",
+       "name": "Mario Kart: Double Dash!!",
+       "type": "2000s",
+       "sub": "2003"
+      },
+      {
+       "id": "mario-kart-ds-2005",
+       "name": "Mario Kart DS",
+       "type": "2000s",
+       "sub": "2005"
+      },
+      {
+       "id": "mario-kart-wii-2008",
+       "name": "Mario Kart Wii",
+       "type": "2000s",
+       "sub": "2008"
+      },
+      {
+       "id": "mario-kart-7-2011",
+       "name": "Mario Kart 7",
+       "type": "2010s",
+       "sub": "2011"
+      },
+      {
+       "id": "mario-kart-8-2014",
+       "name": "Mario Kart 8",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "mario-kart-8-deluxe-2017",
+       "name": "Mario Kart 8 Deluxe",
+       "type": "2010s",
+       "sub": "2017"
+      },
+      {
+       "id": "mario-kart-world-2025",
+       "name": "Mario Kart World",
+       "type": "2020s",
+       "sub": "2025"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "zelda",
+   "name": "The Legend of Zelda",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "the-legend-of-zelda-1986",
+       "name": "The Legend of Zelda",
+       "type": "1980s",
+       "sub": "1986"
+      },
+      {
+       "id": "zelda-ii-the-adventure-of-link-1987",
+       "name": "Zelda II: The Adventure of Link",
+       "type": "1980s",
+       "sub": "1987"
+      },
+      {
+       "id": "a-link-to-the-past-1991",
+       "name": "A Link to the Past",
+       "type": "1990s",
+       "sub": "1991"
+      },
+      {
+       "id": "link-s-awakening-1993",
+       "name": "Link's Awakening",
+       "type": "1990s",
+       "sub": "1993"
+      },
+      {
+       "id": "ocarina-of-time-1998",
+       "name": "Ocarina of Time",
+       "type": "1990s",
+       "sub": "1998"
+      },
+      {
+       "id": "majora-s-mask-2000",
+       "name": "Majora's Mask",
+       "type": "2000s",
+       "sub": "2000"
+      },
+      {
+       "id": "oracle-of-seasons-2001",
+       "name": "Oracle of Seasons",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "oracle-of-ages-2001",
+       "name": "Oracle of Ages",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "four-swords-2002",
+       "name": "Four Swords",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "the-wind-waker-2002",
+       "name": "The Wind Waker",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "the-minish-cap-2004",
+       "name": "The Minish Cap",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "twilight-princess-2006",
+       "name": "Twilight Princess",
+       "type": "2000s",
+       "sub": "2006"
+      },
+      {
+       "id": "phantom-hourglass-2007",
+       "name": "Phantom Hourglass",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "spirit-tracks-2009",
+       "name": "Spirit Tracks",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "skyward-sword-2011",
+       "name": "Skyward Sword",
+       "type": "2010s",
+       "sub": "2011"
+      },
+      {
+       "id": "a-link-between-worlds-2013",
+       "name": "A Link Between Worlds",
+       "type": "2010s",
+       "sub": "2013"
+      },
+      {
+       "id": "tri-force-heroes-2015",
+       "name": "Tri Force Heroes",
+       "type": "2010s",
+       "sub": "2015"
+      },
+      {
+       "id": "breath-of-the-wild-2017",
+       "name": "Breath of the Wild",
+       "type": "2010s",
+       "sub": "2017"
+      },
+      {
+       "id": "tears-of-the-kingdom-2023",
+       "name": "Tears of the Kingdom",
+       "type": "2020s",
+       "sub": "2023"
+      },
+      {
+       "id": "echoes-of-wisdom-2024",
+       "name": "Echoes of Wisdom",
+       "type": "2020s",
+       "sub": "2024"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "pokemon-games",
+   "name": "Pokémon (main games)",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "pok-mon-red-and-blue-1996",
+       "name": "Pokémon Red and Blue",
+       "type": "1990s",
+       "sub": "1996"
+      },
+      {
+       "id": "pok-mon-yellow-1998",
+       "name": "Pokémon Yellow",
+       "type": "1990s",
+       "sub": "1998"
+      },
+      {
+       "id": "pok-mon-gold-and-silver-1999",
+       "name": "Pokémon Gold and Silver",
+       "type": "1990s",
+       "sub": "1999"
+      },
+      {
+       "id": "pok-mon-crystal-2000",
+       "name": "Pokémon Crystal",
+       "type": "2000s",
+       "sub": "2000"
+      },
+      {
+       "id": "pok-mon-ruby-and-sapphire-2002",
+       "name": "Pokémon Ruby and Sapphire",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "pok-mon-firered-and-leafgreen-2004",
+       "name": "Pokémon FireRed and LeafGreen",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "pok-mon-emerald-2004",
+       "name": "Pokémon Emerald",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "pok-mon-diamond-and-pearl-2006",
+       "name": "Pokémon Diamond and Pearl",
+       "type": "2000s",
+       "sub": "2006"
+      },
+      {
+       "id": "pok-mon-platinum-2008",
+       "name": "Pokémon Platinum",
+       "type": "2000s",
+       "sub": "2008"
+      },
+      {
+       "id": "pok-mon-heartgold-and-soulsilver-2009",
+       "name": "Pokémon HeartGold and SoulSilver",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "pok-mon-black-and-white-2010",
+       "name": "Pokémon Black and White",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "pok-mon-black-2-and-white-2-2012",
+       "name": "Pokémon Black 2 and White 2",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "pok-mon-x-and-y-2013",
+       "name": "Pokémon X and Y",
+       "type": "2010s",
+       "sub": "2013"
+      },
+      {
+       "id": "pok-mon-omega-ruby-and-alpha-sapphire-2014",
+       "name": "Pokémon Omega Ruby and Alpha Sapphire",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "pok-mon-sun-and-moon-2016",
+       "name": "Pokémon Sun and Moon",
+       "type": "2010s",
+       "sub": "2016"
+      },
+      {
+       "id": "pok-mon-ultra-sun-and-ultra-moon-2017",
+       "name": "Pokémon Ultra Sun and Ultra Moon",
+       "type": "2010s",
+       "sub": "2017"
+      },
+      {
+       "id": "pok-mon-let-s-go-pikachu-and-let-s-go-eevee-2018",
+       "name": "Pokémon Let's Go, Pikachu! and Let's Go, Eevee!",
+       "type": "2010s",
+       "sub": "2018"
+      },
+      {
+       "id": "pok-mon-sword-and-shield-2019",
+       "name": "Pokémon Sword and Shield",
+       "type": "2010s",
+       "sub": "2019"
+      },
+      {
+       "id": "pok-mon-brilliant-diamond-and-shining-pearl-2021",
+       "name": "Pokémon Brilliant Diamond and Shining Pearl",
+       "type": "2020s",
+       "sub": "2021"
+      },
+      {
+       "id": "pok-mon-legends-arceus-2022",
+       "name": "Pokémon Legends: Arceus",
+       "type": "2020s",
+       "sub": "2022"
+      },
+      {
+       "id": "pok-mon-scarlet-and-violet-2022",
+       "name": "Pokémon Scarlet and Violet",
+       "type": "2020s",
+       "sub": "2022"
+      },
+      {
+       "id": "pok-mon-legends-z-a-2025",
+       "name": "Pokémon Legends: Z-A",
+       "type": "2020s",
+       "sub": "2025"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "final-fantasy",
+   "name": "Final Fantasy (main series)",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "final-fantasy-1987",
+       "name": "Final Fantasy",
+       "type": "1980s",
+       "sub": "1987"
+      },
+      {
+       "id": "final-fantasy-ii-1988",
+       "name": "Final Fantasy II",
+       "type": "1980s",
+       "sub": "1988"
+      },
+      {
+       "id": "final-fantasy-iii-1990",
+       "name": "Final Fantasy III",
+       "type": "1990s",
+       "sub": "1990"
+      },
+      {
+       "id": "final-fantasy-iv-1991",
+       "name": "Final Fantasy IV",
+       "type": "1990s",
+       "sub": "1991"
+      },
+      {
+       "id": "final-fantasy-v-1992",
+       "name": "Final Fantasy V",
+       "type": "1990s",
+       "sub": "1992"
+      },
+      {
+       "id": "final-fantasy-vi-1994",
+       "name": "Final Fantasy VI",
+       "type": "1990s",
+       "sub": "1994"
+      },
+      {
+       "id": "final-fantasy-vii-1997",
+       "name": "Final Fantasy VII",
+       "type": "1990s",
+       "sub": "1997"
+      },
+      {
+       "id": "final-fantasy-viii-1999",
+       "name": "Final Fantasy VIII",
+       "type": "1990s",
+       "sub": "1999"
+      },
+      {
+       "id": "final-fantasy-ix-2000",
+       "name": "Final Fantasy IX",
+       "type": "2000s",
+       "sub": "2000"
+      },
+      {
+       "id": "final-fantasy-x-2001",
+       "name": "Final Fantasy X",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "final-fantasy-xi-2002",
+       "name": "Final Fantasy XI",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "final-fantasy-xii-2006",
+       "name": "Final Fantasy XII",
+       "type": "2000s",
+       "sub": "2006"
+      },
+      {
+       "id": "final-fantasy-xiii-2009",
+       "name": "Final Fantasy XIII",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "final-fantasy-xiv-2010",
+       "name": "Final Fantasy XIV",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "final-fantasy-xv-2016",
+       "name": "Final Fantasy XV",
+       "type": "2010s",
+       "sub": "2016"
+      },
+      {
+       "id": "final-fantasy-vii-remake-2020",
+       "name": "Final Fantasy VII Remake",
+       "type": "2020s",
+       "sub": "2020"
+      },
+      {
+       "id": "final-fantasy-xvi-2023",
+       "name": "Final Fantasy XVI",
+       "type": "2020s",
+       "sub": "2023"
+      },
+      {
+       "id": "final-fantasy-vii-rebirth-2024",
+       "name": "Final Fantasy VII Rebirth",
+       "type": "2020s",
+       "sub": "2024"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "fromsoftware",
+   "name": "FromSoftware action games",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "demon-s-souls-2009",
+       "name": "Demon's Souls",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "dark-souls-2011",
+       "name": "Dark Souls",
+       "type": "2010s",
+       "sub": "2011"
+      },
+      {
+       "id": "dark-souls-ii-2014",
+       "name": "Dark Souls II",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "bloodborne-2015",
+       "name": "Bloodborne",
+       "type": "2010s",
+       "sub": "2015"
+      },
+      {
+       "id": "dark-souls-iii-2016",
+       "name": "Dark Souls III",
+       "type": "2010s",
+       "sub": "2016"
+      },
+      {
+       "id": "sekiro-shadows-die-twice-2019",
+       "name": "Sekiro: Shadows Die Twice",
+       "type": "2010s",
+       "sub": "2019"
+      },
+      {
+       "id": "elden-ring-2022",
+       "name": "Elden Ring",
+       "type": "2020s",
+       "sub": "2022"
+      },
+      {
+       "id": "armored-core-vi-fires-of-rubicon-2023",
+       "name": "Armored Core VI: Fires of Rubicon",
+       "type": "2020s",
+       "sub": "2023"
+      },
+      {
+       "id": "elden-ring-nightreign-2025",
+       "name": "Elden Ring Nightreign",
+       "type": "2020s",
+       "sub": "2025"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "resident-evil",
+   "name": "Resident Evil (main games and remakes)",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "resident-evil-1996",
+       "name": "Resident Evil",
+       "type": "1990s",
+       "sub": "1996"
+      },
+      {
+       "id": "resident-evil-2-1998",
+       "name": "Resident Evil 2",
+       "type": "1990s",
+       "sub": "1998"
+      },
+      {
+       "id": "resident-evil-3-nemesis-1999",
+       "name": "Resident Evil 3: Nemesis",
+       "type": "1990s",
+       "sub": "1999"
+      },
+      {
+       "id": "resident-evil-code-veronica-2000",
+       "name": "Resident Evil – Code: Veronica",
+       "type": "2000s",
+       "sub": "2000"
+      },
+      {
+       "id": "resident-evil-zero-2002",
+       "name": "Resident Evil Zero",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "resident-evil-remake-2002",
+       "name": "Resident Evil (remake)",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "resident-evil-4-2005",
+       "name": "Resident Evil 4",
+       "type": "2000s",
+       "sub": "2005"
+      },
+      {
+       "id": "resident-evil-5-2009",
+       "name": "Resident Evil 5",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "resident-evil-6-2012",
+       "name": "Resident Evil 6",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "resident-evil-7-biohazard-2017",
+       "name": "Resident Evil 7: Biohazard",
+       "type": "2010s",
+       "sub": "2017"
+      },
+      {
+       "id": "resident-evil-2-remake-2019",
+       "name": "Resident Evil 2 (remake)",
+       "type": "2010s",
+       "sub": "2019"
+      },
+      {
+       "id": "resident-evil-3-remake-2020",
+       "name": "Resident Evil 3 (remake)",
+       "type": "2020s",
+       "sub": "2020"
+      },
+      {
+       "id": "resident-evil-village-2021",
+       "name": "Resident Evil Village",
+       "type": "2020s",
+       "sub": "2021"
+      },
+      {
+       "id": "resident-evil-4-remake-2023",
+       "name": "Resident Evil 4 (remake)",
+       "type": "2020s",
+       "sub": "2023"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "grand-theft-auto",
+   "name": "Grand Theft Auto",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "grand-theft-auto-1997",
+       "name": "Grand Theft Auto",
+       "type": "1990s",
+       "sub": "1997"
+      },
+      {
+       "id": "grand-theft-auto-2-1999",
+       "name": "Grand Theft Auto 2",
+       "type": "1990s",
+       "sub": "1999"
+      },
+      {
+       "id": "grand-theft-auto-iii-2001",
+       "name": "Grand Theft Auto III",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "grand-theft-auto-vice-city-2002",
+       "name": "Grand Theft Auto: Vice City",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "grand-theft-auto-san-andreas-2004",
+       "name": "Grand Theft Auto: San Andreas",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "grand-theft-auto-iv-2008",
+       "name": "Grand Theft Auto IV",
+       "type": "2000s",
+       "sub": "2008"
+      },
+      {
+       "id": "grand-theft-auto-v-2013",
+       "name": "Grand Theft Auto V",
+       "type": "2010s",
+       "sub": "2013"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "assassins-creed",
+   "name": "Assassin's Creed (main games)",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "assassin-s-creed-2007",
+       "name": "Assassin's Creed",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "assassin-s-creed-ii-2009",
+       "name": "Assassin's Creed II",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "assassin-s-creed-brotherhood-2010",
+       "name": "Assassin's Creed: Brotherhood",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "assassin-s-creed-revelations-2011",
+       "name": "Assassin's Creed: Revelations",
+       "type": "2010s",
+       "sub": "2011"
+      },
+      {
+       "id": "assassin-s-creed-iii-2012",
+       "name": "Assassin's Creed III",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "assassin-s-creed-iv-black-flag-2013",
+       "name": "Assassin's Creed IV: Black Flag",
+       "type": "2010s",
+       "sub": "2013"
+      },
+      {
+       "id": "assassin-s-creed-rogue-2014",
+       "name": "Assassin's Creed Rogue",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "assassin-s-creed-unity-2014",
+       "name": "Assassin's Creed Unity",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "assassin-s-creed-syndicate-2015",
+       "name": "Assassin's Creed Syndicate",
+       "type": "2010s",
+       "sub": "2015"
+      },
+      {
+       "id": "assassin-s-creed-origins-2017",
+       "name": "Assassin's Creed Origins",
+       "type": "2010s",
+       "sub": "2017"
+      },
+      {
+       "id": "assassin-s-creed-odyssey-2018",
+       "name": "Assassin's Creed Odyssey",
+       "type": "2010s",
+       "sub": "2018"
+      },
+      {
+       "id": "assassin-s-creed-valhalla-2020",
+       "name": "Assassin's Creed Valhalla",
+       "type": "2020s",
+       "sub": "2020"
+      },
+      {
+       "id": "assassin-s-creed-mirage-2023",
+       "name": "Assassin's Creed Mirage",
+       "type": "2020s",
+       "sub": "2023"
+      },
+      {
+       "id": "assassin-s-creed-shadows-2025",
+       "name": "Assassin's Creed Shadows",
+       "type": "2020s",
+       "sub": "2025"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "mass-effect-witcher",
+   "name": "Mass Effect and The Witcher",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "mass-effect-2007",
+       "name": "Mass Effect",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "mass-effect-2-2010",
+       "name": "Mass Effect 2",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "mass-effect-3-2012",
+       "name": "Mass Effect 3",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "mass-effect-andromeda-2017",
+       "name": "Mass Effect: Andromeda",
+       "type": "2010s",
+       "sub": "2017"
+      },
+      {
+       "id": "the-witcher-2007",
+       "name": "The Witcher",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "the-witcher-2-assassins-of-kings-2011",
+       "name": "The Witcher 2: Assassins of Kings",
+       "type": "2010s",
+       "sub": "2011"
+      },
+      {
+       "id": "the-witcher-3-wild-hunt-2015",
+       "name": "The Witcher 3: Wild Hunt",
+       "type": "2010s",
+       "sub": "2015"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "halo",
+   "name": "Halo",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "halo-combat-evolved-2001",
+       "name": "Halo: Combat Evolved",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "halo-2-2004",
+       "name": "Halo 2",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "halo-3-2007",
+       "name": "Halo 3",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "halo-3-odst-2009",
+       "name": "Halo 3: ODST",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "halo-reach-2010",
+       "name": "Halo: Reach",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "halo-4-2012",
+       "name": "Halo 4",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "halo-5-guardians-2015",
+       "name": "Halo 5: Guardians",
+       "type": "2010s",
+       "sub": "2015"
+      },
+      {
+       "id": "halo-infinite-2021",
+       "name": "Halo Infinite",
+       "type": "2020s",
+       "sub": "2021"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "metal-gear",
+   "name": "Metal Gear",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "metal-gear-1987",
+       "name": "Metal Gear",
+       "type": "1980s",
+       "sub": "1987"
+      },
+      {
+       "id": "metal-gear-2-solid-snake-1990",
+       "name": "Metal Gear 2: Solid Snake",
+       "type": "1990s",
+       "sub": "1990"
+      },
+      {
+       "id": "metal-gear-solid-1998",
+       "name": "Metal Gear Solid",
+       "type": "1990s",
+       "sub": "1998"
+      },
+      {
+       "id": "metal-gear-solid-2-sons-of-liberty-2001",
+       "name": "Metal Gear Solid 2: Sons of Liberty",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "metal-gear-solid-3-snake-eater-2004",
+       "name": "Metal Gear Solid 3: Snake Eater",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "metal-gear-solid-4-guns-of-the-patriots-2008",
+       "name": "Metal Gear Solid 4: Guns of the Patriots",
+       "type": "2000s",
+       "sub": "2008"
+      },
+      {
+       "id": "metal-gear-solid-peace-walker-2010",
+       "name": "Metal Gear Solid: Peace Walker",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "metal-gear-solid-v-ground-zeroes-2014",
+       "name": "Metal Gear Solid V: Ground Zeroes",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "metal-gear-solid-v-the-phantom-pain-2015",
+       "name": "Metal Gear Solid V: The Phantom Pain",
+       "type": "2010s",
+       "sub": "2015"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "kingdom-hearts",
+   "name": "Kingdom Hearts",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "kingdom-hearts-2002",
+       "name": "Kingdom Hearts",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "kingdom-hearts-chain-of-memories-2004",
+       "name": "Kingdom Hearts: Chain of Memories",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "kingdom-hearts-ii-2005",
+       "name": "Kingdom Hearts II",
+       "type": "2000s",
+       "sub": "2005"
+      },
+      {
+       "id": "kingdom-hearts-358-2-days-2009",
+       "name": "Kingdom Hearts 358/2 Days",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "kingdom-hearts-birth-by-sleep-2010",
+       "name": "Kingdom Hearts Birth by Sleep",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "kingdom-hearts-re-coded-2010",
+       "name": "Kingdom Hearts Re:coded",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "kingdom-hearts-3d-dream-drop-distance-2012",
+       "name": "Kingdom Hearts 3D: Dream Drop Distance",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "kingdom-hearts-iii-2019",
+       "name": "Kingdom Hearts III",
+       "type": "2010s",
+       "sub": "2019"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "god-of-war-uncharted-tlou",
+   "name": "God of War, Uncharted and The Last of Us",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "god-of-war-2005",
+       "name": "God of War",
+       "type": "2000s",
+       "sub": "2005"
+      },
+      {
+       "id": "god-of-war-ii-2007",
+       "name": "God of War II",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "god-of-war-iii-2010",
+       "name": "God of War III",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "god-of-war-2018",
+       "name": "God of War",
+       "type": "2010s",
+       "sub": "2018"
+      },
+      {
+       "id": "god-of-war-ragnar-k-2022",
+       "name": "God of War Ragnarök",
+       "type": "2020s",
+       "sub": "2022"
+      },
+      {
+       "id": "uncharted-drake-s-fortune-2007",
+       "name": "Uncharted: Drake's Fortune",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "uncharted-2-among-thieves-2009",
+       "name": "Uncharted 2: Among Thieves",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "uncharted-3-drake-s-deception-2011",
+       "name": "Uncharted 3: Drake's Deception",
+       "type": "2010s",
+       "sub": "2011"
+      },
+      {
+       "id": "uncharted-4-a-thief-s-end-2016",
+       "name": "Uncharted 4: A Thief's End",
+       "type": "2010s",
+       "sub": "2016"
+      },
+      {
+       "id": "the-last-of-us-2013",
+       "name": "The Last of Us",
+       "type": "2010s",
+       "sub": "2013"
+      },
+      {
+       "id": "the-last-of-us-part-ii-2020",
+       "name": "The Last of Us Part II",
+       "type": "2020s",
+       "sub": "2020"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "metroid",
+   "name": "Metroid",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "metroid-1986",
+       "name": "Metroid",
+       "type": "1980s",
+       "sub": "1986"
+      },
+      {
+       "id": "metroid-ii-return-of-samus-1991",
+       "name": "Metroid II: Return of Samus",
+       "type": "1990s",
+       "sub": "1991"
+      },
+      {
+       "id": "super-metroid-1994",
+       "name": "Super Metroid",
+       "type": "1990s",
+       "sub": "1994"
+      },
+      {
+       "id": "metroid-prime-2002",
+       "name": "Metroid Prime",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "metroid-fusion-2002",
+       "name": "Metroid Fusion",
+       "type": "2000s",
+       "sub": "2002"
+      },
+      {
+       "id": "metroid-prime-2-echoes-2004",
+       "name": "Metroid Prime 2: Echoes",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "metroid-prime-3-corruption-2007",
+       "name": "Metroid Prime 3: Corruption",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "metroid-dread-2021",
+       "name": "Metroid Dread",
+       "type": "2020s",
+       "sub": "2021"
+      },
+      {
+       "id": "metroid-prime-4-beyond-2025",
+       "name": "Metroid Prime 4: Beyond",
+       "type": "2020s",
+       "sub": "2025"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "city-builders",
+   "name": "SimCity and city builders",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "simcity-1989",
+       "name": "SimCity",
+       "type": "1980s",
+       "sub": "1989"
+      },
+      {
+       "id": "simcity-2000-1993",
+       "name": "SimCity 2000",
+       "type": "1990s",
+       "sub": "1993"
+      },
+      {
+       "id": "simcity-3000-1999",
+       "name": "SimCity 3000",
+       "type": "1990s",
+       "sub": "1999"
+      },
+      {
+       "id": "simcity-4-2003",
+       "name": "SimCity 4",
+       "type": "2000s",
+       "sub": "2003"
+      },
+      {
+       "id": "simcity-societies-2007",
+       "name": "SimCity Societies",
+       "type": "2000s",
+       "sub": "2007"
+      },
+      {
+       "id": "simcity-2013",
+       "name": "SimCity",
+       "type": "2010s",
+       "sub": "2013"
+      },
+      {
+       "id": "cities-skylines-2015",
+       "name": "Cities: Skylines",
+       "type": "2010s",
+       "sub": "2015"
+      },
+      {
+       "id": "cities-skylines-ii-2023",
+       "name": "Cities: Skylines II",
+       "type": "2020s",
+       "sub": "2023"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "sims-civ",
+   "name": "The Sims and Civilization",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "the-sims-2000",
+       "name": "The Sims",
+       "type": "2000s",
+       "sub": "2000"
+      },
+      {
+       "id": "the-sims-2-2004",
+       "name": "The Sims 2",
+       "type": "2000s",
+       "sub": "2004"
+      },
+      {
+       "id": "the-sims-3-2009",
+       "name": "The Sims 3",
+       "type": "2000s",
+       "sub": "2009"
+      },
+      {
+       "id": "the-sims-4-2014",
+       "name": "The Sims 4",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "sid-meier-s-civilization-1991",
+       "name": "Sid Meier's Civilization",
+       "type": "1990s",
+       "sub": "1991"
+      },
+      {
+       "id": "civilization-ii-1996",
+       "name": "Civilization II",
+       "type": "1990s",
+       "sub": "1996"
+      },
+      {
+       "id": "civilization-iii-2001",
+       "name": "Civilization III",
+       "type": "2000s",
+       "sub": "2001"
+      },
+      {
+       "id": "civilization-iv-2005",
+       "name": "Civilization IV",
+       "type": "2000s",
+       "sub": "2005"
+      },
+      {
+       "id": "civilization-v-2010",
+       "name": "Civilization V",
+       "type": "2010s",
+       "sub": "2010"
+      },
+      {
+       "id": "civilization-vi-2016",
+       "name": "Civilization VI",
+       "type": "2010s",
+       "sub": "2016"
+      },
+      {
+       "id": "civilization-vii-2025",
+       "name": "Civilization VII",
+       "type": "2020s",
+       "sub": "2025"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
+  },
+  {
+   "key": "candy-crush",
+   "name": "Candy Crush",
+   "kind": "checklist",
+   "pull_name": "",
+   "banners": [],
+   "categories": [
+    {
+     "key": "games",
+     "label": "Games",
+     "verb": [
+      "Played",
+      "Not played"
+     ],
+     "types_label": "Decade",
+     "items": [
+      {
+       "id": "candy-crush-saga-2012",
+       "name": "Candy Crush Saga",
+       "type": "2010s",
+       "sub": "2012"
+      },
+      {
+       "id": "candy-crush-soda-saga-2014",
+       "name": "Candy Crush Soda Saga",
+       "type": "2010s",
+       "sub": "2014"
+      },
+      {
+       "id": "candy-crush-jelly-saga-2016",
+       "name": "Candy Crush Jelly Saga",
+       "type": "2010s",
+       "sub": "2016"
+      },
+      {
+       "id": "candy-crush-friends-saga-2018",
+       "name": "Candy Crush Friends Saga",
+       "type": "2010s",
+       "sub": "2018"
+      }
+     ]
+    }
+   ],
+   "source": "Checklists written by hand from public knowledge. Anything missing can be added under Checklists."
   }
  ]
 }

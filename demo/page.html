@@ -823,6 +823,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .cmp-heads a { width: min(160px, 36vw); text-align: center; text-decoration: none; color: var(--bone); font-weight: 600; }
 .cmp-heads a span { display: block; margin-top: 8px; }
 .cmp-vs { font: 600 1.6rem/1 var(--f-display, serif); color: var(--gold-bright); text-align: center; }
+.gt-pick select { max-width: 100%; min-width: 260px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--bone); font: inherit; } .gt-pick { margin: 14px 0; }
 .gt-summary { display: grid; grid-template-columns: auto 1fr; gap: 18px 28px; align-items: center; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius-lg, 14px); background: var(--surface); }
 .gt-pity { display: grid; justify-items: center; } .gt-pity b { font: 600 3.4rem/1 var(--f-display, serif); color: var(--gold-bright); } .gt-pity span { color: var(--muted); font-size: .85rem; max-width: 14ch; text-align: center; }
 .gt-facts { margin: 0; padding-left: 18px; display: grid; gap: 4px; } .gt-facts b { color: var(--bone); }
@@ -1205,7 +1206,7 @@ body.is-home.deep .runes { opacity: .35; }
 body.is-home.deep .rune:not(:nth-child(3n+1)) { visibility: hidden; transition: visibility 0s .6s; } body.is-home.deep .well-fx .caustic { opacity: .25; }
 .rune { position: absolute; bottom: -6vh; fill: none; stroke: color-mix(in srgb, var(--gold) 70%, transparent); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; animation: rune-rise linear infinite; }
 :root[data-theme="light"] .rune { stroke: color-mix(in srgb, var(--gold-deep) 55%, transparent); }
-@keyframes rune-rise { 0% { opacity: 0; transform: translateY(0) rotate(-6deg); } 12% { opacity: .55; } 50% { transform: translateY(-55vh) rotate(5deg); } 85% { opacity: .35; } 100% { opacity: 0; transform: translateY(-112vh) rotate(-4deg); } }
+@keyframes rune-rise { 0% { opacity: 0; transform: translateY(0) rotate(-6deg); } 12% { opacity: .32; } 50% { transform: translateY(-55vh) rotate(5deg); } 85% { opacity: .2; } 100% { opacity: 0; transform: translateY(-112vh) rotate(-4deg); } }
 /* Rings, badges, trackers, share sheet and toasts. */
 .rings-panel { display: grid; grid-template-columns: auto 1fr; gap: 28px 40px; align-items: center; margin: 22px 0 30px; padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); }
 .rings-today { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
@@ -1279,6 +1280,7 @@ body.is-home.deep .rune:not(:nth-child(3n+1)) { visibility: hidden; transition: 
 .hero form.ask textarea { flex: 1; }
 .hero .examples { justify-content: center; max-width: 1040px; margin-inline: auto; }
 .hero .decide-cta { justify-content: center; }
+.proof { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 26px; margin: 26px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; } .proof b { color: var(--gold-bright); font-weight: 600; margin-right: 4px; }
 /* About panel on shelf and tag pages. */
 .about-card { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 28px; margin: 18px 0 30px; padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); overflow: hidden; }
 .about-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(180deg, var(--gold), var(--gold-deep)); }
@@ -1319,8 +1321,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 .depth .tick.on { background: var(--gold); border-color: var(--gold); transform: translateY(-50%) scale(1.2); }
 .depth .tick:hover { background: var(--gold); }
 .depth .now { position: absolute; right: 100%; top: var(--now-y, 0); margin-right: 14px; transform: translateY(-50%); max-width: 220px; padding: 5px 10px; border-radius: 999px; background: var(--glass); backdrop-filter: blur(12px); box-shadow: var(--shadow-1); font: 600 10px/1.3 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; pointer-events: none; transition: opacity .3s; }
-.depth:hover .now, .depth.moving .now { opacity: 1; }
-@media (max-width: 1320px) { .depth { display: none; } }
+.depth:hover .now { opacity: 1; }
+@media (max-width: 1500px) { .depth { display: none; } }
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
 .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .well-fx { display: none; } .rv { opacity: 1; transform: none; transition: none; } }
@@ -1885,7 +1887,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     // Only parse and rank once someone has asked; the landing view doesn't show results.
     const r = hasAsked ? askDiscover(query) : null;
     const heroEnd = `${askForm()}
-        <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>`;
+        <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>
+        <ul class="proof" aria-label="About Mimir"><li><b>${RAW_WORKS.length.toLocaleString("en-US")}</b> films, shows, books, games and albums</li><li><b>Free</b> to use, nothing locked</li><li><b>No ads</b> and no tracking across sites</li><li><b>Open data</b> from Wikidata, MusicBrainz and more</li></ul>`;
     const buildRest = () => `
       <div class="home">
         <div class="home-main">
@@ -2561,7 +2564,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
               <button class="btn ghost" type="button" data-similar="${esc(w.title)}">Find similar</button>
               <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
               <a class="btn ghost" href="#compare-${esc(w.slug)}">Compare</a>
-              ${w.medium === "game" ? `<a class="btn ghost" href="#game-tracker?${gtKeyOfWork(w) ? `tab=wishes&game=${gtKeyOfWork(w)}` : `tab=lists&title=${encodeURIComponent(w.title)}`}">${gtKeyOfWork(w) ? "Wish &amp; collection tracker" : "Track progress"}</a>` : ""}
+              ${w.medium === "game" ? `<a class="btn ghost" href="#game-tracker?${gtKeyOfWork(w) ? `tab=${(gtGame(gtKeyOfWork(w)) || {}).banners && gtGame(gtKeyOfWork(w)).banners.length ? "wishes" : "collection"}&game=${gtKeyOfWork(w)}` : `tab=lists&title=${encodeURIComponent(w.title)}`}">${gtKeyOfWork(w) ? (gtGame(gtKeyOfWork(w)) || {}).banners && gtGame(gtKeyOfWork(w)).banners.length ? "Wish &amp; collection tracker" : "Track your progress" : "Track progress"}</a>` : ""}
               ${mineBtn(w.slug)}
               ${["film", "series"].includes(w.medium) ? `<a class="btn ghost" href="#watch-${esc(w.slug)}">Watch along</a>` : ""}
               ${shareButton(`${location.origin}${location.pathname}#work-${w.slug}`, w.title, `${w.title} (${[mediumLabel(w.medium), w.year].filter(Boolean).join(", ")}) on Mimir`)}
@@ -3475,6 +3478,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   });
   app.addEventListener("input", (e) => { if (e.target.id === "wa-scrub") waControl("seek", Number(e.target.value)); });
   app.addEventListener("change", (e) => {
+    if (e.target.matches("select[data-gt-pick]")) { location.hash = e.target.value; return; }
     if (e.target.matches("[data-wa-open]")) { const slug = location.hash.slice(7).split("?")[0]; if (watchAlongs[slug]) { watchAlongs[slug].open = e.target.checked; saveWatchAlongs(); } }
   });
   app.addEventListener("submit", (e) => {
@@ -6472,7 +6476,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   gt.wishes = gt.wishes || {}; gt.rules = gt.rules || {}; gt.own = gt.own || {}; gt.lists = gt.lists || [];
   const saveGt = () => { store("mimir-game-tracker", gt); queueSync(); };
   const gtGame = (k) => GTD().games.find((g) => g.key === k);
-  const GT_BY_TITLE = { "genshin impact": "genshin-impact", "honkai: star rail": "honkai-star-rail", "zenless zone zero": "zenless-zone-zero", "wuthering waves": "wuthering-waves" };
+  const GT_BY_TITLE = { "genshin impact": "genshin-impact", "honkai: star rail": "honkai-star-rail", "zenless zone zero": "zenless-zone-zero", "wuthering waves": "wuthering-waves", "elden ring": "elden-ring", "stardew valley": "stardew-valley", "hollow knight": "hollow-knight", "minecraft": "minecraft", "the legend of zelda: breath of the wild": "zelda-modern", "the legend of zelda: tears of the kingdom": "zelda-modern" };
   const gtKeyOfWork = (w) => GT_BY_TITLE[(w.title || "").toLowerCase()] || null;
   const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
 
@@ -6505,16 +6509,18 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     return `<nav class="medium-tabs" aria-label="Game tracker">${tabs.map(([k, l]) => `<a href="#game-tracker?${new URLSearchParams({ ...q, tab: k })}" class="${on === k ? "on" : ""}">${l}</a>`).join("")}</nav>`;
   }
   function gtGamePicker(sel, tab, q) {
-    return `<p class="pchips"><span class="eyebrow">Game</span>${GTD().games.filter((g) => tab !== "collection" || g.categories.length).map((g) => `<a class="tchip${g.key === sel ? " on" : ""}" href="#game-tracker?${new URLSearchParams({ ...q, tab, game: g.key })}">${esc(g.name)}</a>`).join("")}</p>`;
+    const list = GTD().games.filter((g) => tab === "wishes" ? g.banners.length : tab !== "collection" || g.categories.length);
+    const grp = (label, gs) => gs.length ? `<optgroup label="${esc(label)}">${gs.map((g) => `<option value="${esc(`#game-tracker?${new URLSearchParams({ tab, game: g.key })}`)}"${g.key === sel ? " selected" : ""}>${esc(g.name)}</option>`).join("")}</optgroup>` : "";
+    return `<p class="gt-pick"><label><span class="eyebrow">Game</span> <select data-gt-pick aria-label="Choose a game">${grp("Pull and pity trackers", list.filter((g) => g.banners.length))}${grp("Checklists and collections", list.filter((g) => !g.banners.length))}</select></label></p>`;
   }
 
   function renderGameTracker(p) {
     const tab = ["wishes", "collection", "lists"].includes(p.get("tab")) ? p.get("tab") : "wishes";
     const q = Object.fromEntries(p);
     const header = `<header class="page-band"><p class="eyebrow">Games</p><h1>Game tracker</h1>
-      <p class="muted">Track your pulls and pity, what you own, and your own checklists for any game. It stays in this browser (and in your account, if you have one). Rates and lists are presets from open community data and can lag the games: edit any number, and add your own items.</p></header>`;
+      <p class="muted">Track your pulls and pity, what you own, your progress through a franchise (Mario, Zelda, Pokémon, Elden Ring and more) and your own checklists for any game. It stays in this browser (and in your account, if you have one). Rates and lists are presets from open community data and can lag the games: edit any number, and add your own items.</p></header>`;
     if (tab === "lists") { app.innerHTML = `${header}${gtTabs(tab, q)}${gtListsHtml(p)}`; return; }
-    const games = GTD().games.filter((g) => tab !== "collection" || g.categories.length);
+    const games = GTD().games.filter((g) => tab === "wishes" ? g.banners.length : tab !== "collection" || g.categories.length);
     const g = games.find((x) => x.key === p.get("game")) || games[0];
     app.innerHTML = `${header}${gtTabs(tab, q)}${gtGamePicker(g.key, tab, q)}${tab === "wishes" ? gtWishesHtml(g, p) : gtCollectionHtml(g, p)}`;
   }
@@ -6644,18 +6650,19 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const types = [...new Set(cat.items.map((i) => i.type).filter(Boolean))].sort();
     const shown = cat.items.filter((i) => (!rar || String(i.rarity) === rar) && (!ty || i.type === ty) && (!qs || i.name.toLowerCase().includes(qs)));
     const have = cat.items.filter((i) => own[i.id] > 0).length;
+    const verb = cat.verb || ["Owned", "Not owned"], dupes = !cat.verb;   // duplicate copies only matter for pulled characters and weapons
     const href = (o) => `#game-tracker?${new URLSearchParams({ tab: "collection", game: g.key, cat: cat.key, ...(rar ? { rarity: rar } : {}), ...(ty ? { type: ty } : {}), ...(qs ? { q: qs } : {}), ...o })}`.replace(/&(rarity|type|q)=(&|$)/g, "$2");
     const five = cat.items.filter((i) => i.rarity === 5), have5 = five.filter((i) => own[i.id] > 0).length;
     return `
       <p class="pchips"><span class="eyebrow">Show</span>${g.categories.map((c) => `<a class="tchip${c.key === cat.key ? " on" : ""}" href="#game-tracker?${new URLSearchParams({ tab: "collection", game: g.key, cat: c.key })}">${esc(c.label)}</a>`).join("")}</p>
-      <p class="gt-progress"><b>${have}</b> of ${cat.items.length} ${esc(cat.label.toLowerCase())} owned${five.length ? ` · <b>${have5}</b> of ${five.length} 5-star` : ""}</p>
+      <p class="gt-progress"><b>${have}</b> of ${cat.items.length} ${esc(cat.label.toLowerCase())} ${esc(verb[0].toLowerCase())}${five.length ? ` · <b>${have5}</b> of ${five.length} 5-star` : ""}</p>
       <div class="gt-bar" aria-hidden="true"><i style="width:${cat.items.length ? Math.round((have / cat.items.length) * 100) : 0}%"></i></div>
-      <p class="pchips"><span class="eyebrow">Rarity</span><a class="tchip${rar ? "" : " on"}" href="${esc(href({ rarity: "" }))}">All</a>${[5, 4, 3].filter((x) => cat.items.some((i) => i.rarity === x)).map((x) => `<a class="tchip${rar === String(x) ? " on" : ""}" href="${esc(href({ rarity: x }))}">${x}-star</a>`).join("")}
+      <p class="pchips">${[5, 4, 3].some((x) => cat.items.some((i) => i.rarity === x)) ? `<span class="eyebrow">Rarity</span><a class="tchip${rar ? "" : " on"}" href="${esc(href({ rarity: "" }))}">All</a>${[5, 4, 3].filter((x) => cat.items.some((i) => i.rarity === x)).map((x) => `<a class="tchip${rar === String(x) ? " on" : ""}" href="${esc(href({ rarity: x }))}">${x}-star</a>`).join("")}` : ""}
         ${types.length ? `<span class="eyebrow">${esc(cat.types_label || "Type")}</span><a class="tchip${ty ? "" : " on"}" href="${esc(href({ type: "" }))}">All</a>${types.map((t) => `<a class="tchip${ty === t ? " on" : ""}" href="${esc(href({ type: t }))}">${esc(t)}</a>`).join("")}` : ""}</p>
       <form class="lib-form" data-gt-find><input name="q" value="${esc(qs)}" placeholder="Find by name" aria-label="Find by name" class="grow"><button class="btn" type="submit">Find</button></form>
       <ul class="gt-items">${shown.map((i) => { const c = own[i.id] || 0; return `<li class="gt-item${c ? " has" : ""}" data-r="${i.rarity}"><span class="gt-name">${esc(i.name)}</span><span class="small muted">${esc([i.type, i.sub].filter(Boolean).join(" · "))}</span>
-        <span class="gt-ctl"><button type="button" class="tchip${c ? " on" : ""}" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|toggle" aria-pressed="${c > 0}">${c ? "Owned" : "Not owned"}</button>${c ? `<button type="button" class="tchip" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|down" aria-label="One fewer copy of ${esc(i.name)}">−</button><span class="small" title="Copies: the first is the base version, each extra is a duplicate">${c === 1 ? "base" : `+${c - 1}`}</span><button type="button" class="tchip" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|up" aria-label="One more copy of ${esc(i.name)}">+</button>` : ""}</span></li>`; }).join("") || `<li class="empty">Nothing matches.</li>`}</ul>
-      <p class="small muted">Lists: EnkaNetwork API-docs open data${GTD().generated ? `, fetched ${esc(GTD().generated)}` : ""}. A newer release may be missing: add it under Checklists.</p>`;
+        <span class="gt-ctl"><button type="button" class="tchip${c ? " on" : ""}" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|toggle" aria-pressed="${c > 0}">${c ? verb[0] : verb[1]}</button>${c && dupes ? `<button type="button" class="tchip" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|down" aria-label="One fewer copy of ${esc(i.name)}">−</button><span class="small" title="Copies: the first is the base version, each extra is a duplicate">${c === 1 ? "base" : `+${c - 1}`}</span><button type="button" class="tchip" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|up" aria-label="One more copy of ${esc(i.name)}">+</button>` : ""}</span></li>`; }).join("") || `<li class="empty">Nothing matches.</li>`}</ul>
+      <p class="small muted">${g.source ? esc(g.source) : `Lists: EnkaNetwork API-docs open data${GTD().generated ? `, fetched ${esc(GTD().generated)}` : ""}. A newer release may be missing: add it under Checklists.`}</p>`;
   }
 
   function gtListsHtml(p) {
