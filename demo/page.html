@@ -829,7 +829,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .gt-add { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin: 0 0 12px; } .gt-add label { display: grid; gap: 2px; font-size: .82rem; color: var(--muted); } .gt-add input, .gt-add select { max-width: 280px; }
 .gt-within { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; } .gt-within li { display: grid; padding: 10px 16px; border: 1px solid var(--line); border-radius: 12px; min-width: 120px; } .gt-within b { font-size: 1.3rem; color: var(--gold-bright); } .gt-within span { color: var(--muted); font-size: .82rem; }
 .gt-history { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 8px 0; } .gt-history li { padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: .82rem; } .gt-history li.r5 { border-color: var(--gold); color: var(--gold-bright); }
-.gt-rules { margin: 14px 0; } .gt-rule-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 10px; align-items: end; } .gt-rule-form label { display: grid; gap: 2px; font-size: .82rem; color: var(--muted); }
+.gt-import { margin: 14px 0; } .gt-import textarea { width: 100%; min-height: 64px; } .gt-rules { margin: 14px 0; } .gt-rule-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 10px; align-items: end; } .gt-rule-form label { display: grid; gap: 2px; font-size: .82rem; color: var(--muted); }
 .gt-progress { margin: 14px 0 6px; } .gt-bar { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; margin: 0 0 14px; } .gt-bar i { display: block; height: 100%; background: var(--gold); }
 .gt-items { list-style: none; margin: 10px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
 .gt-item { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; } .gt-item.has { border-color: var(--gold); background: var(--surface); }
@@ -6487,7 +6487,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     for (const p of list) {
       gap++; pity++; if (!p.fill) pity4++;   // filler pulls (a starting point) say nothing about the 4-star count
       if (p.r === 4) pity4 = 0;
-      if (p.r === 5) { pity = 0; pity4 = 0; if (!p.fill) fives.push({ gap, f: p.f }); gap = 0; guaranteed = p.f === false; }
+      if (p.r === 5) { pity = 0; pity4 = 0; if (!p.fill) fives.push({ gap, f: p.f, partial: !!(list[0] && list[0].trunc && fives.length === 0) }); gap = 0; guaranteed = p.f === false; }
     }
     return { b, r, list, pity, pity4, guaranteed, fives };
   }
@@ -6526,7 +6526,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const d = gtDist(r, S.pity), expected = d.reduce((a, x, k) => a + x * k, 0);
     const featured = r.featured > 0 && r.featured < 1;
     const won = S.fives.filter((x) => x.f === true).length, lost = S.fives.filter((x) => x.f === false).length;
-    const avg = S.fives.length ? S.fives.reduce((a, x) => a + x.gap, 0) / S.fives.length : null;
+    const whole = S.fives.filter((x) => !x.partial), avg = whole.length ? whole.reduce((a, x) => a + x.gap, 0) / whole.length : null;   // the first gap of a history that may be cut off is not a full one
     const targets = r.featured > 0 ? [[0.5, "50%"], [0.9, "90%"]].map(([t, l]) => [l, gtPullsFor(r, S.pity, S.guaranteed, t)]) : [];
     const within = r.featured > 0 ? [10, 20, 40, 80, 160].map((n) => [n, gtFeaturedWithin(r, S.pity, S.guaranteed, n)]) : [[10, gtCdf(d, 10)], [20, gtCdf(d, 20)], [40, gtCdf(d, 40)], [80, gtCdf(d, 80)]];
     const names = { 3: "3-star", 4: "4-star", 5: "5-star" };
@@ -6550,6 +6550,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <form class="gt-add" data-gt-start="${esc(g.key)}|${esc(bk)}"><label class="grow"><span>Already at pity (pulls since your last 5-star)</span><input name="pity" type="number" min="0" max="${r.hard - 1}" value="${S.pity}"></label>
           <label><span>Last 5-star was</span><select name="g"><option value="0"${S.guaranteed ? "" : " selected"}>the featured one / not sure</option><option value="1"${S.guaranteed ? " selected" : ""}>off-banner (next is guaranteed)</option></select></label>
           <button class="btn ghost" type="submit">Set my starting point</button></form></section>
+      ${WISH.GAMES[g.key] ? gtImportHtml(g) : ""}
       <section class="block"><header class="sec-head"><h2>Chance of a ${r.featured > 0 ? "featured " : ""}5-star</h2></header>
         <ul class="gt-within">${within.map(([n, x]) => `<li><b>${pct(x)}</b><span>within ${n} pulls</span></li>`).join("")}</ul></section>
       <section class="block"><header class="sec-head"><h2>Your history</h2></header>
@@ -6561,6 +6562,79 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
             ${[["base", "Base 5-star rate (%)", "0.1"], ["soft", "Soft pity starts at pull", "1"], ["step", "Rate added per pull after that (points)", "0.1"], ["hard", "Hard pity (guaranteed)", "1"], ["featured", "Chance the 5-star is the featured one (0 to 1)", "0.05"], ["pity4", "4-star guaranteed every", "1"]].map(([k, l, st]) => `<label><span>${l}</span><input name="${k}" type="number" step="${st}" value="${r[k]}" required></label>`).join("")}
             <button class="btn ghost" type="submit">Save rules</button><button class="btn ghost" type="button" data-gt-rules-reset="${esc(g.key)}|${esc(bk)}">Back to preset</button></form></details>
         ${total ? `<p class="actions"><button class="btn ghost" type="button" data-gt-clear="${esc(g.key)}|${esc(bk)}">Clear this banner's history</button></p>` : ""}</section>`;
+  }
+
+  // Importing a history. Nothing here touches Mimir's servers: a pasted link goes straight from this browser to the game's own history address, and is neither stored nor logged.
+  function gtImportHtml(g) {
+    return `<details class="block gt-import"><summary><h2 style="display:inline">Import your history from ${esc(g.name)}</h2></summary>
+      <p class="muted small">Paste the wish history link from the game, or a history file exported by another tool (UIGF or the game's own response). It replaces what you have logged on the banners it covers.</p>
+      <form class="gt-add" data-gt-import="${esc(g.key)}"><label class="grow"><span>History link or file contents</span><textarea name="src" rows="3" placeholder="https://… (the link from the in-game wish history page), or paste exported JSON" autocomplete="off" spellcheck="false"></textarea></label>
+        <label><span>Or choose a file</span><input type="file" name="file" accept=".json,application/json"></label>
+        <button class="btn" type="submit">Import</button></form>
+      <p id="gt-import-status" class="small" role="status" aria-live="polite"></p>
+      <details class="small"><summary>How to get the link</summary><ol class="muted"><li>Open ${esc(g.name)} and its wish history page, so the game has loaded it.</li><li>On PC, the link is saved in the game's log file; tools such as paimon.moe, Starward or Genshin Wish Export read it for you. On a phone, use a tool that captures it from the history page.</li><li>The link contains a temporary key that lets anyone read your wish history for about a day. Treat it like a password: do not post it publicly. Mimir only uses it from your browser, once, and then clears the box.</li><li>If the game's server refuses a request from a web page, export a history file with one of those tools (UIGF format) and import that instead.</li></ol></details></details>`;
+  }
+  const gtNames = (g) => { const m = {}; for (const c of g.categories) for (const i of c.items) m[i.id] = { name: i.name, rarity: i.rarity }; return m; };
+  const gtSleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  async function gtFetchHistory(link, game, say) {
+    const L = WISH.parseLink(link, game);
+    if (L.error) throw new Error(L.error);
+    const all = [];
+    for (const type of WISH.GAMES[game].fetch) {
+      let end = "0", page = 1;
+      for (;;) {
+        const q = new URLSearchParams(L.params); q.set("gacha_type", String(type)); q.set("page", String(page)); q.set("size", "20"); q.set("end_id", end);
+        say(`Reading ${WISH.GAMES[game].types[type]} wishes, page ${page}…`);
+        let body;
+        for (let tries = 0; ; tries++) {
+          const res = await fetch(`${L.base}?${q}`, { credentials: "omit", referrerPolicy: "no-referrer" });
+          body = await res.json();
+          if (body.retcode === -110 && tries < 4) { await gtSleep(1500); continue; }   // asked too often: wait and retry
+          break;
+        }
+        if (body.retcode === -101 || body.retcode === -100) throw new Error("The link has expired. Open the wish history in the game again and copy the new link.");
+        if (body.retcode !== 0) throw new Error(body.message ? `The game's server said: ${String(body.message).slice(0, 80)}` : "The game's server did not accept the link.");
+        const list = (body.data && body.data.list) || [];
+        all.push(...list);
+        if (list.length < 20) break;
+        const next = String(list[list.length - 1].id);
+        if (next === end || page >= 500) break;   // a server that ignores the paging must not trap the import in a loop
+        end = next; page++;
+        await gtSleep(400);
+      }
+    }
+    return all;
+  }
+  async function gtImport(f) {
+    const gk = f.dataset.gtImport, g = gtGame(gk), status = document.getElementById("gt-import-status");
+    const say = (t, bad) => { status.textContent = t; status.style.color = bad ? "var(--sev-severe)" : ""; };
+    const src = f.elements.src.value.trim(), file = f.elements.file.files[0];
+    f.querySelector("button[type=submit]").disabled = true;
+    try {
+      let items;
+      if (file) items = WISH.itemsFrom(JSON.parse(await file.text()), gk, gtNames(g));
+      else if (/^https?:/i.test(src)) {
+        try { items = WISH.itemsFrom(await gtFetchHistory(src, gk, say), gk); }
+        catch (e) {
+          if (e instanceof TypeError) throw new Error("The game's server did not answer a request from a web page (browsers often block this). Export a history file with a tool such as paimon.moe, Starward or Genshin Wish Export (UIGF format) and import that file instead.");
+          throw e;
+        }
+      } else if (src) items = WISH.itemsFrom(JSON.parse(`[${src.replace(/}\s*{/g, "},{")}]`), gk, gtNames(g));
+      else throw new Error("Paste a link or some exported JSON, or choose a file.");
+      const by = WISH.banners(items, gk);
+      const keys = Object.keys(by);
+      if (!keys.length) throw new Error("No wishes were found in that. Is it from this game?");
+      const had = keys.some((k) => ((gt.wishes[gk] || {})[k] || []).length);
+      if (had && !confirm("This replaces the pulls you have logged on these banners with the imported history. Continue?")) { say("Nothing imported."); return; }
+      gt.wishes[gk] = gt.wishes[gk] || {};
+      for (const k of keys) { by[k][0].trunc = true; gt.wishes[gk][k] = by[k]; }
+      saveGt(); f.elements.src.value = "";
+      const n = keys.reduce((a, k) => a + by[k].length, 0), five = keys.reduce((a, k) => a + by[k].filter((x) => x.r === 5).length, 0);
+      say(`Imported ${n.toLocaleString("en")} pulls (${five} 5-star${five === 1 ? "" : "s"}) on ${keys.length} banner${keys.length === 1 ? "" : "s"}. The game keeps only the latest history, so your first 5-star gap may be a partial one. Whether each 5-star was the featured one is read from the permanent pool: check "Next 5-star" on each banner.`);
+      setTimeout(() => renderGameTracker(new URLSearchParams(location.hash.split("?")[1] || "")), 2500);
+    } catch (e) {
+      say(e instanceof SyntaxError ? "That is not a history file Mimir can read." : e.message, true);
+    } finally { f.querySelector("button[type=submit]").disabled = false; }
   }
 
   function gtCollectionHtml(g, p) {
@@ -6601,6 +6675,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 
   app.addEventListener("submit", (e) => {
     const f = e.target;
+    if (f.dataset.gtImport) { e.preventDefault(); gtImport(f); return; }
     if (f.dataset.gtAdd) {
       e.preventDefault();
       const [gk, bk] = f.dataset.gtAdd.split("|"), g = gtGame(gk), n = Math.max(1, Math.min(200, Number(f.elements.n.value) || 1));

@@ -47,9 +47,8 @@ def sparql(client: Client, query: str, log=print) -> list[dict]:
 
 def candidates(client: Client, medium: str, log=print) -> dict[str, int]:
     """Wikidata item -> number of Wikipedia editions, for every film or game that qualifies."""
-    # Direct instance-of (no subclass walk): the walk makes the series and coverage queries time out on the query service.
-    types = " ".join(f"wd:{t}" for t in sorted(TYPES[medium]))
-    direct = f"VALUES ?type {{ {types} }} ?item wdt:P31 ?type"
+    # The main item type only, and no subclass walk: anything wider makes the series and coverage queries time out on the query service.
+    direct = {"film": "?item wdt:P31 wd:Q11424", "game": "?item wdt:P31 wd:Q7889"}[medium]
     kind = {"film": "?item wdt:P31/wdt:P279* wd:Q11424", "game": direct}[medium]
     out: dict[str, int] = {}
     if medium == "film":

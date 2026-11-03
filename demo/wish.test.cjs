@@ -41,4 +41,32 @@ const n90 = W.pullsFor(char, 0, false, 0.9);
 assert.ok(W.featuredWithin(char, 0, false, n90) >= 0.9 && W.featuredWithin(char, 0, false, n90 - 1) < 0.9);
 // a rule that always gives the featured one is just the 5-star curve
 near(W.featuredWithin({ ...weapon, featured: 1 }, 0, false, 80), 1, 1e-12, "always featured");
+
+// ---- importing a history
+const ok = W.parseLink("https://public-operation-hk4e-sg.hoyoverse.com/gacha_info/api/getGachaLog?authkey_ver=1&authkey=abc%2Bdef&gacha_type=301&page=6&size=5&end_id=99&lang=en", "genshin-impact");
+assert.ok(ok.base.endsWith("/gacha_info/api/getGachaLog") && ok.params.get("authkey") === "abc+def" && !ok.params.has("page") && !ok.params.has("end_id") && ok.params.get("lang") === "en", "link parsed, paging removed");
+assert.ok(W.parseLink("https://evil.example.com/gacha_info/api/getGachaLog?authkey=abc", "genshin-impact").error, "other hosts are refused");
+assert.ok(W.parseLink("http://public-operation-hk4e-sg.hoyoverse.com/x?authkey=abc", "genshin-impact").error, "plain http is refused");
+assert.ok(W.parseLink("https://public-operation-hk4e-sg.hoyoverse.com.evil.com/x?authkey=abc", "genshin-impact").error, "look-alike hosts are refused");
+assert.ok(W.parseLink("https://public-operation-hk4e-sg.hoyoverse.com/x", "genshin-impact").error, "no authkey");
+assert.ok(W.parseLink("not a link", "genshin-impact").error);
+const api = { retcode: 0, data: { list: [
+  { id: "1700000000000000003", gacha_type: "301", rank_type: "5", name: "Diluc", time: "2024-05-03 10:00:00" },
+  { id: "1700000000000000001", gacha_type: "301", rank_type: "3", name: "Slingshot", time: "2024-05-01 10:00:00" },
+  { id: "1700000000000000002", gacha_type: "400", rank_type: "4", name: "Bennett", time: "2024-05-02 10:00:00" },
+  { id: "1700000000000000004", gacha_type: "301", rank_type: "5", name: "Kamisato Ayaka", time: "2024-05-04 10:00:00" },
+  { id: "1700000000000000005", gacha_type: "302", rank_type: "5", name: "Amos' Bow", time: "2024-05-05 10:00:00" },
+  { id: "1700000000000000006", gacha_type: "100", rank_type: "3", name: "Beginner", time: "2024-05-06 10:00:00" },
+  { id: "1700000000000000001", gacha_type: "301", rank_type: "3", name: "Slingshot", time: "2024-05-01 10:00:00" } ] } };
+const b = W.banners(W.itemsFrom([api, { retcode: 0, data: { list: [] } }], "genshin-impact"), "genshin-impact");
+assert.deepEqual(b.character.map((p) => p.n), ["Slingshot", "Bennett", "Diluc", "Kamisato Ayaka"], "oldest first, duplicates dropped, 400 joins the character banner");
+assert.equal(b.character[2].f, false, "a permanent 5-star on the event banner is a lost 50/50");
+assert.equal(b.character[3].f, true, "an event 5-star is the featured one");
+assert.equal(b.weapon[0].f, false, "a permanent weapon");
+assert.ok(!b.beginner && Object.keys(b).length === 2, "beginner wishes are left out");
+// UIGF v3 and v4
+const v3 = W.itemsFrom({ info: { uigf_version: "v3.0" }, list: [{ uigf_gacha_type: "301", gacha_type: "400", item_id: "1", time: "2024-05-01 10:00:00", name: "Mona", rank_type: "5", id: "1700000000000000009" }] }, "genshin-impact");
+assert.equal(v3[0].type, 301); assert.equal(v3[0].rank, 5);
+const v4 = W.itemsFrom({ info: { version: "v4.0" }, hk4e: [{ uid: 1, list: [{ gacha_type: 301, item_id: "10000002", time: "2024-05-01 10:00:00", id: "1700000000000000010" }] }] }, "genshin-impact", { 10000002: { name: "Kamisato Ayaka", rarity: 5 } });
+assert.deepEqual([v4[0].name, v4[0].rank], ["Kamisato Ayaka", 5], "v4 carries ids only: names and rarity come from the lists");
 console.log(`wish: all checks passed (expected pulls ${e.toFixed(1)}, 90% sure of featured by ${n90})`);

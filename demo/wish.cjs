@@ -30,5 +30,61 @@
   }
   const pullsFor = (r, pity, guaranteed, target) => { for (let n = 1; n <= 400; n++) if (featuredWithin(r, pity, guaranteed, n) >= target) return n; return null; };
   const expected = (r, pity) => dist(r, pity).reduce((a, x, k) => a + x * k, 0);
-  return { rate, dist, cdf, featuredWithin, pullsFor, expected };
+
+  // ---------------------------------------------------------------- importing a wish history
+  // What each game's history is split into. The banner keys are the tracker's own (see catalogue/game-trackers.json).
+  const GAMES = {
+    "genshin-impact": { types: { 301: "character", 400: "character", 302: "weapon", 200: "standard" }, fetch: [301, 302, 200], host: /^https:\/\/[a-z0-9-]+\.(hoyoverse|mihoyo)\.com\//i,
+      // 5-stars that live in the permanent pool: getting one on an event banner means the 50/50 was lost. Newer additions can be missing.
+      permanent: { character: ["Jean", "Qiqi", "Mona", "Keqing", "Diluc"],
+        weapon: ["Amos' Bow", "Skyward Harp", "Lost Prayer to the Sacred Winds", "Skyward Atlas", "Primordial Jade Winged-Spear", "Skyward Spine", "Skyward Pride", "Wolf's Gravestone", "Skyward Blade", "Aquila Favonia"] } },
+    "honkai-star-rail": { types: { 11: "character", 12: "lightcone", 1: "standard" }, fetch: [11, 12, 1], host: /^https:\/\/[a-z0-9-]+\.(hoyoverse|mihoyo)\.com\//i,
+      permanent: { character: ["Himeko", "Welt", "Bronya", "Gepard", "Clara", "Yanqing", "Bailu"] } },
+  };
+  const ASCENDING = (a, b) => (a.id.length - b.id.length) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+
+  // A pasted history link, checked before anything is sent: only the games' own hosts, over https, carrying an authkey.
+  function parseLink(text, game) {
+    const g = GAMES[game];
+    let u;
+    try { u = new URL(String(text || "").trim()); } catch { return { error: "That does not look like a link." }; }
+    if (!g || !g.host.test(`${u.origin}/`)) return { error: "Only links on the game's own HoYoverse address are used. The link is not sent anywhere else." };
+    if (!u.searchParams.get("authkey")) return { error: "The link has no authkey. Open the in-game wish history, then copy the link from the history page." };
+    for (const k of ["page", "size", "end_id", "gacha_type", "gacha_id", "timestamp"]) u.searchParams.delete(k);
+    return { base: `${u.origin}${u.pathname}`, params: u.searchParams };
+  }
+  // History items from any of the shapes tools produce: the game's own response (one or several), UIGF v2/v3 (a "list") or v4 (a list per game).
+  // `names` maps a game item id to {name, rarity} for exports that carry ids only (UIGF v4).
+  function itemsFrom(data, game, names) {
+    const out = [];
+    const take = (list) => { for (const x of list || []) if (x && x.id != null) out.push(x); };
+    const walk = (d) => {
+      if (Array.isArray(d)) { if (d.length && d[0] && d[0].id != null && (d[0].gacha_type != null || d[0].uigf_gacha_type != null)) take(d); else d.forEach(walk); return; }
+      if (!d || typeof d !== "object") return;
+      if (d.data && d.data.list) take(d.data.list);
+      else if (Array.isArray(d.list)) take(d.list);
+      const key = game === "genshin-impact" ? "hk4e" : game === "honkai-star-rail" ? "hkrpg" : null;
+      if (key && Array.isArray(d[key])) d[key].forEach((acc) => take(acc.list));
+    };
+    walk(data);
+    return out.map((x) => {
+      const known = names && x.item_id != null ? names[String(x.item_id)] : null;
+      return { id: String(x.id), type: Number(x.uigf_gacha_type || x.gacha_type), rank: Number(x.rank_type || (known && known.rarity) || 3), name: x.name || (known && known.name) || "", time: x.time || "" };
+    });
+  }
+  // Histories per banner, oldest first, with each 5-star marked featured (f: true) or from the permanent pool (f: false) where that is known.
+  function banners(items, game) {
+    const g = GAMES[game], out = {}, seen = new Set();
+    for (const it of items.sort(ASCENDING)) {
+      const key = g.types[it.type];
+      if (!key || seen.has(it.id)) continue;
+      seen.add(it.id);
+      const pull = { id: it.id, t: Date.parse(`${String(it.time).replace(" ", "T")}Z`) || 0, r: it.rank, n: it.name };
+      const perm = g.permanent && g.permanent[key];
+      if (it.rank === 5 && perm && key !== "standard") pull.f = !perm.includes(it.name);
+      (out[key] = out[key] || []).push(pull);
+    }
+    return out;
+  }
+  return { rate, dist, cdf, featuredWithin, pullsFor, expected, GAMES, parseLink, itemsFrom, banners };
 });
