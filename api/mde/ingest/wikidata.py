@@ -85,7 +85,11 @@ def year_of(entity: dict, prop: str = "P577") -> int | None:
 def label_of(entity: dict) -> str:
     """English label, else the language-neutral 'mul' label Wikidata now uses for many names."""
     labels = entity.get("labels", {})
-    return (labels.get("en") or labels.get("mul") or {}).get("value", "")
+    label = (labels.get("en") or labels.get("mul") or {}).get("value", "")
+    if not label:  # a few big items carry no English label at all; their English Wikipedia title stands in, without a "(2018 film)" tail
+        title = entity.get("sitelinks", {}).get("enwiki", {}).get("title", "")
+        label = re.sub(r" \((?:[^()]*\b)?(?:film|video game|game|TV series|novel|album)\)$", "", title)
+    return label
 
 
 def names_of(entity: dict) -> list[str]:

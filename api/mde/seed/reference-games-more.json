@@ -24537,29 +24537,6 @@
    }
   },
   {
-   "slug": "ninja-gaiden-1988-q1114224",
-   "medium": "game",
-   "title": "Ninja Gaiden",
-   "year": 1988,
-   "popularity_tier": 3,
-   "countries": [
-    "JP"
-   ],
-   "credits": [
-    [
-     "developer",
-     "Tecmo"
-    ]
-   ],
-   "summary": "A 1988 arcade game by Tecmo.",
-   "attributes": {
-    "wikidata": "Q1114224",
-    "franchises": [
-     "Ninja Gaiden"
-    ]
-   }
-  },
-  {
    "slug": "ys-i-1987",
    "medium": "game",
    "title": "Ys I",

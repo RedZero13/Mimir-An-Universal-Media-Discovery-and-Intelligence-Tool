@@ -28,6 +28,7 @@ from mde.ingest.wikidata import TYPES, Wikidata, label_of
 SEED = Path(__file__).parent.parent / "seed"
 OUT = {"film": SEED / "reference-blockbusters.json", "game": SEED / "reference-games-more.json"}
 BUDGET_MIN = 50_000_000
+FILM_PROJECT = "Q18011172"
 MIN_SITELINKS = {"film": 5, "game": 8}
 SERIES_MIN_SITELINKS = {"film": 6, "game": 5}
 HORIZON = "2027-12-31"  # announced films and games are included; nothing further out
@@ -61,6 +62,10 @@ def candidates(client: Client, medium: str, log=print) -> dict[str, int]:
             rows = sparql(client, q, log)
             out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
         log(f"film budget >= 50M (all currencies): {len(out)}")
+        # announced films Wikidata still files as "film project" (Avengers: Doomsday, say): the widely covered ones
+        rows = sparql(client, f"SELECT DISTINCT ?item ?sl WHERE {{ ?item wdt:P31 wd:{FILM_PROJECT}; wikibase:sitelinks ?sl FILTER(?sl >= 20) }}", log)
+        out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
+        log(f"film projects: {len(rows)}")
     # part of a series: list the series first (a small query), then their members in batches; one combined query times out
     series_types = {"film": ("Q24856", "Q196600"), "game": ("Q7058673", "Q196600")}[medium]
     series: set[str] = set()
@@ -115,7 +120,7 @@ def build(client: Client, medium: str, log=print) -> list[dict]:
     picked = []
     for q, e in ents.items():
         types = set(item_ids(e, "P31"))
-        if not (types & TYPES[medium]) and medium == "film":
+        if not (types & (TYPES[medium] | {FILM_PROJECT})) and medium == "film":
             continue
         d = start_date(e)
         if not d or d > HORIZON or not label_of(e):
@@ -129,6 +134,9 @@ def build(client: Client, medium: str, log=print) -> list[dict]:
             continue
         picked.append((medium, year, n, q, e))
     picked.sort(key=lambda r: (-r[2], r[3]))
+    # Two items with one title and year (a game's arcade and home versions, say) read as duplicates: keep the more widely covered.
+    seen: set[tuple] = set()
+    picked = [r for r in picked if not ((k := (normalise_title(label_of(r[4])), r[1])) in seen or seen.add(k))]
     log(f"{len(picked)} new {medium}s to add")
     works = convert(wd, picked, taken, idx, credit_spellings(seed_all))
     # franchise names and upcoming status
@@ -158,8 +166,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("medium", choices=["film", "game"])
     ap.add_argument("--offline", action="store_true")
+    ap.add_argument("--max-age-days", type=float, default=0.04, help="reuse cached answers this young (raise it to resume a run)")
     args = ap.parse_args()
-    client = Client(offline=args.offline, max_age_days=0.04)  # about an hour: a stale or partial query answer must not stick
+    ap_age = args.max_age_days
+    client = Client(offline=args.offline, max_age_days=ap_age)  # an hour by default: a stale query answer must not stick
     works = build(client, args.medium)
     about = {
         "film": "Films with a budget of at least 50 million, or part of a film series, from Wikidata (CC0), including announced ones. ",
