@@ -543,7 +543,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .row-btn.prev { left: -12px; } .row-btn.next { right: -12px; }
 .row-btn:hover { background: var(--gold-bright); color: var(--black); }
 @media (hover: hover) and (min-width: 761px) { .row-wrap:hover .row-btn { display: block; } }
-.shelf { margin-top: 38px; }
+.shelf { margin-top: 30px; }
 .shelf-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 6px 18px; flex-wrap: wrap; margin-bottom: 14px; border-bottom: 1px solid var(--line-strong); padding-bottom: 8px; }
 .shelf-head h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
 .shelf-head p { color: var(--muted); font-size: .92rem; margin-top: 2px; }
@@ -1261,8 +1261,8 @@ body.is-home.deep .rune:not(:nth-child(3n+1)) { visibility: hidden; transition: 
 .yt-chan-head strong { display: block; font-size: 1.2rem; } .yt-about { margin: 12px 0 14px; color: var(--ink); max-width: 80ch; }
 .yt-from { margin: 0 0 14px; color: var(--muted); }
 /* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
-.row { padding-bottom: 20px; }
-.row .pchips { height: 62px; }
+.row { padding-bottom: 10px; }
+.row .pchips { height: auto; max-height: 62px; } .row .pchips:empty { display: none; }   /* room for two rows of tags only when a card has tags */
 .row::-webkit-scrollbar { height: 6px; }
 /* Mood rings fill the row instead of leaving empty columns. */
 .rings { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
@@ -1995,6 +1995,17 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       for (const list of byBox) {
         if (mainH - railNow <= 60) break;
         if (list[round]) { list[round].classList.remove("rail-spare"); railNow += rowH; any = true; }
+      }
+    }
+    // The other way round: a rankings column longer than the shelves beside it leaves a hole above the full-width shelves.
+    // Drop rows from the bottom of each box, the last box first, keeping three in each.
+    const boxes = [...rail.querySelectorAll(".ranks")].reverse();
+    for (let any = true; any && railNow - mainH > 40;) {
+      any = false;
+      for (const ol of boxes) {
+        if (railNow - mainH <= 40) break;
+        const vis = [...ol.querySelectorAll(".rank-row:not(.rail-spare)")];
+        if (vis.length > 3) { vis[vis.length - 1].classList.add("rail-spare"); railNow -= rowH; any = true; }
       }
     }
   }
