@@ -76,13 +76,13 @@ def candidates(client: Client, medium: str, log=print) -> dict[str, int]:
         found += len(rows)
         out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
     log(f"{medium} in {len(series_sorted)} series: {found}")
-    if medium == "game":
-        # widely covered games, series or not: the ones a catalogue of games is expected to hold
-        for lo, hi in ((60, 9999), (40, 60), (30, 40), (24, 30)):
+    if medium in ("game", "film"):
+        # widely covered works, series or budget on record or not: the ones a catalogue is expected to hold
+        for lo, hi in ((60, 9999), (40, 60), (30, 40), (24, 30)) if medium == "game" else ((90, 9999), (65, 90), (50, 65), (42, 50)):
             q = f"""SELECT DISTINCT ?item ?sl WHERE {{ {kind} . ?item wikibase:sitelinks ?sl . FILTER(?sl >= {lo} && ?sl < {hi}) }} LIMIT 4000"""
             rows = sparql(client, q, log)
             out.update({b["item"]["value"].rsplit("/", 1)[1]: int(b["sl"]["value"]) for b in rows})
-            log(f"game sitelinks {lo}-{hi}: {len(rows)}")
+            log(f"{medium} sitelinks {lo}-{hi}: {len(rows)}")
     return out
 
 
