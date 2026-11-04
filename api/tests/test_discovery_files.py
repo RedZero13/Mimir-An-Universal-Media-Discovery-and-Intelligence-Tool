@@ -83,6 +83,18 @@ def test_franchise_help_tool_and_day_pages_are_built_and_listed(site):
         assert f"https://mimir.terratalesmedia.world/{rel}/" in sitemap, rel
     home = (site / "index.html").read_text()
     assert 'href="/franchises/"' in home and 'href="/help/"' in home
+    # Answer engines read the raw HTML: the home page carries its FAQ as visible text and as FAQPage markup, plus a visible updated date.
+    import json
+    import re
+
+    graph = [n for b in re.findall(r'<script type="application/ld\+json">(.*?)</script>', home, re.S) for n in json.loads(b).get("@graph", [])]
+    faq = next(n for n in graph if n["@type"] == "FAQPage")
+    assert len(faq["mainEntity"]) >= 6
+    for q in faq["mainEntity"]:
+        assert f">{q['name']}</h3>" in home, q["name"]
+        assert 35 <= len(q["acceptedAnswer"]["text"].split()) <= 70, q["name"]
+    assert next(n for n in graph if n["@type"] == "WebPage")["dateModified"] and "Last updated <time" in home
+    assert 'id="key-takeaways"' in home and 'id="data-sources"' in home
     assert "parents' guide for each work" not in home
 
 

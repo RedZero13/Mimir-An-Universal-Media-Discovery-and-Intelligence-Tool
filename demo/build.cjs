@@ -49,7 +49,7 @@ function slimEnrichment(all, seedWorks = []) {
   for (const [source, data] of Object.entries(all)) {
     const works = {};
     for (const [slug, rec] of Object.entries(data.works || {})) {
-      const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key", "budget", "awards"]);
+      const slim = pick(rec, ["facts", "ids", "scores", "box_office", "series", "links", "tracks", "key", "budget", "awards", "game"]);
       // Only the ids the site turns into links or player embeds; the rest (dozens of catalogue numbers) are for the API.
       if (slim.ids) slim.ids = pick(slim.ids, SITE_IDS);
       // Links the importer derived from the title and ids are rebuilt by the engine, not downloaded (see linksFor).
@@ -82,6 +82,7 @@ function dataTexts(slim) {
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     config: JSON.stringify(siteConfig()),
     blog: read(path.join(here, "blog.json")),
+    gametrackers: read(path.join(api, "catalogue", "game-trackers.json")),
   };
 }
 
@@ -102,10 +103,11 @@ function page() {
     .replace("/*__AUDIOBOOKS__*/", () => json(path.join(api, "catalogue", "audiobooks.json")))
     .replace("/*__OBSERVANCES__*/", () => json(path.join(api, "catalogue", "observances.json")))
     .replace("/*__BLOG__*/", () => json(path.join(here, "blog.json")))
+    .replace("/*__GAMETRACKERS__*/", () => json(path.join(api, "catalogue", "game-trackers.json")))
     // Accounts and community talk to the API at MIMIR_API_URL; without it the site runs on its own, browser-only.
     .replace("/*__CONFIG__*/", () => safe(JSON.stringify(siteConfig())))
     .replace("/*__ENRICHMENT__*/", () => safe(JSON.stringify(enrichment())))
-    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
+    .replace("/*__ENGINE__*/", () => safe(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "wish.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}`))
     .replace("/*__SEAL__*/", () => dataUri(path.join(brand, "terratales-seal-64.png"), "image/png"));
 }
 
@@ -124,6 +126,21 @@ const FONT_HEAD = `<link rel="preload" as="font" type="font/woff2" href="/fonts/
 // the static hero) paints at once, and a returning visitor's browser or service worker reuses the files until they change.
 // Real links for crawlers on the home page: the app navigates with #links, which a search engine can't follow as
 // pages, so the directories, shelves and best-known works are linked here as ordinary URLs.
+// The home page's questions and answers. The same list is shown on the page and marked up as FAQPage, so the two never differ.
+let homeFaq = null;
+function homeFaqFor(works, countries) {
+  return [
+    ["What is Mimir?", `Mimir is a free discovery engine for films, TV shows, books, manga, games and music. Describe a mood, a favourite or how much time you have, and it suggests works that fit, with the reason for each pick. It holds ${works} works from ${countries} countries and is made by Terratales Media Entertainment in New Delhi.`],
+    ["Is Mimir free?", "Yes. The catalogue, the recommendations, the parents' guide, your library and the comparison tools are free, with no ads. An optional account keeps your library in step across devices. It is encrypted, so Mimir cannot read it. You can use everything without signing in."],
+    ["How does Mimir recommend what to watch, read, play or listen to?", "Mimir turns your request into filters you can see: moods, themes, genres, length and things to avoid. It then ranks the catalogue against them. It does not use a chat model. Every result lists the reasons it matched, and each reason says whether it is a recorded fact or an interpretation."],
+    ["Where does Mimir get its facts?", "Titles, years, credits, awards, budgets, box office, page counts and platforms come from open data: Wikidata, MusicBrainz, Open Library, TVmaze and Steam. Each work's page says which source it used. Moods, themes and parents' guide levels are AI-assisted readings that editors have not yet reviewed, and the site labels them that way."],
+    ["Does Mimir have a parents' guide?", "Yes, for works where one has been assessed. It rates categories such as violence, language, sexual content, frightening scenes and substance use. Age ratings from boards such as the MPA, ESRB and PEGI are shown where known. \"Not assessed\" means nobody has reviewed that category yet. It does not mean the work is safe."],
+    ["Can I compare films, shows, books and games?", "Yes. Pick up to five works, in any media, and Mimir lines them up by genre, length, scores, box office, budget, awards, mood, themes and parents' guide. The best value in each row is marked. There are also charts of the highest-grossing films, the biggest budgets and the most-awarded works."],
+    ["Do I need an account to use Mimir?", "No. Your ratings, lists, journal and library are saved in your browser, and you can export them at any time. An account is optional and only adds syncing between devices. Mimir counts anonymous usage only if you allow it, and never records what you search for or rate."],
+    ["Where can I watch, read, play or listen to the works Mimir finds?", "Each work page links to where to find it. Films and shows link to JustWatch and the major streaming services. Games link to Steam and the console stores. Music links to Spotify, YouTube Music and others. Mimir cannot confirm that a title is available on a service right now."],
+  ];
+}
+
 function crawlBlock(texts, works) {
   const MDE = require("./engine.cjs");
   const P = (n) => JSON.parse(texts[n]);
@@ -137,13 +154,29 @@ function crawlBlock(texts, works) {
   const shelves = cat.shelves().filter((x) => x.total >= 5).slice(0, 14);
   const topIps = require("./pages.cjs").computeIps(cat).filter((g) => g.members.length >= 6).sort((a, b) => b.members.length - a.members.length || a.name.localeCompare(b.name)).slice(0, 14);
   const countries = new Set(P("catalogue").works.flatMap((w) => w.countries || [])).size;
+  const faq = homeFaq = homeFaqFor(works.toLocaleString("en"), countries);
+  const modified = new Date().toISOString().slice(0, 10);
+  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const SOURCES = [["Wikidata", "https://www.wikidata.org/", "titles, years, credits, awards, budgets and box office"], ["MusicBrainz", "https://musicbrainz.org/", "albums and release data"], ["Open Library", "https://openlibrary.org/", "books, page counts and subjects"],
+    ["TVmaze", "https://www.tvmaze.com/", "TV episode and season counts"], ["Steam", "https://store.steampowered.com/", "game platforms and age ratings"]];
   return `<section class="crawl" id="crawl" aria-labelledby="crawl-h">
       <h2 id="crawl-h">Browse the Mimir catalogue</h2>
+      <p class="small">Last updated <time datetime="${modified}">${new Date(modified).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time>. <a href="#faq">Questions and answers</a> · <a href="#data-sources">Where the facts come from</a></p>
+      <div id="key-takeaways"><h3>Key takeaways</h3><ul class="takeaways">
+        <li>Mimir is a free catalogue of ${works.toLocaleString("en")} films, TV shows, books, games, albums and YouTube channels.</li>
+        <li>It finds works by mood, theme, length and what you want to avoid.</li>
+        <li>Every pick comes with the reason it fits.</li>
+        <li>Your library stays on your device unless you choose to sync it.</li></ul></div>
       <p>Mimir is a free catalogue and discovery engine for films, TV series, books and manga, games, music and YouTube. It holds ${works.toLocaleString("en")} works from ${countries} countries. Describe a mood, a favourite or how much time you have and it finds what fits, with the reason for every pick, a parents' guide where one has been assessed, and where to watch, read, play or listen.</p>
       <p class="crawl-hubs">${groups.map(([, l, u]) => `<a href="${u}">${l}</a>`).join("")}<a href="/youtube/">YouTube</a><a href="/shelves/">Shelves</a><a href="/franchises/">Franchises &amp; series</a><a href="/tools/">Tools</a><a href="/days/">Days of the year</a><a href="/help/">Help centre</a><a href="/tags/">Tags</a><a href="/people/">People</a><a href="/about/">About</a><a href="/blog/">Blog</a></p>
       ${groups.map(([m, l]) => `<h3>Well-reviewed ${l.replace(/^(?!TV)./, (c) => c.toLowerCase())}</h3><ul>${top(m).map((w) => `<li><a href="/works/${esc(w.slug)}/">${esc(w.title)}${w.year ? ` (${w.year})` : ""}</a></li>`).join("")}</ul>`).join("")}
       <h3>Franchises and series in order</h3><ul>${topIps.map((g) => `<li><a href="/franchises/${esc(g.slug)}/">${esc(g.name)}</a></li>`).join("")}</ul>
       <h3>Shelves</h3><ul>${shelves.map((x) => `<li><a href="/shelves/${esc(x.slug)}/">${esc(x.name)}</a></li>`).join("")}</ul>
+      <h2 id="faq">Questions about Mimir</h2>
+      ${faq.map(([q, a]) => `<h3 id="${slug(q)}">${esc(q)}</h3><p>${esc(a)}</p>`).join("\n      ")}
+      <h2 id="data-sources">Where the facts come from</h2>
+      <p>Mimir's facts come from open data. Each work's page names the source it used. The sources are:</p>
+      <ul class="sources">${SOURCES.map(([n, u, what]) => `<li><a href="${u}" rel="noopener">${n}</a>: ${esc(what)}.</li>`).join("")}</ul>
     </section>`;
 }
 
@@ -178,7 +211,7 @@ function sitePage(out) {
   // The data ships as one JSON document (each dataset already JSON text, so no re-encoding): parsing JSON is several times
   // cheaper than compiling the same data as a script, which was the page's longest single task.
   const dataJson = `{${Object.entries(texts).map(([k, v]) => `${JSON.stringify(k)}:${v}`).join(",")}}`;
-  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
+  const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "wish.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJson)}.json`]: dataJson, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
   fs.mkdirSync(path.join(out, "assets"), { recursive: true });
@@ -234,6 +267,12 @@ ${ICON_LINKS}
       parentOrganization: { "@id": "https://terratalesmedia.world/#org" } },
     { "@type": "Organization", "@id": "https://terratalesmedia.world/#org", name: "Terratales Media Entertainment", url: "https://terratalesmedia.world/",
       logo: `${SITE_URL}/icon-512.png`, email: "hello@terratalesmedia.world" },
+    ...(homeFaq ? [
+      { "@type": "WebPage", "@id": `${SITE_URL}/#webpage`, url: `${SITE_URL}/`, name: "Find what to watch, read, play or listen to next", isPartOf: { "@id": `${SITE_URL}/#site` },
+        datePublished: "2026-10-22", dateModified: new Date().toISOString().slice(0, 10), inLanguage: "en",
+        speakable: { "@type": "SpeakableSpecification", cssSelector: ["#key-takeaways", "#faq ~ h3 + p"] } },
+      { "@type": "FAQPage", "@id": `${SITE_URL}/#faq`, mainEntity: homeFaq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+    ] : []),
   ] }).replace(/</g, "\\u003c")}</script>`;
   return `<!doctype html>\n<html lang="en">\n<head>${extraHead}\n${head.trim()}\n</head>\n<body>\n${body.trim()}\n</body>\n</html>\n`;
 }

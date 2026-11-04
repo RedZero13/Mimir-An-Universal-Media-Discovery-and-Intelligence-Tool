@@ -68,7 +68,7 @@ class Client:
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json", **headers})
         for attempt in range(6):
             try:
-                with urllib.request.urlopen(req, timeout=30) as resp:
+                with urllib.request.urlopen(req, timeout=getattr(self, "timeout", 30)) as resp:
                     self._last[host] = time.monotonic()
                     return json.loads(resp.read().decode("utf-8"))
             except urllib.error.HTTPError as e:

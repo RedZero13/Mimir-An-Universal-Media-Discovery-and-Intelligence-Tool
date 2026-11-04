@@ -38,6 +38,10 @@ assert.ok(!slugs("year:>1990 title:blade").includes("blade-runner-1982"));
 assert.ok(slugs("decade:1980s title:blade").includes("blade-runner-1982"));
 assert.ok(slugs("runtime:<120 title:blade").includes("blade-runner-1982") && !slugs("runtime:<100 title:blade").includes("blade-runner-1982"));
 assert.ok(slugs("country:usa title:blade").includes("blade-runner-1982"));
+// platform: matches the coarse platform list on games, with common names for each
+const pcGames = run("medium:game platform:pc").hits, psGames = run("platform:ps5 medium:game").hits;
+assert.ok(pcGames.length > 50 && pcGames.every((w) => w.medium === "game" && w.attributes.platforms.some((p) => /pc/i.test(p))), "platform:pc");
+assert.ok(psGames.length > 20 && psGames.every((w) => w.attributes.platforms.some((p) => /playstation/i.test(p))), "platform:ps5 means PlayStation");
 assert.ok(slugs("lang:english title:blade").includes("blade-runner-1982") && !slugs("lang:ja title:blade").includes("blade-runner-1982"));
 assert.ok(slugs("genre:cyberpunk title:blade").includes("blade-runner-1982"), "tag by name");
 assert.ok(slugs("genre:science-fiction mood:melancholic title:blade").includes("blade-runner-1982"), "tag by slug and dimension");

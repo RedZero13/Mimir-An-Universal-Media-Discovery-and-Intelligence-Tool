@@ -543,7 +543,7 @@ a.tchip:hover, button.tchip:hover { border-color: var(--gold); color: var(--bone
 .row-btn.prev { left: -12px; } .row-btn.next { right: -12px; }
 .row-btn:hover { background: var(--gold-bright); color: var(--black); }
 @media (hover: hover) and (min-width: 761px) { .row-wrap:hover .row-btn { display: block; } }
-.shelf { margin-top: 38px; }
+.shelf { margin-top: 30px; }
 .shelf-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 6px 18px; flex-wrap: wrap; margin-bottom: 14px; border-bottom: 1px solid var(--line-strong); padding-bottom: 8px; }
 .shelf-head h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); }
 .shelf-head p { color: var(--muted); font-size: .92rem; margin-top: 2px; }
@@ -676,6 +676,7 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .crawl[hidden] { display: none; }
 .crawl h2 { font-size: 1.05rem; margin: 0 0 8px; }
 .crawl h3 { font: 600 .9rem/1.3 var(--f-body); color: var(--gold); margin: 16px 0 6px; }
+.crawl h2 { margin-top: 22px; } .crawl .takeaways, .crawl .sources { display: block; list-style: disc; padding-left: 20px; } .crawl .takeaways li, .crawl .sources li { margin: 0 0 4px; }
 .crawl p { margin: 0 0 8px; max-width: none; }
 .crawl ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; padding: 0; }
 .crawl a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
@@ -822,6 +823,20 @@ details.why ul { margin: 6px 0 0; padding-left: 16px; display: grid; gap: 4px; }
 .cmp-heads a { width: min(160px, 36vw); text-align: center; text-decoration: none; color: var(--bone); font-weight: 600; }
 .cmp-heads a span { display: block; margin-top: 8px; }
 .cmp-vs { font: 600 1.6rem/1 var(--f-display, serif); color: var(--gold-bright); text-align: center; }
+.gt-pick select { max-width: 100%; min-width: 260px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--bone); font: inherit; } .gt-pick { margin: 14px 0; }
+.gt-summary { display: grid; grid-template-columns: auto 1fr; gap: 18px 28px; align-items: center; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius-lg, 14px); background: var(--surface); }
+.gt-pity { display: grid; justify-items: center; } .gt-pity b { font: 600 3.4rem/1 var(--f-display, serif); color: var(--gold-bright); } .gt-pity span { color: var(--muted); font-size: .85rem; max-width: 14ch; text-align: center; }
+.gt-facts { margin: 0; padding-left: 18px; display: grid; gap: 4px; } .gt-facts b { color: var(--bone); }
+.gt-add { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin: 0 0 12px; } .gt-add label { display: grid; gap: 2px; font-size: .82rem; color: var(--muted); } .gt-add input, .gt-add select { max-width: 280px; }
+.gt-within { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; } .gt-within li { display: grid; padding: 10px 16px; border: 1px solid var(--line); border-radius: 12px; min-width: 120px; } .gt-within b { font-size: 1.3rem; color: var(--gold-bright); } .gt-within span { color: var(--muted); font-size: .82rem; }
+.gt-history { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 8px 0; } .gt-history li { padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: .82rem; } .gt-history li.r5 { border-color: var(--gold); color: var(--gold-bright); }
+.gt-import { margin: 14px 0; } .gt-import textarea { width: 100%; min-height: 64px; } .gt-rules { margin: 14px 0; } .gt-rule-form { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 10px; align-items: end; } .gt-rule-form label { display: grid; gap: 2px; font-size: .82rem; color: var(--muted); }
+.gt-progress { margin: 14px 0 6px; } .gt-bar { height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; margin: 0 0 14px; } .gt-bar i { display: block; height: 100%; background: var(--gold); }
+.gt-items { list-style: none; margin: 10px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.gt-item { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; } .gt-item.has { border-color: var(--gold); background: var(--surface); }
+.gt-item[data-r="5"] .gt-name { color: var(--gold-bright); } .gt-name { font-weight: 600; } .gt-item > .small { grid-column: 1; } .gt-ctl { grid-column: 2; grid-row: 1 / span 2; display: flex; gap: 6px; align-items: center; }
+.gt-check { display: flex; gap: 8px; align-items: center; cursor: pointer; } .gt-list .sec-head { display: flex; justify-content: space-between; align-items: baseline; }
+@media (max-width: 560px) { .gt-summary { grid-template-columns: 1fr; } }
 .cmp-heads.cmp-n { flex-wrap: wrap; align-items: flex-start; }
 .cmp-head { display: grid; justify-items: center; gap: 6px; width: min(160px, 40vw); text-align: center; }
 .cmp-head a { width: 100%; }
@@ -1191,7 +1206,7 @@ body.is-home.deep .runes { opacity: .35; }
 body.is-home.deep .rune:not(:nth-child(3n+1)) { visibility: hidden; transition: visibility 0s .6s; } body.is-home.deep .well-fx .caustic { opacity: .25; }
 .rune { position: absolute; bottom: -6vh; fill: none; stroke: color-mix(in srgb, var(--gold) 70%, transparent); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; animation: rune-rise linear infinite; }
 :root[data-theme="light"] .rune { stroke: color-mix(in srgb, var(--gold-deep) 55%, transparent); }
-@keyframes rune-rise { 0% { opacity: 0; transform: translateY(0) rotate(-6deg); } 12% { opacity: .55; } 50% { transform: translateY(-55vh) rotate(5deg); } 85% { opacity: .35; } 100% { opacity: 0; transform: translateY(-112vh) rotate(-4deg); } }
+@keyframes rune-rise { 0% { opacity: 0; transform: translateY(0) rotate(-6deg); } 12% { opacity: .32; } 50% { transform: translateY(-55vh) rotate(5deg); } 85% { opacity: .2; } 100% { opacity: 0; transform: translateY(-112vh) rotate(-4deg); } }
 /* Rings, badges, trackers, share sheet and toasts. */
 .rings-panel { display: grid; grid-template-columns: auto 1fr; gap: 28px 40px; align-items: center; margin: 22px 0 30px; padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); }
 .rings-today { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
@@ -1246,8 +1261,8 @@ body.is-home.deep .rune:not(:nth-child(3n+1)) { visibility: hidden; transition: 
 .yt-chan-head strong { display: block; font-size: 1.2rem; } .yt-about { margin: 12px 0 14px; color: var(--ink); max-width: 80ch; }
 .yt-from { margin: 0 0 14px; color: var(--muted); }
 /* Rows: room for two lines of the taller chips, and a slim scrollbar that doesn't sit on them. */
-.row { padding-bottom: 20px; }
-.row .pchips { height: 62px; }
+.row { padding-bottom: 10px; }
+.row .pchips { height: auto; max-height: 62px; } .row .pchips:empty { display: none; }   /* room for two rows of tags only when a card has tags */
 .row::-webkit-scrollbar { height: 6px; }
 /* Mood rings fill the row instead of leaving empty columns. */
 .rings { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
@@ -1265,6 +1280,7 @@ body.is-home.deep .rune:not(:nth-child(3n+1)) { visibility: hidden; transition: 
 .hero form.ask textarea { flex: 1; }
 .hero .examples { justify-content: center; max-width: 1040px; margin-inline: auto; }
 .hero .decide-cta { justify-content: center; }
+.proof { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 26px; margin: 26px 0 0; padding: 18px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; } .proof b { color: var(--gold-bright); font-weight: 600; margin-right: 4px; }
 /* About panel on shelf and tag pages. */
 .about-card { position: relative; display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 28px; margin: 18px 0 30px; padding: 26px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-1); overflow: hidden; }
 .about-card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(180deg, var(--gold), var(--gold-deep)); }
@@ -1305,8 +1321,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 .depth .tick.on { background: var(--gold); border-color: var(--gold); transform: translateY(-50%) scale(1.2); }
 .depth .tick:hover { background: var(--gold); }
 .depth .now { position: absolute; right: 100%; top: var(--now-y, 0); margin-right: 14px; transform: translateY(-50%); max-width: 220px; padding: 5px 10px; border-radius: 999px; background: var(--glass); backdrop-filter: blur(12px); box-shadow: var(--shadow-1); font: 600 10px/1.3 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; pointer-events: none; transition: opacity .3s; }
-.depth:hover .now, .depth.moving .now { opacity: 1; }
-@media (max-width: 1320px) { .depth { display: none; } }
+.depth:hover .now { opacity: 1; }
+@media (max-width: 1500px) { .depth { display: none; } }
 .rv { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
 .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .well-fx { display: none; } .rv { opacity: 1; transform: none; transition: none; } }
@@ -1327,7 +1343,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   <main id="app"><section class="hero hero-shell">
     <p class="eyebrow">The well beneath the tree</p>
     <h1>Find what to watch, read, play or listen to <em>next.</em></h1>
-    <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, TV shows, books, manga, games and music that fit, and tells you why each one does.</p>
+    <p class="lead">Mimir is a free discovery engine for films, TV shows, books, manga, games and music. Describe a feeling, an idea, a favourite or a time limit, and it finds what fits and tells you why.</p>
     <div class="ask-shell"><p class="shell-load" role="status"><i aria-hidden="true"></i>Opening the catalogue. The first visit takes a few seconds; later visits are faster.</p></div>
   </section></main>
   <footer class="foot">
@@ -1359,6 +1375,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
 <script id="observances-data" type="application/json">/*__OBSERVANCES__*/</script>
 <script id="config-data" type="application/json">/*__CONFIG__*/</script>
 <script id="blog-data" type="application/json">/*__BLOG__*/</script>
+<script id="gametrackers-data" type="application/json">/*__GAMETRACKERS__*/</script>
 <script>/*__ENGINE__*/</script>
 <script>
 (() => {
@@ -1870,7 +1887,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     // Only parse and rank once someone has asked; the landing view doesn't show results.
     const r = hasAsked ? askDiscover(query) : null;
     const heroEnd = `${askForm()}
-        <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>`;
+        <p class="decide-cta"><a class="btn ghost" href="#decide">Can't choose? Decide for me</a><span class="muted small">Three taps, one pick, with its reasons.</span></p>
+        <ul class="proof" aria-label="About Mimir"><li><b>${RAW_WORKS.length.toLocaleString("en-US")}</b> films, shows, books, games and albums</li><li><b>Free</b> to use, nothing locked</li><li><b>No ads</b> and no tracking across sites</li><li><b>Open data</b> from Wikidata, MusicBrainz and more</li></ul>`;
     const buildRest = () => `
       <div class="home">
         <div class="home-main">
@@ -1910,7 +1928,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         <canvas id="well" aria-hidden="true"></canvas>
         <p class="eyebrow">The well beneath the tree</p>
         <h1>Find what to watch, read, play or listen to <em>next.</em></h1>
-        <p class="lead">Describe a feeling, an idea, a favourite or a time limit. Mimir finds the films, TV shows, books, manga, games and music that fit, and tells you why each one does.</p>
+        <p class="lead">Mimir is a free discovery engine for films, TV shows, books, manga, games and music. Describe a feeling, an idea, a favourite or a time limit, and it finds what fits and tells you why.</p>
         ${heroEnd}
       </section>${rest}`;
     }
@@ -1977,6 +1995,17 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
       for (const list of byBox) {
         if (mainH - railNow <= 60) break;
         if (list[round]) { list[round].classList.remove("rail-spare"); railNow += rowH; any = true; }
+      }
+    }
+    // The other way round: a rankings column longer than the shelves beside it leaves a hole above the full-width shelves.
+    // Drop rows from the bottom of each box, the last box first, keeping three in each.
+    const boxes = [...rail.querySelectorAll(".ranks")].reverse();
+    for (let any = true; any && railNow - mainH > 40;) {
+      any = false;
+      for (const ol of boxes) {
+        if (railNow - mainH <= 40) break;
+        const vis = [...ol.querySelectorAll(".rank-row:not(.rail-spare)")];
+        if (vis.length > 3) { vis[vis.length - 1].classList.add("rail-spare"); railNow -= rowH; any = true; }
       }
     }
   }
@@ -2361,6 +2390,8 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
           ${(() => { const groups = new Map();
             [...genres.values()].filter((g) => isSub(g.key)).sort((a, b) => b.n - a.n).forEach((g) => { const p = PARENT_OF[g.key]; if (!groups.has(p)) groups.set(p, []); groups.get(p).push(g); });
             return groups.size ? `<section class="stat-box sub-box"><h2>By subgenre</h2>${[...groups].sort((a, b) => b[1].reduce((n, g) => n + g.n, 0) - a[1].reduce((n, g) => n + g.n, 0)).map(([p, gs]) => `<div class="sub-group"><h3>${esc(TERM_LABEL.get(p) || termLabel(p))}</h3><p class="pchips">${gs.map((g) => `<a class="tchip" href="${esc(hrefSearch(medium, { tags: [g.key] }))}">${esc(g.label)} · ${g.n}</a>`).join("")}</p></div>`).join("")}</section>` : ""; })()}
+          ${medium === "game" ? (() => { const P = [["PC", "pc"], ["PlayStation", "playstation"], ["Xbox", "xbox"], ["Nintendo Switch", "switch"], ["Mobile", "mobile"]]; const n = (k) => works.filter((w) => (((RAW_BY.get(w.slug) || {}).attributes || {}).platforms || []).some((x) => (k === "mobile" ? /mobile|ios|android/i : new RegExp(k, "i")).test(x))).length;
+            return `<section class="stat-box"><h2>By platform</h2><p class="pchips">${P.map(([l, k]) => [l, k, n(k)]).filter(([, , c]) => c).map(([l, k, c]) => `<a class="tchip" href="${esc(hrefSearch("game", { q: `platform:${k}` }))}">${esc(l)} · ${c}</a>`).join("")}</p><p class="small"><a href="#game-tracker">Track your wishes, collection and checklists</a></p></section>`; })() : ""}
           ${["film", "series"].includes(medium) ? `<section class="stat-box"><h2>By industry</h2><p class="pchips">${INDUSTRIES.map(([k, l]) => [k, l, works.filter((w) => inIndustry(w, k)).length]).filter(([, , n]) => n).map(([k, l, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { industry: k, list: true }))}">${esc(l)} · ${n}</a>`).join("")}</p></section>` : ""}
           <section class="stat-box"><h2>By decade</h2><p class="pchips">${[...decades].sort((a, b) => b[0] - a[0]).map(([d, n]) => `<a class="tchip" href="${esc(hrefSearch(medium, { year_min: d, year_max: d + 9 }))}">${d}s · ${n}</a>`).join("")}</p></section>
           <section class="stat-box"><h2>By time you have</h2><p class="pchips">${TIME_TILES.map(([slug, label]) => [slug, label, works.filter((w) => w.time && w.time.bucket === slug).length]).filter(([, , n]) => n).map(([slug, label, n]) => `<a class="tchip" href="#time-${slug}?m=${medium}">${esc(label)} · ${n}</a>`).join("")}</p></section>
@@ -2382,12 +2413,12 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     ["TV", [["All TV", "#tv"], ["TV search", "#search-series"], ["Top TV", "#top-series"], ["Binge-Worthy", "#shelf-binge-worthy"], ["Mini Marathons", "#shelf-mini-marathons"],
       ["Seoul Searching", "#shelf-seoul-searching"], ["Desi Delights", "#shelf-desi-delights"]]],
     ["Books", [["All books", "#books"], ["Book search", "#search-book"], ["Top books", "#top-book"], ["Page Turners", "#shelf-page-turners"], ["Brain Gain", "#shelf-brain-gain"], ["Audiobooks", "#audiobooks"], ["Book series", "#series"]]],
-    ["Games", [["All games", "#games"], ["Game search", "#search-game"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
+    ["Games", [["All games", "#games"], ["Game search", "#search-game"], ["Game tracker", "#game-tracker"], ["Top games", "#top-game"], ["Side Quests", "#shelf-side-quests"], ["Main Quests", "#shelf-main-quests"], ["World Builders", "#shelf-world-builders"]]],
     ["YouTube", [["Channels & videos", "#youtube"], ["Comedy", "#youtube?f=comedy"], ["Food", "#youtube?f=food"], ["Gaming & horror", "#youtube?f=horror"], ["VFX & film", "#youtube?f=documentary"], ["Mysteries", "#youtube?f=mystery"]]],
     ["Music", [["All music", "#albums"], ["Album search", "#search-album"], ["Top albums", "#top-album"], ["Mood rings", "#music"], ["Remix rack", "#music-remixes"], ["Spin Cycle", "#music-albums"]]],
     ["Sagas", [["Series & families", "#series"], ["Lone Wolves (standalone)", "#shelf-lone-wolves"], ["Pack Animals", "#shelf-pack-animals"], ["Nepo Babies", "#shelf-nepo-babies"]]],
     ["Library", [["My library", "#library?tab=all"], ["In progress", "#library?tab=active"], ["Planned", "#library?tab=planned"], ["Diary", "#library?tab=diary"],
-      ["Journal", "#journal"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Taste profile", "#taste"], ["Import & export", "#transfer"]]],
+      ["Journal", "#journal"], ["Game tracker", "#game-tracker"], ["Plan my time", "#plan"], ["Lists", "#lists"], ["Rings & badges", "#achievements"], ["Trackers", "#trackers"], ["Stats", "#stats"], ["Year in review", "#year"], ["For you", "#for-you"], ["Taste profile", "#taste"], ["Import & export", "#transfer"]]],
     ["Community", [["Community home", "#community"], ["Calendar & challenges", "#calendar"], ["Days of the year", "#days"], ["Your profile", "#signin"]]],
     ["Catalogue", [["Everything", "#search-all"], ["Compare works", "#compare"], ["Box office & budgets", "#box-office"], ["Awards", "#awards"], ["Tags", "#tags"], ["People & studios", "#people"], ["Help centre", "/help/"], ["About Mimir", "#about"], ["Blog", "#blog"], ["Send beta feedback", feedbackHref()]]],
   ];
@@ -2499,7 +2530,13 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     const facts = [["Medium", mediumLabel(w.medium)], ["Released", w.year ?? "Unknown"], ["Time", lengthFact],
       ["Original language", w.original_language ? langLabel(w.original_language) : "None / not recorded"],
       ["Country", w.countries.length ? w.countries.join(", ") : "Not recorded"]];
-    if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
+    const gd = w.medium === "game" ? (wdRec(w.slug).game || {}) : {};
+    if (gd.platforms && gd.platforms.length) facts.push(["Platforms", gd.platforms.join(", ")]);
+    else if (Array.isArray(w.attributes.platforms)) facts.push(["Platforms", w.attributes.platforms.join(", ")]);
+    if (gd.developers) facts.push([gd.developers.length > 1 ? "Developers" : "Developer", gd.developers.join(", ")]);
+    if (gd.publishers) facts.push([gd.publishers.length > 1 ? "Publishers" : "Publisher", gd.publishers.join(", ")]);
+    if (gd.modes) facts.push(["Modes", gd.modes.join(", ")]);
+    if (gd.engines) facts.push(["Engine", gd.engines.join(", ")]);
     if (w.medium === "series" && w.attributes.episodes) facts.push(["Episodes", `${w.attributes.seasons ? `${w.attributes.seasons} season${w.attributes.seasons === 1 ? "" : "s"}, ` : ""}${w.attributes.episodes} episodes${typeof w.attributes.episode_minutes === "number" ? ` of about ${w.attributes.episode_minutes} min` : ""}`]);
     if (w.attributes.form) {
       const a = w.attributes, n = (v, s) => `${v} ${s}${v === 1 ? "" : "s"}`;
@@ -2538,6 +2575,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
               <button class="btn ghost" type="button" data-similar="${esc(w.title)}">Find similar</button>
               <button class="btn ghost" type="button" data-similar-other="${esc(w.title)}">…in other media</button>
               <a class="btn ghost" href="#compare-${esc(w.slug)}">Compare</a>
+              ${w.medium === "game" ? `<a class="btn ghost" href="#game-tracker?${gtKeyOfWork(w) ? `tab=${(gtGame(gtKeyOfWork(w)) || {}).banners && gtGame(gtKeyOfWork(w)).banners.length ? "wishes" : "collection"}&game=${gtKeyOfWork(w)}` : `tab=lists&title=${encodeURIComponent(w.title)}`}">${gtKeyOfWork(w) ? (gtGame(gtKeyOfWork(w)) || {}).banners && gtGame(gtKeyOfWork(w)).banners.length ? "Wish &amp; collection tracker" : "Track your progress" : "Track progress"}</a>` : ""}
               ${mineBtn(w.slug)}
               ${["film", "series"].includes(w.medium) ? `<a class="btn ghost" href="#watch-${esc(w.slug)}">Watch along</a>` : ""}
               ${shareButton(`${location.origin}${location.pathname}#work-${w.slug}`, w.title, `${w.title} (${[mediumLabel(w.medium), w.year].filter(Boolean).join(", ")}) on Mimir`)}
@@ -3451,6 +3489,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
   });
   app.addEventListener("input", (e) => { if (e.target.id === "wa-scrub") waControl("seek", Number(e.target.value)); });
   app.addEventListener("change", (e) => {
+    if (e.target.matches("select[data-gt-pick]")) { location.hash = e.target.value; return; }
     if (e.target.matches("[data-wa-open]")) { const slug = location.hash.slice(7).split("?")[0]; if (watchAlongs[slug]) { watchAlongs[slug].open = e.target.checked; saveWatchAlongs(); } }
   });
   app.addEventListener("submit", (e) => {
@@ -5252,6 +5291,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
         ${row("Genre", (w) => chips([...terms(w, "genre").values()].slice(0, 4)))}
         ${row("By", (w) => esc(w.credits.slice(0, 2).map((c) => c.name).join(", ") || "—"))}
         ${row("Country", (w) => esc((w.countries || []).join(", ") || "—"))}
+        ${W.some((w) => w.medium === "game") ? `${row("Platforms", (w, c, s) => esc(((wdRec(s).game || {}).platforms || []).join(", ") || "—"))}${row("Developer", (w, c, s) => esc(((wdRec(s).game || {}).developers || []).join(", ") || "—"))}${row("Publisher", (w, c, s) => esc(((wdRec(s).game || {}).publishers || []).join(", ") || "—"))}${row("Modes", (w, c, s) => esc(((wdRec(s).game || {}).modes || []).join(", ") || "—"))}` : ""}
         ${row("Time", (w) => (w.time ? esc(timeText(w.time, w.medium === "album")) : muted("Not recorded")))}
         ${row("Series", (w) => esc(contText(w.continuity)))}
         ${numRow("Score", (s) => unifiedScore(cardOf(s)), (v, s) => `${v}/100 <span class="muted small">(${esc(scoreTitle(cardOf(s)))})</span>`)}
@@ -6439,6 +6479,284 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); const el = parseEl(tr.dataset.el); craftAddItem(el); renderCraft(); document.querySelector(`.cr-chip.tray[data-el="${CSS.escape(elId(el))}"]`)?.focus(); return; }
     const it = e.target.closest(".cr-item"); if (it && (e.key === "Enter" || e.key === " ") && !e.target.closest("button")) { e.preventDefault(); const u = Number(it.dataset.uid), s = craft.sel, i = s.indexOf(u); if (i >= 0) s.splice(i, 1); else { s.push(u); if (s.length > 2) s.shift(); } renderCraft(); document.querySelector(`.cr-item[data-uid="${u}"]`)?.focus(); } });
 
+  // ------------------------------------------------------------------ in-game trackers: wishes (pity), collections and checklists
+  // Everything lives under one synced key ("mimir-game-tracker"), so an account keeps it in step like the rest of the library.
+  // The presets (wish rules, character and weapon lists) come from the open data in catalogue/game-trackers.json; every rule is editable.
+  const GTD = once(() => DATA("gametrackers"));
+  let gt = stored("mimir-game-tracker", { v: 1, wishes: {}, rules: {}, own: {}, lists: [] });
+  gt.wishes = gt.wishes || {}; gt.rules = gt.rules || {}; gt.own = gt.own || {}; gt.lists = gt.lists || [];
+  const saveGt = () => { store("mimir-game-tracker", gt); queueSync(); };
+  const gtGame = (k) => GTD().games.find((g) => g.key === k);
+  const GT_BY_TITLE = { "genshin impact": "genshin-impact", "honkai: star rail": "honkai-star-rail", "zenless zone zero": "zenless-zone-zero", "wuthering waves": "wuthering-waves", "elden ring": "elden-ring", "stardew valley": "stardew-valley", "hollow knight": "hollow-knight", "minecraft": "minecraft", "the legend of zelda: breath of the wild": "zelda-modern", "the legend of zelda: tears of the kingdom": "zelda-modern" };
+  const gtKeyOfWork = (w) => GT_BY_TITLE[(w.title || "").toLowerCase()] || null;
+  const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+
+  // The maths lives in demo/wish.cjs (shared with its tests). A banner's rule: the preset, with any edits the player has made.
+  const gtRule = (g, b) => ({ ...b, ...((gt.rules[g.key] || {})[b.key] || {}) });
+  const WISH = window.MimirWish, gtRate = WISH.rate, gtDist = WISH.dist, gtCdf = WISH.cdf, gtFeaturedWithin = WISH.featuredWithin, gtPullsFor = WISH.pullsFor;
+  function gtBanner(g, bk) {
+    const b = g.banners.find((x) => x.key === bk) || g.banners[0], r = gtRule(g, b);
+    const list = (((gt.wishes[g.key] || {})[b.key]) || []);
+    let pity = 0, pity4 = 0, guaranteed = false;
+    const fives = []; let gap = 0;
+    for (const p of list) {
+      gap++; pity++; if (!p.fill) pity4++;   // filler pulls (a starting point) say nothing about the 4-star count
+      if (p.r === 4) pity4 = 0;
+      if (p.r === 5) { pity = 0; pity4 = 0; if (!p.fill) fives.push({ gap, f: p.f, partial: !!(list[0] && list[0].trunc && fives.length === 0) }); gap = 0; guaranteed = p.f === false; }
+    }
+    return { b, r, list, pity, pity4, guaranteed, fives };
+  }
+  const gtPlural = (g) => `${g.pull_name.toLowerCase()}${/(ch|sh|s|x)$/.test(g.pull_name) ? "es" : "s"}`;
+  const pct = (x) => `${(x * 100).toFixed(x < 0.1 ? 1 : 0)}%`;
+
+  function gtAddPulls(g, bk, items) {
+    gt.wishes[g.key] = gt.wishes[g.key] || {}; gt.wishes[g.key][bk] = gt.wishes[g.key][bk] || [];
+    for (const it of items) gt.wishes[g.key][bk].push({ id: uid(), t: Date.now(), ...it });
+    saveGt();
+  }
+
+  function gtTabs(on, q) {
+    const tabs = [["wishes", "Wishes"], ["collection", "Collection"], ["lists", "Checklists"]];
+    return `<nav class="medium-tabs" aria-label="Game tracker">${tabs.map(([k, l]) => `<a href="#game-tracker?${new URLSearchParams({ ...q, tab: k })}" class="${on === k ? "on" : ""}">${l}</a>`).join("")}</nav>`;
+  }
+  function gtGamePicker(sel, tab, q) {
+    const list = GTD().games.filter((g) => tab === "wishes" ? g.banners.length : tab !== "collection" || g.categories.length);
+    const grp = (label, gs) => gs.length ? `<optgroup label="${esc(label)}">${gs.map((g) => `<option value="${esc(`#game-tracker?${new URLSearchParams({ tab, game: g.key })}`)}"${g.key === sel ? " selected" : ""}>${esc(g.name)}</option>`).join("")}</optgroup>` : "";
+    return `<p class="gt-pick"><label><span class="eyebrow">Game</span> <select data-gt-pick aria-label="Choose a game">${grp("Pull and pity trackers", list.filter((g) => g.banners.length))}${grp("Checklists and collections", list.filter((g) => !g.banners.length))}</select></label></p>`;
+  }
+
+  function renderGameTracker(p) {
+    const tab = ["wishes", "collection", "lists"].includes(p.get("tab")) ? p.get("tab") : "wishes";
+    const q = Object.fromEntries(p);
+    const header = `<header class="page-band"><p class="eyebrow">Games</p><h1>Game tracker</h1>
+      <p class="muted">Track your pulls and pity, what you own, your progress through a franchise (Mario, Zelda, Pokémon, Elden Ring and more) and your own checklists for any game. It stays in this browser (and in your account, if you have one). Rates and lists are presets from open community data and can lag the games: edit any number, and add your own items.</p></header>`;
+    if (tab === "lists") { app.innerHTML = `${header}${gtTabs(tab, q)}${gtListsHtml(p)}`; return; }
+    const games = GTD().games.filter((g) => tab === "wishes" ? g.banners.length : tab !== "collection" || g.categories.length);
+    const g = games.find((x) => x.key === p.get("game")) || games[0];
+    app.innerHTML = `${header}${gtTabs(tab, q)}${gtGamePicker(g.key, tab, q)}${tab === "wishes" ? gtWishesHtml(g, p) : gtCollectionHtml(g, p)}`;
+  }
+
+  function gtWishesHtml(g, p) {
+    const S = gtBanner(g, p.get("banner")), { b, r } = S, bk = b.key;
+    const cost = g.per_pull, total = S.list.length;
+    const left = r.hard - S.pity, next = gtRate(r, S.pity + 1);
+    const d = gtDist(r, S.pity), expected = d.reduce((a, x, k) => a + x * k, 0);
+    const featured = r.featured > 0 && r.featured < 1;
+    const won = S.fives.filter((x) => x.f === true).length, lost = S.fives.filter((x) => x.f === false).length;
+    const whole = S.fives.filter((x) => !x.partial), avg = whole.length ? whole.reduce((a, x) => a + x.gap, 0) / whole.length : null;   // the first gap of a history that may be cut off is not a full one
+    const targets = r.featured > 0 ? [[0.5, "50%"], [0.9, "90%"]].map(([t, l]) => [l, gtPullsFor(r, S.pity, S.guaranteed, t)]) : [];
+    const within = r.featured > 0 ? [10, 20, 40, 80, 160].map((n) => [n, gtFeaturedWithin(r, S.pity, S.guaranteed, n)]) : [[10, gtCdf(d, 10)], [20, gtCdf(d, 20)], [40, gtCdf(d, 40)], [80, gtCdf(d, 80)]];
+    const names = { 3: "3-star", 4: "4-star", 5: "5-star" };
+    return `
+      <p class="pchips"><span class="eyebrow">Banner</span>${g.banners.map((x) => `<a class="tchip${x.key === bk ? " on" : ""}" href="#game-tracker?${new URLSearchParams({ tab: "wishes", game: g.key, banner: x.key })}">${esc(x.name)}</a>`).join("")}</p>
+      <section class="block gt-summary"><div class="gt-pity"><b>${S.pity}</b><span>${esc(gtPlural(g))} since your last 5-star</span></div>
+        <ul class="gt-facts">
+          <li>Next ${esc(g.pull_name.toLowerCase())} is a 5-star: <b>${pct(next)}</b>${S.pity + 1 >= r.soft ? ` <span class="muted">(soft pity from ${r.soft})</span>` : ""}</li>
+          <li>Guaranteed 5-star in <b>${left}</b> ${left === 1 ? "pull" : "pulls"} (limit ${r.hard}); expected in about <b>${expected.toFixed(0)}</b></li>
+          ${featured ? `<li>Next 5-star: ${S.guaranteed ? "<b>guaranteed to be the featured one</b>" : `a ${pct(r.featured)} chance to be the featured one`}</li>` : ""}
+          <li>${r.pity4 - S.pity4 <= 1 ? "A 4-star or better is guaranteed on your next pull" : `A 4-star or better is guaranteed within ${r.pity4 - S.pity4} pulls`}</li>
+          ${targets.length ? `<li>For the featured 5-star: ${targets.map(([l, n]) => `${l} sure by <b>${n}</b> pulls (${(n * cost).toLocaleString("en")} ${esc(g.currency)})`).join(", ")}</li>` : ""}
+        </ul></section>
+      <section class="block"><header class="sec-head"><h2>Add pulls</h2></header>
+        <form class="gt-add" data-gt-add="${esc(g.key)}|${esc(bk)}">
+          <label><span>How many</span><input name="n" type="number" min="1" max="200" value="1" aria-label="Number of pulls"></label>
+          <button class="btn ghost" name="r" value="3" type="submit">3-star</button>
+          <button class="btn ghost" name="r" value="4" type="submit">4-star</button>
+          ${featured ? `<button class="btn" name="r" value="5f" type="submit">5-star, featured</button><button class="btn" name="r" value="5o" type="submit">5-star, lost the 50/50</button>` : `<button class="btn" name="r" value="5" type="submit">5-star</button>`}
+          <button class="btn ghost" type="button" data-gt-undo="${esc(g.key)}|${esc(bk)}"${total ? "" : " disabled"}>Undo last</button></form>
+        <form class="gt-add" data-gt-start="${esc(g.key)}|${esc(bk)}"><label class="grow"><span>Already at pity (pulls since your last 5-star)</span><input name="pity" type="number" min="0" max="${r.hard - 1}" value="${S.pity}"></label>
+          <label><span>Last 5-star was</span><select name="g"><option value="0"${S.guaranteed ? "" : " selected"}>the featured one / not sure</option><option value="1"${S.guaranteed ? " selected" : ""}>off-banner (next is guaranteed)</option></select></label>
+          <button class="btn ghost" type="submit">Set my starting point</button></form></section>
+      ${WISH.GAMES[g.key] ? gtImportHtml(g) : ""}
+      <section class="block"><header class="sec-head"><h2>Chance of a ${r.featured > 0 ? "featured " : ""}5-star</h2></header>
+        <ul class="gt-within">${within.map(([n, x]) => `<li><b>${pct(x)}</b><span>within ${n} pulls</span></li>`).join("")}</ul></section>
+      <section class="block"><header class="sec-head"><h2>Your history</h2></header>
+        <p class="muted small">${total} pulls logged${total ? ` · ${(total * cost).toLocaleString("en")} ${esc(g.currency)}` : ""} · ${S.fives.length} 5-star${S.fives.length === 1 ? "" : "s"} recorded${avg ? ` · average ${avg.toFixed(1)} pulls each` : ""}${featured && (won + lost) ? ` · won ${won} of ${won + lost} 50/50s` : ""}</p>
+        ${total ? `<ol class="gt-history">${S.list.slice(-40).reverse().filter((x) => x.r >= 4).map((x) => `<li class="r${x.r}">${x.r}-star${x.f === true ? ", featured" : x.f === false ? ", off-banner" : ""}${x.fill ? " (start)" : ""}</li>`).join("") || `<li class="muted">No 4-stars or 5-stars yet.</li>`}</ol>
+          <p class="small muted">Showing your latest 4-star and 5-star results.</p>` : `<p class="empty">Nothing logged yet. Add your pulls above, or set where you are now.</p>`}
+        <details class="gt-rules"><summary>Rates and pity for this banner (edit if the game changes them)</summary>
+          <form class="gt-rule-form" data-gt-rules="${esc(g.key)}|${esc(bk)}">
+            ${[["base", "Base 5-star rate (%)", "0.1"], ["soft", "Soft pity starts at pull", "1"], ["step", "Rate added per pull after that (points)", "0.1"], ["hard", "Hard pity (guaranteed)", "1"], ["featured", "Chance the 5-star is the featured one (0 to 1)", "0.05"], ["pity4", "4-star guaranteed every", "1"]].map(([k, l, st]) => `<label><span>${l}</span><input name="${k}" type="number" step="${st}" value="${r[k]}" required></label>`).join("")}
+            <button class="btn ghost" type="submit">Save rules</button><button class="btn ghost" type="button" data-gt-rules-reset="${esc(g.key)}|${esc(bk)}">Back to preset</button></form></details>
+        ${total ? `<p class="actions"><button class="btn ghost" type="button" data-gt-clear="${esc(g.key)}|${esc(bk)}">Clear this banner's history</button></p>` : ""}</section>`;
+  }
+
+  // Importing a history. Nothing here touches Mimir's servers: a pasted link goes straight from this browser to the game's own history address, and is neither stored nor logged.
+  function gtImportHtml(g) {
+    return `<details class="block gt-import"><summary><h2 style="display:inline">Import your history from ${esc(g.name)}</h2></summary>
+      <p class="muted small">Paste the wish history link from the game, or a history file exported by another tool (UIGF or the game's own response). It replaces what you have logged on the banners it covers.</p>
+      <form class="gt-add" data-gt-import="${esc(g.key)}"><label class="grow"><span>History link or file contents</span><textarea name="src" rows="3" placeholder="https://… (the link from the in-game wish history page), or paste exported JSON" autocomplete="off" spellcheck="false"></textarea></label>
+        <label><span>Or choose a file</span><input type="file" name="file" accept=".json,application/json"></label>
+        <button class="btn" type="submit">Import</button></form>
+      <p id="gt-import-status" class="small" role="status" aria-live="polite"></p>
+      <details class="small"><summary>How to get the link</summary><ol class="muted"><li>Open ${esc(g.name)} and its wish history page, so the game has loaded it.</li><li>On PC, the link is saved in the game's log file; tools such as paimon.moe, Starward or Genshin Wish Export read it for you. On a phone, use a tool that captures it from the history page.</li><li>The link contains a temporary key that lets anyone read your wish history for about a day. Treat it like a password: do not post it publicly. Mimir only uses it from your browser, once, and then clears the box.</li><li>If the game's server refuses a request from a web page, export a history file with one of those tools (UIGF format) and import that instead.</li></ol></details></details>`;
+  }
+  const gtNames = (g) => { const m = {}; for (const c of g.categories) for (const i of c.items) m[i.id] = { name: i.name, rarity: i.rarity }; return m; };
+  const gtSleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  async function gtFetchHistory(link, game, say) {
+    const L = WISH.parseLink(link, game);
+    if (L.error) throw new Error(L.error);
+    const all = [];
+    for (const type of WISH.GAMES[game].fetch) {
+      let end = "0", page = 1;
+      for (;;) {
+        const q = new URLSearchParams(L.params); q.set("gacha_type", String(type)); q.set("page", String(page)); q.set("size", "20"); q.set("end_id", end);
+        say(`Reading ${WISH.GAMES[game].types[type]} wishes, page ${page}…`);
+        let body;
+        for (let tries = 0; ; tries++) {
+          const res = await fetch(`${L.base}?${q}`, { credentials: "omit", referrerPolicy: "no-referrer" });
+          body = await res.json();
+          if (body.retcode === -110 && tries < 4) { await gtSleep(1500); continue; }   // asked too often: wait and retry
+          break;
+        }
+        if (body.retcode === -101 || body.retcode === -100) throw new Error("The link has expired. Open the wish history in the game again and copy the new link.");
+        if (body.retcode !== 0) throw new Error(body.message ? `The game's server said: ${String(body.message).slice(0, 80)}` : "The game's server did not accept the link.");
+        const list = (body.data && body.data.list) || [];
+        all.push(...list);
+        if (list.length < 20) break;
+        const next = String(list[list.length - 1].id);
+        if (next === end || page >= 500) break;   // a server that ignores the paging must not trap the import in a loop
+        end = next; page++;
+        await gtSleep(400);
+      }
+    }
+    return all;
+  }
+  async function gtImport(f) {
+    const gk = f.dataset.gtImport, g = gtGame(gk), status = document.getElementById("gt-import-status");
+    const say = (t, bad) => { status.textContent = t; status.style.color = bad ? "var(--sev-severe)" : ""; };
+    const src = f.elements.src.value.trim(), file = f.elements.file.files[0];
+    f.querySelector("button[type=submit]").disabled = true;
+    try {
+      let items;
+      if (file) items = WISH.itemsFrom(JSON.parse(await file.text()), gk, gtNames(g));
+      else if (/^https?:/i.test(src)) {
+        try { items = WISH.itemsFrom(await gtFetchHistory(src, gk, say), gk); }
+        catch (e) {
+          if (e instanceof TypeError) throw new Error("The game's server did not answer a request from a web page (browsers often block this). Export a history file with a tool such as paimon.moe, Starward or Genshin Wish Export (UIGF format) and import that file instead.");
+          throw e;
+        }
+      } else if (src) items = WISH.itemsFrom(JSON.parse(`[${src.replace(/}\s*{/g, "},{")}]`), gk, gtNames(g));
+      else throw new Error("Paste a link or some exported JSON, or choose a file.");
+      const by = WISH.banners(items, gk);
+      const keys = Object.keys(by);
+      if (!keys.length) throw new Error("No wishes were found in that. Is it from this game?");
+      const had = keys.some((k) => ((gt.wishes[gk] || {})[k] || []).length);
+      if (had && !confirm("This replaces the pulls you have logged on these banners with the imported history. Continue?")) { say("Nothing imported."); return; }
+      gt.wishes[gk] = gt.wishes[gk] || {};
+      for (const k of keys) { by[k][0].trunc = true; gt.wishes[gk][k] = by[k]; }
+      saveGt(); f.elements.src.value = "";
+      const n = keys.reduce((a, k) => a + by[k].length, 0), five = keys.reduce((a, k) => a + by[k].filter((x) => x.r === 5).length, 0);
+      say(`Imported ${n.toLocaleString("en")} pulls (${five} 5-star${five === 1 ? "" : "s"}) on ${keys.length} banner${keys.length === 1 ? "" : "s"}. The game keeps only the latest history, so your first 5-star gap may be a partial one. Whether each 5-star was the featured one is read from the permanent pool: check "Next 5-star" on each banner.`);
+      setTimeout(() => renderGameTracker(new URLSearchParams(location.hash.split("?")[1] || "")), 2500);
+    } catch (e) {
+      say(e instanceof SyntaxError ? "That is not a history file Mimir can read." : e.message, true);
+    } finally { f.querySelector("button[type=submit]").disabled = false; }
+  }
+
+  function gtCollectionHtml(g, p) {
+    const cat = g.categories.find((c) => c.key === p.get("cat")) || g.categories[0];
+    const own = (((gt.own[g.key] || {})[cat.key]) || {});
+    const rar = p.get("rarity") || "", ty = p.get("type") || "", qs = (p.get("q") || "").toLowerCase();
+    const types = [...new Set(cat.items.map((i) => i.type).filter(Boolean))].sort();
+    const shown = cat.items.filter((i) => (!rar || String(i.rarity) === rar) && (!ty || i.type === ty) && (!qs || i.name.toLowerCase().includes(qs)));
+    const have = cat.items.filter((i) => own[i.id] > 0).length;
+    const verb = cat.verb || ["Owned", "Not owned"], dupes = !cat.verb;   // duplicate copies only matter for pulled characters and weapons
+    const href = (o) => `#game-tracker?${new URLSearchParams({ tab: "collection", game: g.key, cat: cat.key, ...(rar ? { rarity: rar } : {}), ...(ty ? { type: ty } : {}), ...(qs ? { q: qs } : {}), ...o })}`.replace(/&(rarity|type|q)=(&|$)/g, "$2");
+    const five = cat.items.filter((i) => i.rarity === 5), have5 = five.filter((i) => own[i.id] > 0).length;
+    return `
+      <p class="pchips"><span class="eyebrow">Show</span>${g.categories.map((c) => `<a class="tchip${c.key === cat.key ? " on" : ""}" href="#game-tracker?${new URLSearchParams({ tab: "collection", game: g.key, cat: c.key })}">${esc(c.label)}</a>`).join("")}</p>
+      <p class="gt-progress"><b>${have}</b> of ${cat.items.length} ${esc(cat.label.toLowerCase())} ${esc(verb[0].toLowerCase())}${five.length ? ` · <b>${have5}</b> of ${five.length} 5-star` : ""}</p>
+      <div class="gt-bar" aria-hidden="true"><i style="width:${cat.items.length ? Math.round((have / cat.items.length) * 100) : 0}%"></i></div>
+      <p class="pchips">${[5, 4, 3].some((x) => cat.items.some((i) => i.rarity === x)) ? `<span class="eyebrow">Rarity</span><a class="tchip${rar ? "" : " on"}" href="${esc(href({ rarity: "" }))}">All</a>${[5, 4, 3].filter((x) => cat.items.some((i) => i.rarity === x)).map((x) => `<a class="tchip${rar === String(x) ? " on" : ""}" href="${esc(href({ rarity: x }))}">${x}-star</a>`).join("")}` : ""}
+        ${types.length ? `<span class="eyebrow">${esc(cat.types_label || "Type")}</span><a class="tchip${ty ? "" : " on"}" href="${esc(href({ type: "" }))}">All</a>${types.map((t) => `<a class="tchip${ty === t ? " on" : ""}" href="${esc(href({ type: t }))}">${esc(t)}</a>`).join("")}` : ""}</p>
+      <form class="lib-form" data-gt-find><input name="q" value="${esc(qs)}" placeholder="Find by name" aria-label="Find by name" class="grow"><button class="btn" type="submit">Find</button></form>
+      <ul class="gt-items">${shown.map((i) => { const c = own[i.id] || 0; return `<li class="gt-item${c ? " has" : ""}" data-r="${i.rarity}"><span class="gt-name">${esc(i.name)}</span><span class="small muted">${esc([i.type, i.sub].filter(Boolean).join(" · "))}</span>
+        <span class="gt-ctl"><button type="button" class="tchip${c ? " on" : ""}" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|toggle" aria-pressed="${c > 0}">${c ? verb[0] : verb[1]}</button>${c && dupes ? `<button type="button" class="tchip" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|down" aria-label="One fewer copy of ${esc(i.name)}">−</button><span class="small" title="Copies: the first is the base version, each extra is a duplicate">${c === 1 ? "base" : `+${c - 1}`}</span><button type="button" class="tchip" data-gt-own="${esc(g.key)}|${esc(cat.key)}|${esc(i.id)}|up" aria-label="One more copy of ${esc(i.name)}">+</button>` : ""}</span></li>`; }).join("") || `<li class="empty">Nothing matches.</li>`}</ul>
+      <p class="small muted">${g.source ? esc(g.source) : `Lists: EnkaNetwork API-docs open data${GTD().generated ? `, fetched ${esc(GTD().generated)}` : ""}. A newer release may be missing: add it under Checklists.`}</p>`;
+  }
+
+  function gtListsHtml(p) {
+    const game = p.get("game") && GTD().games.find((x) => x.key === p.get("game")), title = p.get("title") || (game ? game.name : "");
+    const prog = (l) => `${l.items.filter((i) => i.done).length} of ${l.items.length}`;
+    return `
+      <form class="tracker-form" data-gt-newlist>
+        <label class="grow"><span>Checklist name</span><input name="name" required maxlength="80" placeholder="e.g. Elden Ring: remembrance bosses" value="${esc(title ? `${title}: ` : "")}"></label>
+        <label class="grow"><span>Items, one per line</span><textarea name="items" rows="4" placeholder="Paste or type a list. You can add more later."></textarea></label>
+        <button class="btn" type="submit">Create checklist</button></form>
+      ${gt.lists.length ? gt.lists.map((l) => `<section class="block gt-list" id="gtl-${esc(l.id)}"><header class="sec-head"><h2>${esc(l.name)}</h2><span class="muted small">${prog(l)}</span></header>
+        <div class="gt-bar" aria-hidden="true"><i style="width:${l.items.length ? Math.round((l.items.filter((i) => i.done).length / l.items.length) * 100) : 0}%"></i></div>
+        <ul class="gt-items">${l.items.map((i) => `<li class="gt-item${i.done ? " has" : ""}"><label class="gt-check"><input type="checkbox" data-gt-check="${esc(l.id)}|${esc(i.id)}"${i.done ? " checked" : ""}> <span class="gt-name">${esc(i.text)}</span></label><button type="button" class="tchip" data-gt-rm="${esc(l.id)}|${esc(i.id)}" aria-label="Remove ${esc(i.text)}">Remove</button></li>`).join("") || `<li class="muted">Empty. Add items below.</li>`}</ul>
+        <form class="lib-form" data-gt-additems="${esc(l.id)}"><input name="items" placeholder="Add items (separate several with commas)" aria-label="Add items" class="grow"><button class="btn ghost" type="submit">Add</button><button class="btn ghost" type="button" data-gt-dellist="${esc(l.id)}">Delete list</button></form></section>`).join("")
+        : `<p class="empty">No checklists yet. Make one for any game: bosses, collectibles, achievements, characters, a platinum run.</p>`}`;
+  }
+
+  app.addEventListener("submit", (e) => {
+    const f = e.target;
+    if (f.dataset.gtImport) { e.preventDefault(); gtImport(f); return; }
+    if (f.dataset.gtAdd) {
+      e.preventDefault();
+      const [gk, bk] = f.dataset.gtAdd.split("|"), g = gtGame(gk), n = Math.max(1, Math.min(200, Number(f.elements.n.value) || 1));
+      const v = e.submitter && e.submitter.value;
+      const item = v === "5f" ? { r: 5, f: true } : v === "5o" ? { r: 5, f: false } : v === "5" ? { r: 5 } : { r: Number(v) || 3 };
+      gtAddPulls(g, bk, Array.from({ length: item.r === 5 ? 1 : n }, () => ({ ...item })));
+      renderGameTracker(new URLSearchParams(location.hash.split("?")[1] || ""));
+    } else if (f.dataset.gtStart) {
+      e.preventDefault();
+      const [gk, bk] = f.dataset.gtStart.split("|"), g = gtGame(gk), S = gtBanner(g, bk), pity = Math.max(0, Math.min(S.r.hard - 1, Number(f.elements.pity.value) || 0));
+      gt.wishes[gk] = gt.wishes[gk] || {};
+      // Starting over from a known point: earlier pulls are replaced by one marker 5-star and filler pulls up to the pity.
+      gt.wishes[gk][bk] = [{ id: uid(), t: Date.now(), r: 5, fill: true, ...(f.elements.g.value === "1" ? { f: false } : {}) }, ...Array.from({ length: pity }, () => ({ id: uid(), t: Date.now(), r: 3, fill: true }))];
+      saveGt(); renderGameTracker(new URLSearchParams(location.hash.split("?")[1] || ""));
+    } else if (f.dataset.gtRules) {
+      e.preventDefault();
+      const [gk, bk] = f.dataset.gtRules.split("|"), o = {};
+      for (const k of ["base", "soft", "step", "hard", "featured", "pity4"]) o[k] = Number(f.elements[k].value);
+      gt.rules[gk] = { ...(gt.rules[gk] || {}), [bk]: o }; saveGt(); renderGameTracker(new URLSearchParams(location.hash.split("?")[1] || ""));
+    } else if (f.dataset.gtFind !== undefined) {
+      e.preventDefault();
+      const p = new URLSearchParams(location.hash.split("?")[1] || ""); if (f.elements.q.value.trim()) p.set("q", f.elements.q.value.trim()); else p.delete("q");
+      location.hash = `#game-tracker?${p}`;
+    } else if (f.dataset.gtNewlist !== undefined) {
+      e.preventDefault();
+      const items = f.elements.items.value.split("\n").map((s) => s.trim()).filter(Boolean);
+      gt.lists.unshift({ id: uid(), name: f.elements.name.value.trim(), items: items.map((text) => ({ id: uid(), text, done: false })) });
+      saveGt(); renderGameTracker(new URLSearchParams("tab=lists"));
+    } else if (f.dataset.gtAdditems) {
+      e.preventDefault();
+      const l = gt.lists.find((x) => x.id === f.dataset.gtAdditems);
+      if (l) { f.elements.items.value.split(/[,\n]/).map((s) => s.trim()).filter(Boolean).forEach((text) => l.items.push({ id: uid(), text, done: false })); saveGt(); renderGameTracker(new URLSearchParams("tab=lists")); }
+    }
+  });
+  app.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-gt-own],[data-gt-undo],[data-gt-clear],[data-gt-rules-reset],[data-gt-rm],[data-gt-dellist]");
+    if (!t) return;
+    const again = () => renderGameTracker(new URLSearchParams(location.hash.split("?")[1] || ""));
+    if (t.dataset.gtOwn) {
+      const [gk, ck, id, act] = t.dataset.gtOwn.split("|");
+      gt.own[gk] = gt.own[gk] || {}; gt.own[gk][ck] = gt.own[gk][ck] || {};
+      const c = gt.own[gk][ck][id] || 0;
+      gt.own[gk][ck][id] = act === "toggle" ? (c ? 0 : 1) : act === "up" ? Math.min(c + 1, 20) : Math.max(c - 1, 1);
+      saveGt(); const y = window.scrollY; again(); window.scrollTo(0, y);
+    } else if (t.dataset.gtUndo) {
+      const [gk, bk] = t.dataset.gtUndo.split("|"); (gt.wishes[gk] || {})[bk]?.pop(); saveGt(); again();
+    } else if (t.dataset.gtClear) {
+      const [gk, bk] = t.dataset.gtClear.split("|"); if (confirm("Clear every pull logged on this banner?")) { delete (gt.wishes[gk] || {})[bk]; saveGt(); again(); }
+    } else if (t.dataset.gtRulesReset) {
+      const [gk, bk] = t.dataset.gtRulesReset.split("|"); if (gt.rules[gk]) delete gt.rules[gk][bk]; saveGt(); again();
+    } else if (t.dataset.gtRm) {
+      const [lid, iid] = t.dataset.gtRm.split("|"), l = gt.lists.find((x) => x.id === lid); if (l) { l.items = l.items.filter((x) => x.id !== iid); saveGt(); renderGameTracker(new URLSearchParams("tab=lists")); }
+    } else if (t.dataset.gtDellist) {
+      if (confirm("Delete this checklist?")) { gt.lists = gt.lists.filter((x) => x.id !== t.dataset.gtDellist); saveGt(); renderGameTracker(new URLSearchParams("tab=lists")); }
+    }
+  });
+  app.addEventListener("change", (e) => {
+    const c = e.target.closest("[data-gt-check]");
+    if (!c) return;
+    const [lid, iid] = c.dataset.gtCheck.split("|"), l = gt.lists.find((x) => x.id === lid), it = l && l.items.find((x) => x.id === iid);
+    if (it) { it.done = c.checked; saveGt(); const y = window.scrollY; renderGameTracker(new URLSearchParams("tab=lists")); window.scrollTo(0, y); }
+  });
+
   // ------------------------------------------------------------------ routing & events
   function setNav(group) {
     document.querySelectorAll(".menu-btn").forEach((b) => b.classList.toggle("here", b.textContent === group));
@@ -6477,6 +6795,7 @@ html { scrollbar-width: thin; scrollbar-color: var(--gold-deep) transparent; }
     else if (h === "compare" || h.startsWith("compare-")) { setNav("Discover"); renderCompare(h.slice(8)); }
     else if (h === "box-office") { setNav("Films"); renderBoxOffice(p); }
     else if (h === "awards") { setNav("Catalogue"); renderAwards(p); }
+    else if (h === "game-tracker") { setNav("Games"); renderGameTracker(p); }
     else if (h === "plan") { setNav("Discover"); renderPlan(); }
     else if (h === "together") { setNav("Discover"); renderTogether(); }
     else if (h === "taste") { setNav("Discover"); renderTaste(); }

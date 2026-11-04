@@ -71,6 +71,12 @@ const HELP = [
   ["work-page", "find", "Reading a work page", "Tags, parents' guide, credits, where to watch.",
     `<p>Each work page shows its summary, an Experience DNA (moods, themes, pacing and style), a parents' guide, credits including lead cast, and links to where you can watch, read, play or listen. Tags on a page lead to other works with the same quality. Where a parents' guide says "Not assessed", it has not been reviewed yet; it does not mean safe.</p>
      <p>Press Compare on a work page to put two works side by side.</p>`, "work page parents guide tags credits where to watch compare"],
+  ["game-tracker", "library", "Tracking games: wishes, collections and checklists", "Pity counter, owned characters and weapons, and your own lists.",
+    `<p>Open the <a href="#game-tracker">Game tracker</a>, or press its button on a game's page.</p>
+     <ul><li><strong>Wishes.</strong> Pick Genshin Impact, Honkai: Star Rail, Zenless Zone Zero or Wuthering Waves and a banner, then log your pulls. Mimir keeps your pity count, tells you the chance that your next pull is a 5-star, and works out how likely you are to get the featured one within 10, 20, 40, 80 or 160 pulls. Already mid-way? Set your starting point instead of logging every old pull.</li>
+     <li><strong>Collection.</strong> Mark the characters and weapons you own, add duplicates, and filter by rarity or element. Genshin Impact and Zenless Zone Zero are listed; lists come from open community data and may lag the newest releases.</li>
+     <li><strong>Checklists.</strong> Make a list for any game (bosses, collectibles, achievements) by pasting one item per line, and tick them off.</li></ul>
+     <p class="help-tip">The rates are presets from what players have measured, and the games change them. Open "Rates and pity for this banner" to edit any number. Everything stays in your browser, and syncs encrypted if you have an account.</p>`, "game tracker genshin wish pity gacha honkai star rail zenless wuthering waves collection checklist characters weapons banner pull"],
   ["library-basics", "library", "Using your library", "Status, score, progress, notes, diary.",
     `<ol><li>On any work, choose a status: Planned, In progress, Done and so on.</li><li>Add a score, progress and notes if you like.</li><li>Open <a href="#library">Library</a> and switch tabs for All, In progress, Planned or Diary.</li></ol>`, "library status score progress diary"],
   ["lists-sharing", "library", "Lists, trackers and sharing", "Share a list, a playlist or a directory with a link.",
