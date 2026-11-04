@@ -37,6 +37,50 @@
    }
   },
   {
+   "slug": "forrest-gump-1994",
+   "medium": "film",
+   "title": "Forrest Gump",
+   "year": 1994,
+   "popularity_tier": 1,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 142,
+   "credits": [
+    [
+     "director",
+     "Robert Zemeckis"
+    ],
+    [
+     "actor",
+     "Tom Hanks"
+    ],
+    [
+     "actor",
+     "Gary Sinise"
+    ],
+    [
+     "actor",
+     "Sally Field"
+    ],
+    [
+     "actor",
+     "Robin Wright"
+    ]
+   ],
+   "summary": "A 1994 film directed by Robert Zemeckis. Starring Tom Hanks, Gary Sinise, Sally Field and Robin Wright.",
+   "terms": {
+    "genre:coming-of-age": 0.8,
+    "genre:comedy": 0.8,
+    "genre:drama": 0.8,
+    "genre:romantic-comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q134773"
+   }
+  },
+  {
    "slug": "the-fox-and-the-hound-1981",
    "medium": "film",
    "title": "The Fox and the Hound",
@@ -1029,6 +1073,58 @@
     "wikidata": "Q537407",
     "franchises": [
      "Walt Disney Animation Studios feature film"
+    ]
+   }
+  },
+  {
+   "slug": "avengers-infinity-war-2018",
+   "medium": "film",
+   "title": "Avengers: Infinity War",
+   "year": 2018,
+   "popularity_tier": 1,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 149,
+   "credits": [
+    [
+     "director",
+     "Anthony Russo"
+    ],
+    [
+     "director",
+     "Joe Russo"
+    ],
+    [
+     "actor",
+     "Chris Hemsworth"
+    ],
+    [
+     "actor",
+     "Mark Ruffalo"
+    ],
+    [
+     "actor",
+     "Chris Evans"
+    ],
+    [
+     "actor",
+     "Josh Brolin"
+    ]
+   ],
+   "summary": "A 2018 Marvel Studios film. Directed by Anthony Russo and Joe Russo. Starring Chris Hemsworth, Mark Ruffalo, Chris Evans and Josh Brolin.",
+   "terms": {
+    "genre:superhero": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:action": 0.8,
+    "genre:adventure": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q23780914",
+    "franchises": [
+     "Marvel Cinematic Universe",
+     "Avengers"
     ]
    }
   },
@@ -7080,6 +7176,53 @@
     "franchises": [
      "DreamWorks Animation feature films",
      "How to Train Your Dragon"
+    ]
+   }
+  },
+  {
+   "slug": "shazam-2019",
+   "medium": "film",
+   "title": "Shazam!",
+   "year": 2019,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 132,
+   "credits": [
+    [
+     "director",
+     "David F. Sandberg"
+    ],
+    [
+     "actor",
+     "Asher Angel"
+    ],
+    [
+     "actor",
+     "Zachary Levi"
+    ],
+    [
+     "actor",
+     "Mark Strong"
+    ],
+    [
+     "actor",
+     "Djimon Hounsou"
+    ]
+   ],
+   "summary": "A 2019 film directed by David F. Sandberg. Starring Asher Angel, Zachary Levi, Mark Strong and Djimon Hounsou.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:superhero": 0.8,
+    "genre:fantasy": 0.8,
+    "genre:holiday-movie": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q23685878",
+    "franchises": [
+     "DC Extended Universe"
     ]
    }
   },
@@ -13908,6 +14051,59 @@
     "franchises": [
      "list of Pixar films"
     ]
+   }
+  },
+  {
+   "slug": "avengers-doomsday-2026",
+   "medium": "film",
+   "title": "Avengers: Doomsday",
+   "year": 2026,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Joe Russo"
+    ],
+    [
+     "director",
+     "Anthony Russo"
+    ],
+    [
+     "actor",
+     "Chris Hemsworth"
+    ],
+    [
+     "actor",
+     "Vanessa Kirby"
+    ],
+    [
+     "actor",
+     "Anthony Mackie"
+    ],
+    [
+     "actor",
+     "Sebastian Stan"
+    ]
+   ],
+   "summary": "An upcoming film directed by Anthony and Joe Russo. Starring Chris Hemsworth, Vanessa Kirby, Anthony Mackie and Sebastian Stan. Not yet released: expected 2026.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:action": 0.8,
+    "genre:adventure": 0.8,
+    "genre:superhero": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q113244839",
+    "franchises": [
+     "Marvel Cinematic Universe",
+     "Avengers"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2026-12-17"
    }
   },
   {
@@ -31152,6 +31348,40 @@
    }
   },
   {
+   "slug": "shrek-5-2027",
+   "medium": "film",
+   "title": "Shrek 5",
+   "year": 2027,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Walt Dohrn"
+    ],
+    [
+     "director",
+     "Conrad Vernon"
+    ]
+   ],
+   "summary": "An upcoming animated film directed by Walt Dohrn and Conrad Vernon. Not yet released: expected 2027.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q30750216",
+    "franchises": [
+     "Shrek"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2027-06-30"
+   }
+  },
+  {
    "slug": "the-black-dahlia-2006",
    "medium": "film",
    "title": "The Black Dahlia",
@@ -31736,6 +31966,41 @@
    }
   },
   {
+   "slug": "spider-man-beyond-the-spider-verse-2027",
+   "medium": "film",
+   "title": "Spider-Man: Beyond the Spider-Verse",
+   "year": 2027,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Bob Persichetti"
+    ],
+    [
+     "director",
+     "Justin K. Thompson"
+    ]
+   ],
+   "summary": "A 2027 animated film directed by Bob Persichetti and Justin K. Thompson. Not yet released: expected 2027.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:adventure": 0.8,
+    "genre:superhero": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q110152284",
+    "franchises": [
+     "Spider-Verse"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2027-06-18"
+   }
+  },
+  {
    "slug": "a-man-called-otto-2022",
    "medium": "film",
    "title": "A Man Called Otto",
@@ -31821,6 +32086,51 @@
     "franchises": [
      "Halloween"
     ]
+   }
+  },
+  {
+   "slug": "dune-part-three-2026",
+   "medium": "film",
+   "title": "Dune: Part Three",
+   "year": 2026,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Denis Villeneuve"
+    ],
+    [
+     "actor",
+     "Timothée Chalamet"
+    ],
+    [
+     "actor",
+     "Zendaya"
+    ],
+    [
+     "actor",
+     "Florence Pugh"
+    ],
+    [
+     "actor",
+     "Jason Momoa"
+    ]
+   ],
+   "summary": "An upcoming film directed by Denis Villeneuve. Starring Timothée Chalamet, Zendaya, Florence Pugh and Jason Momoa. Not yet released: expected 2026.",
+   "terms": {
+    "genre:science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q124714245",
+    "franchises": [
+     "Dune"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2026-12-18"
    }
   },
   {
@@ -36023,6 +36333,52 @@
    }
   },
   {
+   "slug": "sonic-the-hedgehog-4-2027",
+   "medium": "film",
+   "title": "Sonic the Hedgehog 4",
+   "year": 2027,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Jeff Fowler"
+    ],
+    [
+     "actor",
+     "James Marsden"
+    ],
+    [
+     "actor",
+     "Tika Sumpter"
+    ],
+    [
+     "actor",
+     "Jim Carrey"
+    ],
+    [
+     "actor",
+     "Lee Majdoub"
+    ]
+   ],
+   "summary": "An upcoming film directed by Jeff Fowler. Starring James Marsden, Tika Sumpter, Jim Carrey and Lee Majdoub. Not yet released: expected 2027.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q131495871",
+    "franchises": [
+     "Sonic the Hedgehog"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2027-03-19"
+   }
+  },
+  {
    "slug": "last-man-standing-1996",
    "medium": "film",
    "title": "Last Man Standing",
@@ -36552,6 +36908,35 @@
    },
    "attributes": {
     "wikidata": "Q1259419"
+   }
+  },
+  {
+   "slug": "the-angry-birds-movie-3-2026",
+   "medium": "film",
+   "title": "The Angry Birds Movie 3",
+   "year": 2026,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "John Rice"
+    ]
+   ],
+   "summary": "An upcoming animated film directed by John Rice. Not yet released: expected 2026.",
+   "terms": {
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q128809323",
+    "franchises": [
+     "The Angry Birds films"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2026-12-23"
    }
   },
   {
@@ -37752,6 +38137,54 @@
     "franchises": [
      "The Pink Panther"
     ]
+   }
+  },
+  {
+   "slug": "the-hunger-games-sunrise-on-the-reaping-2026",
+   "medium": "film",
+   "title": "The Hunger Games: Sunrise on the Reaping",
+   "year": 2026,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Francis Lawrence"
+    ],
+    [
+     "actor",
+     "Joseph Zada"
+    ],
+    [
+     "actor",
+     "Whitney Peak"
+    ],
+    [
+     "actor",
+     "Mckenna Grace"
+    ],
+    [
+     "actor",
+     "Ben Wang"
+    ]
+   ],
+   "summary": "An upcoming film directed by Francis Lawrence. Starring Joseph Zada, Whitney Peak, Mckenna Grace and Ben Wang. Not yet released: expected 2026.",
+   "terms": {
+    "genre:drama": 0.8,
+    "genre:action": 0.8,
+    "genre:adventure": 0.8,
+    "genre:science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q126390739",
+    "franchises": [
+     "The Hunger Games"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2026-11-20"
    }
   },
   {
@@ -38965,6 +39398,38 @@
    }
   },
   {
+   "slug": "the-cat-in-the-hat-2026",
+   "medium": "film",
+   "title": "The Cat in the Hat",
+   "year": 2026,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 107,
+   "credits": [
+    [
+     "director",
+     "Erica Rivinoja"
+    ],
+    [
+     "director",
+     "Alessandro Carloni"
+    ]
+   ],
+   "summary": "An upcoming film directed by Erica Rivinoja and Alessandro Carloni. Not yet released: expected 2026.",
+   "terms": {
+    "genre:fantasy": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q122932991",
+    "release_status": "upcoming",
+    "release_date": "2026-11-06"
+   }
+  },
+  {
    "slug": "eden-2024",
    "medium": "film",
    "title": "Eden",
@@ -39003,6 +39468,44 @@
    },
    "attributes": {
     "wikidata": "Q123472177"
+   }
+  },
+  {
+   "slug": "gatto-2027",
+   "medium": "film",
+   "title": "Gatto",
+   "year": 2027,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Enrico Casarosa"
+    ],
+    [
+     "actor",
+     "Mark Ruffalo"
+    ],
+    [
+     "actor",
+     "Laurence Fishburne"
+    ],
+    [
+     "actor",
+     "Enrico Casarosa"
+    ]
+   ],
+   "summary": "An upcoming animated film directed by Enrico Casarosa. Starring Mark Ruffalo and Laurence Fishburne. Not yet released: expected 2027.",
+   "terms": {
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q135001892",
+    "release_status": "upcoming",
+    "release_date": "2027-03-05"
    }
   },
   {
@@ -39248,6 +39751,36 @@
    },
    "attributes": {
     "wikidata": "Q1212854"
+   }
+  },
+  {
+   "slug": "ice-age-boiling-point-2027",
+   "medium": "film",
+   "title": "Ice Age: Boiling Point",
+   "year": 2027,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "John C. Donkin"
+    ]
+   ],
+   "summary": "A 2027 animated film. Directed by John C. Donkin. Not yet released: expected 2027.",
+   "terms": {
+    "genre:adventure": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q131101064",
+    "franchises": [
+     "Ice Age"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2027-02-04"
    }
   },
   {
@@ -39833,6 +40366,82 @@
    }
   },
   {
+   "slug": "hexed-2026",
+   "medium": "film",
+   "title": "Hexed",
+   "year": 2026,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Fawn Veerasunthorn"
+    ],
+    [
+     "director",
+     "Jason Hand"
+    ]
+   ],
+   "summary": "A 2026 animated film directed by Fawn Veerasunthorn and Jason Hand. Not yet released: expected 2026.",
+   "terms": {
+    "genre:fantasy": 0.8,
+    "genre:comedy": 0.8,
+    "genre:coming-of-age": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q136027913",
+    "release_status": "upcoming",
+    "release_date": "2026-11-25"
+   }
+  },
+  {
+   "slug": "ebenezer-2026",
+   "medium": "film",
+   "title": "Ebenezer",
+   "year": 2026,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "credits": [
+    [
+     "director",
+     "Ti West"
+    ],
+    [
+     "actor",
+     "Johnny Depp"
+    ],
+    [
+     "actor",
+     "Andrea Riseborough"
+    ],
+    [
+     "actor",
+     "Tramell Tillman"
+    ],
+    [
+     "actor",
+     "Ian McKellen"
+    ]
+   ],
+   "summary": "A 2026 film directed by Ti West. Starring Johnny Depp, Andrea Riseborough, Tramell Tillman and Ian McKellen. Not yet released: expected 2026.",
+   "terms": {
+    "genre:fantasy": 0.8,
+    "genre:holiday-movie": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q136650058",
+    "release_status": "upcoming",
+    "release_date": "2026-11-12"
+   }
+  },
+  {
    "slug": "gotti-2018",
    "medium": "film",
    "title": "Gotti",
@@ -40081,6 +40690,41 @@
    }
   },
   {
+   "slug": "avengers-secret-wars-2027",
+   "medium": "film",
+   "title": "Avengers: Secret Wars",
+   "year": 2027,
+   "popularity_tier": 3,
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Anthony Russo"
+    ],
+    [
+     "director",
+     "Joe Russo"
+    ]
+   ],
+   "summary": "An upcoming film directed by Anthony and Joe Russo. Not yet released: expected 2027.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:action": 0.8,
+    "genre:adventure": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q113244842",
+    "franchises": [
+     "Marvel Cinematic Universe",
+     "Avengers"
+    ],
+    "release_status": "upcoming",
+    "release_date": "2027-12-17"
+   }
+  },
+  {
    "slug": "mad-city-1997",
    "medium": "film",
    "title": "Mad City",
@@ -40121,6 +40765,92 @@
    },
    "attributes": {
     "wikidata": "Q1208879"
+   }
+  },
+  {
+   "slug": "narnia-the-magician-s-nephew-2027",
+   "medium": "film",
+   "title": "Narnia: The Magician's Nephew",
+   "year": 2027,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "Greta Gerwig"
+    ],
+    [
+     "actor",
+     "Emma Mackey"
+    ],
+    [
+     "actor",
+     "Daniel Craig"
+    ],
+    [
+     "actor",
+     "Meryl Streep"
+    ],
+    [
+     "actor",
+     "Carey Mulligan"
+    ]
+   ],
+   "summary": "An upcoming film directed by Greta Gerwig. Starring Emma Mackey, Daniel Craig, Meryl Streep and Carey Mulligan. Not yet released: expected 2027.",
+   "terms": {
+    "genre:fantasy": 0.8,
+    "genre:family": 0.8,
+    "genre:coming-of-age": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q134235227",
+    "release_status": "upcoming",
+    "release_date": "2027-02-11"
+   }
+  },
+  {
+   "slug": "man-of-tomorrow-2027",
+   "medium": "film",
+   "title": "Man of Tomorrow",
+   "year": 2027,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "credits": [
+    [
+     "director",
+     "James Gunn"
+    ],
+    [
+     "actor",
+     "David Corenswet"
+    ],
+    [
+     "actor",
+     "Nicholas Hoult"
+    ],
+    [
+     "actor",
+     "Rachel Brosnahan"
+    ],
+    [
+     "actor",
+     "Edi Gathegi"
+    ]
+   ],
+   "summary": "An upcoming film directed by James Gunn. Starring David Corenswet, Nicholas Hoult, Rachel Brosnahan and Edi Gathegi. Not yet released: expected 2027.",
+   "terms": {
+    "genre:superhero": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q136089308",
+    "release_status": "upcoming",
+    "release_date": "2027-07-09"
    }
   },
   {

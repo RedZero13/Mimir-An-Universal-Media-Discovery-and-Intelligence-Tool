@@ -8,7 +8,7 @@ TV series, books and manga, games, music and YouTube, built by
 **[mimir.terratalesmedia.world](https://mimir.terratalesmedia.world/)**.
 
 Describe what you want to experience: a mood, an idea, a favourite work, a time limit. Mimir returns a few
-well-chosen picks, each with the reasons it fits. The catalogue holds about 11,000 works from 100 countries in 68 original
+well-chosen picks, each with the reasons it fits. The catalogue holds about 11,000 works from 101 countries in 68 original
 languages; 681 are fully classified against 372 controlled terms (233 of them subgenres), and the rest, imported from
 Wikidata, are being classified in batches.
 
