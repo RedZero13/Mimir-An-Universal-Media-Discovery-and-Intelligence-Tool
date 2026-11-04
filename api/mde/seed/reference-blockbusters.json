@@ -2483,6 +2483,50 @@
    }
   },
   {
+   "slug": "dirty-harry-1971",
+   "medium": "film",
+   "title": "Dirty Harry",
+   "year": 1971,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 102,
+   "credits": [
+    [
+     "director",
+     "Don Siegel"
+    ],
+    [
+     "actor",
+     "Clint Eastwood"
+    ],
+    [
+     "actor",
+     "Andrew Robinson"
+    ],
+    [
+     "actor",
+     "Harry Guardino"
+    ],
+    [
+     "actor",
+     "Reni Santoni"
+    ]
+   ],
+   "summary": "A 1971 film directed by Don Siegel. Starring Clint Eastwood, Andrew Robinson, Harry Guardino and Reni Santoni.",
+   "terms": {
+    "genre:action": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q110206",
+    "franchises": [
+     "Dirty Harry"
+    ]
+   }
+  },
+  {
    "slug": "fury-2014",
    "medium": "film",
    "title": "Fury",
@@ -3015,6 +3059,53 @@
    }
   },
   {
+   "slug": "final-destination-2000",
+   "medium": "film",
+   "title": "Final Destination",
+   "year": 2000,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 98,
+   "credits": [
+    [
+     "director",
+     "James Wong"
+    ],
+    [
+     "actor",
+     "Devon Sawa"
+    ],
+    [
+     "actor",
+     "Ali Larter"
+    ],
+    [
+     "actor",
+     "Kerr Smith"
+    ],
+    [
+     "actor",
+     "Tony Todd"
+    ]
+   ],
+   "summary": "A 2000 film directed by James Wong. Starring Devon Sawa, Ali Larter, Kerr Smith and Tony Todd.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:thriller": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q7561043",
+    "franchises": [
+     "Final Destination"
+    ]
+   }
+  },
+  {
    "slug": "deadpool-wolverine-2024",
    "medium": "film",
    "title": "Deadpool & Wolverine",
@@ -3167,6 +3258,53 @@
    },
    "attributes": {
     "wikidata": "Q31271382"
+   }
+  },
+  {
+   "slug": "alvin-and-the-chipmunks-2007",
+   "medium": "film",
+   "title": "Alvin and the Chipmunks",
+   "year": 2007,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "Tim Hill"
+    ],
+    [
+     "actor",
+     "Jason Lee"
+    ],
+    [
+     "actor",
+     "David Cross"
+    ],
+    [
+     "actor",
+     "Cameron Richardson"
+    ],
+    [
+     "actor",
+     "Jane Lynch"
+    ]
+   ],
+   "summary": "A 2007 live action/CGI film directed by Tim Hill. Starring Jason Lee, David Cross, Cameron Richardson and Jane Lynch.",
+   "terms": {
+    "genre:musical": 0.8,
+    "genre:comedy": 0.8,
+    "genre:fantasy": 0.8,
+    "genre:holiday-movie": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q387348",
+    "franchises": [
+     "Alvin and the Chipmunks in film"
+    ]
    }
   },
   {
@@ -3845,6 +3983,54 @@
    }
   },
   {
+   "slug": "the-karate-kid-2010",
+   "medium": "film",
+   "title": "The Karate Kid",
+   "year": 2010,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "CN",
+    "US"
+   ],
+   "runtime_minutes": 140,
+   "credits": [
+    [
+     "director",
+     "Harald Zwart"
+    ],
+    [
+     "actor",
+     "Jackie Chan"
+    ],
+    [
+     "actor",
+     "Han Wenwen"
+    ],
+    [
+     "actor",
+     "Taraji P. Henson"
+    ],
+    [
+     "actor",
+     "Zhenwei Wang"
+    ]
+   ],
+   "summary": "A 2010 film directed by Harald Zwart. Starring Jackie Chan, Han Wenwen, Taraji P. Henson and Zhenwei Wang.",
+   "terms": {
+    "genre:dramedy": 0.8,
+    "genre:drama": 0.8,
+    "genre:martial-arts": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q327685",
+    "franchises": [
+     "The Karate Kid"
+    ]
+   }
+  },
+  {
    "slug": "meet-joe-black-1998",
    "medium": "film",
    "title": "Meet Joe Black",
@@ -3929,6 +4115,52 @@
    },
    "attributes": {
     "wikidata": "Q730888"
+   }
+  },
+  {
+   "slug": "godzilla-2014",
+   "medium": "film",
+   "title": "Godzilla",
+   "year": 2014,
+   "popularity_tier": 2,
+   "language": "ja",
+   "countries": [
+    "US",
+    "JP"
+   ],
+   "runtime_minutes": 123,
+   "credits": [
+    [
+     "director",
+     "Gareth Edwards"
+    ],
+    [
+     "actor",
+     "Aaron Taylor-Johnson"
+    ],
+    [
+     "actor",
+     "Ken Watanabe"
+    ],
+    [
+     "actor",
+     "Elizabeth Olsen"
+    ],
+    [
+     "actor",
+     "Juliette Binoche"
+    ]
+   ],
+   "summary": "A 2014 film directed by Gareth Edwards. Starring Aaron Taylor-Johnson, Ken Watanabe, Elizabeth Olsen and Juliette Binoche.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:action": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q7731172",
+    "franchises": [
+     "MonsterVerse"
+    ]
    }
   },
   {
@@ -4182,6 +4414,53 @@
     "wikidata": "Q2608065",
     "franchises": [
      "The Lego Movie"
+    ]
+   }
+  },
+  {
+   "slug": "alvin-and-the-chipmunks-chipwrecked-2011",
+   "medium": "film",
+   "title": "Alvin and the Chipmunks: Chipwrecked",
+   "year": 2011,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 87,
+   "credits": [
+    [
+     "director",
+     "Mike Mitchell"
+    ],
+    [
+     "actor",
+     "Jason Lee"
+    ],
+    [
+     "actor",
+     "David Cross"
+    ],
+    [
+     "actor",
+     "Jenny Slate"
+    ],
+    [
+     "actor",
+     "Andy Buckley"
+    ]
+   ],
+   "summary": "A 2011 film directed by Mike Mitchell. Starring Jason Lee, David Cross, Jenny Slate and Andy Buckley.",
+   "terms": {
+    "genre:musical": 0.8,
+    "genre:comedy": 0.8,
+    "genre:family": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q303678",
+    "franchises": [
+     "Alvin and the Chipmunks in film"
     ]
    }
   },
@@ -4597,6 +4876,53 @@
    }
   },
   {
+   "slug": "the-evil-dead-1981",
+   "medium": "film",
+   "title": "The Evil Dead",
+   "year": 1981,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 85,
+   "credits": [
+    [
+     "director",
+     "Sam Raimi"
+    ],
+    [
+     "actor",
+     "Bruce Campbell"
+    ],
+    [
+     "actor",
+     "Betsy Baker"
+    ],
+    [
+     "actor",
+     "Richard DeManincor"
+    ],
+    [
+     "actor",
+     "Theresa Tilly"
+    ]
+   ],
+   "summary": "A 1981 film by Sam Raimi. Starring Bruce Campbell, Betsy Baker, Richard DeManincor and Theresa Tilly.",
+   "terms": {
+    "genre:supernatural-horror": 0.8,
+    "genre:zombie-horror": 0.8,
+    "genre:drama": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q327604",
+    "franchises": [
+     "Evil Dead"
+    ]
+   }
+  },
+  {
    "slug": "king-arthur-2004",
    "medium": "film",
    "title": "King Arthur",
@@ -4640,6 +4966,99 @@
    },
    "attributes": {
     "wikidata": "Q337090"
+   }
+  },
+  {
+   "slug": "home-alone-3-1997",
+   "medium": "film",
+   "title": "Home Alone 3",
+   "year": 1997,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 102,
+   "credits": [
+    [
+     "director",
+     "Raja Gosnell"
+    ],
+    [
+     "actor",
+     "Alex D. Linz"
+    ],
+    [
+     "actor",
+     "Scarlett Johansson"
+    ],
+    [
+     "actor",
+     "Aleksander Krupa"
+    ],
+    [
+     "actor",
+     "Marian Seldes"
+    ]
+   ],
+   "summary": "A 1997 film directed by Raja Gosnell. Starring Alex D. Linz, Scarlett Johansson, Aleksander Krupa and Marian Seldes.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:comedy": 0.8,
+    "genre:holiday-movie": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q382320",
+    "franchises": [
+     "Home Alone"
+    ]
+   }
+  },
+  {
+   "slug": "rocky-ii-1979",
+   "medium": "film",
+   "title": "Rocky II",
+   "year": 1979,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 119,
+   "credits": [
+    [
+     "director",
+     "Sylvester Stallone"
+    ],
+    [
+     "actor",
+     "Talia Shire"
+    ],
+    [
+     "actor",
+     "Burt Young"
+    ],
+    [
+     "actor",
+     "Carl Weathers"
+    ],
+    [
+     "actor",
+     "Burgess Meredith"
+    ]
+   ],
+   "summary": "A 1979 film directed by Sylvester Stallone. Starring Talia Shire, Burt Young, Carl Weathers and Burgess Meredith.",
+   "terms": {
+    "genre:drama": 0.8,
+    "genre:action": 0.8,
+    "genre:sports": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q478366",
+    "franchises": [
+     "Rocky"
+    ]
    }
   },
   {
@@ -5193,6 +5612,53 @@
     "wikidata": "Q31271369",
     "franchises": [
      "Fast & Furious"
+    ]
+   }
+  },
+  {
+   "slug": "alvin-and-the-chipmunks-the-squeakquel-2009",
+   "medium": "film",
+   "title": "Alvin and the Chipmunks: The Squeakquel",
+   "year": 2009,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 88,
+   "credits": [
+    [
+     "director",
+     "Betty Thomas"
+    ],
+    [
+     "actor",
+     "Zachary Levi"
+    ],
+    [
+     "actor",
+     "David Cross"
+    ],
+    [
+     "actor",
+     "Jason Lee"
+    ],
+    [
+     "actor",
+     "Wendie Malick"
+    ]
+   ],
+   "summary": "A 2009 film by Betty Thomas. Starring Zachary Levi, David Cross, Jason Lee and Wendie Malick.",
+   "terms": {
+    "genre:musical": 0.8,
+    "genre:comedy": 0.8,
+    "genre:family": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q378311",
+    "franchises": [
+     "Alvin and the Chipmunks in film"
     ]
    }
   },
@@ -6519,6 +6985,54 @@
    }
   },
   {
+   "slug": "insidious-2010",
+   "medium": "film",
+   "title": "Insidious",
+   "year": 2010,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 102,
+   "credits": [
+    [
+     "director",
+     "James Wan"
+    ],
+    [
+     "actor",
+     "Patrick Wilson"
+    ],
+    [
+     "actor",
+     "Rose Byrne"
+    ],
+    [
+     "actor",
+     "Ty Simpkins"
+    ],
+    [
+     "actor",
+     "Barbara Hershey"
+    ]
+   ],
+   "summary": "A 2010 film by James Wan. Starring Patrick Wilson, Rose Byrne, Ty Simpkins and Barbara Hershey.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:thriller": 0.8,
+    "genre:drama": 0.8,
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q122713",
+    "franchises": [
+     "Insidious"
+    ]
+   }
+  },
+  {
    "slug": "night-at-the-museum-secret-of-the-tomb-2014",
    "medium": "film",
    "title": "Night at the Museum: Secret of the Tomb",
@@ -6589,6 +7103,53 @@
    },
    "attributes": {
     "wikidata": "Q15982441"
+   }
+  },
+  {
+   "slug": "alvin-and-the-chipmunks-the-road-chip-2015",
+   "medium": "film",
+   "title": "Alvin and the Chipmunks: The Road Chip",
+   "year": 2015,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "Walt Becker"
+    ],
+    [
+     "actor",
+     "Jason Lee"
+    ],
+    [
+     "actor",
+     "Tony Hale"
+    ],
+    [
+     "actor",
+     "Kimberly Williams-Paisley"
+    ],
+    [
+     "actor",
+     "Bella Thorne"
+    ]
+   ],
+   "summary": "A 2016 direct to video film directed by Walt Becker. Starring Jason Lee, Tony Hale, Kimberly Williams-Paisley and Bella Thorne.",
+   "terms": {
+    "genre:adventure": 0.8,
+    "genre:family": 0.8,
+    "genre:comedy": 0.8,
+    "genre:musical": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q19801728",
+    "franchises": [
+     "Alvin and the Chipmunks in film"
+    ]
    }
   },
   {
@@ -6807,6 +7368,47 @@
     "franchises": [
      "Hotel Transylvania",
      "list of Sony Pictures Animation productions"
+    ]
+   }
+  },
+  {
+   "slug": "saw-iv-2007",
+   "medium": "film",
+   "title": "Saw IV",
+   "year": 2007,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 96,
+   "credits": [
+    [
+     "director",
+     "Darren Lynn Bouseman"
+    ],
+    [
+     "actor",
+     "Tobin Bell"
+    ],
+    [
+     "actor",
+     "Costas Mandylor"
+    ],
+    [
+     "actor",
+     "Scott Patterson"
+    ],
+    [
+     "actor",
+     "Betsy Russell"
+    ]
+   ],
+   "summary": "A 2007 film by Darren Lynn Bousman. Directed by Darren Lynn Bouseman. Starring Tobin Bell, Costas Mandylor, Scott Patterson and Betsy Russell.",
+   "attributes": {
+    "wikidata": "Q326319",
+    "franchises": [
+     "Saw"
     ]
    }
   },
@@ -7403,6 +8005,47 @@
    }
   },
   {
+   "slug": "saw-v-2008",
+   "medium": "film",
+   "title": "Saw V",
+   "year": 2008,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "David Hackl"
+    ],
+    [
+     "actor",
+     "Tobin Bell"
+    ],
+    [
+     "actor",
+     "Costas Mandylor"
+    ],
+    [
+     "actor",
+     "Scott Patterson"
+    ],
+    [
+     "actor",
+     "Betsy Russell"
+    ]
+   ],
+   "summary": "A 2008 film by David Hackl. Starring Tobin Bell, Costas Mandylor, Scott Patterson and Betsy Russell.",
+   "attributes": {
+    "wikidata": "Q326177",
+    "franchises": [
+     "Saw"
+    ]
+   }
+  },
+  {
    "slug": "ad-astra-2019",
    "medium": "film",
    "title": "Ad Astra",
@@ -7442,6 +8085,146 @@
    },
    "attributes": {
     "wikidata": "Q38774788"
+   }
+  },
+  {
+   "slug": "scary-movie-3-2003",
+   "medium": "film",
+   "title": "Scary Movie 3",
+   "year": 2003,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "David Zucker"
+    ],
+    [
+     "actor",
+     "Anna Faris"
+    ],
+    [
+     "actor",
+     "Simon Rex"
+    ],
+    [
+     "actor",
+     "Charlie Sheen"
+    ],
+    [
+     "actor",
+     "Drew Mikuska"
+    ]
+   ],
+   "summary": "A 2003 film directed by David Zucker. Starring Anna Faris, Simon Rex, Charlie Sheen and Drew Mikuska.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:parody": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q635937",
+    "franchises": [
+     "Scary Movie"
+    ]
+   }
+  },
+  {
+   "slug": "final-destination-5-2011",
+   "medium": "film",
+   "title": "Final Destination 5",
+   "year": 2011,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "Steven Quale"
+    ],
+    [
+     "actor",
+     "Nicholas D'Agosto"
+    ],
+    [
+     "actor",
+     "Emma Bell"
+    ],
+    [
+     "actor",
+     "Miles Fisher"
+    ],
+    [
+     "actor",
+     "Arlen Escarpeta"
+    ]
+   ],
+   "summary": "A 2011 film directed by Steven Quale. Starring Nicholas D'Agosto, Emma Bell, Miles Fisher and Arlen Escarpeta.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q661847",
+    "franchises": [
+     "Final Destination"
+    ]
+   }
+  },
+  {
+   "slug": "predator-2-1990",
+   "medium": "film",
+   "title": "Predator 2",
+   "year": 1990,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 107,
+   "credits": [
+    [
+     "director",
+     "Stephen Hopkins"
+    ],
+    [
+     "actor",
+     "Danny Glover"
+    ],
+    [
+     "actor",
+     "Kevin Peter Hall"
+    ],
+    [
+     "actor",
+     "María Conchita Alonso"
+    ],
+    [
+     "actor",
+     "Gary Busey"
+    ]
+   ],
+   "summary": "A 1990 film directed by Stephen Hopkins. Starring Danny Glover, Kevin Peter Hall, María Conchita Alonso and Gary Busey.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:horror": 0.8,
+    "genre:social-science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q720357",
+    "franchises": [
+     "Predator"
+    ]
    }
   },
   {
@@ -7550,6 +8333,51 @@
     "wikidata": "Q11640531",
     "franchises": [
      "DreamWorks Animation feature films"
+    ]
+   }
+  },
+  {
+   "slug": "police-academy-1984",
+   "medium": "film",
+   "title": "Police Academy",
+   "year": 1984,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 96,
+   "credits": [
+    [
+     "director",
+     "Hugh Wilson"
+    ],
+    [
+     "actor",
+     "Steve Guttenberg"
+    ],
+    [
+     "actor",
+     "Kim Cattrall"
+    ],
+    [
+     "actor",
+     "Bubba Smith"
+    ],
+    [
+     "actor",
+     "David Graf"
+    ]
+   ],
+   "summary": "A 1984 film directed by Hugh Wilson. Starring Steve Guttenberg, Kim Cattrall, Bubba Smith and David Graf.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1248429",
+    "franchises": [
+     "Police Academy"
     ]
    }
   },
@@ -7776,6 +8604,53 @@
    }
   },
   {
+   "slug": "predators-2010",
+   "medium": "film",
+   "title": "Predators",
+   "year": 2010,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 107,
+   "credits": [
+    [
+     "director",
+     "Nimród Antal"
+    ],
+    [
+     "actor",
+     "Adrien Brody"
+    ],
+    [
+     "actor",
+     "Topher Grace"
+    ],
+    [
+     "actor",
+     "Alice Braga"
+    ],
+    [
+     "actor",
+     "Walton Goggins"
+    ]
+   ],
+   "summary": "A 2010 film directed by Nimród Antal. Starring Adrien Brody, Topher Grace, Alice Braga and Walton Goggins.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:horror": 0.8,
+    "genre:adventure": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q380667",
+    "franchises": [
+     "Predator"
+    ]
+   }
+  },
+  {
    "slug": "first-man-2018",
    "medium": "film",
    "title": "First Man",
@@ -7859,6 +8734,52 @@
    },
    "attributes": {
     "wikidata": "Q4407383"
+   }
+  },
+  {
+   "slug": "saw-3d-2010",
+   "medium": "film",
+   "title": "Saw 3D",
+   "year": 2010,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "Kevin Greutert"
+    ],
+    [
+     "actor",
+     "Tobin Bell"
+    ],
+    [
+     "actor",
+     "Costas Mandylor"
+    ],
+    [
+     "actor",
+     "Betsy Russell"
+    ],
+    [
+     "actor",
+     "Sean Patrick Flanery"
+    ]
+   ],
+   "summary": "A 2010 film by Kevin Greutert. Starring Tobin Bell, Costas Mandylor, Betsy Russell and Sean Patrick Flanery.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q676284",
+    "franchises": [
+     "Saw"
+    ]
    }
   },
   {
@@ -8081,6 +9002,53 @@
    }
   },
   {
+   "slug": "mad-max-2-1981",
+   "medium": "film",
+   "title": "Mad Max 2",
+   "year": 1981,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "AU"
+   ],
+   "runtime_minutes": 95,
+   "credits": [
+    [
+     "director",
+     "George Miller"
+    ],
+    [
+     "actor",
+     "Mel Gibson"
+    ],
+    [
+     "actor",
+     "Michael Preston"
+    ],
+    [
+     "actor",
+     "Bruce Spence"
+    ],
+    [
+     "actor",
+     "Vernon Wells"
+    ]
+   ],
+   "summary": "A 1981 film directed by George Miller. Starring Mel Gibson, Michael Preston, Bruce Spence and Vernon Wells.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:adventure": 0.8,
+    "genre:thriller": 0.8,
+    "genre:road-trip": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1125262",
+    "franchises": [
+     "Mad Max"
+    ]
+   }
+  },
+  {
    "slug": "analyze-this-1999",
    "medium": "film",
    "title": "Analyze This",
@@ -8122,6 +9090,53 @@
    },
    "attributes": {
     "wikidata": "Q1141746"
+   }
+  },
+  {
+   "slug": "kingdom-of-the-planet-of-the-apes-2024",
+   "medium": "film",
+   "title": "Kingdom of the Planet of the Apes",
+   "year": 2024,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 145,
+   "credits": [
+    [
+     "director",
+     "Wes Ball"
+    ],
+    [
+     "actor",
+     "Owen Teague"
+    ],
+    [
+     "actor",
+     "Freya Allan"
+    ],
+    [
+     "actor",
+     "Peter Macon"
+    ],
+    [
+     "actor",
+     "Eka Darville"
+    ]
+   ],
+   "summary": "A 2024 film directed by Wes Ball. Starring Owen Teague, Freya Allan, Peter Macon and Eka Darville.",
+   "terms": {
+    "genre:adventure": 0.8,
+    "genre:post-apocalyptic": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:drama": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q114314695",
+    "franchises": [
+     "Planet of the Apes"
+    ]
    }
   },
   {
@@ -8436,6 +9451,51 @@
    }
   },
   {
+   "slug": "final-destination-2-2003",
+   "medium": "film",
+   "title": "Final Destination 2",
+   "year": 2003,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "David R. Ellis"
+    ],
+    [
+     "actor",
+     "Ali Larter"
+    ],
+    [
+     "actor",
+     "A. J. Cook"
+    ],
+    [
+     "actor",
+     "Michael Landes"
+    ],
+    [
+     "actor",
+     "David Paetkau"
+    ]
+   ],
+   "summary": "A 2003 film directed by David R. Ellis. Starring Ali Larter, A. J. Cook, Michael Landes and David Paetkau.",
+   "terms": {
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q820009",
+    "franchises": [
+     "Final Destination"
+    ]
+   }
+  },
+  {
    "slug": "robocop-2014",
    "medium": "film",
    "title": "RoboCop",
@@ -8483,6 +9543,53 @@
    }
   },
   {
+   "slug": "aquaman-and-the-lost-kingdom-2023",
+   "medium": "film",
+   "title": "Aquaman and the Lost Kingdom",
+   "year": 2023,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 124,
+   "credits": [
+    [
+     "director",
+     "James Wan"
+    ],
+    [
+     "actor",
+     "Jason Momoa"
+    ],
+    [
+     "actor",
+     "Amber Heard"
+    ],
+    [
+     "actor",
+     "Patrick Wilson"
+    ],
+    [
+     "actor",
+     "Yahya Abdul-Mateen II"
+    ]
+   ],
+   "summary": "A 2023 superhero film by James Wan. Starring Jason Momoa, Amber Heard, Patrick Wilson and Yahya Abdul-Mateen II.",
+   "terms": {
+    "genre:adventure": 0.8,
+    "genre:action": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:social-science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q91226161",
+    "franchises": [
+     "DC Extended Universe"
+    ]
+   }
+  },
+  {
    "slug": "law-abiding-citizen-2009",
    "medium": "film",
    "title": "Law Abiding Citizen",
@@ -8523,53 +9630,6 @@
    },
    "attributes": {
     "wikidata": "Q951071"
-   }
-  },
-  {
-   "slug": "kingdom-of-the-planet-of-the-apes-2024",
-   "medium": "film",
-   "title": "Kingdom of the Planet of the Apes",
-   "year": 2024,
-   "popularity_tier": 2,
-   "language": "en",
-   "countries": [
-    "US"
-   ],
-   "runtime_minutes": 145,
-   "credits": [
-    [
-     "director",
-     "Wes Ball"
-    ],
-    [
-     "actor",
-     "Owen Teague"
-    ],
-    [
-     "actor",
-     "Freya Allan"
-    ],
-    [
-     "actor",
-     "Peter Macon"
-    ],
-    [
-     "actor",
-     "Eka Darville"
-    ]
-   ],
-   "summary": "A 2024 film directed by Wes Ball. Starring Owen Teague, Freya Allan, Peter Macon and Eka Darville.",
-   "terms": {
-    "genre:adventure": 0.8,
-    "genre:post-apocalyptic": 0.8,
-    "genre:science-fiction": 0.8,
-    "genre:drama": 0.8
-   },
-   "attributes": {
-    "wikidata": "Q114314695",
-    "franchises": [
-     "Planet of the Apes"
-    ]
    }
   },
   {
@@ -8748,6 +9808,50 @@
    },
    "attributes": {
     "wikidata": "Q315664"
+   }
+  },
+  {
+   "slug": "magnum-force-1973",
+   "medium": "film",
+   "title": "Magnum Force",
+   "year": 1973,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 122,
+   "credits": [
+    [
+     "director",
+     "Ted Post"
+    ],
+    [
+     "actor",
+     "Clint Eastwood"
+    ],
+    [
+     "actor",
+     "Hal Holbrook"
+    ],
+    [
+     "actor",
+     "Mitchell Ryan"
+    ],
+    [
+     "actor",
+     "David Soul"
+    ]
+   ],
+   "summary": "A 1973 film directed by Ted Post. Starring Clint Eastwood, Hal Holbrook, Mitchell Ryan and David Soul.",
+   "terms": {
+    "genre:action": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q458852",
+    "franchises": [
+     "Dirty Harry"
+    ]
    }
   },
   {
@@ -9038,6 +10142,53 @@
    },
    "attributes": {
     "wikidata": "Q757250"
+   }
+  },
+  {
+   "slug": "final-destination-3-2006",
+   "medium": "film",
+   "title": "Final Destination 3",
+   "year": 2006,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "CA",
+    "US",
+    "DE"
+   ],
+   "runtime_minutes": 93,
+   "credits": [
+    [
+     "director",
+     "James Wong"
+    ],
+    [
+     "actor",
+     "Mary Elizabeth Winstead"
+    ],
+    [
+     "actor",
+     "Ryan Merriman"
+    ],
+    [
+     "actor",
+     "Alexz Johnson"
+    ],
+    [
+     "actor",
+     "Amanda Crew"
+    ]
+   ],
+   "summary": "A 2006 film directed by James Wong. Starring Mary Elizabeth Winstead, Ryan Merriman, Alexz Johnson and Amanda Crew.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q820811",
+    "franchises": [
+     "Final Destination"
+    ]
    }
   },
   {
@@ -9627,6 +10778,101 @@
    }
   },
   {
+   "slug": "a-nightmare-on-elm-street-3-dream-warriors-1987",
+   "medium": "film",
+   "title": "A Nightmare on Elm Street 3: Dream Warriors",
+   "year": 1987,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "Chuck Russell"
+    ],
+    [
+     "actor",
+     "Heather Langenkamp"
+    ],
+    [
+     "actor",
+     "Laurence Fishburne"
+    ],
+    [
+     "actor",
+     "Craig Wasson"
+    ],
+    [
+     "actor",
+     "Patricia Arquette"
+    ]
+   ],
+   "summary": "A 1987 American film by Chuck Russell. Starring Heather Langenkamp, Laurence Fishburne, Craig Wasson and Patricia Arquette.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:drama": 0.8,
+    "genre:slasher": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q373362",
+    "franchises": [
+     "A Nightmare on Elm Street"
+    ]
+   }
+  },
+  {
+   "slug": "wrong-turn-2003",
+   "medium": "film",
+   "title": "Wrong Turn",
+   "year": 2003,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "CA",
+    "DE",
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "Rob Schmidt"
+    ],
+    [
+     "actor",
+     "Desmond Harrington"
+    ],
+    [
+     "actor",
+     "Eliza Dushku"
+    ],
+    [
+     "actor",
+     "Emmanuelle Chriqui"
+    ],
+    [
+     "actor",
+     "Jeremy Sisto"
+    ]
+   ],
+   "summary": "A 2003 film directed by Rob Schmidt. Starring Desmond Harrington, Eliza Dushku, Emmanuelle Chriqui and Jeremy Sisto.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q388944",
+    "franchises": [
+     "Wrong Turn"
+    ]
+   }
+  },
+  {
    "slug": "lethal-weapon-4-1998",
    "medium": "film",
    "title": "Lethal Weapon 4",
@@ -9760,6 +11006,50 @@
    },
    "attributes": {
     "wikidata": "Q628851"
+   }
+  },
+  {
+   "slug": "saw-vi-2009",
+   "medium": "film",
+   "title": "Saw VI",
+   "year": 2009,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "Kevin Greutert"
+    ],
+    [
+     "actor",
+     "Tobin Bell"
+    ],
+    [
+     "actor",
+     "Costas Mandylor"
+    ],
+    [
+     "actor",
+     "Betsy Russell"
+    ],
+    [
+     "actor",
+     "Mark Rolston"
+    ]
+   ],
+   "summary": "A 2009 film directed by Kevin Greutert. Starring Tobin Bell, Costas Mandylor, Betsy Russell and Mark Rolston.",
+   "terms": {
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q834327",
+    "franchises": [
+     "Saw"
+    ]
    }
   },
   {
@@ -10121,6 +11411,53 @@
    },
    "attributes": {
     "wikidata": "Q1129308"
+   }
+  },
+  {
+   "slug": "a-nightmare-on-elm-street-2-freddy-s-revenge-1985",
+   "medium": "film",
+   "title": "A Nightmare on Elm Street 2: Freddy's Revenge",
+   "year": 1985,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 82,
+   "credits": [
+    [
+     "director",
+     "Jack Sholder"
+    ],
+    [
+     "actor",
+     "Mark Patton"
+    ],
+    [
+     "actor",
+     "Kim Myers"
+    ],
+    [
+     "actor",
+     "Robert Rusler"
+    ],
+    [
+     "actor",
+     "Clu Gulager"
+    ]
+   ],
+   "summary": "A 1985 American film by Jack Sholder. Starring Mark Patton, Kim Myers, Robert Rusler and Clu Gulager.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:supernatural-horror": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1145824",
+    "franchises": [
+     "A Nightmare on Elm Street"
+    ]
    }
   },
   {
@@ -10556,6 +11893,51 @@
    }
   },
   {
+   "slug": "the-texas-chainsaw-massacre-2003",
+   "medium": "film",
+   "title": "The Texas Chainsaw Massacre",
+   "year": 2003,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 113,
+   "credits": [
+    [
+     "director",
+     "Marcus Nispel"
+    ],
+    [
+     "actor",
+     "Jessica Biel"
+    ],
+    [
+     "actor",
+     "Jonathan Tucker"
+    ],
+    [
+     "actor",
+     "Erica Leerhsen"
+    ],
+    [
+     "actor",
+     "Mike Vogel"
+    ]
+   ],
+   "summary": "A 2003 film directed by Marcus Nispel. Starring Jessica Biel, Jonathan Tucker, Erica Leerhsen and Mike Vogel.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q392696",
+    "franchises": [
+     "The Texas Chainsaw Massacre"
+    ]
+   }
+  },
+  {
    "slug": "the-rundown-2003",
    "medium": "film",
    "title": "The Rundown",
@@ -10641,6 +12023,145 @@
    }
   },
   {
+   "slug": "evil-dead-ii-1987",
+   "medium": "film",
+   "title": "Evil Dead II",
+   "year": 1987,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 85,
+   "credits": [
+    [
+     "director",
+     "Sam Raimi"
+    ],
+    [
+     "actor",
+     "Bruce Campbell"
+    ],
+    [
+     "actor",
+     "Kassie DePaiva"
+    ],
+    [
+     "actor",
+     "Dan Hicks"
+    ],
+    [
+     "actor",
+     "Ted Raimi"
+    ]
+   ],
+   "summary": "A 1987 film by Sam Raimi. Starring Bruce Campbell, Kassie DePaiva, Dan Hicks and Ted Raimi.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:zombie-horror": 0.8,
+    "genre:parody": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q750028",
+    "franchises": [
+     "Evil Dead"
+    ]
+   }
+  },
+  {
+   "slug": "the-purge-2013",
+   "medium": "film",
+   "title": "The Purge",
+   "year": 2013,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "FR",
+    "US",
+    "BE"
+   ],
+   "runtime_minutes": 85,
+   "credits": [
+    [
+     "director",
+     "James DeMonaco"
+    ],
+    [
+     "actor",
+     "Ethan Hawke"
+    ],
+    [
+     "actor",
+     "Lena Headey"
+    ],
+    [
+     "actor",
+     "Adelaide Kane"
+    ],
+    [
+     "actor",
+     "Rhys Wakefield"
+    ]
+   ],
+   "summary": "A 2013 film directed by James DeMonaco. Starring Ethan Hawke, Lena Headey, Adelaide Kane and Rhys Wakefield.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:thriller": 0.8,
+    "genre:dystopian": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q7758789",
+    "franchises": [
+     "The Purge"
+    ]
+   }
+  },
+  {
+   "slug": "sudden-impact-1983",
+   "medium": "film",
+   "title": "Sudden Impact",
+   "year": 1983,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 117,
+   "credits": [
+    [
+     "director",
+     "Clint Eastwood"
+    ],
+    [
+     "actor",
+     "Clint Eastwood"
+    ],
+    [
+     "actor",
+     "Sondra Locke"
+    ],
+    [
+     "actor",
+     "Pat Hingle"
+    ],
+    [
+     "actor",
+     "Bradford Dillman"
+    ]
+   ],
+   "summary": "A 1983 film by Clint Eastwood. Starring Sondra Locke, Pat Hingle and Bradford Dillman.",
+   "terms": {
+    "genre:action": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q785461",
+    "franchises": [
+     "Dirty Harry"
+    ]
+   }
+  },
+  {
    "slug": "end-of-days-1999",
    "medium": "film",
    "title": "End of Days",
@@ -10682,6 +12203,50 @@
    },
    "attributes": {
     "wikidata": "Q849656"
+   }
+  },
+  {
+   "slug": "the-final-destination-2009",
+   "medium": "film",
+   "title": "The Final Destination",
+   "year": 2009,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 82,
+   "credits": [
+    [
+     "director",
+     "David R. Ellis"
+    ],
+    [
+     "actor",
+     "Bobby Campo"
+    ],
+    [
+     "actor",
+     "Shantel VanSanten"
+    ],
+    [
+     "actor",
+     "Mykelti Williamson"
+    ],
+    [
+     "actor",
+     "Nick Zano"
+    ]
+   ],
+   "summary": "A 2009 film directed by David R. Ellis. Starring Bobby Campo, Shantel VanSanten, Mykelti Williamson and Nick Zano.",
+   "terms": {
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q858976",
+    "franchises": [
+     "Final Destination"
+    ]
    }
   },
   {
@@ -11023,6 +12588,53 @@
     "wikidata": "Q25461297",
     "franchises": [
      "Predator"
+    ]
+   }
+  },
+  {
+   "slug": "the-dead-pool-1988",
+   "medium": "film",
+   "title": "The Dead Pool",
+   "year": 1988,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 87,
+   "credits": [
+    [
+     "director",
+     "Buddy Van Horn"
+    ],
+    [
+     "actor",
+     "Clint Eastwood"
+    ],
+    [
+     "actor",
+     "Patricia Clarkson"
+    ],
+    [
+     "actor",
+     "Liam Neeson"
+    ],
+    [
+     "actor",
+     "Evan C. Kim"
+    ]
+   ],
+   "summary": "A 1988 film by Buddy Van Horn. Starring Clint Eastwood, Patricia Clarkson, Liam Neeson and Evan C. Kim.",
+   "terms": {
+    "genre:crime": 0.8,
+    "genre:action": 0.8,
+    "genre:thriller": 0.8,
+    "genre:detective-story": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q263460",
+    "franchises": [
+     "Dirty Harry"
     ]
    }
   },
@@ -11375,6 +12987,96 @@
    }
   },
   {
+   "slug": "halloween-ii-1981",
+   "medium": "film",
+   "title": "Halloween II",
+   "year": 1981,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "Rick Rosenthal"
+    ],
+    [
+     "actor",
+     "Jamie Lee Curtis"
+    ],
+    [
+     "actor",
+     "Donald Pleasence"
+    ],
+    [
+     "actor",
+     "Lance Guest"
+    ],
+    [
+     "actor",
+     "Dick Warlock"
+    ]
+   ],
+   "summary": "A 1981 film by Rick Rosenthal. Starring Jamie Lee Curtis, Donald Pleasence, Lance Guest and Dick Warlock.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q850312",
+    "franchises": [
+     "Halloween"
+    ]
+   }
+  },
+  {
+   "slug": "the-mummy-1932",
+   "medium": "film",
+   "title": "The Mummy",
+   "year": 1932,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 73,
+   "credits": [
+    [
+     "director",
+     "Karl Freund"
+    ],
+    [
+     "actor",
+     "Boris Karloff"
+    ],
+    [
+     "actor",
+     "David Manners"
+    ],
+    [
+     "actor",
+     "Edward Van Sloan"
+    ],
+    [
+     "actor",
+     "Noble Johnson"
+    ]
+   ],
+   "summary": "A 1932 film directed by Karl Freund. Starring Boris Karloff, David Manners, Edward Van Sloan and Noble Johnson.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q909071",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
    "slug": "dante-s-peak-1997",
    "medium": "film",
    "title": "Dante's Peak",
@@ -11504,6 +13206,53 @@
     "wikidata": "Q107390449",
     "franchises": [
      "Sony's Spider-Man Universe"
+    ]
+   }
+  },
+  {
+   "slug": "child-s-play-2-1990",
+   "medium": "film",
+   "title": "Child's Play 2",
+   "year": 1990,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "John Lafia"
+    ],
+    [
+     "actor",
+     "Alex Vincent"
+    ],
+    [
+     "actor",
+     "Jenny Agutter"
+    ],
+    [
+     "actor",
+     "Gerrit Graham"
+    ],
+    [
+     "actor",
+     "Christine Elise"
+    ]
+   ],
+   "summary": "A 1990 film by John Lafia. Starring Alex Vincent, Jenny Agutter, Gerrit Graham and Christine Elise.",
+   "terms": {
+    "genre:slasher": 0.8,
+    "genre:horror": 0.8,
+    "genre:thriller": 0.8,
+    "genre:comedy-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1089281",
+    "franchises": [
+     "Child's Play"
     ]
    }
   },
@@ -11686,6 +13435,51 @@
    }
   },
   {
+   "slug": "a-nightmare-on-elm-street-4-the-dream-master-1988",
+   "medium": "film",
+   "title": "A Nightmare on Elm Street 4: The Dream Master",
+   "year": 1988,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 89,
+   "credits": [
+    [
+     "director",
+     "Renny Harlin"
+    ],
+    [
+     "actor",
+     "Robert Englund"
+    ],
+    [
+     "actor",
+     "Lisa Wilcox"
+    ],
+    [
+     "actor",
+     "Andras Jones"
+    ],
+    [
+     "actor",
+     "Tuesday Knight"
+    ]
+   ],
+   "summary": "A 1988 American film by Renny Harlin. Starring Robert Englund, Lisa Wilcox, Andras Jones and Tuesday Knight.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1364051",
+    "franchises": [
+     "A Nightmare on Elm Street"
+    ]
+   }
+  },
+  {
    "slug": "child-44-2015",
    "medium": "film",
    "title": "Child 44",
@@ -11816,6 +13610,53 @@
    },
    "attributes": {
     "wikidata": "Q19983487"
+   }
+  },
+  {
+   "slug": "a-nightmare-on-elm-street-2010",
+   "medium": "film",
+   "title": "A Nightmare on Elm Street",
+   "year": 2010,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 95,
+   "credits": [
+    [
+     "director",
+     "Samuel Bayer"
+    ],
+    [
+     "actor",
+     "Jackie Earle Haley"
+    ],
+    [
+     "actor",
+     "Kyle Gallner"
+    ],
+    [
+     "actor",
+     "Rooney Mara"
+    ],
+    [
+     "actor",
+     "Katie Cassidy"
+    ]
+   ],
+   "summary": "A 2010 film directed by Samuel Bayer. Starring Jackie Earle Haley, Kyle Gallner, Rooney Mara and Katie Cassidy.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:thriller": 0.8,
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q300508",
+    "franchises": [
+     "A Nightmare on Elm Street"
+    ]
    }
   },
   {
@@ -12168,6 +14009,52 @@
    }
   },
   {
+   "slug": "batman-1966-q810857",
+   "medium": "film",
+   "title": "Batman",
+   "year": 1966,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 105,
+   "credits": [
+    [
+     "director",
+     "Leslie H. Martinson"
+    ],
+    [
+     "actor",
+     "Adam West"
+    ],
+    [
+     "actor",
+     "Burt Ward"
+    ],
+    [
+     "actor",
+     "Lee Meriwether"
+    ],
+    [
+     "actor",
+     "Cesar Romero"
+    ]
+   ],
+   "summary": "A 1966 film directed by Leslie H. Martinson. Starring Adam West, Burt Ward, Lee Meriwether and Cesar Romero.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:action": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q810857",
+    "franchises": [
+     "Batman in film"
+    ]
+   }
+  },
+  {
    "slug": "the-hitchhiker-s-guide-to-the-galaxy-2005",
    "medium": "film",
    "title": "The Hitchhiker's Guide to the Galaxy",
@@ -12298,6 +14185,52 @@
    },
    "attributes": {
     "wikidata": "Q970089"
+   }
+  },
+  {
+   "slug": "halloween-h20-20-years-later-1998",
+   "medium": "film",
+   "title": "Halloween H20: 20 Years Later",
+   "year": 1998,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 83,
+   "credits": [
+    [
+     "director",
+     "Steve Miner"
+    ],
+    [
+     "actor",
+     "LL Cool J"
+    ],
+    [
+     "actor",
+     "Josh Hartnett"
+    ],
+    [
+     "actor",
+     "Michelle Williams"
+    ],
+    [
+     "actor",
+     "Jodi Lyn O'Keefe"
+    ]
+   ],
+   "summary": "A 1998 film directed by Steve Miner. Starring LL Cool J, Josh Hartnett, Michelle Williams and Jodi Lyn O'Keefe.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1050815",
+    "franchises": [
+     "Halloween"
+    ]
    }
   },
   {
@@ -12473,6 +14406,52 @@
    }
   },
   {
+   "slug": "insidious-chapter-2-2013",
+   "medium": "film",
+   "title": "Insidious: Chapter 2",
+   "year": 2013,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 105,
+   "credits": [
+    [
+     "director",
+     "James Wan"
+    ],
+    [
+     "actor",
+     "Patrick Wilson"
+    ],
+    [
+     "actor",
+     "Rose Byrne"
+    ],
+    [
+     "actor",
+     "Lin Shaye"
+    ],
+    [
+     "actor",
+     "Ty Simpkins"
+    ]
+   ],
+   "summary": "A 2013 film directed by James Wan. Starring Patrick Wilson, Rose Byrne, Lin Shaye and Ty Simpkins.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q13423790",
+    "franchises": [
+     "Insidious"
+    ]
+   }
+  },
+  {
    "slug": "dracula-untold-2014",
    "medium": "film",
    "title": "Dracula Untold",
@@ -12516,6 +14495,55 @@
    },
    "attributes": {
     "wikidata": "Q14512114"
+   }
+  },
+  {
+   "slug": "jigsaw-2017",
+   "medium": "film",
+   "title": "Jigsaw",
+   "year": 2017,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "Michael Spierig"
+    ],
+    [
+     "director",
+     "Peter Spierig"
+    ],
+    [
+     "actor",
+     "Tobin Bell"
+    ],
+    [
+     "actor",
+     "Matt Passmore"
+    ],
+    [
+     "actor",
+     "Callum Keith Rennie"
+    ],
+    [
+     "actor",
+     "Hannah Emily Anderson"
+    ]
+   ],
+   "summary": "A 2017 film directed by Peter Spierig and Michael Spierig. Starring Tobin Bell, Matt Passmore, Callum Keith Rennie and Hannah Emily Anderson.",
+   "terms": {
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q15712110",
+    "franchises": [
+     "Saw"
+    ]
    }
   },
   {
@@ -13159,6 +15187,97 @@
    }
   },
   {
+   "slug": "freddy-s-dead-the-final-nightmare-1991",
+   "medium": "film",
+   "title": "Freddy's Dead: The Final Nightmare",
+   "year": 1991,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 89,
+   "credits": [
+    [
+     "director",
+     "Rachel Talalay"
+    ],
+    [
+     "actor",
+     "Shon Greenblatt"
+    ],
+    [
+     "actor",
+     "Lisa Zane"
+    ],
+    [
+     "actor",
+     "Lezlie Deane"
+    ],
+    [
+     "actor",
+     "Yaphet Kotto"
+    ]
+   ],
+   "summary": "A 1991 American film by Rachel Talalay. Starring Shon Greenblatt, Lisa Zane, Lezlie Deane and Yaphet Kotto.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:fantasy": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q748614",
+    "franchises": [
+     "A Nightmare on Elm Street"
+    ]
+   }
+  },
+  {
+   "slug": "the-pink-panther-2-2009",
+   "medium": "film",
+   "title": "The Pink Panther 2",
+   "year": 2009,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US",
+    "FR"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "Harald Zwart"
+    ],
+    [
+     "actor",
+     "Steve Martin"
+    ],
+    [
+     "actor",
+     "Jean Reno"
+    ],
+    [
+     "actor",
+     "Emily Mortimer"
+    ],
+    [
+     "actor",
+     "Andy Garcia"
+    ]
+   ],
+   "summary": "A 2009 film by Harald Zwart. Starring Steve Martin, Jean Reno, Emily Mortimer and Andy Garcia.",
+   "terms": {
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q815681",
+    "franchises": [
+     "The Pink Panther"
+    ]
+   }
+  },
+  {
    "slug": "the-last-duel-2021",
    "medium": "film",
    "title": "The Last Duel",
@@ -13577,6 +15696,51 @@
    }
   },
   {
+   "slug": "a-nightmare-on-elm-street-5-the-dream-child-1989",
+   "medium": "film",
+   "title": "A Nightmare on Elm Street 5: The Dream Child",
+   "year": 1989,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 86,
+   "credits": [
+    [
+     "director",
+     "Stephen Hopkins"
+    ],
+    [
+     "actor",
+     "Robert Englund"
+    ],
+    [
+     "actor",
+     "Lisa Wilcox"
+    ],
+    [
+     "actor",
+     "Danny Hassel"
+    ],
+    [
+     "actor",
+     "Erika Anderson"
+    ]
+   ],
+   "summary": "A 1989 American film directed by Stephen Hopkins. Starring Robert Englund, Lisa Wilcox, Danny Hassel and Erika Anderson.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1410735",
+    "franchises": [
+     "A Nightmare on Elm Street"
+    ]
+   }
+  },
+  {
    "slug": "the-dark-tower-2017",
    "medium": "film",
    "title": "The Dark Tower",
@@ -13977,6 +16141,51 @@
    }
   },
   {
+   "slug": "the-texas-chainsaw-massacre-the-beginning-2006",
+   "medium": "film",
+   "title": "The Texas Chainsaw Massacre: The Beginning",
+   "year": 2006,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 91,
+   "credits": [
+    [
+     "director",
+     "Jonathan Liebesman"
+    ],
+    [
+     "actor",
+     "Andrew Bryniarski"
+    ],
+    [
+     "actor",
+     "Jordana Brewster"
+    ],
+    [
+     "actor",
+     "R. Lee Ermey"
+    ],
+    [
+     "actor",
+     "Matt Bomer"
+    ]
+   ],
+   "summary": "A 2006 film by Jonathan Liebesman. Starring Andrew Bryniarski, Jordana Brewster, R. Lee Ermey and Matt Bomer.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q642016",
+    "franchises": [
+     "The Texas Chainsaw Massacre"
+    ]
+   }
+  },
+  {
    "slug": "sky-captain-and-the-world-of-tomorrow-2004",
    "medium": "film",
    "title": "Sky Captain and the World of Tomorrow",
@@ -14112,6 +16321,51 @@
    }
   },
   {
+   "slug": "halloween-4-the-return-of-michael-myers-1988",
+   "medium": "film",
+   "title": "Halloween 4: The Return of Michael Myers",
+   "year": 1988,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 88,
+   "credits": [
+    [
+     "director",
+     "Dwight H. Little"
+    ],
+    [
+     "actor",
+     "Donald Pleasence"
+    ],
+    [
+     "actor",
+     "Ellie Cornell"
+    ],
+    [
+     "actor",
+     "Danielle Harris"
+    ],
+    [
+     "actor",
+     "Michael Pataki"
+    ]
+   ],
+   "summary": "A 1988 film directed by Dwight H. Little. Starring Donald Pleasence, Ellie Cornell, Danielle Harris and Michael Pataki.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q959853",
+    "franchises": [
+     "Halloween"
+    ]
+   }
+  },
+  {
    "slug": "transformers-rise-of-the-beasts-2023",
    "medium": "film",
    "title": "Transformers: Rise of the Beasts",
@@ -14199,6 +16453,51 @@
    },
    "attributes": {
     "wikidata": "Q111608782"
+   }
+  },
+  {
+   "slug": "halloween-the-curse-of-michael-myers-1995",
+   "medium": "film",
+   "title": "Halloween: The Curse of Michael Myers",
+   "year": 1995,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "Joe Chappelle"
+    ],
+    [
+     "actor",
+     "Donald Pleasence"
+    ],
+    [
+     "actor",
+     "Paul Rudd"
+    ],
+    [
+     "actor",
+     "Mitchell Ryan"
+    ],
+    [
+     "actor",
+     "Kim Darby"
+    ]
+   ],
+   "summary": "A 1995 film directed by Joe Chappelle. Starring Donald Pleasence, Paul Rudd, Mitchell Ryan and Kim Darby.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1138055",
+    "franchises": [
+     "Halloween"
+    ]
    }
   },
   {
@@ -14800,6 +17099,53 @@
    }
   },
   {
+   "slug": "halloween-2007",
+   "medium": "film",
+   "title": "Halloween",
+   "year": 2007,
+   "popularity_tier": 2,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 109,
+   "credits": [
+    [
+     "director",
+     "Rob Zombie"
+    ],
+    [
+     "actor",
+     "Malcolm McDowell"
+    ],
+    [
+     "actor",
+     "Sheri Moon Zombie"
+    ],
+    [
+     "actor",
+     "Tyler Mane"
+    ],
+    [
+     "actor",
+     "Scout Taylor-Compton"
+    ]
+   ],
+   "summary": "A 2007 film directed by Rob Zombie. Starring Malcolm McDowell, Sheri Moon Zombie, Tyler Mane and Scout Taylor-Compton.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:drama": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q909063",
+    "franchises": [
+     "Halloween"
+    ]
+   }
+  },
+  {
    "slug": "the-core-2003",
    "medium": "film",
    "title": "The Core",
@@ -15118,6 +17464,54 @@
    }
   },
   {
+   "slug": "saw-x-2023",
+   "medium": "film",
+   "title": "Saw X",
+   "year": 2023,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "MX"
+   ],
+   "runtime_minutes": 118,
+   "credits": [
+    [
+     "director",
+     "Kevin Greutert"
+    ],
+    [
+     "actor",
+     "Tobin Bell"
+    ],
+    [
+     "actor",
+     "Shawnee Smith"
+    ],
+    [
+     "actor",
+     "Synnøve Macody Lund"
+    ],
+    [
+     "actor",
+     "Steven Brand"
+    ]
+   ],
+   "summary": "A 2023 film directed by Kevin Greutert. Starring Tobin Bell, Shawnee Smith, Synnøve Macody Lund and Steven Brand.",
+   "terms": {
+    "genre:drama": 0.8,
+    "genre:crime": 0.8,
+    "genre:horror": 0.8,
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q115734942",
+    "franchises": [
+     "Saw"
+    ]
+   }
+  },
+  {
    "slug": "mortdecai-2015",
    "medium": "film",
    "title": "Mortdecai",
@@ -15185,6 +17579,97 @@
    }
   },
   {
+   "slug": "insidious-chapter-3-2015",
+   "medium": "film",
+   "title": "Insidious: Chapter 3",
+   "year": 2015,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA"
+   ],
+   "runtime_minutes": 138,
+   "credits": [
+    [
+     "director",
+     "Leigh Whannell"
+    ],
+    [
+     "actor",
+     "Stefanie Scott"
+    ],
+    [
+     "actor",
+     "Lin Shaye"
+    ],
+    [
+     "actor",
+     "Dermot Mulroney"
+    ],
+    [
+     "actor",
+     "Leigh Whannell"
+    ]
+   ],
+   "summary": "A 2015 film directed by Leigh Whannell. Starring Stefanie Scott, Lin Shaye and Dermot Mulroney.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q17452082",
+    "franchises": [
+     "Insidious"
+    ]
+   }
+  },
+  {
+   "slug": "halloween-resurrection-2002",
+   "medium": "film",
+   "title": "Halloween: Resurrection",
+   "year": 2002,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 86,
+   "credits": [
+    [
+     "director",
+     "Rick Rosenthal"
+    ],
+    [
+     "actor",
+     "Busta Rhymes"
+    ],
+    [
+     "actor",
+     "Bianca Kajlich"
+    ],
+    [
+     "actor",
+     "Thomas Ian Nicholas"
+    ],
+    [
+     "actor",
+     "Ryan Merriman"
+    ]
+   ],
+   "summary": "A 2002 film by Rick Rosenthal. Starring Busta Rhymes, Bianca Kajlich, Thomas Ian Nicholas and Ryan Merriman.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q176488",
+    "franchises": [
+     "Halloween"
+    ]
+   }
+  },
+  {
    "slug": "13-hours-the-secret-soldiers-of-benghazi-2016",
    "medium": "film",
    "title": "13 Hours: The Secret Soldiers of Benghazi",
@@ -15226,6 +17711,51 @@
    },
    "attributes": {
     "wikidata": "Q19865453"
+   }
+  },
+  {
+   "slug": "halloween-iii-season-of-the-witch-1982",
+   "medium": "film",
+   "title": "Halloween III: Season of the Witch",
+   "year": 1982,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 99,
+   "credits": [
+    [
+     "director",
+     "Tommy Lee Wallace"
+    ],
+    [
+     "actor",
+     "Tom Atkins"
+    ],
+    [
+     "actor",
+     "Stacey Nelkin"
+    ],
+    [
+     "actor",
+     "Dan O'Herlihy"
+    ],
+    [
+     "actor",
+     "Michael Currie"
+    ]
+   ],
+   "summary": "A 1982 film directed by Tommy Lee Wallace. Starring Tom Atkins, Stacey Nelkin, Dan O'Herlihy and Michael Currie.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q203705",
+    "franchises": [
+     "Halloween"
+    ]
    }
   },
   {
@@ -15315,6 +17845,99 @@
     "wikidata": "Q27826501",
     "franchises": [
      "Pacific Rim"
+    ]
+   }
+  },
+  {
+   "slug": "the-texas-chainsaw-massacre-2-1986",
+   "medium": "film",
+   "title": "The Texas Chainsaw Massacre 2",
+   "year": 1986,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 96,
+   "credits": [
+    [
+     "director",
+     "Tobe Hooper"
+    ],
+    [
+     "actor",
+     "Dennis Hopper"
+    ],
+    [
+     "actor",
+     "Caroline Williams"
+    ],
+    [
+     "actor",
+     "Jim Siedow"
+    ],
+    [
+     "actor",
+     "Bill Moseley"
+    ]
+   ],
+   "summary": "A 1986 film directed by Tobe Hooper. Starring Dennis Hopper, Caroline Williams, Jim Siedow and Bill Moseley.",
+   "terms": {
+    "genre:slasher": 0.8,
+    "genre:comedy-horror": 0.8,
+    "genre:crime": 0.8,
+    "genre:psychological-drama": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q334185",
+    "franchises": [
+     "The Texas Chainsaw Massacre"
+    ]
+   }
+  },
+  {
+   "slug": "conquest-of-the-planet-of-the-apes-1972",
+   "medium": "film",
+   "title": "Conquest of the Planet of the Apes",
+   "year": 1972,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 88,
+   "credits": [
+    [
+     "director",
+     "J. Lee Thompson"
+    ],
+    [
+     "actor",
+     "Roddy McDowall"
+    ],
+    [
+     "actor",
+     "Don Murray"
+    ],
+    [
+     "actor",
+     "Ricardo Montalbán"
+    ],
+    [
+     "actor",
+     "Natalie Trundy"
+    ]
+   ],
+   "summary": "A 1972 film directed by J. Lee Thompson. Starring Roddy McDowall, Don Murray, Ricardo Montalbán and Natalie Trundy.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:action": 0.8,
+    "genre:dystopian": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q469646",
+    "franchises": [
+     "Planet of the Apes"
     ]
    }
   },
@@ -15448,6 +18071,51 @@
    }
   },
   {
+   "slug": "police-academy-2-their-first-assignment-1985",
+   "medium": "film",
+   "title": "Police Academy 2: Their First Assignment",
+   "year": 1985,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 83,
+   "credits": [
+    [
+     "director",
+     "Jerry Paris"
+    ],
+    [
+     "actor",
+     "Steve Guttenberg"
+    ],
+    [
+     "actor",
+     "Bubba Smith"
+    ],
+    [
+     "actor",
+     "David Graf"
+    ],
+    [
+     "actor",
+     "Michael Winslow"
+    ]
+   ],
+   "summary": "A 1985 film by Jerry Paris. Starring Steve Guttenberg, Bubba Smith, David Graf and Michael Winslow.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q589896",
+    "franchises": [
+     "Police Academy"
+    ]
+   }
+  },
+  {
    "slug": "blow-2001",
    "medium": "film",
    "title": "Blow",
@@ -15488,6 +18156,97 @@
    },
    "attributes": {
     "wikidata": "Q631515"
+   }
+  },
+  {
+   "slug": "wes-craven-s-new-nightmare-1994",
+   "medium": "film",
+   "title": "Wes Craven's New Nightmare",
+   "year": 1994,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 112,
+   "credits": [
+    [
+     "director",
+     "Wes Craven"
+    ],
+    [
+     "actor",
+     "Robert Englund"
+    ],
+    [
+     "actor",
+     "Heather Langenkamp"
+    ],
+    [
+     "actor",
+     "Miko Hughes"
+    ],
+    [
+     "actor",
+     "John Saxon"
+    ]
+   ],
+   "summary": "A 1994 American slasher film by Wes Craven. Starring Robert Englund, Heather Langenkamp, Miko Hughes and John Saxon.",
+   "terms": {
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q636166",
+    "franchises": [
+     "A Nightmare on Elm Street"
+    ]
+   }
+  },
+  {
+   "slug": "halloween-ii-2009",
+   "medium": "film",
+   "title": "Halloween II",
+   "year": 2009,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 105,
+   "credits": [
+    [
+     "director",
+     "Rob Zombie"
+    ],
+    [
+     "actor",
+     "Malcolm McDowell"
+    ],
+    [
+     "actor",
+     "Tyler Mane"
+    ],
+    [
+     "actor",
+     "Sheri Moon Zombie"
+    ],
+    [
+     "actor",
+     "Brad Dourif"
+    ]
+   ],
+   "summary": "A 2009 film directed by Rob Zombie. Starring Malcolm McDowell, Tyler Mane, Sheri Moon Zombie and Brad Dourif.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:drama": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q908690",
+    "franchises": [
+     "Halloween"
+    ]
    }
   },
   {
@@ -15537,6 +18296,52 @@
    }
   },
   {
+   "slug": "evil-dead-rise-2023",
+   "medium": "film",
+   "title": "Evil Dead Rise",
+   "year": 2023,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "NZ"
+   ],
+   "runtime_minutes": 97,
+   "credits": [
+    [
+     "director",
+     "Lee Cronin"
+    ],
+    [
+     "actor",
+     "Alyssa Sutherland"
+    ],
+    [
+     "actor",
+     "Lily Sullivan"
+    ],
+    [
+     "actor",
+     "Morgan Davies"
+    ],
+    [
+     "actor",
+     "Mirabai Pease"
+    ]
+   ],
+   "summary": "A 2023 film directed by Lee Cronin. Starring Alyssa Sutherland, Lily Sullivan, Morgan Davies and Mirabai Pease.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:social-science-fiction": 0.8,
+    "genre:supernatural-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q107203508",
+    "franchises": [
+     "Evil Dead"
+    ]
+   }
+  },
+  {
    "slug": "the-fall-guy-2024",
    "medium": "film",
    "title": "The Fall Guy",
@@ -15577,6 +18382,53 @@
    },
    "attributes": {
     "wikidata": "Q113671585"
+   }
+  },
+  {
+   "slug": "a-shot-in-the-dark-1964",
+   "medium": "film",
+   "title": "A Shot in the Dark",
+   "year": 1964,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "runtime_minutes": 102,
+   "credits": [
+    [
+     "director",
+     "Blake Edwards"
+    ],
+    [
+     "actor",
+     "Peter Sellers"
+    ],
+    [
+     "actor",
+     "Elke Sommer"
+    ],
+    [
+     "actor",
+     "George Sanders"
+    ],
+    [
+     "actor",
+     "Herbert Lom"
+    ]
+   ],
+   "summary": "A 1964 film by Blake Edwards. Starring Peter Sellers, Elke Sommer, George Sanders and Herbert Lom.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8,
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1143501",
+    "franchises": [
+     "The Pink Panther"
+    ]
    }
   },
   {
@@ -15721,6 +18573,52 @@
    },
    "attributes": {
     "wikidata": "Q24904727"
+   }
+  },
+  {
+   "slug": "insidious-the-last-key-2018",
+   "medium": "film",
+   "title": "Insidious: The Last Key",
+   "year": 2018,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 103,
+   "credits": [
+    [
+     "director",
+     "Adam Robitel"
+    ],
+    [
+     "actor",
+     "Lin Shaye"
+    ],
+    [
+     "actor",
+     "Angus Sampson"
+    ],
+    [
+     "actor",
+     "Leigh Whannell"
+    ],
+    [
+     "actor",
+     "Josh Stewart"
+    ]
+   ],
+   "summary": "A 2018 film by Adam Robitel. Starring Lin Shaye, Angus Sampson, Leigh Whannell and Josh Stewart.",
+   "terms": {
+    "genre:thriller": 0.8,
+    "genre:supernatural-horror": 0.8,
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q27590064",
+    "franchises": [
+     "Insidious"
+    ]
    }
   },
   {
@@ -15885,6 +18783,53 @@
    }
   },
   {
+   "slug": "battle-for-the-planet-of-the-apes-1973",
+   "medium": "film",
+   "title": "Battle for the Planet of the Apes",
+   "year": 1973,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 93,
+   "credits": [
+    [
+     "director",
+     "J. Lee Thompson"
+    ],
+    [
+     "actor",
+     "Roddy McDowall"
+    ],
+    [
+     "actor",
+     "Claude Akins"
+    ],
+    [
+     "actor",
+     "Natalie Trundy"
+    ],
+    [
+     "actor",
+     "Severn Darden"
+    ]
+   ],
+   "summary": "A 1973 film directed by J. Lee Thompson. Starring Roddy McDowall, Claude Akins, Natalie Trundy and Severn Darden.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:action": 0.8,
+    "genre:post-apocalyptic": 0.8,
+    "genre:dystopian": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q469654",
+    "franchises": [
+     "Planet of the Apes"
+    ]
+   }
+  },
+  {
    "slug": "collateral-damage-2002",
    "medium": "film",
    "title": "Collateral Damage",
@@ -15966,6 +18911,53 @@
    },
    "attributes": {
     "wikidata": "Q54812267"
+   }
+  },
+  {
+   "slug": "the-return-of-the-pink-panther-1975",
+   "medium": "film",
+   "title": "The Return of the Pink Panther",
+   "year": 1975,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "GB",
+    "AU"
+   ],
+   "runtime_minutes": 113,
+   "credits": [
+    [
+     "director",
+     "Blake Edwards"
+    ],
+    [
+     "actor",
+     "Peter Sellers"
+    ],
+    [
+     "actor",
+     "Christopher Plummer"
+    ],
+    [
+     "actor",
+     "Herbert Lom"
+    ],
+    [
+     "actor",
+     "Catherine Schell"
+    ]
+   ],
+   "summary": "A 1975 film by Blake Edwards. Starring Peter Sellers, Christopher Plummer, Herbert Lom and Catherine Schell.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q579480",
+    "franchises": [
+     "The Pink Panther"
+    ]
    }
   },
   {
@@ -16125,6 +19117,52 @@
    }
   },
   {
+   "slug": "scary-movie-5-2013",
+   "medium": "film",
+   "title": "Scary Movie 5",
+   "year": 2013,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 80,
+   "credits": [
+    [
+     "director",
+     "Malcolm D. Lee"
+    ],
+    [
+     "actor",
+     "Ashley Tisdale"
+    ],
+    [
+     "actor",
+     "Simon Rex"
+    ],
+    [
+     "actor",
+     "Erica Ash"
+    ],
+    [
+     "actor",
+     "Molly Shannon"
+    ]
+   ],
+   "summary": "A 2013 film directed by Malcolm D. Lee. Starring Ashley Tisdale, Simon Rex, Erica Ash and Molly Shannon.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:dramedy": 0.8,
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q867294",
+    "franchises": [
+     "Scary Movie"
+    ]
+   }
+  },
+  {
    "slug": "the-northman-2022",
    "medium": "film",
    "title": "The Northman",
@@ -16165,6 +19203,98 @@
    },
    "attributes": {
     "wikidata": "Q87126244"
+   }
+  },
+  {
+   "slug": "halloween-5-the-revenge-of-michael-myers-1989",
+   "medium": "film",
+   "title": "Halloween 5: The Revenge of Michael Myers",
+   "year": 1989,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 96,
+   "credits": [
+    [
+     "director",
+     "Dominique Othenin-Girard"
+    ],
+    [
+     "actor",
+     "Donald Pleasence"
+    ],
+    [
+     "actor",
+     "Danielle Harris"
+    ],
+    [
+     "actor",
+     "Wendy Kaplan"
+    ],
+    [
+     "actor",
+     "Ellie Cornell"
+    ]
+   ],
+   "summary": "A 1989 film directed by Dominique Othenin-Girard. Starring Donald Pleasence, Danielle Harris, Wendy Kaplan and Ellie Cornell.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q976728",
+    "franchises": [
+     "Halloween"
+    ]
+   }
+  },
+  {
+   "slug": "bride-of-chucky-1998",
+   "medium": "film",
+   "title": "Bride of Chucky",
+   "year": 1998,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 89,
+   "credits": [
+    [
+     "director",
+     "Ronny Yu"
+    ],
+    [
+     "actor",
+     "Jennifer Tilly"
+    ],
+    [
+     "actor",
+     "Brad Dourif"
+    ],
+    [
+     "actor",
+     "Katherine Heigl"
+    ],
+    [
+     "actor",
+     "Nick Stabile"
+    ]
+   ],
+   "summary": "A 1998 film by Ronny Yu. Starring Jennifer Tilly, Brad Dourif, Katherine Heigl and Nick Stabile.",
+   "terms": {
+    "genre:slasher": 0.8,
+    "genre:comedy-horror": 0.8,
+    "genre:parody": 0.8,
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1089303",
+    "franchises": [
+     "Child's Play"
+    ]
    }
   },
   {
@@ -16249,6 +19379,54 @@
    },
    "attributes": {
     "wikidata": "Q113300586"
+   }
+  },
+  {
+   "slug": "wrong-turn-2-dead-end-2007",
+   "medium": "film",
+   "title": "Wrong Turn 2: Dead End",
+   "year": 2007,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "CA",
+    "DE"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "Joe Lynch"
+    ],
+    [
+     "actor",
+     "Erica Leerhsen"
+    ],
+    [
+     "actor",
+     "Henry Rollins"
+    ],
+    [
+     "actor",
+     "Texas Battle"
+    ],
+    [
+     "actor",
+     "Crystal Lowe"
+    ]
+   ],
+   "summary": "A 2007 film by Joe Lynch. Starring Erica Leerhsen, Henry Rollins, Texas Battle and Crystal Lowe.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:action": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1166161",
+    "franchises": [
+     "Wrong Turn"
+    ]
    }
   },
   {
@@ -16424,6 +19602,141 @@
    }
   },
   {
+   "slug": "police-academy-4-citizens-on-patrol-1987",
+   "medium": "film",
+   "title": "Police Academy 4: Citizens on Patrol",
+   "year": 1987,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 88,
+   "credits": [
+    [
+     "director",
+     "Jim Drake"
+    ],
+    [
+     "actor",
+     "Steve Guttenberg"
+    ],
+    [
+     "actor",
+     "Bubba Smith"
+    ],
+    [
+     "actor",
+     "David Graf"
+    ],
+    [
+     "actor",
+     "Michael Winslow"
+    ]
+   ],
+   "summary": "A 1987 film by Jim Drake. Starring Steve Guttenberg, Bubba Smith, David Graf and Michael Winslow.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1475765",
+    "franchises": [
+     "Police Academy"
+    ]
+   }
+  },
+  {
+   "slug": "texas-chainsaw-massacre-the-next-generation-1994",
+   "medium": "film",
+   "title": "Texas Chainsaw Massacre: The Next Generation",
+   "year": 1994,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "Kim Henkel"
+    ],
+    [
+     "actor",
+     "Renée Zellweger"
+    ],
+    [
+     "actor",
+     "Matthew McConaughey"
+    ],
+    [
+     "actor",
+     "Robert Jacks"
+    ],
+    [
+     "actor",
+     "Lisa Marie Newmyer"
+    ]
+   ],
+   "summary": "A 1994 film by Kim Henkel. Starring Renée Zellweger, Matthew McConaughey, Robert Jacks and Lisa Marie Newmyer.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q334179",
+    "franchises": [
+     "The Texas Chainsaw Massacre"
+    ]
+   }
+  },
+  {
+   "slug": "escape-from-the-planet-of-the-apes-1971",
+   "medium": "film",
+   "title": "Escape from the Planet of the Apes",
+   "year": 1971,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 98,
+   "credits": [
+    [
+     "director",
+     "Don Taylor"
+    ],
+    [
+     "actor",
+     "Roddy McDowall"
+    ],
+    [
+     "actor",
+     "Kim Hunter"
+    ],
+    [
+     "actor",
+     "Sal Mineo"
+    ],
+    [
+     "actor",
+     "Bradford Dillman"
+    ]
+   ],
+   "summary": "A 1971 film directed by Don Taylor. Starring Roddy McDowall, Kim Hunter, Sal Mineo and Bradford Dillman.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:drama": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q469639",
+    "franchises": [
+     "Planet of the Apes"
+    ]
+   }
+  },
+  {
    "slug": "the-taking-of-pelham-123-2009",
    "medium": "film",
    "title": "The Taking of Pelham 123",
@@ -16465,6 +19778,51 @@
    },
    "attributes": {
     "wikidata": "Q869719"
+   }
+  },
+  {
+   "slug": "paranormal-activity-2-2010",
+   "medium": "film",
+   "title": "Paranormal Activity 2",
+   "year": 2010,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 91,
+   "credits": [
+    [
+     "director",
+     "Kip Williams"
+    ],
+    [
+     "actor",
+     "Sprague Grayden"
+    ],
+    [
+     "actor",
+     "Molly Ephraim"
+    ],
+    [
+     "actor",
+     "Katie Featherston"
+    ],
+    [
+     "actor",
+     "Micah Sloat"
+    ]
+   ],
+   "summary": "A 2010 film by Tod Williams. Directed by Kip Williams. Starring Sprague Grayden, Molly Ephraim, Katie Featherston and Micah Sloat.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:found-footage": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q912082",
+    "franchises": [
+     "Paranormal Activity"
+    ]
    }
   },
   {
@@ -17428,6 +20786,96 @@
    }
   },
   {
+   "slug": "police-academy-5-assignment-miami-beach-1988",
+   "medium": "film",
+   "title": "Police Academy 5: Assignment Miami Beach",
+   "year": 1988,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "Alan Myerson"
+    ],
+    [
+     "actor",
+     "Bubba Smith"
+    ],
+    [
+     "actor",
+     "Matt McCoy"
+    ],
+    [
+     "actor",
+     "David Graf"
+    ],
+    [
+     "actor",
+     "Michael Winslow"
+    ]
+   ],
+   "summary": "A 1988 film by Alan Myerson. Starring Bubba Smith, Matt McCoy, David Graf and Michael Winslow.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1475462",
+    "franchises": [
+     "Police Academy"
+    ]
+   }
+  },
+  {
+   "slug": "wrong-turn-3-left-for-dead-2009",
+   "medium": "film",
+   "title": "Wrong Turn 3: Left for Dead",
+   "year": 2009,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 87,
+   "credits": [
+    [
+     "director",
+     "Declan O'Brien"
+    ],
+    [
+     "actor",
+     "Janet Montgomery"
+    ],
+    [
+     "actor",
+     "Tamer Hassan"
+    ],
+    [
+     "actor",
+     "Gil Kolirin"
+    ],
+    [
+     "actor",
+     "Mac McDonald"
+    ]
+   ],
+   "summary": "A 2009 film by Declan O'Brien. Starring Janet Montgomery, Tamer Hassan, Gil Kolirin and Mac McDonald.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1583771",
+    "franchises": [
+     "Wrong Turn"
+    ]
+   }
+  },
+  {
    "slug": "basic-2003",
    "medium": "film",
    "title": "Basic",
@@ -17648,6 +21096,55 @@
    }
   },
   {
+   "slug": "paranormal-activity-4-2012",
+   "medium": "film",
+   "title": "Paranormal Activity 4",
+   "year": 2012,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 88,
+   "credits": [
+    [
+     "director",
+     "Henry Joost"
+    ],
+    [
+     "director",
+     "Ariel Schulman"
+    ],
+    [
+     "actor",
+     "Katie Featherston"
+    ],
+    [
+     "actor",
+     "Kathryn Newton"
+    ],
+    [
+     "actor",
+     "Matt Shively"
+    ],
+    [
+     "actor",
+     "Alexondra Lee"
+    ]
+   ],
+   "summary": "A 2012 film by Ariel Schulman, Henry Joost. Starring Katie Featherston, Kathryn Newton, Matt Shively and Alexondra Lee.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:found-footage": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1144954",
+    "franchises": [
+     "Paranormal Activity"
+    ]
+   }
+  },
+  {
    "slug": "the-last-castle-2001",
    "medium": "film",
    "title": "The Last Castle",
@@ -17823,6 +21320,52 @@
    }
   },
   {
+   "slug": "texas-chainsaw-3d-2013",
+   "medium": "film",
+   "title": "Texas Chainsaw 3D",
+   "year": 2013,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 92,
+   "credits": [
+    [
+     "director",
+     "John Luessenhop"
+    ],
+    [
+     "actor",
+     "Alexandra Daddario"
+    ],
+    [
+     "actor",
+     "Trey Songz"
+    ],
+    [
+     "actor",
+     "Tania Raymonde"
+    ],
+    [
+     "actor",
+     "Thom Barry"
+    ]
+   ],
+   "summary": "A 2013 American film by John Luessenhop. Starring Alexandra Daddario, Trey Songz, Tania Raymonde and Thom Barry.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1832350",
+    "franchises": [
+     "The Texas Chainsaw Massacre"
+    ]
+   }
+  },
+  {
    "slug": "cold-pursuit-2019",
    "medium": "film",
    "title": "Cold Pursuit",
@@ -17862,6 +21405,51 @@
    },
    "attributes": {
     "wikidata": "Q28912877"
+   }
+  },
+  {
+   "slug": "leatherface-the-texas-chainsaw-massacre-iii-1990",
+   "medium": "film",
+   "title": "Leatherface: The Texas Chainsaw Massacre III",
+   "year": 1990,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 86,
+   "credits": [
+    [
+     "director",
+     "Jeff Burr"
+    ],
+    [
+     "actor",
+     "Kate Hodge"
+    ],
+    [
+     "actor",
+     "Viggo Mortensen"
+    ],
+    [
+     "actor",
+     "William Butler"
+    ],
+    [
+     "actor",
+     "Jennifer Banko-Stewart"
+    ]
+   ],
+   "summary": "A 1990 film by Jeff Burr. Starring Kate Hodge, Viggo Mortensen, William Butler and Jennifer Banko-Stewart.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q334169",
+    "franchises": [
+     "The Texas Chainsaw Massacre"
+    ]
    }
   },
   {
@@ -18083,6 +21671,55 @@
    }
   },
   {
+   "slug": "paranormal-activity-3-2011",
+   "medium": "film",
+   "title": "Paranormal Activity 3",
+   "year": 2011,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "Henry Joost"
+    ],
+    [
+     "director",
+     "Ariel Schulman"
+    ],
+    [
+     "actor",
+     "Lauren Bittner"
+    ],
+    [
+     "actor",
+     "Katie Featherston"
+    ],
+    [
+     "actor",
+     "Sprague Grayden"
+    ],
+    [
+     "actor",
+     "Hallie Foote"
+    ]
+   ],
+   "summary": "A 2011 film by Ariel Schulman, Henry Joost. Starring Lauren Bittner, Katie Featherston, Sprague Grayden and Hallie Foote.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:found-footage": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1056921",
+    "franchises": [
+     "Paranormal Activity"
+    ]
+   }
+  },
+  {
    "slug": "the-pale-blue-eye-2022",
    "medium": "film",
    "title": "The Pale Blue Eye",
@@ -18167,6 +21804,52 @@
    },
    "attributes": {
     "wikidata": "Q109905743"
+   }
+  },
+  {
+   "slug": "the-pink-panther-strikes-again-1976",
+   "medium": "film",
+   "title": "The Pink Panther Strikes Again",
+   "year": 1976,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "runtime_minutes": 103,
+   "credits": [
+    [
+     "director",
+     "Blake Edwards"
+    ],
+    [
+     "actor",
+     "Peter Sellers"
+    ],
+    [
+     "actor",
+     "Herbert Lom"
+    ],
+    [
+     "actor",
+     "Lesley-Anne Down"
+    ],
+    [
+     "actor",
+     "Burt Kwouk"
+    ]
+   ],
+   "summary": "A 1976 film by Blake Edwards. Starring Peter Sellers, Herbert Lom, Lesley-Anne Down and Burt Kwouk.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1133395",
+    "franchises": [
+     "The Pink Panther"
+    ]
    }
   },
   {
@@ -18255,6 +21938,51 @@
    },
    "attributes": {
     "wikidata": "Q1192922"
+   }
+  },
+  {
+   "slug": "paranormal-activity-the-marked-ones-2014",
+   "medium": "film",
+   "title": "Paranormal Activity: The Marked Ones",
+   "year": 2014,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "Christopher Landon"
+    ],
+    [
+     "actor",
+     "Molly Ephraim"
+    ],
+    [
+     "actor",
+     "Katie Featherston"
+    ],
+    [
+     "actor",
+     "Jessica Tyler Brown"
+    ],
+    [
+     "actor",
+     "Micah Sloat"
+    ]
+   ],
+   "summary": "A 2014 film directed by Christopher B. Landon. Starring Molly Ephraim, Katie Featherston, Jessica Tyler Brown and Micah Sloat.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:found-footage": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q15120318",
+    "franchises": [
+     "Paranormal Activity"
+    ]
    }
   },
   {
@@ -18434,6 +22162,50 @@
    }
   },
   {
+   "slug": "child-s-play-2019",
+   "medium": "film",
+   "title": "Child's Play",
+   "year": 2019,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 120,
+   "credits": [
+    [
+     "director",
+     "Lars Klevberg"
+    ],
+    [
+     "actor",
+     "Aubrey Plaza"
+    ],
+    [
+     "actor",
+     "Brian Tyree Henry"
+    ],
+    [
+     "actor",
+     "Gabriel Bateman"
+    ],
+    [
+     "actor",
+     "Mark Hamill"
+    ]
+   ],
+   "summary": "A 2019 film directed by Lars Klevberg. Starring Aubrey Plaza, Brian Tyree Henry, Gabriel Bateman and Mark Hamill.",
+   "terms": {
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q56697304",
+    "franchises": [
+     "Child's Play"
+    ]
+   }
+  },
+  {
    "slug": "the-old-guard-2020",
    "medium": "film",
    "title": "The Old Guard",
@@ -18610,6 +22382,190 @@
    },
    "attributes": {
     "wikidata": "Q112909147"
+   }
+  },
+  {
+   "slug": "revenge-of-the-pink-panther-1978",
+   "medium": "film",
+   "title": "Revenge of the Pink Panther",
+   "year": 1978,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "runtime_minutes": 104,
+   "credits": [
+    [
+     "director",
+     "Blake Edwards"
+    ],
+    [
+     "actor",
+     "Peter Sellers"
+    ],
+    [
+     "actor",
+     "Herbert Lom"
+    ],
+    [
+     "actor",
+     "Dyan Cannon"
+    ],
+    [
+     "actor",
+     "Robert Webber"
+    ]
+   ],
+   "summary": "A 1978 film directed by Blake Edwards. Starring Peter Sellers, Herbert Lom, Dyan Cannon and Robert Webber.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8,
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1142181",
+    "franchises": [
+     "The Pink Panther"
+    ]
+   }
+  },
+  {
+   "slug": "police-academy-6-city-under-siege-1989",
+   "medium": "film",
+   "title": "Police Academy 6: City Under Siege",
+   "year": 1989,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 84,
+   "credits": [
+    [
+     "director",
+     "Peter Bonerz"
+    ],
+    [
+     "actor",
+     "Bubba Smith"
+    ],
+    [
+     "actor",
+     "David Graf"
+    ],
+    [
+     "actor",
+     "Michael Winslow"
+    ],
+    [
+     "actor",
+     "Leslie Easterbrook"
+    ]
+   ],
+   "summary": "A 1989 film by Peter Bonerz. Starring Bubba Smith, David Graf, Michael Winslow and Leslie Easterbrook.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1475469",
+    "franchises": [
+     "Police Academy"
+    ]
+   }
+  },
+  {
+   "slug": "wrong-turn-4-bloody-beginnings-2011",
+   "medium": "film",
+   "title": "Wrong Turn 4: Bloody Beginnings",
+   "year": 2011,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 85,
+   "credits": [
+    [
+     "director",
+     "Declan O'Brien"
+    ],
+    [
+     "actor",
+     "Terra Vnesa"
+    ],
+    [
+     "actor",
+     "Dean Armstrong"
+    ],
+    [
+     "actor",
+     "Tenika Davis"
+    ],
+    [
+     "actor",
+     "Kaitlyn Leeb"
+    ]
+   ],
+   "summary": "A 2011 film by Declan O'Brien. Starring Terra Vnesa, Dean Armstrong, Tenika Davis and Kaitlyn Leeb.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:action": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1497155",
+    "franchises": [
+     "Wrong Turn"
+    ]
+   }
+  },
+  {
+   "slug": "wrong-turn-5-bloodlines-2012",
+   "medium": "film",
+   "title": "Wrong Turn 5: Bloodlines",
+   "year": 2012,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 91,
+   "credits": [
+    [
+     "director",
+     "Declan O'Brien"
+    ],
+    [
+     "actor",
+     "Roxanne McKee"
+    ],
+    [
+     "actor",
+     "Doug Bradley"
+    ],
+    [
+     "actor",
+     "Camilla Arfwedson"
+    ],
+    [
+     "actor",
+     "Finn Jones"
+    ]
+   ],
+   "summary": "A 2012 film by Declan O'Brien. Starring Roxanne McKee, Doug Bradley, Camilla Arfwedson and Finn Jones.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8,
+    "genre:action": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2125739",
+    "franchises": [
+     "Wrong Turn"
+    ]
    }
   },
   {
@@ -19286,6 +23242,52 @@
    }
   },
   {
+   "slug": "insidious-the-red-door-2023",
+   "medium": "film",
+   "title": "Insidious: The Red Door",
+   "year": 2023,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 107,
+   "credits": [
+    [
+     "director",
+     "Patrick Wilson"
+    ],
+    [
+     "actor",
+     "Ty Simpkins"
+    ],
+    [
+     "actor",
+     "Patrick Wilson"
+    ],
+    [
+     "actor",
+     "Rose Byrne"
+    ],
+    [
+     "actor",
+     "Lin Shaye"
+    ]
+   ],
+   "summary": "A 2023 film directed by Patrick Wilson. Starring Ty Simpkins, Rose Byrne and Lin Shaye.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:social-science-fiction": 0.8,
+    "genre:supernatural-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q113467000",
+    "franchises": [
+     "Insidious"
+    ]
+   }
+  },
+  {
    "slug": "the-hunted-2003",
    "medium": "film",
    "title": "The Hunted",
@@ -19370,6 +23372,47 @@
    },
    "attributes": {
     "wikidata": "Q19961444"
+   }
+  },
+  {
+   "slug": "the-mummy-1959",
+   "medium": "film",
+   "title": "The Mummy",
+   "year": 1959,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "runtime_minutes": 88,
+   "credits": [
+    [
+     "director",
+     "Terence Fisher"
+    ],
+    [
+     "actor",
+     "Peter Cushing"
+    ],
+    [
+     "actor",
+     "Christopher Lee"
+    ],
+    [
+     "actor",
+     "Yvonne Furneaux"
+    ],
+    [
+     "actor",
+     "Eddie Byrne"
+    ]
+   ],
+   "summary": "A 1959 film by Terence Fisher. Starring Peter Cushing, Christopher Lee, Yvonne Furneaux and Eddie Byrne.",
+   "attributes": {
+    "wikidata": "Q543727",
+    "franchises": [
+     "The Mummy"
+    ]
    }
   },
   {
@@ -19503,6 +23546,99 @@
    },
    "attributes": {
     "wikidata": "Q673627"
+   }
+  },
+  {
+   "slug": "son-of-the-pink-panther-1993",
+   "medium": "film",
+   "title": "Son of the Pink Panther",
+   "year": 1993,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "IT",
+    "GB"
+   ],
+   "runtime_minutes": 93,
+   "credits": [
+    [
+     "director",
+     "Blake Edwards"
+    ],
+    [
+     "actor",
+     "Roberto Benigni"
+    ],
+    [
+     "actor",
+     "Herbert Lom"
+    ],
+    [
+     "actor",
+     "Claudia Cardinale"
+    ],
+    [
+     "actor",
+     "Shabana Azmi"
+    ]
+   ],
+   "summary": "A 1993 film by Blake Edwards. Starring Roberto Benigni, Herbert Lom, Claudia Cardinale and Shabana Azmi.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q952325",
+    "franchises": [
+     "The Pink Panther"
+    ]
+   }
+  },
+  {
+   "slug": "trail-of-the-pink-panther-1982",
+   "medium": "film",
+   "title": "Trail of the Pink Panther",
+   "year": 1982,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "runtime_minutes": 103,
+   "credits": [
+    [
+     "director",
+     "Blake Edwards"
+    ],
+    [
+     "actor",
+     "Peter Sellers"
+    ],
+    [
+     "actor",
+     "David Niven"
+    ],
+    [
+     "actor",
+     "Herbert Lom"
+    ],
+    [
+     "actor",
+     "Richard Mulligan"
+    ]
+   ],
+   "summary": "A 1982 film by Blake Edwards. Starring Peter Sellers, David Niven, Herbert Lom and Richard Mulligan.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1199530",
+    "franchises": [
+     "The Pink Panther"
+    ]
    }
   },
   {
@@ -19703,6 +23839,52 @@
    }
   },
   {
+   "slug": "curse-of-the-pink-panther-1983",
+   "medium": "film",
+   "title": "Curse of the Pink Panther",
+   "year": 1983,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "GB"
+   ],
+   "runtime_minutes": 109,
+   "credits": [
+    [
+     "director",
+     "Blake Edwards"
+    ],
+    [
+     "actor",
+     "David Niven"
+    ],
+    [
+     "actor",
+     "Robert Wagner"
+    ],
+    [
+     "actor",
+     "Herbert Lom"
+    ],
+    [
+     "actor",
+     "Joanna Lumley"
+    ]
+   ],
+   "summary": "A 1983 film by Blake Edwards. Starring David Niven, Robert Wagner, Herbert Lom and Joanna Lumley.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1193469",
+    "franchises": [
+     "The Pink Panther"
+    ]
+   }
+  },
+  {
    "slug": "fred-claus-2007",
    "medium": "film",
    "title": "Fred Claus",
@@ -19743,6 +23925,81 @@
    },
    "attributes": {
     "wikidata": "Q1212854"
+   }
+  },
+  {
+   "slug": "wrong-turn-6-last-resort-2014",
+   "medium": "film",
+   "title": "Wrong Turn 6: Last Resort",
+   "year": 2014,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 87,
+   "credits": [
+    [
+     "director",
+     "Valeri Milev"
+    ],
+    [
+     "actor",
+     "Rhys Coiro"
+    ],
+    [
+     "actor",
+     "Sadie Katz"
+    ],
+    [
+     "actor",
+     "Aqueela Zoll"
+    ],
+    [
+     "actor",
+     "Chris Jarvis"
+    ]
+   ],
+   "summary": "A 2014 film directed by Valeri Milev. Starring Rhys Coiro, Sadie Katz, Aqueela Zoll and Chris Jarvis.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:action": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q15975899",
+    "franchises": [
+     "Wrong Turn"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-on-zombie-island-1998",
+   "medium": "film",
+   "title": "Scooby-Doo on Zombie Island",
+   "year": 1998,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 77,
+   "credits": [
+    [
+     "director",
+     "Jim Stenstrum"
+    ]
+   ],
+   "summary": "A 1998 film by Hiroshi Aoyama. Directed by Jim Stenstrum.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2275539",
+    "franchises": [
+     "Scooby-Doo"
+    ]
    }
   },
   {
@@ -19903,6 +24160,223 @@
    },
    "attributes": {
     "wikidata": "Q137109"
+   }
+  },
+  {
+   "slug": "scooby-doo-and-the-alien-invaders-2000",
+   "medium": "film",
+   "title": "Scooby-Doo and the Alien Invaders",
+   "year": 2000,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "JP",
+    "US"
+   ],
+   "runtime_minutes": 70,
+   "credits": [
+    [
+     "director",
+     "Jim Stenstrum"
+    ]
+   ],
+   "summary": "A 2000 film. Directed by Jim Stenstrum.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:mystery": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1878809",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "leatherface-2017",
+   "medium": "film",
+   "title": "Leatherface",
+   "year": 2017,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 110,
+   "credits": [
+    [
+     "director",
+     "Alexandre Bustillo"
+    ],
+    [
+     "director",
+     "Julien Maury"
+    ],
+    [
+     "actor",
+     "Sam Strike"
+    ],
+    [
+     "actor",
+     "Lili Taylor"
+    ],
+    [
+     "actor",
+     "Stephen Dorff"
+    ],
+    [
+     "actor",
+     "Finn Jones"
+    ]
+   ],
+   "summary": "A 2017 film directed by Julien Maury and Alexandre Bustillo. Starring Sam Strike, Lili Taylor, Stephen Dorff and Finn Jones.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:slasher": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q20026854",
+    "franchises": [
+     "The Texas Chainsaw Massacre"
+    ]
+   }
+  },
+  {
+   "slug": "the-scorpion-king-3-battle-for-redemption-2012",
+   "medium": "film",
+   "title": "The Scorpion King 3: Battle for Redemption",
+   "year": 2012,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 104,
+   "credits": [
+    [
+     "director",
+     "Roel Reiné"
+    ],
+    [
+     "actor",
+     "Victor Webster"
+    ],
+    [
+     "actor",
+     "Bostin Christopher"
+    ],
+    [
+     "actor",
+     "Temuera Morrison"
+    ],
+    [
+     "actor",
+     "Krystal Vee"
+    ]
+   ],
+   "summary": "A 2012 film by Roel Reiné. Starring Victor Webster, Bostin Christopher, Temuera Morrison and Krystal Vee.",
+   "terms": {
+    "genre:fantasy": 0.8,
+    "genre:action": 0.8,
+    "genre:swashbuckler": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2526711",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "the-mummy-s-hand-1940",
+   "medium": "film",
+   "title": "The Mummy's Hand",
+   "year": 1940,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 67,
+   "credits": [
+    [
+     "director",
+     "Christy Cabanne"
+    ],
+    [
+     "actor",
+     "Dick Foran"
+    ],
+    [
+     "actor",
+     "Peggy Moran"
+    ],
+    [
+     "actor",
+     "Wallace Ford"
+    ],
+    [
+     "actor",
+     "Cecil Kellaway"
+    ]
+   ],
+   "summary": "A 1940 film by Christy Cabanne. Starring Dick Foran, Peggy Moran, Wallace Ford and Cecil Kellaway.",
+   "terms": {
+    "genre:horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2720955",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "abbott-and-costello-meet-the-mummy-1955",
+   "medium": "film",
+   "title": "Abbott and Costello Meet the Mummy",
+   "year": 1955,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 78,
+   "credits": [
+    [
+     "director",
+     "Charles Lamont"
+    ],
+    [
+     "actor",
+     "Bud Abbott"
+    ],
+    [
+     "actor",
+     "Lou Costello"
+    ],
+    [
+     "actor",
+     "Marie Windsor"
+    ],
+    [
+     "actor",
+     "Michael Ansara"
+    ]
+   ],
+   "summary": "A 1955 film by Charles Lamont. Starring Bud Abbott, Lou Costello, Marie Windsor and Michael Ansara.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:parody": 0.8,
+    "genre:comedy-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q306778",
+    "franchises": [
+     "The Mummy"
+    ]
    }
   },
   {
@@ -20076,6 +24550,82 @@
    },
    "attributes": {
     "wikidata": "Q15270572"
+   }
+  },
+  {
+   "slug": "paranormal-activity-the-ghost-dimension-2015",
+   "medium": "film",
+   "title": "Paranormal Activity: The Ghost Dimension",
+   "year": 2015,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 88,
+   "credits": [
+    [
+     "director",
+     "Gregory Plotkin"
+    ],
+    [
+     "actor",
+     "Jessica Tyler Brown"
+    ],
+    [
+     "actor",
+     "Olivia Dudley"
+    ],
+    [
+     "actor",
+     "Chloe Csengery"
+    ],
+    [
+     "actor",
+     "Don McManus"
+    ]
+   ],
+   "summary": "A 2015 film by Gregory Plotkin. Starring Jessica Tyler Brown, Olivia Dudley, Chloe Csengery and Don McManus.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:found-footage": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q18558912",
+    "franchises": [
+     "Paranormal Activity"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-and-the-cyber-chase-2001",
+   "medium": "film",
+   "title": "Scooby-Doo and the Cyber Chase",
+   "year": 2001,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 72,
+   "credits": [
+    [
+     "director",
+     "Jim Stenstrum"
+    ]
+   ],
+   "summary": "A 2001 film. Directed by Jim Stenstrum.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:action": 0.8,
+    "genre:mystery": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1869550",
+    "franchises": [
+     "Scooby-Doo"
+    ]
    }
   },
   {
@@ -20279,6 +24829,51 @@
    }
   },
   {
+   "slug": "the-scorpion-king-4-quest-for-power-2015",
+   "medium": "film",
+   "title": "The Scorpion King 4: Quest for Power",
+   "year": 2015,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 105,
+   "credits": [
+    [
+     "director",
+     "Mike Elliott"
+    ],
+    [
+     "actor",
+     "Victor Webster"
+    ],
+    [
+     "actor",
+     "Ellen Hollman"
+    ],
+    [
+     "actor",
+     "Barry Bostwick"
+    ],
+    [
+     "actor",
+     "Rutger Hauer"
+    ]
+   ],
+   "summary": "A 2015 film by Mike Elliott. Starring Victor Webster, Ellen Hollman, Barry Bostwick and Rutger Hauer.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q18703885",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
    "slug": "the-ridiculous-6-2015",
    "medium": "film",
    "title": "The Ridiculous 6",
@@ -20318,6 +24913,75 @@
    },
    "attributes": {
     "wikidata": "Q19866927"
+   }
+  },
+  {
+   "slug": "scooby-doo-and-the-loch-ness-monster-2004",
+   "medium": "film",
+   "title": "Scooby-Doo! and the Loch Ness Monster",
+   "year": 2004,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 72,
+   "credits": [
+    [
+     "director",
+     "Joe Sichta"
+    ],
+    [
+     "director",
+     "Scott Jeralds"
+    ]
+   ],
+   "summary": "A 2004 Animated film. Directed by Joe Sichta and Scott Jeralds.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:comedy": 0.8,
+    "genre:detective-story": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2120435",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "batman-gotham-knight-2008",
+   "medium": "film",
+   "title": "Batman: Gotham Knight",
+   "year": 2008,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US",
+    "KR",
+    "JP"
+   ],
+   "runtime_minutes": 75,
+   "credits": [
+    [
+     "director",
+     "Bruce Timm"
+    ]
+   ],
+   "summary": "A 2008 animated film by Bruce Timm.",
+   "terms": {
+    "genre:action": 0.8,
+    "genre:science-fiction": 0.8,
+    "genre:social-science-fiction": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2287397",
+    "franchises": [
+     "DC Universe Animated Original Movies",
+     "Batman in film"
+    ]
    }
   },
   {
@@ -20406,6 +25070,37 @@
    },
    "attributes": {
     "wikidata": "Q115805392"
+   }
+  },
+  {
+   "slug": "scooby-doo-in-where-s-my-mummy-2005",
+   "medium": "film",
+   "title": "Scooby-Doo! in Where's My Mummy?",
+   "year": 2005,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 75,
+   "credits": [
+    [
+     "director",
+     "Joe Sichta"
+    ]
+   ],
+   "summary": "A 2005 Animated film. Directed by Joe Sichta.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:detective-story": 0.8,
+    "genre:adventure": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2121040",
+    "franchises": [
+     "Scooby-Doo"
+    ]
    }
   },
   {
@@ -20530,6 +25225,79 @@
    }
   },
   {
+   "slug": "scooby-doo-and-the-legend-of-the-vampire-2003",
+   "medium": "film",
+   "title": "Scooby-Doo! and the Legend of the Vampire",
+   "year": 2003,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 71,
+   "credits": [
+    [
+     "director",
+     "Scott Jeralds"
+    ]
+   ],
+   "summary": "A 2003 film directed by Scott Jeralds.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q602018",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "inspector-clouseau-1968",
+   "medium": "film",
+   "title": "Inspector Clouseau",
+   "year": 1968,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "runtime_minutes": 96,
+   "credits": [
+    [
+     "director",
+     "Bud Yorkin"
+    ],
+    [
+     "actor",
+     "Alan Arkin"
+    ],
+    [
+     "actor",
+     "Frank Finlay"
+    ],
+    [
+     "actor",
+     "Delia Boccardo"
+    ],
+    [
+     "actor",
+     "Barry Foster"
+    ]
+   ],
+   "summary": "A 1968 film by Bud Yorkin. Starring Alan Arkin, Frank Finlay, Delia Boccardo and Barry Foster.",
+   "terms": {
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q921042",
+    "franchises": [
+     "The Pink Panther"
+    ]
+   }
+  },
+  {
    "slug": "rebel-moon-part-two-the-scargiver-2024",
    "medium": "film",
    "title": "Rebel Moon — Part Two: The Scargiver",
@@ -20555,6 +25323,199 @@
    },
    "attributes": {
     "wikidata": "Q121741971"
+   }
+  },
+  {
+   "slug": "scooby-doo-pirates-ahoy-2006",
+   "medium": "film",
+   "title": "Scooby-Doo! Pirates Ahoy!",
+   "year": 2006,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 80,
+   "credits": [
+    [
+     "director",
+     "Chuck Sheetz"
+    ],
+    [
+     "actor",
+     "Frank Welker"
+    ]
+   ],
+   "summary": "A 2006 Animated television film directed by Chuck Sheetz. Starring Frank Welker.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:comedy": 0.8,
+    "genre:detective-story": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1961052",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "chill-out-scooby-doo-2007",
+   "medium": "film",
+   "title": "Chill Out, Scooby-Doo!",
+   "year": 2007,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 72,
+   "credits": [
+    [
+     "director",
+     "Joe Sichta"
+    ],
+    [
+     "actor",
+     "Casey Kasem"
+    ]
+   ],
+   "summary": "A 2007 animated film. Directed by Joe Sichta. Starring Casey Kasem.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:comedy": 0.8,
+    "genre:detective-story": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2118347",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "the-mummy-s-curse-1944",
+   "medium": "film",
+   "title": "The Mummy's Curse",
+   "year": 1944,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 61,
+   "credits": [
+    [
+     "director",
+     "Leslie Goodwins"
+    ],
+    [
+     "actor",
+     "Lon Chaney Jr."
+    ],
+    [
+     "actor",
+     "Virginia Christine"
+    ],
+    [
+     "actor",
+     "Addison Richards"
+    ],
+    [
+     "actor",
+     "William Farnum"
+    ]
+   ],
+   "summary": "A 1944 film by Leslie Goodwins. Starring Lon Chaney Jr., Virginia Christine, Addison Richards and William Farnum.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2549022",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "the-mummy-s-ghost-1944",
+   "medium": "film",
+   "title": "The Mummy's Ghost",
+   "year": 1944,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 61,
+   "credits": [
+    [
+     "director",
+     "Reginald LeBorg"
+    ],
+    [
+     "actor",
+     "Lon Chaney Jr."
+    ],
+    [
+     "actor",
+     "John Carradine"
+    ],
+    [
+     "actor",
+     "Robert Lowery"
+    ],
+    [
+     "actor",
+     "Ramsay Ames"
+    ]
+   ],
+   "summary": "A 1944 film by Reginald Le Borg. Directed by Reginald LeBorg. Starring Lon Chaney Jr., John Carradine, Robert Lowery and Ramsay Ames.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2549045",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "mouse-trouble-1944",
+   "medium": "film",
+   "title": "Mouse Trouble",
+   "year": 1944,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 8,
+   "credits": [
+    [
+     "director",
+     "William Hanna"
+    ],
+    [
+     "director",
+     "Joseph Barbera"
+    ]
+   ],
+   "summary": "A 1944 film by Joseph Barbera, William Hanna.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1156484",
+    "franchises": [
+     "Tom and Jerry"
+    ]
    }
   },
   {
@@ -20644,6 +25605,37 @@
    },
    "attributes": {
     "wikidata": "Q3032397"
+   }
+  },
+  {
+   "slug": "aloha-scooby-doo-2005",
+   "medium": "film",
+   "title": "Aloha, Scooby-Doo!",
+   "year": 2005,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 70,
+   "credits": [
+    [
+     "director",
+     "Tim Maltby"
+    ]
+   ],
+   "summary": "A 2005 animated film directed by Tim Maltby.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:comedy": 0.8,
+    "genre:detective-story": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q969781",
+    "franchises": [
+     "Scooby-Doo"
+    ]
    }
   },
   {
@@ -20775,6 +25767,218 @@
    }
   },
   {
+   "slug": "horizon-an-american-saga-chapter-1-2024",
+   "medium": "film",
+   "title": "Horizon: An American Saga – Chapter 1",
+   "year": 2024,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 181,
+   "credits": [
+    [
+     "director",
+     "Kevin Costner"
+    ],
+    [
+     "actor",
+     "Kevin Costner"
+    ],
+    [
+     "actor",
+     "Sienna Miller"
+    ],
+    [
+     "actor",
+     "Sam Worthington"
+    ],
+    [
+     "actor",
+     "Jena Malone"
+    ]
+   ],
+   "summary": "A 2024 film directed by Kevin Costner. Starring Sienna Miller, Sam Worthington and Jena Malone.",
+   "terms": {
+    "genre:western": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q124670101",
+    "franchises": [
+     "Horizon: An American Saga"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-and-the-monster-of-mexico-2003",
+   "medium": "film",
+   "title": "Scooby-Doo! and the Monster of Mexico",
+   "year": 2003,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 74,
+   "credits": [
+    [
+     "director",
+     "Scott Jeralds"
+    ]
+   ],
+   "summary": "A 2003 animated film. Directed by Scott Jeralds.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:fantasy": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2095720",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "the-mummy-s-tomb-1942",
+   "medium": "film",
+   "title": "The Mummy's Tomb",
+   "year": 1942,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 61,
+   "credits": [
+    [
+     "director",
+     "Harold Young"
+    ],
+    [
+     "actor",
+     "Lon Chaney Jr."
+    ],
+    [
+     "actor",
+     "Dick Foran"
+    ],
+    [
+     "actor",
+     "John Hubbard"
+    ],
+    [
+     "actor",
+     "Turhan Bey"
+    ]
+   ],
+   "summary": "A 1942 film by Harold Young. Starring Lon Chaney Jr., Dick Foran, John Hubbard and Turhan Bey.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:science-fiction": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2549036",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-and-the-samurai-sword-2008",
+   "medium": "film",
+   "title": "Scooby-Doo! and the Samurai Sword",
+   "year": 2008,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 72,
+   "credits": [
+    [
+     "director",
+     "Christopher Berkeley"
+    ]
+   ],
+   "summary": "A 2008 television film. Directed by Christopher Berkeley.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:comedy": 0.8,
+    "genre:detective-story": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2607912",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-camp-scare-2010",
+   "medium": "film",
+   "title": "Scooby-Doo! Camp Scare",
+   "year": 2010,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 72,
+   "credits": [
+    [
+     "director",
+     "Ethan Spaulding"
+    ]
+   ],
+   "summary": "A 2010 television film directed by Ethan Spaulding.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:horror": 0.8,
+    "genre:thriller": 0.8,
+    "genre:detective-story": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2636969",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-music-of-the-vampire-2012",
+   "medium": "film",
+   "title": "Scooby-Doo! Music of the Vampire",
+   "year": 2012,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 76,
+   "credits": [
+    [
+     "director",
+     "David Block"
+    ]
+   ],
+   "summary": "A 2012 film by David Block.",
+   "terms": {
+    "genre:musical": 0.8,
+    "genre:comedy-horror": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q4911731",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
    "slug": "turbulence-1997",
    "medium": "film",
    "title": "Turbulence",
@@ -20815,6 +26019,275 @@
    },
    "attributes": {
     "wikidata": "Q727775"
+   }
+  },
+  {
+   "slug": "blood-from-the-mummy-s-tomb-1971",
+   "medium": "film",
+   "title": "Blood from the Mummy's Tomb",
+   "year": 1971,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "GB",
+    "AU"
+   ],
+   "runtime_minutes": 94,
+   "credits": [
+    [
+     "director",
+     "Seth Holt"
+    ],
+    [
+     "director",
+     "Michael Carreras"
+    ],
+    [
+     "actor",
+     "Valerie Leon"
+    ],
+    [
+     "actor",
+     "Andrew Keir"
+    ],
+    [
+     "actor",
+     "James Villiers"
+    ],
+    [
+     "actor",
+     "Hugh Burden"
+    ]
+   ],
+   "summary": "A 1971 film directed by Michael Carreras and Seth Holt. Starring Valerie Leon, Andrew Keir, James Villiers and Hugh Burden.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1168595",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "dog-trouble-1942",
+   "medium": "film",
+   "title": "Dog Trouble",
+   "year": 1942,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 8,
+   "credits": [
+    [
+     "director",
+     "William Hanna"
+    ],
+    [
+     "director",
+     "Joseph Barbera"
+    ]
+   ],
+   "summary": "A 1942 film directed by William Hanna and Joseph Barbera.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1186586",
+    "franchises": [
+     "Tom and Jerry"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-and-kiss-rock-and-roll-mystery-2015",
+   "medium": "film",
+   "title": "Scooby-Doo! and Kiss: Rock and Roll Mystery",
+   "year": 2015,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 79,
+   "credits": [
+    [
+     "director",
+     "Spike Brandt"
+    ],
+    [
+     "director",
+     "Tony Cervone"
+    ]
+   ],
+   "summary": "A 2015 film by Spike Brandt and Tony Cervone.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:comedy": 0.8,
+    "genre:detective-story": 0.8,
+    "genre:thriller": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q19867403",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-and-wwe-curse-of-the-speed-demon-2016",
+   "medium": "film",
+   "title": "Scooby-Doo! and WWE: Curse of the Speed Demon",
+   "year": 2016,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 81,
+   "credits": [
+    [
+     "director",
+     "Tim Divar"
+    ]
+   ],
+   "summary": "A 2016 film. Directed by Tim Divar.",
+   "terms": {
+    "genre:fantasy": 0.8,
+    "genre:adventure": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q24211282",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-legend-of-the-phantosaur-2011",
+   "medium": "film",
+   "title": "Scooby-Doo! Legend of the Phantosaur",
+   "year": 2011,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 77,
+   "credits": [
+    [
+     "director",
+     "Ethan Spaulding"
+    ]
+   ],
+   "summary": "A 2011 television film directed by Ethan Spaulding.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q525963",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-mask-of-the-blue-falcon-2013",
+   "medium": "film",
+   "title": "Scooby-Doo! Mask of the Blue Falcon",
+   "year": 2013,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 78,
+   "credits": [
+    [
+     "director",
+     "Michael Goguen"
+    ]
+   ],
+   "summary": "A 2013 film. Directed by Michael Goguen.",
+   "terms": {
+    "genre:comedy-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q7434351",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "paranormal-activity-next-of-kin-2021",
+   "medium": "film",
+   "title": "Paranormal Activity: Next of Kin",
+   "year": 2021,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 98,
+   "credits": [
+    [
+     "director",
+     "William Eubank"
+    ],
+    [
+     "actor",
+     "Emily Bader"
+    ],
+    [
+     "actor",
+     "Roland Buck III"
+    ]
+   ],
+   "summary": "A 2021 film directed by William Eubank. Starring Emily Bader and Roland Buck III.",
+   "terms": {
+    "genre:supernatural-horror": 0.8,
+    "genre:found-footage": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q108619707",
+    "franchises": [
+     "Paranormal Activity"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-shaggy-s-showdown-2017",
+   "medium": "film",
+   "title": "Scooby-Doo! Shaggy's Showdown",
+   "year": 2017,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 80,
+   "credits": [
+    [
+     "director",
+     "Matt Peters"
+    ]
+   ],
+   "summary": "A 2017 film by Matt Peters.",
+   "terms": {
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q27941572",
+    "franchises": [
+     "Scooby-Doo"
+    ]
    }
   },
   {
@@ -20862,6 +26335,390 @@
    }
   },
   {
+   "slug": "the-last-exploits-of-the-olsen-gang-1974",
+   "medium": "film",
+   "title": "The Last Exploits of the Olsen Gang",
+   "year": 1974,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 98,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Holger Perfort"
+    ],
+    [
+     "actor",
+     "Holger Vistisen"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ]
+   ],
+   "summary": "A 1974 film by Erik Balling. Starring Ove Sprogøe, Holger Perfort, Holger Vistisen and Morten Grunwald.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1192010",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "the-mummy-s-shroud-1967",
+   "medium": "film",
+   "title": "The Mummy's Shroud",
+   "year": 1967,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "John Gilling"
+    ],
+    [
+     "actor",
+     "Richard Warner"
+    ],
+    [
+     "actor",
+     "Peter Cushing"
+    ],
+    [
+     "actor",
+     "André Morell"
+    ],
+    [
+     "actor",
+     "Elizabeth Sellars"
+    ]
+   ],
+   "summary": "A 1967 film by John Gilling. Starring Richard Warner, Peter Cushing, André Morell and Elizabeth Sellars.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1193447",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-sees-red-1976",
+   "medium": "film",
+   "title": "The Olsen Gang Sees Red",
+   "year": 1976,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 101,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Claus Nissen"
+    ],
+    [
+     "actor",
+     "Edward Fleming"
+    ],
+    [
+     "actor",
+     "Søren Rode"
+    ]
+   ],
+   "summary": "A 1976 film by Erik Balling. Starring Ove Sprogøe, Claus Nissen, Edward Fleming and Søren Rode.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1215282",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "the-curse-of-the-mummy-s-tomb-1964",
+   "medium": "film",
+   "title": "The Curse of the Mummy's Tomb",
+   "year": 1964,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "runtime_minutes": 79,
+   "credits": [
+    [
+     "director",
+     "Michael Carreras"
+    ],
+    [
+     "actor",
+     "Terence Morgan"
+    ],
+    [
+     "actor",
+     "Ronald Howard"
+    ],
+    [
+     "actor",
+     "Fred Clark"
+    ],
+    [
+     "actor",
+     "Jeanne Roland"
+    ]
+   ],
+   "summary": "A 1964 film by Michael Carreras. Starring Terence Morgan, Ronald Howard, Fred Clark and Jeanne Roland.",
+   "terms": {
+    "genre:horror": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1215630",
+    "franchises": [
+     "The Mummy"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-adventures-the-mystery-map-2013",
+   "medium": "film",
+   "title": "Scooby-Doo! Adventures: The Mystery Map",
+   "year": 2013,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 45,
+   "credits": [
+    [
+     "director",
+     "Jomac Noph"
+    ],
+    [
+     "actor",
+     "Frank Welker"
+    ]
+   ],
+   "summary": "A 2013 film. Directed by Jomac Noph. Starring Frank Welker.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:comedy-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q16204710",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-frankencreepy-2014",
+   "medium": "film",
+   "title": "Scooby-Doo! Frankencreepy",
+   "year": 2014,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 74,
+   "credits": [
+    [
+     "director",
+     "Won Young Jung"
+    ]
+   ],
+   "summary": "A 2014 film. Directed by Won Young Jung.",
+   "terms": {
+    "genre:comedy-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q17443037",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-abracadabra-doo-2009",
+   "medium": "film",
+   "title": "Scooby-Doo! Abracadabra-Doo",
+   "year": 2009,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 73,
+   "credits": [
+    [
+     "director",
+     "Spike Brandt"
+    ],
+    [
+     "director",
+     "Tony Cervone"
+    ]
+   ],
+   "summary": "A 2010 television film. Directed by Spike Brandt and Tony Cervone.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:comedy": 0.8,
+    "genre:detective-story": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2504771",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-stage-fright-2013",
+   "medium": "film",
+   "title": "Scooby-Doo! Stage Fright",
+   "year": 2013,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 80,
+   "credits": [
+    [
+     "director",
+     "Victor Cook"
+    ]
+   ],
+   "summary": "A 2013 film by Victor Cook.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:mystery": 0.8,
+    "genre:adventure": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q15160673",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "carry-on-cleo-1964",
+   "medium": "film",
+   "title": "Carry On Cleo",
+   "year": 1964,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "GB"
+   ],
+   "runtime_minutes": 91,
+   "credits": [
+    [
+     "director",
+     "Gerald Thomas"
+    ],
+    [
+     "actor",
+     "Sid James"
+    ],
+    [
+     "actor",
+     "Kenneth Williams"
+    ],
+    [
+     "actor",
+     "Kenneth Connor"
+    ],
+    [
+     "actor",
+     "Charles Hawtrey"
+    ]
+   ],
+   "summary": "A 1964 film by Gerald Thomas. Starring Sid James, Kenneth Williams, Kenneth Connor and Charles Hawtrey.",
+   "terms": {
+    "genre:parody": 0.8,
+    "genre:slapstick": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1674806",
+    "franchises": [
+     "Carry On"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-batman-the-brave-and-the-bold-2018",
+   "medium": "film",
+   "title": "Scooby-Doo! & Batman: The Brave and the Bold",
+   "year": 2018,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 75,
+   "credits": [
+    [
+     "director",
+     "Jake Castorena"
+    ]
+   ],
+   "summary": "A 2018 film. Directed by Jake Castorena.",
+   "terms": {
+    "genre:mystery": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q42916073",
+    "franchises": [
+     "Batman: The Brave and the Bold",
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
    "slug": "detective-chinatown-3-2021",
    "medium": "film",
    "title": "Detective Chinatown 3",
@@ -20905,6 +26762,323 @@
    }
   },
   {
+   "slug": "scooby-doo-moon-monster-madness-2015",
+   "medium": "film",
+   "title": "Scooby-Doo! Moon Monster Madness",
+   "year": 2015,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 80,
+   "credits": [
+    [
+     "director",
+     "Paul McEvoy"
+    ]
+   ],
+   "summary": "A 2015 film. Directed by Paul McEvoy.",
+   "terms": {
+    "genre:comedy-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q18603044",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-1968",
+   "medium": "film",
+   "title": "The Olsen Gang",
+   "year": 1968,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 77,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Peter Steen"
+    ]
+   ],
+   "summary": "A 1968 Danish film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Peter Steen.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:heist": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q897561",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "straight-outta-nowhere-scooby-doo-meets-courage-the-cowardly-dog-2021",
+   "medium": "film",
+   "title": "Straight Outta Nowhere: Scooby-Doo! Meets Courage the Cowardly Dog",
+   "year": 2021,
+   "popularity_tier": 3,
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 78,
+   "credits": [
+    [
+     "director",
+     "Cecilia Aranovich"
+    ]
+   ],
+   "summary": "A 2021 American film directed by Cecilia Aranovich.",
+   "terms": {
+    "genre:comedy-horror": 0.8,
+    "genre:comedy": 0.8,
+    "genre:adventure": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q107337950",
+    "franchises": [
+     "Scooby-Doo",
+     "Courage the Cowardly Dog"
+    ]
+   }
+  },
+  {
+   "slug": "lego-scooby-doo-haunted-hollywood-2016",
+   "medium": "film",
+   "title": "Lego Scooby-Doo! Haunted Hollywood",
+   "year": 2016,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 75,
+   "credits": [
+    [
+     "director",
+     "Rick Morales"
+    ]
+   ],
+   "summary": "A 2016 film. Directed by Rick Morales.",
+   "terms": {
+    "genre:mystery": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q23755563",
+    "franchises": [
+     "Lego Scooby-Doo",
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-on-the-track-1975",
+   "medium": "film",
+   "title": "The Olsen Gang on the Track",
+   "year": 1975,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Kirsten Walther"
+    ]
+   ],
+   "summary": "A 1975 film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Kirsten Walther.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q625341",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-long-gone-1981",
+   "medium": "film",
+   "title": "The Olsen Gang Long Gone",
+   "year": 1981,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 96,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Kirsten Walther"
+    ]
+   ],
+   "summary": "A 1981 film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Kirsten Walther.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q626954",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-in-a-fix-1969",
+   "medium": "film",
+   "title": "The Olsen Gang in a Fix",
+   "year": 1969,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 103,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Ghita Nørby"
+    ]
+   ],
+   "summary": "A 1969 film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Ghita Nørby.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1215271",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "carry-on-dick-1974",
+   "medium": "film",
+   "title": "Carry On Dick",
+   "year": 1974,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "GB",
+    "AU"
+   ],
+   "runtime_minutes": 94,
+   "credits": [
+    [
+     "director",
+     "Gerald Thomas"
+    ],
+    [
+     "actor",
+     "Sid James"
+    ],
+    [
+     "actor",
+     "Barbara Windsor"
+    ],
+    [
+     "actor",
+     "Kenneth Williams"
+    ],
+    [
+     "actor",
+     "Hattie Jacques"
+    ]
+   ],
+   "summary": "A 1974 British comedy film directed by Gerald Thomas. Starring Sid James, Barbara Windsor, Kenneth Williams and Hattie Jacques.",
+   "terms": {
+    "genre:parody": 0.8,
+    "genre:comedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q302927",
+    "franchises": [
+     "Carry On"
+    ]
+   }
+  },
+  {
    "slug": "sons-of-the-neon-night-2025",
    "medium": "film",
    "title": "Sons of the Neon Night",
@@ -20942,6 +27116,52 @@
    },
    "attributes": {
     "wikidata": "Q55395307"
+   }
+  },
+  {
+   "slug": "the-olsen-gang-in-jutland-1971",
+   "medium": "film",
+   "title": "The Olsen Gang in Jutland",
+   "year": 1971,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 101,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Willy Rathnov"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Ernst Meyer"
+    ]
+   ],
+   "summary": "A 1971 film by Erik Balling. Starring Ove Sprogøe, Willy Rathnov, Morten Grunwald and Ernst Meyer.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q625345",
+    "franchises": [
+     "Olsen Gang"
+    ]
    }
   },
   {
@@ -20987,6 +27207,516 @@
    },
    "attributes": {
     "wikidata": "Q860425"
+   }
+  },
+  {
+   "slug": "mega-monster-battle-ultra-galaxy-2009",
+   "medium": "film",
+   "title": "Mega Monster Battle: Ultra Galaxy",
+   "year": 2009,
+   "popularity_tier": 3,
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "runtime_minutes": 96,
+   "credits": [
+    [
+     "director",
+     "Koichi Sakamoto"
+    ],
+    [
+     "actor",
+     "Susumu Kurobe"
+    ],
+    [
+     "actor",
+     "Kohji Moritsugu"
+    ],
+    [
+     "actor",
+     "Taiyo Sugiura"
+    ],
+    [
+     "actor",
+     "Takeshi Tsuruno"
+    ]
+   ],
+   "summary": "A 2009 film by Koichi Sakamoto. Starring Susumu Kurobe, Kohji Moritsugu, Taiyo Sugiura and Takeshi Tsuruno.",
+   "terms": {
+    "genre:science-fiction": 0.8,
+    "genre:adventure": 0.8,
+    "genre:family": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1057720",
+    "franchises": [
+     "Ultra Series"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-goes-crazy-1973",
+   "medium": "film",
+   "title": "The Olsen Gang Goes Crazy",
+   "year": 1973,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 90,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Kirsten Walther"
+    ]
+   ],
+   "summary": "A 1973 film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Kirsten Walther.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1215281",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-s-big-score-1972",
+   "medium": "film",
+   "title": "The Olsen Gang's Big Score",
+   "year": 1972,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 98,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Kirsten Walther"
+    ]
+   ],
+   "summary": "A 1972 film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Kirsten Walther.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:heist": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q1215294",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "scooby-doo-and-the-spooky-scarecrow-2013",
+   "medium": "film",
+   "title": "Scooby-Doo and the Spooky Scarecrow",
+   "year": 2013,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 22,
+   "credits": [
+    [
+     "director",
+     "Michael Goguen"
+    ],
+    [
+     "actor",
+     "Frank Welker"
+    ],
+    [
+     "actor",
+     "Grey DeLisle"
+    ],
+    [
+     "actor",
+     "Matthew Lillard"
+    ],
+    [
+     "actor",
+     "Kate Micucci"
+    ]
+   ],
+   "summary": "A 2013 direct-to-video special. Directed by Michael Goguen. Starring Frank Welker, Grey DeLisle, Matthew Lillard and Kate Micucci.",
+   "terms": {
+    "genre:comedy-horror": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q16204678",
+    "franchises": [
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-s-last-trick-1998",
+   "medium": "film",
+   "title": "The Olsen Gang's Last Trick",
+   "year": 1998,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 105,
+   "credits": [
+    [
+     "director",
+     "Tom Hedegaard"
+    ],
+    [
+     "director",
+     "Morten Arnfred"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Claus Bue"
+    ],
+    [
+     "actor",
+     "Claus Ryskjær"
+    ],
+    [
+     "actor",
+     "Michael Carøe"
+    ]
+   ],
+   "summary": "A 1998 film by Tom Hedegaard. Directed by Morten Arnfred. Starring Ove Sprogøe, Claus Bue, Claus Ryskjær and Michael Carøe.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2646419",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "lego-scooby-doo-blowout-beach-bash-2017",
+   "medium": "film",
+   "title": "Lego Scooby-Doo! Blowout Beach Bash",
+   "year": 2017,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 77,
+   "credits": [
+    [
+     "director",
+     "Ethan Spaulding"
+    ]
+   ],
+   "summary": "A 2017 film by Ethan Spaulding.",
+   "terms": {
+    "genre:mystery": 0.8,
+    "genre:fantasy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q30101324",
+    "franchises": [
+     "Lego Scooby-Doo",
+     "Scooby-Doo"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-s-escape-over-the-fence-1981",
+   "medium": "film",
+   "title": "The Olsen Gang's Escape over the Fence",
+   "year": 1981,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 93,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Christiane Rohde"
+    ],
+    [
+     "actor",
+     "Tommy Kenter"
+    ],
+    [
+     "actor",
+     "Bjarne Adrian"
+    ],
+    [
+     "actor",
+     "Bjørn Ploug"
+    ]
+   ],
+   "summary": "A 1981 film by Erik Balling. Starring Christiane Rohde, Tommy Kenter, Bjarne Adrian and Bjørn Ploug.",
+   "terms": {
+    "genre:heist": 0.8,
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q626964",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-outta-sight-1977",
+   "medium": "film",
+   "title": "The Olsen Gang Outta Sight",
+   "year": 1977,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 105,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Kirsten Walther"
+    ]
+   ],
+   "summary": "A 1977 film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Kirsten Walther.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q626968",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "snowbody-loves-me-1964",
+   "medium": "film",
+   "title": "Snowbody Loves Me",
+   "year": 1964,
+   "popularity_tier": 3,
+   "language": "en",
+   "countries": [
+    "US"
+   ],
+   "runtime_minutes": 8,
+   "credits": [
+    [
+     "director",
+     "Chuck Jones"
+    ]
+   ],
+   "summary": "A 1964 film by Chuck Jones.",
+   "terms": {
+    "genre:dramedy": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q2334032",
+    "franchises": [
+     "Tom and Jerry"
+    ]
+   }
+  },
+  {
+   "slug": "ninpu-sentai-hurricaneger-vs-gaoranger-2003",
+   "medium": "film",
+   "title": "Ninpū Sentai Hurricaneger vs. Gaoranger",
+   "year": 2003,
+   "popularity_tier": 3,
+   "language": "ja",
+   "countries": [
+    "JP"
+   ],
+   "credits": [
+    [
+     "director",
+     "Noboru Takemoto"
+    ],
+    [
+     "actor",
+     "Shun Shioya"
+    ],
+    [
+     "actor",
+     "Nao Nagasawa"
+    ],
+    [
+     "actor",
+     "Kōhei Yamamoto"
+    ],
+    [
+     "actor",
+     "Yūjirō Shirakawa"
+    ]
+   ],
+   "summary": "A 2003 film directed by Noboru Takemoto. Starring Shun Shioya, Nao Nagasawa, Kōhei Yamamoto and Yūjirō Shirakawa.",
+   "attributes": {
+    "wikidata": "Q3277899",
+    "franchises": [
+     "Super Sentai Series"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-never-surrenders-1979",
+   "medium": "film",
+   "title": "The Olsen Gang Never Surrenders",
+   "year": 1979,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 105,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Edward Fleming"
+    ],
+    [
+     "actor",
+     "Holger Vistisen"
+    ],
+    [
+     "actor",
+     "Kirsten Norholt"
+    ],
+    [
+     "actor",
+     "Linda Laursen"
+    ]
+   ],
+   "summary": "A 1979 film by Erik Balling. Starring Edward Fleming, Holger Vistisen, Kirsten Norholt and Linda Laursen.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q625514",
+    "franchises": [
+     "Olsen Gang"
+    ]
+   }
+  },
+  {
+   "slug": "the-olsen-gang-goes-to-war-1978",
+   "medium": "film",
+   "title": "The Olsen gang goes to war",
+   "year": 1978,
+   "popularity_tier": 3,
+   "language": "da",
+   "countries": [
+    "DK"
+   ],
+   "runtime_minutes": 102,
+   "credits": [
+    [
+     "director",
+     "Erik Balling"
+    ],
+    [
+     "actor",
+     "Ove Sprogøe"
+    ],
+    [
+     "actor",
+     "Morten Grunwald"
+    ],
+    [
+     "actor",
+     "Poul Bundgaard"
+    ],
+    [
+     "actor",
+     "Kirsten Walther"
+    ]
+   ],
+   "summary": "A 1978 film by Erik Balling. Starring Ove Sprogøe, Morten Grunwald, Poul Bundgaard and Kirsten Walther.",
+   "terms": {
+    "genre:comedy": 0.8,
+    "genre:crime": 0.8
+   },
+   "attributes": {
+    "wikidata": "Q626973",
+    "franchises": [
+     "Olsen Gang"
+    ]
    }
   },
   {

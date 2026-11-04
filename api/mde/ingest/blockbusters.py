@@ -36,7 +36,9 @@ BIG_CURRENCIES = ("wd:Q4917", "wd:Q4916", "wd:Q25224")
 
 
 def sparql(client: Client, query: str, log=print) -> list[dict]:
+    client.timeout = 150  # a big query can take a minute or two on the query service
     for i in range(4):
+        client.down.pop("query.wikidata.org", None)  # one slow answer must not mark the whole host as down
         try:
             return client.get_json(SPARQL, {"query": query, "format": "json"})["results"]["bindings"]
         except Exception as e:  # noqa: BLE001 - the query service throttles under load
