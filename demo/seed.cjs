@@ -44,6 +44,18 @@ function readSeed(seedDir) {
       w.credits = [...(w.credits || []), ...added];
     }
   }
+  // Last of all, the manual review's corrections (seed/review-corrections.json): whole fields that win over everything above.
+  // "attributes.x" sets one attribute; null removes the field.
+  const corrPath = path.join(seedDir, "review-corrections.json");
+  const corrections = fs.existsSync(corrPath) ? JSON.parse(fs.readFileSync(corrPath, "utf8")) : {};
+  for (const [slug, patch] of Object.entries(corrections.corrections || {})) {
+    const w = target(slug);
+    for (const [field, value] of Object.entries(patch)) {
+      const [holder, key] = field.startsWith("attributes.") ? [(w.attributes = w.attributes || {}), field.slice(11)] : [w, field];
+      if (value === null) delete holder[key];
+      else holder[key] = value;
+    }
+  }
   return base;
 }
 

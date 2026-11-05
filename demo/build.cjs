@@ -210,7 +210,7 @@ function sitePage(out) {
   const main = html.slice(html.indexOf("<script>\n", start + 10) + 9, html.lastIndexOf("</script>"));
   // The data ships as one JSON document (each dataset already JSON text, so no re-encoding): parsing JSON is several times
   // cheaper than compiling the same data as a script, which was the page's longest single task.
-  const dataJson = `{${Object.entries(texts).map(([k, v]) => `${JSON.stringify(k)}:${v}`).join(",")}}`;
+  const dataJson = dataLines(texts);
   const appJs = minify(`${fs.readFileSync(path.join(here, "engine.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "vault.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "search.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "wish.cjs"), "utf8")}\n;\n${fs.readFileSync(path.join(here, "help.cjs"), "utf8")}\n;\n${main}`, "js");
   const files = { [`assets/data.${hash(dataJson)}.json`]: dataJson, [`assets/app.${hash(appJs)}.js`]: appJs };
   fs.rmSync(path.join(out, "assets"), { recursive: true, force: true });
@@ -221,11 +221,60 @@ function sitePage(out) {
   // first. Just after the first paint the data is read, then the app (already downloaded) runs on it.
   html = html.replace("<!--/head-->", `<link rel="preload" as="fetch" href="/${dataFile}" crossorigin fetchpriority="low">\n<link rel="preload" as="script" href="/${appFile}" fetchpriority="low">\n<!--/head-->`);
   const startAt = html.indexOf("<script>/*__ENGINE__*/</script>");
-  html = html.slice(0, startAt) + `<script>requestAnimationFrame(() => setTimeout(() => fetch(${JSON.stringify(`/${dataFile}`)}).then((r) => r.json()).then((d) => {
+  html = html.slice(0, startAt) + `<script>requestAnimationFrame(() => setTimeout(() => fetch(${JSON.stringify(`/${dataFile}`)}).then((r) => r.text()).then(async (t) => {
+  // One piece per line ("path"<tab>JSON), each parsed in its own short task, so the page stays responsive while it loads.
+  const d = {};
+  for (const line of t.split("\\n")) {
+    const tab = line.indexOf("\\t");
+    if (tab < 0) continue;
+    const keys = JSON.parse(line.slice(0, tab)), v = JSON.parse(line.slice(tab + 1)), add = keys[keys.length - 1] === "+";
+    if (add) keys.pop();
+    let o = d;
+    for (const k of keys.slice(0, -1)) o = o[k] = o[k] || {};
+    const k = keys[keys.length - 1];
+    if (!add) o[k] = v;
+    else if (Array.isArray(v)) (o[k] = o[k] || []).push(...v);
+    else Object.assign((o[k] = o[k] || {}), v);
+    await new Promise((r) => setTimeout(r, 0));
+  }
   window.MIMIR_DATA = d;
   const s = document.createElement("script"); s.src = ${JSON.stringify(`/${appFile}`)}; document.body.appendChild(s);
 }).catch(() => { document.documentElement.dataset.loadFailed = "1"; }), 0));</script>\n`;
   return { html: standalone(html), assets: Object.keys(files).map((f) => `/${f}`) };
+}
+
+// The site's data as lines of ("path" as a JSON array)<tab>(JSON), each piece small enough to parse in a short task.
+// A path ending in "+" adds to what is there: more entries of an object, or more items of a list.
+const PIECE = 160 * 1024;
+function dataLines(texts) {
+  const out = [];
+  const line = (keys, v) => out.push(`${JSON.stringify(keys)}\t${typeof v === "string" ? v : JSON.stringify(v)}`);
+  for (const [name, text] of Object.entries(texts)) {
+    if (text.length <= PIECE) { line([name], text); continue; }
+    const v = JSON.parse(text);
+    split([name], v);
+  }
+  function split(keys, v) {
+    const size = JSON.stringify(v).length;
+    if (size <= PIECE || v === null || typeof v !== "object") { line(keys, v); return; }
+    if (Array.isArray(v)) {
+      const n = Math.ceil(size / PIECE), per = Math.ceil(v.length / n);
+      for (let i = 0; i < v.length; i += per) line([...keys, "+"], v.slice(i, i + per));
+      return;
+    }
+    const entries = Object.entries(v);
+    const big = entries.filter(([, x]) => x !== null && typeof x === "object" && JSON.stringify(x).length > PIECE / 2);
+    if (big.length) {
+      const small = Object.fromEntries(entries.filter((e) => !big.includes(e)));
+      line(keys, small);
+      for (const [k, x] of big) split([...keys, k], x);
+      return;
+    }
+    // A wide object of small entries (works by slug): cut it into runs of entries.
+    const n = Math.ceil(size / PIECE), per = Math.ceil(entries.length / n);
+    for (let i = 0; i < entries.length; i += per) line([...keys, "+"], Object.fromEntries(entries.slice(i, i + per)));
+  }
+  return out.join("\n");
 }
 
 function standalone(html) {

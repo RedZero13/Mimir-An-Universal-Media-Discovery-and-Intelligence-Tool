@@ -11,7 +11,7 @@ from pathlib import Path
 SEED_DIR = Path(__file__).parent.parent / "seed"
 
 
-def read_seed(seed_dir: Path = SEED_DIR) -> dict:
+def read_seed(seed_dir: Path = SEED_DIR, corrections: dict | None = None) -> dict:
     base = json.loads((seed_dir / "catalogue.json").read_text())
     base.setdefault("relationships", [])
     overlays: list[dict] = []
@@ -52,4 +52,17 @@ def read_seed(seed_dir: Path = SEED_DIR) -> dict:
                     have.add((c[0], c[1]))
                     added.append(c)
             w["credits"] = [*w.get("credits", []), *added]
+    # Last of all, the manual review's corrections (seed/review-corrections.json): whole fields that win over everything above.
+    # "attributes.x" sets one attribute; null removes the field.
+    if corrections is None:
+        path = seed_dir / "review-corrections.json"
+        corrections = json.loads(path.read_text()) if path.exists() else {}
+    for slug, patch in (corrections.get("corrections") or {}).items():
+        w = target(slug)
+        for field, value in patch.items():
+            holder, key = (w.setdefault("attributes", {}), field.split(".", 1)[1]) if field.startswith("attributes.") else (w, field)
+            if value is None:
+                holder.pop(key, None)
+            else:
+                holder[key] = value
     return base

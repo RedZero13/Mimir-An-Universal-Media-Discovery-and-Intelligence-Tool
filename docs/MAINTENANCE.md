@@ -12,6 +12,21 @@ python -m mde audit --only W003,B002      # selected rules; --fail-on warning fo
 
 The exit code is 1 when an error-level finding remains, so CI and `tests/test_audit.py` fail on new errors.
 
+## Reviewing works by hand
+
+```
+cd api
+python -m mde.catalogue.review_sheet export                  # audit-out/mimir-catalogue-review.xlsx: every work, one row each
+python -m mde.catalogue.review_sheet apply edited.xlsx --dry-run   # what would change, and any rows refused
+python -m mde.catalogue.review_sheet apply edited.xlsx       # record the edits
+```
+
+The sheet's white columns are editable (titles, years, credits, tags, content ratings, parents' guide, summaries and
+more); grey ones are keys or open data. Only changed cells are recorded, in `seed/review-corrections.json`, which
+`read_seed` and `demo/seed.cjs` apply after every other seed file, so a reviewed value survives a re-import. A row with an
+unknown tag or an unreadable cell is refused and reported; the rest still apply, and nothing is written if the edits
+would fail the catalogue checks. The review status and notes are kept in the same file and come back on the next export.
+
 ## The workbook
 Sheets: Summary, Findings, Rules, Works (one row per work with its tags, credits, cover, gaps and finding count), Tags,
 People, Franchises, Shelves, Days, YouTube, Audiobooks, Blog, and Pages (with `--site`). Every sheet has filters and a frozen
