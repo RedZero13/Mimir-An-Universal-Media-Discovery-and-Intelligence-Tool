@@ -24,7 +24,7 @@ from mde.catalogue.seedfiles import SEED_DIR, read_seed
 CORRECTIONS = SEED_DIR / "review-corrections.json"
 ENRICH = Path(__file__).parent.parent / "data" / "enrichment"
 SITE = "https://mimir.terratalesmedia.world"
-MEDIA = ["film", "series", "book", "manga", "game", "album", "youtube"]
+MEDIA = ["film", "series", "book", "game", "album", "online_video", "channel"]
 STATUSES = ["To review", "OK", "Fix needed", "Remove"]
 TERM_COLUMNS = [("Genres", "genre:"), ("Moods", "mood:"), ("Themes", "theme:")]
 
